@@ -1,0 +1,126 @@
+# 02｜文本、Tokenizer 与 Embedding
+
+## 1. 模型不能直接处理字符串
+
+神经网络需要数值输入，因此文本必须经历：
+
+```text
+文本 → Token → Token ID → Embedding Vector
+```
+
+Tokenizer 决定了“模型看到的基本单位”。
+
+## 2. Tokenization
+
+最简单的 Tokenizer 可以按：
+
+- 空格；
+- 标点；
+- 单词；
+
+切分文本。
+
+但实际 LLM 通常使用子词或字节级方法，因为固定词表无法覆盖所有词。
+
+## 3. BPE 的核心思想
+
+Byte Pair Encoding（BPE）通过不断合并高频符号片段，形成子词词表。
+
+它解决两个问题：
+
+1. 词表不需要包含所有完整单词；
+2. 未见过的新词可以拆成更小的已知片段。
+
+因此：
+
+```text
+未知完整词 ≠ 无法处理
+```
+
+而是可以拆解为多个已有 Token。
+
+## 4. 特殊 Token
+
+常见特殊 Token 用于表达结构，而不是普通语义：
+
+- BOS：序列开始；
+- EOS：序列结束；
+- PAD：批处理中补齐长度；
+- UNK：未知 Token（并非所有 Tokenizer 都需要）。
+
+是否需要某类特殊 Token 取决于 Tokenizer 和训练设计。
+
+## 5. Token ID
+
+Tokenizer 输出的不是 Embedding，而是整数 ID。
+
+例如：
+
+```text
+"hello" → 15339
+```
+
+这个 ID 本身没有几何意义，只是词表索引。
+
+## 6. Token Embedding
+
+Embedding 层把离散 Token ID 映射到连续向量：
+
+```text
+token_id → R^d
+```
+
+这些向量在训练过程中被学习，使模型可以在连续空间中表示语义与模式。
+
+Embedding 查表在数学上可以理解为对 one-hot 向量做线性变换，只是实际实现更高效。
+
+## 7. 位置信息
+
+Attention 本身不天然知道 Token 顺序，因此模型需要加入位置信息。
+
+基本思路是把：
+
+```text
+Token Embedding + Position Representation
+```
+
+组合后送入 Transformer。
+
+现代模型可能采用不同的位置编码方法，但“必须让模型获得顺序信息”这个原则长期成立。
+
+## 8. 训练样本的滑动窗口
+
+自回归训练需要连续构造：
+
+```text
+输入窗口 → 右移一位的目标窗口
+```
+
+例如上下文长度为 4：
+
+```text
+输入： A B C D
+目标： B C D E
+```
+
+滑动窗口决定：
+
+- 单个样本看到多少上下文；
+- 样本之间的重叠程度；
+- 数据利用率；
+- 训练成本。
+
+## 9. 工程上的长期结论
+
+Tokenizer 会直接影响：
+
+- 上下文长度；
+- Token 成本；
+- 多语言表现；
+- 代码和数字表示；
+- 数据压缩效率；
+- 训练与推理吞吐。
+
+因此 Tokenizer 不是单纯的“预处理工具”，而是模型设计的一部分。
+
+来源：<https://github.com/rasbt/LLMs-from-scratch/tree/main/ch02>

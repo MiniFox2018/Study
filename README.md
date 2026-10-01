@@ -11,4 +11,5 @@
 ## 当前内容
 
 - [Agentic Design Patterns](./Agentic%20Design%20Patterns/README.md)
+- [LLM 基础](./LLM%20%E5%9F%BA%E7%A1%80/README.md)
 - [C++](./C++/)
