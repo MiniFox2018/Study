@@ -1,0 +1,98 @@
+# 01 · Towards Modern C++
+
+## 1. 为什么需要“现代 C++”
+
+现代 C++ 的核心不是“增加更多语法”，而是逐步改变传统 C++ 的编程方式：
+
+- 用类型安全机制替代旧式 C 风格技巧；
+- 用 RAII 和智能指针明确资源生命周期；
+- 用移动语义减少不必要复制；
+- 用 lambda、类型推导和范围循环提升表达能力；
+- 把并发、正则、文件系统等跨平台能力纳入标准库；
+- 用 concepts 等机制让模板约束更清晰。
+
+原书将 C++98 及更早版本视为 traditional C++，把 C++11 之后的语言演进作为 modern C++ 的主体。
+
+## 2. 应主动淘汰的旧式写法
+
+现代代码中应尽量避免：
+
+- 将字符串字面量赋给 `char*`；
+- 旧式动态异常规范；
+- `std::auto_ptr`；
+- 把 `register` 当作优化手段；
+- 对 `bool` 使用 `++`；
+- 依赖编译器隐式生成资源类的拷贝行为；
+- C 风格强制类型转换；
+- 已被新标准替代的旧 C 兼容头文件和设施。
+
+对应现代替代方案：
+
+| 旧方式 | 现代方式 |
+|---|---|
+| `NULL` / 0 表示空指针 | `nullptr` |
+| `auto_ptr` | `unique_ptr` |
+| C-style cast | `static_cast` / `dynamic_cast` / `const_cast` / `reinterpret_cast` |
+| 手工 new/delete | RAII / smart pointers |
+| 旧异常规范 | `noexcept` |
+
+## 3. C++ 不是 C 的严格超集
+
+C 与 C++ 长期保持高度兼容，但二者不是简单的“包含关系”。需要混合使用 C 代码时，重点在 ABI 与链接层：
+
+```cpp
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int add(int, int);
+
+#ifdef __cplusplus
+}
+#endif
+```
+
+`extern "C"` 用于关闭 C++ name mangling，使 C++ 能按 C 的链接约定访问符号。
+
+## 4. C/C++ 混合构建
+
+典型流程：
+
+1. C 源文件用 C 编译器编译为目标文件；
+2. C++ 源文件用 C++ 编译器编译；
+3. 最终由 C++ 链接器完成链接。
+
+示例思路：
+
+```bash
+gcc -c foo.c
+clang++ main.cpp foo.o -std=c++20 -o app
+```
+
+大型项目中通常由 CMake 等构建系统处理这些规则。
+
+## 5. 从传统风格迁移到现代风格
+
+迁移原则不是一次重写整个代码库，而是逐步替换：
+
+1. 新代码默认使用现代特性；
+2. 优先替换会造成资源安全和类型安全问题的旧写法；
+3. 在边界层隔离 C API；
+4. 将裸资源逐步封装进 RAII 对象；
+5. 开启更严格的编译器警告和 sanitizer；
+6. 每次迁移保持测试可通过。
+
+## 6. 编译标准
+
+现代项目应明确标准版本，而不是依赖编译器默认值，例如：
+
+```bash
+clang++ main.cpp -std=c++20 -Wall -Wextra -Wpedantic
+```
+
+## 核心结论
+
+“Modern C++”更像一套新的工程范式：**类型更安全、资源更自动、接口更明确、编译期能力更强、标准库覆盖更完整。**
+
+## 来源
+Modern C++ Tutorial — Chapter 01
