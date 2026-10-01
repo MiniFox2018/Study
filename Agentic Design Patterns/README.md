@@ -1,5 +1,7 @@
 # Agentic Design Patterns 中文学习库
 
+> 项目总规则：[Study 项目维护规则](../PROJECT_RULES.md)
+
 > 主结构来源：<https://adp.xindoo.xyz/chapters/>  
 > 第二来源：<https://github.com/bojieli/ai-agent-book>  
 > 第三来源：<https://datawhalechina.github.io/llm-universe/#/>（选择性吸收，不做原文保全）  
