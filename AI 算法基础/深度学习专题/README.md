@@ -1,6 +1,6 @@
 # 深度学习专题
 
-> 统一专题层：D2L + Understanding Deep Learning（UDL）  
+> 统一专题层：D2L + Understanding Deep Learning（UDL）+ Datawhale EasyRL  
 > 整理时间：2026-10-01  
 > 原则：**多来源汇入同一知识体系；保留长期知识，删除过时实现，不建立平行教材镜像。**
 
@@ -19,7 +19,8 @@ AI 算法基础主干
 当前两条主要来源互补：
 
 - **D2L**：训练实践、经典网络、序列模型、计算性能、CV/NLP；
-- **UDL**：泛化与正则、GNN、生成模型、RL、深度学习理论、Responsible AI，以及官网扩展的 NTK/NNGP/Bayesian/ODE-SDE 等。
+- **UDL**：泛化与正则、GNN、生成模型、RL、深度学习理论、Responsible AI，以及官网扩展的 NTK/NNGP/Bayesian/ODE-SDE 等；
+- **EasyRL**：PPO、DQN 进阶、连续控制、稀疏奖励、模仿学习，以及 AlphaStar、World Model、LS-Imagine 等强化学习纵深内容。
 
 重复内容只保留一个维护入口。
 
@@ -44,6 +45,7 @@ AI 算法基础主干
 12. [深度学习理论](./12-深度学习理论.md)
 13. [负责任 AI、偏见、解释与隐私](./13-负责任AI.md)
 14. [UDL 网站扩展专题](./14-UDL扩展专题.md)
+15. [强化学习进阶与世界模型](./15-强化学习进阶与世界模型.md)
 
 ## 来源覆盖核验
 - [UDL 最新 PDF 逐页核验](./UDL-PDF逐页核验.md)：541 页最新版 PDF 的章节、附录、Problems、Notebook 引用与新增知识缺口核验。
@@ -51,6 +53,7 @@ AI 算法基础主干
 
 - [D2L 逐文件覆盖核验](./D2L覆盖核验.md)
 - [UDL 完整覆盖核验](./UDL覆盖核验.md)
+- [EasyRL 覆盖核验](./EasyRL覆盖核验.md)
 - [UDL 官方 Notebook 来源保全](./来源保全/UDL-Notebooks/README.md)：69 个官方 ipynb + 5 个本地图像依赖，保持上游原始 blob 不变。
 
 覆盖核验文件负责回答：
@@ -105,3 +108,17 @@ AI 算法基础主干
 6. 今天哪些思想仍被现代系统继承？
 
 目标是从“会调用模型”升级到“能推导、能诊断、能选择、能迁移”。
+
+
+## EasyRL 基线
+
+- 仓库：<https://github.com/datawhalechina/easy-rl>
+- 分支：master
+- 核验 commit：`6b7df8451f74f16d5efb6abc1b94a8746890a0ad`
+- 最近核验提交：2025-12-30
+- 16 个官方 Notebook
+- 20 个论文解读 Markdown
+- 19 个论文 PDF
+- 许可证：CC BY-NC-SA 4.0
+
+EasyRL 代码当前明确基于 Python 3.7、Gym 0.25.2、PyTorch 1.10.0，因此本专题只吸收算法思想、训练结构和实战关系，不把旧环境当作现代实现标准。
