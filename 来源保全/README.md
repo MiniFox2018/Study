@@ -12,3 +12,5 @@
 当前来源：
 
 - [Maths, CS & AI Compendium](./maths-cs-ai-compendium/README_CN.md)
+
+- [Microsoft Data Science for Beginners](./Data-Science-For-Beginners/README.md)
