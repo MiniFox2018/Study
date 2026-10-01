@@ -216,7 +216,39 @@
 - Study 落位：专题13-负责任AI
 
 
-## 4. 教材辅助资产
+
+## 4. Notebook 本地来源保全
+
+当前已将官方 `Notebooks/Chap*/` 实际存在的 **69 个 ipynb** 原样保全到：
+
+- [来源保全/UDL-Notebooks](./来源保全/UDL-Notebooks/README.md)
+
+同时补齐 Notebook 使用的 5 个本地图像：
+
+- `Chap10/test_image.png`
+- `Chap19/Empty.png`
+- `Chap19/Fish.png`
+- `Chap19/Hole.png`
+- `Chap19/Penguin.png`
+
+完整性复核：
+
+- 上游 Notebook：69；
+- Study 保全 Notebook：69；
+- missing：0；
+- extra：0；
+- 对 69 个 ipynb + 5 个图像逐文件比较 Git blob SHA：**74/74 一致，0 mismatch**；
+- MIT `LICENSE` 已随来源保全目录保存。
+
+因此代码练习本身也已经退出“必须回官网获取”的流程。
+
+另有：
+
+- [已知问题与兼容性](./来源保全/UDL-Notebooks/已知问题.md)
+
+记录 2026-10-01 时仍 open 的上游问题，包括 NumPy 2 beam-search 兼容、Monte Carlo Notebook 语法错误、Q-learning 参考值错误等。来源文件保持原样，不在保全层直接篡改。
+
+## 5. 教材辅助资产
 
 ### Selected Answers
 
@@ -263,7 +295,7 @@
 - 不机械复制图片素材；
 - 需要重建原图时可按原路径追溯。
 
-## 5. 官方仓库其他内容
+## 6. 官方仓库其他内容
 
 ### Blogs（6 个 Notebook）
 
@@ -305,7 +337,7 @@
 
 与教材和官方 `Notebooks/` 高度重叠，因此执行去重，不建立第三套课程笔记。
 
-## 6. 官网 Further Reading 覆盖
+## 7. 官网 Further Reading 覆盖
 
 官网额外资料已按长期知识归入：
 
@@ -326,7 +358,7 @@
 | Responsible AI | 专题13 |
 | ODE / SDE | 专题12、专题14 |
 
-## 7. 不进入主知识库的网页内容
+## 8. 不进入主知识库的网页内容
 
 以下内容已检查，但不属于需要掌握的知识：
 
@@ -343,7 +375,7 @@
 
 它们不会影响“脱离原网页后学习知识是否完整”。
 
-## 8. 时效性处理
+## 9. 时效性处理
 
 ### 长期保留
 
@@ -366,12 +398,15 @@
 - GPT-3 等历史模型的具体能力边界；
 - 早期长序列/高效 attention 的性能比较。
 
-## 9. 当前验收结论
+## 10. 当前验收结论
 
 按 Study 的“完整吸收”标准，本轮完成：
 
 - 21/21 教材章节有明确落位；
 - 69/69 当前官方章节 Notebook 有明确落位；
+- 69/69 Notebook 已本地原样保全；
+- 5/5 Notebook 本地图像依赖已保全；
+- 74/74 上游 Notebook/图像 blob SHA 校验一致；
 - Chapter 14 无 Notebook 的缺口已明确记录；
 - answers / errata / equations / bibliography / slides / figures 已审计；
 - Blogs / Trees / course materials 已审计；
