@@ -14,7 +14,9 @@
 
 > **已经有一个开源大模型后，怎样把它真正下载、运行、微调、评测并部署到实际环境？**
 
-它位于两套已有知识之间：
+它位于已有知识层之间：
+
+- [AI 算法基础](../AI%20%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/README.md)：机器学习、深度学习和系统工程的通用底座；
 
 - [LLM 基础](../LLM%20%E5%9F%BA%E7%A1%80/README.md)：模型本身为什么这样工作；
 - [Agentic Design Patterns](../Agentic%20Design%20Patterns/README.md)：如何把模型、上下文、工具和工作流组合成 Agent；

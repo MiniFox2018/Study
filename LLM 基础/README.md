@@ -77,3 +77,12 @@ LLM 基础负责“**模型本身怎么工作**”；Agentic Design Patterns 负
 - [LLM 工程实践](../LLM%20%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/README.md)
 
 LLM 基础保留模型内部原理；工程命令、服务化和训练工作流统一放到工程实践层。
+
+
+## 上游基础
+
+Transformer 之前的数学、概率、优化、经典机器学习、CNN/RNN、图学习和推荐体系统一进入：
+
+- [AI 算法基础](../AI%20%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/README.md)
+
+本目录不重复维护这些通用基础。

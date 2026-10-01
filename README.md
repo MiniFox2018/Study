@@ -10,6 +10,7 @@
 
 ## 当前内容
 
+- [AI 算法基础](./AI%20%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/README.md)
 - [Agentic Design Patterns](./Agentic%20Design%20Patterns/README.md)
 - [LLM 基础](./LLM%20%E5%9F%BA%E7%A1%80/README.md)
 - [LLM 工程实践](./LLM%20%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/README.md)
