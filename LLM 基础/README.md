@@ -1,17 +1,16 @@
 # LLM 基础
 
-> 主要来源：<https://github.com/rasbt/LLMs-from-scratch>  
-> 来源项目：Sebastian Raschka, *Build a Large Language Model (From Scratch)*  
+> 主要来源：Sebastian Raschka, *Build a Large Language Model (From Scratch)*  
+> 新增来源：Henry Ndubuaku, *Maths, CS & AI Compendium* Chapter 07  
+> Compendium 基准提交：`9850ee574a370bc1cde59de98b394e953775b67d`  
 > 核验时间：2026-10-01  
-> 来源基准提交：`817de229cfe412360bb76c78e09e2bfd77018d49`  
-> 许可证：Apache License 2.0  
 > 整理语言：中文
 
 ## 定位
 
-本目录负责回答：**一个现代大语言模型从文本输入到训练、生成和微调，底层到底是怎么工作的？**
+本目录回答：**一个现代语言模型从语言结构、文本表示，到 Transformer、训练、生成和微调，底层到底怎样工作？**
 
-这里不做原仓库镜像，也不追逐短期模型版本。只保留当前仍有长期价值、能够帮助理解和实际工作的核心知识。
+不追逐短期型号；只保存长期机制。
 
 ## 学习路径
 
@@ -22,67 +21,27 @@
 5. [预训练、损失与文本生成](./05-预训练-损失与文本生成.md)
 6. [微调、指令跟随与偏好优化](./06-微调-指令跟随与偏好优化.md)
 7. [训练与推理优化、LoRA](./07-训练推理优化与LoRA.md)
+8. [语言学与经典 NLP](./08-语言学与经典NLP.md)
+9. [现代语言模型架构与高级生成](./09-现代语言模型架构与生成.md)
 
 ## 核心链路
 
 ```text
-原始文本
-  ↓
-Tokenizer / Token IDs
-  ↓
-Token Embedding + Positional Information
-  ↓
-Causal Self-Attention
-  ↓
-Transformer Blocks
-  ↓
-Logits / Next-token Prediction
-  ↓
-Pretraining
-  ↓
-Task / Instruction Finetuning
-  ↓
-Evaluation & Alignment
-  ↓
-Efficient Inference / Deployment
+语言结构 / 文本
+→ Tokenizer
+→ Embedding
+→ Attention / Sequence Modeling
+→ Transformer / Alternative Sequence Models
+→ Next-token Distribution
+→ Pretraining
+→ Finetuning / Alignment
+→ Decoding / Evaluation
 ```
 
-## 本次明确不收录
+## 分工
 
-根据项目规则，以下内容不作为长期知识写入：
+- 通用数学、CNN/RNN、图学习： [AI 算法基础](../AI%20%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/README.md)
+- 运行、微调、服务化、推理系统： [LLM 工程实践](../LLM%20%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/README.md)
+- Agent 系统组合： [Agentic Design Patterns](../Agentic%20Design%20Patterns/README.md)
 
-- 某一代模型的具体型号清单；
-- 某张 GPU 上的瞬时跑分；
-- 易变化的 Python/PyTorch 安装步骤；
-- 只对特定版本有效的接口写法；
-- 某个模型仓库的临时下载方法；
-- 纯 UI 演示和环境排障细节。
-
-需要具体实现时，可回到来源仓库按当前版本核验。
-
-## 与 Agent 知识库的关系
-
-LLM 基础负责“**模型本身怎么工作**”；Agentic Design Patterns 负责“**如何把模型、上下文、工具和工作流组合成 Agent 系统**”。
-
-两者不重复建模，但相互引用：
-
-- [Agentic Design Patterns](../Agentic%20Design%20Patterns/README.md)
-- [模型后训练专题](../Agentic%20Design%20Patterns/06-专题扩展/04-模型后训练.md)
-
-
-## 工程实践衔接
-
-当需要从“理解模型”进入“实际部署、微调、评测与多硬件运行”时，进入：
-
-- [LLM 工程实践](../LLM%20%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/README.md)
-
-LLM 基础保留模型内部原理；工程命令、服务化和训练工作流统一放到工程实践层。
-
-
-## 上游基础
-
-Transformer 之前的数学、概率、优化、经典机器学习、CNN/RNN、图学习和推荐体系统一进入：
-
-- [AI 算法基础](../AI%20%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/README.md)
-
-本目录不重复维护这些通用基础。
+具体模型清单、GPU 跑分、旧安装命令和短期接口不进入本目录。

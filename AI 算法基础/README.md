@@ -1,10 +1,10 @@
 # AI 算法基础
 
-> 主要来源：<https://www.huaxiaozhuan.com/>  
-> 来源名称：华校专《AI 算法工程师手册》  
+> 基础来源之一：<https://www.huaxiaozhuan.com/>（华校专《AI 算法工程师手册》）  
+> 新增综合来源：<https://github.com/HenryNdubuaku/maths-cs-ai-compendium>  
+> Compendium 基准提交：`9850ee574a370bc1cde59de98b394e953775b67d`  
 > 核验时间：2026-10-01  
-> 使用约束：来源明确声明仅供个人学习使用，未经作者同意不得用于商业领域。  
-> 整理方式：**重构吸收，不做原文镜像。**
+> 整理方式：**中文重构吸收 + 多来源去重 + 必要来源保全。**
 
 ## 定位
 
@@ -25,8 +25,9 @@
 与现有目录的分工：
 
 - **AI 算法基础**：机器学习/深度学习/推荐/图学习的通用底座；
+- [计算机科学基础](../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E5%9F%BA%E7%A1%80/README.md)：系统、算法、OS、软件工程与异构计算；
 - [LLM 基础](../LLM%20%E5%9F%BA%E7%A1%80/README.md)：现代大语言模型的内部机制；
-- [LLM 工程实践](../LLM%20%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/README.md)：开源大模型部署、微调与评测；
+- [LLM 工程实践](../LLM%20%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/README.md)：开源大模型部署、微调、推理与 ML Systems；
 - [Agentic Design Patterns](../Agentic%20Design%20Patterns/README.md)：Agent 系统设计。
 
 ## 学习路径
@@ -47,25 +48,20 @@
 14. [科学计算与工具生态](./14-科学计算与工具生态.md)
 15. [AI 编码 Agent 工作法](./15-AI编码Agent工作法.md)
 16. [论文与方法演进地图](./16-论文与方法演进地图.md)
-17. [来源审计](./来源审计.md)
+
+## 专题层
+
+- [深度学习专题](./%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%93%E9%A2%98/README.md)：D2L + UDL + EasyRL 的训练、架构、生成、强化学习和理论深化。
+- [感知与多模态专题](./%E6%84%9F%E7%9F%A5%E4%B8%8E%E5%A4%9A%E6%A8%A1%E6%80%81%E4%B8%93%E9%A2%98/README.md)：视觉、语音、多模态、机器人与自主系统。
+- [Compendium 覆盖核验](./Maths-CS-AI-Compendium%E8%A6%86%E7%9B%96%E6%A0%B8%E9%AA%8C.md)
 
 ## 时效性处理
 
 **保留“旧但仍有效”的基础理论，删除“已经失效的实现”。**
 
-例如：
-
 - SVM、EM、HMM、PCA、ResNet、Transformer 等不会因为年份早而删除；
-- 旧版 scikit-learn / Hugging Face / Spark API 写法不固化；
-- 已废弃安装步骤、CLI 参数、依赖版本不进入主文档；
-- 论文中的历史 benchmark 数字只在解释方法时使用，不当作今天的性能结论；
-- 对 LLM/Agent 等快速变化领域，优先把长期原理吸收到已有专门目录。
+- 旧版框架/API 写法不固化；
+- 历史 benchmark 数字只作背景，不作为当前性能结论；
+- 快速变化的 LLM/Agent/硬件生态只保存稳定原理和决策框架。
 
-
-## 深度学习专题（D2L + UDL + EasyRL）
-
-D2L 与 Understanding Deep Learning（UDL）的深度学习细化内容统一吸收到同一专题层，主干 01～16 保持稳定：
-
-- [深度学习专题](./%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%93%E9%A2%98/README.md)：训练基础、CNN、序列模型、Attention/Transformer、优化、计算性能、CV/NLP，以及泛化正则、生成模型、强化学习、深度学习理论和负责任 AI；EasyRL 进一步补齐 PPO、DQN 进阶、连续控制、模仿学习、稀疏奖励和世界模型。
-
-原则：**主干负责知识地图，专题负责推导、训练、实现、诊断与理论深化；多来源去重吸收，不复制任何原教材目录。**
+原则：**主干负责知识地图，专题负责推导、训练、实现、诊断与领域深化；多来源去重吸收，不复制原教材目录。**
