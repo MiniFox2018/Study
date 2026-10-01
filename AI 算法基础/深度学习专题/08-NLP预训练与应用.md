@@ -37,13 +37,19 @@ Negative Sampling 把多分类近似成：
 
 这是“用采样降低大词表训练成本”的典型思想。
 
-## 4. GloVe
+## 4. Hierarchical Softmax
+
+Hierarchical Softmax 把大词表概率计算组织成树上的路径判定，使单次计算从遍历整个词表转化为沿树路径完成若干二分类。
+
+它与 Negative Sampling 都是在解决大词表 Softmax 的计算瓶颈：前者重构输出空间，后者改写训练目标。
+
+## 5. GloVe
 
 GloVe 利用全局词共现统计，把词向量学习与共现矩阵结构结合。
 
 Word2Vec 更强调局部预测任务；GloVe 更显式使用全局统计，两者都属于静态词表示。
 
-## 5. Subword Embedding
+## 6. Subword Embedding
 
 单词级词表面临：
 
@@ -55,7 +61,7 @@ Word2Vec 更强调局部预测任务；GloVe 更显式使用全局统计，两�
 
 现代 LLM tokenizer 正是这条思想的延续。
 
-## 6. Similarity 与 Analogy
+## 7. Similarity 与 Analogy
 
 词向量常用：
 
@@ -67,7 +73,7 @@ Word2Vec 更强调局部预测任务；GloVe 更显式使用全局统计，两�
 
 这些可用于教学诊断，但不能把简单类比测试当成完整语言理解能力。
 
-## 7. BERT
+## 8. BERT
 
 BERT 使用 Transformer Encoder 产生双向上下文表示。
 
@@ -79,13 +85,17 @@ BERT 使用 Transformer Encoder 产生双向上下文表示。
 
 它让每个 token 的表示同时利用左右上下文。
 
+### Next Sentence Prediction（历史任务）
+
+原始 BERT 还加入 NSP，判断两个句子是否具有连续关系。后续研究并不都保留 NSP，因此这里把它作为 BERT 原始训练设计与方法演进的一部分，而不是现代预训练的必需组件。
+
 ### 预训练 → 微调
 
 预训练阶段学习通用表示，下游任务只需加入较小任务头并联合微调。
 
 这一范式深刻影响后续 foundation model。
 
-## 8. BERT 数据构造
+## 9. BERT 数据构造
 
 重要工程点：
 
@@ -98,7 +108,7 @@ BERT 使用 Transformer Encoder 产生双向上下文表示。
 
 具体 mask 比例不是永久知识；更重要的是理解“自监督地从原始文本生成监督信号”。
 
-## 9. 情感分析
+## 10. 情感分析
 
 D2L 分别展示 RNN 与 CNN 文本分类。
 
@@ -108,7 +118,7 @@ D2L 分别展示 RNN 与 CNN 文本分类。
 
 TextCNN 通过不同窗口卷积抽取局部 n-gram 特征；RNN 则按顺序聚合状态。
 
-## 10. Natural Language Inference
+## 11. Natural Language Inference
 
 NLI 输入 premise 与 hypothesis，判断关系，例如 entailment / contradiction / neutral。
 
@@ -116,7 +126,7 @@ NLI 输入 premise 与 hypothesis，判断关系，例如 entailment / contradic
 
 经典 attention-based 方法通过跨句对齐，再进行比较和聚合。
 
-## 11. BERT Fine-tuning
+## 12. BERT Fine-tuning
 
 BERT 可用统一 backbone 处理：
 
@@ -133,7 +143,7 @@ pretrained encoder
 → end-to-end fine-tuning
 ```
 
-## 12. 与现代 LLM 的关系
+## 13. 与现代 LLM 的关系
 
 D2L 的 NLP 章节停留在 BERT 时代，但其长期知识直接连接现代模型：
 
@@ -147,7 +157,7 @@ D2L 的 NLP 章节停留在 BERT 时代，但其长期知识直接连接现代�
 
 现代 decoder-only LLM、instruction tuning、RAG 等是在这些基础上继续发展。
 
-## 13. 不再固化的旧实现
+## 14. 不再固化的旧实现
 
 不保存：
 
