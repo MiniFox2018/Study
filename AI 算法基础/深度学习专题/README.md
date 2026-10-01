@@ -49,6 +49,7 @@ AI 算法基础主干
 
 - [D2L 逐文件覆盖核验](./D2L覆盖核验.md)
 - [UDL 完整覆盖核验](./UDL覆盖核验.md)
+- [UDL 官方 Notebook 来源保全](./来源保全/UDL-Notebooks/README.md)：69 个官方 ipynb + 5 个本地图像依赖，保持上游原始 blob 不变。
 
 覆盖核验文件负责回答：
 
