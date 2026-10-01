@@ -62,10 +62,10 @@
 - 对 LLM/Agent 等快速变化领域，优先把长期原理吸收到已有专门目录。
 
 
-## 深度学习专题（D2L + UDL）
+## 深度学习专题（D2L + UDL + EasyRL）
 
 D2L 与 Understanding Deep Learning（UDL）的深度学习细化内容统一吸收到同一专题层，主干 01～16 保持稳定：
 
-- [深度学习专题](./%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%93%E9%A2%98/README.md)：训练基础、CNN、序列模型、Attention/Transformer、优化、计算性能、CV/NLP，以及泛化正则、生成模型、强化学习、深度学习理论和负责任 AI。
+- [深度学习专题](./%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%93%E9%A2%98/README.md)：训练基础、CNN、序列模型、Attention/Transformer、优化、计算性能、CV/NLP，以及泛化正则、生成模型、强化学习、深度学习理论和负责任 AI；EasyRL 进一步补齐 PPO、DQN 进阶、连续控制、模仿学习、稀疏奖励和世界模型。
 
 原则：**主干负责知识地图，专题负责推导、训练、实现、诊断与理论深化；多来源去重吸收，不复制任何原教材目录。**
