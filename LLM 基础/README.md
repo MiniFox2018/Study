@@ -68,3 +68,12 @@ LLM 基础负责“**模型本身怎么工作**”；Agentic Design Patterns 负
 
 - [Agentic Design Patterns](../Agentic%20Design%20Patterns/README.md)
 - [模型后训练专题](../Agentic%20Design%20Patterns/06-专题扩展/04-模型后训练.md)
+
+
+## 工程实践衔接
+
+当需要从“理解模型”进入“实际部署、微调、评测与多硬件运行”时，进入：
+
+- [LLM 工程实践](../LLM%20%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/README.md)
+
+LLM 基础保留模型内部原理；工程命令、服务化和训练工作流统一放到工程实践层。
