@@ -14,3 +14,4 @@
 - [Maths, CS & AI Compendium](./maths-cs-ai-compendium/README_CN.md)
 - [Microsoft Data Science for Beginners](./Data-Science-For-Beginners/README.md)
 - [Docker 从入门到实践 v1.11.0](./docker_practice-v1.11.0/README.md)
+- [Linux 学习资源：Linux101-docs + linux-tutorial](./linux-resources/README.md)
