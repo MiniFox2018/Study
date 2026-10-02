@@ -59,7 +59,7 @@ Linux 进程有层级关系。Shell 启动外部命令时，通常经历创建�
 |---|---|
 | SIGINT | 交互中断，常由 Ctrl+C 产生 |
 | SIGTERM | 请求进程正常退出 |
-| SIGKILL | 内核立即终止，进程无法捕获 |
+| SIGKILL | 请求不可捕获/忽略的强制终止；处于某些不可中断等待时不保证立即消失 |
 | SIGHUP | 终端断开；也常被服务用作重新加载 |
 | SIGSTOP | 强制暂停 |
 | SIGCONT | 继续运行 |
@@ -166,11 +166,13 @@ sudo systemctl disable nginx
 - enable：配置为随对应 target 启动；
 - enable --now：同时启用并立即启动。
 
-## 11. 一个最小 service unit
+## 11. 一个 service unit 结构示意
+
+以下是模板，运行前须已创建 example 用户/组、工作目录和可执行程序；不要直接复制后重启真实服务。
 
 ~~~ini
 [Unit]
-Description=Example service
+Description=示例服务
 After=network-online.target
 Wants=network-online.target
 
@@ -228,7 +230,7 @@ target 类似“系统状态集合”，但不要简单等同于旧 SysV runleve
 
 ~~~bash
 systemctl get-default
-systemctl set-default multi-user.target
+# 修改默认启动目标会影响下次开机；确认目标后才执行管理命令
 ~~~
 
 ## 14. journalctl
@@ -299,7 +301,7 @@ minute hour day-of-month month day-of-week command
 - 与 service unit 分离；
 - 日志天然进入 journal；
 - 可以表达 OnCalendar；
-- 支持 Persistent，错过后补执行；
+- `Persistent=true` 可让 OnCalendar 定时器在恢复激活时补触发一次错过的事件，不代表逐次重放所有漏跑任务；
 - 支持随机延迟；
 - 依赖/权限/资源策略可复用。
 
@@ -355,3 +357,26 @@ systemctl status
 ~~~
 
 不要一开始就重装软件或 kill -9。
+
+## 23. 可运行练习：用户级一次性服务
+
+前提是 Linux 的 systemd 用户管理器可用（先运行 `systemctl --user status`）。先运行 `mkdir -p ~/.config/systemd/user` 建立目录，再把以下内容保存到 `~/.config/systemd/user/study-hello.service`，若同名文件已存在先检查，勿覆盖自己的服务：
+
+~~~ini
+[Unit]
+Description=学习用一次性问候
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/printf "学习服务运行成功\n"
+~~~
+
+~~~bash
+systemctl --user daemon-reload
+systemctl --user start study-hello.service
+journalctl --user -u study-hello.service --no-pager -n 10
+~~~
+
+日志应包含 `学习服务运行成功`。oneshot 成功退出后显示 inactive 是正常状态；状态是否符合任务语义比“永远 running”重要。检查退出状态可用 `systemctl --user show study-hello.service -p Result -p ExecMainStatus`，成功时常见 `Result=success`、`ExecMainStatus=0`。本例没有启用开机任务，不需要 sudo。
+
+自测：改了 unit 文件但只执行 start 就一定用新定义吗？答：不一定，应先 daemon-reload；它重读 unit 定义，不等于重启已运行的服务。

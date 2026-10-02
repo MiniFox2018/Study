@@ -18,15 +18,15 @@ Android 操作中，一次点击失败可能来自观察错误、等待不足或
 
 | 路径 | 作用 |
 | --- | --- |
-| [`t3a_summary.md`](t3a_summary.md) | 总览：逐任务结果 + 能力标签 × 难度矩阵、优势与短板 |
-| [`t3a_failed_analysis.md`](t3a_failed_analysis.md) | 失败分类与根因（转录、复杂 UI、数学/计数等） |
-| [`t3a.md`](t3a.md) | 完整逐步轨迹（含成功案例）：每步记录 `Action` / `Reason` / `Summary` |
-| [`t3a_failed.md`](t3a_failed.md) | 失败任务轨迹（适合回放根因） |
-| [`experiment_core.py`](experiment_core.py) | 证据聚合、成功/成本决策、严格完成门槛与五阶段报告渲染 |
-| [`run_controlled_experiment.py`](run_controlled_experiment.py) | 真实 AndroidWorld 对照/处理与候选重跑 runner；没有 mock fallback |
-| [`merge_candidate_shards.py`](merge_candidate_shards.py) | 严格合并独立 trial 分片，并拒绝重叠、来源漂移、缺少参考环境 setup 或重复 episode |
-| [`test_experiment.py`](test_experiment.py) | 脱机检查脱敏、成本决策与防止夸大结论的门槛 |
-| [`requirements.txt`](requirements.txt) | 安装相邻上游 checkout 与 OpenAI 兼容 API 客户端 |
+| [`t3a_summary.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a_summary.md) | 总览：逐任务结果 + 能力标签 × 难度矩阵、优势与短板 |
+| [`t3a_failed_analysis.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a_failed_analysis.md) | 失败分类与根因（转录、复杂 UI、数学/计数等） |
+| [`t3a.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a.md) | 完整逐步轨迹（含成功案例）：每步记录 `Action` / `Reason` / `Summary` |
+| [`t3a_failed.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a_failed.md) | 失败任务轨迹（适合回放根因） |
+| [`experiment_core.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/experiment_core.py) | 证据聚合、成功/成本决策、严格完成门槛与五阶段报告渲染 |
+| [`run_controlled_experiment.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/run_controlled_experiment.py) | 真实 AndroidWorld 对照/处理与候选重跑 runner；没有 mock fallback |
+| [`merge_candidate_shards.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/merge_candidate_shards.py) | 严格合并独立 trial 分片，并拒绝重叠、来源漂移、缺少参考环境 setup 或重复 episode |
+| [`test_experiment.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/test_experiment.py) | 脱机检查脱敏、成本决策与防止夸大结论的门槛 |
+| [`requirements.txt`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/requirements.txt) | 安装相邻上游 checkout 与 OpenAI 兼容 API 客户端 |
 | `validation/` | 真实运行的机器可读证据及据此生成的报告 |
 
 若要**自己跑**基准，请按上游仓库克隆与配置（见下文[复现基准](#复现基准可选)）。本目录以**阅读与分析**为主。
@@ -49,7 +49,7 @@ Android 操作中，一次点击失败可能来自观察错误、等待不足或
 
 ### 失败类别（详见分析文）
 
-浓缩自 [`t3a_failed_analysis.md`](t3a_failed_analysis.md)：
+浓缩自 [`t3a_failed_analysis.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a_failed_analysis.md)：
 
 1. **转录失败** — 图库/VLC 导航正确，但无法 OCR 图/视频文字；可能捏造合理数据「假装成功」。
 2. **复杂 UI** — 看得见控件，却没有控件逻辑的心智模型（如计时器输入，发现 `63s` 非法后仍重复错误序列）。
@@ -98,7 +98,7 @@ Android 操作中，一次点击失败可能来自观察错误、等待不足或
 
 第一阶段测试低成本表层假设 **H1**：对照组使用原始 T3A prompt，处理组只增加 Wi-Fi 导航和最终状态确认指南。四个配对任务全部正常结束；两组均只成功 `1/4`，平均 evaluator reward 都是 `0.50`。处理组平均延迟由 `233.47s` 降至 `156.98s`，输入+输出 token 由 `442,619` 降至 `210,039`，但**没有配对成功增益**，因此不晋级。
 
-证据见 [phase-1 evidence](validation/paired_wifi_api35_20260729/evidence.json) 与 [report](validation/paired_wifi_api35_20260729/report.md)。
+证据见 [phase-1 evidence](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/paired_wifi_api35_20260729/evidence.json) 与 [report](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/paired_wifi_api35_20260729/report.md)。
 
 残余轨迹暴露了 API 35 观察兼容问题：打开 Internet 面板后，gRPC 无障碍树经常只剩状态栏元素，而独立 UIAutomator dump 能看到完整的真实 Settings 层级。因此第二阶段中层假设 **H5** 对比 gRPC forwarder 与 AndroidWorld 上游已有的 `A11yMethod.UIAUTOMATOR`，两组保持相同原始 T3A prompt、参数、seed、模型和 evaluator。
 
@@ -106,9 +106,9 @@ H5 将该四任务切片从对照组 `1/4` 成功提升到 UIAutomator 的 `4/4`
 
 随后执行的成本优化假设 **H5C** 对比原始 UIAutomator 与过滤非语义容器节点的紧凑 UIAutomator。两组都保持 `4/4` 成功；紧凑组平均 token 从 `139,439.5` 降至 `70,557.5`（`0.506×`），平均延迟从 `101.20s` 降至 `99.18s`（`0.980×`）。
 
-该结果通过了 H5C 的四任务候选门槛；在当时它仅表示可以在完整参考环境中进行候选重跑，尚不是部署批准，也尚未完成 116 任务 × 5 轮要求。证据见 [H5C JSON](validation/paired_h5c_compact_api35_20260729/evidence.json) 与 [报告](validation/paired_h5c_compact_api35_20260729/report.md)；英文部分列出了精确复现命令。
+该结果通过了 H5C 的四任务候选门槛；在当时它仅表示可以在完整参考环境中进行候选重跑，尚不是部署批准，也尚未完成 116 任务 × 5 轮要求。证据见 [H5C JSON](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/paired_h5c_compact_api35_20260729/evidence.json) 与 [报告](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/paired_h5c_compact_api35_20260729/report.md)；英文部分列出了精确复现命令。
 
-最终参考环境 campaign 已完成全部五项执行门槛：580/580 条唯一 episode（116 任务 × 1–5 轮）、零运行时错误、官方 setup 完成，且五个 Pixel 6/API-33 分片均安装相同版本的 24/24 个必需应用。权威结果见[合并 evidence](validation/candidate_h5c_api33_local_qwen_20260804/evidence.json)与[生成报告](validation/candidate_h5c_api33_local_qwen_20260804/report.md)：
+最终参考环境 campaign 已完成全部五项执行门槛：580/580 条唯一 episode（116 任务 × 1–5 轮）、零运行时错误、官方 setup 完成，且五个 Pixel 6/API-33 分片均安装相同版本的 24/24 个必需应用。权威结果见[合并 evidence](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/candidate_h5c_api33_local_qwen_20260804/evidence.json)与[生成报告](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/candidate_h5c_api33_local_qwen_20260804/report.md)：
 
 | 完整候选结果 | 数值 |
 | --- | ---: |
@@ -173,7 +173,7 @@ Evaluator 失败属于直接实验结果，必须保留；只有运行时 error 
 
 ### 结果快照（来自随附报告）
 
-数据摘自 [`t3a_summary.md`](t3a_summary.md)（116 个任务，每任务 1 次 trial；Agent 为 `t3a_claude4_sonnet`，运行于 2025-07-02）：
+数据摘自 [`t3a_summary.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a_summary.md)（116 个任务，每任务 1 次 trial；Agent 为 `t3a_claude4_sonnet`，运行于 2025-07-02）：
 
 | 指标 | 约值 |
 | --- | --- |
@@ -198,7 +198,7 @@ Evaluator 失败属于直接实验结果，必须保留；只有运行时 error 
 > Companion material for *AI Agents in Depth*, Chapter 7 — **Experiment 7-12: Evaluate and improve on AndroidWorld**.
 > 配套《深入理解 AI Agent》第 7 章 **实验 7-12 ★★★：AndroidWorld 的评估和改进**。
 
-← [Chapter 7 index / 返回第 7 章目录](../README.md) · 📖 [Read the chapter / 读本章正文](../../book/chapter7.md)（[EN](../../book-en/chapter7.md)）
+← [Chapter 7 index / 返回第 7 章目录](../README.md) · 📖 [Read the chapter / 读本章正文](../../book/chapter7.md)（[EN](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-en/chapter7.md)）
 
 ---
 
@@ -234,15 +234,15 @@ This folder is **not** a copy of the [AndroidWorld](https://github.com/google-re
 
 | Path | Role |
 | --- | --- |
-| [`t3a_summary.md`](t3a_summary.md) | High-level report: per-task outcomes + capability-tag × difficulty matrix, strengths/weaknesses |
-| [`t3a_failed_analysis.md`](t3a_failed_analysis.md) | Failure taxonomy with root-cause write-ups (transcription, complex UI, math/counting, etc.) |
-| [`t3a.md`](t3a.md) | Full step traces for runs (including successes): per-step `Action` / `Reason` / `Summary` records |
-| [`t3a_failed.md`](t3a_failed.md) | Step traces focused on failed tasks (useful for root-cause replay) |
-| [`experiment_core.py`](experiment_core.py) | Evidence aggregation, success/cost decisions, strict completion gates, and five-stage report rendering |
-| [`run_controlled_experiment.py`](run_controlled_experiment.py) | Real AndroidWorld control/treatment and candidate-rerun runner; no mock fallback |
-| [`merge_candidate_shards.py`](merge_candidate_shards.py) | Strict merger for independent trial shards; rejects overlap, provenance drift, missing reference setup, and duplicate episodes |
-| [`test_experiment.py`](test_experiment.py) | Offline checks for redaction, cost decisions, and non-overclaiming gates |
-| [`requirements.txt`](requirements.txt) | Installs the adjacent upstream checkout plus the OpenAI-compatible API client |
+| [`t3a_summary.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a_summary.md) | High-level report: per-task outcomes + capability-tag × difficulty matrix, strengths/weaknesses |
+| [`t3a_failed_analysis.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a_failed_analysis.md) | Failure taxonomy with root-cause write-ups (transcription, complex UI, math/counting, etc.) |
+| [`t3a.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a.md) | Full step traces for runs (including successes): per-step `Action` / `Reason` / `Summary` records |
+| [`t3a_failed.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a_failed.md) | Step traces focused on failed tasks (useful for root-cause replay) |
+| [`experiment_core.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/experiment_core.py) | Evidence aggregation, success/cost decisions, strict completion gates, and five-stage report rendering |
+| [`run_controlled_experiment.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/run_controlled_experiment.py) | Real AndroidWorld control/treatment and candidate-rerun runner; no mock fallback |
+| [`merge_candidate_shards.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/merge_candidate_shards.py) | Strict merger for independent trial shards; rejects overlap, provenance drift, missing reference setup, and duplicate episodes |
+| [`test_experiment.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/test_experiment.py) | Offline checks for redaction, cost decisions, and non-overclaiming gates |
+| [`requirements.txt`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/requirements.txt) | Installs the adjacent upstream checkout plus the OpenAI-compatible API client |
 | `validation/` | Machine-readable real-run evidence and the reports generated from it |
 
 To execute the controlled loop, first clone and configure upstream AndroidWorld (see [Reproduce the benchmark](#reproduce-the-benchmark-optional) below). The large `t3a*.md` files remain reading/analysis inputs; the runner and `validation/` artifacts are the executable evidence layer.
@@ -254,7 +254,7 @@ To execute the controlled loop, first clone and configure upstream AndroidWorld 
 
 ### Snapshot results (from the included report)
 
-Numbers below come from [`t3a_summary.md`](t3a_summary.md) (116 tasks, one trial each; agent `t3a_claude4_sonnet`, run on 2025-07-02):
+Numbers below come from [`t3a_summary.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a_summary.md) (116 tasks, one trial each; agent `t3a_claude4_sonnet`, run on 2025-07-02):
 
 | Metric | Value (approx.) |
 | --- | --- |
@@ -281,7 +281,7 @@ From the tag × difficulty matrix in the summary:
 
 ### Failure categories (see detailed analysis)
 
-Condensed from [`t3a_failed_analysis.md`](t3a_failed_analysis.md):
+Condensed from [`t3a_failed_analysis.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/t3a_failed_analysis.md):
 
 1. **Transcription** — Navigates gallery/VLC correctly but cannot OCR image/video text; may invent plausible data and “fake success.”
 2. **Complex UI** — Sees widgets but lacks a mental model of control logic (e.g. timer digit entry loops after detecting invalid `63s`).
@@ -314,15 +314,15 @@ The first low-cost phase tested **H1**, a Wi-Fi navigation/state-verification gu
 | Mean latency | 233.47 s | 156.98 s |
 | Input + output tokens | 442,619 | 210,039 |
 
-H1 reduced observed latency and token use but produced **no paired success gain**, so it was not promoted. See [phase-1 evidence](validation/paired_wifi_api35_20260729/evidence.json) and its [report](validation/paired_wifi_api35_20260729/report.md).
+H1 reduced observed latency and token use but produced **no paired success gain**, so it was not promoted. See [phase-1 evidence](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/paired_wifi_api35_20260729/evidence.json) and its [report](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/paired_wifi_api35_20260729/report.md).
 
 The residual traces exposed an API-35 observation issue: AndroidWorld's gRPC accessibility feed often returned only status-bar elements after opening the Internet panel, while an independent UIAutomator dump showed the full real Settings hierarchy. **H5** therefore tests a middle-layer input-pipeline change: upstream's `A11yMethod.UIAUTOMATOR` versus the gRPC forwarder, with the same base T3A prompt in both arms. This is an AndroidWorld-supported observation path selected from the companion runner, not an edit to upstream source.
 
 H5 recovered the four-task slice from `1/4` control successes to `4/4` UIAutomator successes with no paired regression and a `0.788×` latency ratio. It was still restricted because its `2.498×` mean-token ratio exceeded the `1.5×` guardrail. The resulting cost-refinement hypothesis **H5C** keeps real UIAutomator observations/actions/evaluators but filters non-semantic container elements before T3A formats the prompt.
 
-The completed H5C paired run preserved `4/4` successes in both arms. Compact UIAutomator used `70,557.5` mean tokens versus `139,439.5` for raw UIAutomator (`0.506×`) and `99.18s` versus `101.20s` mean latency (`0.980×`). It therefore passed the stricter H5C subset gate and became eligible only for a full-suite candidate rerun. At that stage it was **not** deployment approval and did not complete Experiment 7-12's 116-task × five-seed requirement. See the [H5C evidence](validation/paired_h5c_compact_api35_20260729/evidence.json) and [report](validation/paired_h5c_compact_api35_20260729/report.md).
+The completed H5C paired run preserved `4/4` successes in both arms. Compact UIAutomator used `70,557.5` mean tokens versus `139,439.5` for raw UIAutomator (`0.506×`) and `99.18s` versus `101.20s` mean latency (`0.980×`). It therefore passed the stricter H5C subset gate and became eligible only for a full-suite candidate rerun. At that stage it was **not** deployment approval and did not complete Experiment 7-12's 116-task × five-seed requirement. See the [H5C evidence](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/paired_h5c_compact_api35_20260729/evidence.json) and [report](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/paired_h5c_compact_api35_20260729/report.md).
 
-The final reference-environment campaign subsequently completed all five gates: 580/580 unique episodes, 116 tasks × trials 1–5, zero runtime errors, official setup completed, and the same 24/24 required package versions on every Pixel 6/API-33 shard. The canonical [merged evidence](validation/candidate_h5c_api33_local_qwen_20260804/evidence.json) and [generated report](validation/candidate_h5c_api33_local_qwen_20260804/report.md) record:
+The final reference-environment campaign subsequently completed all five gates: 580/580 unique episodes, 116 tasks × trials 1–5, zero runtime errors, official setup completed, and the same 24/24 required package versions on every Pixel 6/API-33 shard. The canonical [merged evidence](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/candidate_h5c_api33_local_qwen_20260804/evidence.json) and [generated report](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/candidate_h5c_api33_local_qwen_20260804/report.md) record:
 
 | Full candidate result | Value |
 | --- | ---: |

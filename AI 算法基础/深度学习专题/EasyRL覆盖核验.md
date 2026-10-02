@@ -1,5 +1,7 @@
 # EasyRL 覆盖核验
 
+> 历史记录说明（2026-10-02 补充）：下文的“本轮/当前/已核验”指 2026-10-01 的来源整理记录及所列版本。本次内容审查未重跑全部原网站、PDF、Notebook 或历史 SHA 比较；章节映射只证明已有落位，不能证明逐条知识正确、全部细节已保留、代码在当前环境可运行或读者已掌握。
+
 > 来源：<https://github.com/datawhalechina/easy-rl>  
 > 分支：master  
 > 核验 commit：6b7df8451f74f16d5efb6abc1b94a8746890a0ad  
@@ -265,4 +267,4 @@ Study 本轮采用：
 - AlphaStar、World Model、LS-Imagine、Visual RL 已补入 15；
 - 旧运行环境未污染 Study 主学习路径。
 
-后续 EasyRL 更新时，只需比较 master commit 与本文件即可做增量更新。
+后续 EasyRL 更新时，只需比较 master commit 与本文件再对变更段落、公式、图表与勘误做内容比对；仅比较页数和术语不足以确认知识无变化。

@@ -1,4 +1,4 @@
-# 02 · Language Usability Enhancements
+# 02 · 类型推导与编译期表达
 
 本章聚焦编译期和编码阶段的语言易用性增强。
 
@@ -121,7 +121,7 @@ decltype(auto) lookup() {
 
 ## 10. if constexpr（C++17）
 
-`if constexpr` 在编译期选择分支，未选中的分支不会被实例化：
+`if constexpr` 在编译期选择分支。在模板实例化时，条件已不再依赖模板参数的未选分支不被实例化；它仍须能被解析，非模板上下文也不能用它屏蔽任意语义错误：
 
 ```cpp
 template<class T>
@@ -200,7 +200,7 @@ struct Constant {};
 ```
 
 ### SFINAE 与 enable_if
-“Substitution Failure Is Not An Error”：模板替换失败时从候选集合移除，而不是直接导致整个程序编译失败。
+“Substitution Failure Is Not An Error”：模板参数替换在规定的直接上下文中失败时，可将候选移出重载集合。函数体里的任意错误不都受此保护，不能把 SFINAE 当通用错误吞掉机制。
 
 ```cpp
 template<class T,
@@ -248,3 +248,22 @@ Widget(const Widget&) = delete;
 
 ## 来源
 Modern C++ Tutorial — Chapter 02
+
+## 小实验：auto 的复制和 decltype 的引用
+
+```cpp
+#include <iostream>
+#include <type_traits>
+int main() {
+    int value = 3;
+    auto copy = value;
+    decltype((value)) alias = value;
+    static_assert(std::is_same_v<decltype(alias), int&>);
+    alias = 8;
+    std::cout << copy << ' ' << value << '\n';
+}
+```
+
+C++17 输出 `3 8`。`decltype(value)` 特殊地取得声明类型 `int`，`decltype((value))` 按左值表达式规则得到 `int&`。因此用 `decltype(auto)` 返回 `(local)` 可能意外返回悬空引用，不能只凭“保留类型更精确”就选择它。
+
+自测：`sum()` 用空参数包调用本章一元 `+` 折叠能成功吗？答：不能，一元加法折叠没有空包恒等值；若语义允许，可用 `(0 + ... + xs)` 指定初值。

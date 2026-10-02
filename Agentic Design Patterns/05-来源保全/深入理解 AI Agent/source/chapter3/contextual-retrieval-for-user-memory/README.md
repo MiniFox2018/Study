@@ -136,7 +136,7 @@ python api_server.py
 
 本实验的核心论点是：**在把对话记忆块送入嵌入/索引前，先为每块生成一段『上下文前缀』，能提升脱离上下文的孤立片段（如『好的，就订这个吧』）的召回。** `--mode compare` 提供一个**完全离线、无需任何 API Key 或检索服务**的受控对照实验来量化这一点。
 
-它用同一份上下文，分别度量『不拼接（plain）』与『拼接后再索引（contextual）』两种方式的召回，变量只有『索引文本是否含上下文前缀』，因此结果直接反映上下文化本身的贡献。检索采用确定性的 BM25 词法检索（纯 Python、无第三方依赖）作为神经嵌入的离线代理；对照数据集见 [`memory_qa_eval.json`](memory_qa_eval.json)（受控教学集，可用 `--dataset` 替换）。
+它用同一份上下文，分别度量『不拼接（plain）』与『拼接后再索引（contextual）』两种方式的召回，变量只有『索引文本是否含上下文前缀』，因此结果直接反映上下文化本身的贡献。检索采用确定性的 BM25 词法检索（纯 Python、无第三方依赖）作为神经嵌入的离线代理；对照数据集见 [`memory_qa_eval.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter3/contextual-retrieval-for-user-memory/memory_qa_eval.json)（受控教学集，可用 `--dataset` 替换）。
 
 ```bash
 # 打印对比指标表（Recall@1 / Recall@3 / MRR）
@@ -499,7 +499,7 @@ python api_server.py
 
 Core claim: **before embedding/indexing memory chunks, generating a “context prefix” per chunk improves recall of out-of-context fragments** (e.g. “OK, book that one”). `--mode compare` is a **fully offline, no API key / no retrieval service** controlled experiment.
 
-It measures “plain” (no prefix) vs “contextual” (prefix then index) on the same context; the only variable is whether the indexed text includes the context prefix. Retrieval is deterministic pure-Python BM25 as an offline stand-in for neural embeddings. Dataset: [`memory_qa_eval.json`](memory_qa_eval.json) (teaching set; override with `--dataset`).
+It measures “plain” (no prefix) vs “contextual” (prefix then index) on the same context; the only variable is whether the indexed text includes the context prefix. Retrieval is deterministic pure-Python BM25 as an offline stand-in for neural embeddings. Dataset: [`memory_qa_eval.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter3/contextual-retrieval-for-user-memory/memory_qa_eval.json) (teaching set; override with `--dataset`).
 
 ```bash
 # Print comparison metrics (Recall@1 / Recall@3 / MRR)

@@ -39,7 +39,7 @@ plt.xlabel('Max Length')
 
 plt.show()
 ```
-![每个目最大长度](../../../../3-Data-Visualization/10-visualization-distributions/images/scatter-wb.png)
+![每个目最大长度](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/scatter-wb.png)
 
 这提供了每个鸟类目身体长度的一般分布概览，但这并不是显示真实分布的最佳方式。通常通过创建直方图来完成这一任务。
 
@@ -51,7 +51,7 @@ Matplotlib 提供了非常好的方法来使用直方图可视化数据分布。
 birds['MaxBodyMass'].plot(kind = 'hist', bins = 10, figsize = (12,12))
 plt.show()
 ```
-![整个数据集的分布](../../../../3-Data-Visualization/10-visualization-distributions/images/dist1-wb.png)
+![整个数据集的分布](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/dist1-wb.png)
 
 如你所见，这个数据集中的大多数 400 多种鸟类的最大体重都在 2000 以下。通过将 `bins` 参数设置为更高的值，比如 30，可以获得更多的洞察：
 
@@ -59,7 +59,7 @@ plt.show()
 birds['MaxBodyMass'].plot(kind = 'hist', bins = 30, figsize = (12,12))
 plt.show()
 ```
-![使用更大区间参数的分布](../../../../3-Data-Visualization/10-visualization-distributions/images/dist2-wb.png)
+![使用更大区间参数的分布](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/dist2-wb.png)
 
 此图表以更细致的方式显示了分布。通过确保仅选择特定范围内的数据，可以创建一个不那么偏向左侧的图表：
 
@@ -70,7 +70,7 @@ filteredBirds = birds[(birds['MaxBodyMass'] > 1) & (birds['MaxBodyMass'] < 60)]
 filteredBirds['MaxBodyMass'].plot(kind = 'hist',bins = 40,figsize = (12,12))
 plt.show()     
 ```
-![过滤后的直方图](../../../../3-Data-Visualization/10-visualization-distributions/images/dist3-wb.png)
+![过滤后的直方图](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/dist3-wb.png)
 
 ✅ 尝试其他过滤器和数据点。为了查看数据的完整分布，移除 `['MaxBodyMass']` 过滤器以显示带标签的分布。
 
@@ -87,7 +87,7 @@ hist = ax.hist2d(x, y)
 ```
 可以看到，这两个元素沿预期轴存在预期的相关性，并且有一个特别强的收敛点：
 
-![二维图](../../../../3-Data-Visualization/10-visualization-distributions/images/2D-wb.png)
+![二维图](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/2D-wb.png)
 
 直方图默认适用于数值数据。如果需要查看基于文本数据的分布怎么办？
 ## 使用文本数据探索数据集分布
@@ -126,7 +126,7 @@ plt.gca().set(title='Conservation Status', ylabel='Min Wingspan')
 plt.legend();
 ```
 
-![翼展与保护状态的关联](../../../../3-Data-Visualization/10-visualization-distributions/images/histogram-conservation-wb.png)
+![翼展与保护状态的关联](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/histogram-conservation-wb.png)
 
 似乎最小翼展与保护状态之间没有明显的相关性。使用此方法测试数据集中的其他元素。你可以尝试不同的过滤器。是否发现任何相关性？
 
@@ -144,7 +144,7 @@ import matplotlib.pyplot as plt
 sns.kdeplot(filteredBirds['MinWingspan'])
 plt.show()
 ```
-![密度图](../../../../3-Data-Visualization/10-visualization-distributions/images/density1.png)
+![密度图](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/density1.png)
 
 你可以看到这个图与之前的最小翼展数据图相呼应，只是稍微平滑了一些。根据 Seaborn 的文档，“与直方图相比，KDE 可以生成一个更简洁、更易于解释的图，尤其是在绘制多个分布时。但如果底层分布是有界的或不平滑的，它可能会引入失真。与直方图一样，表示的质量也取决于选择良好的平滑参数。” [来源](https://seaborn.pydata.org/generated/seaborn.kdeplot.html)。换句话说，异常值总是会使你的图表表现不佳。
 
@@ -154,7 +154,7 @@ plt.show()
 sns.kdeplot(filteredBirds['MaxBodyMass'])
 plt.show()
 ```
-![平滑的体重线](../../../../3-Data-Visualization/10-visualization-distributions/images/density2.png)
+![平滑的体重线](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/density2.png)
 
 如果你想要一个平滑但不过于平滑的线条，可以编辑 `bw_adjust` 参数：
 
@@ -162,7 +162,7 @@ plt.show()
 sns.kdeplot(filteredBirds['MaxBodyMass'], bw_adjust=.2)
 plt.show()
 ```
-![较少平滑的体重线](../../../../3-Data-Visualization/10-visualization-distributions/images/density3.png)
+![较少平滑的体重线](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/density3.png)
 
 ✅ 阅读此类型图表可用的参数并进行实验！
 
@@ -176,7 +176,7 @@ sns.kdeplot(
 )
 ```
 
-![每个目体重密度](../../../../3-Data-Visualization/10-visualization-distributions/images/density4.png)
+![每个目体重密度](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/density4.png)
 
 你还可以在一个图表中映射多个变量的密度。测试鸟类的最大长度和最小长度与其保护状态的关系：
 
@@ -184,7 +184,7 @@ sns.kdeplot(
 sns.kdeplot(data=filteredBirds, x="MinLength", y="MaxLength", hue="ConservationStatus")
 ```
 
-![多个密度图，叠加](../../../../3-Data-Visualization/10-visualization-distributions/images/multi.png)
+![多个密度图，叠加](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/10-visualization-distributions/images/multi.png)
 
 也许值得研究一下根据长度分布的“易危”鸟类群是否有意义。
 

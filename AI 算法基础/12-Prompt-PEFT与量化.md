@@ -1,5 +1,7 @@
 # 12｜Prompt、PEFT 与量化
 
+> 先修：矩阵乘法、微调与训练显存构成。先能区分“更少可训练参数”和“更少存储位数”，再选择具体方法。
+
 ## 1. 三种“改变模型行为”的层级
 
 ```text
@@ -91,11 +93,11 @@ Hard Prompt 使用离散 Token。
 
 Soft Prompt 学习连续向量：
 
-\[
+$$
 P\in\mathbb R^{m\times d}
-\]
+$$
 
-并拼到模型输入 embedding。
+输入层 Prompt Tuning 将其拼到输入 embedding；更广义的连续提示方法也可在中间层引入参数。
 
 代表：
 
@@ -130,17 +132,17 @@ AdapterFusion 进一步组合多个已训练 Adapter。
 
 ## 10. LoRA
 
-假设微调权重变化具有低秩结构：
+用低秩参数化近似权重更新。若 $W\in\mathbb R^{d_{out}\times d_{in}}$，则 $B\in\mathbb R^{d_{out}\times r}$、$A\in\mathbb R^{r\times d_{in}}$，通常另乘缩放 $\alpha/r$：
 
-\[
+$$
 \Delta W=BA
-\]
+$$
 
 其中 rank：
 
-\[
+$$
 r\ll d
-\]
+$$
 
 训练时冻结 W，仅更新 A/B。
 
@@ -186,7 +188,7 @@ FP32 / BF16 / FP16
 → INT8 / INT4 / FP8 / other low-bit
 ```
 
-主要收益：
+潜在收益（取决于硬件与 kernel 支持，并非低比特就必然更快）：
 
 - 更小权重；
 - 更少 memory bandwidth；
@@ -197,7 +199,7 @@ FP32 / BF16 / FP16
 
 ### PTQ
 
-Post-Training Quantization：训练后直接量化。
+Post-Training Quantization：训练完成后做量化，许多方法仍需要代表性校准数据，以选取尺度或补偿误差。
 
 优点：
 
@@ -299,3 +301,13 @@ PTQ / optimized low-bit serving。
 具体 `transformers`、`bitsandbytes`、`AutoGPTQ`、推理引擎命令在执行时重新查当前官方文档。
 
 来源：华校专 Prompt Engineering、PEFT、LLM Quantization 系列章节。
+
+## 估算 LoRA 与量化节省什么
+
+一个 $4096\times4096$ 权重矩阵有 16,777,216 个参数。取 $r=8$ 的 LoRA，两个低秩矩阵合计 $8\times4096+4096\times8=65,536$ 个参数，约为原矩阵的 0.39%。但前向仍需原始权重，激活也不会因为这 0.39% 自动消失。
+
+仅看权重裸数据，16-bit 存储约 32 MiB，4-bit 约 8 MiB；真实内存还包括量化尺度、零点/元数据、临时反量化、激活与缓存。
+
+自查：QLoRA 是否把所有反向计算都变成 4-bit？**答案：**不是。基础权重低比特存储并冻结，通过较高精度计算把梯度传给 LoRA 参数。原论文采用 NF4、双重量化和分页优化器等设计，不能把所有低比特微调都当作同一个配置。
+
+核验（2026-10-02）：[QLoRA 原论文](https://arxiv.org/abs/2305.14314)。

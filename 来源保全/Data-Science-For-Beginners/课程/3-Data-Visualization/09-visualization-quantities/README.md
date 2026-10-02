@@ -52,7 +52,7 @@ birds.head()
 wingspan = birds['MaxWingspan'] 
 wingspan.plot()
 ```  
-![最大翼展](../../../../3-Data-Visualization/09-visualization-quantities/images/max-wingspan-02.png)
+![最大翼展](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/09-visualization-quantities/images/max-wingspan-02.png)
 
 您立刻注意到了什么？似乎至少有一个异常值——这翼展也太大了吧！2300 厘米的翼展相当于 23 米——明尼苏达州有翼龙在飞吗？让我们调查一下。
 
@@ -72,7 +72,7 @@ plt.plot(x, y)
 
 plt.show()
 ```  
-![带标签的翼展](../../../../3-Data-Visualization/09-visualization-quantities/images/max-wingspan-labels-02.png)
+![带标签的翼展](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/09-visualization-quantities/images/max-wingspan-labels-02.png)
 
 即使标签旋转了 45 度，仍然太多了，无法阅读。让我们尝试另一种策略：仅标记异常值，并在图表内设置标签。您可以使用散点图为标签腾出更多空间：
 
@@ -94,7 +94,7 @@ plt.show()
 
 您发现了什么？
 
-![异常值](../../../../3-Data-Visualization/09-visualization-quantities/images/labeled-wingspan-02.png)
+![异常值](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/09-visualization-quantities/images/labeled-wingspan-02.png)
 
 ## 筛选数据
 
@@ -115,7 +115,7 @@ plt.show()
 
 通过筛选异常值，您的数据现在更加连贯和易于理解。
 
-![翼展散点图](../../../../3-Data-Visualization/09-visualization-quantities/images/scatterplot-wingspan-02.png)
+![翼展散点图](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/09-visualization-quantities/images/scatterplot-wingspan-02.png)
 
 现在我们至少在翼展方面有了一个更干净的数据集，让我们进一步了解这些鸟类。
 
@@ -142,7 +142,7 @@ birds.plot(x='Category',
         title='Birds of Minnesota')
 
 ```  
-![完整数据柱状图](../../../../3-Data-Visualization/09-visualization-quantities/images/full-data-bar-02.png)
+![完整数据柱状图](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/09-visualization-quantities/images/full-data-bar-02.png)
 
 然而，这个柱状图难以阅读，因为数据没有分组。您需要选择您想要绘制的数据，因此让我们根据鸟类类别查看鸟类的长度。
 
@@ -157,7 +157,7 @@ category_count = birds.value_counts(birds['Category'].values, sort=True)
 plt.rcParams['figure.figsize'] = [6, 12]
 category_count.plot.barh()
 ```  
-![类别和长度](../../../../3-Data-Visualization/09-visualization-quantities/images/category-counts-02.png)
+![类别和长度](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/09-visualization-quantities/images/category-counts-02.png)
 
 这个柱状图很好地展示了每个类别中鸟类的数量。一眼就能看出，这个地区数量最多的鸟类是鸭/鹅/水禽类别。明尼苏达州是“万湖之地”，这并不令人惊讶！
 
@@ -173,7 +173,7 @@ plt.barh(y=birds['Category'], width=maxlength)
 plt.rcParams['figure.figsize'] = [6, 12]
 plt.show()
 ```  
-![数据比较](../../../../3-Data-Visualization/09-visualization-quantities/images/category-length-02.png)
+![数据比较](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/09-visualization-quantities/images/category-length-02.png)
 
 这里没有什么令人惊讶的：与鹈鹕或鹅相比，蜂鸟的最大长度最小。当数据符合逻辑时，这是件好事！
 
@@ -191,7 +191,7 @@ plt.show()
 ```  
 在这个图表中，您可以看到每个鸟类类别的最小长度和最大长度范围。可以肯定地说，根据这些数据，鸟越大，其长度范围越大。真是令人着迷！
 
-![叠加值](../../../../3-Data-Visualization/09-visualization-quantities/images/superimposed-02.png)
+![叠加值](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/09-visualization-quantities/images/superimposed-02.png)
 
 ## 🚀 挑战
 

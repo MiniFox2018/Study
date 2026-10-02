@@ -192,7 +192,7 @@ cd chapter1/search-codegen
 python run_experiment_1_3.py --backends openai dashscope --reasoning high
 ```
 
-The latest evidence is [validation/latest.json](validation/latest.json); raw
+The latest evidence is [validation/latest.json](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter1/search-codegen/validation/latest.json); raw
 credential-free receipts, a manifest, and SHA-256 sidecars live in
 `validation/runs/real_20260731T170529Z/`.
 

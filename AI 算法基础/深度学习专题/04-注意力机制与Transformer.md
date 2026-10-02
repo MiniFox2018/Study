@@ -1,16 +1,18 @@
 # 04｜注意力机制与 Transformer
 
+> 先修：点积、矩阵乘法、Softmax。先做一个 query 对两个 key 的计算，再扩大到多头；明确每个矩阵的轴比背结构名称更重要。
+
 ## 1. 注意力的基本问题
 
 固定长度向量很难无损压缩长序列。注意力允许查询根据当前需求，从一组键值对中动态聚合信息。
 
 基本抽象：
 
-[
-Attention(q,K,V)=sum_i alpha(q,k_i)v_i
-]
+$$
+\operatorname{Attention}(q,K,V)=\sum_i\alpha(q,k_i)v_i
+$$
 
-其中 (alpha) 是归一化的相关性权重。
+其中 $\alpha_i\ge0$ 且 $\sum_i\alpha_i=1$，通常由合法位置上的 Softmax 得到。
 
 ## 2. 从核回归理解注意力
 
@@ -33,11 +35,11 @@ Nadaraya-Watson 核回归可视为早期的“查询—键—值”加权平均�
 
 ### Scaled Dot-Product
 
-[
-score(q,k)=rac{q^	op k}{sqrt{d}}
-]
+$$
+\operatorname{score}(q,k)=\frac{q^\top k}{\sqrt{d_k}}
+$$
 
-除以 (sqrt d) 是为了避免维度增大后点积方差过大，导致 Softmax 饱和。
+若 query/key 分量近似独立、均值为 0、方差为 1，点积方差约为 $d_k$；除以 $\sqrt{d_k}$ 将其尺度控制在常数量级。这是初始化附近的动机，不是任意训练后分布的严格保证。
 
 ## 4. Bahdanau Attention
 
@@ -65,9 +67,9 @@ Bahdanau Attention 让 decoder 每个时间步都重新对 encoder 的所有隐�
 
 多个 head 在不同投影子空间中独立计算注意力，再拼接：
 
-[
-head_i=Attention(QW_i^Q,KW_i^K,VW_i^V)
-]
+$$
+\operatorname{head}_i=\operatorname{Attention}(QW_i^Q,KW_i^K,VW_i^V)
+$$
 
 它允许模型同时学习不同关系模式。
 
@@ -75,7 +77,7 @@ head_i=Attention(QW_i^Q,KW_i^K,VW_i^V)
 
 ## 7. 位置编码
 
-Self-Attention 本身对顺序没有天然感知，因此必须注入位置信息。
+没有位置特征和位置相关 mask 的 Self-Attention 对输入排列等变。位置编码、相对位置偏置或结构性 mask 可以引入顺序信息；不能将带 causal mask 的系统与完全无位置结构的系统混为一谈。
 
 D2L 重点介绍正弦位置编码。长期需要掌握的是：
 
@@ -137,3 +139,11 @@ full attention → local / sparse / efficient attention
 ```
 
 因此学习重点应是结构功能，而不是固定在 2017 年实现。
+
+## 手算一次注意力
+
+令 query $q=(1,0)$，两个 key 分别为 $(1,0)$ 和 $(0,1)$，$d_k=2$。打分为 $(1/\sqrt2,0)$，Softmax 权重约为 $(0.6698,0.3302)$。若两个 value 是标量 10 和 20，输出约为 13.3024。
+
+自查：若第二个位置是未来 token，正确遮罩后输出是多少？**答案：**其 logit 设为负无穷再 Softmax，权重变成 $(1,0)$，输出为 10。只把其 logit 乘以 0 无法保证屏蔽，因为 Softmax(0) 仍分到正概率。
+
+若某个 query 的全部位置都被遮罩，Softmax 可能出现未定义/NaN；构造 batch 和 mask 时要先防止这种情况。公式正确仍需要数据形状和合法位置共同正确。

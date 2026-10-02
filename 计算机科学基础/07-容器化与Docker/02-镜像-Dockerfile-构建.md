@@ -138,7 +138,7 @@ CMD ["--help"]
 
 ## 6. 多阶段构建
 
-多阶段构建是生产镜像默认实践之一：
+多阶段构建是生产镜像常用实践。下面是结构示意，`distroless-or-small-runtime` 和 app 构建参数为占位，不能原样运行；完整练习见文末：
 
 ```dockerfile
 FROM golang AS builder
@@ -213,3 +213,36 @@ Buildx 是 BuildKit 的 CLI 入口，可构建：
 - [ ] 生成 SBOM / provenance
 - [ ] 漏洞扫描
 - [ ] 以 digest 追踪发布物
+
+## 11. 完整多阶段练习：编译一个命令行程序
+
+在空练习目录保存 `main.go`：
+
+```go
+package main
+import "fmt"
+func main() { fmt.Println("多阶段构建成功") }
+```
+
+保存 `Dockerfile`：
+
+```dockerfile
+FROM golang:1-alpine AS builder
+WORKDIR /src
+COPY main.go .
+RUN CGO_ENABLED=0 go build -trimpath -o /out/app main.go
+
+FROM scratch
+COPY --from=builder /out/app /app
+USER 65532:65532
+ENTRYPOINT ["/app"]
+```
+
+```bash
+docker build -t study-multistage:local .
+docker run --rm study-multistage:local
+```
+
+成功时输出 `多阶段构建成功`。前提是 Docker 构建器及镜像网络可用；本例不需要在宿主安装 Go。最终 scratch 镜像没有 shell、CA 证书或常见系统工具，这个只打印文本的静态程序才适合它；真实 TLS、时区、动态库需求应另行提供。
+
+自测：为什么最终镜像没有 Go 编译器？答：只把 builder 的 `/out/app` 复制进最终阶段，前一阶段的其余层不是最终镜像祖先。`golang:1-alpine` 是方便练习的可变标签；要复现实验必须记录解析到的 digest，而生产升级还需要计划性更新和回归验证。

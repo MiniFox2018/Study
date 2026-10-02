@@ -126,10 +126,10 @@ python evaluate_student.py \
 当前仓库保存了 24/24 Kimi K3 AIME 完整轨迹。规则验证器接受其中 23 条进入 SFT；
 `aime-2016-9-I` 在原生 low-reasoning 控制下完成，但答案错误，因此被正确拒绝。
 第二步与第三步已在 RTX PRO 6000 Blackwell Workstation Edition 上完成
-真实 CUDA 训练：[`student_sft_preflight_20260801_gpu.json`](validation/student_sft_preflight_20260801_gpu.json)
-证明训练栈可用；[`training_manifest.json`](checkpoints/exp8-9-qwen25-1.5b-kimi-k3-20260801-v1/training_manifest.json)
+真实 CUDA 训练：[`student_sft_preflight_20260801_gpu.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/cot-distillation/validation/student_sft_preflight_20260801_gpu.json)
+证明训练栈可用；[`training_manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/cot-distillation/checkpoints/exp8-9-qwen25-1.5b-kimi-k3-20260801-v1/training_manifest.json)
 记录了 Qwen2.5-1.5B-Instruct + LoRA 的真实参数更新（3 epochs，约 27 秒，最终 loss
-2.17）；[`experiment_8_9_complete_20260803_v2.json`](validation/experiment_8_9_complete_20260803_v2.json)
+2.17）；[`experiment_8_9_complete_20260803_v2.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/cot-distillation/validation/experiment_8_9_complete_20260803_v2.json)
 给出同题三臂对照：基线 1/24、学生 2/24、教师 23/24，配对检验 p=1.0 不显著，能力
 恢复比例约 4.5%。
 

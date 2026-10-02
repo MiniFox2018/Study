@@ -11,7 +11,7 @@
 
 ## 说明
 
-* 在 jupyter notebook 环境中打开[作业笔记本](../../../../1-Introduction/04-stats-and-probability/assignment.ipynb)
+* 在 jupyter notebook 环境中打开[作业笔记本](https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/1-Introduction/04-stats-and-probability/assignment.ipynb)
 * 完成笔记本中列出的所有任务，包括：
    * [ ] 计算所有值的均值和方差
    * [ ] 根据性别绘制 BMI、BP 和 Y 的箱线图

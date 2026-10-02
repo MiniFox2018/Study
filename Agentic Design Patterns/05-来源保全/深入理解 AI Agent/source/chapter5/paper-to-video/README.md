@@ -34,7 +34,7 @@ python campaign.py --output validation/runs/my-real-run --workers 1
 授权音色清单记录在 `experiment_protocol.json`。
 
 已完成的正式证据是
-[`validation/runs/exp5-5-kimi-fish-qwen-20260730-v1/manifest.json`](validation/runs/exp5-5-kimi-fish-qwen-20260730-v1/manifest.json)
+[`validation/runs/exp5-5-kimi-fish-qwen-20260730-v1/manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/paper-to-video/validation/runs/exp5-5-kimi-fish-qwen-20260730-v1/manifest.json)
 （SHA-256 `93bb69a916a76d12de56270928971f6e39f47755214f7a135817d7effd8b3f09`）。
 所有门禁均通过；H.264/AAC 成片长 513.010 秒（8.55 分钟），逐页音频合计
 512.913 秒，最大逐页漂移 0.024 秒。第 12 页真实供应商返回的非法 JSON
@@ -249,7 +249,7 @@ most 0.75 seconds, and a 300–900 second final video. `experiment_protocol.json
 pins the source pages, models, thresholds, and authorized voice manifest.
 
 The completed canonical run is
-[`validation/runs/exp5-5-kimi-fish-qwen-20260730-v1/manifest.json`](validation/runs/exp5-5-kimi-fish-qwen-20260730-v1/manifest.json)
+[`validation/runs/exp5-5-kimi-fish-qwen-20260730-v1/manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/paper-to-video/validation/runs/exp5-5-kimi-fish-qwen-20260730-v1/manifest.json)
 (SHA-256 `93bb69a916a76d12de56270928971f6e39f47755214f7a135817d7effd8b3f09`).
 All formal gates passed. The H.264/AAC result is 513.010 seconds (8.55
 minutes), summed page audio is 512.913 seconds, and the maximum measured page

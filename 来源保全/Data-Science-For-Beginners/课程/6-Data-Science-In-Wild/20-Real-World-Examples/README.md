@@ -32,9 +32,9 @@
 
  * [医疗领域的数据科学](https://data-flair.training/blogs/data-science-in-healthcare/) - 强调应用包括医学影像（如 MRI、X光、CT扫描）、基因组学（DNA测序）、药物开发（风险评估、成功预测）、预测分析（患者护理和供应物流）、疾病追踪与预防等。
 
-![数据科学在现实世界中的应用](../../../../translated_images/zh-CN/data-science-applications.4e5019cd8790ebac.webp) 图片来源：[Data Flair: 6 Amazing Data Science Applications ](https://data-flair.training/blogs/data-science-applications/)
+![数据科学在现实世界中的应用](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/data-science-applications.4e5019cd8790ebac.webp) 图片来源：[Data Flair: 6 Amazing Data Science Applications ](https://data-flair.training/blogs/data-science-applications/)
 
-图中展示了其他领域和数据科学技术的应用案例。想探索更多应用？查看下面的[复习与自学](../../../../6-Data-Science-In-Wild/20-Real-World-Examples)部分。
+图中展示了其他领域和数据科学技术的应用案例。想探索更多应用？查看下面的[复习与自学](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/6-Data-Science-In-Wild/20-Real-World-Examples)部分。
 
 ## 数据科学 + 科研
 

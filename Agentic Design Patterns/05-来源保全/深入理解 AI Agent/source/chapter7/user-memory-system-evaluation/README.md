@@ -219,7 +219,7 @@ The runner here uses that judge for 7-4 and 7-11 task success.
 
 The completed 7-4 campaign also provides the full execution evidence for 7-3:
 all 60 distinct cases across three systems produced 180/180 real structured
-judgments. [`results/full_7_3_structured_rubric_evidence.json`](results/full_7_3_structured_rubric_evidence.json)
+judgments. `results/full_7_3_structured_rubric_evidence.json`（上游未提供文件：`results/full_7_3_structured_rubric_evidence.json`）
 validates every saved record against the four-dimension contract and independent
 hallucination veto, and content-hashes the immutable source report. It is built
 by `python build_73_evidence.py`; the derivation performs no model calls and

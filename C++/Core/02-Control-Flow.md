@@ -1,4 +1,4 @@
-# 02 · Control Flow
+# 02 · 条件与循环
 
 ## 条件判断
 C++ 使用 `if`、`else if`、`else` 和条件运算符 `?:` 进行分支。复杂条件宜拆成具名布尔表达式，避免把赋值 `=` 误写成比较 `==`。
@@ -21,6 +21,24 @@ C++ 使用 `if`、`else if`、`else` 和条件运算符 `?:` 进行分支。复�
 
 ## 控制流组织原则
 保持嵌套层级浅；错误分支可提前返回；重复逻辑提取为函数；优先表达业务意图而不是堆叠语法。
+
+## 小实验：累加偶数
+
+```cpp
+#include <iostream>
+int main() {
+    int total = 0;
+    for (int i = 1; i <= 6; ++i) {
+        if (i % 2 != 0) continue;
+        total += i;
+    }
+    std::cout << total << '\n';
+}
+```
+
+输出 `12`，因为只累加 `2+4+6`。先用纸逐轮写出 `i` 和 `total`，再把 `i <= 6` 改为 `i < 6`，结果应变成 `6`。
+
+自测：把 `continue` 换成 `break` 会怎样？答：第一轮 `i=1` 就退出循环，结果为 `0`。`break` 只退出最内层循环，不会自动退出整个函数。
 
 ## 参考
 https://www.compilenrun.com/docs/language/cpp/cpp-control-flow/

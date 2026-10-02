@@ -20,7 +20,7 @@
 
 ### 数据与输入检查
 
-扩容后先对三类任务、10 种语言上下文和 8 种文章体裁做分层人工抽查，记录见 [`validation/manual_audit.md`](validation/manual_audit.md)；再运行 tokenizer 审计，避免把 tokenizer/序列化损坏误判为模型能力问题。
+扩容后先对三类任务、10 种语言上下文和 8 种文章体裁做分层人工抽查，记录见 [`validation/manual_audit.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/exact-copy-sft/validation/manual_audit.md)；再运行 tokenizer 审计，避免把 tokenizer/序列化损坏误判为模型能力问题。
 
 如果模型在直接复述探针中正确、但工具调用仍失败，应修复 Harness 或工具协议，不应把系统层损坏误报为后训练收益。
 

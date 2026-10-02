@@ -1,4 +1,4 @@
-# 15 · Modern C++ Features
+# 15 · 现代 C++ 常用特性
 
 ## auto
 `auto` 根据初始化表达式推导类型，适合复杂迭代器、泛型代码和类型显而易见的局部变量。
@@ -73,6 +73,28 @@ std::vector<int> v{1, 2, 3};
 - 标准库优先
 - 值语义与移动语义
 - 用类型明确表达状态和所有权
+
+## 小实验：用 optional 表达未找到
+
+```cpp
+#include <iostream>
+#include <optional>
+#include <vector>
+std::optional<int> first_even(const std::vector<int>& values) {
+    for (int x : values) if (x % 2 == 0) return x;
+    return std::nullopt;
+}
+int main() {
+    if (auto result = first_even({1, 3, 4, 6}); result) {
+        std::cout << *result << '\n';
+    }
+    std::cout << first_even({1, 3}).value_or(-1) << '\n';
+}
+```
+
+C++17 输出 `4` 与 `-1`。接口自身用“有值/无值”区分状态，`-1` 只是这里的显示兜底；访问前必须检查是否有值。
+
+自测：`std::vector<int> a(3, 7)` 与 `b{3, 7}` 相同吗？答：不同，前者三个 7，后者两个元素 3、7。花括号不是所有构造函数的等价替代。
 
 ## 参考
 https://www.compilenrun.com/docs/language/cpp/cpp-modern-features/

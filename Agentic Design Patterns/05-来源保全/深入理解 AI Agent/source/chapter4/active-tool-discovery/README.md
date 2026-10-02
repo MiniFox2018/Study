@@ -320,7 +320,7 @@ python run_exact_experiment.py --campaign-id my-qwen3-4b-run --resume
 lightweight tool outputs and scripted model do not count as formal evidence.
 
 The completed canonical evidence is
-[`validation/experiment_4_1/qwen3_4b_exact_v2_20260730T130600Z/summary.json`](validation/experiment_4_1/qwen3_4b_exact_v2_20260730T130600Z/summary.json),
+[`validation/experiment_4_1/qwen3_4b_exact_v2_20260730T130600Z/summary.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter4/active-tool-discovery/validation/experiment_4_1/qwen3_4b_exact_v2_20260730T130600Z/summary.json),
 with manifest SHA-256
 `88d622db4981207a9980c30abea4eb8dc2621161ded80be0cb2bb8582833153c`.
 All twelve gates passed. Control and treatment both selected every required
@@ -347,7 +347,7 @@ schema，验证控制组超过 50K token，两组都使用本地 Ollama `qwen3:4
 教学/CI 机制自检，不是正式验收证据。
 
 正式证据为
-[`validation/experiment_4_1/qwen3_4b_exact_v2_20260730T130600Z/summary.json`](validation/experiment_4_1/qwen3_4b_exact_v2_20260730T130600Z/summary.json)，
+[`validation/experiment_4_1/qwen3_4b_exact_v2_20260730T130600Z/summary.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter4/active-tool-discovery/validation/experiment_4_1/qwen3_4b_exact_v2_20260730T130600Z/summary.json)，
 manifest SHA-256 为
 `88d622db4981207a9980c30abea4eb8dc2621161ded80be0cb2bb8582833153c`。
 

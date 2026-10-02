@@ -221,7 +221,7 @@ function calling），因此只要设置了 `OPENROUTER_API_KEY` 就会优先走
 ### Formal manuscript result (canonical)
 
 The acceptance campaign is the hash-pinned 30-problem AIME 2024 paired run in
-[`validation/runs/exp5-1-ark-doubao-flash-aime2024-20260730-v1/`](validation/runs/exp5-1-ark-doubao-flash-aime2024-20260730-v1/).
+[`validation/runs/exp5-1-ark-doubao-flash-aime2024-20260730-v1/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/code-for-math/validation/runs/exp5-1-ark-doubao-flash-aime2024-20260730-v1).
 Every code-arm trajectory called the real subprocess sandbox; the observed
 accuracy was 53.3% for code assistance versus 36.7% for pure CoT. The +16.7
 point difference was not statistically significant under the preregistered

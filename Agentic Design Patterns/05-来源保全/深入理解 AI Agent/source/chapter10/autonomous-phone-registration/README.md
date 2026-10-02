@@ -178,7 +178,7 @@ python validate_acceptance.py \
 ```
 
 The formal 2026-07-31 run is committed at
-[`validation/runs/exp10-3-webrtc-raw-20260731-v4/`](validation/runs/exp10-3-webrtc-raw-20260731-v4/).
+[`validation/runs/exp10-3-webrtc-raw-20260731-v4/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/autonomous-phone-registration/validation/runs/exp10-3-webrtc-raw-20260731-v4).
 A real ARK response (ID and usage retained) autonomously selected six required fields.
 The call completed one offer, one answer, seven media recordings, 9 TTS turns and 7
 local Whisper turns. Both RTP directions carried packets and bytes. A deliberately

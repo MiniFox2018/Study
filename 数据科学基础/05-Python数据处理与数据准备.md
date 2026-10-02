@@ -135,7 +135,7 @@ Notebook 适合：
 
 - EDA；
 - 原型；
--教学；
+- 教学；
 - 实验记录。
 
 当流程稳定后，应把关键处理提取为函数/模块，并固定输入输出和测试。
@@ -149,3 +149,39 @@ Notebook 适合：
 ```
 
 每一步都记录行数和关键质量指标，可显著减少静默错误。
+
+## 11. 可运行小例子：从原始记录到可信汇总
+
+前提：会运行 Python 并已安装 pandas。以下数据均在代码中，适合直接复制到新的 Notebook；每段输出对应一个质量检查点。
+
+```python
+import pandas as pd
+
+raw = pd.DataFrame({
+    "order_id": [1, 2, 2, 3, 4],
+    "channel": ["A", "A", "A", "B", "B"],
+    "amount": [10.0, 20.0, 20.0, None, 1000.0],
+})
+# 仅因本例明确规定 order_id 唯一，才按它去重。
+orders = raw.drop_duplicates("order_id").copy()
+assert len(raw) == 5 and len(orders) == 4
+assert orders["order_id"].is_unique
+print("金额缺失率：", orders["amount"].isna().mean())
+summary = orders.groupby("channel")["amount"].agg(["size", "count", "mean"])
+print(summary)
+assert summary.loc["A", "mean"] == 15.0
+assert summary.loc["B", "size"] == 2
+assert summary.loc["B", "count"] == 1
+```
+
+缺失率为 `0.25`。A 的行数、非空数、均值分别为 `2、2、15`，B 为 `2、1、1000`。B 的 1000 只代表已知金额，报告时要一起展示缺失情况。
+
+修改值时使用单次 `.loc[行条件, 列名] = 值`，不要用 `df[条件][列] = 值` 这种链式赋值；当前 pandas 的 Copy-on-Write 语义下，它不能可靠地修改原表。[^cow]
+
+合并示例用 `orders.merge(channels, on="channel", validate="many_to_one", indicator=True)` 检查右表键唯一性和匹配情况。pandas 会让两侧的空连接键互相匹配，和 SQL 中通常的 `NULL` 比较语义不同；应先定义空键处理方式。[^merge]
+
+**自查**：如果两条相同订单号的金额不同，还能直接保留第一条吗？\
+**核对**：不能。它可能是订单版本更新或错误，应检查时间戳和业务规则；本例的简单去重不适用于该情况。
+
+[^cow]: pandas [Copy-on-Write](https://pandas.pydata.org/docs/user_guide/copy_on_write.html)，核验 2026-10-02。
+[^merge]: pandas [DataFrame.merge](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html)，核验 2026-10-02。

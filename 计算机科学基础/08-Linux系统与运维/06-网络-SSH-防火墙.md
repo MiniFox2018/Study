@@ -69,7 +69,7 @@ host example.com
 nslookup example.com
 ~~~
 
-优先 getent 检查应用实际使用的系统解析路径；dig 更适合直接查询 DNS 记录。
+`getent` 检查 NSS/系统解析路径，通常更接近使用系统解析器的应用；`dig` 直接查询 DNS。应用若使用自带解析器、DoH 或容器独立 DNS，结果仍可能不同。
 
 常见问题：
 
@@ -210,7 +210,8 @@ Host prod
 适合目录同步和增量传输：
 
 ~~~bash
-rsync -aH --info=progress2 source/ user@host:/target/
+rsync -aH --dry-run source/ user@host:/target/
+# 核对源目录末尾 / 的语义和目标后，才去掉 --dry-run
 ~~~
 
 删除同步前使用 --dry-run。
@@ -249,8 +250,8 @@ firewalld 提供较高层的动态防火墙管理，常见于 Fedora/RHEL 系。
 ~~~bash
 firewall-cmd --get-active-zones
 firewall-cmd --list-all
-sudo firewall-cmd --add-service=https --permanent
-sudo firewall-cmd --reload
+# 先确认接口所属 zone 与现有 SSH 放行规则
+# 再在对应 zone 添加 https；验证后保存 permanent 配置
 ~~~
 
 比“关闭防火墙”更正确的是添加最小必要规则。
@@ -381,3 +382,22 @@ sudo tcpdump -ni eth0 port 443
 ~~~
 
 抓包会包含敏感流量元数据甚至明文内容，应按最小范围采集并妥善处理。
+
+## 23. 无外网练习：监听地址与端口
+
+在自己的空练习目录打开两个终端，前提是已有 Python 3 且 8765 端口空闲。终端 A 启动只监听本机的临时服务：
+
+~~~bash
+python3 -m http.server 8765 --bind 127.0.0.1
+~~~
+
+终端 B 观察并请求：
+
+~~~bash
+curl --fail --max-time 3 -I http://127.0.0.1:8765/
+ss -lnt 'sport = :8765'
+~~~
+
+HTTP 应返回 200，Linux 上 ss 应显示 127.0.0.1:8765 监听。macOS 没有默认 ss，可用 `lsof -nP -iTCP:8765 -sTCP:LISTEN`；不要把工具缺失解释成服务未运行。结束后在终端 A 按 Ctrl+C，再请求应连接失败。
+
+自测：这样启动后另一台机器访问不到，是否先开放防火墙？答：先看绑定地址。127.0.0.1 只用于本机；只有明确需要远程访问时才讨论监听范围和防火墙策略。SSH/防火墙变更还应保留当前连接、验证新连接后再关闭旧会话。

@@ -121,7 +121,7 @@ With `OPENROUTER_API_KEY` configured, the saved campaign used:
 
 Both model temperatures were `0`; τ²-bench recorded seed `300`. The retained
 raw trajectory is under
-[`validation/runs/exp7-1-openrouter-gpt41mini-telecom-20260802-v1/`](validation/runs/exp7-1-openrouter-gpt41mini-telecom-20260802-v1/).
+[`validation/runs/exp7-1-openrouter-gpt41mini-telecom-20260802-v1/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/tau2-bench-eval/validation/runs/exp7-1-openrouter-gpt41mini-telecom-20260802-v1).
 
 ## Result
 
@@ -159,6 +159,6 @@ The upstream public verifier reports:
 That coverage failure is expected for the five-task command specified by this
 book experiment. This evidence therefore establishes the bounded Experiment
 7-1 campaign, not a full-domain τ²-bench leaderboard result. See
-[`evidence.json`](validation/runs/exp7-1-openrouter-gpt41mini-telecom-20260802-v1/evidence.json)
-for machine-readable outcomes and [`manifest.json`](validation/runs/exp7-1-openrouter-gpt41mini-telecom-20260802-v1/manifest.json)
+[`evidence.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/tau2-bench-eval/validation/runs/exp7-1-openrouter-gpt41mini-telecom-20260802-v1/evidence.json)
+for machine-readable outcomes and [`manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/tau2-bench-eval/validation/runs/exp7-1-openrouter-gpt41mini-telecom-20260802-v1/manifest.json)
 for content hashes.

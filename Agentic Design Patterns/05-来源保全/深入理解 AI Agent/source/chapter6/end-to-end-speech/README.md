@@ -94,7 +94,7 @@ python demo.py --help
 
 ### 本地结果
 
-2026-08-01 的[本地 canonical run](validation/runs/exp6-5-minicpmo45-20260801-v1/evidence.json)已通过[全部 11 项验收](validation/runs/exp6-5-minicpmo45-20260801-v1/acceptance.json)。硬件是单张 96GB RTX PRO 6000 Blackwell，PyTorch 2.8.0+cu128、Transformers 4.51.0、BF16/SDPA；模型加载 6.154 秒，峰值分配显存 20.269GiB。
+2026-08-01 的[本地 canonical run](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/end-to-end-speech/validation/runs/exp6-5-minicpmo45-20260801-v1/evidence.json)已通过[全部 11 项验收](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/end-to-end-speech/validation/runs/exp6-5-minicpmo45-20260801-v1/acceptance.json)。硬件是单张 96GB RTX PRO 6000 Blackwell，PyTorch 2.8.0+cu128、Transformers 4.51.0、BF16/SDPA；模型加载 6.154 秒，峰值分配显存 20.269GiB。
 
 | 任务 | 端到端 | 自级联 |
 | --- | ---: | ---: |
@@ -104,7 +104,7 @@ python demo.py --help
 
 总分相同但错误互补。端到端在第一题把 “twelve boxes” 感知成 8，算出 47；自级联先正确转录出 12，再算出 79。相反，快/慢两条音频在自级联中都被压成完全相同的 `Please send the report before lunch.`，于是它把 fast 样本也猜成 slow；端到端保留了速度信息，两条都正确。
 
-加载完成后的平均整次调用为端到端 0.686 秒、自级联 0.551 秒。由于端到端固定先跑、回复长度不同且只有四条，这不是可推广的延迟排名。audio-to-audio 臂另生成了[11.56 秒、24kHz 单声道 WAV](validation/runs/exp6-5-minicpmo45-20260801-v1/outputs/spoken-math-boxes-response.wav)，但它继承了第一题的感知错误。这是有价值的负结果：路径真实跑通不等于答案正确。
+加载完成后的平均整次调用为端到端 0.686 秒、自级联 0.551 秒。由于端到端固定先跑、回复长度不同且只有四条，这不是可推广的延迟排名。audio-to-audio 臂另生成了[11.56 秒、24kHz 单声道 WAV](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/end-to-end-speech/validation/runs/exp6-5-minicpmo45-20260801-v1/outputs/spoken-math-boxes-response.wav)，但它继承了第一题的感知错误。这是有价值的负结果：路径真实跑通不等于答案正确。
 
 ---
 

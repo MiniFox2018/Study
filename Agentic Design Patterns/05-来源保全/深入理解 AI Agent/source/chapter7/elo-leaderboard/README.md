@@ -260,7 +260,7 @@ top-model overlap. This is the expected broad agreement, not score identity:
 online Elo is order-dependent while Bradley-Terry fits all comparisons at
 once. Seventeen cumulative monthly snapshots drive the retained D3 animation.
 
-Canonical evidence: [`validation/latest.json`](validation/latest.json).
+Canonical evidence: [`validation/latest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/elo-leaderboard/validation/latest.json).
 
 ## 命令行工具 / Command-Line Interface (`cli.py`)
 

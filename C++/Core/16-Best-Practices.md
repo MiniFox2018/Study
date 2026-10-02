@@ -1,4 +1,4 @@
-# 16 · Best Practices
+# 16 · 工程习惯与调试
 
 ## 命名规范
 命名应一致、可搜索且能够表达语义。常见风格包括：
@@ -94,6 +94,24 @@ Observer、Strategy、Command 等。
 - 避免不必要的宏、裸 `new/delete` 和 C 风格 cast
 - 接口保持小而稳定
 - 将编译器警告、测试、静态分析和 sanitizer 纳入开发流程
+
+## 一次可完成的练习闭环
+
+选择第 08 章的排序去重程序，按以下顺序做一次修改：
+
+1. 先确认原程序输出，再加入空输入、全重复、已排序三个案例。
+2. 明确期望：结果有序、没有相邻重复、原输入每个不同值仍出现一次。
+3. 开启警告；需要诊断内存和未定义行为时另建调试版本：
+
+```bash
+clang++ -std=c++17 -g -O1 -Wall -Wextra -Wpedantic \
+  -fsanitize=address,undefined -fno-omit-frame-pointer main.cpp -o app-check
+./app-check
+```
+
+ASan/UBSan 能发现部分运行路径上的问题，不能证明所有输入和线程调度都安全。TSan 应独立构建，通常不能与 ASan 同时启用；支持情况依平台和编译器而定。
+
+自测：程序通过三组案例，能宣称“算法正确”吗？答：还不能。需要解释不变量和边界，测试只提供覆盖到的证据；性能结论还要注明输入规模、构建优化级别和测量方法。
 
 ## 参考
 https://www.compilenrun.com/docs/language/cpp/cpp-best-practices/

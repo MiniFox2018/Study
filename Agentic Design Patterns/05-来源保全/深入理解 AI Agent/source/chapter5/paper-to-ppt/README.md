@@ -249,7 +249,7 @@ slidev_workspace/exports/
 Proposer only writes Slidev code; Reviewer **renders each page to PNG** and uses a **Vision LLM** to flag issues (text overflow / overcrowding / image size). Proposer revises from structured feedback. Versus single-agent self-review (stacking every rendered image in one context), dual-agent **peak context is much smaller**—Proposer never sees images; Reviewer each round only sees the latest screenshots.
 
 The canonical completed run is
-[`validation/runs/exp5-4-real-pdf-both-20260730-v9/comparison_summary.json`](validation/runs/exp5-4-real-pdf-both-20260730-v9/comparison_summary.json)
+[`validation/runs/exp5-4-real-pdf-both-20260730-v9/comparison_summary.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/paper-to-ppt/validation/runs/exp5-4-real-pdf-both-20260730-v9/comparison_summary.json)
 (SHA-256 `bfd913d311ab4d6ad5a8cae93b61ce54ce6d19f9d2d10ee2afdef06becd1e09f`).
 Both twenty-page decks used the pinned real PDF and three original,
 provenance-tracked figure crops, rendered every page, and scored 95/pass under

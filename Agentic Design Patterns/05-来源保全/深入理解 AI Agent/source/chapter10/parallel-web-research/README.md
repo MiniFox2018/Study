@@ -160,7 +160,7 @@ python demo.py --target 'Professor Name' --sites-json sites.example.json --agent
 On 2026-07-29, the default ten-page Stanford run found Andrew Ng on the live Stanford HAI page using ARK extraction. Parallel wall time was 18.542 s; serial time was 58.264 s, a measured 3.142× speedup. All 10 parallel and 10 serial browser contexts closed. The live cascade stress run produced one winner, one terminate broadcast, three losing-worker acknowledgements, and 4/4 closed contexts.
 
 The current provenance-complete campaign is
-[`validation/runs/exp10-4-real-receipts-20260730-v2/manifest.json`](validation/runs/exp10-4-real-receipts-20260730-v2/manifest.json).
+[`validation/runs/exp10-4-real-receipts-20260730-v2/manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/parallel-web-research/validation/runs/exp10-4-real-receipts-20260730-v2/manifest.json).
 All 12 acceptance gates passed: the ten-site parallel and serial paths both
 found the target and closed all 20 contexts; the measured speedup was 1.872×;
 the cascade produced one broadcast, three loser acknowledgements, and 4/4
@@ -170,8 +170,8 @@ source/input hashes and all four artifact hashes recompute exactly, and the
 credential scan found zero hits.
 
 The earlier sanitized summary-only records remain at
-[`validation/real_parallel_serial_2026-07-29.json`](validation/real_parallel_serial_2026-07-29.json)
-and [`validation/real_cascade_2026-07-29.json`](validation/real_cascade_2026-07-29.json)
+[`validation/real_parallel_serial_2026-07-29.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/parallel-web-research/validation/real_parallel_serial_2026-07-29.json)
+and [`validation/real_cascade_2026-07-29.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/parallel-web-research/validation/real_cascade_2026-07-29.json)
 for historical comparison; they are not the current provenance anchor.
 
 ---

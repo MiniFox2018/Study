@@ -10,17 +10,17 @@
 
 ## 目录
 
-1. [Towards Modern C++](./01-Towards-Modern-Cpp.md)
-2. [Language Usability Enhancements](./02-Language-Usability.md)
-3. [Language Runtime Enhancements](./03-Runtime-Enhancements.md)
-4. [Modern Containers](./04-Containers.md)
-5. [Smart Pointers and Memory Management](./05-Smart-Pointers-and-Memory.md)
-6. [Regular Expressions](./06-Regular-Expressions.md)
-7. [Parallelism, Concurrency and Memory Model](./07-Concurrency-and-Memory-Model.md)
-8. [Filesystem](./08-Filesystem.md)
-9. [Minor and Low-Level Features](./09-Minor-Low-Level-Features.md)
-10. [C++20](./10-Cpp20.md)
-11. [Modern C++ Best Practices](./11-Best-Practices.md)
+1. [现代 C++ 的目标与迁移](./01-Towards-Modern-Cpp.md)
+2. [类型推导与编译期表达](./02-Language-Usability.md)
+3. [Lambda、移动语义与完美转发](./03-Runtime-Enhancements.md)
+4. [现代容器与非拥有视图](./04-Containers.md)
+5. [智能指针与内存管理](./05-Smart-Pointers-and-Memory.md)
+6. [正则表达式](./06-Regular-Expressions.md)
+7. [并发、同步与内存模型](./07-Concurrency-and-Memory-Model.md)
+8. [文件系统](./08-Filesystem.md)
+9. [低层特性与对象表示](./09-Minor-Low-Level-Features.md)
+10. [C++20 特性与适用边界](./10-Cpp20.md)
+11. [现代 C++ 工程实践](./11-Best-Practices.md)
 
 ## 与主目录的关系
 
@@ -88,3 +88,9 @@
 
 ## 来源
 Modern C++ Tutorial: C++11/14/17/20 On the Fly — Changkun Ou
+
+## 先后顺序与版本边界
+
+先完成 Core 的函数、容器、指针和 RAII，再依次阅读本目录 02～05；06 与 08 可以按文本/文件任务选读；07 的内存序属于进阶，先掌握锁与线程生命周期。09、10 中的表示转换、模块和协程按项目需要深入。不能将章节覆盖等同于已经具备系统编程能力。
+
+2026-10-02 复核：修正正则转义、`if constexpr` 适用范围、移动后状态、数据竞争定义、弱引用和文件系统边界；完整示例标明 C++17/20。权威核对：[if constexpr](https://eel.is/c++draft/stmt.if)、[数据竞争](https://eel.is/c++draft/intro.races)、[thread 析构](https://eel.is/c++draft/thread.thread.destr)、[正则语法](https://eel.is/c++draft/re.grammar)、[文件系统操作](https://eel.is/c++draft/fs.op.funcs)。工作草案会继续演进，不能把其中较新标准的条款直接套用到旧标准。

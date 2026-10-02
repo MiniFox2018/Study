@@ -5,7 +5,7 @@
 ## 第一次阅读的顺序
 
 1. [先读一条交互任务，区分回答质量与环境目标 ](tau2-bench-eval/README.md)。
-2. [再用已有日志练习寻找最早失去依据的决策 ](android-world/failure-attribution/README.md)。
+2. [再用已有日志练习寻找最早失去依据的决策 ](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/failure-attribution/README.md)。
 3. [最后把成功条件、调用成本与延迟放在一起分析 ](agent-cost-analysis/README.md)。
 
 读懂一个完整例子后，再查阅下面的全部项目与配置。比较实验时，把输入、模型、运行条件和结果放在一起记录；遇到历史输出，先确认它对应的版本与任务范围。
@@ -46,8 +46,8 @@
 | 7-2 OSWorld-Verified | [`xlang-ai/OSWorld`](https://github.com/xlang-ai/OSWorld) → `chapter7/OSWorld` | `8365edc975efd0477a0d62444a5beed562ab5a7b` | `python quickstart.py --provider_name vmware --path_to_vm "path/to/your/vm.vmx"`；再从 Verified 任务中抽样人工完成 |
 | 7-3 | [user-memory-evaluation](../chapter3/user-memory-evaluation/) | ✅ | 四档多维 Rubric 已在 60 用例 × 3 系统的 180/180 条真实评判记录上完整执行 |
 | 7-4 | [user-memory-system-evaluation](user-memory-system-evaluation/) | ✅ | 60 用例 × 3 系统共 180/180 条真实轨迹，零错误且原生币种定价完整 |
-| 7-5 | [tts-quality-eval](tts-quality-eval/) | ✅ | [真实验收](tts-quality-eval/validation/mistral_multimodal_20260730/manifest.json)完成 OpenAI/Fish 两 provider × 四类语料的 8/8 双音频 Voxtral 四维评审；候选/参考音频逐项哈希，早期 Gemini/OpenRouter 失败证据仍保留 |
-| 7-6 | [android-world/failure-attribution](android-world/failure-attribution/) | ✅ | 对已保留的 T3A 日志做离线失败归因。全体统计（自原始日志重算）：53 个任务块，其中 1 块是基准自身 `initialize_task` 崩溃后跳过的，真正失败为 52 条；24/52 是 Agent 自称完成后被验证器否掉；9 条目标必须依赖当前日期，其中仅 2 条拿到过它（且是顺带从表单默认值 `Sun, Oct 15` 读到的）；自述 “界面无变化” 一类观察出现 55 次、覆盖 18/52 条轨迹。抽样标注 10 条，步号引用在构建时逐条核验：9 条静默失败、7 条首错发生在 assistant message，置信度 5 高 / 4 中 / 1 低。本次为**第三轮**：第二轮把 10 条中的 7 条首错步号前移，第三轮又订正了两项全体统计与一条记录的偏差描述，每处改动连同理由保留。另含 3 个轨迹前缀回归任务与 3 处对 `t3a_failed_analysis.md` 的更正 |
+| 7-5 | [tts-quality-eval](tts-quality-eval/) | ✅ | [真实验收](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/tts-quality-eval/validation/mistral_multimodal_20260730/manifest.json)完成 OpenAI/Fish 两 provider × 四类语料的 8/8 双音频 Voxtral 四维评审；候选/参考音频逐项哈希，早期 Gemini/OpenRouter 失败证据仍保留 |
+| 7-6 | [android-world/failure-attribution](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/failure-attribution) | ✅ | 对已保留的 T3A 日志做离线失败归因。全体统计（自原始日志重算）：53 个任务块，其中 1 块是基准自身 `initialize_task` 崩溃后跳过的，真正失败为 52 条；24/52 是 Agent 自称完成后被验证器否掉；9 条目标必须依赖当前日期，其中仅 2 条拿到过它（且是顺带从表单默认值 `Sun, Oct 15` 读到的）；自述 “界面无变化” 一类观察出现 55 次、覆盖 18/52 条轨迹。抽样标注 10 条，步号引用在构建时逐条核验：9 条静默失败、7 条首错发生在 assistant message，置信度 5 高 / 4 中 / 1 低。本次为**第三轮**：第二轮把 10 条中的 7 条首错步号前移，第三轮又订正了两项全体统计与一条记录的偏差描述，每处改动连同理由保留。另含 3 个轨迹前缀回归任务与 3 处对 `t3a_failed_analysis.md` 的更正 |
 | 7-7 | [user-memory-policy-eval](user-memory-policy-eval/) | ✅ | 已用真实 `openai/gpt-5.6-sol` 经 OpenRouter 完成 11 个 trajectory-prefix bad case × JSON/Markdown/Python-like 三种表示，共 33/33 个 API 单元、0 个 API 错误；三种表示均为 6/11 通过，结果和哈希保存在 `results/policy_prefix_live.json` 与 `results/manifest.json` |
 | — | [public-health-reporting-eval](public-health-reporting-eval/) | ✅ | 基于合成 DHIS2 风格汇总数据，客观评估公共卫生报告 Agent 的工具调用、计算准确性、证据引用与无依据声明 |
 
@@ -59,17 +59,17 @@
 
 ## 实验 7-1 / 7-2 外部复现锚点
 
-以下映射以[正文](../book/chapter7.md)为准。SHA 来自对应 checkout 的 `origin` 与 `HEAD`。7-1 已保留五任务正式运行的[验收证据](tau2-bench-eval/validation/runs/exp7-1-openrouter-gpt41mini-telecom-20260802-v1/manifest.json)；7-2 的 18 个分级人工操作案例、正式结果与兼容边界见[独立报告](experiment-7-2-human-benchmark/README.md)。下表继续保留复现来源、路径和入口。
+以下映射以[正文](../book/chapter7.md)为准。SHA 来自对应 checkout 的 `origin` 与 `HEAD`。7-1 已保留五任务正式运行的[验收证据](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/tau2-bench-eval/validation/runs/exp7-1-openrouter-gpt41mini-telecom-20260802-v1/manifest.json)；7-2 的 18 个分级人工操作案例、正式结果与兼容边界见[独立报告](experiment-7-2-human-benchmark/README.md)。下表继续保留复现来源、路径和入口。
 
 | 实验 | 上游与本地路径 | 固定提交 | 正文对应入口 |
 | :--: | --- | --- | --- |
-| 7-8 | [elo-leaderboard](elo-leaderboard/) | ✅ | [正式全量验收](elo-leaderboard/validation/runs/exp7-7-arena-20260731-v1/manifest.json)处理 1,799,991 条公开 Arena 记录（1,670,250 条盲选票、129 个模型），在线 Elo 与 Bradley-Terry 排名 Spearman 0.787、Top-20 重合 12/20；胜率矩阵、17 个月度快照、三张图与 D3 动画均由同一 manifest 哈希绑定并复核通过 |
-| 7-9 | [model-action-threshold](model-action-threshold/) | ✅ | 同一中性 Coding Harness 下完成 GPT-5.6-sol / Claude Sonnet 5 × 三任务 × 三次重复的 18/18 单元实测；[manifest](model-action-threshold/results/exp7-8-action-threshold-20260731-v1/manifest.json)零 API 错误并绑定完整轨迹与汇总哈希 |
+| 7-8 | [elo-leaderboard](elo-leaderboard/) | ✅ | [正式全量验收](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/elo-leaderboard/validation/runs/exp7-7-arena-20260731-v1/manifest.json)处理 1,799,991 条公开 Arena 记录（1,670,250 条盲选票、129 个模型），在线 Elo 与 Bradley-Terry 排名 Spearman 0.787、Top-20 重合 12/20；胜率矩阵、17 个月度快照、三张图与 D3 动画均由同一 manifest 哈希绑定并复核通过 |
+| 7-9 | [model-action-threshold](model-action-threshold/) | ✅ | 同一中性 Coding Harness 下完成 GPT-5.6-sol / Claude Sonnet 5 × 三任务 × 三次重复的 18/18 单元实测；[manifest](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/model-action-threshold/results/exp7-8-action-threshold-20260731-v1/manifest.json)零 API 错误并绑定完整轨迹与汇总哈希 |
 | 7-10 | [agent-cost-analysis](agent-cost-analysis/) | ✅ | 多轮 Agent 任务（客服退款）全链路成本拆解 + KV-cache 友好设计/上下文压缩的 A/B 节省量化 |
 | 7-11 | [model-benchmark](model-benchmark/) | 🚧 | 完整 8K/32K/128K × 512/2048、限流爬坡、Agent 成本与 168 小时可用性 campaign 已实现；目前尚无验收证据，不能替代完整长期实验 |
-| 7-12 | [user-memory-system-evaluation](user-memory-system-evaluation/) | ✅ | [全矩阵验收](user-memory-system-evaluation/results/full_7_11_60_case_matrix.json)完成 60 用例 × 24 单元（4 嵌入 × 3 reranker × 2 主模型）共 1,440/1,440 条真实轨迹，零错误、零未定价用量，检索/任务指标与交互分析完整；[独立验证器](user-memory-system-evaluation/validation/verify_full_matrix_20260731.py)复核通过（ALL CHECKS PASSED），后端替代方案如实记录于 [readiness 证据](user-memory-system-evaluation/results/full_matrix_backend_readiness_20260731.json) |
-| 7-13 | [android-world](android-world/) | ✅ | [完整候选实验证据](android-world/validation/candidate_h5c_api33_local_qwen_20260804/evidence.json)保留 116 任务 × 5 轮的 580/580 条唯一 episode（包括评估失败），运行时错误为零：严格 T3A 成功 26 条（4.4828%），平均 evaluator reward 0.133621，由 77 条满分状态与 1 条 `0.5` 部分 reward 组成。实验在完成官方初始化且配齐 24/24 应用的 Pixel 6/API-33 上执行，本地 Qwen2.5-7B（revision `a09a35458c702b33eeacc393d103063234e8bc28`）通过 vLLM 0.19.0 运行于 RTX PRO 6000 Blackwell 96 GB。执行与证据已完成，但未批准部署；候选 Qwen 与配对源 Doubao 不同，因而不支持同模型提升或非劣性结论 |
-| 7-14 | [openvla-robotwin2-eval](openvla-robotwin2-eval/) | ✅ | [正式单卡运行](openvla-robotwin2-eval/validation/runs/exp7-13-localgpu-20260803-v1/manifest.json)完成 chunk 1/25 各 128 IID + 128 OOD episodes，严格门禁及 512 个 rollout hash 全通过；chunk 1 为 0/256、chunk 25 为 26/256，低绝对成功率作为真实结果保留 |
+| 7-12 | [user-memory-system-evaluation](user-memory-system-evaluation/) | ✅ | [全矩阵验收](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/user-memory-system-evaluation/results/full_7_11_60_case_matrix.json)完成 60 用例 × 24 单元（4 嵌入 × 3 reranker × 2 主模型）共 1,440/1,440 条真实轨迹，零错误、零未定价用量，检索/任务指标与交互分析完整；[独立验证器](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/user-memory-system-evaluation/validation/verify_full_matrix_20260731.py)复核通过（ALL CHECKS PASSED），后端替代方案如实记录于 [readiness 证据](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/user-memory-system-evaluation/results/full_matrix_backend_readiness_20260731.json) |
+| 7-13 | [android-world](android-world/) | ✅ | [完整候选实验证据](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/android-world/validation/candidate_h5c_api33_local_qwen_20260804/evidence.json)保留 116 任务 × 5 轮的 580/580 条唯一 episode（包括评估失败），运行时错误为零：严格 T3A 成功 26 条（4.4828%），平均 evaluator reward 0.133621，由 77 条满分状态与 1 条 `0.5` 部分 reward 组成。实验在完成官方初始化且配齐 24/24 应用的 Pixel 6/API-33 上执行，本地 Qwen2.5-7B（revision `a09a35458c702b33eeacc393d103063234e8bc28`）通过 vLLM 0.19.0 运行于 RTX PRO 6000 Blackwell 96 GB。执行与证据已完成，但未批准部署；候选 Qwen 与配对源 Doubao 不同，因而不支持同模型提升或非劣性结论 |
+| 7-14 | [openvla-robotwin2-eval](openvla-robotwin2-eval/) | ✅ | [正式单卡运行](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/openvla-robotwin2-eval/validation/runs/exp7-13-localgpu-20260803-v1/manifest.json)完成 chunk 1/25 各 128 IID + 128 OOD episodes，严格门禁及 512 个 rollout hash 全通过；chunk 1 为 0/256、chunk 25 为 26/256，低绝对成功率作为真实结果保留 |
 
 从仓库根目录取得同一版本：
 

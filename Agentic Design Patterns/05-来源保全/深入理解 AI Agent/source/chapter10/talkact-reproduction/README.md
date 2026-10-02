@@ -90,7 +90,7 @@ single-model control (`strawman`) over four hermetic tasks and two labeled
 repetitions per task and condition.
 
 Status: **complete for the retained Anthropic-caller configuration**. The
-[canonical run](validation/runs/exp10-3-talkact-anthropic-caller-20260803-v2/)
+[canonical run](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/talkact-reproduction/validation/runs/exp10-3-talkact-anthropic-caller-20260803-v2)
 contains all 16 episode logs, aggregate and per-episode analysis, the exact
 protocol and environment, console logs, and a manifest. The independent
 validator passes all 17 gates.
@@ -163,12 +163,12 @@ python chapter10/talkact-reproduction/validate_campaign.py \
   chapter10/talkact-reproduction/validation/runs/exp10-3-talkact-anthropic-caller-20260803-v2
 ```
 
-The generated [acceptance report](validation/runs/exp10-3-talkact-anthropic-caller-20260803-v2/acceptance.json)
+The generated [acceptance report](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/talkact-reproduction/validation/runs/exp10-3-talkact-anthropic-caller-20260803-v2/acceptance.json)
 passes source-pin, campaign-shape, model, usage, error, concurrency, bridge,
 latency, task-check, judge, aggregate, and credential-scan gates. The
-[manifest](validation/runs/exp10-3-talkact-anthropic-caller-20260803-v2/manifest.json)
+[manifest](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/talkact-reproduction/validation/runs/exp10-3-talkact-anthropic-caller-20260803-v2/manifest.json)
 hashes the 23 inputs and outputs from which those generated files are derived.
-The earlier [authentication preflight](validation/exp10-3-anthropic-auth-20260803-v1/preflight.json)
+The earlier [authentication preflight](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/talkact-reproduction/validation/exp10-3-anthropic-auth-20260803-v1/preflight.json)
 is retained as failure history, not as the final result.
 
 ## Limitations

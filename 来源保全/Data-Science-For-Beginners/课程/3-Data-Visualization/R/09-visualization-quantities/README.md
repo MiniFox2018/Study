@@ -58,7 +58,7 @@ ggplot(data=birds, aes(x=Name, y=MaxWingspan,group=1)) +
 ```
 在这里，你安装了 `ggplot2` 包并通过 `library("ggplot2")` 命令将其导入工作区。要在 ggplot 中绘制任何图表，使用 `ggplot()` 函数，并将数据集、x 和 y 变量作为属性指定。在这种情况下，我们使用 `geom_line()` 函数，因为我们要绘制折线图。
 
-![最大翼展折线图](../../../../../translated_images/zh-CN/MaxWingspan-lineplot.b12169f99d26fdd2.webp)
+![最大翼展折线图](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/MaxWingspan-lineplot.b12169f99d26fdd2.webp)
 
 你立即注意到了什么？似乎至少有一个异常值——那是一个相当惊人的翼展！2000+ 厘米的翼展超过了 20 米——难道明尼苏达州有翼龙在飞翔？让我们调查一下。
 
@@ -76,7 +76,7 @@ ggplot(data=birds, aes(x=Name, y=MaxWingspan,group=1)) +
 ```
 我们在 `theme` 中指定了角度，并在 `xlab()` 和 `ylab()` 中分别指定了 x 和 y 轴的标签。`ggtitle()` 为图表命名。
 
-![改进后的最大翼展折线图](../../../../../translated_images/zh-CN/MaxWingspan-lineplot-improved.04b73b4d5a59552a.webp)
+![改进后的最大翼展折线图](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/MaxWingspan-lineplot-improved.04b73b4d5a59552a.webp)
 
 即使将标签旋转到 45 度，仍然太多了，难以阅读。让我们尝试另一种策略：仅标记那些异常值，并在图表内设置标签。你可以使用散点图来腾出更多空间进行标记：
 
@@ -92,7 +92,7 @@ ggplot(data=birds, aes(x=Name, y=MaxWingspan,group=1)) +
 
 你发现了什么？
 
-![最大翼展散点图](../../../../../translated_images/zh-CN/MaxWingspan-scatterplot.60dc9e0e19d32700.webp)
+![最大翼展散点图](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/MaxWingspan-scatterplot.60dc9e0e19d32700.webp)
 
 ## 筛选数据
 
@@ -111,7 +111,7 @@ ggplot(data=birds_filtered, aes(x=Name, y=MaxWingspan,group=1)) +
 ```
 我们创建了一个新的数据框 `birds_filtered`，然后绘制了一个散点图。通过筛选掉异常值，你的数据现在更加连贯且易于理解。
 
-![改进后的最大翼展散点图](../../../../../translated_images/zh-CN/MaxWingspan-scatterplot-improved.7d0af81658c65f3e.webp)
+![改进后的最大翼展散点图](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/MaxWingspan-scatterplot-improved.7d0af81658c65f3e.webp)
 
 现在我们至少在翼展方面有了一个更干净的数据集，让我们进一步探索这些鸟类。
 
@@ -153,7 +153,7 @@ birds_filtered %>% group_by(Category) %>%
 ```
 在以下代码片段中，我们安装了 [dplyr](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8) 和 [lubridate](https://www.rdocumentation.org/packages/lubridate/versions/1.8.0) 包，以帮助操作和分组数据，从而绘制堆叠条形图。首先，你按鸟类的 `Category` 分组数据，然后汇总 `MinLength`、`MaxLength`、`MinBodyMass`、`MaxBodyMass`、`MinWingspan`、`MaxWingspan` 列。接着，使用 `ggplot2` 包绘制条形图，并为不同类别指定颜色和标签。
 
-![堆叠条形图](../../../../../translated_images/zh-CN/stacked-bar-chart.0c92264e89da7b39.webp)
+![堆叠条形图](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/stacked-bar-chart.0c92264e89da7b39.webp)
 
 然而，这个条形图由于数据未分组过多而难以阅读。你需要选择要绘制的数据，因此让我们根据鸟类类别查看其长度。
 
@@ -168,7 +168,7 @@ ggplot(birds_count,aes(Category,n))+geom_bar(stat="identity")+coord_flip()
 ```
 你首先统计 `Category` 列中的唯一值，然后将它们排序到一个新的数据框 `birds_count` 中。接着，将这些排序后的数据按相同顺序分级，以便按排序方式绘制。使用 `ggplot2` 绘制条形图。`coord_flip()` 将条形图水平显示。
 
-![类别长度](../../../../../translated_images/zh-CN/category-length.7e34c296690e85d6.webp)
+![类别长度](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/category-length.7e34c296690e85d6.webp)
 
 这个条形图很好地展示了每个类别中鸟类的数量。一眼就能看出，这个地区数量最多的鸟类是鸭/鹅/水禽类别。明尼苏达州是“万湖之地”，这并不令人意外！
 
@@ -191,7 +191,7 @@ ggplot(birds_grouped,aes(Category,MaxLength))+geom_bar(stat="identity")+coord_fl
 ```
 我们按 `Category` 对 `birds_filtered` 数据进行分组，然后绘制条形图。
 
-![比较数据](../../../../../translated_images/zh-CN/comparingdata.f486a450d61c7ca5.webp)
+![比较数据](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/comparingdata.f486a450d61c7ca5.webp)
 
 这里没有什么令人意外的：蜂鸟的最大长度最小，而鹈鹕或鹅的最大长度较大。当数据符合逻辑时，这是好事！
 
@@ -203,7 +203,7 @@ ggplot(data=birds_grouped, aes(x=Category)) +
   geom_bar(aes(y=MinLength), stat="identity", position="identity", fill='orange')+
   coord_flip()
 ```
-![叠加值](../../../../../translated_images/zh-CN/superimposed-values.5363f0705a1da416.webp)
+![叠加值](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/superimposed-values.5363f0705a1da416.webp)
 
 ## 🚀 挑战
 

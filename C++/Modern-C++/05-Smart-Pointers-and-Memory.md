@@ -1,4 +1,4 @@
-# 05 · Smart Pointers and Memory Management
+# 05 · 智能指针与内存管理
 
 ## 1. RAII
 
@@ -65,7 +65,7 @@ std::shared_ptr<Foo> p(new Foo(...));
 make_shared 往往：
 
 - 语法更安全；
-- 一次分配同时容纳对象和控制块；
+- 通常合并对象和控制块的分配（不把具体分配次数当跨实现保证）；
 - 异常安全更容易正确。
 
 ## 5. get / reset / use_count
@@ -123,7 +123,7 @@ if (auto p = weak.lock()) {
 }
 ```
 
-也可以通过 `expired()` 判断对象是否已经销毁。
+`expired()` 只是瞬时观察，不能先检查它再假定对象仍活着。要使用对象就直接 `lock()`，并在使用期间保留返回的 shared_ptr。多个线程操作不同 shared_ptr 副本的控制块可安全计数，但不自动保护所指对象；并发改同一个 shared_ptr 变量还需锁或合适的原子接口。
 
 ## 9. 循环引用
 
@@ -162,3 +162,23 @@ A -> B
 
 ## 来源
 Modern C++ Tutorial — Chapter 05
+
+## 小实验：弱引用观察生命周期
+
+```cpp
+#include <iostream>
+#include <memory>
+int main() {
+    std::weak_ptr<int> watch;
+    {
+        auto owner = std::make_shared<int>(42);
+        watch = owner;
+        if (auto locked = watch.lock()) std::cout << *locked << '\n';
+    }
+    std::cout << std::boolalpha << (watch.lock() == nullptr) << '\n';
+}
+```
+
+输出 `42`、`true`。weak_ptr 不延长对象生命；`lock()` 返回的 shared_ptr 在其作用域内才保证对象仍活着。
+
+自测：可以用 `shared_ptr<T>(existing.get())` 创建另一个所有者吗？答：不可以，这会建立第二个独立控制块并可能重复释放。要共享同一对象，应复制现有 shared_ptr。

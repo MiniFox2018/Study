@@ -1,7 +1,7 @@
-# 14 · Multithreading
+# 14 · 多线程与同步
 
 ## 创建线程
-C++11 提供 `std::thread`。线程创建后必须最终 `join()` 或 `detach()`，否则 thread 对象析构时可能导致程序终止。
+C++11 提供 `std::thread`。线程对象在析构前必须不再处于 `joinable()` 状态，通常通过 `join()` 达成；仍可连接的 `std::thread` 析构时一定调用 `std::terminate`，即使线程函数早已返回。`detach()` 不是生命周期问题的通用修复。
 
 ```cpp
 #include <thread>
@@ -15,7 +15,7 @@ int main() {
 ```
 
 ## 数据竞争
-多个线程并发访问同一内存位置，且至少一个线程执行写操作，如果缺少正确同步，就可能形成 data race，属于未定义行为。
+不同线程对同一内存位置进行冲突访问（如至少一方写入），至少一个访问非原子，且两者之间没有 happens-before 关系，就构成数据竞争（data race），属于未定义行为。全原子读写可以没有数据竞争，但多步骤业务逻辑仍可能产生竞态。
 
 ## mutex
 `std::mutex` 用于互斥访问共享资源。正常业务代码不应依赖手工 `lock()/unlock()`，更推荐使用 RAII：
@@ -61,6 +61,32 @@ future/promise 还可以在线程之间传播异常。
 - 更小的临界区
 
 而不是大量共享可变状态。
+
+## 小实验：用一把锁保护完整更新
+
+```cpp
+#include <iostream>
+#include <mutex>
+#include <thread>
+int main() {
+    int count = 0;
+    std::mutex mutex;
+    auto work = [&] {
+        for (int i = 0; i < 1000; ++i) {
+            std::lock_guard<std::mutex> guard(mutex);
+            ++count;
+        }
+    };
+    std::thread first(work);
+    work();
+    first.join();
+    std::cout << count << '\n';
+}
+```
+
+以 `clang++ -std=c++17 -Wall -Wextra -Wpedantic -pthread main.cpp -o app` 编译，输出应始终是 `2000`。锁保护整个读改写；`join` 让输出发生在线程完成之后。去掉锁后的程序含未定义行为，不能用某次仍输出 2000 来证明正确。
+
+C++20 的 `std::jthread` 在析构时请求停止并连接线程，更适合局部拥有线程；停止仍需线程函数配合检查，不能强制中断阻塞 I/O。普通线程函数若让异常逃到线程入口外会终止进程，需捕获并通过 future 等通道传递。
 
 ## 参考
 https://www.compilenrun.com/docs/language/cpp/cpp-multithreading/

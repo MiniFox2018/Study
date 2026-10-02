@@ -105,7 +105,7 @@ python run_official_experiment.py \
 
 ##### 2026-07-30 正式实跑结果
 
-[v4 完整证据](validation/real_20260730T061500Z_v4/evidence.json)在英文版第 1–2 章上完成了 26 个 Markdown 安全翻译单元：242,090 字节、1,598 行、23 个插图引用、14 个围栏代码块。翻译组使用真实 ARK `doubao-seed-1-6-flash-250615`，匿名位置平衡裁判使用真实 ARK `doubao-seed-1-6-250615`；二者均显式关闭 thinking。12/12 执行与溯源门禁通过，[latest 指针](validation/latest.json)的证据 SHA-256 为 `9e765aa3d9b194346e1b9b5398018b99c369c2f8c79df231a433cc9e89ab1b5e`。
+[v4 完整证据](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/book-translation/validation/real_20260730T061500Z_v4/evidence.json)在英文版第 1–2 章上完成了 26 个 Markdown 安全翻译单元：242,090 字节、1,598 行、23 个插图引用、14 个围栏代码块。翻译组使用真实 ARK `doubao-seed-1-6-flash-250615`，匿名位置平衡裁判使用真实 ARK `doubao-seed-1-6-250615`；二者均显式关闭 thinking。12/12 执行与溯源门禁通过，[latest 指针](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/book-translation/validation/latest.json)的证据 SHA-256 为 `9e765aa3d9b194346e1b9b5398018b99c369c2f8c79df231a433cc9e89ab1b5e`。
 
 | 实测指标 | 四角色管理者组 | 单 Agent 组 |
 | --- | ---: | ---: |

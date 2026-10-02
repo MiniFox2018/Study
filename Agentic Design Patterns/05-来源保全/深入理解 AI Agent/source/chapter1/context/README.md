@@ -69,7 +69,7 @@ export DASHSCOPE_API_KEY=your_key_here
 python run_experiment_1_1.py --provider dashscope     # 使用 qwen3.7-plus
 ```
 
-验收产物见 [validation/latest.json](validation/latest.json)。只有既是标准配置
+验收产物见 [validation/latest.json](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter1/context/validation/latest.json)。只有既是标准配置
 （五组齐全、带约束的任务、静默隐藏工具结果）又通过验收的运行才会覆盖它；其余运行
 只写自己的时间戳目录，不会动被引用的证据。
 
@@ -89,7 +89,7 @@ python run_experiment_1_1.py --provider dashscope     # 使用 qwen3.7-plus
 
 `unsupported_numbers` 正是 `Completed` 那一列永远显示不出来的情况，也是生产中真正
 要命的一种：用记忆中的汇率拼出来的答案，排版和用工具结果算出来的答案一模一样。它由
-[grounding.py](grounding.py) 依据**实际发出的消息**计算，因此被隐藏了观测的实验组
+[grounding.py](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter1/context/grounding.py) 依据**实际发出的消息**计算，因此被隐藏了观测的实验组
 无论框架本地算出了什么，都无处可依。
 
 可依据性与正确性是两条独立的轴——没有观测却报出
@@ -118,7 +118,7 @@ python run_experiment_1_1.py --provider dashscope     # 使用 qwen3.7-plus
 #### 两个会改变结论的开关
 
 两者默认都是标准配置；提供另一个取值，是因为它确实会改变结果，而这值得看见。支撑数据
-见 [validation/probes_20260825T/](validation/probes_20260825T/)，汇总在其 `index.json`。
+见 [validation/probes_20260825T/](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter1/context/validation/probes_20260825T)，汇总在其 `index.json`。
 
 **`--task guarded|unguarded`** 控制提示词里的一句话：*「不要自行估计汇率，请使用工具
 观测。」* 在带约束（标准）的任务下，Kimi K3 的「移除工具定义」组不会声称任何未被给予
@@ -496,7 +496,7 @@ python main.py --mode ablation --ablation-modes full no_history --output my_abla
 > Multi-provider context-aware agent with systematic ablation of context components (history, reasoning, tool calls, tool results).
 > 配套《深入理解 AI Agent》第 1 章 **实验 1-1 ★★：上下文的关键作用**。
 
-← [Chapter 1 index / 返回第 1 章目录](../README.md) · 📖 [Read the chapter / 读本章正文](../../book/chapter1.md)（[EN](../../book-en/chapter1.md)）
+← [Chapter 1 index / 返回第 1 章目录](../README.md) · 📖 [Read the chapter / 读本章正文](../../book/chapter1.md)（[EN](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-en/chapter1.md)）
 
 ---
 
@@ -925,7 +925,7 @@ export DASHSCOPE_API_KEY=your_key_here
 python run_experiment_1_1.py --provider dashscope     # runs qwen3.7-plus
 ```
 
-The accepted artifact is [validation/latest.json](validation/latest.json). It
+The accepted artifact is [validation/latest.json](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter1/context/validation/latest.json). It
 is replaced only by a run that is both canonical — all five arms, guarded task,
 silent tool-result withholding — and accepted. Anything else writes its own
 timestamped directory and leaves the cited evidence alone.
@@ -949,7 +949,7 @@ two ways an ablated arm ends without the answer, so every arm also carries an
 `unsupported_numbers` is the case the `Completed` column can never show, and it
 is the one that matters in production: an answer built on remembered exchange
 rates is formatted exactly like an answer built on tool output. It is computed
-in [grounding.py](grounding.py) from the messages actually sent, so an arm whose
+in [grounding.py](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter1/context/grounding.py) from the messages actually sent, so an arm whose
 observations were withheld has nothing to ground on regardless of what the
 harness computed locally. Groundedness is deliberately independent of
 correctness — a model with no observations that states the right total still did
@@ -983,7 +983,7 @@ instead.
 
 Both default to the canonical setting. The alternates exist because they change
 the result, and that is worth seeing. Supporting runs are in
-[validation/probes_20260825T/](validation/probes_20260825T/), summarised in its
+[validation/probes_20260825T/](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter1/context/validation/probes_20260825T), summarised in its
 `index.json`.
 
 **`--task guarded|unguarded`** controls one sentence of the prompt: *"Do not

@@ -1069,7 +1069,7 @@ VLM参数量：104.625 百万
 ### 项目说明
 
 - Experiment 8-3 source: [`bojieli/minimind`](https://github.com/bojieli/minimind) → `chapter8/MiniMind-pretrain/minimind`
-- Experiment 8-3 canonical evidence: [`validation/runs/exp8-3-training-report-20260731-v1/`](validation/runs/exp8-3-training-report-20260731-v1/) retains all 49 historical outputs across original/QK-Norm+Muon × pretrain/SFT/DPO, eight raw arm-blind ARK judge receipts, exact hashes, and the future reproduction contract. Checkpoints are intentionally not distributed and are not acceptance artifacts.
+- Experiment 8-3 canonical evidence: [`validation/runs/exp8-3-training-report-20260731-v1/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/MiniMind-pretrain/validation/runs/exp8-3-training-report-20260731-v1) retains all 49 historical outputs across original/QK-Norm+Muon × pretrain/SFT/DPO, eight raw arm-blind ARK judge receipts, exact hashes, and the future reproduction contract. Checkpoints are intentionally not distributed and are not acceptance artifacts.
 - Experiment 8-4 source: [`bojieli/minimind-v`](https://github.com/bojieli/minimind-v) → `chapter8/MiniMind-pretrain/minimind-v`
 - Current workspace state: both external source checkouts are absent. The checkpoint-free historical training reports are the accepted book artifacts for 8-3 and 8-4; each explicitly separates retained outputs and independent judgments from unavailable historical source/data/checkpoint identities and stepwise logs.
 
@@ -1094,7 +1094,7 @@ At these revisions, the audited 8-3 entrypoints are `trainer/train_pretrain_muon
 ### Experiment 8-4 canonical retained-training report
 
 The canonical checkpoint-free report is
-[`validation/runs/exp8-4-training-report-20260731-v1/report.md`](validation/runs/exp8-4-training-report-20260731-v1/report.md).
+[`validation/runs/exp8-4-training-report-20260731-v1/report.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/MiniMind-pretrain/validation/runs/exp8-4-training-report-20260731-v1/report.md).
 It extracts all **64** historical captions from the eight configurations below,
 binds the same eight evaluation images by SHA-256, and retains eight real
 image-aware, configuration-blind ARK judge requests and responses with unique

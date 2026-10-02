@@ -42,7 +42,7 @@ library(ggplot2)
 ggplot(honey, aes(x = priceperlb, y = state)) +
   geom_point(colour = "blue")
 ```
-![scatterplot 1](../../../../../translated_images/zh-CN/scatter1.86b8900674d88b26.webp)
+![scatterplot 1](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/scatter1.86b8900674d88b26.webp)
 
 现在，用蜂蜜色调展示同样的数据，显示价格随年份的变化。你可以通过添加`scale_color_gradientn`参数来实现逐年变化的可视化：
 
@@ -52,7 +52,7 @@ ggplot(honey, aes(x = priceperlb, y = state)) +
 ggplot(honey, aes(x = priceperlb, y = state, color=year)) +
   geom_point()+scale_color_gradientn(colours = colorspace::heat_hcl(7))
 ```
-![scatterplot 2](../../../../../translated_images/zh-CN/scatter2.4d1cbc693bad20e2.webp)
+![scatterplot 2](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/scatter2.4d1cbc693bad20e2.webp)
 
 通过这个颜色方案的变化，你可以明显看到蜂蜜每磅价格在这些年间逐年上涨。如果你查看数据中的一个样本集（例如亚利桑那州），你会发现价格逐年上涨的模式，虽然有少数例外：
 
@@ -83,7 +83,7 @@ ggplot(honey, aes(x = priceperlb, y = state)) +
 ```
 你可以看到点的大小逐渐增大。
 
-![scatterplot 3](../../../../../translated_images/zh-CN/scatter3.722d21e6f20b3ea2.webp)
+![scatterplot 3](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/scatter3.722d21e6f20b3ea2.webp)
 
 这是否是一个简单的供需关系？由于气候变化和蜂群崩溃等因素，是否导致蜂蜜的供应逐年减少，从而价格上涨？
 
@@ -98,7 +98,7 @@ qplot(honey$year,honey$priceperlb, geom='smooth', span =0.5, xlab = "year",ylab 
 ```
 答案：是的，除了2003年左右的一些例外：
 
-![line chart 1](../../../../../translated_images/zh-CN/line1.299b576fbb2a59e6.webp)
+![line chart 1](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/line1.299b576fbb2a59e6.webp)
 
 问题：那么在2003年，我们是否也能看到蜂蜜供应的激增？如果你查看逐年的总产量呢？
 
@@ -106,7 +106,7 @@ qplot(honey$year,honey$priceperlb, geom='smooth', span =0.5, xlab = "year",ylab 
 qplot(honey$year,honey$totalprod, geom='smooth', span =0.5, xlab = "year",ylab = "totalprod")
 ```
 
-![line chart 2](../../../../../translated_images/zh-CN/line2.3b18fcda7176ceba.webp)
+![line chart 2](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/line2.3b18fcda7176ceba.webp)
 
 答案：并不明显。如果你查看总产量，实际上在那一年似乎有所增加，尽管总体而言蜂蜜的产量在这些年间是下降的。
 
@@ -126,7 +126,7 @@ ggplot(honey, aes(x=yieldpercol, y = numcol,group = 1)) +
 ```
 在这个可视化中，你可以比较逐年蜂群产量和蜂群数量，并将列数设置为3：
 
-![facet grid](../../../../../translated_images/zh-CN/facet.491ad90d61c2a7cc.webp)
+![facet grid](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/facet.491ad90d61c2a7cc.webp)
 
 对于这个数据集，逐年和各州之间，蜂群数量和产量并没有特别突出的变化。是否有其他方法可以发现这两个变量之间的相关性？
 
@@ -143,7 +143,7 @@ plot(honey$year, honey$yieldpercol, pch = 17, col = 3,
 axis(side = 4, at = pretty(range(y2)))      
 mtext("colony yield", side = 4, line = 3)   
 ```
-![superimposed plots](../../../../../translated_images/zh-CN/dual-line.fc4665f360a54018.webp)
+![superimposed plots](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/dual-line.fc4665f360a54018.webp)
 
 虽然2003年没有明显的异常，但这让我们可以以一个稍微乐观的结论结束这节课：尽管蜂群数量总体上在下降，但蜂群数量正在趋于稳定，尽管每群产量在减少。
 
@@ -162,7 +162,7 @@ mtext("colony yield", side = 4, line = 3)
 
 ## 作业
 
-[深入蜂巢](assignment.md)
+[深入蜂巢](../../12-visualization-relationships/assignment.md)
 
 **免责声明**：  
 本文档使用AI翻译服务[Co-op Translator](https://github.com/Azure/co-op-translator)进行翻译。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应以原始语言的文档作为权威来源。对于关键信息，建议使用专业人工翻译。对于因使用本翻译而引起的任何误解或误读，我们概不负责。

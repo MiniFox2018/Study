@@ -38,25 +38,25 @@
 
 即使数据科学家谨慎选择了适合数据的正确图表类型，数据仍然可能以某种方式被展示以证明某种观点，通常会以牺牲数据本身为代价。有许多误导性图表和信息图的例子！
 
-[![Alberto Cairo 的《How Charts Lie》](../../../../3-Data-Visualization/13-meaningful-visualizations/images/tornado.png)](https://www.youtube.com/watch?v=oX74Nge8Wkw "How charts lie")
+[![Alberto Cairo 的《How Charts Lie》](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/13-meaningful-visualizations/images/tornado.png)](https://www.youtube.com/watch?v=oX74Nge8Wkw "How charts lie")
 
 > 🎥 点击上方图片观看关于误导性图表的会议演讲
 
 这个图表颠倒了 X 轴，以日期为基础展示了与事实相反的内容：
 
-![bad chart 1](../../../../3-Data-Visualization/13-meaningful-visualizations/images/bad-chart-1.png)
+![bad chart 1](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/13-meaningful-visualizations/images/bad-chart-1.png)
 
 [这个图表](https://media.firstcoastnews.com/assets/WTLV/images/170ae16f-4643-438f-b689-50d66ca6a8d8/170ae16f-4643-438f-b689-50d66ca6a8d8_1140x641.jpg)更加误导，因为视觉上吸引人们得出结论认为随着时间推移，各县的 COVID 病例数量有所下降。实际上，如果仔细查看日期，你会发现日期被重新排列以制造这种误导性的下降趋势。
 
-![bad chart 2](../../../../3-Data-Visualization/13-meaningful-visualizations/images/bad-chart-2.jpg)
+![bad chart 2](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/13-meaningful-visualizations/images/bad-chart-2.jpg)
 
 这个臭名昭著的例子使用颜色和颠倒的 Y 轴来误导：本应得出枪支死亡人数在通过支持枪支的立法后激增的结论，实际上视觉上却让人误以为情况正好相反：
 
-![bad chart 3](../../../../3-Data-Visualization/13-meaningful-visualizations/images/bad-chart-3.jpg)
+![bad chart 3](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/13-meaningful-visualizations/images/bad-chart-3.jpg)
 
 这个奇怪的图表展示了比例如何被操纵，效果令人捧腹：
 
-![bad chart 4](../../../../3-Data-Visualization/13-meaningful-visualizations/images/bad-chart-4.jpg)
+![bad chart 4](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/13-meaningful-visualizations/images/bad-chart-4.jpg)
 
 比较不可比的事物是另一种不正当的手段。有一个[精彩的网站](https://tylervigen.com/spurious-correlations)专门展示“虚假的相关性”，例如缅因州的离婚率与人造黄油的消费量之间的“事实”相关性。Reddit 上也有一个小组收集了[数据的丑陋用法](https://www.reddit.com/r/dataisugly/top/?t=all)。
 
@@ -91,13 +91,13 @@
 
 如果你的数据在 X 轴上是文本且较长，可以将文本倾斜以提高可读性。[Matplotlib](https://matplotlib.org/stable/tutorials/toolkits/mplot3d.html) 提供了 3D 绘图功能，如果你的数据支持它。可以使用 `mpl_toolkits.mplot3d` 生成复杂的数据可视化。
 
-![3d plots](../../../../3-Data-Visualization/13-meaningful-visualizations/images/3d.png)
+![3d plots](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/13-meaningful-visualizations/images/3d.png)
 
 ## 动画和3D图表展示
 
 如今一些最佳的数据可视化是动画化的。Shirley Wu 使用 D3 制作了令人惊叹的作品，例如“[电影之花](http://bl.ocks.org/sxywu/raw/d612c6c653fb8b4d7ff3d422be164a5d/)”，其中每朵花都是一部电影的可视化。另一个为《卫报》制作的例子是“Bussed Out”，一个结合 Greensock 和 D3 的交互式体验，外加滚动叙事文章格式，展示纽约市如何通过将人们送出城市来处理无家可归问题。
 
-![busing](../../../../3-Data-Visualization/13-meaningful-visualizations/images/busing.png)
+![busing](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/13-meaningful-visualizations/images/busing.png)
 
 > “Bussed Out: How America Moves its Homeless” 来自 [卫报](https://www.theguardian.com/us-news/ng-interactive/2017/dec/20/bussed-out-america-moves-homeless-people-country-study)。可视化由 Nadieh Bremer 和 Shirley Wu 制作
 
@@ -107,7 +107,7 @@
 
 你将完成一个网络应用程序，展示这个社交网络的动画视图。它使用一个库来创建[网络可视化](https://github.com/emiliorizzo/vue-d3-network)，基于 Vue.js 和 D3。当应用程序运行时，你可以在屏幕上拖动节点以重新排列数据。
 
-![liaisons](../../../../3-Data-Visualization/13-meaningful-visualizations/images/liaisons.png)
+![liaisons](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/13-meaningful-visualizations/images/liaisons.png)
 
 ## 项目：使用 D3.js 构建一个网络图表
 

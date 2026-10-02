@@ -94,7 +94,7 @@ python run_experiment_9_6.py \
 
 ### 已有运行记录与结果
 
-真实运行的原始请求、原始响应、响应 ID、Token、延迟、请求/响应哈希和不含凭据的后端元数据保存在 `validation/<run>/evidence.json`；`validation/latest.json` 指向最近一次完整证据。当前仓库内的 [OpenRouter/GPT-5.6-sol 沙箱规范运行](validation/real_20260802T043954Z/evidence.json)使用 839 输入 Token、392 输出 Token、1,231 总 Token，供应商报告成本为 0.015955 美元；确定性提案与真实 LLM 提案均为 `release_to_canary`，且包含 `sandbox_execution` 在内的全部门槛通过。
+真实运行的原始请求、原始响应、响应 ID、Token、延迟、请求/响应哈希和不含凭据的后端元数据保存在 `validation/<run>/evidence.json`；`validation/latest.json` 指向最近一次完整证据。当前仓库内的 [OpenRouter/GPT-5.6-sol 沙箱规范运行](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter9/self-modifying-agent/validation/real_20260802T043954Z/evidence.json)使用 839 输入 Token、392 输出 Token、1,231 总 Token，供应商报告成本为 0.015955 美元；确定性提案与真实 LLM 提案均为 `release_to_canary`，且包含 `sandbox_execution` 在内的全部门槛通过。
 
 故障调用均值从基线 3.5 降为 1，临时故障恢复率保持 1.0，旧任务回归数为 0；负对照按预期被拒绝。
 

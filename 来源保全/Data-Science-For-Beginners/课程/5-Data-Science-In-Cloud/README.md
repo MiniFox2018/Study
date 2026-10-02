@@ -1,12 +1,12 @@
 # 云中的数据科学
 
-![cloud-picture](../../../translated_images/zh-CN/cloud-picture.f5526de3c6c6387b.webp)
+![cloud-picture](../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/cloud-picture.f5526de3c6c6387b.webp)
 
 > 图片由 [Jelleke Vanooteghem](https://unsplash.com/@ilumire) 提供，来自 [Unsplash](https://unsplash.com/s/photos/cloud?orientation=landscape)
 
 在处理大数据的数据科学时，云计算可以带来革命性的变化。在接下来的三节课中，我们将了解什么是云，以及为什么它非常有用。我们还将探索一个心力衰竭数据集，并构建一个模型来帮助评估某人发生心力衰竭的可能性。我们将利用云的强大功能，通过两种不同的方式来训练、部署和使用模型。一种方式是仅使用用户界面，以低代码/无代码的方式进行；另一种方式是使用 Azure Machine Learning 软件开发工具包 (Azure ML SDK)。
 
-![project-schema](../../../translated_images/zh-CN/project-schema.420e56d495624541.webp)
+![project-schema](../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/project-schema.420e56d495624541.webp)
 
 ### 主题
 

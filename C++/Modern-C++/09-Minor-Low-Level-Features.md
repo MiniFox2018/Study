@@ -1,4 +1,4 @@
-# 09 · Minor and Low-Level Features
+# 09 · 低层特性与对象表示
 
 ## 1. long long
 
@@ -13,7 +13,7 @@ std::int64_t x;
 std::uint64_t y;
 ```
 
-而不是假设某个平台的 long 或 long long 具体大小。
+而不是假设某个平台的 long 或 long long 具体大小。精确位宽类型只在实现支持相应类型时提供；例如 `int64_t` 不是对所有可能平台的无条件保证。
 
 ## 2. noexcept
 
@@ -95,7 +95,7 @@ constexpr long double operator"" _km(long double x) {
 auto distance = 2.5_km;
 ```
 
-可用于构建类型安全的：
+可以作为单位接口入口，但本例仍返回 `long double`，本身不会阻止米和秒混用；真正的单位类型安全需要返回不同的包装类型。常见用途：
 
 - 单位系统；
 - 时间；
@@ -163,7 +163,8 @@ auto bits = *reinterpret_cast<std::uint32_t*>(&f);
 传统标准中，如果需要读取对象 representation，可使用 memcpy：
 
 ```cpp
-std::uint32_t bits;
+static_assert(sizeof(float) == sizeof(std::uint32_t));
+std::uint32_t bits{};
 std::memcpy(&bits, &f, sizeof(bits));
 ```
 
@@ -210,3 +211,23 @@ auto bits = std::bit_cast<std::uint32_t>(f);
 
 ## 来源
 Modern C++ Tutorial — Chapter 09
+
+## 小实验：数值转换与表示转换
+
+```cpp
+#include <bit>
+#include <cstdint>
+#include <iostream>
+#include <limits>
+int main() {
+    static_assert(sizeof(float) == sizeof(std::uint32_t));
+    static_assert(std::numeric_limits<float>::is_iec559);
+    const float value = 1.0f;
+    std::cout << static_cast<std::uint32_t>(value) << '\n';
+    std::cout << std::hex << std::bit_cast<std::uint32_t>(value) << '\n';
+}
+```
+
+在这里约束的常见 IEEE 754 binary32 平台上，C++20 输出 `1` 与 `3f800000`。`static_cast` 转数值，`bit_cast` 复制表示。一般情况下还必须确保目标位模式表示合法值；bit_cast 不等于“任意位都能变成可用对象”。
+
+自测：`alignas(64)` 是否证明避免了所有 false sharing？答：不能，它只要求对齐；缓存行尺寸、对象布局和相邻对象分配仍须实测。

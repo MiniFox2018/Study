@@ -1,4 +1,4 @@
-# 05 · Pointers
+# 05 · 指针、引用与所有权
 
 ## 指针基础
 指针保存对象地址。常用操作：`&obj` 取地址、`*ptr` 解引用、`nullptr` 表示空指针。解引用空指针、悬空指针或非法地址属于未定义行为。
@@ -32,6 +32,25 @@ int* p = &value;
 
 ## 安全重点
 避免野指针、悬空指针、double delete、数组越界、所有权不明确和 shared_ptr 循环引用。
+
+## 小实验：观察者不拥有资源
+
+```cpp
+#include <iostream>
+#include <memory>
+int main() {
+    auto owner = std::make_unique<int>(42);
+    int* observer = owner.get();
+    *observer += 1;
+    std::cout << *owner << '\n';
+    owner.reset();
+    observer = nullptr; // 已无有效对象，后续不再解引用
+}
+```
+
+输出 `43`。`get()` 返回观察指针，没有转移所有权；不能对 `observer` 调用 `delete`。`reset()` 后旧地址成为悬空指针，即使地址数值没有变化，也不能使用。
+
+自测：数组尾后指针能做什么？答：可作迭代终点、在合法范围内参与运算，不能解引用。检查非空也不能证明指针未悬空。
 
 ## 参考
 https://www.compilenrun.com/docs/language/cpp/cpp-pointers/

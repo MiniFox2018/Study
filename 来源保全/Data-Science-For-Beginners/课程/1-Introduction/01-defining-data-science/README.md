@@ -6,7 +6,7 @@
 
 ---
 
-[![数据科学定义视频](../../../../translated_images/zh-CN/video-def-ds.6623ee2392ef1abf.webp)](https://youtu.be/beZ7Mb_oz9I)
+[![数据科学定义视频](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/video-def-ds.6623ee2392ef1abf.webp)](https://youtu.be/beZ7Mb_oz9I)
 
 ## [课前测验](https://ff-quizzes.netlify.app/en/ds/quiz/0)
 
@@ -144,9 +144,9 @@
 
 在这个挑战中，我们将尝试通过分析文本来找到与数据科学领域相关的概念。我们将选取一篇关于数据科学的维基百科文章，下载并处理文本，然后构建一个像这样的词云：
 
-![数据科学词云](../../../../translated_images/zh-CN/ds_wordcloud.664a7c07dca57de0.webp)
+![数据科学词云](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/ds_wordcloud.664a7c07dca57de0.webp)
 
-访问 [`notebook.ipynb`](../../../../1-Introduction/01-defining-data-science/notebook.ipynb ':ignore') 阅读代码。你也可以运行代码，实时查看它如何执行所有数据转换。
+访问 [`notebook.ipynb`](./notebook.ipynb ':ignore') 阅读代码。你也可以运行代码，实时查看它如何执行所有数据转换。
 
 > 如果你不知道如何在 Jupyter Notebook 中运行代码，可以查看 [这篇文章](https://soshnikov.com/education/how-to-execute-notebooks-from-github/)。
 

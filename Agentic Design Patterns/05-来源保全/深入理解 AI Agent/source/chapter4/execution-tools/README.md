@@ -51,7 +51,7 @@ Agent 生成一条命令，并不代表命令已经成功执行。本实验围�
 
 ### 示例
 
-更完整的用法见 `examples.py`。另见 [`EXPERIMENT.md`](EXPERIMENT.md) 中的实验说明。
+更完整的用法见 `examples.py`。另见 [`EXPERIMENT.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter4/execution-tools/EXPERIMENT.md) 中的实验说明。
 
 ---
 

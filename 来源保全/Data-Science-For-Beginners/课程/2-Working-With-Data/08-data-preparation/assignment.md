@@ -1,8 +1,8 @@
 # 评估表单数据
 
-一位客户正在测试一个[小型表单](../../../../2-Working-With-Data/08-data-preparation/index.html)，以收集有关其客户群的一些基本数据。他们将测试结果带给你，希望你验证他们收集的数据。你可以在浏览器中打开 `index.html` 页面查看表单。
+一位客户正在测试一个[小型表单](https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/08-data-preparation/index.html)，以收集有关其客户群的一些基本数据。他们将测试结果带给你，希望你验证他们收集的数据。你可以在浏览器中打开 `index.html` 页面查看表单。
 
-你已获得一个[包含表单记录的 CSV 数据集](../../../../data/form.csv)，其中包括表单的条目以及一些基本的可视化图表。客户指出其中一些可视化图表看起来不正确，但他们不确定如何解决这些问题。你可以在[任务笔记本](../../../../2-Working-With-Data/08-data-preparation/assignment.ipynb)中进行探索。
+你已获得一个[包含表单记录的 CSV 数据集](../../../data/form.csv)，其中包括表单的条目以及一些基本的可视化图表。客户指出其中一些可视化图表看起来不正确，但他们不确定如何解决这些问题。你可以在[任务笔记本](https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/08-data-preparation/assignment.ipynb)中进行探索。
 
 ## 指导
 

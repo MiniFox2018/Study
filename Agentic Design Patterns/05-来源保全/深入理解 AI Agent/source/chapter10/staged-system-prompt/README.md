@@ -33,7 +33,7 @@
 
 #### 正式真实 API 结果
 
-严格 Kimi K3 campaign 已完整通过：[v3 manifest](runs/staged-system-prompt-kimi-k3-20260730-v3/manifest.json)
+严格 Kimi K3 campaign 已完整通过：[v3 manifest](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/staged-system-prompt/runs/staged-system-prompt-kimi-k3-20260730-v3/manifest.json)
 保留 30 次真实 Moonshot 调用、三个角色、完整的“需求 → 实现 → 审查 → 回退实现 →
 再次审查 → 批准”转换链，以及一次受控源码 lint 缺陷的真实拒绝和修复。
 
@@ -292,7 +292,7 @@ This experiment uses a single "Coding Agent" to chain together three phases:
 
 ## Canonical real-provider result
 
-The strict Kimi K3 campaign is complete: [the v3 manifest](runs/staged-system-prompt-kimi-k3-20260730-v3/manifest.json)
+The strict Kimi K3 campaign is complete: [the v3 manifest](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/staged-system-prompt/runs/staged-system-prompt-kimi-k3-20260730-v3/manifest.json)
 records 30 real Moonshot calls, all three roles, the exact transition sequence
 requirements → implementation → review → implementation → review → approval,
 one controlled source-level lint defect, its real rejection and repair, clean final

@@ -1,4 +1,4 @@
-# 11 · Templates
+# 11 · 模板与泛型
 
 ## 函数模板
 模板让算法脱离具体类型，编译器在实际使用时实例化。
@@ -35,6 +35,25 @@ T maxValue(const T& a, const T& b) {
 
 ## 定义位置
 模板定义通常必须在实例化点可见，因此常放在头文件中；显式实例化可作为另一种组织方式。
+
+## 小实验：模板实例化与类型边界
+
+```cpp
+#include <iostream>
+#include <string>
+template<class T>
+T max_value(const T& a, const T& b) {
+    return a < b ? b : a;
+}
+int main() {
+    std::cout << max_value(2, 5) << '\n';
+    std::cout << max_value(std::string("apple"), std::string("pear")) << '\n';
+}
+```
+
+输出 `5` 与 `pear`。这要求 `T` 可比较、可构造返回值；`std::string` 使用字典序，而不是字符串长度。
+
+自测：`max_value(2, 3.5)` 为什么不能直接调用？答：同一个 `T` 同时被推导成 `int` 和 `double`，推导冲突。可明确选择共同类型，例如 `max_value<double>(2, 3.5)`，同时接受转换的语义。
 
 ## 参考
 https://www.compilenrun.com/docs/language/cpp/cpp-templates/

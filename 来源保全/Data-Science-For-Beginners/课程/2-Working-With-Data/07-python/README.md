@@ -4,7 +4,7 @@
 | :-------------------------------------------------------------------------------------------------------: |
 |                     使用 Python - _由 [@nitya](https://twitter.com/nitya) 制作的速写笔记_                    |
 
-[![介绍视频](../../../../translated_images/zh-CN/video-ds-python.245247dc811db8e4.webp)](https://youtu.be/dZjWOGbsN4Y)
+[![介绍视频](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/video-ds-python.245247dc811db8e4.webp)](https://youtu.be/dZjWOGbsN4Y)
 
 虽然数据库提供了非常高效的存储数据和使用查询语言查询数据的方式，但数据处理最灵活的方式是编写自己的程序来操作数据。在许多情况下，执行数据库查询会更有效。然而，有些情况需要更复杂的数据处理，使用 SQL 很难实现。  
 数据处理可以用任何编程语言来编写，不过有些语言在处理数据方面有更高级的表现。数据科学家通常偏好以下几种语言：
@@ -66,7 +66,7 @@ print(f"Length of index is {len(idx)}")
 items_sold = pd.Series(np.random.randint(25,50,size=len(idx)),index=idx)
 items_sold.plot()
 ```
-![时间序列图](../../../../translated_images/zh-CN/timeseries-1.80de678ab1cf727e.webp)
+![时间序列图](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/timeseries-1.80de678ab1cf727e.webp)
 
 假设每周我们为朋友举办派对，额外准备 10 包冰淇淋。可以创建另一个以周为索引的序列表示：
 ```python
@@ -77,7 +77,7 @@ additional_items = pd.Series(10,index=pd.date_range(start_date,end_date,freq="W"
 total_items = items_sold.add(additional_items,fill_value=0)
 total_items.plot()
 ```
-![时间序列图](../../../../translated_images/zh-CN/timeseries-2.aae51d575c55181c.webp)
+![时间序列图](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/timeseries-2.aae51d575c55181c.webp)
 
 > <strong>注意</strong>，这里没有使用简单写法 `total_items+additional_items`。若用简单写法，会得到很多 `NaN`（非数字）值。因为 `additional_items` 序列在某些索引处缺失值，而任何数加 `NaN` 仍为 `NaN`。所以相加时要指定 `fill_value` 参数。
 
@@ -86,7 +86,7 @@ total_items.plot()
 monthly = total_items.resample("1M").mean()
 ax = monthly.plot(kind='bar')
 ```
-![月度时间序列平均值](../../../../translated_images/zh-CN/timeseries-3.f3147cbc8c624881.webp)
+![月度时间序列平均值](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/timeseries-3.f3147cbc8c624881.webp)
 
 ### 数据框（DataFrame）
 
@@ -215,7 +215,7 @@ df = pd.read_csv('file.csv')
 
 由于我们想展示如何处理数据，邀请你打开[`notebook-covidspread.ipynb`](notebook-covidspread.ipynb)从头到尾阅读。你也可以执行代码单元，并完成我们在最后留下的挑战。
 
-![COVID传播](../../../../translated_images/zh-CN/covidspread.f3d131c4f1d260ab.webp)
+![COVID传播](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/covidspread.f3d131c4f1d260ab.webp)
 
 > 如果你不知道如何在Jupyter Notebook中运行代码，请查看[这篇文章](https://soshnikov.com/education/how-to-execute-notebooks-from-github/)。
 
@@ -237,7 +237,7 @@ df = pd.read_csv('file.csv')
 
 打开[`notebook-papers.ipynb`](notebook-papers.ipynb)从头到尾阅读。你也可以执行代码单元，并完成我们在最后留下的挑战。
 
-![COVID医疗治疗](../../../../translated_images/zh-CN/covidtreat.b2ba59f57ca45fbc.webp)
+![COVID医疗治疗](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/covidtreat.b2ba59f57ca45fbc.webp)
 
 ## 处理图像数据
 
