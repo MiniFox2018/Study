@@ -688,7 +688,7 @@ python run_experiment.py \
   --output runs/exp2-1-qwen3-0.6b-$(date +%Y%m%d-%H%M%S)
 ```
 
-The frozen design is [experiment_protocol.json](experiment_protocol.json).
+The frozen design is [experiment_protocol.json](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter2/local_llm_serving/experiment_protocol.json).
 `manifest.json` is the completion receipt and `evidence.json` is the raw
 auditable record. Local inference costs $0 in API fees; the report does not
 generalize the measured throughput to other hardware.

@@ -1,6 +1,6 @@
 # 数据科学生命周期
 
-![communication](../../../translated_images/zh-CN/communication.06d8e2a88d30d168.webp)
+![communication](../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/communication.06d8e2a88d30d168.webp)
 > 图片由 <a href="https://unsplash.com/@headwayio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Headway</a> 提供，来自 <a href="https://unsplash.com/s/photos/communication?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 在这些课程中，您将探索数据科学生命周期的一些方面，包括数据的分析和沟通。

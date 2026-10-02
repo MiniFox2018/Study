@@ -88,7 +88,7 @@ python summarize.py validation/runs/exp6-14-20260905-formal \
   --out validation/summary.json
 ```
 
-第一条核对 manifest 中列出的 SHA-256，并从原始事件重新计算每项验收，与保存的判定逐项比较。第二条运行 10 项验收测试：以真实预实验轨迹为基础，故意制造仅 accepted 而没有续接、错误 call ID、重复提交、虚构回执、遗漏预算更新、错误模型、余额不足冒充能力拒绝、使用旧 parent、缺少重叠输出等情况，确认它们不会被误判成功。第三条重新生成[结构化汇总](validation/summary.json)，并额外检查 steering 是否确实发生在可观察的 reasoning 项开始与完成之间。
+第一条核对 manifest 中列出的 SHA-256，并从原始事件重新计算每项验收，与保存的判定逐项比较。第二条运行 10 项验收测试：以真实预实验轨迹为基础，故意制造仅 accepted 而没有续接、错误 call ID、重复提交、虚构回执、遗漏预算更新、错误模型、余额不足冒充能力拒绝、使用旧 parent、缺少重叠输出等情况，确认它们不会被误判成功。第三条重新生成[结构化汇总](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/validation/summary.json)，并额外检查 steering 是否确实发生在可观察的 reasoning 项开始与完成之间。
 
 <a id="learning-3"></a>
 
@@ -98,7 +98,7 @@ python summarize.py validation/runs/exp6-14-20260905-formal \
 
 ### 正式实测结果
 
-正式运行：[exp6-14-20260905-formal](validation/runs/exp6-14-20260905-formal/manifest.json)，UTC 2026-09-05 14:17:03–14:19:30。实际返回模型为 `gpt-6-astra` 和 `gpt-5.6-sol`，没有替换模型或使用代理网关。
+正式运行：[exp6-14-20260905-formal](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/validation/runs/exp6-14-20260905-formal/manifest.json)，UTC 2026-09-05 14:17:03–14:19:30。实际返回模型为 `gpt-6-astra` 和 `gpt-5.6-sol`，没有替换模型或使用代理网关。
 
 | 组别 | 验收通过 | 关键观测 | 端到端耗时中位数 |
 | --- | ---: | --- | ---: |
@@ -116,7 +116,7 @@ python summarize.py validation/runs/exp6-14-20260905-formal \
 
 ### 一次真实时间线
 
-以下对应[第一次工具挂起时 steering 的完整事件](validation/runs/exp6-14-20260905-formal/01-async_steer/events.jsonl)。表中将三个实际 response ID 缩写为 R1/R2/R3，秒数从该实验单元的客户端启动时刻起算。
+以下对应[第一次工具挂起时 steering 的完整事件](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/validation/runs/exp6-14-20260905-formal/01-async_steer/events.jsonl)。表中将三个实际 response ID 缩写为 R1/R2/R3，秒数从该实验单元的客户端启动时刻起算。
 
 | 秒 | 事件 | 含义 |
 | ---: | --- | --- |
@@ -131,7 +131,7 @@ python summarize.py validation/runs/exp6-14-20260905-formal \
 | 11.196 | `response.created`：R3 | 接收工具数据并接续任务 |
 | 12.575 | R3 `response.completed` | 同时满足新预算、新人数与真实回执，选 B |
 
-另见[第一次 reasoning 期间 steering 的事件](validation/runs/exp6-14-20260905-formal/01-steer_reasoning/events.jsonl)：reasoning 项在 2.190 秒开始，随后发送更新，3.824 秒收到 `incomplete(reason=steered)`，3.950 秒自动创建后继 response，7.763 秒完成最终答案。
+另见[第一次 reasoning 期间 steering 的事件](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/validation/runs/exp6-14-20260905-formal/01-steer_reasoning/events.jsonl)：reasoning 项在 2.190 秒开始，随后发送更新，3.824 秒收到 `incomplete(reason=steered)`，3.950 秒自动创建后继 response，7.763 秒完成最终答案。
 
 ### 检查自己的解释
 
@@ -153,12 +153,12 @@ python summarize.py validation/runs/exp6-14-20260905-formal \
 
 ### 文件与运行来源
 
-- [experiment.py](experiment.py)：实验控制、真实 API 调用、逐事件保存、自动验收和离线重判。
-- [test_judging.py](test_judging.py)：基于真实预实验的 10 项反例测试。
-- [summarize.py](summarize.py)：校验原始记录后生成汇总和 reasoning 时间窗审计。
-- [validation/summary.json](validation/summary.json)：正式 15 次运行的派生汇总，记录原始 manifest 与汇总脚本哈希。
-- [正式 manifest](validation/runs/exp6-14-20260905-formal/manifest.json)：逐次结果、环境版本和证据哈希。每个单元保存 `events.jsonl` 与 `acceptance.json`；`source/` 保存当次实验脚本、测试脚本和依赖版本。
-- [第一次预实验](validation/runs/pilot-20260905-v1/manifest.json)：保留余额不足与一次连接失败，全部未通过，不计入正式结果。
-- [余额恢复后的预实验](validation/runs/pilot-20260905-v2/manifest.json)：五组各一次通过，用作验收反例测试的原始轨迹，不混入正式统计。
+- [experiment.py](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/experiment.py)：实验控制、真实 API 调用、逐事件保存、自动验收和离线重判。
+- [test_judging.py](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/test_judging.py)：基于真实预实验的 10 项反例测试。
+- [summarize.py](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/summarize.py)：校验原始记录后生成汇总和 reasoning 时间窗审计。
+- [validation/summary.json](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/validation/summary.json)：正式 15 次运行的派生汇总，记录原始 manifest 与汇总脚本哈希。
+- [正式 manifest](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/validation/runs/exp6-14-20260905-formal/manifest.json)：逐次结果、环境版本和证据哈希。每个单元保存 `events.jsonl` 与 `acceptance.json`；`source/` 保存当次实验脚本、测试脚本和依赖版本。
+- [第一次预实验](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/validation/runs/pilot-20260905-v1/manifest.json)：保留余额不足与一次连接失败，全部未通过，不计入正式结果。
+- [余额恢复后的预实验](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/astra-async-steering/validation/runs/pilot-20260905-v2/manifest.json)：五组各一次通过，用作验收反例测试的原始轨迹，不混入正式统计。
 
 预实验使用当时版本的判据；要逐项重判旧回执，使用其 `source/experiment.py --replay <运行目录>`，以免把后续增加的检查误作原始验收。正式运行与当前主脚本的判据相同。

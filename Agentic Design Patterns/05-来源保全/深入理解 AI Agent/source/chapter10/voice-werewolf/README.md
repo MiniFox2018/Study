@@ -198,14 +198,14 @@ pytest -q
 
 ## Real validation results (2026-08-01 through 2026-08-03)
 
-The retained [`validation/runs/`](validation/runs/) evidence contains four formal eight-seat games and an independent validation file for each. The independent validator supersedes the run's embedded status when it finds a boundary defect. Credential scans over reports, validations, and logs found zero hits.
+The retained [`validation/runs/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/voice-werewolf/validation/runs) evidence contains four formal eight-seat games and an independent validation file for each. The independent validator supersedes the run's embedded status when it finds a boundary defect. Credential scans over reports, validations, and logs found zero hits.
 
 - `exp10-6-simulated-user-openrouter-20260801`: the embedded report claimed action agreement and all four strategy criteria passed, but strict revalidation correctly rejects its abstention because ASR returned `P1 is not`, not an explicit abstention.
 - `...-v2`: the unaffected formal E2E result. It completed three full cycles with two user tool/audio/ASR actions, unique response IDs and nonzero audio-token receipts, information isolation, and a rule-based winner. The independent strategy judge failed Villager reasoning because the simulated Villager voted out the uncontested Seer.
 - `...-v3`: used `anthropic/claude-sonnet-4` for the user and retained four tool/audio/ASR actions. Strict revalidation rejects two ambiguous abstentions, and the strategy judge also caught a Werewolf fabricating a public event.
 
 The completed 2026-08-03 campaign is
-[`exp10-6-simulated-user-openrouter-20260803-v11`](validation/runs/exp10-6-simulated-user-openrouter-20260803-v11/acceptance_report.json).
+[`exp10-6-simulated-user-openrouter-20260803-v11`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/voice-werewolf/validation/runs/exp10-6-simulated-user-openrouter-20260803-v11/acceptance_report.json).
 In one seed-2 game it completed three night/day/vote cycles, preserved information
 isolation, reached a rule-determined good-faction win, and passed all four strategy
 criteria. The randomized P1 Villager performed six real LLM tool calls, six matching
@@ -213,7 +213,7 @@ speech/ASR round trips, and three public votes across the full game. The report 
 13 unique response IDs across simulator, ASR, and strategy-judge calls; 1,650 input
 audio tokens; 27 positive-byte TTS events; action history; provider-reported models;
 usage; audio hashes; and judge-attempt provenance. The
-[`independent validation`](validation/runs/exp10-6-simulated-user-openrouter-20260803-v11/independent_validation.json)
+[`independent validation`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/voice-werewolf/validation/runs/exp10-6-simulated-user-openrouter-20260803-v11/independent_validation.json)
 rechecked all six tool/audio/action boundaries against report SHA-256
 `655b4eed74ad4f4d741dc89f97c86a68c547e4f82d1dea9fea71449dfef797e9`.
 

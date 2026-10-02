@@ -1,4 +1,4 @@
-# 07 · Parallelism, Concurrency and Memory Model
+# 07 · 并发、同步与内存模型
 
 ## 1. C++11 标准化并发
 
@@ -79,8 +79,8 @@ std::packaged_task<int()> task([] {
 });
 
 auto result = task.get_future();
-std::thread(std::move(task)).detach();
-
+std::thread worker(std::move(task));
+worker.join();  // 即使 result.get() 重抛任务异常，线程也已经回收
 int value = result.get();
 ```
 
@@ -124,8 +124,9 @@ volatile bool ready;
 
 两个线程访问同一内存位置：
 
-- 至少一个为写；
-- 没有建立正确同步；
+- 至少一个为写（或相关对象生命周期开始/结束）；
+- 至少一个访问非原子；
+- 两者之间没有 happens-before 顺序；
 
 则形成 data race，程序行为未定义。
 
@@ -176,7 +177,7 @@ weak 版本允许 spurious failure，因此通常用于循环：
 
 ```cpp
 while (!value.compare_exchange_weak(expected, desired)) {
-    // retry
+    desired = expected + 1; // 若目标是递增，失败后应据更新后的 expected 重算
 }
 ```
 
@@ -235,7 +236,7 @@ assert(data == 42);
 
 Sequentially Consistent 是默认 memory order。
 
-它提供最强、最容易理解的全局顺序模型，但某些架构上可能带来更高同步成本。
+它为所有 seq_cst 操作提供一个符合标准约束的单一全序；不能由此推断程序里每个非原子操作都自动线程安全，也不保证调度公平。某些架构上它可能带来更高同步成本。
 
 优化 memory order 前应先证明正确性，并通过基准确认收益。
 
@@ -272,3 +273,28 @@ Sequentially Consistent 是默认 memory order。
 
 ## 来源
 Modern C++ Tutorial — Chapter 07
+
+## 小实验：发布数据必须同时发布顺序
+
+```cpp
+#include <atomic>
+#include <cassert>
+#include <iostream>
+#include <thread>
+int main() {
+    int data = 0;
+    std::atomic<bool> ready{false};
+    std::thread producer([&] {
+        data = 42;
+        ready.store(true, std::memory_order_release);
+    });
+    while (!ready.load(std::memory_order_acquire)) std::this_thread::yield();
+    assert(data == 42);
+    producer.join();
+    std::cout << data << '\n';
+}
+```
+
+C++17、`-pthread`，输出 `42`。只有当 acquire 读到这次 release 发布的 true，才能依靠它使此前普通变量写入对读取者可见。这里没有其他线程在发布后继续写 data；若改成反复发布/消费，需要额外协议。忙等只是语义演示，普通等待优先 mutex + 带谓词的条件变量。
+
+自测：把 ready 的两次操作改成 relaxed，仍会同步 data 吗？答：不会，ready 的原子性不能给普通 data 建立所需 happens-before，可能构成数据竞争。即使万次运行都“正常”，也不能证明合法。

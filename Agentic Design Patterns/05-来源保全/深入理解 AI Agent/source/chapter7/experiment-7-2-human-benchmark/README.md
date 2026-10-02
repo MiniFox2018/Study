@@ -73,7 +73,7 @@ The final result is **13/18 passed (72.2%)**. All 18 selected cases reached one 
 
 ## Methodology
 
-Task selection was locked before solving and before inspecting gold answers or reference patches. The preregistration is [`selection_manifest.json`](selection_manifest.json), committed separately before execution. Its SHA-256 is `0fa3f6f890e69c0e51db6ea50d46186af999c5ad0a24284055bbebd667fa15b7`.
+Task selection was locked before solving and before inspecting gold answers or reference patches. The preregistration is [`selection_manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/experiment-7-2-human-benchmark/selection_manifest.json), committed separately before execution. Its SHA-256 is `0fa3f6f890e69c0e51db6ea50d46186af999c5ad0a24284055bbebd667fa15b7`.
 
 The rules for every case were:
 
@@ -85,14 +85,14 @@ The rules for every case were:
 
 GAIA's upstream Levels 1/2/3 supply its difficulty tiers. AndroidWorld and Terminal-Bench use upstream difficulty labels. SWE-bench Verified uses the upstream human-time buckets `<15 min`, `15 min - 1 hour`, and `>4 hours`. τ²-bench uses two, three, and nine composed telecom faults. OSWorld-Verified has no difficulty field, so the preregistered operational proxies are one persistent setting in one application, one structured transformation in one application, and a cross-application artifact transformation.
 
-[`results.json`](results.json) is the machine-readable 18-case index. The files below are the canonical per-step records:
+[`results.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/experiment-7-2-human-benchmark/results.json) is the machine-readable 18-case index. The files below are the canonical per-step records:
 
-- [`runs/gaia/operator_answers.json`](runs/gaia/operator_answers.json)
-- [`runs/androidworld/results.json`](runs/androidworld/results.json)
-- [`runs/swe-bench-verified/results.json`](runs/swe-bench-verified/results.json)
-- [`runs/tau2-bench/results.json`](runs/tau2-bench/results.json)
-- [`runs/terminal-bench/results.json`](runs/terminal-bench/results.json)
-- [`runs/osworld-verified/results.json`](runs/osworld-verified/results.json)
+- [`runs/gaia/operator_answers.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/experiment-7-2-human-benchmark/runs/gaia/operator_answers.json)
+- [`runs/androidworld/results.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/experiment-7-2-human-benchmark/runs/androidworld/results.json)
+- [`runs/swe-bench-verified/results.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/experiment-7-2-human-benchmark/runs/swe-bench-verified/results.json)
+- [`runs/tau2-bench/results.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/experiment-7-2-human-benchmark/runs/tau2-bench/results.json)
+- [`runs/terminal-bench/results.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/experiment-7-2-human-benchmark/runs/terminal-bench/results.json)
+- [`runs/osworld-verified/results.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/experiment-7-2-human-benchmark/runs/osworld-verified/results.json)
 
 The τ² results directory also retains three exact benchmark transcripts, and the OSWorld directory retains the exact submitted `pyautogui` action logs. Large screenshots, benchmark images, containers, and source checkouts are intentionally excluded.
 

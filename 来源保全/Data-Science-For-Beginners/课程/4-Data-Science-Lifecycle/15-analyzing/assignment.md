@@ -8,7 +8,7 @@
 
 ## 指导说明
 
-在此目录中，有一个[笔记本](../../../../4-Data-Science-Lifecycle/15-analyzing/assignment.ipynb)和来自[出租车与豪华轿车委员会](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets)的数据。有关数据的更多信息，请参考[数据字典](https://www1.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf)和[用户指南](https://www1.nyc.gov/assets/tlc/downloads/pdf/trip_record_user_guide.pdf)。
+在此目录中，有一个[笔记本](https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/4-Data-Science-Lifecycle/15-analyzing/assignment.ipynb)和来自[出租车与豪华轿车委员会](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets)的数据。有关数据的更多信息，请参考[数据字典](https://www1.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf)和[用户指南](https://www1.nyc.gov/assets/tlc/downloads/pdf/trip_record_user_guide.pdf)。
 
 使用本课中的一些技术，在笔记本中进行自己的EDA（可以添加单元格），并回答以下问题：
 

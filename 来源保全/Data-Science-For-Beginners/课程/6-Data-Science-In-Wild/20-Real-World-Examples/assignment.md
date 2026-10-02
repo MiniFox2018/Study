@@ -13,7 +13,7 @@ Explorer界面（如下图所示）允许你选择一个数据集（从提供的
  2. 探索数据集[目录](https://planetarycomputer.microsoft.com/catalog)——了解每个数据集的用途。
  3. 使用Explorer——选择一个感兴趣的数据集，选择一个相关的查询和渲染选项。
 
-![行星计算机Explorer](../../../../translated_images/zh-CN/planetary-computer-explorer.c1e95a9b053167d6.webp)
+![行星计算机Explorer](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/planetary-computer-explorer.c1e95a9b053167d6.webp)
 
 `你的任务：`
 现在研究浏览器中渲染的可视化，并回答以下问题：

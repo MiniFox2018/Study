@@ -51,26 +51,64 @@ Compose Project
 
 把运行配置与镜像解耦。敏感值不应硬编码到 compose 文件或镜像。
 
-## 3. 最小结构
+## 3. 可运行结构：数据库与查询服务
+
+前提：Docker daemon 可连接，使用 `docker compose` 插件。在新的空目录中保存为 `compose.yaml`；使用两个容器观察服务名连接，数据库不发布主机端口。这里固定 **PostgreSQL 18 主版本**以明确数据目录，不把标签当作不可变 digest。
 
 ```yaml
+name: study-compose-lab
 services:
-  web:
-    build: .
-    ports:
-      - "8080:8080"
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: study
+      POSTGRES_DB: study
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    secrets:
+      - db_password
+    volumes:
+      - db_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 2s
+      timeout: 3s
+      retries: 15
+      start_period: 10s
+
+  query:
+    image: postgres:18
     depends_on:
       db:
         condition: service_healthy
-
-  db:
-    image: postgres
-    volumes:
-      - db_data:/var/lib/postgresql/data
+    secrets:
+      - db_password
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        export PGPASSWORD="$$(cat /run/secrets/db_password)"
+        exec psql -h db -U study -d study -v ON_ERROR_STOP=1 -c 'SELECT 1 AS ok;'
 
 volumes:
   db_data:
+secrets:
+  db_password:
+    file: ./db-password.txt
 ```
+
+先生成本地练习密码文件（不打印密码），再检查/运行：
+
+```bash
+(umask 077; openssl rand -hex 24 > db-password.txt)
+printf 'db-password.txt\n' > .gitignore
+docker compose config --quiet
+docker compose up -d db
+docker compose run --rm query
+docker compose down
+```
+
+查询预期返回一行 `ok = 1`。`$$` 让变量留到容器 shell 展开；单个 `$` 可能被 Compose 在宿主解析。query 是一次性任务，成功退出才是预期。
+
+密码文件仅用于本地练习，Compose secrets 不等于外部密钥管理系统。初始化变量仅对空数据目录生效；已有卷后重新生成密码文件，不会自动修改数据库里已创建的密码。PostgreSQL 18+ 官方镜像的数据卷挂载点改为 `/var/lib/postgresql`，17 及以下默认路径不同，升级必须按官方迁移步骤，不能只换 tag。
 
 重点不是语法，而是明确了：
 
@@ -108,7 +146,7 @@ Compose 可读取 `.env`，但 `.env` 不是 secret manager。
 ## 6. 端口与 `expose`
 
 - `ports`：发布到宿主机；
-- `expose`：表达容器间可用端口，不等价于公网发布。
+- `expose`：表达/记录容器端口，不发布主机端口，也不是防火墙白名单；同一网络内能否连接主要取决于监听地址和网络规则。
 
 数据库、Redis 等通常只需要在内部网络可见。
 
@@ -219,7 +257,7 @@ Compose 可以和 VS Code Dev Containers 等工具结合，统一：
 - DB / Redis；
 - 调试依赖。
 
-但代码仍应挂载自宿主机，开发容器不是最终生产镜像。
+代码可以来自宿主机 bind mount，也可在受控开发卷/远程工作区中；选择取决于工具链和 I/O 性能。开发容器通常包含调试工具，目标与最终生产镜像不同。
 
 ## 13. 常用生命周期
 
@@ -227,10 +265,16 @@ Compose 可以和 VS Code Dev Containers 等工具结合，统一：
 docker compose up -d
 docker compose ps
 docker compose logs -f
-docker compose exec web sh
+docker compose exec db sh
 docker compose build
 docker compose pull
 docker compose down
 ```
 
-需要谨慎理解 `down -v`：它会同时删除声明的数据卷，可能造成不可逆数据损失。
+`down` 默认保留命名卷；`down -v` 会删除由项目管理的声明命名卷和附带匿名卷（external 卷不由它删除），可能造成数据损失。练习默认不加 `-v`，完成备份/确认测试卷后才单独清理。
+
+## 14. 自测：就绪与持续可用不同
+
+把 db 的 healthcheck 删除而保留 `condition: service_healthy`，依赖条件就失去依据；不能用 `sleep 10` 替代真正就绪检测。即使启动时健康，后续数据库也可能断开，业务仍需连接超时、有限重试和失败处理。
+
+`docker compose config` 只做配置解析/规范化，不能证明镜像存在、密码有效、网络连通或数据库可用。真正验收还需看到查询输出，并通过实际数据读写验证持久化。

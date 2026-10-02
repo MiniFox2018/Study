@@ -42,7 +42,7 @@ honey.head()
 ```python
 sns.relplot(x="priceperlb", y="state", data=honey, height=15, aspect=.5);
 ```
-![scatterplot 1](../../../../translated_images/zh-CN/scatter1.5e1aa5fd6706c5d1.webp)
+![scatterplot 1](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/scatter1.5e1aa5fd6706c5d1.webp)
 
 现在，用蜂蜜色调展示同样的数据，显示价格如何逐年变化。你可以通过添加一个“hue”参数来展示逐年的变化：
 
@@ -51,7 +51,7 @@ sns.relplot(x="priceperlb", y="state", data=honey, height=15, aspect=.5);
 ```python
 sns.relplot(x="priceperlb", y="state", hue="year", palette="YlOrBr", data=honey, height=15, aspect=.5);
 ```
-![scatterplot 2](../../../../translated_images/zh-CN/scatter2.c0041a58621ca702.webp)
+![scatterplot 2](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/scatter2.c0041a58621ca702.webp)
 
 通过这个颜色方案的变化，你可以明显看到蜂蜜每磅价格在逐年强劲增长。如果你查看数据中的一个样本集（例如选择亚利桑那州），你会发现价格逐年上涨的模式，虽然有少数例外：
 
@@ -80,7 +80,7 @@ sns.relplot(x="priceperlb", y="state", size="year", data=honey, height=15, aspec
 ```
 你可以看到点的大小逐渐增加。
 
-![scatterplot 3](../../../../translated_images/zh-CN/scatter3.3c160a3d1dcb36b3.webp)
+![scatterplot 3](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/scatter3.3c160a3d1dcb36b3.webp)
 
 这是否是一个简单的供需问题？由于气候变化和蜂群崩溃等因素，蜂蜜的供应逐年减少，因此价格上涨？
 
@@ -95,7 +95,7 @@ sns.relplot(x="year", y="priceperlb", kind="line", data=honey);
 ```
 答案：是的，除了2003年左右的一些例外：
 
-![line chart 1](../../../../translated_images/zh-CN/line1.f36eb465229a3b1f.webp)
+![line chart 1](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/line1.f36eb465229a3b1f.webp)
 
 ✅ 由于Seaborn对数据进行聚合，它通过绘制均值和均值周围的95%置信区间来显示“每个x值的多个测量值”。[来源](https://seaborn.pydata.org/tutorial/relational.html)。这种耗时的行为可以通过添加`ci=None`来禁用。
 
@@ -105,7 +105,7 @@ sns.relplot(x="year", y="priceperlb", kind="line", data=honey);
 sns.relplot(x="year", y="totalprod", kind="line", data=honey);
 ```
 
-![line chart 2](../../../../translated_images/zh-CN/line2.a5b3493dc01058af.webp)
+![line chart 2](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/line2.a5b3493dc01058af.webp)
 
 答案：并不完全。如果你查看总产量，实际上在那一年似乎有所增加，尽管总体而言蜂蜜的产量在这些年间呈下降趋势。
 
@@ -130,7 +130,7 @@ sns.relplot(
 ```
 在这个可视化中，你可以比较逐年的每群产量和蜂群数量，并将列的wrap设置为3：
 
-![facet grid](../../../../translated_images/zh-CN/facet.6a34851dcd540050.webp)
+![facet grid](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/facet.6a34851dcd540050.webp)
 
 对于这个数据集，逐年和各州之间的蜂群数量及其产量并没有特别显著的变化。是否有其他方法可以找到这两个变量之间的相关性？
 
@@ -153,7 +153,7 @@ sns.despine(right=False)
 plt.ylabel('colony yield')
 ax.figure.legend();
 ```
-![superimposed plots](../../../../translated_images/zh-CN/dual-line.a4c28ce659603fab.webp)
+![superimposed plots](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/dual-line.a4c28ce659603fab.webp)
 
 虽然2003年没有明显的异常，但这确实让我们以一个稍微乐观的结论结束这节课：尽管蜂群数量总体上在下降，但蜂群数量正在趋于稳定，尽管每群产量在减少。
 

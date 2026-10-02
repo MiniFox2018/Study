@@ -37,11 +37,11 @@ Pandas 库中的 [`query()` 函数](https://pandas.pydata.org/pandas-docs/stable
 
 ## 使用可视化进行探索
 
-你不必等到数据完全清理和分析后再开始创建可视化。事实上，在探索阶段创建可视化可以帮助识别数据中的模式、关系和问题。此外，可视化为那些未直接参与数据管理的人提供了一种沟通方式，同时也可以是一个机会，用于分享和澄清捕获阶段未解决的额外问题。参考 [可视化部分](../../../../../../../../../3-Data-Visualization) 了解一些流行的可视化方法。
+你不必等到数据完全清理和分析后再开始创建可视化。事实上，在探索阶段创建可视化可以帮助识别数据中的模式、关系和问题。此外，可视化为那些未直接参与数据管理的人提供了一种沟通方式，同时也可以是一个机会，用于分享和澄清捕获阶段未解决的额外问题。参考 [可视化部分](../../3-Data-Visualization) 了解一些流行的可视化方法。
 
 ## 探索以识别不一致性
 
-本课程中的所有主题都可以帮助识别缺失或不一致的值，而 Pandas 提供了一些函数来检查这些问题。[isna() 或 isnull()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.isna.html) 可以检查缺失值。探索这些值为何会出现缺失是一个重要的步骤，这可以帮助你决定采取哪些 [措施来解决这些问题](/2-Working-With-Data/08-data-preparation/notebook.ipynb)。
+本课程中的所有主题都可以帮助识别缺失或不一致的值，而 Pandas 提供了一些函数来检查这些问题。[isna() 或 isnull()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.isna.html) 可以检查缺失值。探索这些值为何会出现缺失是一个重要的步骤，这可以帮助你决定采取哪些 [措施来解决这些问题](../../2-Working-With-Data/08-data-preparation/notebook.ipynb)。
 
 ## [课后测验](https://ff-quizzes.netlify.app/en/ds/quiz/29)
 

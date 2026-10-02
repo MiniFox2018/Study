@@ -104,7 +104,7 @@ checkpoint 与 512 个 MP4 不随 Git 分发；manifest 保存其不可变身份
 这是一项完整的负面/低成功率结果，不把实验完成误写成模型表现良好。其余
 486 个失败均在 200 action steps 上限结束，逐项绑定同次进程窗口内的 MP4 并
 标为 `timeout`。汇总、逐 episode 记录、注释、运行身份以及 512 个外部视频
-的内容哈希见 [`validation/runs/exp7-13-localgpu-20260803-v1/`](validation/runs/exp7-13-localgpu-20260803-v1/)。
+的内容哈希见 [`validation/runs/exp7-13-localgpu-20260803-v1/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/openvla-robotwin2-eval/validation/runs/exp7-13-localgpu-20260803-v1)。
 
 ### 检查自己的解释
 

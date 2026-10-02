@@ -106,7 +106,7 @@ fi
 case "$action" in
   start) ... ;;
   stop) ... ;;
-  *) echo "unknown" >&2; exit 2 ;;
+  *) echo "未知操作" >&2; exit 2 ;;
 esac
 ~~~
 
@@ -123,12 +123,12 @@ done
 逐行读取文件时：
 
 ~~~bash
-while IFS= read -r line; do
+while IFS= read -r line || [[ -n "$line" ]]; do
     ...
 done < "$file"
 ~~~
 
-这样能更好保留空格和反斜杠。
+这样保留空格、反斜杠，并处理最后一行没有换行符的文本。它是 Bash 写法；管道后的 while 常在子 shell 中运行，在其中累加的变量不一定能在外层保留。
 
 ## 11. 数组
 
@@ -138,7 +138,7 @@ Bash 数组适合安全保存参数列表，避免把多个参数拼成一个字
 
 ~~~bash
 log() {
-    printf '%s %s\n' "$(date -Is)" "$*" >&2
+    printf '%s %s\n' "$(date '+%Y-%m-%dT%H:%M:%S%z')" "$*" >&2
 }
 ~~~
 
@@ -224,8 +224,9 @@ producer | grep pattern | consumer
 
 ~~~bash
 read -r value
-read -r -p "Name: " name
-read -r -s -p "Password: " password
+read -r -p "请输入名称：" name
+read -r -s -p "请输入密码：" password
+printf '\n' >&2
 ~~~
 
 隐藏输入不等于 secret 安全。
@@ -268,10 +269,10 @@ read -r -s -p "Password: " password
 Cron 任务可能上一轮还没结束下一轮又启动。
 
 ~~~bash
-flock -n /run/myjob.lock command
+flock -n "$HOME/.cache/myjob.lock" command
 ~~~
 
-更复杂的分布式任务需要外部锁或调度器。
+该示意要求 Linux 的 flock 工具、已存在的 `$HOME/.cache` 和具体 command；macOS 默认没有这个工具。锁文件应位于受控、权限合适的本机目录；网络文件系统锁语义需要单独验证。更复杂的分布式任务需要外部锁或调度器。
 
 ## 24. 重试
 
@@ -405,3 +406,33 @@ bash -x script.sh
 - cron/systemd 环境下仍能运行；
 - 通过 ShellCheck；
 - 危险操作有 dry-run 或显式确认。
+
+## 35. 可运行脚本：参数边界与无换行末行
+
+保存为 `count-lines.sh`，明确用 Bash 运行。脚本只读取输入文件：
+
+~~~bash
+#!/usr/bin/env bash
+set -euo pipefail
+if [[ $# -ne 1 || ! -f "$1" ]]; then
+    printf '用法：bash count-lines.sh 文件路径\n' >&2
+    exit 2
+fi
+count=0
+while IFS= read -r line || [[ -n "$line" ]]; do
+    count=$((count + 1))
+done < "$1"
+printf '行数：%s\n' "$count"
+~~~
+
+准备测试并运行：
+
+~~~bash
+study_dir=$(mktemp -d)
+printf '第一行\n最后一行没有换行' > "$study_dir/含 空格.txt"
+bash count-lines.sh "$study_dir/含 空格.txt"
+~~~
+
+应输出 `行数：2`；空文件输出 0，缺参数退出码为 2。`wc -l` 统计的是换行符数量，本输入为 1，与本脚本按逻辑行计数的定义不同。
+
+自测：把 `count=$((count + 1))` 改成 `((count++))` 有何风险？答：当旧值为 0 时算术命令返回非零，在该上下文的 `set -e` 下可能提前退出。`set -e` 对 if/while 条件和部分 &&/|| 上下文有例外，不能代替显式错误处理；不要把脚本的成败寄托于“严格模式”四个字。

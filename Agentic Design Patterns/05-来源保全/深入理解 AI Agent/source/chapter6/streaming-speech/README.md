@@ -93,7 +93,7 @@ checkpoint、Qwen2-Audio snapshot 的每个文件（包括 6.56GB 权重）、13
 
 ### 已有运行结果
 
-当前 canonical 记录是 [`validation/runs/exp6-4-qwen2audio-whisper-provenance-20260730-v3/manifest.json`](validation/runs/exp6-4-qwen2audio-whisper-provenance-20260730-v3/manifest.json)。
+当前 canonical 记录是 [`validation/runs/exp6-4-qwen2audio-whisper-provenance-20260730-v3/manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/streaming-speech/validation/runs/exp6-4-qwen2audio-whisper-provenance-20260730-v3/manifest.json)。
 2026-07-30 在 Apple Silicon 上严格复跑 `mlx-community/Qwen2-Audio-7B-Instruct-4bit`；8/8
 执行与溯源门禁通过，但正文结果只复现 2/6。13 次前缀推理实测 8.4–11.3s，不能据此声称
 100–200ms；传统路径也未在三类输入上全部落入 800–1100ms。900ms 停顿被 VAD 分为两段，

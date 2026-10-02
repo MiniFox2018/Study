@@ -591,9 +591,9 @@ This directory is the book-owned explanation. Executable training code is the ex
 
 ### Canonical training report / 规范训练报告
 
-The canonical Experiment 8-10 result is the checkpoint-free [training report](TRAINING_REPORT.md). It is backed by public W&B run [`wubbn5tj`](https://wandb.ai/bojieli-pine-ai/adapt_think_verl/runs/wubbn5tj); baseline run [`dblyx7cm`](https://wandb.ai/bojieli-pine-ai/adapt_think_verl/runs/dblyx7cm) exactly matches its step-0 validation metrics.
+The canonical Experiment 8-10 result is the checkpoint-free [training report](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/AdaptThink/TRAINING_REPORT.md). It is backed by public W&B run [`wubbn5tj`](https://wandb.ai/bojieli-pine-ai/adapt_think_verl/runs/wubbn5tj); baseline run [`dblyx7cm`](https://wandb.ai/bojieli-pine-ai/adapt_think_verl/runs/dblyx7cm) exactly matches its step-0 validation metrics.
 
-本实验的规范结果是无 checkpoint 的[历史训练报告](TRAINING_REPORT.md)。公开 W&B 主运行是 [`wubbn5tj`](https://wandb.ai/bojieli-pine-ai/adapt_think_verl/runs/wubbn5tj)，基线运行 [`dblyx7cm`](https://wandb.ai/bojieli-pine-ai/adapt_think_verl/runs/dblyx7cm) 的验证指标与主运行 step 0 完全一致。
+本实验的规范结果是无 checkpoint 的[历史训练报告](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/AdaptThink/TRAINING_REPORT.md)。公开 W&B 主运行是 [`wubbn5tj`](https://wandb.ai/bojieli-pine-ai/adapt_think_verl/runs/wubbn5tj)，基线运行 [`dblyx7cm`](https://wandb.ai/bojieli-pine-ai/adapt_think_verl/runs/dblyx7cm) 的验证指标与主运行 step 0 完全一致。
 
 | Dataset | Accuracy, step 0 → 300 | Response length, step 0 → 300 | Step-300 NoThinking |
 | --- | ---: | ---: | ---: |

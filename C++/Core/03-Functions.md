@@ -1,4 +1,4 @@
-# 03 · Functions
+# 03 · 函数与参数传递
 
 ## 函数基础
 函数由返回类型、函数名、参数列表和函数体组成，用于复用逻辑和拆分复杂问题。声明可放头文件，实现放源文件。
@@ -40,6 +40,25 @@ auto greater = [limit](int x) { return x > limit; };
 
 ## 函数设计
 函数应职责单一、命名清楚、参数尽量少、错误策略一致，并避免隐藏的全局状态依赖。
+
+## 小实验：值与引用的区别
+
+```cpp
+#include <iostream>
+int by_value(int x) { x += 1; return x; }
+void by_reference(int& x) { x += 1; }
+int main() {
+    int n = 5;
+    by_value(n);
+    std::cout << n << ' ';
+    by_reference(n);
+    std::cout << n << '\n';
+}
+```
+
+输出 `5 6`。按值函数改变自己的参数副本，引用函数改变调用者的对象。这里的 `int` 按值传递很便宜；不要为了“性能”把所有参数都改成引用。
+
+自测：能返回函数内部 `std::string s` 的 `const std::string&` 吗？答：不能，`s` 在函数退出时销毁；直接按值返回字符串。
 
 ## 参考
 https://www.compilenrun.com/docs/language/cpp/cpp-functions/

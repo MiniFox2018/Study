@@ -1,4 +1,6 @@
-# Understanding Deep Learning 最新 PDF 逐页核验
+# Understanding Deep Learning 指定版本 PDF 逐页核验
+
+> 历史记录说明（2026-10-02 补充）：下文的“本轮/当前/已核验”指 2026-10-01 的来源整理记录及所列版本。本次内容审查未重跑全部原网站、PDF、Notebook 或历史 SHA 比较；章节映射只证明已有落位，不能证明逐条知识正确、全部细节已保留、代码在当前环境可运行或读者已掌握。
 
 > 文件：UnderstandingDeepLearning_02_09_26_C.pdf  
 > 作者：Simon J. D. Prince  
@@ -12,7 +14,7 @@
 
 ## 1. 核验方法
 
-本次不再只依据官网目录或 GitHub Markdown，而是直接对用户提供的最新版 PDF 做完整结构扫描。
+本次不再只依据官网目录或 GitHub Markdown，而是直接对用户提供的指定版本 PDF 做完整结构扫描。
 
 执行了四层检查：
 
@@ -87,7 +89,7 @@ PDF 中有一套明确的符号约定，主要用于正确阅读教材公式：
 
 ## 4. Appendix B：Mathematics 的知识增量
 
-最新版 PDF 的数学附录不仅包含矩阵基础，还包括：
+指定版本 PDF 的数学附录不仅包含矩阵基础，还包括：
 
 - injection / surjection / bijection / diffeomorphism；
 - Lipschitz continuity；
@@ -186,7 +188,7 @@ PDF 概率附录完整覆盖：
 
 此前只保留了通用 fidelity / diversity 维度。
 
-最新版 PDF 明确给出：
+指定版本 PDF 明确给出：
 
 - efficient sampling；
 - sample quality；
@@ -319,7 +321,7 @@ PDF 明确使用 CC BY-NC-ND 4.0。
 
 ## 10. 最终验收
 
-最新版 PDF 已从此前的“目录/仓库级核验”升级为：
+指定版本 PDF 已从此前的“目录/仓库级核验”升级为：
 
 **541 页 PDF 结构级全量扫描 + 重点章节深读 + 关键页面视觉核验 + Appendix A/B/C 吸收 + 现有知识缺口回写。**
 
@@ -332,7 +334,7 @@ PDF 明确使用 CC BY-NC-ND 4.0。
 - PDF 新发现的主要知识缺口已补入现有 Study 文件；
 - 未建立第二套 UDL 教材镜像。
 
-后续若出现新 PDF，只需比较：
+后续若出现新 PDF，应先比较结构线索：
 
 - 文件 SHA-256；
 - 页数；
@@ -340,4 +342,4 @@ PDF 明确使用 CC BY-NC-ND 4.0。
 - 章节页码；
 - 新增/删除术语；
 
-即可做增量更新。
+再对变更段落、公式、图表与勘误做内容比对；仅比较页数和术语不足以确认知识无变化。

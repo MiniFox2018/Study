@@ -83,13 +83,13 @@ Linear Projection
 
 ## 7. Attention 的计算瓶颈
 
-标准 Self-Attention 的序列维度复杂度近似为：
+固定隐藏维度时，标准全局 Self-Attention 在序列长度上的计算复杂度为：
 
 ```text
 O(n²)
 ```
 
-上下文越长，注意力矩阵增长越快。
+更完整地说，打分与加权聚合约需 O(n²d) 计算；朴素实现存储 O(n²) 分数矩阵。FlashAttention 一类实现可避免完整保存该矩阵、减少访存，但不会把精确全局注意力的理论计算量自动降为线性。
 
 因此现代 LLM 会探索多种效率优化。
 
@@ -109,9 +109,9 @@ Grouped-Query Attention 的核心是：
 
 Multi-Head Latent Attention 的核心思路是：
 
-> 先把 K/V 压缩到更低维潜在表示，再存入 Cache。
+> 用共享的低维潜在表示表达 K/V，并结合相应投影与位置编码设计减少需要缓存的状态。
 
-目的同样是降低长上下文推理中的 KV Cache 内存占用。
+目的同样是降低长上下文推理中的 KV Cache 内存占用；具体缓存还可能包含独立的位置相关 Key，不能把 MLA 当作在任何现有模型上随意压缩 K/V 的无损插件。
 
 ## 10. Sliding Window Attention
 
@@ -131,3 +131,15 @@ Multi-Head Latent Attention 的核心思路是：
 
 来源：<https://github.com/rasbt/LLMs-from-scratch/tree/main/ch03>  
 补充：<https://github.com/rasbt/LLMs-from-scratch/tree/main/ch04>
+
+## 12. 用两个位置算一次注意力
+
+设某个 Query 与两个 Key 的**缩放后分数**为 `[0, ln(3)]`，softmax 后权重为 `[1/4, 3/4]`。若两个 Value 分别为 `[2, 0]`、`[0, 4]`，输出就是 `[0.5, 3]`。这显示权重决定“取多少”，Value 决定“取什么”。如果第二个位置是未来位置，在 softmax **之前**把它的分数设为负无穷，权重变为 `[1, 0]`，输出为 `[2, 0]`。
+
+**形状检查**：单头 `Q,K` 为 `n×d_k`，`V` 为 `n×d_v`；`QKᵀ` 为 `n×n`，最终结果为 `n×d_v`。softmax 对每个 Query 对应的 Key 维度归一化。
+
+**自检**：把未来位置的分数直接设为 0，能否保证掩码生效？注意力权重大能否证明该词是答案的因果原因？
+
+**核对**：不能，`exp(0)=1` 仍有正权重；需要在归一化前屏蔽。权重是中间计算量，不能单独代替干预实验或完整的模型解释。
+
+原理依据：[Transformer 原论文](https://arxiv.org/abs/1706.03762)、[FlashAttention](https://arxiv.org/abs/2205.14135)。它们用于解释机制，不提供当前硬件性能保证。

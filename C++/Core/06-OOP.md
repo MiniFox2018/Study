@@ -1,4 +1,4 @@
-# 06 · Object-Oriented Programming
+# 06 · 类、继承与多态
 
 ## 类与对象
 类定义状态和行为，对象是类的实例。成员包括数据成员和成员函数。访问控制：`private`、`protected`、`public`。
@@ -43,6 +43,31 @@ friend 函数或类可访问私有成员。适合极少数紧密协作场景，�
 
 ## 设计原则
 保持类职责清晰；资源类遵循 RAII；多态删除时使用虚析构；覆写时写 override；优先组合；避免公开可随意修改的数据成员。
+
+## 小实验：通过接口使用对象
+
+```cpp
+#include <iostream>
+#include <memory>
+struct Shape {
+    virtual double area() const = 0;
+    virtual ~Shape() = default;
+};
+struct Square : Shape {
+    explicit Square(double side) : side_(side) {}
+    double area() const override { return side_ * side_; }
+private:
+    double side_;
+};
+int main() {
+    std::unique_ptr<Shape> shape = std::make_unique<Square>(3.0);
+    std::cout << shape->area() << '\n';
+}
+```
+
+输出 `9`。调用通过基类指针分派到 `Square::area`，销毁通过虚析构正确清理派生对象。示例约定边长非负；真实接口可在构造时拒绝非法值。
+
+自测：把派生对象按值复制到一个可实例化的基类变量，会保留派生成员吗？答：不会，会发生对象切片；需要运行时多态时使用引用或指针。
 
 ## 参考
 https://www.compilenrun.com/docs/language/cpp/cpp-object-oriented-programming/

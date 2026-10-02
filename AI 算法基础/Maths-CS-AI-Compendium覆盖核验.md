@@ -1,5 +1,7 @@
 # Maths-CS-AI-Compendium 覆盖核验
 
+> 历史记录说明（2026-10-02 补充）：下文的“本轮/当前/已核验”指 2026-10-01 的来源整理记录及所列版本。本次内容审查未重跑全部原网站、PDF、Notebook 或历史 SHA 比较；章节映射只证明已有落位，不能证明逐条知识正确、全部细节已保留、代码在当前环境可运行或读者已掌握。
+
 > 来源：<https://github.com/HenryNdubuaku/maths-cs-ai-compendium>  
 > 基准提交：`9850ee574a370bc1cde59de98b394e953775b67d`  
 > 核验时间：2026-10-01
@@ -35,7 +37,7 @@
 
 - [来源保全/maths-cs-ai-compendium](../%E6%9D%A5%E6%BA%90%E4%BF%9D%E5%85%A8/maths-cs-ai-compendium/README_CN.md)
 
-因此主库去重不会造成源细节丢失。
+源文件可用于追溯已保存的细节；主库的主题映射不等于所有推导、例子和实践内容都已讲解充分。
 
 ## 不纳入
 

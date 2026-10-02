@@ -3,7 +3,7 @@
 [![PDF](https://img.shields.io/badge/PDF-%E4%B8%8B%E8%BD%BD-success.svg)](#-电子书) [![在线阅读](https://img.shields.io/badge/🌐_在线阅读-bojieli.github.io-success?style=flat-square)](https://bojieli.github.io/ai-agent-book/astro/) [![Stars](https://img.shields.io/github/stars/bojieli/ai-agent-book?style=social)](https://github.com/bojieli/ai-agent-book) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE) [![Languages](https://img.shields.io/badge/翻译-15%20种%20语言-informational.svg)](#-电子书)
 [![Trending GitHub Project of the Day](https://img.shields.io/badge/GitHub%20Trending-Project%20of%20the%20Day-orange?logo=github)](https://github.com/trending)
 
-**中文** ← 当前 · [English](docs/en/README.md) · [Español](docs/es/README.md) · [Bahasa Indonesia](docs/id/README.md) · [العربية](docs/ar/README.md) · [繁體中文（台灣）](docs/zh-TW/README.md) · [Русский](docs/ru/README.md) · [Tiếng Việt](docs/vi/README.md) · [தமிழ்](docs/ta/README.md) · [日本語](docs/ja/README.md) · [Türkçe](docs/tr/README.md) · [한국어](docs/ko/README.md) · [Magyar](docs/hu/README.md) · [עברית](README.he.md) · [Português (Brasil)](README.ptbr.md)
+**中文** ← 当前 · [English](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/en/README.md) · [Español](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/es/README.md) · [Bahasa Indonesia](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/id/README.md) · [العربية](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/ar/README.md) · [繁體中文（台灣）](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/zh-TW/README.md) · [Русский](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/ru/README.md) · [Tiếng Việt](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/vi/README.md) · [தமிழ்](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/ta/README.md) · [日本語](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/ja/README.md) · [Türkçe](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/tr/README.md) · [한국어](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/ko/README.md) · [Magyar](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/hu/README.md) · [עברית](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/README.he.md) · [Português (Brasil)](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/README.ptbr.md)
 
 > 📥 **[下载 PDF / EPUB](#-电子书)**（推荐）— 推荐使用 PDF / EPUB 离线阅读，排版最佳；也可[在线阅读](https://bojieli.github.io/ai-agent-book/astro/)（支持多语言切换、章节折叠、高亮与笔记，每次推送自动更新）。
 
@@ -41,7 +41,7 @@
 >
 > 🌐 也可[在线阅读](https://bojieli.github.io/ai-agent-book/astro/) — 支持多语言切换、章节折叠、高亮与笔记、配套实验直达，每次 main 分支推送后自动重新构建。
 
-中文正文源码位于 [`book/`](book/)；英文/西班牙语/印度尼西亚语/阿拉伯语/繁體中文（台灣）/俄语/泰米尔/越南语/日语/土耳其语/韩语/匈牙利语/希伯来语/葡萄牙语（巴西）版本为社区贡献（可能滞后于中文原版），分别位于 [`book-en/`](book-en/)、[`book-es/`](book-es/)、[`book-id/`](book-id/)、[`book-ar/`](book-ar/)、[`book-zhtw/`](book-zhtw/)、[`book-ru/`](book-ru/)、[`book-ta/`](book-ta/)、[`book-vi/`](book-vi/)、[`book-ja/`](book-ja/)、[`book-tr/`](book-tr/)、[`book-ko/`](book-ko/)、[`book-hu/`](book-hu/)、[`book-he/`](book-he/)、[`book-ptbr/`](book-ptbr/)。
+中文正文源码位于 [`book/`](book/)；英文/西班牙语/印度尼西亚语/阿拉伯语/繁體中文（台灣）/俄语/泰米尔/越南语/日语/土耳其语/韩语/匈牙利语/希伯来语/葡萄牙语（巴西）版本为社区贡献（可能滞后于中文原版），分别位于 [`book-en/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-en)、[`book-es/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-es)、[`book-id/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-id)、[`book-ar/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-ar)、[`book-zhtw/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-zhtw)、[`book-ru/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-ru)、[`book-ta/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-ta)、[`book-vi/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-vi)、[`book-ja/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-ja)、[`book-tr/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-tr)、[`book-ko/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-ko)、[`book-hu/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-hu)、[`book-he/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-he)、[`book-ptbr/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-ptbr)。
 
 <details>
 <summary><b>🔧 想自行编译 PDF / EPUB？</b>（PDF 需 pandoc / xelatex / ElegantBook）</summary>
@@ -152,7 +152,7 @@ uv run python chapter1/context/main.py
 
 Krill 为本书读者提供特别优惠：使用[此链接](https://www.krill-code.com/register?invite=Q8D3L35725)注册并在充值时填写优惠码「ai-agent-book」，首次购买 Codex 套餐可享 77 折优惠！
 
-> 🧪 配套实验的执行状态、证据与未完成门禁单独记录在 [`docs/EXPERIMENT_STATUS.md`](docs/EXPERIMENT_STATUS.md)；克隆或安装源码不代表实验完成。
+> 🧪 配套实验的执行状态、证据与未完成门禁单独记录在 [`docs/EXPERIMENT_STATUS.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/docs/EXPERIMENT_STATUS.md)；克隆或安装源码不代表实验完成。
 
 ## 📦 附录 · 外部仓库获取
 
@@ -316,8 +316,8 @@ git clone https://github.com/joonspk-research/generative_agents.git chapter10/ge
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/star-history-dark.png" />
     <source media="(prefers-color-scheme: light)" srcset="assets/star-history-light.png" />
-    <img alt="Star History Chart" src="assets/star-history-light.png" width="100%" />
+    <img alt="Star History Chart" src="https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/assets/star-history-light.png" width="100%" />
   </picture>
 </a>
 
-<sub>由 [`scripts/gen_star_history.py`](scripts/gen_star_history.py) 生成，[GitHub Actions](.github/workflows/star-history.yml) 每日自动更新 · 点击图片查看实时数据</sub>
+<sub>由 [`scripts/gen_star_history.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/scripts/gen_star_history.py) 生成，[GitHub Actions](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/.github/workflows/star-history.yml) 每日自动更新 · 点击图片查看实时数据</sub>

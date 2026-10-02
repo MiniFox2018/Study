@@ -264,7 +264,7 @@ python demo.py --list-roles
 
 #### 正式 v2 对照证据
 
-权威运行包位于 [`validation/comparison/runs/exp10-1-qwen35flash-20260809-v2/`](validation/comparison/runs/exp10-1-qwen35flash-20260809-v2/)，并由 [`validate_comparison.py`](validate_comparison.py) 独立复核 12/12 门禁。该运行使用 `qwen/qwen3.5-flash-02-23`（OpenRouter），固定 30 个成对任务、温度 0、每单元最多 8 轮，保留 60 条主轨迹和 12 条边界轨迹；Skill 路径在运行时强制先加载 `triage`，再由 Skill 授权专业工具。
+权威运行包位于 [`validation/comparison/runs/exp10-1-qwen35flash-20260809-v2/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/multi-role-transfer/validation/comparison/runs/exp10-1-qwen35flash-20260809-v2)，并由 [`validate_comparison.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/multi-role-transfer/validate_comparison.py) 独立复核 12/12 门禁。该运行使用 `qwen/qwen3.5-flash-02-23`（OpenRouter），固定 30 个成对任务、温度 0、每单元最多 8 轮，保留 60 条主轨迹和 12 条边界轨迹；Skill 路径在运行时强制先加载 `triage`，再由 Skill 授权专业工具。
 
 在这一模型/configuration 下，Skill 通过 15/30 确定性任务门禁，Transfer 通过 2/30；Skill 的中位未缓存输入多 6,855 token、延迟多 4.368 秒、重算成本多 $0.00044304。异源 Gemini 2.5 Flash Lite 以交换顺序评审 30 对、共 60 次回执（Skill 32、Transfer 20、平局 8）。这是有边界的架构对照结果，不应外推为与模型无关的优胜。
 
@@ -297,7 +297,7 @@ triage → research → data_analysis → writing
 ##### 预期输出形态
 
 以下片段用于说明控制台输出格式。正式验收以
-[`validation/runs/exp10-1-kimi-k2.5-tavily-receipts-20260730-v3/manifest.json`](validation/runs/exp10-1-kimi-k2.5-tavily-receipts-20260730-v3/manifest.json)
+[`validation/runs/exp10-1-kimi-k2.5-tavily-receipts-20260730-v3/manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/multi-role-transfer/validation/runs/exp10-1-kimi-k2.5-tavily-receipts-20260730-v3/manifest.json)
 为准：该次运行记录 Moonshot `kimi-k2.5`、3 次带来源 URL 的真实 Tavily 检索、完整移交链、计算工具调用与
 长度核对；9/9 行为门禁和 6/6 溯源门禁全通过。
 
@@ -635,7 +635,7 @@ python demo.py --list-roles
 
 ## Formal v2 evidence
 
-The authoritative package is [`validation/comparison/runs/exp10-1-qwen35flash-20260809-v2/`](validation/comparison/runs/exp10-1-qwen35flash-20260809-v2/), independently checked by [`validate_comparison.py`](validate_comparison.py) (12/12 gates). The campaign uses `qwen/qwen3.5-flash-02-23` through OpenRouter, 30 paired tasks at temperature 0, an eight-round per-cell limit, 60 main trajectories, and 12 boundary trajectories. The Skill arm now requires `load_skill("triage")` before any specialist tool.
+The authoritative package is [`validation/comparison/runs/exp10-1-qwen35flash-20260809-v2/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/multi-role-transfer/validation/comparison/runs/exp10-1-qwen35flash-20260809-v2), independently checked by [`validate_comparison.py`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/multi-role-transfer/validate_comparison.py) (12/12 gates). The campaign uses `qwen/qwen3.5-flash-02-23` through OpenRouter, 30 paired tasks at temperature 0, an eight-round per-cell limit, 60 main trajectories, and 12 boundary trajectories. The Skill arm now requires `load_skill("triage")` before any specialist tool.
 
 For this bounded model/configuration, Skill passes 15/30 deterministic task gates versus Transfer's 2/30. Skill's median delta is +6,855 uncached input tokens, +4.368 seconds, and +$0.00044304 repriced cost. An independent Gemini 2.5 Flash Lite judge reviewed all 30 pairs twice with swapped order: Skill 32, Transfer 20, and 8 ties across 60 judgments. These are bounded architecture results, not model-independent superiority claims.
 
@@ -668,7 +668,7 @@ making it clear at a glance how "different specialized roles take turns on the s
 ### Expected Output Shape
 
 The following excerpt illustrates the console format. The canonical accepted real run is
-[`validation/runs/exp10-1-kimi-k2.5-tavily-receipts-20260730-v3/manifest.json`](validation/runs/exp10-1-kimi-k2.5-tavily-receipts-20260730-v3/manifest.json):
+[`validation/runs/exp10-1-kimi-k2.5-tavily-receipts-20260730-v3/manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter10/multi-role-transfer/validation/runs/exp10-1-kimi-k2.5-tavily-receipts-20260730-v3/manifest.json):
 it records Moonshot `kimi-k2.5`, three real Tavily searches with source URLs, the complete handoff chain,
 the calculation tool call, and the counted draft. All 9 behavior and 6 provenance gates passed. The run
 retains nine raw Moonshot requests/responses with unique response IDs and usage, three raw Tavily response

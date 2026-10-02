@@ -73,3 +73,15 @@
 ~~~
 
 先定位层级，再选择命令。命令只是观测和操作接口。
+
+## 练习前提与验证边界
+
+本专题的系统管理默认 Linux + Bash，服务章节还要求 systemd。macOS 原生可以练通用文件/文本与部分 Bash 示例，但 `systemctl`、`ip`、`ss`、`/proc` 等不能直接照搬；GNU/BSD 的参数也可能不同。先完成 01 的系统识别，再选择适用命令。
+
+建议按“02 临时目录文本练习 → 03 权限练习 → 08 只读脚本 → 04 用户级服务 → 06 本机网络 → 07 指标推理”推进。每次只观察自己的练习对象，修改一个输入，记录实际结果和解释；先不碰磁盘分区、系统账户和生产防火墙。
+
+核验日期：2026-10-02。参考 [GNU Bash set 手册](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)、[Linux mount 手册](https://man7.org/linux/man-pages/man8/mount.8.html)、[Linux ldd 手册](https://man7.org/linux/man-pages/man1/ldd.1.html)。本轮修订明确 GNU/Linux 与 macOS 边界、SIGKILL 延迟、错误分类、fstab 检查和脚本末行处理；这不等于已在每个发行版/权限环境实跑全部管理命令。后续验证与更新说明用中文记录环境、命令、结果和未验证项。
+
+### 2026-10-03 本机验证
+
+在 macOS arm64 上使用 Bash 3.2.57、CMake 4.3.3、Python 3.12.13，验证了文本统计、umask 示例、CMake 构建、Bash 行计数的正常/空文件/无末尾换行/空格路径/缺参数分支，以及只监听 localhost 的 HTTP 请求（使用临时空闲端口，响应 200，随后停止）。这仅证明这些跨平台部分在本机成立；Linux systemd、iproute2、防火墙、挂载和内核指标未在 Linux 主机上运行。ldd 安全说明已核对上游 [ldd(1)](https://man7.org/linux/man-pages/man1/ldd.1.html)，systemd 的一次性服务与 timer 语义核对了 [官方 service 源文档](https://github.com/systemd/systemd/blob/main/man/systemd.service.xml)和 [timer 源文档](https://github.com/systemd/systemd/blob/main/man/systemd.timer.xml)。

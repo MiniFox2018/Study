@@ -190,7 +190,7 @@ Agent 生成的测试用例须使用以下断言之一，框架可自动求值�
 ### Canonical manuscript experiment / 正文正式实验
 
 The manuscript contract is satisfied by
-[`validation/runs/exp5-8-live-http-mcp-20260730-053403/manifest.json`](validation/runs/exp5-8-live-http-mcp-20260730-053403/manifest.json),
+[`validation/runs/exp5-8-live-http-mcp-20260730-053403/manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/log-diagnosis/validation/runs/exp5-8-live-http-mcp-20260730-053403/manifest.json),
 not by the smaller deterministic demo described later in this README. The
 canonical campaign:
 
@@ -210,7 +210,7 @@ Raw provider calls, live replays, the generated tests, and the credential-free
 MCP receipt are retained beside the manifest.
 
 正文合同由
-[`validation/runs/exp5-8-live-http-mcp-20260730-053403/manifest.json`](validation/runs/exp5-8-live-http-mcp-20260730-053403/manifest.json)
+[`validation/runs/exp5-8-live-http-mcp-20260730-053403/manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/log-diagnosis/validation/runs/exp5-8-live-http-mcp-20260730-053403/manifest.json)
 中的正式活动满足，而不是下文较小的确定性演示。
 
 该活动从真实本地 HTTP

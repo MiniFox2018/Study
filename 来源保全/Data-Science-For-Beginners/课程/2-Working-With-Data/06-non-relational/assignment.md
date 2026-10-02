@@ -2,7 +2,7 @@
 
 ## 说明
 
-[Coca Cola Co 电子表格](../../../../2-Working-With-Data/06-non-relational/CocaColaCo.xlsx)缺少了一些计算。你的任务是：
+[Coca Cola Co 电子表格](../../../%E8%B5%84%E6%BA%90/2-Working-With-Data/06-non-relational/CocaColaCo.xlsx)缺少了一些计算。你的任务是：
 
 1. 计算 2015、2016、2017 和 2018 财年的毛利润
    - 毛利润 = 营业净收入 - 销售成本

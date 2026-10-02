@@ -12,7 +12,7 @@
 
 电子表格是一种流行的数据存储和探索方式，因为它设置和使用起来相对简单。在本课中，您将学习电子表格的基本组成部分，以及公式和函数。示例将以 Microsoft Excel 为例，但大多数部分和主题在其他电子表格软件中具有类似的名称和操作步骤。
 
-![一个空的 Microsoft Excel 工作簿，包含两个工作表](../../../../2-Working-With-Data/06-non-relational/images/parts-of-spreadsheet.png)
+![一个空的 Microsoft Excel 工作簿，包含两个工作表](../../../%E8%B5%84%E6%BA%90/2-Working-With-Data/06-non-relational/images/parts-of-spreadsheet.png)
 
 电子表格是一个文件，可以通过计算机、设备或基于云的文件系统访问。软件本身可能是基于浏览器的，也可能是需要安装在计算机上的应用程序，或者是需要下载的应用程序。在 Excel 中，这些文件被定义为 **工作簿**，本课将使用这一术语。
 
@@ -24,11 +24,11 @@
 
 名为 "InventoryExample" 的电子表格文件是一个格式化的库存项目表，包含三个工作表，标签分别为 "Inventory List"、"Inventory Pick List" 和 "Bin Lookup"。Inventory List 工作表的第 4 行是标题行，用于描述标题列中每个单元格的值。
 
-![Microsoft Excel 中库存清单示例中的一个公式被高亮显示](../../../../2-Working-With-Data/06-non-relational/images/formula-excel.png)
+![Microsoft Excel 中库存清单示例中的一个公式被高亮显示](../../../%E8%B5%84%E6%BA%90/2-Working-With-Data/06-non-relational/images/formula-excel.png)
 
 有时，一个单元格的值依赖于其他单元格的值来生成。在 Inventory List 电子表格中，我们记录了库存中每个项目的成本，但如果我们需要知道整个库存的总价值呢？[**公式**](https://support.microsoft.com/en-us/office/overview-of-formulas-34519a4e-1e8d-4f4b-84d4-d642c4f63263) 用于对单元格数据执行操作，在本例中用于计算库存的成本。该电子表格在 Inventory Value 列中使用了一个公式，通过将 QTY 标题下的数量与 COST 标题下的成本相乘来计算每个项目的价值。双击或高亮显示一个单元格即可查看公式。您会注意到，公式以等号开头，后面是计算或操作。
 
-![Microsoft Excel 中库存清单示例中的一个函数被高亮显示](../../../../2-Working-With-Data/06-non-relational/images/function-excel.png)
+![Microsoft Excel 中库存清单示例中的一个函数被高亮显示](../../../%E8%B5%84%E6%BA%90/2-Working-With-Data/06-non-relational/images/function-excel.png)
 
 我们还可以使用另一个公式将所有 Inventory Value 的值相加，得到总价值。虽然可以通过逐个相加每个单元格的值来计算总和，但这会非常繁琐。Excel 提供了 [**函数**](https://support.microsoft.com/en-us/office/sum-function-043e1c7d-7726-4e80-8f32-07b23e057f89)，即预定义的公式，用于对单元格值执行计算。函数需要参数，即执行这些计算所需的值。当函数需要多个参数时，这些参数必须按特定顺序列出，否则函数可能无法正确计算值。本例使用了 SUM 函数，并将 Inventory Value 的值作为参数，生成了 B3 单元格中的总和。
 
@@ -36,17 +36,17 @@
 
 NoSQL 是一个总称，涵盖了存储非关系型数据的不同方式，可以解释为 "非 SQL"、"非关系型" 或 "不仅仅是 SQL"。这类数据库系统可以分为四种类型。
 
-![一个键值数据存储的图示，显示了 4 个唯一的数字键与 4 个不同值的关联](../../../../2-Working-With-Data/06-non-relational/images/kv-db.png)
+![一个键值数据存储的图示，显示了 4 个唯一的数字键与 4 个不同值的关联](../../../%E8%B5%84%E6%BA%90/2-Working-With-Data/06-non-relational/images/kv-db.png)
 > 来源：[Michał Białecki Blog](https://www.michalbialecki.com/2018/03/18/azure-cosmos-db-key-value-database-cloud/)
 
 [键值](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/non-relational-data#keyvalue-data-stores) 数据库将唯一键（唯一标识符）与值配对。这些键值对通过 [哈希表](https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/tutorial/) 和适当的哈希函数存储。
 
-![一个图形数据存储的图示，显示了人与兴趣和地点之间的关系](../../../../2-Working-With-Data/06-non-relational/images/graph-db.png)
+![一个图形数据存储的图示，显示了人与兴趣和地点之间的关系](../../../%E8%B5%84%E6%BA%90/2-Working-With-Data/06-non-relational/images/graph-db.png)
 > 来源：[Microsoft](https://docs.microsoft.com/en-us/azure/cosmos-db/graph/graph-introduction#graph-database-by-example)
 
 [图形](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/non-relational-data#graph-data-stores) 数据库描述数据中的关系，并以节点和边的集合表示。节点表示实体，即现实世界中存在的事物，例如学生或银行对账单。边表示两个实体之间的关系。每个节点和边都有属性，用于提供关于节点和边的附加信息。
 
-![一个列式数据存储的图示，显示了一个客户数据库，其中包含两个列族，分别为 Identity 和 Contact Info](../../../../2-Working-With-Data/06-non-relational/images/columnar-db.png)
+![一个列式数据存储的图示，显示了一个客户数据库，其中包含两个列族，分别为 Identity 和 Contact Info](../../../%E8%B5%84%E6%BA%90/2-Working-With-Data/06-non-relational/images/columnar-db.png)
 
 [列式](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/non-relational-data#columnar-data-stores) 数据存储将数据组织为列和行，类似于关系型数据结构，但每列被划分为称为列族的组，其中一列下的所有数据是相关的，可以作为一个单元进行检索和更改。
 
@@ -79,11 +79,11 @@ Cosmos DB 数据库符合 "不仅仅是 SQL" 的定义，其中 Cosmos DB 的文
 
 模拟器会启动一个浏览器窗口，其中的 Explorer 视图允许您探索文档。
 
-![Cosmos DB 模拟器的 Explorer 视图](../../../../2-Working-With-Data/06-non-relational/images/cosmosdb-emulator-explorer.png)
+![Cosmos DB 模拟器的 Explorer 视图](../../../%E8%B5%84%E6%BA%90/2-Working-With-Data/06-non-relational/images/cosmosdb-emulator-explorer.png)
 
 如果您正在跟随操作，请点击 "Start with Sample" 以生成一个名为 SampleDB 的示例数据库。展开 SampleDB 后，您会看到一个名为 `Persons` 的容器。容器包含一组项目，这些项目就是容器中的文档。您可以探索 `Items` 下的四个单独文档。
 
-![在 Cosmos DB 模拟器中探索示例数据](../../../../2-Working-With-Data/06-non-relational/images/cosmosdb-emulator-persons.png)
+![在 Cosmos DB 模拟器中探索示例数据](../../../%E8%B5%84%E6%BA%90/2-Working-With-Data/06-non-relational/images/cosmosdb-emulator-persons.png)
 
 #### 使用 Cosmos DB 模拟器查询文档数据
 
@@ -93,7 +93,7 @@ Cosmos DB 数据库符合 "不仅仅是 SQL" 的定义，其中 Cosmos DB 的文
 
 `SELECT * FROM c where c.age < 40`
 
-![在 Cosmos DB 模拟器中运行 SELECT 查询以查找年龄字段值小于 40 的文档](../../../../2-Working-With-Data/06-non-relational/images/cosmosdb-emulator-persons-query.png)
+![在 Cosmos DB 模拟器中运行 SELECT 查询以查找年龄字段值小于 40 的文档](../../../%E8%B5%84%E6%BA%90/2-Working-With-Data/06-non-relational/images/cosmosdb-emulator-persons-query.png)
 
 查询返回了两个文档，注意每个文档的年龄值都小于 40。
 

@@ -1,4 +1,4 @@
-# 08 · Filesystem
+# 08 · 文件系统
 
 ## 1. std::filesystem（C++17）
 
@@ -173,7 +173,7 @@ fs::remove_all(p);
 fs::temp_directory_path();
 ```
 
-适合测试、临时文件和自包含 demo。
+它只返回临时目录位置，不创建唯一、权限安全的临时文件。多个进程使用同一固定文件名会冲突；真实临时文件需要安全创建机制或明确隔离的测试目录。
 
 ## 12. 文件系统安全
 
@@ -202,8 +202,28 @@ std::ofstream out(file);
 
 ## 核心结论
 
-现代 C++ 中不应再手工拼路径或为常见文件系统操作写平台分支。  
+常见路径操作优先使用标准库；编码、权限、持久落盘和防路径竞争等需求仍可能需要平台接口。\
 `std::filesystem` 把“路径语义”和“文件系统操作”标准化，并提供更好的跨平台可移植性。
 
 ## 来源
 Modern C++ Tutorial — Chapter 08
+
+## 小实验：路径运算不等于磁盘访问
+
+```cpp
+#include <filesystem>
+#include <iostream>
+namespace fs = std::filesystem;
+int main() {
+    const fs::path file = fs::path("reports") / "scores.csv";
+    std::cout << file.filename().string() << '\n';
+    std::cout << file.stem().string() << '\n';
+    std::cout << file.extension().string() << '\n';
+}
+```
+
+C++17 输出 `scores.csv`、`scores`、`.csv`，不需要真实存在该文件，也不写磁盘。
+
+遍历目录的顺序未指定；新建/删除文件是否被本次遍历观察到也不能当固定保证。使用 error_code 形式时，每次操作后立即检查 `ec`；`file_size` 失败返回特殊值，不能当真实长度累加。构造迭代器、递增、查询条目都可能失败，仅检查构造阶段不够。
+
+自测：`base / user_input` 必然位于 base 里面吗？答：不一定。绝对路径、`..`、符号链接和检查后替换都可能突破预期目录；单纯 `lexically_normal()` 或先 `exists()` 后打开不能消除路径竞争。

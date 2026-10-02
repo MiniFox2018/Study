@@ -348,7 +348,7 @@ OPENAI_API_KEY=your-openai-api-key
 DEFAULT_MODEL=claude-sonnet-5
 ```
 
-**详细供应商配置见 [PROVIDERS.md](PROVIDERS.md)。**
+**详细供应商配置见 [PROVIDERS.md](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/coding-agent/PROVIDERS.md)。**
 
 #### 依赖
 
@@ -594,7 +594,7 @@ pytest -v
 - **tools.json 主要特性**均有覆盖
 - **集成测试**覆盖工具链与 system hints
 
-详见 [tests/README.md](tests/README.md)。
+详见 [tests/README.md](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/coding-agent/tests/README.md)。
 
 <a id="learning-3"></a>
 
@@ -884,7 +884,7 @@ OPENAI_API_KEY=your-openai-api-key
 DEFAULT_MODEL=claude-sonnet-5
 ```
 
-**See [PROVIDERS.md](PROVIDERS.md) for detailed provider configuration guide.**
+**See [PROVIDERS.md](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/coding-agent/PROVIDERS.md) for detailed provider configuration guide.**
 
 #### Requirements
 
@@ -1327,7 +1327,7 @@ pytest -v
 - **All major features** from tools.json tested
 - **Integration tests** for tool chaining and system hints
 
-See [tests/README.md](tests/README.md) for detailed test documentation.
+See [tests/README.md](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/coding-agent/tests/README.md) for detailed test documentation.
 
 ### Learning Path
 

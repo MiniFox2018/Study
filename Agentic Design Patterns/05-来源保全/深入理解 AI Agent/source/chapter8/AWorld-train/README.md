@@ -349,7 +349,7 @@ Result: {...historical Wikipedia content...}
 
 AWorld Train 采用四阶段训练流水线：
 
-![Architecture](../docs/imgs/train_env_agent_architecture.png)
+Architecture（上游未提供文件：`../docs/imgs/train_env_agent_architecture.png`）
 
 ```
 ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
@@ -1608,7 +1608,7 @@ Result: {...historical Wikipedia content...}
 
 AWorld Train uses a four-stage training pipeline:
 
-![Architecture](../docs/imgs/train_env_agent_architecture.png)
+Architecture（上游未提供文件：`../docs/imgs/train_env_agent_architecture.png`）
 
 ```
 ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐

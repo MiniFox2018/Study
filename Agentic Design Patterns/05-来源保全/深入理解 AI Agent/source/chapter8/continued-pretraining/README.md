@@ -133,7 +133,7 @@ python evaluate_model.py --pretrained
 python evaluate_model.py --max_new_tokens 300 --use_sampling --temperature 0.7
 ```
 
-更多用法详见 [`README_EVALUATION.md`](./README_EVALUATION.md)。
+更多用法详见 [`README_EVALUATION.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/continued-pretraining/README_EVALUATION.md)。
 
 ##### 3. 三阶段并排对比
 
@@ -154,7 +154,7 @@ python compare_models.py \
 
 #### 实验结果
 
-历史 RTX 4090 运行的完整终端输出保存在 [`model_eval_results.md`](./model_eval_results.md)。规范证据包位于 [`validation/runs/exp8-5-training-report-20260731-v1/`](validation/runs/exp8-5-training-report-20260731-v1/)，[`validation/latest.json`](validation/latest.json) 绑定其 manifest。
+历史 RTX 4090 运行的完整终端输出保存在 [`model_eval_results.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/continued-pretraining/model_eval_results.md)。规范证据包位于 [`validation/runs/exp8-5-training-report-20260731-v1/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/continued-pretraining/validation/runs/exp8-5-training-report-20260731-v1)，[`validation/latest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/continued-pretraining/validation/latest.json) 绑定其 manifest。
 
 审计从原始报告提取了 **5 个提示 × 3 个阶段 = 15 个输出**，并向独立 ARK `doubao-seed-1-6-250615` 裁判提交了五次确定性乱序、阶段匿名的对比。五份原始请求/响应、唯一 response ID、usage 与延迟均已保留。0–5 分均值如下：
 
@@ -166,7 +166,7 @@ python compare_models.py \
 
 最终阶段相对基线的韩语均值提升 **+1.7777**；英语均值下降 **0.8333**，仍在预先声明的 1.0 分保留容差内。仅继续预训练的中间阶段在这组小规模保留提示上没有提升，观察到的韩语增益来自完整两阶段流程后的最终 SFT 模型。最终模型的泡菜回答仍有严重事实错误：它错误地描述了煮蔬菜和以酱油为基础的浸泡汁。这个负结果被明确保留，而没有被总分掩盖。
 
-历史运行没有保留 adapter hash、当时解析到的上游 commit 或生成随机种子。为了将来复现，[`reproduction_contract.json`](validation/runs/exp8-5-training-report-20260731-v1/reproduction_contract.json) 固定了基础模型和两个数据集的当前不可变 revision；这些 revision 明确**不声称是历史运行所用版本**。
+历史运行没有保留 adapter hash、当时解析到的上游 commit 或生成随机种子。为了将来复现，[`reproduction_contract.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/continued-pretraining/validation/runs/exp8-5-training-report-20260731-v1/reproduction_contract.json) 固定了基础模型和两个数据集的当前不可变 revision；这些 revision 明确**不声称是历史运行所用版本**。
 
 训练 checkpoint/adapter 按本书策略仅保存在本地，不随书分发，也不是验收产物；验收产物是可复现、证据充分的训练报告。无需 GPU 或 API 调用即可验证：
 
@@ -316,7 +316,7 @@ python evaluate_model.py --pretrained
 python evaluate_model.py --max_new_tokens 300 --use_sampling --temperature 0.7
 ```
 
-See [`README_EVALUATION.md`](./README_EVALUATION.md) for more usage details.
+See [`README_EVALUATION.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/continued-pretraining/README_EVALUATION.md) for more usage details.
 
 ### 3. Three-Stage Side-by-Side Comparison
 
@@ -337,7 +337,7 @@ python compare_models.py \
 
 ## Experimental Results
 
-The full terminal output from the historical RTX 4090 run is retained in [`model_eval_results.md`](./model_eval_results.md). The canonical evidence package is [`validation/runs/exp8-5-training-report-20260731-v1/`](validation/runs/exp8-5-training-report-20260731-v1/), and [`validation/latest.json`](validation/latest.json) binds its manifest.
+The full terminal output from the historical RTX 4090 run is retained in [`model_eval_results.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/continued-pretraining/model_eval_results.md). The canonical evidence package is [`validation/runs/exp8-5-training-report-20260731-v1/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/continued-pretraining/validation/runs/exp8-5-training-report-20260731-v1), and [`validation/latest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/continued-pretraining/validation/latest.json) binds its manifest.
 
 The audit extracted all **5 prompts × 3 stages = 15 outputs** and sent five deterministic stage-blind comparison tasks to the independent ARK `doubao-seed-1-6-250615` judge. All five raw request/responses, unique response IDs, usage, and latency are retained. The 0–5 mean scores were:
 
@@ -349,7 +349,7 @@ The audit extracted all **5 prompts × 3 stages = 15 outputs** and sent five det
 
 The final stage improved the Korean mean by **+1.7777** over baseline. Its English mean fell by **0.8333**, within the audit's declared 1.0-point retention tolerance. Continued pretraining alone did not improve this small retained prompt set; the final SFT stage produced the observed Korean gain. The kimchi answer remained materially false: it described boiling vegetables and soaking them in a soy-sauce-based sauce. That limitation is an accepted negative result, not hidden by the aggregate score.
 
-The historical run did not retain adapter hashes, exact resolved upstream commits, or its generation seed. For future reproduction, the audit freezes immutable current revisions for the base model and both datasets in [`reproduction_contract.json`](validation/runs/exp8-5-training-report-20260731-v1/reproduction_contract.json). Those pins are explicitly **not claimed to be the historical revisions**.
+The historical run did not retain adapter hashes, exact resolved upstream commits, or its generation seed. For future reproduction, the audit freezes immutable current revisions for the base model and both datasets in [`reproduction_contract.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/continued-pretraining/validation/runs/exp8-5-training-report-20260731-v1/reproduction_contract.json). Those pins are explicitly **not claimed to be the historical revisions**.
 
 Training checkpoints/adapters are intentionally local and are not distributed with the book. They are not acceptance artifacts; the accepted artifact is the reproducible, evidence-backed report. Validate it without a GPU or provider call:
 

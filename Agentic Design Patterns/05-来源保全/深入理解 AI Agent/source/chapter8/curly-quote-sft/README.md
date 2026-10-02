@@ -12,7 +12,7 @@
 
 本实验从生产反馈“中文文章使用了 ASCII 直引号”出发，先把反馈提炼成可审计的文档 Skill，再用结构化合成数据训练 Qwen3-8B 的 LoRA 适配器。重点不是全局字符替换，而是判断符号所在的作用域：中文自然语言中的引用可以改为 `“”`，英文原文、代码、JSON、路径和标识符必须保持其语法需要的引号。
 
-可读规范保存在 [`SKILL.md`](SKILL.md)；它同时是合成数据的标签依据、训练后的回归规范和规则变更时的重训输入。
+可读规范保存在 [`SKILL.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter8/curly-quote-sft/SKILL.md)；它同时是合成数据的标签依据、训练后的回归规范和规则变更时的重训输入。
 
 <a id="learning-1"></a>
 

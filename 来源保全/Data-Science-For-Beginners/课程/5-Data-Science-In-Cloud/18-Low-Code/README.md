@@ -6,26 +6,26 @@
 
 目录：
 
-- [云端数据科学：低代码/无代码方式](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-  - [课前测验](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-  - [1. 简介](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-    - [1.1 什么是 Azure Machine Learning？](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-    - [1.2 心力衰竭预测项目：](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-    - [1.3 心力衰竭数据集：](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-  - [2. 在 Azure ML Studio 中进行低代码/无代码模型训练](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-    - [2.1 创建 Azure ML 工作区](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-    - [2.2 计算资源](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-      - [2.2.1 为计算资源选择合适的选项](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-      - [2.2.2 创建计算集群](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-    - [2.3 加载数据集](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-    - [2.4 使用 AutoML 进行低代码/无代码训练](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-  - [3. 低代码/无代码模型部署与端点使用](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-    - [3.1 模型部署](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-    - [3.2 端点使用](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-  - [🚀 挑战](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-  - [课后测验](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-  - [复习与自学](../../../../5-Data-Science-In-Cloud/18-Low-Code)
-  - [作业](../../../../5-Data-Science-In-Cloud/18-Low-Code)
+- [云端数据科学：低代码/无代码方式](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+  - [课前测验](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+  - [1. 简介](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+    - [1.1 什么是 Azure Machine Learning？](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+    - [1.2 心力衰竭预测项目：](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+    - [1.3 心力衰竭数据集：](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+  - [2. 在 Azure ML Studio 中进行低代码/无代码模型训练](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+    - [2.1 创建 Azure ML 工作区](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+    - [2.2 计算资源](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+      - [2.2.1 为计算资源选择合适的选项](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+      - [2.2.2 创建计算集群](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+    - [2.3 加载数据集](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+    - [2.4 使用 AutoML 进行低代码/无代码训练](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+  - [3. 低代码/无代码模型部署与端点使用](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+    - [3.1 模型部署](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+    - [3.2 端点使用](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+  - [🚀 挑战](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+  - [课后测验](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+  - [复习与自学](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
+  - [作业](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/18-Low-Code)
   
 ## [课前测验](https://ff-quizzes.netlify.app/en/ds/quiz/34)
 
@@ -53,7 +53,7 @@ Azure ML 提供了开发者和数据科学家所需的所有工具，用于完�
 
 毫无疑问，制作和构建项目是检验技能和知识的最佳方式。在本课程中，我们将探索两种不同的方式来构建一个数据科学项目，用于预测心力衰竭攻击。这两种方式分别是通过 Azure ML Studio 的低代码/无代码方式，以及通过 Azure ML SDK 的方式，如下图所示：
 
-![project-schema](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/project-schema.PNG)
+![project-schema](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/project-schema.PNG)
 
 每种方式都有其优缺点。低代码/无代码方式更容易入门，因为它涉及与图形用户界面 (GUI) 交互，不需要任何代码知识。这种方法可以快速测试项目的可行性并创建概念验证 (POC)。然而，随着项目的扩展并需要进入生产阶段，仅通过 GUI 创建资源变得不可行。此时，程序化地自动化所有内容（从资源创建到模型部署）变得至关重要，这也是学习如何使用 Azure ML SDK 的关键所在。
 
@@ -106,15 +106,15 @@ Kaggle 提供了一个公开的 [心力衰竭数据集](https://www.kaggle.com/a
 1. 使用与您的 Azure 订阅关联的 Microsoft 凭据登录 [Azure 门户](https://ms.portal.azure.com/)。
 2. 选择 **＋创建资源**
    
-   ![workspace-1](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/workspace-1.PNG)
+   ![workspace-1](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/workspace-1.PNG)
 
    搜索 Machine Learning 并选择 Machine Learning 磁贴
 
-   ![workspace-2](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/workspace-2.PNG)
+   ![workspace-2](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/workspace-2.PNG)
 
    点击创建按钮
 
-   ![workspace-3](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/workspace-3.PNG)
+   ![workspace-3](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/workspace-3.PNG)
 
    按以下设置填写：
    - 订阅：您的 Azure 订阅
@@ -126,17 +126,17 @@ Kaggle 提供了一个公开的 [心力衰竭数据集](https://www.kaggle.com/a
    - 应用程序洞察：注意将为您的工作区创建的默认新应用程序洞察资源
    - 容器注册表：无（第一次将模型部署到容器时会自动创建一个）
 
-    ![workspace-4](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/workspace-4.PNG)
+    ![workspace-4](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/workspace-4.PNG)
 
    - 点击创建 + 审核，然后点击创建按钮
 3. 等待您的工作区创建完成（可能需要几分钟）。然后在门户中访问它。您可以通过 Machine Learning Azure 服务找到它。
 4. 在工作区的概览页面，启动 Azure Machine Learning Studio（或打开一个新的浏览器标签并导航到 https://ml.azure.com），使用您的 Microsoft 账户登录 Azure Machine Learning Studio。如果提示，请选择您的 Azure 目录和订阅，以及您的 Azure Machine Learning 工作区。
    
-![workspace-5](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/workspace-5.PNG)
+![workspace-5](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/workspace-5.PNG)
 
 5. 在 Azure Machine Learning Studio 中，切换左上角的 ☰ 图标以查看界面中的各个页面。您可以使用这些页面来管理工作区中的资源。
 
-![workspace-6](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/workspace-6.PNG)
+![workspace-6](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/workspace-6.PNG)
 
 您可以使用 Azure 门户管理工作区，但对于数据科学家和机器学习运维工程师来说，Azure Machine Learning Studio 提供了一个更专注的用户界面，用于管理工作区资源。
 
@@ -181,18 +181,18 @@ CPU 和 GPU 架构的主要区别在于，CPU 设计用于快速处理广泛的�
 
 在我们之前创建的 [Azure ML 工作区](https://ml.azure.com/) 中，进入计算选项，您将看到我们刚刚讨论的不同计算资源（例如计算实例、计算集群、推理集群和附加计算）。在这个项目中，我们需要一个计算集群来进行模型训练。在 Studio 中，点击“计算”菜单，然后点击“计算集群”标签页，点击“+ 新建”按钮以创建计算集群。
 
-![22](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/cluster-1.PNG)
+![22](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/cluster-1.PNG)
 
 1. 选择您的选项：专用 vs 低优先级，CPU 或 GPU，虚拟机规格和核心数量（对于本项目，可以保留默认设置）。
 2. 点击“下一步”按钮。
 
-![23](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/cluster-2.PNG)
+![23](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/cluster-2.PNG)
 
 3. 为集群命名。
 4. 选择您的选项：节点的最小/最大数量、闲置秒数后缩减规模、SSH 访问。注意，如果节点的最小数量为 0，当集群闲置时可以节省成本。注意，最大节点数量越高，训练时间越短。推荐的最大节点数量为 3。
 5. 点击“创建”按钮。这一步可能需要几分钟。
 
-![29](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/cluster-3.PNG)
+![29](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/cluster-3.PNG)
 
 太棒了！现在我们已经有了一个计算集群，接下来需要将数据加载到 Azure ML Studio。
 
@@ -200,15 +200,15 @@ CPU 和 GPU 架构的主要区别在于，CPU 设计用于快速处理广泛的�
 
 1. 在我们之前创建的 [Azure ML 工作区](https://ml.azure.com/) 中，点击左侧菜单中的“数据集”，然后点击“+ 创建数据集”按钮以创建数据集。选择“从本地文件”选项并选择我们之前下载的 Kaggle 数据集。
 
-   ![24](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/dataset-1.PNG)
+   ![24](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/dataset-1.PNG)
 
 2. 为您的数据集命名、选择类型并添加描述。点击“下一步”。从文件中上传数据。点击“下一步”。
 
-   ![25](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/dataset-2.PNG)
+   ![25](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/dataset-2.PNG)
 
 3. 在 Schema 中，将以下特征的数据类型更改为布尔值：贫血、糖尿病、高血压、性别、吸烟和死亡事件（DEATH_EVENT）。点击“下一步”，然后点击“创建”。
 
-   ![26](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/dataset-3.PNG)
+   ![26](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/dataset-3.PNG)
 
 很好！现在数据集已经就位，计算集群也已创建，我们可以开始训练模型了！
 
@@ -218,19 +218,19 @@ CPU 和 GPU 架构的主要区别在于，CPU 设计用于快速处理广泛的�
 
 1. 在我们之前创建的 [Azure ML 工作区](https://ml.azure.com/) 中，点击左侧菜单中的“自动化机器学习”，选择您刚刚上传的数据集。点击“下一步”。
 
-   ![27](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/aml-1.PNG)
+   ![27](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/aml-1.PNG)
 
 2. 输入一个新的实验名称，目标列（DEATH_EVENT）以及我们创建的计算集群。点击“下一步”。
 
-   ![28](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/aml-2.PNG)
+   ![28](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/aml-2.PNG)
 
 3. 选择“分类”，然后点击“完成”。这一步可能需要 30 分钟到 1 小时，具体取决于您的计算集群规模。
 
-   ![30](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/aml-3.PNG)
+   ![30](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/aml-3.PNG)
 
 4. 运行完成后，点击“自动化机器学习”标签页，点击您的运行记录，然后在“最佳模型摘要”卡片中点击算法。
 
-   ![31](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/aml-4.PNG)
+   ![31](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/aml-4.PNG)
 
 在这里，您可以看到 AutoML 生成的最佳模型的详细描述。您还可以在“模型”标签中探索其他生成的模型。花几分钟时间探索“解释（预览）”按钮中的模型。一旦您选择了要使用的模型（这里我们选择 AutoML 选出的最佳模型），接下来我们将学习如何部署它。
 
@@ -241,15 +241,15 @@ CPU 和 GPU 架构的主要区别在于，CPU 设计用于快速处理广泛的�
 
 在最佳模型描述中，点击“部署”按钮。
 
-![deploy-1](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/deploy-1.PNG)
+![deploy-1](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/deploy-1.PNG)
 
 15. 为其命名、添加描述、选择计算类型（Azure 容器实例），启用身份验证并点击“部署”。这一步可能需要约 20 分钟完成。部署过程包括注册模型、生成资源并为 Web 服务配置资源。部署状态下会显示状态消息。定期点击“刷新”以检查部署状态。当状态显示为“健康”时，表示已部署并运行。
 
-![deploy-2](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/deploy-2.PNG)
+![deploy-2](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/deploy-2.PNG)
 
 16. 部署完成后，点击“端点”标签页，点击您刚刚部署的端点。在这里，您可以找到有关端点的所有详细信息。
 
-![deploy-3](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/deploy-3.PNG)
+![deploy-3](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/deploy-3.PNG)
 
 太棒了！现在我们已经部署了一个模型，可以开始使用端点了。
 
@@ -259,7 +259,7 @@ CPU 和 GPU 架构的主要区别在于，CPU 设计用于快速处理广泛的�
 
 该脚本可以直接从您的本地机器运行，并将使用您的端点。
 
-![35](../../../../5-Data-Science-In-Cloud/18-Low-Code/images/consumption-1.PNG)
+![35](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/18-Low-Code/images/consumption-1.PNG)
 
 花点时间查看以下两行代码：
 

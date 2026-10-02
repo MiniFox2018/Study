@@ -109,11 +109,11 @@ python run_experiment_9_8.py --help
 下面保留完整证据，方便核对或复现。Canonical 开放式运行固定在 Hermes commit
 `85c8956ec7f2b4607509980794995e1c5e21e292`，使用 `openai/gpt-5.6-luna`，补丁尚未合入上游。
 
-- [Evidence manifest](validation/exp9-8-hermes-gpt56luna-autonomous-20260802-v2/manifest.json)
-- [Hermes 自述报告](validation/exp9-8-hermes-gpt56luna-autonomous-20260802-v2/BOOK_SELF_EVOLUTION_REPORT.md)
-- [最终修改补丁](validation/exp9-8-hermes-gpt56luna-autonomous-20260802-v2/hermes-self-evolution.patch)
+- [Evidence manifest](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter9/hermes-self-evolution/validation/exp9-8-hermes-gpt56luna-autonomous-20260802-v2/manifest.json)
+- [Hermes 自述报告](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter9/hermes-self-evolution/validation/exp9-8-hermes-gpt56luna-autonomous-20260802-v2/BOOK_SELF_EVOLUTION_REPORT.md)
+- [最终修改补丁](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter9/hermes-self-evolution/validation/exp9-8-hermes-gpt56luna-autonomous-20260802-v2/hermes-self-evolution.patch)
 - 原始主运行、三轮 proposer 修正与四次 fresh acceptance review transcript 位于
-  [`raw/`](validation/exp9-8-hermes-gpt56luna-autonomous-20260802-v2/raw/)
+  [`raw/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter9/hermes-self-evolution/validation/exp9-8-hermes-gpt56luna-autonomous-20260802-v2/raw)
 
 证据边界：这次运行证明了 Agent 能阅读、审计、生成代码提案并根据外部审查纠错；它**没有**
 证明新的轨迹学习信号提升了下游任务成功率。Hermes 在报告中设计了固定任务、固定模型、逐项关闭功能的

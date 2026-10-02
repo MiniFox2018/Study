@@ -166,8 +166,8 @@ python -m pytest tests
 
 #### 当前真实验收状态（2026-07-30）
 
-[`validation/mistral_multimodal_20260730/results.json`](validation/mistral_multimodal_20260730/results.json)
-与同目录的 [`manifest.json`](validation/mistral_multimodal_20260730/manifest.json) 保存当前
+[`validation/mistral_multimodal_20260730/results.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/tts-quality-eval/validation/mistral_multimodal_20260730/results.json)
+与同目录的 [`manifest.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/tts-quality-eval/validation/mistral_multimodal_20260730/manifest.json) 保存当前
 完整验收：OpenAI `tts-1/alloy` 与 Fish S1 两个真实合成 provider，覆盖数字、多音字、
 长句和兴奋情感四类文本，共 8/8 单元。
 
@@ -177,8 +177,8 @@ Mistral `voxtral-small-latest`，四维分数均为 1–5 整数；Fish 四维�
 八段候选音频和前序合成结果的 SHA-256；合成音频是前序真实 provider 运行的留存产物，
 不是在 OpenAI 余额耗尽后伪造的新合成。
 
-早期 [`real_multimodal_20260730`](validation/real_multimodal_20260730/manifest.json) 与
-[`audio_fallback_probe_20260730`](validation/audio_fallback_probe_20260730/manifest.json)
+早期 [`real_multimodal_20260730`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/tts-quality-eval/validation/real_multimodal_20260730/manifest.json) 与
+[`audio_fallback_probe_20260730`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter7/tts-quality-eval/validation/audio_fallback_probe_20260730/manifest.json)
 仍保留 Google key 无效、OpenRouter 401 和 OpenAI 新合成余额不足的负面证据；它们是
 故障历史，不再代表当前 Voxtral 直接听评的验收状态。
 

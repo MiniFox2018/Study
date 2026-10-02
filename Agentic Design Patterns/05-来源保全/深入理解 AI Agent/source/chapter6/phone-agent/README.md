@@ -95,7 +95,7 @@ node --check static/app.js
 
 验收分别用 Chrome 的 one-shot fake microphone device 播放两条安全合成 WAV。它不是文本注入：语音仍经过 `getUserMedia`、Opus/RTP、服务端解码、PCM 缓冲和真实 Whisper inference。每组必须同时通过 20 个门禁，包括 SDP/ICE、data channel、双向音轨与 RTP packet/byte、RTP-derived WAV、Whisper checkpoint hash、真实外部 LLM raw receipt、两条真实 TTS asset 的 hash 与完整下行发送、媒体 transcript source、缺失字段澄清、明确确认、结构化完成、无 fallback 及隐私边界。
 
-[`validation/runs/phone-agent-webrtc-audio-20260731-v1/`](validation/runs/phone-agent-webrtc-audio-20260731-v1/) 保留 direct/react 原始记录、对照结论、安全 fixture、服务端收到的 ASR WAV、Agent TTS WAV、日志与 manifest。`verify_acceptance.py` 独立重算源码/产物/LLM raw receipt hash，并拒绝缺文件、改媒体、改 response ID、无 usage、错误 transcript source 或任何 gate 降级。安全合成验收证明技术链路，不等同于真人可用性研究。
+[`validation/runs/phone-agent-webrtc-audio-20260731-v1/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/phone-agent/validation/runs/phone-agent-webrtc-audio-20260731-v1) 保留 direct/react 原始记录、对照结论、安全 fixture、服务端收到的 ASR WAV、Agent TTS WAV、日志与 manifest。`verify_acceptance.py` 独立重算源码/产物/LLM raw receipt hash，并拒绝缺文件、改媒体、改 response ID、无 usage、错误 transcript source 或任何 gate 降级。安全合成验收证明技术链路，不等同于真人可用性研究。
 
 ---
 

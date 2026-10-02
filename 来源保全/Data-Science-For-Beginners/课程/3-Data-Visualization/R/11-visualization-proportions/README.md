@@ -84,7 +84,7 @@ pie(grouped$count,grouped$class, main="Edible?")
 ```
 瞧，一个饼图展示了根据蘑菇的两种类别的数据比例。在这里，确保标签数组的顺序正确非常重要，因此务必验证标签的构建顺序！
 
-![饼图](../../../../../translated_images/zh-CN/pie1-wb.685df063673751f4.webp)
+![饼图](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/pie1-wb.685df063673751f4.webp)
 
 ## 环形图！
 
@@ -119,7 +119,7 @@ library(webr)
 PieDonut(habitat, aes(habitat, count=count))
 ```
 
-![环形图](../../../../../translated_images/zh-CN/donut-wb.34e6fb275da9d834.webp)
+![环形图](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/donut-wb.34e6fb275da9d834.webp)
 
 此代码使用了两个库——ggplot2 和 webr。通过 webr 库的 PieDonut 函数，我们可以轻松创建环形图！
 
@@ -157,7 +157,7 @@ waffle((cap_color$count/10), rows = 7, title = "Waffle Chart")+scale_fill_manual
 
 使用华夫图，你可以清楚地看到蘑菇数据集中帽颜色的比例。有趣的是，有许多绿色帽子的蘑菇！
 
-![华夫图](../../../../../translated_images/zh-CN/waffle.aaa75c5337735a6e.webp)
+![华夫图](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/waffle.aaa75c5337735a6e.webp)
 
 在本课中，你学习了三种可视化比例的方法。首先，你需要将数据分组为类别，然后决定哪种方式最适合显示数据——饼图、环形图或华夫图。所有这些都很有趣，并能让用户快速了解数据集。
 
@@ -183,7 +183,7 @@ https://medium.datadriveninvestor.com/data-visualization-done-the-right-way-with
 
 ## 作业
 
-[在 Excel 中尝试](assignment.md)
+[在 Excel 中尝试](../../11-visualization-proportions/assignment.md)
 
 **免责声明**：  
 本文档使用AI翻译服务[Co-op Translator](https://github.com/Azure/co-op-translator)进行翻译。尽管我们努力确保翻译的准确性，但请注意，自动翻译可能包含错误或不准确之处。原始语言的文档应被视为权威来源。对于关键信息，建议使用专业人工翻译。我们对因使用此翻译而产生的任何误解或误读不承担责任。

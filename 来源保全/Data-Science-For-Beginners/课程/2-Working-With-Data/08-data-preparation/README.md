@@ -6,7 +6,7 @@
 
 ## [课前测验](https://ff-quizzes.netlify.app/en/ds/quiz/14)
 
-根据数据来源，原始数据可能存在一些不一致性，这会在分析和建模时带来挑战。换句话说，这些数据可以被归类为“脏数据”，需要进行清理。本课程重点介绍清理和转换数据的技术，以解决数据缺失、不准确或不完整的问题。本课程中涉及的主题将使用 Python 和 Pandas 库，并在本目录中的[笔记本](../../../../2-Working-With-Data/08-data-preparation/notebook.ipynb)中进行演示。
+根据数据来源，原始数据可能存在一些不一致性，这会在分析和建模时带来挑战。换句话说，这些数据可以被归类为“脏数据”，需要进行清理。本课程重点介绍清理和转换数据的技术，以解决数据缺失、不准确或不完整的问题。本课程中涉及的主题将使用 Python 和 Pandas 库，并在本目录中的[笔记本](https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/08-data-preparation/notebook.ipynb)中进行演示。
 
 ## 清理数据的重要性
 

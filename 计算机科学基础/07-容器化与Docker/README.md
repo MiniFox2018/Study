@@ -98,4 +98,22 @@ Image / Container / Registry
 
 ## 7. 完整性说明
 
-本专题覆盖原资料的 21 章与 8 个附录的长期知识。原资料中的平台安装截图、易失效镜像源、短期版本号、历史废弃用法不进入主干；对应章节仍在来源保全层记录，保证可追溯而不污染主知识库。
+历史整理为原资料的 21 章与 8 个附录建立了主题映射；这不等于每个细节已逐项验证或每个实验已迁移。原资料中的平台安装截图、易失效镜像源、短期版本号、历史废弃用法不进入主干；对应章节仍在来源保全层记录，保证可追溯而不污染主知识库。
+
+## 8. 练习基线与本轮核验
+
+先用 `docker version` 确认 Server 可达，用 `docker compose version` 确认 Compose 插件。本文使用 `docker compose`，不依赖旧的独立 `docker-compose`。01～04 提供完整小实验；写有“结构示意/占位”的片段不能直接运行。macOS/Windows 的 Linux 容器由虚拟机承载，与原生 Linux 系统管理要分开理解。
+
+2026-10-02 核验：
+
+- [Compose 启动依赖](https://docs.docker.com/compose/how-tos/startup-order/)：service_healthy 必须配实际健康检查。
+- [PostgreSQL 官方镜像](https://hub.docker.com/_/postgres)：18+ 的卷路径变化、空目录初始化条件与密码文件配置。
+- [Docker tmpfs](https://docs.docker.com/engine/storage/tmpfs/)：临时内存页可能换出到 swap。
+- [Docker host 网络](https://docs.docker.com/engine/network/drivers/host/)：Linux Engine 与 Desktop 的支持/行为边界不同。
+- [Kubernetes 三类探针](https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/)：就绪、存活和启动检测的作用不同。
+
+本轮只能在当前机器解析 Compose 配置；Docker daemon 未运行，容器启动、镜像构建、数据持久化和 Kubernetes 集群行为尚未实跑验收。上面的运行预期来自配置语义和官方文档，后续实跑需记录实际版本、digest、结果与失败原因。后续更新备注统一使用中文。
+
+### 2026-10-03 配置验证
+
+使用 Docker Compose 5.1.4 对 04 章完整 YAML 执行 `docker compose config --quiet` 和 JSON 规范化解析，均成功；检查了健康依赖、容器内变量转义、secret 文件引用与 PostgreSQL 18 卷路径。当前 Docker daemon 仍不可连接，因此没有拉取/构建镜像、创建容器、验证查询结果或数据卷持久化。配置解析通过与运行验收通过分开记录。

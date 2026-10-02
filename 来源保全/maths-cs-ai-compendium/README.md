@@ -1,6 +1,6 @@
 # Maths, CS & AI Compendium
 
-<img src="images/logo.png" alt="Logo" style="border-radius: 30px; width: 100%;">
+<img src="https://github.com/HenryNdubuaku/maths-cs-ai-compendium/blob/9850ee574a370bc1cde59de98b394e953775b67d/images/logo.png" alt="Logo" style="border-radius: 30px; width: 100%;">
 
 **Read online**: [henryndubuaku.github.io/maths-cs-ai-compendium](https://henryndubuaku.github.io/maths-cs-ai-compendium/)
 

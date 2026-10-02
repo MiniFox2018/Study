@@ -6,27 +6,27 @@
 
 目录：
 
-- [云中的数据科学：使用 "Azure ML SDK"](../../../../5-Data-Science-In-Cloud/19-Azure)
-  - [课前测验](../../../../5-Data-Science-In-Cloud/19-Azure)
-  - [1. 介绍](../../../../5-Data-Science-In-Cloud/19-Azure)
-    - [1.1 什么是 Azure ML SDK？](../../../../5-Data-Science-In-Cloud/19-Azure)
-    - [1.2 心力衰竭预测项目和数据集介绍](../../../../5-Data-Science-In-Cloud/19-Azure)
-  - [2. 使用 Azure ML SDK 训练模型](../../../../5-Data-Science-In-Cloud/19-Azure)
-    - [2.1 创建 Azure ML 工作区](../../../../5-Data-Science-In-Cloud/19-Azure)
-    - [2.2 创建计算实例](../../../../5-Data-Science-In-Cloud/19-Azure)
-    - [2.3 加载数据集](../../../../5-Data-Science-In-Cloud/19-Azure)
-    - [2.4 创建笔记本](../../../../5-Data-Science-In-Cloud/19-Azure)
-    - [2.5 训练模型](../../../../5-Data-Science-In-Cloud/19-Azure)
-      - [2.5.1 设置工作区、实验、计算集群和数据集](../../../../5-Data-Science-In-Cloud/19-Azure)
-      - [2.5.2 自动化机器学习配置与训练](../../../../5-Data-Science-In-Cloud/19-Azure)
-  - [3. 使用 Azure ML SDK 部署模型和消费端点](../../../../5-Data-Science-In-Cloud/19-Azure)
-    - [3.1 保存最佳模型](../../../../5-Data-Science-In-Cloud/19-Azure)
-    - [3.2 模型部署](../../../../5-Data-Science-In-Cloud/19-Azure)
-    - [3.3 消费端点](../../../../5-Data-Science-In-Cloud/19-Azure)
-  - [🚀 挑战](../../../../5-Data-Science-In-Cloud/19-Azure)
-  - [课后测验](../../../../5-Data-Science-In-Cloud/19-Azure)
-  - [复习与自学](../../../../5-Data-Science-In-Cloud/19-Azure)
-  - [作业](../../../../5-Data-Science-In-Cloud/19-Azure)
+- [云中的数据科学：使用 "Azure ML SDK"](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+  - [课前测验](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+  - [1. 介绍](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+    - [1.1 什么是 Azure ML SDK？](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+    - [1.2 心力衰竭预测项目和数据集介绍](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+  - [2. 使用 Azure ML SDK 训练模型](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+    - [2.1 创建 Azure ML 工作区](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+    - [2.2 创建计算实例](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+    - [2.3 加载数据集](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+    - [2.4 创建笔记本](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+    - [2.5 训练模型](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+      - [2.5.1 设置工作区、实验、计算集群和数据集](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+      - [2.5.2 自动化机器学习配置与训练](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+  - [3. 使用 Azure ML SDK 部署模型和消费端点](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+    - [3.1 保存最佳模型](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+    - [3.2 模型部署](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+    - [3.3 消费端点](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+  - [🚀 挑战](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+  - [课后测验](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+  - [复习与自学](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
+  - [作业](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)
 
 ## [课前测验](https://ff-quizzes.netlify.app/en/ds/quiz/36)
 
@@ -48,7 +48,7 @@ SDK 的主要功能包括：
 
 在[上一课](../18-Low-Code/README.md)中，我们学习了如何以低代码/无代码的方式训练、部署和消费模型。我们使用了心力衰竭数据集来生成心力衰竭预测模型。在本课中，我们将使用 Azure Machine Learning SDK 完成相同的任务。
 
-![项目架构](../../../../5-Data-Science-In-Cloud/19-Azure/images/project-schema.PNG)
+![项目架构](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/19-Azure/images/project-schema.PNG)
 
 ### 1.2 心力衰竭预测项目和数据集介绍
 
@@ -66,7 +66,7 @@ SDK 的主要功能包括：
 
 在我们之前创建的 [Azure ML 工作区](https://ml.azure.com/)中，进入计算菜单，你会看到可用的不同计算资源。
 
-![计算实例](../../../../5-Data-Science-In-Cloud/19-Azure/images/compute-instance-1.PNG)
+![计算实例](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/19-Azure/images/compute-instance-1.PNG)
 
 让我们创建一个计算实例来提供 Jupyter Notebook。
 1. 点击 + New 按钮。
@@ -74,7 +74,7 @@ SDK 的主要功能包括：
 3. 选择你的选项：CPU 或 GPU、虚拟机大小和核心数量。
 4. 点击 Create 按钮。
 
-恭喜，你刚刚创建了一个计算实例！我们将在[创建笔记本部分](../../../../5-Data-Science-In-Cloud/19-Azure)中使用这个计算实例。
+恭喜，你刚刚创建了一个计算实例！我们将在[创建笔记本部分](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)中使用这个计算实例。
 
 ### 2.3 加载数据集
 
@@ -82,18 +82,18 @@ SDK 的主要功能包括：
 
 ### 2.4 创建笔记本
 
-> **_注意：_** 接下来的步骤中，你可以从头创建一个新的笔记本，或者上传我们之前创建的 [notebook](../../../../5-Data-Science-In-Cloud/19-Azure/notebook.ipynb) 到你的 Azure ML Studio。要上传，只需点击 "Notebook" 菜单并上传笔记本。
+> **_注意：_** 接下来的步骤中，你可以从头创建一个新的笔记本，或者上传我们之前创建的 [notebook](https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure/notebook.ipynb) 到你的 Azure ML Studio。要上传，只需点击 "Notebook" 菜单并上传笔记本。
 
 笔记本是数据科学过程中非常重要的一部分。它们可以用于进行探索性数据分析（EDA）、调用计算集群训练模型、调用推理集群部署端点。
 
-要创建一个笔记本，我们需要一个提供 Jupyter Notebook 实例的计算节点。返回 [Azure ML 工作区](https://ml.azure.com/)，点击计算实例。在计算实例列表中，你应该能看到[我们之前创建的计算实例](../../../../5-Data-Science-In-Cloud/19-Azure)。
+要创建一个笔记本，我们需要一个提供 Jupyter Notebook 实例的计算节点。返回 [Azure ML 工作区](https://ml.azure.com/)，点击计算实例。在计算实例列表中，你应该能看到[我们之前创建的计算实例](https://github.com/microsoft/Data-Science-For-Beginners/tree/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/19-Azure)。
 
 1. 在 Applications 部分，点击 Jupyter 选项。
 2. 勾选 "Yes, I understand" 框并点击 Continue 按钮。
-![笔记本](../../../../5-Data-Science-In-Cloud/19-Azure/images/notebook-1.PNG)
+![笔记本](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/19-Azure/images/notebook-1.PNG)
 3. 这将打开一个新的浏览器标签页，显示你的 Jupyter Notebook 实例。点击 "New" 按钮创建一个笔记本。
 
-![笔记本](../../../../5-Data-Science-In-Cloud/19-Azure/images/notebook-2.PNG)
+![笔记本](../../../%E8%B5%84%E6%BA%90/5-Data-Science-In-Cloud/19-Azure/images/notebook-2.PNG)
 
 现在我们有了一个笔记本，可以开始使用 Azure ML SDK 训练模型了。
 

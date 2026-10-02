@@ -6,7 +6,7 @@
 
 统计学和概率论是数学中两个密切相关的领域，与数据科学高度相关。虽然在没有深厚数学知识的情况下也可以处理数据，但了解一些基本概念仍然是有益的。在这里，我们将提供一个简短的介绍，帮助您入门。
 
-[![介绍视频](../../../../translated_images/zh-CN/video-prob-and-stats.e4282e5efa2f2543.webp)](https://youtu.be/Z5Zy85g4Yjw)
+[![介绍视频](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/video-prob-and-stats.e4282e5efa2f2543.webp)](https://youtu.be/Z5Zy85g4Yjw)
 
 ## [课前测验](https://ff-quizzes.netlify.app/en/ds/quiz/6)
 
@@ -30,7 +30,7 @@
 
 我们只能讨论变量落入某个值区间的概率，例如 P(t<sub>1</sub>≤X<t<sub>2</sub>)。在这种情况下，概率分布由 **概率密度函数** p(x) 描述，其满足：
 
-![P(t_1\le X<t_2)=\int_{t_1}^{t_2}p(x)dx](../../../../translated_images/zh-CN/probability-density.a8aad29f17a14afb.webp)
+![P(t_1\le X<t_2)=\int_{t_1}^{t_2}p(x)dx](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/probability-density.a8aad29f17a14afb.webp)
 
 连续型均匀分布是均匀分布的连续版本，定义在有限区间内。值 X 落入长度为 l 的区间的概率与 l 成正比，最大为 1。
 
@@ -55,7 +55,7 @@
 
 我们可以用一个称为 **箱形图** 的图表来直观表示中位数和四分位数之间的关系：
 
-<img src="../../../../translated_images/zh-CN/boxplot_explanation.4039b7de08780fd4.webp" alt="箱形图解释" width="50%">
+<img src="../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/boxplot_explanation.4039b7de08780fd4.webp" alt="箱形图解释" width="50%">
 
 在这里，我们还计算了 **四分位距** IQR=Q3-Q1，以及所谓的 **异常值**——位于区间 [Q1-1.5*IQR,Q3+1.5*IQR] 之外的值。
 
@@ -73,11 +73,11 @@
 
 以下是显示我们数据的均值、中位数和四分位数的箱形图：
 
-![体重箱形图](../../../../translated_images/zh-CN/weight-boxplot.1dbab1c03af26f8a.webp)
+![体重箱形图](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/weight-boxplot.1dbab1c03af26f8a.webp)
 
 由于我们的数据包含关于不同球员 **角色** 的信息，我们还可以按角色绘制箱形图——这将帮助我们了解参数值在不同角色之间的差异。这次我们考虑身高：
 
-![按角色的箱形图](../../../../translated_images/zh-CN/boxplot_byrole.036b27a1c3f52d42.webp)
+![按角色的箱形图](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/boxplot_byrole.036b27a1c3f52d42.webp)
 
 此图表表明，平均而言，一垒手的身高高于二垒手的身高。在本课程后面，我们将学习如何更正式地验证这一假设，以及如何证明我们的数据在统计上显著。
 
@@ -85,7 +85,7 @@
 
 为了查看我们数据的分布，我们可以绘制一个称为 **直方图** 的图表。X 轴包含多个不同的体重区间（即 **箱**），而 Y 轴显示我们的随机变量样本落入某个区间的次数。
 
-![真实世界数据的直方图](../../../../translated_images/zh-CN/weight-histogram.bfd00caf7fc30b14.webp)
+![真实世界数据的直方图](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/weight-histogram.bfd00caf7fc30b14.webp)
 
 从这个直方图可以看出，所有值都集中在某个平均体重附近，离平均体重越远，出现该体重值的次数越少。也就是说，棒球运动员的体重与平均体重差异很大的可能性非常小。体重的方差显示了体重与平均体重可能的差异程度。
 
@@ -103,7 +103,7 @@ samples = np.random.normal(mean,std,1000)
 
 如果我们绘制生成样本的直方图，我们会看到与上图非常相似的图像。如果我们增加样本数量和箱数量，我们可以生成更接近理想的正态分布图像：
 
-![均值=0，标准差=1 的正态分布](../../../../translated_images/zh-CN/normal-histogram.dfae0d67c202137d.webp)
+![均值=0，标准差=1 的正态分布](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/normal-histogram.dfae0d67c202137d.webp)
 
 *均值=0，标准差=1 的正态分布*
 
@@ -225,7 +225,7 @@ array([[1.        , 0.52959196],
 
 在我们的例子中，值 0.53 表明一个人的体重和身高之间存在一定的相关性。我们还可以绘制一个散点图，将一个值与另一个值进行比较，以直观地观察关系：
 
-![体重与身高的关系](../../../../translated_images/zh-CN/weight-height-relationship.3f06bde4ca2aba99.webp)
+![体重与身高的关系](../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/weight-height-relationship.3f06bde4ca2aba99.webp)
 
 > 更多关于相关性和协方差的示例可以在 [配套笔记本](notebook.ipynb) 中找到。
 

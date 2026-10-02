@@ -13,7 +13,7 @@
 并行可以缩短独立任务的总等待时间，但依赖关系仍必须保持。取消需要让尚未完成的工作停止或不再影响状态；检查点则保存可恢复的信息，使新会话知道哪些动作已经发生。
 
 本目录是《深入理解 AI Agent》实验 6-2 的配套可运行代码，实现了设计文档
-[`agent_framework_design.md`](./agent_framework_design.md) 中描述的事件驱动异步 Agent 框架（Flux）的核心部分。
+[`agent_framework_design.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/async-agent/agent_framework_design.md) 中描述的事件驱动异步 Agent 框架（Flux）的核心部分。
 
 在 4-5 的简单事件队列之上，本实验进入异步 Agent 的深水区，聚焦四件事：
 **异步工具执行、事件队列与批量处理、打断机制、并行工具的取消与状态查询**。
@@ -368,14 +368,14 @@ Agent 执行长任务，用户发"取消"。框架立即取消当前执行流并
 
 ## Notes / 说明
 
-- Design details: [`agent_framework_design.md`](./agent_framework_design.md).  
-- 设计细节见 [`agent_framework_design.md`](./agent_framework_design.md)。  
+- Design details: [`agent_framework_design.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/async-agent/agent_framework_design.md).\
+- 设计细节见 [`agent_framework_design.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/async-agent/agent_framework_design.md)。\
 - Terminal jobs are real allowlisted child processes and never invoke a shell.
 - 终端任务是白名单真实子进程，且绝不调用 shell。
 
 ## English
 
-This directory is the runnable code for Experiment 6-2. It implements the core of the event-driven asynchronous Agent framework (Flux) described in [`agent_framework_design.md`](./agent_framework_design.md).
+This directory is the runnable code for Experiment 6-2. It implements the core of the event-driven asynchronous Agent framework (Flux) described in [`agent_framework_design.md`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/async-agent/agent_framework_design.md).
 
 Building on the simple event queue of 4-5, this experiment goes deeper into async Agents and focuses on four things: **async tool execution, event queues and batching, interruption, and cancel/status query for parallel tools**. The Agent must manage concurrent tasks, handle interrupt and recovery, and decide from real-time state.
 

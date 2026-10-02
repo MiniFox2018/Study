@@ -1,4 +1,4 @@
-# 06 · Regular Expressions
+# 06 · 正则表达式
 
 ## 1. 正则表达式解决什么问题
 
@@ -20,7 +20,7 @@ C++11 将正则支持正式纳入标准库 `<regex>`。
 
 - `^`：开头
 - `$`：结尾
-- `.`：任意单字符
+- `.`：通常匹配单字符，但换行等例外依引擎/模式而定
 - `[]`：字符集合
 - `()`：分组/捕获组
 - `|`：分支
@@ -42,19 +42,19 @@ C++11 将正则支持正式纳入标准库 `<regex>`。
 例如正则中的：
 
 ```text
-.
+\.
 ```
 
 传统字符串字面量中需要：
 
 ```cpp
-"\."
+"\\."
 ```
 
 此时 raw string literal 往往更清楚：
 
 ```cpp
-R"(.)"
+R"(\.)"
 ```
 
 ## 5. std::regex
@@ -62,7 +62,7 @@ R"(.)"
 构造模式：
 
 ```cpp
-std::regex pattern(R"([a-z]+.txt)");
+std::regex pattern(R"([a-z]+\.txt)");
 ```
 
 ## 6. regex_match
@@ -86,7 +86,7 @@ if (std::regex_match(filename, pattern)) {
 - 每个子匹配对应的字符串范围。
 
 ```cpp
-std::regex p(R"(([a-z]+).txt)");
+std::regex p(R"(([a-z]+)\.txt)");
 std::smatch m;
 
 if (std::regex_match(name, m, p)) {
@@ -127,3 +127,25 @@ Web server/router 中，正则可用于：
 
 ## 来源
 Modern C++ Tutorial — Chapter 06
+
+## 小实验：字面点与通配点
+
+```cpp
+#include <iostream>
+#include <regex>
+#include <string>
+int main() {
+    const std::regex pattern(R"(([a-z]+)\.txt)");
+    for (const std::string name : {"note.txt", "noteXtxt"}) {
+        std::smatch match;
+        const bool ok = std::regex_match(name, match, pattern);
+        std::cout << name << ':' << std::boolalpha << ok;
+        if (ok) std::cout << ':' << match[1].str();
+        std::cout << '\n';
+    }
+}
+```
+
+输出 `note.txt:true:note` 和 `noteXtxt:false`。删去正则中的反斜杠后，两者都会匹配，因为 `.` 成为通配符。默认语法是修改后的 ECMAScript，不应假设支持任意 PCRE 功能。
+
+模式非法时构造 regex 可抛 `std::regex_error`；匹配结果保存输入迭代器，使用 smatch 前应保证原字符串仍有效且未发生使迭代器失效的修改。不要在循环内反复编译相同模式。

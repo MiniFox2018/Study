@@ -306,7 +306,7 @@ python tests/manual/rl_learning_check.py --episodes 1000
 规范运行训练后 100 局贪婪评估胜率为 **100%**，平均 12 步通关；Kimi K3
 第一局 17 步通关，保留 17/17 条官方响应，零 API 错误、零 fallback，共
 28,242 tokens。它复现了“第一局成功”的实质结论，但没有复现历史记录中的
-Kimi 恰好 18 步和 Q-learning 恰好 11 步。详见[规范证据](validation/20260730_011704/evidence.json)。
+Kimi 恰好 18 步和 Q-learning 恰好 11 步。详见[规范证据](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter1/learning-from-experience/validation/20260730_011704/evidence.json)。
 
 ##### RL vs LLM（实验 8-2 的对比结论）
 
@@ -327,7 +327,7 @@ Kimi 恰好 18 步和 Q-learning 恰好 11 步。详见[规范证据](validation
 > Compares tabular Q-learning with LLM in-context learning on a treasure-hunt game with hidden mechanics (Shunyu Yao, “The Second Half”).  
 > 代码位于第 1 章项目树；对应书中 **实验 8-1 ★（Q-learning 在寻宝游戏中的表现）** 与 **实验 8-2 ★★（传统 RL 与 LLM Agent 的对比研究）**。
 
-← [Chapter 1 index / 返回第 1 章目录](../README.md) · 📖 [Read Chapter 8 / 读第 8 章正文](../../book/chapter8.md)（[EN](../../book-en/chapter8.md)）
+← [Chapter 1 index / 返回第 1 章目录](../README.md) · 📖 [Read Chapter 8 / 读第 8 章正文](../../book/chapter8.md)（[EN](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/book-en/chapter8.md)）
 
 ---
 
@@ -710,7 +710,7 @@ averaging 12 steps. The accepted Kimi K3 arm won on its first attempt in 17
 steps with 17/17 real responses, zero API errors, zero fallbacks, and 28,242
 tokens. This reproduces the first-attempt conclusion but not the manuscript's
 historical point estimates of exactly 18 Kimi steps and an 11-step Q-learning
-solution. See the [canonical evidence](validation/20260730_011704/evidence.json).
+solution. See the [canonical evidence](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter1/learning-from-experience/validation/20260730_011704/evidence.json).
 
 ##### RL vs LLM (Experiment 8-2 conclusions)
 

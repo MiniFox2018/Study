@@ -1,4 +1,4 @@
-# 13 · Memory Management
+# 13 · 内存管理与对象生命周期
 
 ## 栈与堆
 ### 自动存储期
@@ -60,6 +60,25 @@ C++11 通过右值引用与移动语义减少不必要的资源复制。
 - 非拥有观察：引用、裸指针或 `std::weak_ptr`
 
 接口应尽量让所有权关系清晰可见。
+
+## 小实验：资源随作用域释放
+
+```cpp
+#include <iostream>
+#include <memory>
+struct Item {
+    ~Item() { std::cout << "释放\n"; }
+};
+int main() {
+    auto first = std::make_unique<Item>();
+    auto second = std::move(first);
+    std::cout << std::boolalpha << (first == nullptr) << '\n';
+}
+```
+
+输出 `true` 后输出一次 `释放`。移动使 `second` 获得独占所有权；`first` 为空，不能再解引用。作用域结束时 `second` 自动销毁对象。
+
+自测：`std::move` 总能避免复制吗？答：不能。若类型没有适用的移动操作，或对象为 `const` 而移动构造需要非 const 右值引用，仍可能复制。标准库对象通常移动后有效但值未指定，具体类型可能有更强保证（如 unique_ptr 变空）。
 
 ## 参考
 https://www.compilenrun.com/docs/language/cpp/cpp-memory-management/

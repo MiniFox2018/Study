@@ -38,25 +38,25 @@
 
 即使数据科学家小心选择了适合数据的正确图表，也有很多方法可以通过展示数据来证明某种观点，往往以牺牲数据本身为代价。有许多误导性图表和信息图的例子！
 
-[![Alberto Cairo 的《图表如何撒谎》](../../../../../translated_images/zh-CN/tornado.2880ffc7f135f82b.webp)](https://www.youtube.com/watch?v=oX74Nge8Wkw "图表如何撒谎")
+[![Alberto Cairo 的《图表如何撒谎》](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/tornado.2880ffc7f135f82b.webp)](https://www.youtube.com/watch?v=oX74Nge8Wkw "图表如何撒谎")
 
 > 🎥 点击上方图片观看关于误导性图表的会议演讲
 
 这个图表颠倒了 X 轴的顺序，根据日期显示了与事实相反的内容：
 
-![错误图表 1](../../../../../translated_images/zh-CN/bad-chart-1.596bc93425a8ac30.webp)
+![错误图表 1](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/bad-chart-1.596bc93425a8ac30.webp)
 
 [这个图表](https://media.firstcoastnews.com/assets/WTLV/images/170ae16f-4643-438f-b689-50d66ca6a8d8/170ae16f-4643-438f-b689-50d66ca6a8d8_1140x641.jpg) 更具误导性，因为视觉上会让人得出结论，随着时间推移，各县的 COVID 病例数在下降。实际上，如果仔细查看日期，你会发现它们被重新排列以制造这种误导性的下降趋势。
 
-![错误图表 2](../../../../../translated_images/zh-CN/bad-chart-2.62edf4d2f30f4e51.webp)
+![错误图表 2](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/bad-chart-2.62edf4d2f30f4e51.webp)
 
 这个臭名昭著的例子同时使用了颜色和颠倒的 Y 轴来误导：本应得出枪支死亡人数在通过支持枪支的立法后激增的结论，但实际上视觉上被误导认为相反的情况是真实的：
 
-![错误图表 3](../../../../../translated_images/zh-CN/bad-chart-3.e201e2e915a230bc.webp)
+![错误图表 3](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/bad-chart-3.e201e2e915a230bc.webp)
 
 这个奇怪的图表展示了比例如何被操纵，效果令人啼笑皆非：
 
-![错误图表 4](../../../../../translated_images/zh-CN/bad-chart-4.8872b2b881ffa96c.webp)
+![错误图表 4](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/bad-chart-4.8872b2b881ffa96c.webp)
 
 比较不可比的事物是另一种阴险的技巧。有一个[精彩的网站](https://tylervigen.com/spurious-correlations) 专门展示“虚假的相关性”，比如缅因州的离婚率与人造黄油消费之间的“事实”相关性。Reddit 上还有一个小组收集了[数据的丑陋用法](https://www.reddit.com/r/dataisugly/top/?t=all)。
 
@@ -91,13 +91,13 @@
 
 如果你的数据在 X 轴上是文本且较长，可以将文本倾斜以提高可读性。[plot3D](https://cran.r-project.org/web/packages/plot3D/index.html) 提供了 3D 绘图功能，如果你的数据支持的话，可以用它制作复杂的数据可视化。
 
-![3D 图表](../../../../../translated_images/zh-CN/3d.db1734c151eee87d.webp)
+![3D 图表](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/3d.db1734c151eee87d.webp)
 
 ## 动画和 3D 图表展示
 
 如今一些最佳的数据可视化是动画的。Shirley Wu 使用 D3 制作了许多惊艳的作品，例如“[电影之花](http://bl.ocks.org/sxywu/raw/d612c6c653fb8b4d7ff3d422be164a5d/)”，每朵花都是一部电影的可视化。另一个为《卫报》制作的例子是“Bussed Out”，一个结合了 Greensock 和 D3 的交互式体验，通过滚动叙事文章格式展示纽约市如何通过将无家可归者送出城市来处理其无家可归问题。
 
-![Bussed Out](../../../../../translated_images/zh-CN/busing.8157cf1bc89a3f65.webp)
+![Bussed Out](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/busing.8157cf1bc89a3f65.webp)
 
 > “Bussed Out: 美国如何转移无家可归者” 来自 [卫报](https://www.theguardian.com/us-news/ng-interactive/2017/dec/20/bussed-out-america-moves-homeless-people-country-study)。可视化由 Nadieh Bremer 和 Shirley Wu 制作
 
@@ -107,7 +107,7 @@
 
 你将完成一个网络应用，展示这个社交网络的动画视图。它使用了一个库来创建[网络可视化](https://github.com/emiliorizzo/vue-d3-network)，基于 Vue.js 和 D3。当应用运行时，你可以在屏幕上拖动节点以重新排列数据。
 
-![危险关系](../../../../../translated_images/zh-CN/liaisons.90ce7360bcf84765.webp)
+![危险关系](../../../../%E8%B5%84%E6%BA%90/translated_images/zh-CN/liaisons.90ce7360bcf84765.webp)
 
 ## 项目：使用 D3.js 构建一个展示网络的图表
 
@@ -165,7 +165,7 @@ https://medium.com/@EvanSinar/use-animation-to-supercharge-data-visualization-cd
 
 ## 作业
 
-[创建你自己的自定义可视化](assignment.md)
+[创建你自己的自定义可视化](../../13-meaningful-visualizations/assignment.md)
 
 **免责声明**：  
 本文档使用AI翻译服务 [Co-op Translator](https://github.com/Azure/co-op-translator) 进行翻译。尽管我们努力确保翻译的准确性，但请注意，自动翻译可能包含错误或不准确之处。应以原文档的原始语言版本为权威来源。对于关键信息，建议使用专业人工翻译。我们对于因使用本翻译而引起的任何误解或误读不承担责任。

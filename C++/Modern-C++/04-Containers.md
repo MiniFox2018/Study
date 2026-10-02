@@ -1,4 +1,4 @@
-# 04 · Modern Containers
+# 04 · 现代容器与非拥有视图
 
 ## 1. std::array
 
@@ -31,7 +31,7 @@ foo(a.data(), a.size());
 - `size()`：实际元素数量
 - `capacity()`：当前已分配、无需重新分配即可容纳的元素数量
 
-`clear()` 删除元素但通常不主动收缩 capacity。  
+`clear()` 删除全部元素，保留 capacity；原有元素的引用、指针和迭代器不能再用。\
 `shrink_to_fit()` 可请求释放多余容量，但它是 non-binding request，不能假设一定回收。
 
 若最终规模大致已知，优先提前 `reserve()`，减少扩容和元素迁移。
@@ -134,7 +134,7 @@ std::string_view bad() {
 }
 ```
 
-string_view 不能延长底层字符序列的生命期。
+string_view 不能延长底层字符序列的生命期，也不保证视图末尾有 `'\0'`。把 `view.data()` 当 C 字符串传入需要终止符的 API 可能越界或读取视图之外的数据；可先构造拥有自身内容的 `std::string`。
 
 ## 8. std::byte（C++17）
 
@@ -164,7 +164,7 @@ int value = std::to_integer<int>(b);
 m.try_emplace(key, args...);
 ```
 
-若 key 已存在，不会无意义地移动/构造 value。
+若 key 已存在，不会在容器节点中构造 mapped value，也不会消费传入的可移动对象；但函数实参仍先求值，`m.try_emplace(key, expensive())` 仍会调用 `expensive()`。
 
 ### insert_or_assign
 不存在则插入，存在则更新：
@@ -221,3 +221,21 @@ std::pmr::vector<int> v{&pool};
 
 ## 来源
 Modern C++ Tutorial — Chapter 04
+
+## 小实验：容量不是元素数量
+
+```cpp
+#include <iostream>
+#include <vector>
+int main() {
+    std::vector<int> values;
+    values.reserve(8);
+    std::cout << values.size() << ' ' << (values.capacity() >= 8) << '\n';
+    values.push_back(42);
+    std::cout << values.at(0) << '\n';
+}
+```
+
+输出 `0 1`、`42`，不要求 capacity 恰好等于 8。`reserve` 后的未构造位置不是合法元素。
+
+`pmr` 的内存资源必须活得比使用它的容器长；`monotonic_buffer_resource` 默认缓冲用尽后会向上游申请内存，不能把示例的 4096 字节理解成硬上限。访问或销毁容器前调用资源 `release()` 会让仍依赖资源的对象失效。

@@ -247,7 +247,7 @@ The canonical run uses the pinned revision of
 `python-constraint`, but observed accuracy was 39.3% for code assistance versus
 75.0% for pure reasoning (p=2.27e-7 in the opposite direction). The campaign is
 complete; the manuscript's >90% and significant-improvement hypothesis was not
-observed. Evidence: [`validation/real_ark_doubao_flash_hf84_20260730.json`](validation/real_ark_doubao_flash_hf84_20260730.json).
+observed. Evidence: [`validation/real_ark_doubao_flash_hf84_20260730.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/code-for-logic/validation/real_ark_doubao_flash_hf84_20260730.json).
 
 正式活动固定 K&K 数据集版本，按六类扰动与 2–8 人规模分层抽取 84 道配对题。代码臂
 每题都调用了 `python-constraint`，但实测准确率为 39.3%，低于纯思考的 75.0%

@@ -83,7 +83,7 @@ plt.show()
 ```
 瞧，一个饼图展示了蘑菇数据中这两类的比例。这里正确设置标签顺序非常重要，因此务必验证标签数组的顺序！
 
-![饼图](../../../../3-Data-Visualization/11-visualization-proportions/images/pie1-wb.png)
+![饼图](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/11-visualization-proportions/images/pie1-wb.png)
 
 ## 环形图！
 
@@ -113,7 +113,7 @@ plt.title('Mushroom Habitats')
 plt.show()
 ```
 
-![环形图](../../../../3-Data-Visualization/11-visualization-proportions/images/donut-wb.png)
+![环形图](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/11-visualization-proportions/images/donut-wb.png)
 
 这段代码绘制了一个图表和一个中心圆，然后将中心圆添加到图表中。通过更改 `0.40` 的值可以调整中心圆的宽度。
 
@@ -161,7 +161,7 @@ fig = plt.figure(
 
 使用华夫图，你可以清楚地看到这个蘑菇数据集中菌盖颜色的比例。有趣的是，有许多绿色菌盖的蘑菇！
 
-![华夫图](../../../../3-Data-Visualization/11-visualization-proportions/images/waffle.png)
+![华夫图](../../../%E8%B5%84%E6%BA%90/3-Data-Visualization/11-visualization-proportions/images/waffle.png)
 
 ✅ PyWaffle 支持在图表中使用任何 [Font Awesome](https://fontawesome.com/) 提供的图标。尝试用图标代替方块，创建更有趣的华夫图。
 

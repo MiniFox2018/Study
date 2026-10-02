@@ -255,7 +255,7 @@ scored 91.7% versus 95.0% for the natural-language control (exact paired
 p=0.6875). This is a complete **negative** hypothesis result, not evidence of a
 significant gain. The raw messages, tool transcripts, usage, policy truth, and
 paired analysis are in
-[`validation/real_ollama_qwen3_4b_60x2_20260730.json`](validation/real_ollama_qwen3_4b_60x2_20260730.json).
+[`validation/real_ollama_qwen3_4b_60x2_20260730.json`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter5/small-model-codified-rules/validation/real_ollama_qwen3_4b_60x2_20260730.json).
 
 正式活动用本地 Ollama `qwen3:4b` 完成固定 60 个政策案例的两组配对运行，共 120 条完整
 轨迹。代码化组确实执行了数据库真值、服务端时钟与 checklist 门禁，但成功率 91.7%，

@@ -120,13 +120,13 @@ After completing these examples, you're ready to:
 ## 📚 Additional Resources
 
 - [Main Curriculum](../README.md) - The complete 20-lesson course
-- [For Teachers](../for-teachers.md) - Using this curriculum in your classroom
+- [For Teachers](https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/for-teachers.md) - Using this curriculum in your classroom
 - [Microsoft Learn](https://docs.microsoft.com/learn/) - Free online learning resources
 - [Python Documentation](https://docs.python.org/3/) - Official Python reference
 
 ## 🤝 Contributing
 
-Found a bug or have an idea for a new example? We welcome contributions! Please see our [Contributing Guide](../CONTRIBUTING.md).
+Found a bug or have an idea for a new example? We welcome contributions! Please see our [Contributing Guide](https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/CONTRIBUTING.md).
 
 ---
 

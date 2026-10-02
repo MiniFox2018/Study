@@ -352,7 +352,7 @@ npm install
 - **高准确率**：使用 OpenAI ASR + OpenAI LLM
 - **中国部署**：使用 Siliconflow ASR + ARK LLM
 
-提供商配置请参见 [`backend/config.js.example`](backend/config.js.example)，实现代码位于 [`backend/utils/providers/`](backend/utils/providers)。
+提供商配置请参见 [`backend/config.js.example`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/live-audio/backend/config.js.example)，实现代码位于 [`backend/utils/providers/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/live-audio/backend/utils/providers)。
 
 #### 许可证
 
@@ -707,7 +707,7 @@ The test suite will automatically skip providers for which you don't have API ke
 - **High Accuracy**: Use OpenAI ASR + OpenAI LLM
 - **China Deployment**: Use Siliconflow ASR + ARK LLM
 
-For provider configuration, see [`backend/config.js.example`](backend/config.js.example) and the provider implementations under [`backend/utils/providers/`](backend/utils/providers).
+For provider configuration, see [`backend/config.js.example`](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/live-audio/backend/config.js.example) and the provider implementations under [`backend/utils/providers/`](https://github.com/bojieli/ai-agent-book/tree/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/live-audio/backend/utils/providers).
 
 ## License
 

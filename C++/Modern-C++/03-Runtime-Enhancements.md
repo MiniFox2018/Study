@@ -1,4 +1,4 @@
-# 03 · Language Runtime Enhancements
+# 03 · Lambda、移动语义与完美转发
 
 ## 1. Lambda Expression
 
@@ -55,7 +55,7 @@ std::function<int(int)> op =
 ```
 
 优点：便于存储和传递不同 callable。  
-代价：可能引入额外间接调用、动态分配与类型擦除开销。
+代价：可能引入额外间接调用、动态分配与类型擦除开销。C++17/20 的 `std::function` 要求存储的目标可复制，不能直接保存捕获 unique_ptr 的只可移动 lambda；空包装被调用会抛出 `std::bad_function_call`。
 
 ## 3. std::bind 与 placeholders
 
@@ -78,7 +78,7 @@ auto f = std::bind(calc,
 
 三种基础类别：
 
-- **lvalue**：具有身份、可持续存在；
+- **lvalue**：标识对象或函数，且不是 xvalue；不能由该分类推断对象一定长寿，例如已经悬空的引用表达式仍可能是 lvalue；
 - **prvalue**：纯右值，通常用于初始化或计算临时值；
 - **xvalue**：即将被复用资源的“将亡值”。
 
@@ -107,7 +107,7 @@ std::vector<std::string> v;
 v.push_back(std::move(s));
 ```
 
-移动后的对象仍然有效，但其具体值通常只保证处于“valid but unspecified state”。
+标准库类型通常保证移动后的对象有效但值未指定，除非该类型另有更强约定；自定义类型则由其接口契约决定。有效不代表可以无条件调用有前置条件的操作，例如不能假设移动后的 vector 非空并调用 `front()`。
 
 ## 7. Move Semantics
 
@@ -173,3 +173,21 @@ Token make_token() {
 
 ## 来源
 Modern C++ Tutorial — Chapter 03
+
+## 小实验：有名字的右值引用仍是左值
+
+```cpp
+#include <iostream>
+#include <utility>
+void show(int&) { std::cout << "左值\n"; }
+void show(int&&) { std::cout << "右值\n"; }
+int main() {
+    int&& reference = 7;
+    show(reference);
+    show(std::move(reference));
+}
+```
+
+输出 `左值`、`右值`。`std::move` 改变传参表达式的类别，没有在这里搬运任何资源。
+
+自测：lambda `[=]` 访问成员时是否复制整个对象？答：在 C++17/20 中隐式捕获 `this` 时保存的是指针（C++20 已弃用 `[=]` 隐式捕获 this 的写法），不延长对象生命；需要对象副本可明确用 C++17 `[*this]`，同时考虑复制成本。

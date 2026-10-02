@@ -116,7 +116,7 @@ separate experimental arms and must retain the actual endpoint and model ID.
 
 ## Current evidence
 
-The [canonical open-model run](validation/latest.json) passed on 2026-08-01.
+The [canonical open-model run](https://github.com/bojieli/ai-agent-book/blob/dbc046eb896ac4e39aa19c7774c8bf49583b89a6/chapter6/computer-use-open-model/validation/latest.json) passed on 2026-08-01.
 OpenRouter returned the requested `qwen/qwen3-vl-32b-instruct` model for all
 16/16 calls. The Agent hit a Google CAPTCHA, recovered through weather.com,
 and completed in 16 steps. The deterministic validator matched the final

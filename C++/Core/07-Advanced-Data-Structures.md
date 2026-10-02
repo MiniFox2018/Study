@@ -1,7 +1,7 @@
-# 07 · Advanced Data Structures
+# 07 · 常用数据结构
 
 ## struct
-C++ 中 struct 与 class 能力接近，主要差异是默认访问级别：struct 默认 public，class 默认 private。struct 常用于轻量数据对象。
+C++ 中 struct 与 class 能力接近，主要差异是成员和继承的默认访问级别：struct 默认 public，class 默认 private。struct 常用于轻量数据对象。
 
 ## union
 多个成员共享同一块存储，同一时刻通常只有一个活动成员。现代代码需要安全“多选一”类型时可优先考虑 `std::variant`。
@@ -29,6 +29,33 @@ FIFO，核心操作 push、pop、front。常见应用：任务调度、BFS、生
 
 ## 结构选择
 选择数据结构时不仅看复杂度，还要看访问模式、缓存局部性、内存开销和数据规模。
+
+## 小实验：括号匹配为什么用栈
+
+```cpp
+#include <iostream>
+#include <stack>
+#include <string_view>
+bool balanced(std::string_view text) {
+    std::stack<char> pending;
+    for (char c : text) {
+        if (c == '(') pending.push(c);
+        else if (c == ')') {
+            if (pending.empty()) return false;
+            pending.pop();
+        }
+    }
+    return pending.empty();
+}
+int main() {
+    std::cout << std::boolalpha << balanced("(())") << ' '
+              << balanced(")(") << '\n';
+}
+```
+
+输出 `true false`。最后出现的左括号应最先被匹配，所以用后进先出的栈。每个字符最多进出栈一次，时间 O(n)、最坏额外空间 O(n)。这里只处理圆括号，其他字符忽略。
+
+自测：左右括号总数相同就足够吗？答：不够，`)(` 在前缀阶段已不合法；结构选择来自操作约束，而非只看总计数。
 
 ## 参考
 https://www.compilenrun.com/docs/language/cpp/cpp-advanced-data-structures/
