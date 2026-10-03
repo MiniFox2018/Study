@@ -12,7 +12,7 @@
 当前来源：
 
 - [Compile N Run Python 教程](./Compile-N-Run-Python.md)
-
+- [Laws of Software Engineering 软件工程定律卡牌](./laws-of-software-engineering/README.md)
 - [Maths, CS & AI Compendium](./maths-cs-ai-compendium/README_CN.md)
 - [Microsoft Data Science for Beginners](./Data-Science-For-Beginners/README.md)
 - [Docker 从入门到实践 v1.11.0](./docker_practice-v1.11.0/README.md)
