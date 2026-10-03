@@ -85,3 +85,6 @@
 ### 2026-10-03 本机验证
 
 在 macOS arm64 上使用 Bash 3.2.57、CMake 4.3.3、Python 3.12.13，验证了文本统计、umask 示例、CMake 构建、Bash 行计数的正常/空文件/无末尾换行/空格路径/缺参数分支，以及只监听 localhost 的 HTTP 请求（使用临时空闲端口，响应 200，随后停止）。这仅证明这些跨平台部分在本机成立；Linux systemd、iproute2、防火墙、挂载和内核指标未在 Linux 主机上运行。ldd 安全说明已核对上游 [ldd(1)](https://man7.org/linux/man-pages/man1/ldd.1.html)，systemd 的一次性服务与 timer 语义核对了 [官方 service 源文档](https://github.com/systemd/systemd/blob/main/man/systemd.service.xml)和 [timer 源文档](https://github.com/systemd/systemd/blob/main/man/systemd.timer.xml)。
+## 远程实验闭环
+
+[远程实验、进程与日志管理](./09-远程实验进程与日志管理.md)将已有命令、权限、服务、SSH与磁盘知识融合到一个实际工作流：确认运行位置 → 保留日志 → 管理会话/PID → 核对结果和资源。

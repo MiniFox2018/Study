@@ -1,0 +1,6105 @@
+{
+  "scope": "第1来源数学阶段8课首批，已完成本组吸收与验证；不代表第1来源整体完成。未读取第2至5来源。",
+  "source": "https://github.com/rohitg00/ai-engineering-from-scratch",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "date": "2026-10-03",
+  "owned_files": [
+    "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+    "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+    "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+    "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+    "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+    "AI 算法基础/01-线性代数与矩阵微积分.md"
+  ],
+  "freeze_status": "报告生成后本组6文件冻结，交由根代理统一整合，未提交或推送Git。",
+  "lessons": [
+    {
+      "lesson": "01",
+      "source_path": "phases/01-math-foundations/01-linear-algebra-intuition",
+      "reading_evidence": [
+        {
+          "path": "phases/01-math-foundations/01-linear-algebra-intuition/code/vectors.jl",
+          "sha256": "5af63812806b95492ccad10984366fe28f8be885c6f86a9621b5cbb875441a9f",
+          "bytes": 786,
+          "read_status": "逐文件完整读取",
+          "language": "Julia",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/01-linear-algebra-intuition/code/vectors.py",
+          "sha256": "f37317e69698e9784c0d9846e255d0f083a1eb4354eccfd4d81e17075adfc61b",
+          "bytes": 6940,
+          "read_status": "逐文件完整读取",
+          "language": "Python",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/01-linear-algebra-intuition/docs/en.md",
+          "sha256": "9bac2df58d85c30df3f36bde3626b02a3fa6aa001536bc343320b9048ee284e1",
+          "bytes": 16515,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/01-linear-algebra-intuition/outputs/prompt-linear-algebra-tutor.md",
+          "sha256": "dd9fd6d34368038cc389ae1eb44acec77cd14e17fcad72dc1b481b8741ac123a",
+          "bytes": 1040,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/01-linear-algebra-intuition/quiz.json",
+          "sha256": "d318915b15da0d4219ef9730e79d6f1f4781f7ef484873dcce800f93c3ae629c",
+          "bytes": 3125,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        }
+      ],
+      "test_files": "该课不存在独立tests目录或test文件；没有声称上游单元测试通过。",
+      "major_h2_h3_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_level": 2,
+          "source_line": 10,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "1. 向量表示的是什么",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "5. 正交投影：保留沿某个方向的部分",
+              "line": 120
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            }
+          ]
+        },
+        {
+          "source_heading": "The Problem",
+          "source_level": 2,
+          "source_line": 17,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "1. 向量表示的是什么",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "5. 正交投影：保留沿某个方向的部分",
+              "line": 120
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            }
+          ]
+        },
+        {
+          "source_heading": "The Concept",
+          "source_level": 2,
+          "source_line": 23,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "1. 向量表示的是什么",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "5. 正交投影：保留沿某个方向的部分",
+              "line": 120
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            }
+          ]
+        },
+        {
+          "source_heading": "Vectors Are Points (and Directions)",
+          "source_level": 3,
+          "source_line": 25,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "1. 向量表示的是什么",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "Matrices Are Transformations",
+          "source_level": 3,
+          "source_line": 42,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            }
+          ]
+        },
+        {
+          "source_heading": "The Dot Product Measures Similarity",
+          "source_level": 3,
+          "source_line": 70,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            }
+          ]
+        },
+        {
+          "source_heading": "Linear Independence",
+          "source_level": 3,
+          "source_line": 84,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            }
+          ]
+        },
+        {
+          "source_heading": "Basis and Rank",
+          "source_level": 3,
+          "source_line": 102,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            }
+          ]
+        },
+        {
+          "source_heading": "Projection",
+          "source_level": 3,
+          "source_line": 120,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "5. 正交投影：保留沿某个方向的部分",
+              "line": 120
+            }
+          ]
+        },
+        {
+          "source_heading": "Gram-Schmidt Process",
+          "source_level": 3,
+          "source_line": 152,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            }
+          ]
+        },
+        {
+          "source_heading": "Build It",
+          "source_level": 2,
+          "source_line": 185,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 1: Vectors from scratch (Python)",
+          "source_level": 3,
+          "source_line": 187,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 2: Matrices from scratch (Python)",
+          "source_level": 3,
+          "source_line": 227,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 3: Why this matters for AI",
+          "source_level": 3,
+          "source_line": 270,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 4: Julia version",
+          "source_level": 3,
+          "source_line": 285,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 5: Linear independence and projection from scratch (Python)",
+          "source_level": 3,
+          "source_line": 303,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "5. 正交投影：保留沿某个方向的部分",
+              "line": 120
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            }
+          ]
+        },
+        {
+          "source_heading": "Use It",
+          "source_level": 2,
+          "source_line": 362,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "Rank, Projection, and QR with NumPy",
+          "source_level": 3,
+          "source_line": 382,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "5. 正交投影：保留沿某个方向的部分",
+              "line": 120
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            }
+          ]
+        },
+        {
+          "source_heading": "PyTorch -- Tensors Are Vectors with Autodiff",
+          "source_level": 3,
+          "source_line": 400,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            }
+          ]
+        },
+        {
+          "source_heading": "Ship It",
+          "source_level": 2,
+          "source_line": 421,
+          "status": "包装去重，方法吸收",
+          "reason": "上游prompt交付包装不单独归档；教学/调试/选型方法融入正文实践和检查。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "8. 练习与判断标准",
+              "line": 187
+            }
+          ]
+        },
+        {
+          "source_heading": "Connections",
+          "source_level": 2,
+          "source_line": 426,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            }
+          ]
+        },
+        {
+          "source_heading": "Exercises",
+          "source_level": 2,
+          "source_line": 442,
+          "status": "融合保留",
+          "reason": "保留学习任务，并补答案或验收标准；外部下载/重型实验明确未运行。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "8. 练习与判断标准",
+              "line": 187
+            }
+          ]
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_level": 2,
+          "source_line": 451,
+          "status": "术语表去重",
+          "reason": "每个主要术语已在具体原理与例子中解释，不重复做只有名词的一份列表。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "1. 向量表示的是什么",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "5. 正交投影：保留沿某个方向的部分",
+              "line": 120
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            }
+          ]
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "source_index": 1,
+          "source_question": "What does the dot product of two vectors measure?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 2,
+          "source_question": "In AI, what does 'embedding' refer to?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "1. 向量表示的是什么",
+              "line": 5
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 3,
+          "source_question": "Three vectors v1=[1,0,0], v2=[0,1,0], v3=[2,1,0] are given. Are they linearly independent?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 4,
+          "source_question": "What does the rank of a matrix tell you in the context of machine learning?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 5,
+          "source_question": "How does LoRA (Low-Rank Adaptation) use linear algebra to efficiently fine-tune large language models?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        }
+      ],
+      "figure_mapping": [
+        {
+          "file": "site/figures-math.js",
+          "function": "eigenDirections",
+          "meaning": "对称矩阵特征轴与普通向量输出，映射到02第4节；不是一般矩阵可对角化证明。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ]
+        }
+      ],
+      "output_mapping": [
+        {
+          "path": "phases/01-math-foundations/01-linear-algebra-intuition/outputs/prompt-linear-algebra-tutor.md",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "1. 向量表示的是什么",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "3. 张成空间、线性独立、基与秩",
+              "line": 65
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "5. 正交投影：保留沿某个方向的部分",
+              "line": 120
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "7. 在线性层、检索和 LoRA 中使用这些知识",
+              "line": 177
+            }
+          ],
+          "treatment": "长期有效教学、诊断或选型规则转为中文解释、例子、实践验收；角色指令与包装不保留。"
+        }
+      ]
+    },
+    {
+      "lesson": "02",
+      "source_path": "phases/01-math-foundations/02-vectors-matrices-operations",
+      "reading_evidence": [
+        {
+          "path": "phases/01-math-foundations/02-vectors-matrices-operations/code/matrices.jl",
+          "sha256": "cc95015a8b2b74a3b9bfff3c3f20180920474bb82b550ce7ef54556c7da34ba3",
+          "bytes": 3749,
+          "read_status": "逐文件完整读取",
+          "language": "Julia",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/02-vectors-matrices-operations/code/matrices.py",
+          "sha256": "012f1d078a620f085d598ad47e1ffbad52981809ed645ecd02d74e00e5a80b2d",
+          "bytes": 9151,
+          "read_status": "逐文件完整读取",
+          "language": "Python",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/02-vectors-matrices-operations/docs/en.md",
+          "sha256": "398ce87f481e54f360898e1af0d0c05877f631d5d1b1c1edebf83f3cf5a09981",
+          "bytes": 11869,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/02-vectors-matrices-operations/outputs/prompt-matrix-operations.md",
+          "sha256": "cfd5dfa5b9878fe072c4f17239cb1116533220a4fa785bd1df44af30cdcafc1b",
+          "bytes": 2503,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/02-vectors-matrices-operations/quiz.json",
+          "sha256": "b2bf797be6f216630cd0aea39c2de9eba74c7c29c1a88fadb38546abf6053012",
+          "bytes": 3836,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        }
+      ],
+      "test_files": "该课不存在独立tests目录或test文件；没有声称上游单元测试通过。",
+      "major_h2_h3_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_level": 2,
+          "source_line": 10,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "The Problem",
+          "source_level": 2,
+          "source_line": 17,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "The Concept",
+          "source_level": 2,
+          "source_line": 31,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "Vectors: ordered lists of numbers",
+          "source_level": 3,
+          "source_line": 33,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "1. 向量表示的是什么",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            }
+          ]
+        },
+        {
+          "source_heading": "Matrices: grids of numbers",
+          "source_level": 3,
+          "source_line": 44,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "Why shapes matter",
+          "source_level": 3,
+          "source_line": 55,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "8. 常见操作的形状契约与定位流程",
+              "line": 319
+            }
+          ]
+        },
+        {
+          "source_heading": "The operations map",
+          "source_level": 3,
+          "source_line": 68,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "Element-wise vs matrix multiplication",
+          "source_level": 3,
+          "source_line": 80,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "Broadcasting",
+          "source_level": 3,
+          "source_line": 100,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            }
+          ]
+        },
+        {
+          "source_heading": "Build It",
+          "source_level": 2,
+          "source_line": 120,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 1: Vector class",
+          "source_level": 3,
+          "source_line": 122,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "2. 点积、夹角与归一化",
+              "line": 15
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 2: Matrix class with core operations",
+          "source_level": 3,
+          "source_line": 149,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 3: See it work",
+          "source_level": 3,
+          "source_line": 233,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 4: Connect to neural networks",
+          "source_level": 3,
+          "source_line": 249,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "Use It",
+          "source_level": 2,
+          "source_line": 275,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "Ship It",
+          "source_level": 2,
+          "source_line": 314,
+          "status": "包装去重，方法吸收",
+          "reason": "上游prompt交付包装不单独归档；教学/调试/选型方法融入正文实践和检查。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "9. 自查题与实践标准",
+              "line": 346
+            }
+          ]
+        },
+        {
+          "source_heading": "Exercises",
+          "source_level": 2,
+          "source_line": 320,
+          "status": "融合保留",
+          "reason": "保留学习任务，并补答案或验收标准；外部下载/重型实验明确未运行。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "9. 自查题与实践标准",
+              "line": 346
+            }
+          ]
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_level": 2,
+          "source_line": 328,
+          "status": "术语表去重",
+          "reason": "每个主要术语已在具体原理与例子中解释，不重复做只有名词的一份列表。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_level": 2,
+          "source_line": 342,
+          "status": "来源链接筛选",
+          "reason": "保留上游入口与已核验官方资料；不以未核验参考链接清单代替吸收正文。",
+          "targets": []
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "source_index": 1,
+          "source_question": "For matrix multiplication (m x n) @ (n x p), what must be true about the dimensions?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 2,
+          "source_question": "How is the identity matrix defined?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 3,
+          "source_question": "What is the key difference between element-wise multiplication and matrix multiplication?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 4,
+          "source_question": "In the expression 'output = relu(W @ x + b)', what role does broadcasting play?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 5,
+          "source_question": "Which property follows from a zero determinant?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 6,
+          "source_question": "How does the transpose operation change a matrix?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        }
+      ],
+      "figure_mapping": [
+        {
+          "file": "site/figures-math.js",
+          "function": "vectorProjection",
+          "meaning": "有符号投影长度、垂直残差，融入01第5节。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "5. 正交投影：保留沿某个方向的部分",
+              "line": 120
+            }
+          ]
+        }
+      ],
+      "output_mapping": [
+        {
+          "path": "phases/01-math-foundations/02-vectors-matrices-operations/outputs/prompt-matrix-operations.md",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "1. 矩阵运算：相同数字，不同乘法",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ],
+          "treatment": "长期有效教学、诊断或选型规则转为中文解释、例子、实践验收；角色指令与包装不保留。"
+        }
+      ]
+    },
+    {
+      "lesson": "03",
+      "source_path": "phases/01-math-foundations/03-matrix-transformations",
+      "reading_evidence": [
+        {
+          "path": "phases/01-math-foundations/03-matrix-transformations/code/transformations.jl",
+          "sha256": "c1919b19040a9d4c244e83dbbc118b74552689e31921f113e18a8abda55187d9",
+          "bytes": 6487,
+          "read_status": "逐文件完整读取",
+          "language": "Julia",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/03-matrix-transformations/code/transformations.py",
+          "sha256": "0122b6f794cfa6906b551dc01316baaad91b834f9314ae9b3782ad72ba060384",
+          "bytes": 9892,
+          "read_status": "逐文件完整读取",
+          "language": "Python",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/03-matrix-transformations/docs/en.md",
+          "sha256": "bd248b5462edccab7838ef32e303839811157e453873fb6b19421e4f3d5f2365",
+          "bytes": 15735,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/03-matrix-transformations/outputs/prompt-transformation-visualizer.md",
+          "sha256": "35e55756427772089c8a6ee4026850c664ca9272de08cc14b308a0fd784860d8",
+          "bytes": 2876,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/03-matrix-transformations/quiz.json",
+          "sha256": "ff795777601c8e63b598308e88c29b7f77b865fd83711f31cfa0d2a27c900bdd",
+          "bytes": 3088,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        }
+      ],
+      "test_files": "该课不存在独立tests目录或test文件；没有声称上游单元测试通过。",
+      "major_h2_h3_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_level": 2,
+          "source_line": 10,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ]
+        },
+        {
+          "source_heading": "The Problem",
+          "source_level": 2,
+          "source_line": 17,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ]
+        },
+        {
+          "source_heading": "The Concept",
+          "source_level": 2,
+          "source_line": 23,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ]
+        },
+        {
+          "source_heading": "Transformations as matrices",
+          "source_level": 3,
+          "source_line": 25,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "4. 矩阵为什么是线性映射",
+              "line": 99
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ]
+        },
+        {
+          "source_heading": "Rotation",
+          "source_level": 3,
+          "source_line": 46,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ]
+        },
+        {
+          "source_heading": "Scaling",
+          "source_level": 3,
+          "source_line": 83,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ]
+        },
+        {
+          "source_heading": "Shearing",
+          "source_level": 3,
+          "source_line": 104,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ]
+        },
+        {
+          "source_heading": "Reflection",
+          "source_level": 3,
+          "source_line": 129,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ]
+        },
+        {
+          "source_heading": "Composition: chaining transformations",
+          "source_level": 3,
+          "source_line": 151,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ]
+        },
+        {
+          "source_heading": "Eigenvalues and eigenvectors",
+          "source_level": 3,
+          "source_line": 175,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ]
+        },
+        {
+          "source_heading": "Eigendecomposition",
+          "source_level": 3,
+          "source_line": 197,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ]
+        },
+        {
+          "source_heading": "Why eigenvalues matter",
+          "source_level": 3,
+          "source_line": 211,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            }
+          ]
+        },
+        {
+          "source_heading": "Determinant as volume scaling factor",
+          "source_level": 3,
+          "source_line": 219,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            }
+          ]
+        },
+        {
+          "source_heading": "Build It",
+          "source_level": 2,
+          "source_line": 239,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 1: Transformation matrices from scratch (Python)",
+          "source_level": 3,
+          "source_line": 241,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 2: Composition of transformations",
+          "source_level": 3,
+          "source_line": 292,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 3: Eigenvalues from scratch (2x2)",
+          "source_level": 3,
+          "source_line": 310,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 4: Determinant as volume scaling factor",
+          "source_level": 3,
+          "source_line": 357,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            }
+          ]
+        },
+        {
+          "source_heading": "Use It",
+          "source_level": 2,
+          "source_line": 373,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ]
+        },
+        {
+          "source_heading": "3D rotations with NumPy",
+          "source_level": 3,
+          "source_line": 414,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ]
+        },
+        {
+          "source_heading": "Ship It",
+          "source_level": 2,
+          "source_line": 434,
+          "status": "包装去重，方法吸收",
+          "reason": "上游prompt交付包装不单独归档；教学/调试/选型方法融入正文实践和检查。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            }
+          ]
+        },
+        {
+          "source_heading": "Exercises",
+          "source_level": 2,
+          "source_line": 438,
+          "status": "融合保留",
+          "reason": "保留学习任务，并补答案或验收标准；外部下载/重型实验明确未运行。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            }
+          ]
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_level": 2,
+          "source_line": 446,
+          "status": "术语表去重",
+          "reason": "每个主要术语已在具体原理与例子中解释，不重复做只有名词的一份列表。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ]
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_level": 2,
+          "source_line": 461,
+          "status": "来源链接筛选",
+          "reason": "保留上游入口与已核验官方资料；不以未核验参考链接清单代替吸收正文。",
+          "targets": []
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "source_index": 1,
+          "source_question": "What is an eigenvector of a matrix?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 2,
+          "source_question": "What does the determinant of a 2D transformation matrix represent geometrically?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 3,
+          "source_question": "Why does the order of matrix transformations matter? (i.e., why is R @ S different from S @ R?)",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 4,
+          "source_question": "In a recurrent neural network, what happens when the weight matrix has eigenvalues with magnitude greater than 1?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 5,
+          "source_question": "The matrix A = [[2, 1], [1, 2]] has eigenvalues 3 and 1. What does eigendecomposition A = V @ D @ V^(-1) reveal?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        }
+      ],
+      "figure_mapping": [
+        {
+          "file": "site/figures-math.js",
+          "function": "matrixTransform",
+          "meaning": "单位方形角点、列向量、面积与定向，改成真实数值例子。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            }
+          ]
+        }
+      ],
+      "output_mapping": [
+        {
+          "path": "phases/01-math-foundations/03-matrix-transformations/outputs/prompt-transformation-visualizer.md",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "2. 几何变换与组合顺序",
+              "line": 40
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "3. 行列式与逆：可逆性不等于稳定性",
+              "line": 90
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "4. 特征值：不变直线与对角化的条件",
+              "line": 113
+            }
+          ],
+          "treatment": "长期有效教学、诊断或选型规则转为中文解释、例子、实践验收；角色指令与包装不保留。"
+        }
+      ]
+    },
+    {
+      "lesson": "10",
+      "source_path": "phases/01-math-foundations/10-dimensionality-reduction",
+      "reading_evidence": [
+        {
+          "path": "phases/01-math-foundations/10-dimensionality-reduction/code/dim_reduction.py",
+          "sha256": "296bd98027c40c7305e6a2e0bb94a5fb0b9323a9885709d06ee7f48d73710adb",
+          "bytes": 10998,
+          "read_status": "逐文件完整读取",
+          "language": "Python",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/10-dimensionality-reduction/docs/en.md",
+          "sha256": "13f508adaa0599b3db8d18ad77c9b20b501cf6864dd242ad884a48412e41bcfc",
+          "bytes": 17593,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/10-dimensionality-reduction/outputs/skill-dimensionality-reduction.md",
+          "sha256": "b1b7a02ab8cab3fd63c1606aa11e6c144e35e0b6f698033d16612213efda5f62",
+          "bytes": 3215,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/10-dimensionality-reduction/quiz.json",
+          "sha256": "1f2c97a3baeebbccb4806908ee5372bff5fab7248432779d1e2a62eb7ac946f3",
+          "bytes": 3271,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        }
+      ],
+      "test_files": "该课不存在独立tests目录或test文件；没有声称上游单元测试通过。",
+      "major_h2_h3_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_level": 2,
+          "source_line": 10,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "7. 维度灾难与方法选择",
+              "line": 257
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "8. Kernel PCA：在核空间中进行主成分分析",
+              "line": 265
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "10. UMAP：局部模糊图与低维布局",
+              "line": 330
+            }
+          ]
+        },
+        {
+          "source_heading": "The Problem",
+          "source_level": 2,
+          "source_line": 17,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "7. 维度灾难与方法选择",
+              "line": 257
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "8. Kernel PCA：在核空间中进行主成分分析",
+              "line": 265
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "10. UMAP：局部模糊图与低维布局",
+              "line": 330
+            }
+          ]
+        },
+        {
+          "source_heading": "The Concept",
+          "source_level": 2,
+          "source_line": 25,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "7. 维度灾难与方法选择",
+              "line": 257
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "8. Kernel PCA：在核空间中进行主成分分析",
+              "line": 265
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "10. UMAP：局部模糊图与低维布局",
+              "line": 330
+            }
+          ]
+        },
+        {
+          "source_heading": "The curse of dimensionality",
+          "source_level": 3,
+          "source_line": 27,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "7. 维度灾难与方法选择",
+              "line": 257
+            }
+          ]
+        },
+        {
+          "source_heading": "PCA: find the directions that matter",
+          "source_level": 3,
+          "source_line": 45,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            }
+          ]
+        },
+        {
+          "source_heading": "Explained variance ratio",
+          "source_level": 3,
+          "source_line": 70,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            }
+          ]
+        },
+        {
+          "source_heading": "Choosing the number of components",
+          "source_level": 3,
+          "source_line": 85,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            }
+          ]
+        },
+        {
+          "source_heading": "t-SNE: preserve neighborhoods",
+          "source_level": 3,
+          "source_line": 93,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            }
+          ]
+        },
+        {
+          "source_heading": "UMAP: faster, better global structure",
+          "source_level": 3,
+          "source_line": 106,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "10. UMAP：局部模糊图与低维布局",
+              "line": 330
+            }
+          ]
+        },
+        {
+          "source_heading": "When to use which",
+          "source_level": 3,
+          "source_line": 118,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "7. 维度灾难与方法选择",
+              "line": 257
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "10. UMAP：局部模糊图与低维布局",
+              "line": 330
+            }
+          ]
+        },
+        {
+          "source_heading": "Kernel PCA",
+          "source_level": 3,
+          "source_line": 131,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "8. Kernel PCA：在核空间中进行主成分分析",
+              "line": 265
+            }
+          ]
+        },
+        {
+          "source_heading": "Reconstruction Error",
+          "source_level": 3,
+          "source_line": 163,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            }
+          ]
+        },
+        {
+          "source_heading": "Build It",
+          "source_level": 2,
+          "source_line": 197,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "8. Kernel PCA：在核空间中进行主成分分析",
+              "line": 265
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 1: PCA from scratch",
+          "source_level": 3,
+          "source_line": 199,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 2: Test on synthetic data",
+          "source_level": 3,
+          "source_line": 240,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 3: MNIST digits in 2D",
+          "source_level": 3,
+          "source_line": 262,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 4: Compare with sklearn",
+          "source_level": 3,
+          "source_line": 280,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 5: UMAP comparison",
+          "source_level": 3,
+          "source_line": 300,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "10. UMAP：局部模糊图与低维布局",
+              "line": 330
+            }
+          ]
+        },
+        {
+          "source_heading": "Use It",
+          "source_level": 2,
+          "source_line": 313,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "8. Kernel PCA：在核空间中进行主成分分析",
+              "line": 265
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            }
+          ]
+        },
+        {
+          "source_heading": "Ship It",
+          "source_level": 2,
+          "source_line": 343,
+          "status": "包装去重，方法吸收",
+          "reason": "上游prompt交付包装不单独归档；教学/调试/选型方法融入正文实践和检查。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "13. 复习与实践任务",
+              "line": 412
+            }
+          ]
+        },
+        {
+          "source_heading": "Exercises",
+          "source_level": 2,
+          "source_line": 348,
+          "status": "融合保留",
+          "reason": "保留学习任务，并补答案或验收标准；外部下载/重型实验明确未运行。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "13. 复习与实践任务",
+              "line": 412
+            }
+          ]
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_level": 2,
+          "source_line": 356,
+          "status": "术语表去重",
+          "reason": "每个主要术语已在具体原理与例子中解释，不重复做只有名词的一份列表。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "7. 维度灾难与方法选择",
+              "line": 257
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "8. Kernel PCA：在核空间中进行主成分分析",
+              "line": 265
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "10. UMAP：局部模糊图与低维布局",
+              "line": 330
+            }
+          ]
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_level": 2,
+          "source_line": 370,
+          "status": "来源链接筛选",
+          "reason": "保留上游入口与已核验官方资料；不以未核验参考链接清单代替吸收正文。",
+          "targets": []
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "source_index": 1,
+          "source_question": "What is the 'curse of dimensionality'?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "7. 维度灾难与方法选择",
+              "line": 257
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 2,
+          "source_question": "What does PCA find?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 3,
+          "source_question": "After running PCA on 784-dimensional MNIST data with k=50 components, you find 95% of variance is captured. What does this tell you?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 4,
+          "source_question": "Why should you NOT use t-SNE as preprocessing before training a classifier?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 5,
+          "source_question": "When would you choose kernel PCA over standard PCA?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "8. Kernel PCA：在核空间中进行主成分分析",
+              "line": 265
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        }
+      ],
+      "figure_mapping": [
+        {
+          "file": "site/figures-math.js",
+          "function": "pcaAxes",
+          "meaning": "协方差的主方向、特征值与方差比，重构可手算PCA。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            }
+          ]
+        }
+      ],
+      "output_mapping": [
+        {
+          "path": "phases/01-math-foundations/10-dimensionality-reduction/outputs/skill-dimensionality-reduction.md",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "7. 维度灾难与方法选择",
+              "line": 257
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "8. Kernel PCA：在核空间中进行主成分分析",
+              "line": 265
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "9. t-SNE：学习邻域图，而非全局地图",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "10. UMAP：局部模糊图与低维布局",
+              "line": 330
+            }
+          ],
+          "treatment": "长期有效教学、诊断或选型规则转为中文解释、例子、实践验收；角色指令与包装不保留。"
+        }
+      ]
+    },
+    {
+      "lesson": "11",
+      "source_path": "phases/01-math-foundations/11-singular-value-decomposition",
+      "reading_evidence": [
+        {
+          "path": "phases/01-math-foundations/11-singular-value-decomposition/code/svd.jl",
+          "sha256": "cdb86a0cb8623a592de9bb5c07a41c3a76baa378227cb21726db487297663846",
+          "bytes": 15712,
+          "read_status": "逐文件完整读取",
+          "language": "Julia",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/11-singular-value-decomposition/code/svd.py",
+          "sha256": "9e601aef6fec4df7b39b6e479e402cfe651868d8abbfc7ecd1843ee0a77b516d",
+          "bytes": 20118,
+          "read_status": "逐文件完整读取",
+          "language": "Python",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/11-singular-value-decomposition/docs/en.md",
+          "sha256": "8cd08bd71af0e84ef70159d67acf7b0781860dd567dd060b037c3923ae27c214",
+          "bytes": 23145,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/11-singular-value-decomposition/outputs/skill-svd.md",
+          "sha256": "e5c8f2a5157493b10b501d3cd39dd080bcb6f20686018c9e30ef34f1aa93ba44",
+          "bytes": 6618,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/11-singular-value-decomposition/quiz.json",
+          "sha256": "2675cf72e3924412dc60301139940d0f63561db06b1104085df164b0a1d7312a",
+          "bytes": 3420,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        }
+      ],
+      "test_files": "该课不存在独立tests目录或test文件；没有声称上游单元测试通过。",
+      "major_h2_h3_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_level": 2,
+          "source_line": 10,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "2. 奇异值揭示秩、范数与稳定性",
+              "line": 36
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "4. 伪逆：把可辨认方向反向缩放",
+              "line": 117
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "11. 推荐、LSA 与低秩更新",
+              "line": 351
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "12. 手写幂迭代：理解主方向，识别计算边界",
+              "line": 372
+            }
+          ]
+        },
+        {
+          "source_heading": "The Problem",
+          "source_level": 2,
+          "source_line": 17,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "2. 奇异值揭示秩、范数与稳定性",
+              "line": 36
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "4. 伪逆：把可辨认方向反向缩放",
+              "line": 117
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "11. 推荐、LSA 与低秩更新",
+              "line": 351
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "12. 手写幂迭代：理解主方向，识别计算边界",
+              "line": 372
+            }
+          ]
+        },
+        {
+          "source_heading": "The Concept",
+          "source_level": 2,
+          "source_line": 23,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "2. 奇异值揭示秩、范数与稳定性",
+              "line": 36
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "4. 伪逆：把可辨认方向反向缩放",
+              "line": 117
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "11. 推荐、LSA 与低秩更新",
+              "line": 351
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "12. 手写幂迭代：理解主方向，识别计算边界",
+              "line": 372
+            }
+          ]
+        },
+        {
+          "source_heading": "What SVD does geometrically",
+          "source_level": 3,
+          "source_line": 25,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "The full decomposition",
+          "source_level": 3,
+          "source_line": 49,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "Left singular vectors, singular values, right singular vectors",
+          "source_level": 3,
+          "source_line": 67,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "Outer product form",
+          "source_level": 3,
+          "source_line": 88,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            }
+          ]
+        },
+        {
+          "source_heading": "Relationship to eigendecomposition",
+          "source_level": 3,
+          "source_line": 112,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "2. 奇异值揭示秩、范数与稳定性",
+              "line": 36
+            }
+          ]
+        },
+        {
+          "source_heading": "Truncated SVD: low-rank approximation",
+          "source_level": 3,
+          "source_line": 141,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            }
+          ]
+        },
+        {
+          "source_heading": "Image compression with SVD",
+          "source_level": 3,
+          "source_line": 174,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            }
+          ]
+        },
+        {
+          "source_heading": "SVD for recommendation systems",
+          "source_level": 3,
+          "source_line": 197,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "11. 推荐、LSA 与低秩更新",
+              "line": 351
+            }
+          ]
+        },
+        {
+          "source_heading": "SVD in NLP: Latent Semantic Analysis",
+          "source_level": 3,
+          "source_line": 222,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "11. 推荐、LSA 与低秩更新",
+              "line": 351
+            }
+          ]
+        },
+        {
+          "source_heading": "SVD for noise reduction",
+          "source_level": 3,
+          "source_line": 248,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            }
+          ]
+        },
+        {
+          "source_heading": "Pseudoinverse via SVD",
+          "source_level": 3,
+          "source_line": 284,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "4. 伪逆：把可辨认方向反向缩放",
+              "line": 117
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            }
+          ]
+        },
+        {
+          "source_heading": "Numerical stability advantages",
+          "source_level": 3,
+          "source_line": 318,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "2. 奇异值揭示秩、范数与稳定性",
+              "line": 36
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            }
+          ]
+        },
+        {
+          "source_heading": "Connection to PCA",
+          "source_level": 3,
+          "source_line": 337,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "6. 方差、重建误差与任务价值不能混为一谈",
+              "line": 212
+            }
+          ]
+        },
+        {
+          "source_heading": "Build It",
+          "source_level": 2,
+          "source_line": 367,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "4. 伪逆：把可辨认方向反向缩放",
+              "line": 117
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "12. 手写幂迭代：理解主方向，识别计算边界",
+              "line": 372
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 1: SVD from scratch using power iteration",
+          "source_level": 3,
+          "source_line": 369,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "12. 手写幂迭代：理解主方向，识别计算边界",
+              "line": 372
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 2: Test and compare with NumPy",
+          "source_level": 3,
+          "source_line": 422,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "12. 手写幂迭代：理解主方向，识别计算边界",
+              "line": 372
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 3: Image compression demo",
+          "source_level": 3,
+          "source_line": 438,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 4: Noise reduction",
+          "source_level": 3,
+          "source_line": 459,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 5: Pseudoinverse",
+          "source_level": 3,
+          "source_line": 476,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "4. 伪逆：把可辨认方向反向缩放",
+              "line": 117
+            }
+          ]
+        },
+        {
+          "source_heading": "Use It",
+          "source_level": 2,
+          "source_line": 495,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "4. 伪逆：把可辨认方向反向缩放",
+              "line": 117
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "12. 手写幂迭代：理解主方向，识别计算边界",
+              "line": 372
+            }
+          ]
+        },
+        {
+          "source_heading": "Ship It",
+          "source_level": 2,
+          "source_line": 509,
+          "status": "包装去重，方法吸收",
+          "reason": "上游prompt交付包装不单独归档；教学/调试/选型方法融入正文实践和检查。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "13. 复习与实践任务",
+              "line": 412
+            }
+          ]
+        },
+        {
+          "source_heading": "Exercises",
+          "source_level": 2,
+          "source_line": 514,
+          "status": "融合保留",
+          "reason": "保留学习任务，并补答案或验收标准；外部下载/重型实验明确未运行。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "13. 复习与实践任务",
+              "line": 412
+            }
+          ]
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_level": 2,
+          "source_line": 526,
+          "status": "术语表去重",
+          "reason": "每个主要术语已在具体原理与例子中解释，不重复做只有名词的一份列表。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "2. 奇异值揭示秩、范数与稳定性",
+              "line": 36
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "4. 伪逆：把可辨认方向反向缩放",
+              "line": 117
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "11. 推荐、LSA 与低秩更新",
+              "line": 351
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "12. 手写幂迭代：理解主方向，识别计算边界",
+              "line": 372
+            }
+          ]
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_level": 2,
+          "source_line": 543,
+          "status": "来源链接筛选",
+          "reason": "保留上游入口与已核验官方资料；不以未核验参考链接清单代替吸收正文。",
+          "targets": []
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "source_index": 1,
+          "source_question": "What advantage does SVD have over eigendecomposition?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "2. 奇异值揭示秩、范数与稳定性",
+              "line": 36
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 2,
+          "source_question": "What does 'low-rank approximation' mean?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 3,
+          "source_question": "In SVD A = U * Sigma * V^T, what geometric operation does each factor represent?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 4,
+          "source_question": "Why does sklearn implement PCA using SVD instead of eigendecomposition of the covariance matrix?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "2. 奇异值揭示秩、范数与稳定性",
+              "line": 36
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 5,
+          "source_question": "How does truncated SVD enable recommendation systems to predict missing ratings?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "11. 推荐、LSA 与低秩更新",
+              "line": 351
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        }
+      ],
+      "figure_mapping": [
+        {
+          "file": "site/figures-math2.js",
+          "function": "svdRank",
+          "meaning": "奇异值平方累计能量与因子数量保留；图像以能量混灰不是真正SVD重建，淘汰模拟图像证据，改为真实分解。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            }
+          ]
+        }
+      ],
+      "output_mapping": [
+        {
+          "path": "phases/01-math-foundations/11-singular-value-decomposition/outputs/skill-svd.md",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "1. SVD 把任意有限矩阵分解为方向与尺度",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "2. 奇异值揭示秩、范数与稳定性",
+              "line": 36
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "3. 低秩逼近：留哪些项，误差是多少",
+              "line": 55
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "4. 伪逆：把可辨认方向反向缩放",
+              "line": 117
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "5. PCA：先中心化，再找最大方差方向",
+              "line": 150
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "11. 推荐、LSA 与低秩更新",
+              "line": 351
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "12. 手写幂迭代：理解主方向，识别计算边界",
+              "line": 372
+            }
+          ],
+          "treatment": "长期有效教学、诊断或选型规则转为中文解释、例子、实践验收；角色指令与包装不保留。"
+        }
+      ]
+    },
+    {
+      "lesson": "12",
+      "source_path": "phases/01-math-foundations/12-tensor-operations",
+      "reading_evidence": [
+        {
+          "path": "phases/01-math-foundations/12-tensor-operations/code/tensors.py",
+          "sha256": "d39aa378093249457a68d16cafd971c35f33bb147e7c9a9be8fea734b110e02b",
+          "bytes": 26329,
+          "read_status": "逐文件完整读取",
+          "language": "Python",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/12-tensor-operations/docs/en.md",
+          "sha256": "98beea9409bda9831f924611911ce5218d012444740a5a8a800f9c7823aaf632",
+          "bytes": 14972,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/12-tensor-operations/outputs/prompt-tensor-debugger.md",
+          "sha256": "a84c14e20bd4ef62a693793ebcea9d1f06f181892ada520359ce17eaa2f7667b",
+          "bytes": 2808,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/12-tensor-operations/outputs/prompt-tensor-shapes.md",
+          "sha256": "caad6147cc50e69e6d981afd58d9ef3024b8c5dce4a77bdb7fcd2460d7fc5527",
+          "bytes": 3256,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/12-tensor-operations/quiz.json",
+          "sha256": "17c048a941364a868ae0e808025e395c0db80fa5d28aea071d40b6643ced7916",
+          "bytes": 2893,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        }
+      ],
+      "test_files": "该课不存在独立tests目录或test文件；没有声称上游单元测试通过。",
+      "major_h2_h3_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_level": 2,
+          "source_line": 10,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "2. 内存、stride、连续性与共享视图",
+              "line": 24
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "5. 逐元素、归约与池化",
+              "line": 193
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "8. 常见操作的形状契约与定位流程",
+              "line": 319
+            }
+          ]
+        },
+        {
+          "source_heading": "The Problem",
+          "source_level": 2,
+          "source_line": 17,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "2. 内存、stride、连续性与共享视图",
+              "line": 24
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "5. 逐元素、归约与池化",
+              "line": 193
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "8. 常见操作的形状契约与定位流程",
+              "line": 319
+            }
+          ]
+        },
+        {
+          "source_heading": "The Concept",
+          "source_level": 2,
+          "source_line": 25,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "2. 内存、stride、连续性与共享视图",
+              "line": 24
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "5. 逐元素、归约与池化",
+              "line": 193
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "8. 常见操作的形状契约与定位流程",
+              "line": 319
+            }
+          ]
+        },
+        {
+          "source_heading": "What a tensor is",
+          "source_level": 3,
+          "source_line": 27,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "Tensor shapes in deep learning",
+          "source_level": 3,
+          "source_line": 41,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "How memory layout works",
+          "source_level": 3,
+          "source_line": 63,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "2. 内存、stride、连续性与共享视图",
+              "line": 24
+            }
+          ]
+        },
+        {
+          "source_heading": "Broadcasting rules",
+          "source_level": 3,
+          "source_line": 79,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            }
+          ]
+        },
+        {
+          "source_heading": "Einsum: the universal tensor operation",
+          "source_level": 3,
+          "source_line": 90,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            }
+          ]
+        },
+        {
+          "source_heading": "Build It",
+          "source_level": 2,
+          "source_line": 108,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "5. 逐元素、归约与池化",
+              "line": 193
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 1: Tensor storage and strides",
+          "source_level": 3,
+          "source_line": 112,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "2. 内存、stride、连续性与共享视图",
+              "line": 24
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 2: Reshape, squeeze, unsqueeze",
+          "source_level": 3,
+          "source_line": 150,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 3: Transpose and permute",
+          "source_level": 3,
+          "source_line": 169,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 4: Element-wise operations and reductions",
+          "source_level": 3,
+          "source_line": 183,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "5. 逐元素、归约与池化",
+              "line": 193
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 5: Broadcasting with NumPy",
+          "source_level": 3,
+          "source_line": 197,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 6: Einsum operations",
+          "source_level": 3,
+          "source_line": 217,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 7: Attention mechanism via einsum",
+          "source_level": 3,
+          "source_line": 237,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "Use It",
+          "source_level": 2,
+          "source_line": 261,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "5. 逐元素、归约与池化",
+              "line": 193
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ]
+        },
+        {
+          "source_heading": "Scratch vs NumPy",
+          "source_level": 3,
+          "source_line": 263,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "8. 常见操作的形状契约与定位流程",
+              "line": 319
+            }
+          ]
+        },
+        {
+          "source_heading": "Scratch vs PyTorch",
+          "source_level": 3,
+          "source_line": 274,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "2. 内存、stride、连续性与共享视图",
+              "line": 24
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "8. 常见操作的形状契约与定位流程",
+              "line": 319
+            }
+          ]
+        },
+        {
+          "source_heading": "Every neural network layer as a tensor operation",
+          "source_level": 3,
+          "source_line": 294,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "8. 常见操作的形状契约与定位流程",
+              "line": 319
+            }
+          ]
+        },
+        {
+          "source_heading": "Ship It",
+          "source_level": 2,
+          "source_line": 305,
+          "status": "包装去重，方法吸收",
+          "reason": "上游prompt交付包装不单独归档；教学/调试/选型方法融入正文实践和检查。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "9. 自查题与实践标准",
+              "line": 346
+            }
+          ]
+        },
+        {
+          "source_heading": "Exercises",
+          "source_level": 2,
+          "source_line": 313,
+          "status": "融合保留",
+          "reason": "保留学习任务，并补答案或验收标准；外部下载/重型实验明确未运行。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "9. 自查题与实践标准",
+              "line": 346
+            }
+          ]
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_level": 2,
+          "source_line": 323,
+          "status": "术语表去重",
+          "reason": "每个主要术语已在具体原理与例子中解释，不重复做只有名词的一份列表。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "2. 内存、stride、连续性与共享视图",
+              "line": 24
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "5. 逐元素、归约与池化",
+              "line": 193
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "8. 常见操作的形状契约与定位流程",
+              "line": 319
+            }
+          ]
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_level": 2,
+          "source_line": 338,
+          "status": "来源链接筛选",
+          "reason": "保留上游入口与已核验官方资料；不以未核验参考链接清单代替吸收正文。",
+          "targets": []
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "source_index": 1,
+          "source_question": "What does the 'shape' of a tensor describe?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 2,
+          "source_question": "In PyTorch, what layout does an image batch tensor use by default?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 3,
+          "source_question": "What is the result shape when broadcasting tensors of shape (8, 1, 6, 1) and (7, 1, 5)?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 4,
+          "source_question": "In the einsum expression 'bhtd,bhsd->bhts', what happens to the index 'd'?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 5,
+          "source_question": "Why does calling .view() fail on a transposed tensor in PyTorch?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "2. 内存、stride、连续性与共享视图",
+              "line": 24
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        }
+      ],
+      "figure_mapping": [
+        {
+          "file": "site/figures-math2.js",
+          "function": "tensorBroadcast",
+          "meaning": "逐轴匹配与为一扩展，补右对齐和零长度轴边界。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            }
+          ]
+        }
+      ],
+      "output_mapping": [
+        {
+          "path": "phases/01-math-foundations/12-tensor-operations/outputs/prompt-tensor-debugger.md",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "2. 内存、stride、连续性与共享视图",
+              "line": 24
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "5. 逐元素、归约与池化",
+              "line": 193
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "8. 常见操作的形状契约与定位流程",
+              "line": 319
+            }
+          ],
+          "treatment": "长期有效教学、诊断或选型规则转为中文解释、例子、实践验收；角色指令与包装不保留。"
+        },
+        {
+          "path": "phases/01-math-foundations/12-tensor-operations/outputs/prompt-tensor-shapes.md",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "1. shape、轴数、矩阵秩不是一回事",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "2. 内存、stride、连续性与共享视图",
+              "line": 24
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "3. reshape、换轴、插入轴与压缩轴",
+              "line": 49
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "4. 广播：从右对齐，相同或为一",
+              "line": 126
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "5. 逐元素、归约与池化",
+              "line": 193
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "6. einsum：把保留轴和求和轴写出来",
+              "line": 214
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "7. 从线性层到完整多头 Attention 的形状",
+              "line": 250
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+              "heading": "8. 常见操作的形状契约与定位流程",
+              "line": 319
+            }
+          ],
+          "treatment": "长期有效教学、诊断或选型规则转为中文解释、例子、实践验收；角色指令与包装不保留。"
+        }
+      ]
+    },
+    {
+      "lesson": "14",
+      "source_path": "phases/01-math-foundations/14-norms-and-distances",
+      "reading_evidence": [
+        {
+          "path": "phases/01-math-foundations/14-norms-and-distances/code/distances.py",
+          "sha256": "a0eecdb215d3a5d00b639c0fce0286d570d98c5e536f4a0592650e31612e0c2b",
+          "bytes": 20387,
+          "read_status": "逐文件完整读取",
+          "language": "Python",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/14-norms-and-distances/docs/en.md",
+          "sha256": "f0949b87124ae76e14ed331231e357edf7e60552dc4fadd42dee0ffed10ebeca",
+          "bytes": 23671,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/14-norms-and-distances/outputs/prompt-distance-chooser.md",
+          "sha256": "28fd4a216281ca177929fd6c9b467523be270245d42a334514b2f036d54a8fcb",
+          "bytes": 5093,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/14-norms-and-distances/quiz.json",
+          "sha256": "7f4fddc0c2191450c45ba645af33a8352999524a0b1c4648c0ca3a1224e68828",
+          "bytes": 3609,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        }
+      ],
+      "test_files": "该课不存在独立tests目录或test文件；没有声称上游单元测试通过。",
+      "major_h2_h3_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_level": 2,
+          "source_line": 10,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "1. 范数与距离度量的基本条件",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "4. Mahalanobis 距离：按协方差校正尺度与相关性",
+              "line": 105
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "5. 集合重叠、Jaccard 与 MinHash",
+              "line": 130
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "6. 编辑距离：从最优子问题得到字符串匹配",
+              "line": 164
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "9. 同一数据，不同最近邻",
+              "line": 307
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "10. 精确检索与近似检索：先定义分数，再加速",
+              "line": 335
+            }
+          ]
+        },
+        {
+          "source_heading": "The Problem",
+          "source_level": 2,
+          "source_line": 17,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "1. 范数与距离度量的基本条件",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "4. Mahalanobis 距离：按协方差校正尺度与相关性",
+              "line": 105
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "5. 集合重叠、Jaccard 与 MinHash",
+              "line": 130
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "6. 编辑距离：从最优子问题得到字符串匹配",
+              "line": 164
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "9. 同一数据，不同最近邻",
+              "line": 307
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "10. 精确检索与近似检索：先定义分数，再加速",
+              "line": 335
+            }
+          ]
+        },
+        {
+          "source_heading": "The Concept",
+          "source_level": 2,
+          "source_line": 27,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "1. 范数与距离度量的基本条件",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "4. Mahalanobis 距离：按协方差校正尺度与相关性",
+              "line": 105
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "5. 集合重叠、Jaccard 与 MinHash",
+              "line": 130
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "6. 编辑距离：从最优子问题得到字符串匹配",
+              "line": 164
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "9. 同一数据，不同最近邻",
+              "line": 307
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "10. 精确检索与近似检索：先定义分数，再加速",
+              "line": 335
+            }
+          ]
+        },
+        {
+          "source_heading": "Norms: measuring vector magnitude",
+          "source_level": 3,
+          "source_line": 29,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "1. 范数与距离度量的基本条件",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "source_heading": "L1 Norm (Manhattan distance)",
+          "source_level": 3,
+          "source_line": 33,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            }
+          ]
+        },
+        {
+          "source_heading": "L2 Norm (Euclidean distance)",
+          "source_level": 3,
+          "source_line": 61,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            }
+          ]
+        },
+        {
+          "source_heading": "Lp Norms: the general family",
+          "source_level": 3,
+          "source_line": 95,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "1. 范数与距离度量的基本条件",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            }
+          ]
+        },
+        {
+          "source_heading": "L-infinity Norm (Chebyshev distance)",
+          "source_level": 3,
+          "source_line": 112,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            }
+          ]
+        },
+        {
+          "source_heading": "Cosine Similarity and Cosine Distance",
+          "source_level": 3,
+          "source_line": 134,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            }
+          ]
+        },
+        {
+          "source_heading": "Dot Product Similarity vs Cosine Similarity",
+          "source_level": 3,
+          "source_line": 161,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            }
+          ]
+        },
+        {
+          "source_heading": "Mahalanobis Distance",
+          "source_level": 3,
+          "source_line": 194,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "4. Mahalanobis 距离：按协方差校正尺度与相关性",
+              "line": 105
+            }
+          ]
+        },
+        {
+          "source_heading": "Jaccard Similarity (for sets)",
+          "source_level": 3,
+          "source_line": 224,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "5. 集合重叠、Jaccard 与 MinHash",
+              "line": 130
+            }
+          ]
+        },
+        {
+          "source_heading": "Edit Distance (Levenshtein Distance)",
+          "source_level": 3,
+          "source_line": 252,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "6. 编辑距离：从最优子问题得到字符串匹配",
+              "line": 164
+            }
+          ]
+        },
+        {
+          "source_heading": "KL Divergence (not a distance, but used like one)",
+          "source_level": 3,
+          "source_line": 285,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            }
+          ]
+        },
+        {
+          "source_heading": "Wasserstein Distance (Earth Mover's Distance)",
+          "source_level": 3,
+          "source_line": 310,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            }
+          ]
+        },
+        {
+          "source_heading": "Why Different Tasks Need Different Distances",
+          "source_level": 3,
+          "source_line": 346,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "9. 同一数据，不同最近邻",
+              "line": 307
+            }
+          ]
+        },
+        {
+          "source_heading": "Connection to Loss Functions",
+          "source_level": 3,
+          "source_line": 363,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            }
+          ]
+        },
+        {
+          "source_heading": "Connection to Regularization",
+          "source_level": 3,
+          "source_line": 381,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            }
+          ]
+        },
+        {
+          "source_heading": "Nearest Neighbor Search",
+          "source_level": 3,
+          "source_line": 403,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "10. 精确检索与近似检索：先定义分数，再加速",
+              "line": 335
+            }
+          ]
+        },
+        {
+          "source_heading": "Build It",
+          "source_level": 2,
+          "source_line": 430,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "4. Mahalanobis 距离：按协方差校正尺度与相关性",
+              "line": 105
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "5. 集合重叠、Jaccard 与 MinHash",
+              "line": 130
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "6. 编辑距离：从最优子问题得到字符串匹配",
+              "line": 164
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 1: All norm and distance functions",
+          "source_level": 3,
+          "source_line": 432,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "1. 范数与距离度量的基本条件",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "4. Mahalanobis 距离：按协方差校正尺度与相关性",
+              "line": 105
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "5. 集合重叠、Jaccard 与 MinHash",
+              "line": 130
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "6. 编辑距离：从最优子问题得到字符串匹配",
+              "line": 164
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 2: Same data, different distances, different neighbors",
+          "source_level": 3,
+          "source_line": 436,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "9. 同一数据，不同最近邻",
+              "line": 307
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 3: Embedding similarity search",
+          "source_level": 3,
+          "source_line": 440,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "9. 同一数据，不同最近邻",
+              "line": 307
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "10. 精确检索与近似检索：先定义分数，再加速",
+              "line": 335
+            }
+          ]
+        },
+        {
+          "source_heading": "Use It",
+          "source_level": 2,
+          "source_line": 444,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "4. Mahalanobis 距离：按协方差校正尺度与相关性",
+              "line": 105
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "5. 集合重叠、Jaccard 与 MinHash",
+              "line": 130
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "6. 编辑距离：从最优子问题得到字符串匹配",
+              "line": 164
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            }
+          ]
+        },
+        {
+          "source_heading": "Exercises",
+          "source_level": 2,
+          "source_line": 470,
+          "status": "融合保留",
+          "reason": "保留学习任务，并补答案或验收标准；外部下载/重型实验明确未运行。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "11. 自查与动手题",
+              "line": 352
+            }
+          ]
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_level": 2,
+          "source_line": 482,
+          "status": "术语表去重",
+          "reason": "每个主要术语已在具体原理与例子中解释，不重复做只有名词的一份列表。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "1. 范数与距离度量的基本条件",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "4. Mahalanobis 距离：按协方差校正尺度与相关性",
+              "line": 105
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "5. 集合重叠、Jaccard 与 MinHash",
+              "line": 130
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "6. 编辑距离：从最优子问题得到字符串匹配",
+              "line": 164
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "9. 同一数据，不同最近邻",
+              "line": 307
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "10. 精确检索与近似检索：先定义分数，再加速",
+              "line": 335
+            }
+          ]
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_level": 2,
+          "source_line": 505,
+          "status": "来源链接筛选",
+          "reason": "保留上游入口与已核验官方资料；不以未核验参考链接清单代替吸收正文。",
+          "targets": []
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "source_index": 1,
+          "source_question": "What does cosine similarity measure between two vectors?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 2,
+          "source_question": "Why is L1 distance called 'Manhattan distance'?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 3,
+          "source_question": "Why does L1 regularization (Lasso) produce sparse weights while L2 regularization (Ridge) does not?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 4,
+          "source_question": "What advantage does Wasserstein distance have over KL divergence when comparing probability distributions?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 5,
+          "source_question": "When would you use Mahalanobis distance instead of Euclidean distance?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "4. Mahalanobis 距离：按协方差校正尺度与相关性",
+              "line": 105
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        }
+      ],
+      "figure_mapping": [
+        {
+          "file": "site/figures-math2.js",
+          "function": "normUnitBalls",
+          "meaning": "L1菱形、L2圆、Linf方形与测量差异，结合正则化几何和soft-threshold。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "1. 范数与距离度量的基本条件",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            }
+          ]
+        }
+      ],
+      "output_mapping": [
+        {
+          "path": "phases/01-math-foundations/14-norms-and-distances/outputs/prompt-distance-chooser.md",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "1. 范数与距离度量的基本条件",
+              "line": 5
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "2. L1、L2、无穷范数与尺度",
+              "line": 22
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "3. 余弦、点积、欧氏距离：什么时候排序一致",
+              "line": 58
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "4. Mahalanobis 距离：按协方差校正尺度与相关性",
+              "line": 105
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "5. 集合重叠、Jaccard 与 MinHash",
+              "line": 130
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "6. 编辑距离：从最优子问题得到字符串匹配",
+              "line": 164
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "7. 分布差异：KL、Jensen–Shannon 与 Wasserstein",
+              "line": 199
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "8. 距离、损失和正则化之间的关系",
+              "line": 267
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "9. 同一数据，不同最近邻",
+              "line": 307
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+              "heading": "10. 精确检索与近似检索：先定义分数，再加速",
+              "line": 335
+            }
+          ],
+          "treatment": "长期有效教学、诊断或选型规则转为中文解释、例子、实践验收；角色指令与包装不保留。"
+        }
+      ]
+    },
+    {
+      "lesson": "17",
+      "source_path": "phases/01-math-foundations/17-linear-systems",
+      "reading_evidence": [
+        {
+          "path": "phases/01-math-foundations/17-linear-systems/code/linear_systems.py",
+          "sha256": "99a0dd74dbe7ff010b0138b178adabd3cc04b7470916852034b1bc19bc54152c",
+          "bytes": 12220,
+          "read_status": "逐文件完整读取",
+          "language": "Python",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/17-linear-systems/docs/en.md",
+          "sha256": "de9a2c0f1e09351e6061834a651110bdab18ae3df534315ea2a62a33a156af49",
+          "bytes": 24491,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/17-linear-systems/outputs/prompt-linear-solver.md",
+          "sha256": "f4cc2bcfd18483fe26d548cbb75359d98fc5135ffde905feb293a36c31a882e4",
+          "bytes": 4341,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        },
+        {
+          "path": "phases/01-math-foundations/17-linear-systems/quiz.json",
+          "sha256": "63dbc00825a9aefb457a7f52a98f876202a97587e2519d25214e0d46016152da",
+          "bytes": 3568,
+          "read_status": "逐文件完整读取",
+          "language": "资料",
+          "note": "仅作为教材来源读取；outputs中的角色说明未当成任务指令。"
+        }
+      ],
+      "test_files": "该课不存在独立tests目录或test文件；没有声称上游单元测试通过。",
+      "major_h2_h3_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_level": 2,
+          "source_line": 10,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "5. $Ax=b$：先判断是否有解、是否唯一",
+              "line": 133
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "7. LU：一次分解，多次求解",
+              "line": 192
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "11. 共轭梯度：稀疏大系统迭代求解",
+              "line": 333
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            }
+          ]
+        },
+        {
+          "source_heading": "The Problem",
+          "source_level": 2,
+          "source_line": 17,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "5. $Ax=b$：先判断是否有解、是否唯一",
+              "line": 133
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "7. LU：一次分解，多次求解",
+              "line": 192
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "11. 共轭梯度：稀疏大系统迭代求解",
+              "line": 333
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            }
+          ]
+        },
+        {
+          "source_heading": "The Concept",
+          "source_level": 2,
+          "source_line": 25,
+          "status": "融合保留",
+          "reason": "任务目标、先修与概念关系在对应专题的引导及各知识章节体现。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "5. $Ax=b$：先判断是否有解、是否唯一",
+              "line": 133
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "7. LU：一次分解，多次求解",
+              "line": 192
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "11. 共轭梯度：稀疏大系统迭代求解",
+              "line": 333
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            }
+          ]
+        },
+        {
+          "source_heading": "What Ax = b means geometrically",
+          "source_level": 3,
+          "source_line": 27,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "5. $Ax=b$：先判断是否有解、是否唯一",
+              "line": 133
+            }
+          ]
+        },
+        {
+          "source_heading": "Column picture vs row picture",
+          "source_level": 3,
+          "source_line": 59,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "5. $Ax=b$：先判断是否有解、是否唯一",
+              "line": 133
+            }
+          ]
+        },
+        {
+          "source_heading": "Gaussian elimination",
+          "source_level": 3,
+          "source_line": 80,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            }
+          ]
+        },
+        {
+          "source_heading": "Partial pivoting: why it matters",
+          "source_level": 3,
+          "source_line": 116,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            }
+          ]
+        },
+        {
+          "source_heading": "LU decomposition",
+          "source_level": 3,
+          "source_line": 137,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "7. LU：一次分解，多次求解",
+              "line": 192
+            }
+          ]
+        },
+        {
+          "source_heading": "QR decomposition",
+          "source_level": 3,
+          "source_line": 163,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+              "heading": "6. Gram–Schmidt 与 QR：逐步去掉已有方向",
+              "line": 137
+            }
+          ]
+        },
+        {
+          "source_heading": "Cholesky decomposition",
+          "source_level": 3,
+          "source_line": 199,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            }
+          ]
+        },
+        {
+          "source_heading": "Least squares: when Ax = b has no exact solution",
+          "source_level": 3,
+          "source_line": 222,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            }
+          ]
+        },
+        {
+          "source_heading": "Normal equations = linear regression",
+          "source_level": 3,
+          "source_line": 257,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            }
+          ]
+        },
+        {
+          "source_heading": "Pseudoinverse (Moore-Penrose)",
+          "source_level": 3,
+          "source_line": 277,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+              "heading": "4. 伪逆：把可辨认方向反向缩放",
+              "line": 117
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            }
+          ]
+        },
+        {
+          "source_heading": "Condition number",
+          "source_level": 3,
+          "source_line": 306,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            }
+          ]
+        },
+        {
+          "source_heading": "Iterative methods: conjugate gradient",
+          "source_level": 3,
+          "source_line": 332,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "11. 共轭梯度：稀疏大系统迭代求解",
+              "line": 333
+            }
+          ]
+        },
+        {
+          "source_heading": "The full picture: which method when",
+          "source_level": 3,
+          "source_line": 361,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            }
+          ]
+        },
+        {
+          "source_heading": "Connection to ML",
+          "source_level": 3,
+          "source_line": 373,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "11. 共轭梯度：稀疏大系统迭代求解",
+              "line": 333
+            }
+          ]
+        },
+        {
+          "source_heading": "Build It",
+          "source_level": 2,
+          "source_line": 393,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "7. LU：一次分解，多次求解",
+              "line": 192
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "11. 共轭梯度：稀疏大系统迭代求解",
+              "line": 333
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 1: Gaussian elimination with partial pivoting",
+          "source_level": 3,
+          "source_line": 395,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 2: LU decomposition",
+          "source_level": 3,
+          "source_line": 422,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "7. LU：一次分解，多次求解",
+              "line": 192
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 3: Cholesky decomposition",
+          "source_level": 3,
+          "source_line": 460,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 4: Least squares via normal equations",
+          "source_level": 3,
+          "source_line": 480,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            }
+          ]
+        },
+        {
+          "source_heading": "Step 5: Condition number",
+          "source_level": 3,
+          "source_line": 502,
+          "status": "融合保留",
+          "reason": "按知识主题重构，数值例子、条件与自查进入正文。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            }
+          ]
+        },
+        {
+          "source_heading": "Use It",
+          "source_level": 2,
+          "source_line": 510,
+          "status": "融合保留",
+          "reason": "手写计算原理与库接口融合为独立可运行小例子，重复完整类与随机输出不逐字复制。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "7. LU：一次分解，多次求解",
+              "line": 192
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "11. 共轭梯度：稀疏大系统迭代求解",
+              "line": 333
+            }
+          ]
+        },
+        {
+          "source_heading": "Ship It",
+          "source_level": 2,
+          "source_line": 538,
+          "status": "包装去重，方法吸收",
+          "reason": "上游prompt交付包装不单独归档；教学/调试/选型方法融入正文实践和检查。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            }
+          ]
+        },
+        {
+          "source_heading": "Exercises",
+          "source_level": 2,
+          "source_line": 544,
+          "status": "融合保留",
+          "reason": "保留学习任务，并补答案或验收标准；外部下载/重型实验明确未运行。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            }
+          ]
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_level": 2,
+          "source_line": 556,
+          "status": "术语表去重",
+          "reason": "每个主要术语已在具体原理与例子中解释，不重复做只有名词的一份列表。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "5. $Ax=b$：先判断是否有解、是否唯一",
+              "line": 133
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "7. LU：一次分解，多次求解",
+              "line": 192
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "11. 共轭梯度：稀疏大系统迭代求解",
+              "line": 333
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            }
+          ]
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_level": 2,
+          "source_line": 576,
+          "status": "来源链接筛选",
+          "reason": "保留上游入口与已核验官方资料；不以未核验参考链接清单代替吸收正文。",
+          "targets": []
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "source_index": 1,
+          "source_question": "What does it mean geometrically when a system Ax = b has no exact solution?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "5. $Ax=b$：先判断是否有解、是否唯一",
+              "line": 133
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 2,
+          "source_question": "Why is partial pivoting used in Gaussian elimination?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 3,
+          "source_question": "Why is Cholesky decomposition preferred over LU for solving (X^T X + lambda I) w = X^T y in ridge regression?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 4,
+          "source_question": "A matrix has condition number kappa = 10^8. You are using float64 (~15 digits of precision). How many digits of the solution can you trust?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        },
+        {
+          "source_index": 5,
+          "source_question": "What is the main advantage of LU decomposition over Gaussian elimination when you need to solve Ax = b for many different b vectors?",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "7. LU：一次分解，多次求解",
+              "line": 192
+            }
+          ],
+          "treatment": "知识点融入相应正文，纠正绝对化解释；自查附解答或判断标准。"
+        }
+      ],
+      "figure_mapping": [
+        {
+          "file": "site/figures-math2.js",
+          "function": "linearConditioning",
+          "meaning": "条件数与近乎平行约束的意图保留；上游滑块的法向角范围未真正使两线趋近平行，不作实测，替换为A=[[1,1],[1,1+1e-8]]真实数值。",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            }
+          ]
+        }
+      ],
+      "output_mapping": [
+        {
+          "path": "phases/01-math-foundations/17-linear-systems/outputs/prompt-linear-solver.md",
+          "targets": [
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "5. $Ax=b$：先判断是否有解、是否唯一",
+              "line": 133
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "6. 高斯消元、选主元与三角回代",
+              "line": 145
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "7. LU：一次分解，多次求解",
+              "line": 192
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "8. QR 与最小二乘：把残差正交分解",
+              "line": 230
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "9. Cholesky、正定性与岭回归",
+              "line": 258
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "10. 伪逆、条件数与求解验证",
+              "line": 302
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "11. 共轭梯度：稀疏大系统迭代求解",
+              "line": 333
+            },
+            {
+              "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+              "heading": "12. 选择方法与实践验收",
+              "line": 385
+            }
+          ],
+          "treatment": "长期有效教学、诊断或选型规则转为中文解释、例子、实践验收；角色指令与包装不保留。"
+        }
+      ]
+    }
+  ],
+  "content_corrections": [
+    "满秩不等于良态；宽矩阵满行秩不保证参数唯一；秩亏回归参数不唯一不表示所有预测必剧烈变化。",
+    "Attention的query/key projection通常是任意学习线性映射，不是正交投影。",
+    "Embedding语义相似要由表示/训练/验证决定，点积符号本身不能保证语义。",
+    "zip会静默截断维数不同的向量；零向量归一化和余弦须明示策略。",
+    "二维同时含kx/ky的[[1,kx],[ky,1]]行列式不是无条件1。",
+    "特征向量负特征值时方向反向；一般特征基不是纯旋转；不是所有方阵都可对角化。",
+    "非线性RNN梯度需要激活导数与逐步Jacobian，不能由一个权重特征值断言全部梯度行为。",
+    "PCA解释方差不是有效知识/标签信息比例；低方差不必都是噪声；监督相关特征数不是几何秩。",
+    "PCA重建逐元素MSE需要(n-1)/(n*d)归一化，不能直接等同丢弃协方差特征值之和。",
+    "PCA可使用不同求解器；不能说所有sklearn PCA只用直接SVD。",
+    "新TSNE接口用max_iter，旧prompt的n_iter过时；默认Barnes-Hut与精确O(n^2)不同。",
+    "UMAP簇间距离、t-SNE稳定簇均不自动保证真实结构；不强制所有高维输入先取50维PCA。",
+    "核PCA训练坐标是sqrt(lambda)*a，新点投影需训练均值中心化；sigmoid核参数并非都合法。",
+    "核PCA对同心圆第一主成分不一定分开，不保留无条件演示结论。",
+    "SVD正交因子可能含反射；符号/重根基的不唯一性要按子空间验证。",
+    "SVD参数数量缩减不等于真实字节压缩率，重建矩阵依旧为原尺寸。",
+    "推荐缺失值不是零；均值填补为教学基线，正式矩阵分解用观测掩码并留出测试。",
+    "LSA的子串计数不是真分词；坐标奇异值缩放不同会改变相似性，必须声明约定。",
+    "教学Tensor permute实际复制与主流框架stride视图必须分开；NumPy transpose(0,1)不交换二维轴。",
+    "NumPy strides以字节、PyTorch以元素；view需要stride兼容，不是所有非连续张量都不能view。",
+    "偏置(D,)对(B,T,D)已能广播；NCHW通道尺度需要显式对齐；零长度轴广播不能一律取max。",
+    "无定义K/V/softmax的attention片段改为完整QKV与掩码例子，并检查全遮蔽行风险。",
+    "所有距离不都是向量差的范数；p<1不是范数；平方欧氏与1-cos不是严格度量。",
+    "Wasserstein需要支持位置和运输成本，CDF差相加仅适用单位间距，梯度/训练稳定非无条件保证。",
+    "JS可用于离散/连续分布，sqrt(JS)才具有相关度量性质；KL要注明方向、归一化与支持。",
+    "L1/L2距离与参数惩罚不同；使用soft-threshold解释稀疏性，而非伪Lasso循环裁剪。",
+    "二维余弦自检索需按ID排除自身，不能无条件排序后跳第一项。",
+    "过定可能精确有解，欠定可能无解；需要列空间与增广秩判断。",
+    "凸Hessian/协方差/核Gram矩阵可能只有半正定，非自动可Cholesky；岭lambda>0后才保证相应正定。",
+    "岭正则化后条件数是(sigma_max^2+lambda)/(sigma_min^2+lambda)，不是未平方的比值。",
+    "来源四样本正规方程例子的斜率应1.6而非1.7。",
+    "CG初始零残差要退出，非正曲率需拒绝；精确算术n步不能强加给浮点，稀疏成本O(k*(nnz+n))。",
+    "不保留无条件100倍速度、Cholesky墙钟恰好2倍、稀疏大系统必几秒、HNSW普遍最优等承诺。",
+    "上游SVD图能量混灰不是实际SVD重建；病态图滑块未真正接近平行，均替换真实算例。"
+  ],
+  "fusion": "既有01主章节保留矩阵微积分/Lipschitz/对偶等有效内容，增补例子并链接5篇按知识组织的数学专题。8课重复向量/投影/范数/矩阵运算合并一次；02/17共用线性系统，10/11共用SVD/PCA，tensor不作为来源独立镜像。",
+  "discarded_or_rewritten": "重复类、逐行打印、未经核查参考链接列表、教学角色prompt包装不进入正文镜像；错误/过度绝对表述纠正，过时n_iter接口改写。基础理论年代早不判为失效。Julia数学语义融入中文，不保留第二份重复语言例子。",
+  "validation": {
+    "environment": {
+      "python": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+      "numpy": "2.4.6",
+      "device": "CPU"
+    },
+    "python_blocks_total": 35,
+    "python_blocks_executed_pass": 33,
+    "python_blocks_missing_dependency": 2,
+    "python_block_results": [
+      {
+        "file": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+        "block": 1,
+        "exit": 0,
+        "stdout": "32\n0.974632\n90.0\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+        "block": 2,
+        "exit": 0,
+        "stdout": "[[ 0.707107  0.707107]\n [ 0.707107 -0.707107]]\nTrue\nTrue\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+        "block": 1,
+        "exit": 0,
+        "stdout": "[[19, 22], [43, 50]]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+        "block": 2,
+        "exit": 0,
+        "stdout": "[[ 0.  0.]\n [ 0.  1.]\n [-1.  1.]\n [-1.  0.]]\n[0.  0.5]\n[0. 2.]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+        "block": 3,
+        "exit": 0,
+        "stdout": "[2. 2. 2.]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+        "block": 4,
+        "exit": 0,
+        "stdout": "[1. 1.]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+        "block": 5,
+        "exit": 0,
+        "stdout": "[1.5 1.6]\n[ 0.1 -0.3  0.3 -0.1]\n0.2\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+        "block": 6,
+        "exit": 0,
+        "stdout": "[0.965517 0.965517]\n29.000000000000007\n3.367296\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+        "block": 7,
+        "exit": 0,
+        "stdout": "[1. 1.]\n[0. 2.]\n400000006.23500437\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+        "block": 8,
+        "exit": 0,
+        "stdout": "[0.090909 0.636364] 2 True\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+        "block": 1,
+        "exit": 0,
+        "stdout": "[4. 2.]\nTrue\nTrue\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+        "block": 2,
+        "exit": 0,
+        "stdout": "1 3.162278 0.714286\n2 1.0 0.971429\n3 0.0 1.0\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+        "block": 3,
+        "exit": 0,
+        "stdout": "True\n保留因子数： 71\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+        "block": 4,
+        "exit": 0,
+        "stdout": "[1.5      1.666667]\n[1. 1.]\n[0.6 1.2]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+        "block": 5,
+        "exit": 0,
+        "stdout": "[1.]\n[1.414214 0.       1.414214]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+        "block": 6,
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/study-source1-linear-validation/03-example-06.py\", line 1, in <module>\n    from sklearn.datasets import load_digits\nModuleNotFoundError: No module named 'sklearn'\n",
+        "status": "依赖缺失未运行"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+        "block": 7,
+        "exit": 0,
+        "stdout": "(24, 2)\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+        "block": 8,
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/study-source1-linear-validation/03-example-08.py\", line 1, in <module>\n    from sklearn.datasets import load_digits\nModuleNotFoundError: No module named 'sklearn'\n",
+        "status": "依赖缺失未运行"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+        "block": 9,
+        "exit": 0,
+        "stdout": "5.0\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+        "block": 1,
+        "exit": 0,
+        "stdout": "(2, 3) (24, 8)\n(3, 2) (8, 24)\nTrue\nFalse True\n(16, 8)\nFalse\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+        "block": 2,
+        "exit": 0,
+        "stdout": "[[0 1]\n [2 3]\n [4 5]]\n[[0 3]\n [1 4]\n [2 5]]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+        "block": 3,
+        "exit": 0,
+        "stdout": "5 (3, 1)\n[0, 1, 2, 3, 4, 5]\n[0, 3, 1, 4, 2, 5]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+        "block": 4,
+        "exit": 0,
+        "stdout": "[[11. 22. 33.]\n [14. 25. 36.]]\n[0.5 1.  1.5]\n(8, 7, 6, 5)\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+        "block": 5,
+        "exit": 0,
+        "stdout": "((3, 4), [11, 21, 31, 41, 12, 22, 32, 42, 13, 23, 33, 43])\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+        "block": 6,
+        "exit": 0,
+        "stdout": "[[2. 3.]\n [2. 4.]]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+        "block": 7,
+        "exit": 0,
+        "stdout": "5.0\n30.0\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+        "block": 8,
+        "exit": 0,
+        "stdout": "(2, 4) (2, 2)\n[[-0.2  1.9]\n [ 1.5  0. ]]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+        "block": 9,
+        "exit": 0,
+        "stdout": "(2, 2, 3, 4) (2, 2, 3, 3) (2, 2, 3, 4) (2, 3, 8)\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+        "block": 1,
+        "exit": 0,
+        "stdout": "8.0\n4.690416\n3\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+        "block": 2,
+        "exit": 0,
+        "stdout": "[1, 2]\n[1. 0.]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+        "block": 3,
+        "exit": 0,
+        "stdout": "1.025978\n4.472136\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+        "block": 4,
+        "exit": 0,
+        "stdout": "0.4 0.395\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+        "block": 5,
+        "exit": 0,
+        "stdout": "3\n3\n1\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+        "block": 6,
+        "exit": 0,
+        "stdout": "2.0\ninf\n1.0\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+        "block": 7,
+        "exit": 0,
+        "stdout": "[ 1.5 -0.   0.   0. ]\n[ 1.   -0.15  0.05  0.  ]\n",
+        "stderr": "",
+        "status": "实际运行通过"
+      }
+    ],
+    "behavior_checks": [
+      {
+        "name": "点积维数不匹配拒绝",
+        "passed": true
+      },
+      {
+        "name": "零向量归一化拒绝",
+        "passed": true
+      },
+      {
+        "name": "相关列只保留一维",
+        "passed": true
+      },
+      {
+        "name": "消元奇异输入拒绝",
+        "passed": true
+      },
+      {
+        "name": "练习方程真解",
+        "passed": true
+      },
+      {
+        "name": "LU多次主元交换重建",
+        "passed": true
+      },
+      {
+        "name": "CG零右端项零步退出",
+        "passed": true
+      },
+      {
+        "name": "CG非正曲率拒绝",
+        "passed": true
+      },
+      {
+        "name": "零方差PCA输出有限并精确重建",
+        "passed": true
+      },
+      {
+        "name": "零矩阵伪逆",
+        "passed": true
+      },
+      {
+        "name": "主奇异方向零矩阵安全退出",
+        "passed": true
+      },
+      {
+        "name": "标量张量索引",
+        "passed": true
+      },
+      {
+        "name": "多重推断维拒绝",
+        "passed": true
+      },
+      {
+        "name": "零长度轴广播结果保留零",
+        "passed": true
+      },
+      {
+        "name": "广播冲突拒绝",
+        "passed": true
+      },
+      {
+        "name": "检索零向量拒绝",
+        "passed": true
+      },
+      {
+        "name": "编辑距离同一与空输入",
+        "passed": true
+      },
+      {
+        "name": "不等距支持运输成本",
+        "passed": true
+      },
+      {
+        "name": "非归一化分布拒绝",
+        "passed": true
+      },
+      {
+        "name": "非递增运输支持拒绝",
+        "passed": true
+      },
+      {
+        "name": "余弦距离三角不等式反例",
+        "passed": true
+      }
+    ],
+    "structure_links_math_fences": {
+      "files": [
+        "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+        "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+        "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+        "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+        "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+        "AI 算法基础/01-线性代数与矩阵微积分.md"
+      ],
+      "issues": []
+    },
+    "upstream_runs": [
+      {
+        "lesson": "01",
+        "command": "import runpy; runpy.run_path('phases/01-math-foundations/01-linear-algebra-intuition/code/vectors.py',run_name='__main__')",
+        "exit": 0,
+        "stdout_path": "/tmp/study-source1-linear-validation/upstream-01.txt",
+        "stderr": ""
+      },
+      {
+        "lesson": "02",
+        "command": "import runpy; runpy.run_path('phases/01-math-foundations/02-vectors-matrices-operations/code/matrices.py',run_name='__main__')",
+        "exit": 0,
+        "stdout_path": "/tmp/study-source1-linear-validation/upstream-02.txt",
+        "stderr": ""
+      },
+      {
+        "lesson": "03",
+        "command": "import runpy; runpy.run_path('phases/01-math-foundations/03-matrix-transformations/code/transformations.py',run_name='__main__')",
+        "exit": 0,
+        "stdout_path": "/tmp/study-source1-linear-validation/upstream-03.txt",
+        "stderr": ""
+      },
+      {
+        "lesson": "10",
+        "command": "import runpy; m=runpy.run_path('phases/01-math-foundations/10-dimensionality-reduction/code/dim_reduction.py'); [m[name]() for name in ['demo_synthetic','demo_kernel_pca','demo_reconstruction_error']]",
+        "exit": 0,
+        "stdout_path": "/tmp/study-source1-linear-validation/upstream-10.txt",
+        "stderr": ""
+      },
+      {
+        "lesson": "11",
+        "command": "import runpy; runpy.run_path('phases/01-math-foundations/11-singular-value-decomposition/code/svd.py',run_name='__main__')",
+        "exit": 0,
+        "stdout_path": "/tmp/study-source1-linear-validation/upstream-11.txt",
+        "stderr": ""
+      },
+      {
+        "lesson": "12",
+        "command": "import runpy; m=runpy.run_path('phases/01-math-foundations/12-tensor-operations/code/tensors.py'); [m[name]() for name in ['demo_custom_tensor_class','demo_basic_tensor','demo_reshape_operations','demo_broadcasting_numpy','demo_memory_layout','demo_einsum','demo_einsum_gallery','demo_attention_einsum','demo_reduction_operations']]",
+        "exit": 0,
+        "stdout_path": "/tmp/study-source1-linear-validation/upstream-12.txt",
+        "stderr": ""
+      },
+      {
+        "lesson": "14",
+        "command": "import runpy; runpy.run_path('phases/01-math-foundations/14-norms-and-distances/code/distances.py',run_name='__main__')",
+        "exit": 0,
+        "stdout_path": "/tmp/study-source1-linear-validation/upstream-14.txt",
+        "stderr": ""
+      },
+      {
+        "lesson": "17",
+        "command": "import runpy; runpy.run_path('phases/01-math-foundations/17-linear-systems/code/linear_systems.py',run_name='__main__')",
+        "exit": 0,
+        "stdout_path": "/tmp/study-source1-linear-validation/upstream-17.txt",
+        "stderr": ""
+      }
+    ],
+    "not_run": [
+      "scikit-learn依赖不存在：本地digits PCA分类块和TSNE块未运行，已就近注明；未安装全局环境。",
+      "Julia实现已完整阅读但未运行Julia。",
+      "UMAP只核读官方参数与方法，未安装/运行。",
+      "MNIST联网下载、完整多种子绘图、GPU、ANN数据库性能、推荐真实测试、WGAN和高斯过程实验未执行。",
+      "上游12课demo_ai_tensor_shapes会创建大embedding数组，未执行该大内存demo；其余9个demo已运行。"
+    ],
+    "logs_directory": "/tmp/study-source1-linear-validation"
+  },
+  "file_stats": [
+    {
+      "path": "AI 算法基础/数学与数值计算专题/01-向量空间与线性映射.md",
+      "bytes": 13297,
+      "lines": 202,
+      "sha256": "42953febf0d72e35b9aecaf4e95beb59c9bc5dcf10428015d9a93ec46b22d1c1"
+    },
+    {
+      "path": "AI 算法基础/数学与数值计算专题/02-矩阵变换与线性系统.md",
+      "bytes": 22797,
+      "lines": 414,
+      "sha256": "9921850ca1912fbe99349484838fbf7570f4d59a5abc40e8c12e5f9846327f56"
+    },
+    {
+      "path": "AI 算法基础/数学与数值计算专题/03-SVD-PCA与降维.md",
+      "bytes": 28132,
+      "lines": 427,
+      "sha256": "58574fbc713e913b45dd0f0e9ee9e123a142d95dc3299e6e0ee3b8c0efd6e36c"
+    },
+    {
+      "path": "AI 算法基础/数学与数值计算专题/04-张量形状广播与批量计算.md",
+      "bytes": 21705,
+      "lines": 361,
+      "sha256": "d4cbe762f33a638ca00245edbb386358c130d8e9d118e7212993474f7033b012"
+    },
+    {
+      "path": "AI 算法基础/数学与数值计算专题/05-范数距离与相似性.md",
+      "bytes": 23988,
+      "lines": 367,
+      "sha256": "d57555429577d8f7e22b00336f9caa25935ea9835fc8d51aea262e8507dfbc4a"
+    }
+  ],
+  "acceptance_note": "正文量与文件齐全不是吸收完成的证明。报告逐H2/H3和quiz映射供复核；实验只覆盖列明CPU实例，来源规模更大需由根代理持续处理。",
+  "全局状态提示": "这是第1来源首批34课的局部验收；第1来源及五站整体仍未完成。"
+}

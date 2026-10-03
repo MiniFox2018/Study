@@ -1,0 +1,3718 @@
+{
+  "报告": "Phase03训练控制4课吸收交接",
+  "日期": "2026-10-03",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "范围": "仅第1来源Phase03/06优化器、07正则、08初始化、09学习率；不读后4站",
+  "状态": "4课正文实质融合与本组必要验证完成，独占文件冻结交接；不代表整站完成",
+  "files_written": [
+    {
+      "path": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+      "sha256": "86d9eae33e21670ccde42b22f5682e0abca2c9e3d2989b3ec2c379cb830a5650",
+      "lines": 143
+    },
+    {
+      "path": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+      "sha256": "18d0b2b80495f5b39a8fef3099ea84fb996b5a0902b6e2f1f483b3cd5359bf28",
+      "lines": 393
+    },
+    {
+      "path": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+      "sha256": "a7903e706131f0750c86311e37066b0fde09c4bc8e771765fd485b7e764a6a0e",
+      "lines": 402
+    }
+  ],
+  "融合方式": "05作为optimizer状态与训练更新入口；09保留UDL理论并精补正则/归一化/模式/早停；新增17集中初始化与scheduler/真实小CPU训练，不建来源分库。数学07/08只回链，未修改。Phase02冻结。",
+  "lessons": [
+    {
+      "lesson": "06-optimizers",
+      "source_artifacts": [
+        {
+          "path": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "bytes": 9290,
+          "sha256": "70d1b0b0df2264190f1f6179823f3576a98c894d8926c0f7c3593ef57e3f18da",
+          "git_blob": "2bd6457a8442f535486fbd25b3b87ac967630a05",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/06-optimizers/docs/en.md",
+          "bytes": 20834,
+          "sha256": "9af59689813d171106b558fca9875f7992c8e834b8d7a69310bbaf7428ff9ad9",
+          "git_blob": "b8896c2e3db94ab2740d31ee07e5f3a912fb157f",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/06-optimizers/outputs/prompt-optimizer-selector.md",
+          "bytes": 2540,
+          "sha256": "fedfac841027c9aa9d207736cffdc7765e9b0ad0eda088c7dd9beaea05e947fb",
+          "git_blob": "1e2f1adb6b3163ee1a1ab4f6bf1716bbcf3472e9",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/06-optimizers/quiz.json",
+          "bytes": 2636,
+          "sha256": "e0153b91cb8b5a672e94160131a66619fdcf4a27f5318e7f7baffac5401004d8",
+          "git_blob": "e89eb919e0e34fbede74784dedaecc7c6034761f",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        }
+      ],
+      "source_headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "source_end_line": 16,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 19,
+              "section": "3. 有状态优化器究竟存什么"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 27,
+              "section": "4. 自适应方法比较"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 51,
+              "section": "5. L2梯度与AdamW衰减的操作顺序"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "source_end_line": 30,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 5,
+              "section": "1. 优化与泛化分别评价"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 31,
+          "source_end_line": 32,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 19,
+              "section": "3. 有状态优化器究竟存什么"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Stochastic Gradient Descent (SGD)",
+          "source_line": 33,
+          "source_end_line": 44,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 11,
+              "section": "2. 梯度来源、batch与更新次数"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 65,
+              "section": "6. 用可运行数值程序看状态和首步"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Momentum",
+          "source_line": 45,
+          "source_end_line": 59,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 19,
+              "section": "3. 有状态优化器究竟存什么"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 65,
+              "section": "6. 用可运行数值程序看状态和首步"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "RMSProp",
+          "source_line": 60,
+          "source_end_line": 74,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 27,
+              "section": "4. 自适应方法比较"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 65,
+              "section": "6. 用可运行数值程序看状态和首步"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Adam: Momentum + RMSProp",
+          "source_line": 75,
+          "source_end_line": 100,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 27,
+              "section": "4. 自适应方法比较"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 45,
+              "section": "4.1 “有效学习率”与实际参数变化不要混叫"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "AdamW: Weight Decay Done Right",
+          "source_line": 101,
+          "source_end_line": 116,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 51,
+              "section": "5. L2梯度与AdamW衰减的操作顺序"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 345,
+              "section": "6. PyTorch实际更新和调度恢复核查"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Learning Rate: The Most Important Hyperparameter",
+          "source_line": 117,
+          "source_end_line": 140,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 131,
+              "section": "8. 优化器选择与故障复盘"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Optimizer Comparison",
+          "source_line": 141,
+          "source_end_line": 153,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 5,
+              "section": "1. 优化与泛化分别评价"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 65,
+              "section": "6. 用可运行数值程序看状态和首步"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "When Each Optimizer Wins",
+          "source_line": 154,
+          "source_end_line": 170,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 131,
+              "section": "8. 优化器选择与故障复盘"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 171,
+          "source_end_line": 172,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 65,
+              "section": "6. 用可运行数值程序看状态和首步"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 1: Vanilla SGD",
+          "source_line": 173,
+          "source_end_line": 184,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 65,
+              "section": "6. 用可运行数值程序看状态和首步"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 2: SGD with Momentum",
+          "source_line": 185,
+          "source_end_line": 201,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 19,
+              "section": "3. 有状态优化器究竟存什么"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 65,
+              "section": "6. 用可运行数值程序看状态和首步"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 3: Adam",
+          "source_line": 202,
+          "source_end_line": 233,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 45,
+              "section": "4.1 “有效学习率”与实际参数变化不要混叫"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 65,
+              "section": "6. 用可运行数值程序看状态和首步"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 4: AdamW",
+          "source_line": 234,
+          "source_end_line": 265,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 51,
+              "section": "5. L2梯度与AdamW衰减的操作顺序"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 65,
+              "section": "6. 用可运行数值程序看状态和首步"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 5: Training Comparison",
+          "source_line": 266,
+          "source_end_line": 387,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 388,
+          "source_end_line": 419,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 345,
+              "section": "6. PyTorch实际更新和调度恢复核查"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 420,
+          "source_end_line": 424,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 131,
+              "section": "8. 优化器选择与故障复盘"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 425,
+          "source_end_line": 436,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 437,
+          "source_end_line": 451,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 19,
+              "section": "3. 有状态优化器究竟存什么"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 27,
+              "section": "4. 自适应方法比较"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 45,
+              "section": "4.1 “有效学习率”与实际参数变化不要混叫"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 123,
+              "section": "7. 裁剪和调度的位置"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 452,
+          "source_end_line": 457,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 139,
+              "section": "来源与核验备注"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "SGD",
+          "line": 5,
+          "end_line": 11,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 19,
+            "section": "3. 有状态优化器究竟存什么"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "SGD.__init__",
+          "line": 6,
+          "end_line": 7,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 19,
+            "section": "3. 有状态优化器究竟存什么"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "SGD.step",
+          "line": 9,
+          "end_line": 11,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 19,
+            "section": "3. 有状态优化器究竟存什么"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "SGDMomentum",
+          "line": 14,
+          "end_line": 25,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 19,
+            "section": "3. 有状态优化器究竟存什么"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "SGDMomentum.__init__",
+          "line": 15,
+          "end_line": 18,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 19,
+            "section": "3. 有状态优化器究竟存什么"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "SGDMomentum.step",
+          "line": 20,
+          "end_line": 25,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 19,
+            "section": "3. 有状态优化器究竟存什么"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "Adam",
+          "line": 28,
+          "end_line": 52,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 45,
+            "section": "4.1 “有效学习率”与实际参数变化不要混叫"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "Adam.__init__",
+          "line": 29,
+          "end_line": 36,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 45,
+            "section": "4.1 “有效学习率”与实际参数变化不要混叫"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "Adam.step",
+          "line": 38,
+          "end_line": 52,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 45,
+            "section": "4.1 “有效学习率”与实际参数变化不要混叫"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "AdamW",
+          "line": 55,
+          "end_line": 81,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 51,
+            "section": "5. L2梯度与AdamW衰减的操作顺序"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "AdamW.__init__",
+          "line": 56,
+          "end_line": 64,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 51,
+            "section": "5. L2梯度与AdamW衰减的操作顺序"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "AdamW.step",
+          "line": 66,
+          "end_line": 81,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 51,
+            "section": "5. L2梯度与AdamW衰减的操作顺序"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "sigmoid",
+          "line": 84,
+          "end_line": 86,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "make_circle_data",
+          "line": 89,
+          "end_line": 97,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "OptimizerTestNetwork",
+          "line": 100,
+          "end_line": 197,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "OptimizerTestNetwork.__init__",
+          "line": 101,
+          "end_line": 109,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "OptimizerTestNetwork.get_params",
+          "line": 111,
+          "end_line": 118,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "OptimizerTestNetwork.set_params",
+          "line": 120,
+          "end_line": 132,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "OptimizerTestNetwork.forward",
+          "line": 134,
+          "end_line": 145,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "OptimizerTestNetwork.compute_grads",
+          "line": 147,
+          "end_line": 173,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "OptimizerTestNetwork.train",
+          "line": 175,
+          "end_line": 197,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/code/main.py",
+          "symbol": "bias_correction_demo",
+          "line": 200,
+          "end_line": 215,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 45,
+            "section": "4.1 “有效学习率”与实际参数变化不要混叫"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "question_index": 1,
+          "stage": "pre",
+          "source_question": "What problem does momentum solve in gradient descent?",
+          "source_correct": 3,
+          "source_explanation": "In narrow valleys, gradients oscillate across the valley while making slow progress along it. Momentum accumulates past gradients: consistent directions amplify while oscillating directions cancel, giving smoother, faster convergence.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 19,
+            "section": "3. 有状态优化器究竟存什么"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 2,
+          "stage": "pre",
+          "source_question": "What is the key difference between Adam and AdamW?",
+          "source_correct": 2,
+          "source_explanation": "In Adam + L2, the adaptive learning rate scales the regularization term differently per parameter. AdamW decouples weight decay from the gradient update, applying uniform shrinkage regardless of gradient statistics.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 51,
+            "section": "5. L2梯度与AdamW衰减的操作顺序"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 3,
+          "stage": "post",
+          "source_question": "Why does Adam use bias correction in early training steps?",
+          "source_correct": 1,
+          "source_explanation": "At step 1 with beta1=0.9, m_1 = 0.1 * gradient (10x too small). Dividing by (1 - 0.9^1) = 0.1 corrects this to the actual gradient. The correction becomes negligible after ~50 steps.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 45,
+            "section": "4.1 “有效学习率”与实际参数变化不要混叫"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 4,
+          "stage": "post",
+          "source_question": "What are the standard default hyperparameters for Adam?",
+          "source_correct": 2,
+          "source_explanation": "The original Adam paper (Kingma & Ba, 2014) recommended lr=0.001, beta1=0.9, beta2=0.999, epsilon=1e-8. These defaults work well for most problems.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 27,
+            "section": "4. 自适应方法比较"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 5,
+          "stage": "post",
+          "source_question": "Which optimizer is the modern default for training transformers and LLMs?",
+          "source_correct": 2,
+          "source_explanation": "AdamW (Adam with decoupled weight decay) is used to train BERT, GPT, LLaMA, and virtually all modern transformers. It combines adaptive learning rates with proper weight decay regularization.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 131,
+            "section": "8. 优化器选择与故障复盘"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        }
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "task": "Nesterov lookahead与Momentum比较",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 19,
+              "section": "3. 有状态优化器究竟存什么"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 65,
+              "section": "6. 用可运行数值程序看状态和首步"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 2,
+          "task": "Adam warmup与不预热达到90%验证阈值",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 3,
+          "task": "10/50/200步坐标所谓有效lr改为缩放系数/更新",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 45,
+              "section": "4.1 “有效学习率”与实际参数变化不要混叫"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 4,
+          "task": "十种子梯度裁剪发散统计",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 123,
+              "section": "7. 裁剪和调度的位置"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 5,
+          "task": "大初值Adam与AdamW范数比较非保证排序",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 51,
+              "section": "5. L2梯度与AdamW衰减的操作顺序"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 345,
+              "section": "6. PyTorch实际更新和调度恢复核查"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        }
+      ],
+      "output_mapping": [
+        {
+          "source_file": "phases/03-deep-learning-core/06-optimizers/outputs/prompt-optimizer-selector.md",
+          "source_headings": [],
+          "全量处理": [
+            "输入架构/规模/训练阶段与预算转为有条件选择",
+            "固定网络型号/固定lr/固定batch线性或sqrt规则不作保证",
+            "故障排查先查数据/梯度/状态，再调参数"
+          ],
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 131,
+              "section": "8. 优化器选择与故障复盘"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lesson": "07-regularization",
+      "source_artifacts": [
+        {
+          "path": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "bytes": 12145,
+          "sha256": "6842047a2ab368cbddc4e3190ec60f271a6607ecf779b937b0736120a2c59646",
+          "git_blob": "8584d48570ee22dd7f2c7c3b88609d07824326f4",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/07-regularization/docs/en.md",
+          "bytes": 24573,
+          "sha256": "c6e31ead99cce8cf40dda09a94a3a2b95978f162e4fe67bc3f3e1b9763ae170d",
+          "git_blob": "f2857b50cfcd7dc395d3b756aca1826ec7f5244a",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/07-regularization/outputs/prompt-regularization-advisor.md",
+          "bytes": 2760,
+          "sha256": "37db9e46550620cac32904a091a7ae6fd7751d463e9dff0fe421acface757791",
+          "git_blob": "8af8e5c6aea00149e35654a54f0ea6b56564946c",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/07-regularization/quiz.json",
+          "bytes": 2984,
+          "sha256": "a1dd89ff54a6dff33eb4fd4902167c96fa52a00499bc7671f8d64ca6e5a51501",
+          "git_blob": "99f5eb8ea12397cd9620b80678bb65e56248feeb",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        }
+      ],
+      "source_headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "source_end_line": 16,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 286,
+              "section": "16. 正则强度与训练/评估模式的完整边界"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 292,
+              "section": "16.1 Dropout不只是前向乘mask"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "source_end_line": 24,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 286,
+              "section": "16. 正则强度与训练/评估模式的完整边界"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 25,
+          "source_end_line": 26,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 286,
+              "section": "16. 正则强度与训练/评估模式的完整边界"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "The Overfitting Spectrum",
+          "source_line": 27,
+          "source_end_line": 41,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 286,
+              "section": "16. 正则强度与训练/评估模式的完整边界"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Dropout",
+          "source_line": 42,
+          "source_end_line": 64,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 119,
+              "section": "8. Dropout"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 292,
+              "section": "16.1 Dropout不只是前向乘mask"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Weight Decay (L2 Regularization)",
+          "source_line": 65,
+          "source_end_line": 84,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 286,
+              "section": "16. 正则强度与训练/评估模式的完整边界"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 51,
+              "section": "5. L2梯度与AdamW衰减的操作顺序"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Batch Normalization",
+          "source_line": 85,
+          "source_end_line": 105,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Layer Normalization",
+          "source_line": 106,
+          "source_end_line": 120,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "RMSNorm",
+          "source_line": 121,
+          "source_end_line": 133,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Normalization Comparison",
+          "source_line": 134,
+          "source_end_line": 154,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Data Augmentation as Regularization",
+          "source_line": 155,
+          "source_end_line": 164,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 151,
+              "section": "10. 数据增强"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 371,
+              "section": "17. 数据增强、软标签与早停怎样验收"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Early Stopping",
+          "source_line": 165,
+          "source_end_line": 168,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 109,
+              "section": "7. Early Stopping"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 371,
+              "section": "17. 数据增强、软标签与早停怎样验收"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "When to Apply What",
+          "source_line": 169,
+          "source_end_line": 193,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 286,
+              "section": "16. 正则强度与训练/评估模式的完整边界"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 381,
+              "section": "17.1 正则实验参考答案"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 194,
+          "source_end_line": 195,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 292,
+              "section": "16.1 Dropout不只是前向乘mask"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 1: Dropout (Train and Eval Mode)",
+          "source_line": 196,
+          "source_end_line": 232,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 292,
+              "section": "16.1 Dropout不只是前向乘mask"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 2: L2 Weight Decay",
+          "source_line": 233,
+          "source_end_line": 245,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 51,
+              "section": "5. L2梯度与AdamW衰减的操作顺序"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 286,
+              "section": "16. 正则强度与训练/评估模式的完整边界"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 3: Batch Normalization",
+          "source_line": 246,
+          "source_end_line": 295,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 4: Layer Normalization",
+          "source_line": 296,
+          "source_end_line": 318,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 5: RMSNorm",
+          "source_line": 319,
+          "source_end_line": 335,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 6: Training With and Without Regularization",
+          "source_line": 336,
+          "source_end_line": 439,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 440,
+          "source_end_line": 494,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 495,
+          "source_end_line": 499,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 381,
+              "section": "17.1 正则实验参考答案"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 500,
+          "source_end_line": 511,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 381,
+              "section": "17.1 正则实验参考答案"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 512,
+          "source_end_line": 526,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 119,
+              "section": "8. Dropout"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 286,
+              "section": "16. 正则强度与训练/评估模式的完整边界"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 371,
+              "section": "17. 数据增强、软标签与早停怎样验收"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 527,
+          "source_end_line": 532,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 389,
+              "section": "来源与核验备注"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "Dropout",
+          "line": 5,
+          "end_line": 32,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 292,
+            "section": "16.1 Dropout不只是前向乘mask"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "Dropout.__init__",
+          "line": 6,
+          "end_line": 9,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 292,
+            "section": "16.1 Dropout不只是前向乘mask"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "Dropout.forward",
+          "line": 11,
+          "end_line": 23,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 292,
+            "section": "16.1 Dropout不只是前向乘mask"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "Dropout.backward",
+          "line": 25,
+          "end_line": 32,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 292,
+            "section": "16.1 Dropout不只是前向乘mask"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "l2_regularization",
+          "line": 35,
+          "end_line": 39,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 51,
+            "section": "5. L2梯度与AdamW衰减的操作顺序"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "l2_gradient",
+          "line": 42,
+          "end_line": 43,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 51,
+            "section": "5. L2梯度与AdamW衰减的操作顺序"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "BatchNorm",
+          "line": 46,
+          "end_line": 90,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "BatchNorm.__init__",
+          "line": 47,
+          "end_line": 55,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "BatchNorm.forward",
+          "line": 57,
+          "end_line": 90,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "LayerNorm",
+          "line": 93,
+          "end_line": 110,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "LayerNorm.__init__",
+          "line": 94,
+          "end_line": 98,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "LayerNorm.forward",
+          "line": 100,
+          "end_line": 110,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "RMSNorm",
+          "line": 113,
+          "end_line": 124,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "RMSNorm.__init__",
+          "line": 114,
+          "end_line": 117,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "RMSNorm.forward",
+          "line": 119,
+          "end_line": 124,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "sigmoid",
+          "line": 127,
+          "end_line": 129,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "make_circle_data",
+          "line": 132,
+          "end_line": 140,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "RegularizedNetwork",
+          "line": 143,
+          "end_line": 230,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "RegularizedNetwork.__init__",
+          "line": 144,
+          "end_line": 155,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "RegularizedNetwork.forward",
+          "line": 157,
+          "end_line": 175,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "RegularizedNetwork.backward",
+          "line": 177,
+          "end_line": 196,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "RegularizedNetwork.evaluate",
+          "line": 198,
+          "end_line": 208,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/code/main.py",
+          "symbol": "RegularizedNetwork.train_model",
+          "line": 210,
+          "end_line": 230,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "question_index": 1,
+          "stage": "pre",
+          "source_question": "What is overfitting in neural networks?",
+          "source_correct": 2,
+          "source_explanation": "Overfitting occurs when a model achieves high training accuracy but poor test accuracy. It has memorized the training data's noise rather than learning the underlying patterns.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 286,
+            "section": "16. 正则强度与训练/评估模式的完整边界"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 2,
+          "stage": "pre",
+          "source_question": "How does dropout regularize a neural network?",
+          "source_correct": 2,
+          "source_explanation": "During each forward pass, dropout randomly sets neuron outputs to zero with probability p. This prevents co-adaptation (neurons relying on specific others) and is equivalent to training an ensemble of 2^N subnetworks.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 292,
+            "section": "16.1 Dropout不只是前向乘mask"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 3,
+          "stage": "post",
+          "source_question": "Why do transformers use LayerNorm instead of BatchNorm?",
+          "source_correct": 3,
+          "source_explanation": "BatchNorm depends on batch statistics, which are noisy with small batches and meaningless with batch size 1 (common during generation). LayerNorm normalizes across features within each sample, independent of batch size.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 4,
+          "stage": "post",
+          "source_question": "What is the key difference between RMSNorm and LayerNorm?",
+          "source_correct": 2,
+          "source_explanation": "RMSNorm removes the mean subtraction step from LayerNorm, which contributes little to accuracy but adds computation. LLaMA, Mistral, and most modern LLMs use RMSNorm for this efficiency gain.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 326,
+            "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 5,
+          "stage": "post",
+          "source_question": "Why is it critical to call model.eval() before running inference in PyTorch?",
+          "source_correct": 2,
+          "source_explanation": "Without model.eval(), dropout randomly zeroes neurons during inference (causing random output variation) and BatchNorm uses current-batch statistics instead of the stable running averages accumulated during training.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+            "line": 371,
+            "section": "17. 数据增强、软标签与早停怎样验收"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        }
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "task": "通道Dropout与普通Dropout",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 292,
+              "section": "16.1 Dropout不只是前向乘mask"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 381,
+              "section": "17.1 正则实验参考答案"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 2,
+          "task": "label smoothing/Dropout四组合",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 371,
+              "section": "17. 数据增强、软标签与早停怎样验收"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 381,
+              "section": "17.1 正则实验参考答案"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 3,
+          "task": "BN三个lr稳定性比较",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 381,
+              "section": "17.1 正则实验参考答案"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 4,
+          "task": "1000轮早停应看validation与恢复快照",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 371,
+              "section": "17. 数据增强、软标签与早停怎样验收"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 5,
+          "task": "4层LN/RMSNorm准确率/耗时/首层梯度",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 326,
+              "section": "16.2 BatchNorm、LayerNorm、RMSNorm按哪条轴计算"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 381,
+              "section": "17.1 正则实验参考答案"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        }
+      ],
+      "output_mapping": [
+        {
+          "source_file": "phases/03-deep-learning-core/07-regularization/outputs/prompt-regularization-advisor.md",
+          "source_headings": [],
+          "全量处理": [
+            "输入架构/规模/训练阶段与预算转为有条件选择",
+            "固定网络型号/固定lr/固定batch线性或sqrt规则不作保证",
+            "故障排查先查数据/梯度/状态，再调参数"
+          ],
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 286,
+              "section": "16. 正则强度与训练/评估模式的完整边界"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+              "line": 381,
+              "section": "17.1 正则实验参考答案"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lesson": "08-weight-initialization",
+      "source_artifacts": [
+        {
+          "path": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "bytes": 8553,
+          "sha256": "c2a34155c06c030de80a88a2fd4d8a06c197bf7b2c1bd1e05c5d25a42ea2ca74",
+          "git_blob": "36caf7bee0e53afd8dc3c8949c8995fa019bcbab",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/08-weight-initialization/docs/en.md",
+          "bytes": 15630,
+          "sha256": "9c270a87d2872791247c02d3d471bc82bd76ea116df35c80143bc1b53a08c87b",
+          "git_blob": "7511eb479604680382f0a7bf223df25ed86d56f6",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/08-weight-initialization/outputs/prompt-init-strategy.md",
+          "bytes": 3040,
+          "sha256": "7d00f0157ff38c0ce96f7b04e5643a1b25513a3d39feb9702dbb6f9b223e6e74",
+          "git_blob": "183f0c3922f7f7a2d9525a67e7394483d5eff42a",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/08-weight-initialization/quiz.json",
+          "bytes": 2813,
+          "sha256": "8cded480438b4bc350200a96469247d7b1a81e1ee43a80889fa8971d84bd9e6f",
+          "git_blob": "fd26d7e86b4394d2e7c98791c69e228dc329933a",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        }
+      ],
+      "source_headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "source_end_line": 16,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 5,
+              "section": "1. 初始化设定初始函数，不等于实际更新大小"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "source_end_line": 26,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 5,
+              "section": "1. 初始化设定初始函数，不等于实际更新大小"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 27,
+          "source_end_line": 28,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "The Symmetry Problem",
+          "source_line": 29,
+          "source_end_line": 36,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 5,
+              "section": "1. 初始化设定初始函数，不等于实际更新大小"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Variance Propagation Through Layers",
+          "source_line": 37,
+          "source_end_line": 56,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Xavier/Glorot Initialization",
+          "source_line": 57,
+          "source_end_line": 78,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Kaiming/He Initialization",
+          "source_line": 79,
+          "source_end_line": 96,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Transformer Initialization",
+          "source_line": 97,
+          "source_end_line": 129,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 117,
+              "section": "3.1 残差缩放与实现默认值"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Activation Magnitude Through 50 Layers",
+          "source_line": 130,
+          "source_end_line": 146,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Choosing the Right Init",
+          "source_line": 147,
+          "source_end_line": 167,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 168,
+          "source_end_line": 169,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 1: Initialization Strategies",
+          "source_line": 170,
+          "source_end_line": 196,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 2: Activation Functions",
+          "source_line": 197,
+          "source_end_line": 214,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 3: Forward Pass Through 50 Layers",
+          "source_line": 215,
+          "source_end_line": 247,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 4: The Experiment",
+          "source_line": 248,
+          "source_end_line": 279,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 5: Symmetry Demonstration",
+          "source_line": 280,
+          "source_end_line": 303,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 5,
+              "section": "1. 初始化设定初始函数，不等于实际更新大小"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 6: Layer-by-Layer Magnitude Report",
+          "source_line": 304,
+          "source_end_line": 322,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 323,
+          "source_end_line": 345,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 117,
+              "section": "3.1 残差缩放与实现默认值"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 346,
+          "source_end_line": 350,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 5,
+              "section": "1. 初始化设定初始函数，不等于实际更新大小"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 351,
+          "source_end_line": 362,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 363,
+          "source_end_line": 377,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 5,
+              "section": "1. 初始化设定初始函数，不等于实际更新大小"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 117,
+              "section": "3.1 残差缩放与实现默认值"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 378,
+          "source_end_line": 383,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 397,
+              "section": "来源与核验备注"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "zero_init",
+          "line": 5,
+          "end_line": 6,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 5,
+            "section": "1. 初始化设定初始函数，不等于实际更新大小"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "random_init",
+          "line": 9,
+          "end_line": 10,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 13,
+            "section": "2. fan-in、二阶矩与Xavier/He条件"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "xavier_init",
+          "line": 13,
+          "end_line": 15,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 13,
+            "section": "2. fan-in、二阶矩与Xavier/He条件"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "kaiming_init",
+          "line": 18,
+          "end_line": 20,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 13,
+            "section": "2. fan-in、二阶矩与Xavier/He条件"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "sigmoid",
+          "line": 23,
+          "end_line": 25,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 41,
+            "section": "3. 50层小实验同时测激活与梯度"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "tanh_act",
+          "line": 28,
+          "end_line": 29,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 41,
+            "section": "3. 50层小实验同时测激活与梯度"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "relu",
+          "line": 32,
+          "end_line": 33,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 41,
+            "section": "3. 50层小实验同时测激活与梯度"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "forward_deep",
+          "line": 36,
+          "end_line": 61,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 41,
+            "section": "3. 50层小实验同时测激活与梯度"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "magnitude_report",
+          "line": 64,
+          "end_line": 75,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 41,
+            "section": "3. 50层小实验同时测激活与梯度"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "symmetry_demo",
+          "line": 78,
+          "end_line": 93,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 5,
+            "section": "1. 初始化设定初始函数，不等于实际更新大小"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "variance_analysis",
+          "line": 96,
+          "end_line": 123,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 13,
+            "section": "2. fan-in、二阶矩与Xavier/He条件"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "run_experiment",
+          "line": 126,
+          "end_line": 154,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 41,
+            "section": "3. 50层小实验同时测激活与梯度"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "training_comparison",
+          "line": 157,
+          "end_line": 245,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "training_comparison.train_with_init",
+          "line": 166,
+          "end_line": 218,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 13,
+            "section": "2. fan-in、二阶矩与Xavier/He条件"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "training_comparison.sigmoid_d",
+          "line": 220,
+          "end_line": 222,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/code/main.py",
+          "symbol": "training_comparison.relu_d",
+          "line": 224,
+          "end_line": 225,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "question_index": 1,
+          "stage": "pre",
+          "source_question": "What happens if you initialize all weights in a neural network to zero?",
+          "source_correct": 3,
+          "source_explanation": "With zero weights, every neuron in a layer computes the same function, receives the same gradient, and updates identically. This 'symmetry' means hundreds of parameters behave as one.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 5,
+            "section": "1. 初始化设定初始函数，不等于实际更新大小"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 2,
+          "stage": "pre",
+          "source_question": "Why does the scale of random weight initialization matter?",
+          "source_correct": 1,
+          "source_explanation": "Each layer multiplies variance by fan_in * Var(w). If this product is > 1, signal explodes exponentially through layers. If < 1, it vanishes. Proper initialization keeps this product at exactly 1.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 13,
+            "section": "2. fan-in、二阶矩与Xavier/He条件"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 3,
+          "stage": "post",
+          "source_question": "What is the formula for Kaiming/He initialization variance?",
+          "source_correct": 1,
+          "source_explanation": "Kaiming init uses Var(w) = 2/fan_in. The factor of 2 compensates for ReLU zeroing half the activations (negative values become 0), which effectively halves the fan_in.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 13,
+            "section": "2. fan-in、二阶矩与Xavier/He条件"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 4,
+          "stage": "post",
+          "source_question": "When should you use Xavier/Glorot initialization instead of Kaiming/He?",
+          "source_correct": 2,
+          "source_explanation": "Xavier init uses Var(w) = 2/(fan_in + fan_out), designed for activations that are roughly linear near zero (sigmoid, tanh). Kaiming's extra factor of 2 compensates for ReLU's half-zeroing, which Xavier doesn't need.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 13,
+            "section": "2. fan-in、二阶矩与Xavier/He条件"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 5,
+          "stage": "post",
+          "source_question": "Why does GPT-2 scale residual layer weights by 1/sqrt(2N)?",
+          "source_correct": 2,
+          "source_explanation": "Residual connections add sublayer output to the input: x = x + sublayer(x). Each addition increases variance. With N residual layers, variance grows proportionally to N. Scaling by 1/sqrt(2N) keeps the signal stable.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 117,
+            "section": "3.1 残差缩放与实现默认值"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        }
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "task": "LeCun并按条件比较tanh/SELU",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 2,
+          "task": "残差缩放与协方差/线性操作边界",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 117,
+              "section": "3.1 残差缩放与实现默认值"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 3,
+          "task": "初始化health check与轴/梯度检查",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 5,
+              "section": "1. 初始化设定初始函数，不等于实际更新大小"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 4,
+          "task": "fan-in16与1024，记录理论因子不运行大任务",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 5,
+          "task": "正交矩阵U@Vh和有限ReLU深度比较",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        }
+      ],
+      "output_mapping": [
+        {
+          "source_file": "phases/03-deep-learning-core/08-weight-initialization/outputs/prompt-init-strategy.md",
+          "source_headings": [
+            {
+              "line": 10,
+              "heading": "Diagnostic Protocol"
+            },
+            {
+              "line": 12,
+              "heading": "1. Gather Architecture Details"
+            },
+            {
+              "line": 21,
+              "heading": "2. Match Init to Architecture"
+            },
+            {
+              "line": 48,
+              "heading": "3. Diagnose Common Problems"
+            },
+            {
+              "line": 60,
+              "heading": "4. Verification Steps"
+            }
+          ],
+          "全量处理": [
+            "输入架构/规模/训练阶段与预算转为有条件选择",
+            "固定网络型号/固定lr/固定batch线性或sqrt规则不作保证",
+            "故障排查先查数据/梯度/状态，再调参数"
+          ],
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 5,
+              "section": "1. 初始化设定初始函数，不等于实际更新大小"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 13,
+              "section": "2. fan-in、二阶矩与Xavier/He条件"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 41,
+              "section": "3. 50层小实验同时测激活与梯度"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lesson": "09-learning-rate-schedules",
+      "source_artifacts": [
+        {
+          "path": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "bytes": 7734,
+          "sha256": "80e04c75e30e42c591da21168aae0ac11a76398cc4409395af2c22a684b80bb6",
+          "git_blob": "5e52254e8cb50c60a7919e400a6d85b7d6bff0c0",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/09-learning-rate-schedules/docs/en.md",
+          "bytes": 17506,
+          "sha256": "192874a3732b8f75bf87c252b2cabefb58a8df22db14a5ca0118bf8e812e2551",
+          "git_blob": "36990a1d873c527ab2ee908238ea6967f28b65c0",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/09-learning-rate-schedules/outputs/prompt-lr-schedule-advisor.md",
+          "bytes": 2656,
+          "sha256": "a70cd1d21e530aeec42194fa7b4b98c52b730b7dbd63f3d7236935fb2af729e7",
+          "git_blob": "22b1854e93b8afd0bf19ba6689bf84bf7607de10",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        },
+        {
+          "path": "phases/03-deep-learning-core/09-learning-rate-schedules/quiz.json",
+          "bytes": 2780,
+          "sha256": "2a3cc66e09a31e854b1ca31aae231b14799b38a738ebe60c04b2724515607650",
+          "git_blob": "98f9b882ff2a5b78915479b81869f79c9469b183",
+          "读取": "完整文本/字节已读取；正文、代码、quiz、outputs逐项专业检查",
+          "mirror_to_study": false
+        }
+      ],
+      "source_headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "source_end_line": 16,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 201,
+              "section": "4.2 LR range test和平台期调度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "source_end_line": 26,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 27,
+          "source_end_line": 28,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Constant Learning Rate",
+          "source_line": 29,
+          "source_end_line": 38,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step Decay",
+          "source_line": 39,
+          "source_end_line": 50,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Cosine Annealing",
+          "source_line": 51,
+          "source_end_line": 64,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Warmup: Why You Start Small",
+          "source_line": 65,
+          "source_end_line": 76,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Linear Warmup + Cosine Decay",
+          "source_line": 77,
+          "source_end_line": 90,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "1cycle Policy",
+          "source_line": 91,
+          "source_end_line": 103,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 201,
+              "section": "4.2 LR range test和平台期调度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Schedule Shapes",
+          "source_line": 104,
+          "source_end_line": 124,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Decision Flowchart",
+          "source_line": 125,
+          "source_end_line": 142,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 201,
+              "section": "4.2 LR range test和平台期调度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Real Numbers from Published Models",
+          "source_line": 143,
+          "source_end_line": 158,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 397,
+              "section": "来源与核验备注"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 159,
+          "source_end_line": 160,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 1: Schedule Functions",
+          "source_line": 161,
+          "source_end_line": 200,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 2: Visualize All Schedules",
+          "source_line": 201,
+          "source_end_line": 220,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 3: Training Network",
+          "source_line": 221,
+          "source_end_line": 306,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 4: Compare All Schedules",
+          "source_line": 307,
+          "source_end_line": 330,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Step 5: LR Too High vs Too Low",
+          "source_line": 331,
+          "source_end_line": 360,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+              "line": 131,
+              "section": "8. 优化器选择与故障复盘"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 361,
+          "source_end_line": 393,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 201,
+              "section": "4.2 LR range test和平台期调度"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 234,
+              "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 394,
+          "source_end_line": 398,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 201,
+              "section": "4.2 LR range test和平台期调度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 399,
+          "source_end_line": 410,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 411,
+          "source_end_line": 425,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 201,
+              "section": "4.2 LR range test和平台期调度"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 426,
+          "source_end_line": 431,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 397,
+              "section": "来源与核验备注"
+            }
+          ],
+          "处理": "有效知识重组融合；过强结论补条件，历史型号数字不保存为当前配方"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "constant_schedule",
+          "line": 5,
+          "end_line": 6,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 156,
+            "section": "4.1 完整调度函数与端点"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "step_decay_schedule",
+          "line": 9,
+          "end_line": 10,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 156,
+            "section": "4.1 完整调度函数与端点"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "cosine_schedule",
+          "line": 13,
+          "end_line": 16,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 156,
+            "section": "4.1 完整调度函数与端点"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "warmup_cosine_schedule",
+          "line": 19,
+          "end_line": 25,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 156,
+            "section": "4.1 完整调度函数与端点"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "one_cycle_schedule",
+          "line": 28,
+          "end_line": 34,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 156,
+            "section": "4.1 完整调度函数与端点"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "visualize_schedule",
+          "line": 37,
+          "end_line": 49,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 156,
+            "section": "4.1 完整调度函数与端点"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "sigmoid",
+          "line": 52,
+          "end_line": 54,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "relu",
+          "line": 57,
+          "end_line": 58,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "relu_deriv",
+          "line": 61,
+          "end_line": 62,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "make_circle_data",
+          "line": 65,
+          "end_line": 73,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 234,
+            "section": "5. 一个完整CPU训练：模式、选轮次与快照"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "train_with_schedule",
+          "line": 76,
+          "end_line": 126,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 156,
+            "section": "4.1 完整调度函数与端点"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "compare_schedules",
+          "line": 129,
+          "end_line": 145,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 156,
+            "section": "4.1 完整调度函数与端点"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "lr_sensitivity",
+          "line": 148,
+          "end_line": 169,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 384,
+            "section": "7. 自查、改动练习与判断标准"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "warmup_impact",
+          "line": 172,
+          "end_line": 187,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 384,
+            "section": "7. 自查、改动练习与判断标准"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py",
+          "symbol": "schedule_trajectory",
+          "line": 190,
+          "end_line": 207,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 156,
+            "section": "4.1 完整调度函数与端点"
+          },
+          "处理": "计算机制已读；统一用正确NumPy/CPU框架程序，不复制上游重复网络"
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "question_index": 1,
+          "stage": "pre",
+          "source_question": "Why is a constant learning rate usually suboptimal for training neural networks?",
+          "source_correct": 1,
+          "source_explanation": "The optimal step size changes during training. Early on, large steps cover ground quickly. Late in training, small steps are needed to settle into a minimum. A constant rate can't serve both needs.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 138,
+            "section": "4. 把学习率时钟定义到每一次更新"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 2,
+          "stage": "pre",
+          "source_question": "What is the purpose of learning rate warmup?",
+          "source_correct": 0,
+          "source_explanation": "Adam's moment estimates are initialized to zero. Early gradient updates are based on unreliable statistics. Warmup starts with a tiny LR and ramps up, giving Adam time to accumulate meaningful estimates.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 138,
+            "section": "4. 把学习率时钟定义到每一次更新"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 3,
+          "stage": "post",
+          "source_question": "What learning rate schedule do Llama 3, GPT-3, and most modern LLMs use?",
+          "source_correct": 3,
+          "source_explanation": "Linear warmup + cosine decay is the standard for transformer training. Llama 3 used 2000 warmup steps with cosine decay from 3e-4 to 3e-5. This schedule requires no milestone tuning.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 397,
+            "section": "来源与核验备注"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 4,
+          "stage": "post",
+          "source_question": "What makes the 1cycle policy different from other schedules?",
+          "source_correct": 3,
+          "source_explanation": "Leslie Smith's 1cycle ramps LR from low to high (first half) then high to very low (second half). The high-LR phase helps the model explore more of the loss landscape before settling into the best basin.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+            "line": 156,
+            "section": "4.1 完整调度函数与端点"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        },
+        {
+          "question_index": 5,
+          "stage": "post",
+          "source_question": "If training loss suddenly spikes and diverges, what is the most likely learning rate issue?",
+          "source_correct": 1,
+          "source_explanation": "A learning rate that's too high causes the optimizer to take steps larger than the loss basin, overshooting the minimum and causing the loss to increase. This manifests as sudden divergence.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+            "line": 131,
+            "section": "8. 优化器选择与故障复盘"
+          },
+          "处理": "概念吸收，固定默认值/普遍承诺纠正；源无id以序号追溯"
+        }
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "task": "exponential与cosine比较",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 2,
+          "task": "LR range test并恢复试探前状态",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 201,
+              "section": "4.2 LR range test和平台期调度"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 3,
+          "task": "0/1/5/10/20%warmup验证而非测试",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 4,
+          "task": "cosine warm restarts与矩状态",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 156,
+              "section": "4.1 完整调度函数与端点"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        },
+        {
+          "number": 5,
+          "task": "schedule surgeon窗口/阈值/验证和恢复",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 201,
+              "section": "4.2 LR range test和平台期调度"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 384,
+              "section": "7. 自查、改动练习与判断标准"
+            }
+          ],
+          "验证": "核心机制程序运行与开放改动练习区分；未运行全部种子/架构/预算变体"
+        }
+      ],
+      "output_mapping": [
+        {
+          "source_file": "phases/03-deep-learning-core/09-learning-rate-schedules/outputs/prompt-lr-schedule-advisor.md",
+          "source_headings": [
+            {
+              "line": 10,
+              "heading": "Input"
+            },
+            {
+              "line": 20,
+              "heading": "Decision Rules"
+            },
+            {
+              "line": 22,
+              "heading": "Schedule Selection"
+            },
+            {
+              "line": 32,
+              "heading": "Peak Learning Rate"
+            },
+            {
+              "line": 41,
+              "heading": "Warmup Duration"
+            },
+            {
+              "line": 47,
+              "heading": "Minimum LR"
+            },
+            {
+              "line": 53,
+              "heading": "Output Format"
+            },
+            {
+              "line": 75,
+              "heading": "Troubleshooting"
+            }
+          ],
+          "全量处理": [
+            "输入架构/规模/训练阶段与预算转为有条件选择",
+            "固定网络型号/固定lr/固定batch线性或sqrt规则不作保证",
+            "故障排查先查数据/梯度/状态，再调参数"
+          ],
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 138,
+              "section": "4. 把学习率时钟定义到每一次更新"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+              "line": 201,
+              "section": "4.2 LR range test和平台期调度"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "optimizer-trajectory",
+      "source_file": "site/figures-dl.js",
+      "read_range": [
+        178,
+        245
+      ],
+      "file_sha256": "f0c1a2077987dd28f02ee8b3565830e6a7e9b76731f18f1430ccf5512e6266e5",
+      "source_git_blob": "107db3ab28c0302d05e4e69b002a639a30e0a472",
+      "function_range_sha256": "bfd64125ceb8e44958301f17eea36af0945e62d2485041517cbbae8b3c59cec3",
+      "logic": "病态二次碗的曲率与锯齿；Adam乘8、视窗截断不是同率公平比较",
+      "targets": [
+        {
+          "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+          "line": 65,
+          "section": "6. 用可运行数值程序看状态和首步"
+        }
+      ],
+      "浏览器交互实测": false
+    },
+    {
+      "id": "l2-regularization",
+      "source_file": "site/lesson-figures.js",
+      "read_range": [
+        793,
+        828
+      ],
+      "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+      "source_git_blob": "e90e743c4f4b3e282e46c1a27a6602faa9745973",
+      "function_range_sha256": "a51381a8d4274ed53694567bd65c7090f27875db155a536f88b7272f7db35d64",
+      "logic": "缩系数示意w0/(1+lambda)，只对应特定二次模型，非任意网络精确最优",
+      "targets": [
+        {
+          "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+          "line": 51,
+          "section": "5. L2梯度与AdamW衰减的操作顺序"
+        },
+        {
+          "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+          "line": 286,
+          "section": "16. 正则强度与训练/评估模式的完整边界"
+        }
+      ],
+      "浏览器交互实测": false
+    },
+    {
+      "id": "weight-init-variance",
+      "source_file": "site/figures-dl.js",
+      "read_range": [
+        247,
+        300
+      ],
+      "file_sha256": "f0c1a2077987dd28f02ee8b3565830e6a7e9b76731f18f1430ccf5512e6266e5",
+      "source_git_blob": "107db3ab28c0302d05e4e69b002a639a30e0a472",
+      "function_range_sha256": "699330f5770f92b91d91538a7cb95574053328b699b5b33b54f5498dcbd7db93",
+      "logic": "理想二阶矩递推；naive人为除50、He/Xavier固定gain1为图示，不证明实际50层稳定",
+      "targets": [
+        {
+          "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+          "line": 13,
+          "section": "2. fan-in、二阶矩与Xavier/He条件"
+        },
+        {
+          "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+          "line": 41,
+          "section": "3. 50层小实验同时测激活与梯度"
+        }
+      ],
+      "浏览器交互实测": false
+    },
+    {
+      "id": "lr-schedule",
+      "source_file": "site/lesson-figures.js",
+      "read_range": [
+        830,
+        881
+      ],
+      "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+      "source_git_blob": "e90e743c4f4b3e282e46c1a27a6602faa9745973",
+      "function_range_sha256": "99f4b18d965a5d422b2ef2e786166431e7b7a63d5d23bce79f1149c9897aebbc",
+      "logic": "固定/step/指数/cosine/warmup形状及端点；0/T外/计数单位补齐",
+      "targets": [
+        {
+          "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+          "line": 138,
+          "section": "4. 把学习率时钟定义到每一次更新"
+        },
+        {
+          "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+          "line": 156,
+          "section": "4.1 完整调度函数与端点"
+        }
+      ],
+      "浏览器交互实测": false
+    }
+  ],
+  "纠错与淘汰": [
+    "Adam不解决所有平台/鞍点，不保证80%任务默认有效或AdamW普遍胜出；SGD尖平与泛化排名有参数化边界。",
+    "Momentum beta=.9未归一化速度不是近10梯度算术平均，框架Nesterov缓存约定与经典lookahead区分。",
+    "Adam第二矩不是variance/Hessian，有效lr缩放系数不等于有符号更新；beta2=.999在50步校正分母≈.048794。",
+    "AdamW原文先Adam后衰减新w与原代码先衰减旧w不一致，统一用旧参数独立收缩并区分None/0grad。",
+    "剪梯度范数不限制最终Momentum/Adam参数更新；AMP须先unscale，调度时钟按真实更新。",
+    "源码source07的完整程序有dropout反向mask而正文网络缺失，统一正确链式项并有限差分。",
+    "训练在线/dropout状态的分数与冻结eval验证不同，gap用相同冻结参数/模式；不按固定百分点决定堆正则。",
+    "Dropout子网络组合不是严格2^N独立网络平均；空间mask、p范围、SELU条件和MC模式区分。",
+    "BN训练用biased variance、running用unbiased，momentum含义不同；有效batch轴、spatial元素、track_running_stats=False需说明。",
+    "LN/RMS轴不同、RMS不保证10%加速相同准确率，BN不是万能正则；不照搬固定小batch32门禁。",
+    "原早停练习根据test改validation；快照须clone/deepcopy，eval不代替no_grad也不保证跨硬件逐bit。",
+    "全零隐藏层对称与线性模型0初始化区分；输出bias仍可学基率，不称所有权重0必完全不学。",
+    "ReLU He维护二阶矩近似，不是中心化variance恰减半；GELU/SiLU/SELU及Leaky斜率有各自条件。",
+    "Sigmoid均值≈.5不能证明梯度健康，实测Xavier L50 RMS .521但输入gradRMS3.53e-36；He有限宽度不保证RMS固定。",
+    "PyTorch Linear默认U±1/sqrt(fan_in)虽内部kaiming(a=sqrt5)却不是标准ReLU He；矩阵方向和groups要正确算fan。",
+    "残差variance含协方差，权重/输出缩放仅在对应线性路径等价；不保存未经核验Llama固定配方为当前标准。",
+    "warmup不是所有Adam必需；偏置校正与预热作用不同，loss平台/爆炸不能唯一归因lr。",
+    "原schedule策略把sqrt(batch倍率)称linear scaling，区分线性和sqrt规则；cosine总长度和warmup也是超参数。",
+    "原warmcosine T外继续升、onecycle外推可负，正文定义固定终点；框架OneCycle final_div_factor相对initial不是peak。",
+    "原08/09网络展示平方误差但导数按半平方目标，正确标缩放；新真实训练使用BCEWithLogits。",
+    "源09不凭final bounded MSE<.15称数学收敛，LRrange候选需验证并恢复试探前模型/optimizer/RNG。",
+    "历史大模型训练token/lr参数及性能数字不变为当前万能配方，噪声合成验证不能算用户真实经历。"
+  ],
+  "code_validation": [
+    {
+      "file": "AI 算法基础/深度学习专题/05-深度学习优化.md",
+      "block": 1,
+      "line": 69,
+      "sha256": "9ef8985090f6064a7046ee3f81c1e6dc8930aabe40f9e51b50a61807ad1e240f",
+      "status": "已运行通过",
+      "returncode": 0,
+      "stdout": "SGD 首步Δ [0.104, -0.72] 终损失 3e-07\nMomentum 首步Δ [0.052, -0.36] 终损失 0.0\nNesterov 首步Δ [0.052, -0.36] 终损失 0.0\nAdaGrad 首步Δ [0.15, -0.15] 终损失 0.0140129\nRMSProp 首步Δ [0.2, -0.2] 终损失 3.4e-06\nAdaDelta 首步Δ [0.00447, -0.00447] 终损失 2.0688534\nAdam 首步Δ [0.05, -0.05] 终损失 0.0\nAdamW 首步Δ [0.063, -0.0545] 终损失 0.0\nbeta2在50步的校正分母 0.048794\n",
+      "stderr": "",
+      "核验复用": "该程序字节未变，保留本轮已有数值执行证据"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+      "block": 1,
+      "line": 296,
+      "sha256": "8ca8552324ad10ef8d58d9cb0afe0ddaddb9add2df86c4d1040104abf3b33e12",
+      "status": "已运行通过",
+      "returncode": 0,
+      "stdout": "多次前向均值 [0.997, 1.996, 3.011, 3.978]\n固定mask反向检查 True\n通道mask [[1.3333333333333333, 1.3333333333333333, 1.3333333333333333], [1.3333333333333333, 1.3333333333333333, 0.0]]\n",
+      "stderr": "",
+      "核验复用": "该程序字节未变，保留本轮已有数值执行证据"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/09-泛化评估与正则化.md",
+      "block": 2,
+      "line": 338,
+      "sha256": "6c317c89d8c51e27a007f5d054b80d2d158c235a7552bd3532f22adfcd70b382",
+      "status": "已运行通过",
+      "returncode": 0,
+      "stdout": "BN反向最大误差 7.631819620712577e-10\nLN每行均值 [0.0, -0.0, -0.0, 0.0, 0.0, 0.0]\nRMS每行均方根 [0.999996, 0.999999, 1.0, 1.0, 1.0, 1.0]\nBN训练/初期eval相同? False\n",
+      "stderr": "",
+      "核验复用": "该程序字节未变，保留本轮已有数值执行证据"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+      "block": 1,
+      "line": 45,
+      "sha256": "1bdd565a03964bb64818f1c212cf837dfe098bf0d6774cc2e72088ce89baee72",
+      "status": "已运行通过",
+      "returncode": 0,
+      "stdout": "zero sigmoid L1/L10/L50 RMS [0.5, 0.5, 0.5] L50 std 0.0 输入梯度RMS 0.0\ntiny relu L1/L10/L50 RMS [0.0562, 2.29e-13, 9.06e-64] L50 std 7.63e-64 输入梯度RMS 2.19e-66\nlarge relu L1/L10/L50 RMS [5.62, 22900000.0, 9.06e+36] L50 std 7.63e+36 输入梯度RMS 2.19e+34\nxavier sigmoid L1/L10/L50 RMS [0.54, 0.477, 0.521] L50 std 0.123 输入梯度RMS 3.53e-36\nxavier tanh L1/L10/L50 RMS [0.636, 0.225, 0.0855] L50 std 0.0855 输入梯度RMS 2.18e-05\nhe relu L1/L10/L50 RMS [0.994, 0.681, 0.213] L50 std 0.179 输入梯度RMS 0.000516\northogonal relu L1/L10/L50 RMS [0.97, 0.998, 0.431] L50 std 0.343 输入梯度RMS 0.000776\nfan 16 未经缩放线性二阶矩因子 16 He+ReLU近似因子 1.0\nfan 1024 未经缩放线性二阶矩因子 1024 He+ReLU近似因子 1.0\n",
+      "stderr": "",
+      "核验复用": "该程序字节未变，保留本轮已有数值执行证据"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+      "block": 2,
+      "line": 123,
+      "sha256": "8598b64ce3952772c129a4bb9760a1b87f061e314a82a7db84324f6e7effe3d4",
+      "status": "已运行通过",
+      "returncode": 0,
+      "stdout": "初始/未缩放/缩放方差 1.007 50.737 2.001\n",
+      "stderr": "",
+      "核验复用": "该程序字节未变，保留本轮已有数值执行证据"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+      "block": 3,
+      "line": 160,
+      "sha256": "c4cd6142f2cb14d9fe28b6ef3d83efcb7d92f750d019a5750101ac13c22a2fd8",
+      "status": "已运行通过",
+      "returncode": 0,
+      "stdout": "constant [0.1, 0.1, 0.1, 0.1, 0.1, 0.1]\nstep [0.1, 0.1, 0.01, 0.001, 1e-05, 1e-05]\nexponential [0.1, 0.090438, 0.07397, 0.060501, 0.036603, 0.029938]\nlinear [0.1, 0.0901, 0.0703, 0.0505, 0.001, 0.001]\ncosine [0.1, 0.097577, 0.079595, 0.0505, 0.001, 0.001]\nwarmcosine [0.0, 0.1, 0.088419, 0.059096, 0.001, 0.001]\nonecycle [0.004, 0.036, 0.1, 0.071431, 1e-05, 1e-05]\ncyclic [0.001, 0.0505, 0.0505, 0.0505, 0.1, 0.001]\nrestart [0.1, 0.065796, 0.090546, 0.1, 0.1, 0.010454]\n",
+      "stderr": "",
+      "核验复用": "该程序字节未变，保留本轮已有数值执行证据"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+      "block": 4,
+      "line": 209,
+      "sha256": "edf8336cde55c707826a8d5c81d9078ae03121521db15156111d9d323be1cf37",
+      "status": "已运行通过",
+      "returncode": 0,
+      "stdout": "OneCycle使用的10个lr [0.004, 0.052, 0.1, 0.0950485, 0.0811746, 0.0611262, 0.0388742, 0.0188258, 0.0049519, 4e-07]\n平台期降率 [0.1, 0.1, 0.1, 0.05, 0.05]\n",
+      "stderr": "",
+      "核验复用": "该程序字节未变，保留本轮已有数值执行证据"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+      "block": 5,
+      "line": 238,
+      "sha256": "306d8c8e73900c0ef9cb5a0351e753938dbca217e2cdef7dfd40e62ce106ef1f",
+      "status": "已运行通过",
+      "returncode": 0,
+      "stdout": "无额外正则 最佳/实际轮数 76 80 更新数 480 eval训练/验证/测试acc [0.9815, 0.9861, 0.9861] 测试BCE 0.1391\nDropout 最佳/实际轮数 76 80 更新数 480 eval训练/验证/测试acc [0.9537, 0.9306, 0.9583] 测试BCE 0.1965\n衰减 最佳/实际轮数 76 80 更新数 480 eval训练/验证/测试acc [0.9815, 0.9861, 0.9861] 测试BCE 0.1404\n组合 最佳/实际轮数 80 80 更新数 480 eval训练/验证/测试acc [0.9537, 0.9306, 0.9444] 测试BCE 0.197\n",
+      "stderr": "",
+      "核验复用": "该程序字节未变，保留本轮已有数值执行证据"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/17-初始化优化器与学习率实践.md",
+      "block": 6,
+      "line": 349,
+      "sha256": "c1b6dab3e050b7d78ecd0cf1ad3fe2cac7d28d82a492e715dcb742096b55fb62",
+      "status": "已运行通过",
+      "returncode": 0,
+      "stdout": "零任务梯度的AdamW参数 1.96\n续训参数一致 True 最后lr 0.0125\n",
+      "stderr": "",
+      "核验复用": "该程序字节未变，保留本轮已有数值执行证据"
+    }
+  ],
+  "上游默认程序执行": [
+    {
+      "lesson": "06-optimizers",
+      "returncode": 0,
+      "status": "完整默认脚本执行完成",
+      "seconds": 1.9918029170949012,
+      "stdout": "============================================================\nSTEP 1: SGD on a Simple Function\n============================================================\n  Minimizing f(x) = (x - 3)^2, starting at x = 10\n    Step  0: x=8.600000, loss=31.360000\n    Step  5: x=4.835008, loss=3.367254\n    Step 10: x=3.601295, loss=0.361556\n    Step 15: x=3.197032, loss=0.038822\n    Step 19: x=3.080705, loss=0.006513\n\n============================================================\nSTEP 2: Bias Correction in Adam\n============================================================\n  Showing how raw moments are biased toward zero initially\n  Step | m_raw  | m_corrected | v_raw    | v_corrected\n  -------------------------------------------------------\n     1 | 0.1000 | 1.0000      | 0.001000 | 1.000000\n     2 | 0.1900 | 1.0000      | 0.001999 | 1.000000\n     3 | 0.2710 | 1.0000      | 0.002997 | 1.000000\n     4 | 0.3439 | 1.0000      | 0.003994 | 1.000000\n     5 | 0.4095 | 1.0000      | 0.004990 | 1.000000\n     6 | 0.4686 | 1.0000      | 0.005985 | 1.000000\n     7 | 0.5217 | 1.0000      | 0.006979 | 1.000000\n     8 | 0.5695 | 1.0000      | 0.007972 | 1.000000\n     9 | 0.6126 | 1.0000      | 0.008964 | 1.000000\n    10 | 0.6513 | 1.0000      | 0.009955 | 1.000000\n\n============================================================\nSTEP 3: Optimizer Comparison on Circle Dataset\n============================================================\n\n--- SGD (lr=0.05) ---\n    Epoch   0: loss=0.5857, accuracy=67.0%\n    Epoch  75: loss=0.0426, accuracy=97.5%\n    Epoch 150: loss=0.0327, accuracy=97.0%\n    Epoch 225: loss=0.0224, accuracy=99.0%\n    Epoch 299: loss=0.0179, accuracy=99.0%\n\n--- SGD+Momentum (lr=0.05, beta=0.9) ---\n    Epoch   0: loss=0.5641, accuracy=71.0%\n    Epoch  75: loss=0.2073, accuracy=93.0%\n    Epoch 150: loss=0.2070, accuracy=93.0%\n    Epoch 225: loss=0.2069, accuracy=93.0%\n    Epoch 299: loss=0.2069, accuracy=93.0%\n\n--- Adam (lr=0.001) ---\n    Epoch   0: loss=0.8418, accuracy=45.5%\n    Epoch  75: loss=0.1331, accuracy=98.5%\n    Epoch 150: loss=0.0661, accuracy=99.0%\n    Epoch 225: loss=0.0447, accuracy=99.0%\n    Epoch 299: loss=0.0336, accuracy=99.5%\n\n--- AdamW (lr=0.001, wd=0.01) ---\n    Epoch   0: loss=0.8414, accuracy=45.5%\n    Epoch  75: loss=0.1495, accuracy=97.5%\n    Epoch 150: loss=0.0855, accuracy=99.0%\n    Epoch 225: loss=0.0686, accuracy=99.0%\n    Epoch 299: loss=0.0612, accuracy=99.0%\n\n============================================================\nFINAL COMPARISON\n============================================================\n  SGD (lr=0.05)                           : acc=99.0%, loss=0.0179, reached 85%: epoch 4\n  SGD+Momentum (lr=0.05, beta=0.9)        : acc=93.0%, loss=0.2069, reached 85%: epoch 5\n  Adam (lr=0.001)                         : acc=99.5%, loss=0.0336, reached 85%: epoch 30\n  AdamW (lr=0.001, wd=0.01)               : acc=99.0%, loss=0.0612, reached 85%: epoch 32\n\n============================================================\nSTEP 4: Weight Decay Effect\n============================================================\n  Initial weight L2 norm: 10.0550\n  After 100 steps:\n    Adam  weight L2 norm: 10.0433\n    AdamW weight L2 norm: 9.9434\n    AdamW shrinks weights 1.0x more\n",
+      "stderr": "",
+      "解释": "执行不保证上游数学和泛化承诺正确；正文纠错另行核验"
+    },
+    {
+      "lesson": "07-regularization",
+      "returncode": 0,
+      "status": "完整默认脚本执行完成",
+      "seconds": 1.7053937499877065,
+      "stdout": "============================================================\nSTEP 1: Dropout Demonstration\n============================================================\n  Input:          [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0]\n  Train pass 1:   ['2.0', '0.0', '0.0', '0.0', '10.0', '12.0', '14.0', '0.0']  (4/8 active)\n  Train pass 2:   ['0.0', '0.0', '0.0', '8.0', '0.0', '0.0', '14.0', '16.0']  (3/8 active)\n  Train pass 3:   ['0.0', '4.0', '6.0', '0.0', '10.0', '12.0', '0.0', '0.0']  (4/8 active)\n  Eval pass:      ['1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0']\n  Train mean: ~4.5 (scaled by 1/(1-p))\n  Eval mean:   4.5 (no scaling needed)\n\n============================================================\nSTEP 2: L2 Regularization\n============================================================\n  Weights: [0.5, -1.2, 3.0, 0.1, -2.5]\n  Lambda:  0.01\n  L2 penalty: 0.084750\n  L2 grads:   ['0.0050', '-0.0120', '0.0300', '0.0010', '-0.0250']\n  Largest weight (3.0) gets largest gradient (0.0300)\n\n============================================================\nSTEP 3: BatchNorm vs LayerNorm vs RMSNorm\n============================================================\n  Raw sample: ['4.71', '4.65', '4.78', '6.40']\n  BatchNorm:  ['-1.13', '0.22', '-0.40', '0.89']\n  LayerNorm:  ['-0.58', '-0.66', '-0.49', '1.73']\n  RMSNorm:    ['0.91', '0.90', '0.92', '1.23']\n\n  LayerNorm output: mean=-0.0000, std=1.0000\n  RMSNorm output:   mean=0.9900, rms=1.0000\n  LayerNorm centers to mean=0. RMSNorm normalizes scale only.\n\n============================================================\nSTEP 4: BatchNorm Training vs Eval Mode\n============================================================\n  Running mean after 10 batches: ['2.317', '2.248', '2.306', '2.351']\n  Running var  after 10 batches: ['0.921', '0.992', '0.986', '0.910']\n  Eval mode uses running stats, not batch stats\n  Input [5,5,5,5] -> ['2.796', '2.763', '2.713', '2.777']\n\n============================================================\nSTEP 5: Training With vs Without Regularization\n============================================================\n\n--- No regularization ---\n    Epoch   0: train_acc=68.7%, test_acc=68.7%, gap=0.0%\n    Epoch  75: train_acc=100.0%, test_acc=96.7%, gap=3.3%\n    Epoch 150: train_acc=99.3%, test_acc=97.3%, gap=2.0%\n    Epoch 225: train_acc=99.3%, test_acc=96.7%, gap=2.7%\n    Epoch 299: train_acc=99.3%, test_acc=97.3%, gap=2.0%\n\n--- Dropout p=0.3 ---\n    Epoch   0: train_acc=68.0%, test_acc=68.7%, gap=-0.7%\n    Epoch  75: train_acc=97.3%, test_acc=96.7%, gap=0.7%\n    Epoch 150: train_acc=97.3%, test_acc=96.7%, gap=0.7%\n    Epoch 225: train_acc=98.0%, test_acc=96.7%, gap=1.3%\n    Epoch 299: train_acc=96.0%, test_acc=98.0%, gap=-2.0%\n\n--- Weight decay 0.01 ---\n    Epoch   0: train_acc=68.7%, test_acc=68.7%, gap=0.0%\n    Epoch  75: train_acc=96.7%, test_acc=94.7%, gap=2.0%\n    Epoch 150: train_acc=96.7%, test_acc=93.3%, gap=3.3%\n    Epoch 225: train_acc=96.7%, test_acc=93.3%, gap=3.3%\n    Epoch 299: train_acc=96.7%, test_acc=94.0%, gap=2.7%\n\n--- Dropout + weight decay ---\n    Epoch   0: train_acc=68.0%, test_acc=68.7%, gap=-0.7%\n    Epoch  75: train_acc=90.7%, test_acc=90.0%, gap=0.7%\n    Epoch 150: train_acc=84.7%, test_acc=92.0%, gap=-7.3%\n    Epoch 225: train_acc=91.3%, test_acc=92.0%, gap=-0.7%\n    Epoch 299: train_acc=87.3%, test_acc=90.7%, gap=-3.3%\n\n============================================================\nFINAL COMPARISON\n============================================================\n  Config                          Train Acc   Test Acc      Gap\n  ------------------------------------------------------------\n  No regularization                   99.3%      97.3%     2.0%\n  Dropout p=0.3                       96.0%      98.0%    -2.0%\n  Weight decay 0.01                   96.7%      94.0%     2.7%\n  Dropout + weight decay              87.3%      90.7%    -3.3%\n\n  Key insight: regularization reduces the train-test gap.\n  The model with dropout + weight decay generalizes best,\n  even if its training accuracy is lower.\n",
+      "stderr": "",
+      "解释": "执行不保证上游数学和泛化承诺正确；正文纠错另行核验"
+    },
+    {
+      "lesson": "08-weight-initialization",
+      "returncode": 0,
+      "status": "完整默认脚本执行完成",
+      "seconds": 5.687539250007831,
+      "stdout": "======================================================================\nSTEP 1: Symmetry Problem -- Zero Init\n======================================================================\nSymmetry Demo (4 neurons, zero init):\n  Neuron 0: output = 0.500000\n  Neuron 1: output = 0.500000\n  Neuron 2: output = 0.500000\n  Neuron 3: output = 0.500000\n  All identical: True\n  Effective parameters: 1 (not 8)\n\n======================================================================\nSTEP 2: Variance Analysis\n======================================================================\n\nVariance Analysis (fan_in=64, single layer):\n  Strategy                    Weight Var   Output Var      Ratio\n  ------------------------------------------------------------\n  Random N(0,1)                 1.000000      63.1933    63.1933\n  Random N(0,0.01)              0.000100       0.0063     0.0063\n  Xavier std                    0.015625       0.9874     0.9874\n  Kaiming std                   0.031250       1.9748     1.9748\n\n======================================================================\nSTEP 3: 50-Layer Forward Pass Experiment\n======================================================================\n\nStrategy                               L1         L5        L10        L25        L50\n--------------------------------------------------------------------------------\nZero + Sigmoid                     0.5000     0.5000     0.5000     0.5000     0.5000\nRandom N(0,1) + ReLU               3.1305  3614.0573   EXPLODED   EXPLODED   EXPLODED\nRandom N(0,0.01) + ReLU            0.0313   VANISHED   VANISHED   VANISHED   VANISHED\nXavier + Sigmoid                   0.4994     0.5036     0.5029     0.5037     0.4982\nXavier + Tanh                      0.5465     0.2692     0.1967     0.1494     0.0576\nKaiming + ReLU                     0.5534     0.6239     0.4946     0.3603     0.0971\n\n======================================================================\nSTEP 4: Layer-by-Layer Magnitude Reports\n======================================================================\n\nZero + Sigmoid:\n  Layer   1: ##### (0.500000)\n  Layer   6: ##### (0.500000)\n  Layer  11: ##### (0.500000)\n  Layer  16: ##### (0.500000)\n  Layer  21: ##### (0.500000)\n  Layer  26: ##### (0.500000)\n  Layer  31: ##### (0.500000)\n  Layer  36: ##### (0.500000)\n  Layer  41: ##### (0.500000)\n  Layer  46: ##### (0.500000)\n  Layer  50: ##### (0.500000)\n\nRandom N(0,1) + ReLU:\n  Layer   1: ############################### (3.130516)\n  Layer   6: ################################################## (20814.932019)\n  Layer  11: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX EXPLODED (94167845.299118)\n  Layer  16: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX EXPLODED (765625696862.927612)\n  Layer  21: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX EXPLODED (2797063155256591.000000)\n  Layer  26: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX EXPLODED (9116317467944787968.000000)\n  Layer  31: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX EXPLODED (50409960261432010342400.000000)\n  Layer  36: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX EXPLODED (315700931413777511799062528.000000)\n  Layer  41: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX EXPLODED (954505637534286361389864845312.000000)\n  Layer  46: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX EXPLODED (3069225039165749000656245573550080.000000)\n  Layer  50: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX EXPLODED (4130928612281126478106021772486770688.000000)\n\nRandom N(0,0.01) + ReLU:\n  Layer   1: # (0.031305)\n  Layer   6: . VANISHED (0.000000)\n  Layer  11: . VANISHED (0.000000)\n  Layer  16: . VANISHED (0.000000)\n  Layer  21: . VANISHED (0.000000)\n  Layer  26: . VANISHED (0.000000)\n  Layer  31: . VANISHED (0.000000)\n  Layer  36: . VANISHED (0.000000)\n  Layer  41: . VANISHED (0.000000)\n  Layer  46: . VANISHED (0.000000)\n  Layer  50: . VANISHED (0.000000)\n\nXavier + Sigmoid:\n  Layer   1: #### (0.499427)\n  Layer   6: ##### (0.500561)\n  Layer  11: ##### (0.520066)\n  Layer  16: ##### (0.516405)\n  Layer  21: ##### (0.509942)\n  Layer  26: #### (0.492967)\n  Layer  31: ##### (0.502234)\n  Layer  36: ##### (0.521606)\n  Layer  41: ##### (0.514355)\n  Layer  46: #### (0.479662)\n  Layer  50: #### (0.498230)\n\nXavier + Tanh:\n  Layer   1: ##### (0.546465)\n  Layer   6: ## (0.237088)\n  Layer  11: ## (0.211950)\n  Layer  16: ## (0.206503)\n  Layer  21: # (0.157067)\n  Layer  26: # (0.150748)\n  Layer  31: # (0.125681)\n  Layer  36: # (0.112100)\n  Layer  41: # (0.101872)\n  Layer  46: # (0.087098)\n  Layer  50: # (0.057586)\n\nKaiming + ReLU:\n  Layer   1: ##### (0.553402)\n  Layer   6: ###### (0.635221)\n  Layer  11: #### (0.496110)\n  Layer  16: ###### (0.696333)\n  Layer  21: #### (0.439165)\n  Layer  26: ## (0.247098)\n  Layer  31: ## (0.235880)\n  Layer  36: ## (0.255021)\n  Layer  41: # (0.133108)\n  Layer  46: # (0.073889)\n  Layer  50: # (0.097118)\n\n======================================================================\nSTEP 5: Training Comparison\n======================================================================\n\nTraining Comparison (300 epochs, circle dataset):\n  Config                           Start Loss     End Loss  Improvement\n  ------------------------------------------------------------------\n  Random(0.01) + Sigmoid             0.213427     0.205097         3.9%\n  Random(1.0) + Sigmoid              0.257682     0.018135        93.0%\n  Xavier + Sigmoid                   0.220716     0.022327        89.9%\n  Random(0.01) + ReLU                0.222634     0.007044        96.8%\n  Random(1.0) + ReLU                 0.395736     0.004482        98.9%\n  Kaiming + ReLU                     0.261864     0.004715        98.2%\n",
+      "stderr": "",
+      "解释": "执行不保证上游数学和泛化承诺正确；正文纠错另行核验"
+    },
+    {
+      "lesson": "09-learning-rate-schedules",
+      "returncode": 0,
+      "status": "完整默认脚本执行完成",
+      "seconds": 2.0506783339660615,
+      "stdout": "======================================================================\nSTEP 1: Schedule Shapes\n======================================================================\n\nConstant:\n  Step    0: lr=0.050000 ########################################\n  Step   25: lr=0.050000 ########################################\n  Step   50: lr=0.050000 ########################################\n  Step   75: lr=0.050000 ########################################\n  Step  100: lr=0.050000 ########################################\n  Step  125: lr=0.050000 ########################################\n  Step  150: lr=0.050000 ########################################\n  Step  175: lr=0.050000 ########################################\n  Step  200: lr=0.050000 ########################################\n  Step  225: lr=0.050000 ########################################\n  Step  250: lr=0.050000 ########################################\n  Step  275: lr=0.050000 ########################################\n  Step  300: lr=0.050000 ########################################\n  Step  325: lr=0.050000 ########################################\n  Step  350: lr=0.050000 ########################################\n  Step  375: lr=0.050000 ########################################\n  Step  400: lr=0.050000 ########################################\n  Step  425: lr=0.050000 ########################################\n  Step  450: lr=0.050000 ########################################\n  Step  475: lr=0.050000 ########################################\n  Step  499: lr=0.050000 ########################################\n\nStep Decay:\n  Step    0: lr=0.050000 ########################################\n  Step   25: lr=0.050000 ########################################\n  Step   50: lr=0.050000 ########################################\n  Step   75: lr=0.050000 ########################################\n  Step  100: lr=0.050000 ########################################\n  Step  125: lr=0.025000 ####################\n  Step  150: lr=0.025000 ####################\n  Step  175: lr=0.025000 ####################\n  Step  200: lr=0.025000 ####################\n  Step  225: lr=0.025000 ####################\n  Step  250: lr=0.012500 ##########\n  Step  275: lr=0.012500 ##########\n  Step  300: lr=0.012500 ##########\n  Step  325: lr=0.012500 ##########\n  Step  350: lr=0.012500 ##########\n  Step  375: lr=0.006250 #####\n  Step  400: lr=0.006250 #####\n  Step  425: lr=0.006250 #####\n  Step  450: lr=0.006250 #####\n  Step  475: lr=0.006250 #####\n  Step  499: lr=0.006250 #####\n\nCosine Annealing:\n  Step    0: lr=0.050000 ########################################\n  Step   25: lr=0.049692 #######################################\n  Step   50: lr=0.048777 #######################################\n  Step   75: lr=0.047276 #####################################\n  Step  100: lr=0.045226 ####################################\n  Step  125: lr=0.042679 ##################################\n  Step  150: lr=0.039697 ###############################\n  Step  175: lr=0.036352 #############################\n  Step  200: lr=0.032729 ##########################\n  Step  225: lr=0.028915 #######################\n  Step  250: lr=0.025005 ####################\n  Step  275: lr=0.021095 ################\n  Step  300: lr=0.017281 #############\n  Step  325: lr=0.013658 ##########\n  Step  350: lr=0.010313 ########\n  Step  375: lr=0.007331 #####\n  Step  400: lr=0.004784 ###\n  Step  425: lr=0.002734 ##\n  Step  450: lr=0.001233 \n  Step  475: lr=0.000318 \n  Step  499: lr=0.000010 \n\nWarmup + Cosine:\n  Step    0: lr=0.000000 \n  Step   25: lr=0.025000 ####################\n  Step   50: lr=0.050000 ########################################\n  Step   75: lr=0.049620 #######################################\n  Step  100: lr=0.048493 ######################################\n  Step  125: lr=0.046651 #####################################\n  Step  150: lr=0.044152 ###################################\n  Step  175: lr=0.041071 ################################\n  Step  200: lr=0.037503 ##############################\n  Step  225: lr=0.033554 ##########################\n  Step  250: lr=0.029345 #######################\n  Step  275: lr=0.025005 ####################\n  Step  300: lr=0.020665 ################\n  Step  325: lr=0.016456 #############\n  Step  350: lr=0.012508 ##########\n  Step  375: lr=0.008939 #######\n  Step  400: lr=0.005858 ####\n  Step  425: lr=0.003359 ##\n  Step  450: lr=0.001517 #\n  Step  475: lr=0.000390 \n  Step  499: lr=0.000011 \n\n1cycle:\n  Step    0: lr=0.002000 #\n  Step   25: lr=0.006800 #####\n  Step   50: lr=0.011600 #########\n  Step   75: lr=0.016400 #############\n  Step  100: lr=0.021200 ################\n  Step  125: lr=0.026000 ####################\n  Step  150: lr=0.030800 ########################\n  Step  175: lr=0.035600 ############################\n  Step  200: lr=0.040400 ################################\n  Step  225: lr=0.045200 ####################################\n  Step  250: lr=0.050000 ########################################\n  Step  275: lr=0.045001 ####################################\n  Step  300: lr=0.040001 ################################\n  Step  325: lr=0.035001 ############################\n  Step  350: lr=0.030002 ########################\n  Step  375: lr=0.025003 ####################\n  Step  400: lr=0.020003 ################\n  Step  425: lr=0.015004 ############\n  Step  450: lr=0.010004 ########\n  Step  475: lr=0.005004 ####\n  Step  499: lr=0.000205 \n\n======================================================================\nSTEP 2: LR Sensitivity\n======================================================================\n\n        LR   Start Loss     End Loss          Status\n----------------------------------------------------\n    1.0000     0.229053     0.027668       CONVERGED\n    0.1000     0.395736     0.009589       CONVERGED\n    0.0500     0.422651     0.014495       CONVERGED\n    0.0100     0.465033     0.041905       CONVERGED\n    0.0010     0.481675     0.307537        LEARNING\n    0.0001     0.483407     0.444479    BARELY MOVED\n\n======================================================================\nSTEP 3: Schedule Comparison\n======================================================================\n\nSchedule               Start Loss     Mid Loss     End Loss    Best Loss\n----------------------------------------------------------------------\nConstant                 0.422651     0.009973     0.005437     0.005437\nStep Decay               0.422651     0.014659     0.014512     0.014512\nCosine                   0.422651     0.011089     0.008420     0.008420\nWarmup+Cosine            0.480849     0.011341     0.008381     0.008381\n1cycle                   0.479481     0.017522     0.008183     0.008183\n\n======================================================================\nSTEP 4: Warmup Impact\n======================================================================\n\n  Warmup %   Warmup Steps     End Loss    Best Loss\n----------------------------------------------------\n        0%              0     0.008420     0.008420\n        1%            600     0.008807     0.008807\n        5%           3000     0.008381     0.008381\n       10%           6000     0.008381     0.008381\n       20%          12000     0.008359     0.008359\n\n======================================================================\nSTEP 5: Schedule Trajectory\n======================================================================\n\nLR at key training points:\n  Schedule                 Step 0   Step T/4   Step T/2  Step 3T/4     Step T\n  ------------------------------------------------------------\n  Constant               0.050000   0.050000   0.050000   0.050000   0.050000\n  Cosine                 0.050000   0.042679   0.025005   0.007331   0.000010\n  Warmup+Cosine          0.000000   0.044730   0.027069   0.008076   0.000010\n  1cycle                 0.002000   0.026000   0.050000   0.025003   0.000010\n",
+      "stderr": "",
+      "解释": "执行不保证上游数学和泛化承诺正确；正文纠错另行核验"
+    }
+  ],
+  "环境": {
+    "Python": "3.12.13",
+    "PyTorch": "2.14.1",
+    "JAX": "0.11.2",
+    "JAXlib": "0.11.2",
+    "NumPy": "2.4.6",
+    "SciPy": "1.17.1",
+    "NumPy路径": "/tmp/study-source1-dl-runtime/numpy/__init__.py",
+    "测试设备": "CPU",
+    "JAX设备": [
+      "cpu:0"
+    ],
+    "梯度烟测": "PyTorch/JAX对x²均得[2,4]通过",
+    "配置": "临时PyPI wheel隔离目录，未修改全局Python安装；没有关闭OpenMP重复检查；未下载数据或模型"
+  },
+  "本组实际后端": "NumPy和PyTorch CPU，未调用JAX",
+  "正文实际执行通过": 9,
+  "框架归一化额外核查": {
+    "状态": "通过",
+    "环境": "2.14.1",
+    "设备": "CPU",
+    "检查": [
+      "BN当前batch biased方差与归一化一致",
+      "running_var使用ddof=1无偏更新",
+      "LN特征轴归一化一致",
+      "RMSNorm无中心化与NumPy一致"
+    ],
+    "容差": 1e-12
+  },
+  "实际限制": [
+    "实际4配置均达80轮上限，未触发patience提前退出；验证的是选择/恢复快照，不声称节省轮数",
+    "无GPU/分布式/真实数据/权重下载",
+    "未运行所有lr/初始化宽度/十随机种子发散统计、完整4层LNvsRMS学习性能；正文给条件及判据",
+    "source图仅阅读函数与图注逻辑，未复现浏览器交互；不把示意当测量",
+    "没有提交推送，不改独占范围外文件，未新增子代理"
+  ],
+  "官方核验": [
+    {
+      "date": "2026-10-03",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.optim.SGD.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.BatchNorm1d.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://docs.pytorch.org/docs/stable/nn.init.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.Linear.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://docs.pytorch.org/docs/2.14/generated/torch.nn.LayerNorm.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://docs.pytorch.org/docs/2.14/generated/torch.nn.RMSNorm.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.OneCycleLR.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://proceedings.mlr.press/v9/glorot10a.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://arxiv.org/abs/1502.01852",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://jmlr.org/papers/v15/srivastava14a.html",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    },
+    {
+      "date": "2026-10-03",
+      "url": "https://arxiv.org/abs/1703.04933",
+      "routing": "agent-reach通用网页Jina+官方web定点核对"
+    }
+  ],
+  "结构快照": "python3 tools/check_knowledge.py通过：573文档/主库260，本地2998链接；根统一提交前需最后重验",
+  "统一验收日期": "2026-10-04",
+  "原核验日期说明": "原来源与定点官方核验保留原实际日期，不因隔日验收全部改成今天。",
+  "整体完成边界": "本批仅第1来源Phase03十三课；第1来源和五站尚未完成。"
+}
