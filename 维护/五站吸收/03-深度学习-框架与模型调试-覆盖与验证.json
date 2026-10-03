@@ -1,0 +1,3017 @@
+{
+  "agent": "source1_ml_patterns",
+  "date": "2026-10-03",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "scope": "第一来源Phase03/10～13，其他站未读；Phase02冻结",
+  "lessons": [
+    {
+      "lesson": "10-mini-framework",
+      "source_files": [
+        {
+          "path": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "bytes": 18057,
+          "lines": 603,
+          "sha256": "c3a7877b7fd156734b6739b55b9f82dc9a1bc9c956dcfea9f95e5bc6cff53739",
+          "git_blob_sha": "9b48756043eb5bc54934691f402339683d5388ab",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/10-mini-framework/docs/en.md",
+          "bytes": 24168,
+          "lines": 711,
+          "sha256": "94d283931d471f9a757d50d4f12656d497b3cb78aacebeb7619a55e5c0e67325",
+          "git_blob_sha": "79f2a90f1d09269c865842d04cc909d26a98f3a2",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/10-mini-framework/outputs/prompt-framework-architect.md",
+          "bytes": 3166,
+          "lines": 95,
+          "sha256": "24e51616c146a6849148c327ddd219a73ab6a81025286f9a016fde17640b75bc",
+          "git_blob_sha": "b812d222eab0fb6aa61d06531c23c5fd22950f0e",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/10-mini-framework/quiz.json",
+          "bytes": 2821,
+          "lines": 37,
+          "sha256": "1f93c92bd545033b57e3c19f3379637fb60577962078b11830532bc5e3d6374d",
+          "git_blob_sha": "ff78e87643ae3afe32a56cfa470a1b576b0af992",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 27,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Module Abstraction",
+          "source_line": 29,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Sequential Container",
+          "source_line": 39,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Training vs Evaluation Mode",
+          "source_line": 43,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Optimizer",
+          "source_line": 47,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "DataLoader",
+          "source_line": 51,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Framework Architecture",
+          "source_line": 55,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Training Loop",
+          "source_line": 92,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Module Hierarchy",
+          "source_line": 113,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 154,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 1: Module Base Class",
+          "source_line": 156,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 2: Linear Layer",
+          "source_line": 181,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "2. 从标量引擎扩展到张量VJP"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 3: Activation Modules",
+          "source_line": 230,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 4: Dropout Module",
+          "source_line": 277,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "4. 训练与推理模式：Dropout和BatchNorm不能照抄错误简化"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 5: BatchNorm Module",
+          "source_line": 300,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "4. 训练与推理模式：Dropout和BatchNorm不能照抄错误简化"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 6: Sequential Container",
+          "source_line": 380,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 7: Loss Functions",
+          "source_line": 417,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "2. 从标量引擎扩展到张量VJP"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 8: SGD and Adam Optimizers",
+          "source_line": 458,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 9: DataLoader",
+          "source_line": 523,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 10: Train a 4-Layer Network on Circle Classification",
+          "source_line": 549,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 634,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 675,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 680,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 692,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 707,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "Module",
+          "line_start": 5,
+          "line_end": 22,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "Linear",
+          "line_start": 25,
+          "line_end": 62,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "2. 从标量引擎扩展到张量VJP"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "ReLU",
+          "line_start": 65,
+          "line_end": 75,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "Sigmoid",
+          "line_start": 78,
+          "line_end": 91,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "Tanh",
+          "line_start": 94,
+          "line_end": 104,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "Dropout",
+          "line_start": 107,
+          "line_end": 122,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "4. 训练与推理模式：Dropout和BatchNorm不能照抄错误简化"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "BatchNorm",
+          "line_start": 125,
+          "line_end": 207,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "4. 训练与推理模式：Dropout和BatchNorm不能照抄错误简化"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "Sequential",
+          "line_start": 210,
+          "line_end": 242,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "MSELoss",
+          "line_start": 245,
+          "line_end": 255,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "2. 从标量引擎扩展到张量VJP"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "BCELoss",
+          "line_start": 258,
+          "line_end": 278,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "2. 从标量引擎扩展到张量VJP"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "SGD",
+          "line_start": 281,
+          "line_end": 298,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "Adam",
+          "line_start": 301,
+          "line_end": 338,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "DataLoader",
+          "line_start": 341,
+          "line_end": 359,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "make_circle_data",
+          "line_start": 362,
+          "line_end": 370,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "train_framework",
+          "line_start": 373,
+          "line_end": 443,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "train_with_sgd",
+          "line_start": 446,
+          "line_end": 494,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "train_with_dropout",
+          "line_start": 497,
+          "line_end": 541,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/code/main.py",
+          "symbol": "sample_predictions",
+          "line_start": 544,
+          "line_end": 561,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "What three responsibilities does the Module abstraction have in a deep learning framework?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "Why does Sequential process modules in reverse order during the backward pass?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "2. 从标量引擎扩展到张量VJP"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "Why is optimizer.zero_grad() a separate call instead of being done automatically?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "What is the correct order of operations in a training loop?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "What is the role of the DataLoader in the framework?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "Add a `SoftmaxCrossEntropyLoss` class for multi-class classification. Softmax the predictions, compute cross-entropy loss, and handle the combined backward pass. Test it on a 3-class spiral dataset.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 1,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 2,
+          "description": "Implement learning rate scheduling in the optimizer: add a `set_lr()` method and wire in the cosine schedule from Lesson 09. Train the circle classifier with warmup + cosine and compare to constant LR.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 3,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 3,
+          "description": "Add a `save()` and `load()` method to Sequential that serializes all weights to a JSON file and loads them back. Verify that a loaded model produces the same predictions as the original.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 4,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 4,
+          "description": "Implement weight decay (L2 regularization) in the Adam optimizer. Add a `weight_decay` parameter that shrinks weights toward zero each step. Compare training with decay=0 vs decay=0.01.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 3,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 5,
+          "description": "Replace the per-sample training loop with proper mini-batch gradient accumulation: accumulate gradients across all samples in a batch, then divide by batch size and take one optimizer step. Measure whether this changes convergence speed.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 2,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "source_line": 57,
+          "diagram_sha256": "e695d565a7e4a5c0a91d6f893195294e6359a7ede192042d17922af30c5d2528",
+          "type": "graph TD",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "图中职责/调用顺序/梯度路径转成解释和代码；示意值不当真实训练证据"
+        },
+        {
+          "source_line": 94,
+          "diagram_sha256": "9f259c1456b1f274567e36d3467dcc4c052b5a70c2562a0d5d7d2f08a0846c65",
+          "type": "sequenceDiagram",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "3. 模块、参数登记、优化器与真正的小批量"
+          },
+          "disposition": "图中职责/调用顺序/梯度路径转成解释和代码；示意值不当真实训练证据"
+        },
+        {
+          "source_line": 115,
+          "diagram_sha256": "59182115605a04eeea4cf8b8347c5683beebe7fbf79dcffc57ef48456783da45",
+          "type": "classDiagram",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "图中职责/调用顺序/梯度路径转成解释和代码；示意值不当真实训练证据"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/03-deep-learning-core/10-mini-framework/outputs/prompt-framework-architect.md",
+          "target": [
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "1. 框架组织的是什么"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "2. 从标量引擎扩展到张量VJP"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "3. 模块、参数登记、优化器与真正的小批量"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "4. 训练与推理模式：Dropout和BatchNorm不能照抄错误简化"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "6. 可运行PyTorch闭环与参数恢复"
+            }
+          ],
+          "disposition": "任务/shape/状态/约束/诊断证据/恢复流程融合；无根据固定lr/规模/准确率/80%保证和外部上传不采纳"
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "lesson": "11-intro-to-pytorch",
+      "source_files": [
+        {
+          "path": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "bytes": 11578,
+          "lines": 358,
+          "sha256": "4a3d08bd7a339d56ffe70314ba45ba762b19084afad79dfecc7081ac66f32af3",
+          "git_blob_sha": "0c3c4664d1eaf855f1c53f227c837f0bbb2a76d7",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/11-intro-to-pytorch/docs/en.md",
+          "bytes": 22812,
+          "lines": 536,
+          "sha256": "9c1d3d3a389c673ccc0b0491dba0401ef37bac7d7e885ce22d4309f0adb2ea0e",
+          "git_blob_sha": "7f52b2e6ffea074127f1b7a9370369bcc05f0b82",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/11-intro-to-pytorch/outputs/prompt-pytorch-debugger.md",
+          "bytes": 3457,
+          "lines": 60,
+          "sha256": "47f171bd6adb15f7029b3e0b3c10a5f0069430a8d8177c995b85d587c7e313d0",
+          "git_blob_sha": "ef83f79d3038f8eb11120c9120684281e3472b2f",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/11-intro-to-pytorch/outputs/skill-pytorch-patterns.md",
+          "bytes": 5426,
+          "lines": 184,
+          "sha256": "53c994e9b999acde2e9a0e7eefb2e691a95d2d5a88e94061554281734460622d",
+          "git_blob_sha": "94cb008ef9cf43e2c3ae6561fc5df430e92dcd13",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/11-intro-to-pytorch/quiz.json",
+          "bytes": 2756,
+          "lines": 37,
+          "sha256": "a482c3ab2e5e59985099e10defdc6649c9fb6e7b3e4a7239a6333cf9db9fee58",
+          "git_blob_sha": "42587b8d16c3db7dff29089ce49c33d74d17b207",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 29,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Why PyTorch Won",
+          "source_line": 31,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Tensors",
+          "source_line": 41,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Autograd",
+          "source_line": 86,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "nn.Module",
+          "source_line": 119,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Loss Functions and Optimizers",
+          "source_line": 155,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Training Loop",
+          "source_line": 180,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Dataset and DataLoader",
+          "source_line": 217,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "GPU Training",
+          "source_line": 240,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "7. 梯度累加、调度、AMP与性能的边界"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Comparison: Mini Framework vs PyTorch vs JAX",
+          "source_line": 271,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 289,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 1: Load MNIST From Raw Files",
+          "source_line": 293,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 2: Define the Model",
+          "source_line": 335,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 3: Training Loop",
+          "source_line": 361,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 4: Wire Everything Together",
+          "source_line": 404,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 456,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Quick Comparison: Mini Framework vs PyTorch",
+          "source_line": 458,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Saving and Loading Models",
+          "source_line": 472,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Learning Rate Scheduling",
+          "source_line": 484,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "7. 梯度累加、调度、AMP与性能的边界"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 497,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 504,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 516,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 531,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "download_mnist",
+          "line_start": 19,
+          "line_end": 25,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "load_images",
+          "line_start": 28,
+          "line_end": 34,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "load_labels",
+          "line_start": 37,
+          "line_end": 42,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "MNISTModel",
+          "line_start": 45,
+          "line_end": 59,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "MNISTModelWithBatchNorm",
+          "line_start": 62,
+          "line_end": 76,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "train_one_epoch",
+          "line_start": 79,
+          "line_end": 95,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "evaluate",
+          "line_start": 98,
+          "line_end": 112,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "load_data",
+          "line_start": 115,
+          "line_end": 121,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "create_loaders",
+          "line_start": 124,
+          "line_end": 133,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "run_experiment",
+          "line_start": 136,
+          "line_end": 166,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "experiment_adam",
+          "line_start": 169,
+          "line_end": 175,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "experiment_sgd",
+          "line_start": 178,
+          "line_end": 184,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "experiment_batchnorm",
+          "line_start": 187,
+          "line_end": 193,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "experiment_sgd_cosine",
+          "line_start": 196,
+          "line_end": 234,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "show_model_info",
+          "line_start": 237,
+          "line_end": 245,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "demo_tensor_basics",
+          "line_start": 248,
+          "line_end": 267,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py",
+          "symbol": "demo_autograd",
+          "line_start": 270,
+          "line_end": 292,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "What is autograd in PyTorch?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "What does torch.no_grad() do and when should you use it?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "What does nn.Linear(784, 256) create in PyTorch?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "Which PyTorch method computes gradients for all parameters in the computational graph?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "Why is PyTorch's training loop significantly faster than the pure-Python mini framework?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "7. 梯度累加、调度、AMP与性能的边界"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**Add batch normalization.** Insert `nn.BatchNorm1d` after each linear layer (before the activation). Compare test accuracy and training speed vs the dropout-only version. Batch norm should reach 98%+ in fewer epochs.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 5,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**Implement a learning rate finder.** Train for one epoch with exponentially increasing learning rate (from 1e-7 to 1.0). Plot loss vs LR. The optimal LR is just before the loss starts climbing. Use this to pick a better LR for the MNIST model.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 6,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**Port to GPU with mixed precision.** Add `torch.amp.autocast` and `GradScaler` to the training loop. Measure throughput (samples/second) with and without mixed precision on GPU. On an A100, expect ~2x speedup.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 7,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 4,
+          "description": "**Build a custom Dataset.** Download Fashion-MNIST (same format as MNIST but with clothing items). Implement a `FashionMNISTDataset(Dataset)` class with `__getitem__` and `__len__`. Train the same MLP and compare accuracy. Fashion-MNIST is harder -- expect ~88% vs ~98%.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 8,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 5,
+          "description": "**Replace Adam with SGD + momentum.** Train with `SGD(params, lr=0.01, momentum=0.9)`. Compare convergence curves. Then add a `CosineAnnealingLR` scheduler and see if SGD catches up to Adam by epoch 10.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 5,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "source_line": 90,
+          "diagram_sha256": "314ffd696aa699d62f9c0ac39ce8ce1232b08799859e1f7ee43f9ff2cd50fc31",
+          "type": "graph LR",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "5. PyTorch：张量、登记、损失与数据的契约"
+          },
+          "disposition": "图中职责/调用顺序/梯度路径转成解释和代码；示意值不当真实训练证据"
+        },
+        {
+          "source_line": 184,
+          "diagram_sha256": "c42811dbc5412c1f532bebd27e4c49a8c2cbbda7a7125fcf6657b6efe30c648d",
+          "type": "sequenceDiagram",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "6. 可运行PyTorch闭环与参数恢复"
+          },
+          "disposition": "图中职责/调用顺序/梯度路径转成解释和代码；示意值不当真实训练证据"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/outputs/prompt-pytorch-debugger.md",
+          "target": [
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "1. 框架组织的是什么"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "5. PyTorch：张量、登记、损失与数据的契约"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "6. 可运行PyTorch闭环与参数恢复"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "7. 梯度累加、调度、AMP与性能的边界"
+            }
+          ],
+          "disposition": "任务/shape/状态/约束/诊断证据/恢复流程融合；无根据固定lr/规模/准确率/80%保证和外部上传不采纳"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/11-intro-to-pytorch/outputs/skill-pytorch-patterns.md",
+          "target": [
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "1. 框架组织的是什么"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "5. PyTorch：张量、登记、损失与数据的契约"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "6. 可运行PyTorch闭环与参数恢复"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "7. 梯度累加、调度、AMP与性能的边界"
+            }
+          ],
+          "disposition": "任务/shape/状态/约束/诊断证据/恢复流程融合；无根据固定lr/规模/准确率/80%保证和外部上传不采纳"
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "lesson": "12-intro-to-jax",
+      "source_files": [
+        {
+          "path": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "bytes": 4745,
+          "lines": 179,
+          "sha256": "8cf3a1b254792e8802305161f5ef82940e0651f38210cde21d6cac96ca078d84",
+          "git_blob_sha": "20e6becc6bd8e6f9026395164460fe9adfece627",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/12-intro-to-jax/docs/en.md",
+          "bytes": 20384,
+          "lines": 509,
+          "sha256": "9fe3133043ee5c5841555859f2e60f3cd11c6ee194ae7dd4ff6788a97d307a50",
+          "git_blob_sha": "8ae40bd49a642653a1a645f02a86d28e22ee031b",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/12-intro-to-jax/outputs/prompt-jax-optimizer.md",
+          "bytes": 4141,
+          "lines": 112,
+          "sha256": "634f94ddf63eac5674156b25a30e1fc6281be593910b542c59b2cbcf5b47ba9e",
+          "git_blob_sha": "9e6848d7a2db950f20b85658eac54edaefd825fc",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/12-intro-to-jax/outputs/skill-jax-patterns.md",
+          "bytes": 4671,
+          "lines": 145,
+          "sha256": "344e7644dab80d02f202d610e39f98e9b5376316cbf872f4da02a1b2b7c51a46",
+          "git_blob_sha": "d6df46b63c38a21162aa5275aa706f779f550288",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/12-intro-to-jax/quiz.json",
+          "bytes": 2811,
+          "lines": 37,
+          "sha256": "d55944de5e54fe2b82f780561a4ead66906f2c4e7217fc94f8c7d3e152ed7fe8",
+          "git_blob_sha": "d1dff24f43926bf1971da70f3b7458c51b95747b",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 27,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The JAX Philosophy",
+          "source_line": 29,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "jax.numpy: The Familiar Surface",
+          "source_line": 44,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "jax.grad: Functional Autodiff",
+          "source_line": 60,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "jit: Compile to XLA",
+          "source_line": 87,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "10. 随机key、控制流、异步与存储"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "vmap: Automatic Vectorization",
+          "source_line": 114,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "pmap: Data Parallelism Across Devices",
+          "source_line": 139,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "10. 随机key、控制流、异步与存储"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Pytrees: The Universal Data Structure",
+          "source_line": 149,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Functional vs Object-Oriented",
+          "source_line": 169,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The JAX Ecosystem",
+          "source_line": 191,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "When to Use JAX vs PyTorch",
+          "source_line": 212,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Random Numbers in JAX",
+          "source_line": 228,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "10. 随机key、控制流、异步与存储"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 244,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 1: Setup and Data",
+          "source_line": 246,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "10. 随机key、控制流、异步与存储"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 2: Initialize Parameters",
+          "source_line": 266,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 3: Forward Pass",
+          "source_line": 295,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 4: JIT-Compiled Training Step",
+          "source_line": 314,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 5: Training Loop",
+          "source_line": 333,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 374,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Flax: The Google Standard",
+          "source_line": 376,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Equinox: The Pythonic Alternative",
+          "source_line": 400,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Optax: Composable Optimizers",
+          "source_line": 416,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 434,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 475,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 487,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 502,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "symbol": "get_mnist_data",
+          "line_start": 7,
+          "line_end": 14,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "10. 随机key、控制流、异步与存储"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "symbol": "init_params",
+          "line_start": 17,
+          "line_end": 36,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "symbol": "forward",
+          "line_start": 39,
+          "line_end": 45,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "symbol": "loss_fn",
+          "line_start": 48,
+          "line_end": 51,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "symbol": "train_step",
+          "line_start": 58,
+          "line_end": 62,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "symbol": "accuracy",
+          "line_start": 66,
+          "line_end": 69,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "symbol": "train",
+          "line_start": 72,
+          "line_end": 106,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "symbol": "demo_grad",
+          "line_start": 109,
+          "line_end": 120,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "symbol": "demo_vmap",
+          "line_start": 123,
+          "line_end": 139,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py",
+          "symbol": "demo_jit",
+          "line_start": 142,
+          "line_end": 171,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "10. 随机key、控制流、异步与存储"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "What is the fundamental design difference between PyTorch and JAX?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "What does jax.jit do?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "10. 随机key、控制流、异步与存储"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "What does jax.vmap do?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "9. 完整JAX函数式训练、jit与vmap"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "How does JAX handle model state (weights) differently than PyTorch?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "8. JAX：把状态变成输入输出"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "When would you choose JAX over PyTorch?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "10. 随机key、控制流、异步与存储"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "Add dropout to the MLP. In JAX, dropout requires a PRNG key -- thread a key through the forward pass and split it for each dropout layer. Compare test accuracy with and without.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 9,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 2,
+          "description": "Use `jax.vmap` to compute per-example gradients for a batch of 32 MNIST images. Compute the gradient norm for each example. Which examples have the largest gradients, and why?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 10,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 3,
+          "description": "Replace the manual forward function with a generic `mlp_forward(params, x)` that works for any number of layers. Use `jax.tree.leaves` to determine the depth automatically.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 11,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 4,
+          "description": "Benchmark the training step with and without `@jax.jit`. Time 100 steps of each. How large is the speedup on your hardware? What is the compilation overhead on the first call?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 12,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 5,
+          "description": "Implement gradient clipping by composing `optax.chain(optax.clip_by_global_norm(1.0), optax.adam(1e-3))`. Train with and without clipping. Plot the gradient norm over training to see the effect.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 13,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        }
+      ],
+      "mermaid_diagrams": [],
+      "outputs": [
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/outputs/prompt-jax-optimizer.md",
+          "target": [
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "8. JAX：把状态变成输入输出"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "9. 完整JAX函数式训练、jit与vmap"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "10. 随机key、控制流、异步与存储"
+            }
+          ],
+          "disposition": "任务/shape/状态/约束/诊断证据/恢复流程融合；无根据固定lr/规模/准确率/80%保证和外部上传不采纳"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/12-intro-to-jax/outputs/skill-jax-patterns.md",
+          "target": [
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "8. JAX：把状态变成输入输出"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "9. 完整JAX函数式训练、jit与vmap"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "10. 随机key、控制流、异步与存储"
+            }
+          ],
+          "disposition": "任务/shape/状态/约束/诊断证据/恢复流程融合；无根据固定lr/规模/准确率/80%保证和外部上传不采纳"
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "lesson": "13-debugging-neural-networks",
+      "source_files": [
+        {
+          "path": "phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py",
+          "bytes": 13846,
+          "lines": 403,
+          "sha256": "333ea337d6ee5a12b9bc45c33cbe9f88388bddbcfbde5f536278514b2a661dcc",
+          "git_blob_sha": "d8653f6ecb32653186773a75e020985b956cb2b4",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/13-debugging-neural-networks/docs/en.md",
+          "bytes": 31333,
+          "lines": 711,
+          "sha256": "93a9c9e91cc1312801ca02385de5891b2858f45a28a70a3dd099ce5848f21753",
+          "git_blob_sha": "2b140daf55e85827c19abd94062f0864cf0e8923",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/13-debugging-neural-networks/outputs/prompt-nn-debugger.md",
+          "bytes": 3354,
+          "lines": 91,
+          "sha256": "46d2f9e1607c262e46e697fe16ba8e58d4f4fb30b6c9909c676a95608ac13676",
+          "git_blob_sha": "2d02f9ba384adacf44ce7e27eab5b83b5916c5d0",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/13-debugging-neural-networks/outputs/skill-debug-checklist.md",
+          "bytes": 4559,
+          "lines": 108,
+          "sha256": "6f291be75a32282933292b71e3c24f833ab403d356bc1db706107fb94ea5da7d",
+          "git_blob_sha": "9d06c1e0f8a22a6fa6b40eca29324d45c8bf9761",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        },
+        {
+          "path": "phases/03-deep-learning-core/13-debugging-neural-networks/quiz.json",
+          "bytes": 3237,
+          "lines": 37,
+          "sha256": "d94f6c8db96a906f5a503bdddc6353d62a399df5344c491030e2d3ac112ac011",
+          "git_blob_sha": "a5bcf9485785c7fc9e8aba45e8981abab2141871",
+          "read": "已逐行完整读取正文/实现/测验/输出，非只读首页"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 29,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Debugging Mindset",
+          "source_line": 31,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Symptom 1: Loss Not Decreasing",
+          "source_line": 53,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Symptom 2: Loss Decreasing But Model is Bad",
+          "source_line": 65,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Symptom 3: NaN or Inf in Loss",
+          "source_line": 75,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Technique 1: Gradient Checking",
+          "source_line": 87,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "12. 可运行的失败、梯度检查与累加核对"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Technique 2: Activation Statistics",
+          "source_line": 118,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Technique 3: Gradient Flow Visualization",
+          "source_line": 129,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Technique 4: The Overfit-One-Batch Test",
+          "source_line": 147,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "13. 小批过拟合、LR range test与诊断副作用"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Technique 5: Learning Rate Finder",
+          "source_line": 162,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "13. 小批过拟合、LR range test与诊断副作用"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Common PyTorch Bugs",
+          "source_line": 180,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Master Debugging Table",
+          "source_line": 195,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 214,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 1: The NetworkDebugger Class",
+          "source_line": 218,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 2: The Overfit-One-Batch Test",
+          "source_line": 343,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "13. 小批过拟合、LR range test与诊断副作用"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 3: Learning Rate Finder",
+          "source_line": 374,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "13. 小批过拟合、LR range test与诊断副作用"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 4: Gradient Checker",
+          "source_line": 424,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "12. 可运行的失败、梯度检查与累加核对"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Step 5: Deliberately Broken Networks",
+          "source_line": 498,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 596,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "14. NaN、内存、profiler与可持续排错"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "PyTorch Built-in Tools",
+          "source_line": 598,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "14. NaN、内存、profiler与可持续排错"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Weights & Biases Integration",
+          "source_line": 620,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "14. NaN、内存、profiler与可持续排错"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "TensorBoard",
+          "source_line": 640,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "14. NaN、内存、profiler与可持续排错"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "The Debug Checklist (Before Full Training)",
+          "source_line": 657,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "14. NaN、内存、profiler与可持续排错"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 667,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "14. NaN、内存、profiler与可持续排错"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 679,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 691,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "1. 框架组织的是什么"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 706,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "按知识融合；术语合正文、品牌/宣传/定量性能/旧配置不机械保留"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py",
+          "symbol": "NetworkDebugger",
+          "line_start": 7,
+          "line_end": 137,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py",
+          "symbol": "overfit_one_batch",
+          "line_start": 140,
+          "line_end": 171,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "13. 小批过拟合、LR range test与诊断副作用"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py",
+          "symbol": "find_learning_rate",
+          "line_start": 174,
+          "line_end": 223,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "13. 小批过拟合、LR range test与诊断副作用"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py",
+          "symbol": "_flat_to_multi_index",
+          "line_start": 226,
+          "line_end": 232,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "12. 可运行的失败、梯度检查与累加核对"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py",
+          "symbol": "gradient_check",
+          "line_start": 235,
+          "line_end": 294,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "12. 可运行的失败、梯度检查与累加核对"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py",
+          "symbol": "demo_broken_networks",
+          "line_start": 297,
+          "line_end": 396,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "核心操作/训练/状态在正文重建或核验；大型下载入口不执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "Why is neural network debugging harder than traditional software debugging?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "What is the 'overfit one batch' debugging technique?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "13. 小批过拟合、LR range test与诊断副作用"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "Your loss is NaN after a few training steps. What is the most likely cause?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "14. NaN、内存、profiler与可持续排错"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "Your training loss decreases but validation loss stays flat from the start. What does this indicate?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "What should you check first when your loss curve is completely flat (loss doesn't decrease at all)?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "概念/误区融入原理和可核对例子；原答案的绝对化边界已纠正"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**Add an exploding gradient detector.** Modify the `NetworkDebugger` to detect when gradients exceed a threshold and automatically suggest a gradient clipping value. Test it on a 20-layer network with no normalization.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 14,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**Build a dead neuron resurrector.** Write a function that identifies dead ReLU neurons (always outputting 0) and reinitializes their incoming weights with Kaiming initialization. Show that this recovers a network where >70% of neurons are dead.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 15,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**Implement the learning rate finder with plotting.** Extend `find_learning_rate` to save results as a CSV and write a separate script that reads the CSV and displays the LR vs loss curve using matplotlib. Identify the optimal LR for ResNet-18 on CIFAR-10.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 6,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 4,
+          "description": "**Create a data pipeline validator.** Write a function that checks for: duplicate samples across train/test splits, label distribution imbalance (>10:1 ratio), input normalization (mean near 0, std near 1), and NaN/Inf values in the data. Run it on a deliberately corrupted dataset.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 16,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        },
+        {
+          "source_exercise": 5,
+          "description": "**Debug a real failure.** Take the mini-framework from Lesson 10, introduce a subtle bug (e.g., transpose the weight matrix in backward), and use gradient checking to locate exactly which parameter has incorrect gradients. Document the debugging process.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "15. 练习、参考过程与验收边界"
+          },
+          "answer_number": 17,
+          "disposition": "保留方法与参考过程，CPU可执行核心验证；大数据/GPU/第三方工程未编造实测"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "source_line": 37,
+          "diagram_sha256": "6980cf43d533732b3d81b9d6f26d07b0c7dde6e8f06dd43bdb99f9c9929e36d6",
+          "type": "flowchart TD",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "图中职责/调用顺序/梯度路径转成解释和代码；示意值不当真实训练证据"
+        },
+        {
+          "source_line": 105,
+          "diagram_sha256": "a5f0686b5ed1f9674f9fc4ce7c8c58094149742859ea06aeb621272b1533d31a",
+          "type": "flowchart LR",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "12. 可运行的失败、梯度检查与累加核对"
+          },
+          "disposition": "图中职责/调用顺序/梯度路径转成解释和代码；示意值不当真实训练证据"
+        },
+        {
+          "source_line": 133,
+          "diagram_sha256": "25792db00fc1f0e91d8ac20018a39214674b686f6f8d105070c00688c49b4b29",
+          "type": "graph LR",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "图中职责/调用顺序/梯度路径转成解释和代码；示意值不当真实训练证据"
+        },
+        {
+          "source_line": 140,
+          "diagram_sha256": "3fd4f5e1f48b0c8e14d9c5d490a1c5038d0ddd2e62b0b017d3cc24187af559f7",
+          "type": "graph LR",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "11. 从症状到证据，不把启发式写成诊断结论"
+          },
+          "disposition": "图中职责/调用顺序/梯度路径转成解释和代码；示意值不当真实训练证据"
+        },
+        {
+          "source_line": 166,
+          "diagram_sha256": "7196b7606116e4688e0a93c8716f28dbc796a4aa3f5aa11a632220e9686b1f88",
+          "type": "graph TD",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+            "section": "13. 小批过拟合、LR range test与诊断副作用"
+          },
+          "disposition": "图中职责/调用顺序/梯度路径转成解释和代码；示意值不当真实训练证据"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/03-deep-learning-core/13-debugging-neural-networks/outputs/prompt-nn-debugger.md",
+          "target": [
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "11. 从症状到证据，不把启发式写成诊断结论"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "12. 可运行的失败、梯度检查与累加核对"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "13. 小批过拟合、LR range test与诊断副作用"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "14. NaN、内存、profiler与可持续排错"
+            }
+          ],
+          "disposition": "任务/shape/状态/约束/诊断证据/恢复流程融合；无根据固定lr/规模/准确率/80%保证和外部上传不采纳"
+        },
+        {
+          "source_file": "phases/03-deep-learning-core/13-debugging-neural-networks/outputs/skill-debug-checklist.md",
+          "target": [
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "11. 从症状到证据，不把启发式写成诊断结论"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "12. 可运行的失败、梯度检查与累加核对"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "13. 小批过拟合、LR range test与诊断副作用"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+              "section": "14. NaN、内存、profiler与可持续排错"
+            }
+          ],
+          "disposition": "任务/shape/状态/约束/诊断证据/恢复流程融合；无根据固定lr/规模/准确率/80%保证和外部上传不采纳"
+        }
+      ],
+      "complete_read": true
+    }
+  ],
+  "figures": [
+    {
+      "source_file": "site/figures-dl.js",
+      "file_sha256": "f0c1a2077987dd28f02ee8b3565830e6a7e9b76731f18f1430ccf5512e6266e5",
+      "function": "gradientClipping",
+      "line_start": 418,
+      "line_end": 461,
+      "function_sha256": "e80fec9c673862dd08f9b05f1e9c470c9428c2d6ef4666081cf5072997343d36",
+      "target": {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "section": "12. 可运行的失败、梯度检查与累加核对"
+      },
+      "read": "已读固定点/分布/手工曲线/裁剪响应的生成逻辑",
+      "disposition": "只吸收语义；固定比例dropout、高斯BN示意、容量/epoch混轴与U形曲线的限制已明确"
+    },
+    {
+      "source_file": "site/figures-dl.js",
+      "file_sha256": "f0c1a2077987dd28f02ee8b3565830e6a7e9b76731f18f1430ccf5512e6266e5",
+      "function": "dropoutMask",
+      "line_start": 302,
+      "line_end": 338,
+      "function_sha256": "3712f3185660e899b27817ba8178398fd5b247bcfaf00dac0ed5f16cfa5111e5",
+      "target": {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "section": "4. 训练与推理模式：Dropout和BatchNorm不能照抄错误简化"
+      },
+      "read": "已读固定点/分布/手工曲线/裁剪响应的生成逻辑",
+      "disposition": "只吸收语义；固定比例dropout、高斯BN示意、容量/epoch混轴与U形曲线的限制已明确"
+    },
+    {
+      "source_file": "site/figures-dl.js",
+      "file_sha256": "f0c1a2077987dd28f02ee8b3565830e6a7e9b76731f18f1430ccf5512e6266e5",
+      "function": "batchnormEffect",
+      "line_start": 341,
+      "line_end": 377,
+      "function_sha256": "7a37af21753862592fda9f1bb72d2b835734ed971431f4396fc829eeb8cb301f",
+      "target": {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "section": "4. 训练与推理模式：Dropout和BatchNorm不能照抄错误简化"
+      },
+      "read": "已读固定点/分布/手工曲线/裁剪响应的生成逻辑",
+      "disposition": "只吸收语义；固定比例dropout、高斯BN示意、容量/epoch混轴与U形曲线的限制已明确"
+    },
+    {
+      "source_file": "site/figures-dl.js",
+      "file_sha256": "f0c1a2077987dd28f02ee8b3565830e6a7e9b76731f18f1430ccf5512e6266e5",
+      "function": "learningCurves",
+      "line_start": 380,
+      "line_end": 415,
+      "function_sha256": "e47887fdadfcc13e945b9f7a10ec6fbe8ff0ddaf1d970e71b5dc9ce93e435005",
+      "target": {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "section": "13. 小批过拟合、LR range test与诊断副作用"
+      },
+      "read": "已读固定点/分布/手工曲线/裁剪响应的生成逻辑",
+      "disposition": "只吸收语义；固定比例dropout、高斯BN示意、容量/epoch混轴与U形曲线的限制已明确"
+    }
+  ],
+  "corrections": [
+    {
+      "lesson": "10",
+      "issue": "原源码与正文BatchNorm实现互异且不是完整批BN反向",
+      "resolution": "公式保留均值/方差依赖；NumPy完整VJP差分；对原类重现analytic≈.999995但numeric≈.000005"
+    },
+    {
+      "lesson": "10",
+      "issue": "DataLoader分组却每样本zero/backward/step，误叫mini-batch",
+      "resolution": "真正矩阵批量loss平均/每批step；不等微批权重与尾批解释"
+    },
+    {
+      "lesson": "10",
+      "issue": "Module接口要求backward被混为PyTorch接口",
+      "resolution": "区分manual链式模块与张量tape，原创Tensor/VJP图引擎，PyTorch无需每层manual backward"
+    },
+    {
+      "lesson": "10",
+      "issue": "quiz把forward-loss-zero-backward-step也列错误",
+      "resolution": "关键是本次反向前清旧梯度，forward前或loss后均可；微批累加另有边界"
+    },
+    {
+      "lesson": "10",
+      "issue": "共享参数step重复、BN/dropout缓存、损失clamp梯度及Adam-L2含混",
+      "resolution": "对象身份去重、显式模式/完整BN、稳定CE/logits BCE说明、衰减算法由优化主章统一"
+    },
+    {
+      "lesson": "11",
+      "issue": "reshape必O(1)、view必须全连续、所有grad只叶无例外",
+      "resolution": "回链既有view/stride/reshape数学章；明确默认叶grad与retain_grad/显式VJP"
+    },
+    {
+      "lesson": "11",
+      "issue": "500倍速度、MNIST98%/BN提升、workers/mixed precision翻倍保证",
+      "resolution": "删无当前证据数字，CPU合成可复现；timing只对同工作负载同精度同步测量"
+    },
+    {
+      "lesson": "11",
+      "issue": "普通列表模块登记、buffer/state_dict范围、仅权重等完整resume",
+      "resolution": "ModuleList/Parameter/register_buffer、模型配置、optimizer/RNG/采样/日程状态和deepcopy"
+    },
+    {
+      "lesson": "11",
+      "issue": "原IDX解析未核magic/长度，截断标签未拒绝",
+      "resolution": "完整小gzip IDX夹具和边界校验；原函数缺陷实际重现，没下载MNIST"
+    },
+    {
+      "lesson": "11",
+      "issue": "梯度累加丢弃非整除尾组，不等批损失缩放不正确",
+      "resolution": "按真实样本数加权；torch整批对照；BN/dropout微批差异明确"
+    },
+    {
+      "lesson": "11",
+      "issue": "AMP全部half/固定50%内存，裁剪未先unscale",
+      "resolution": "算子精度/Scaler状态与accumulation边界；CUDA片段仅官方核验未运行"
+    },
+    {
+      "lesson": "12",
+      "issue": "JAX只能无类/JIT、数组必在GPU且CPU不参与；PyTorch无函数式编译",
+      "resolution": "JAX eager与CPU、显式状态/可封装类；torch.func/compile官方核查"
+    },
+    {
+      "lesson": "12",
+      "issue": "任何Python for必须lax；vmap必单kernel/10-100倍；逐样本梯度PyTorch近乎不可能",
+      "resolution": "静态小循环可trace、编译图成本；正确vmap batch轴与jit分工，torch.func能力保留"
+    },
+    {
+      "lesson": "12",
+      "issue": "tree.leaves数量推断MLP层数、PRNG明确即跨平台逐位保证",
+      "resolution": "显式层tuple/配置，叶size用于计参数；split/key复用与版本/设备边界"
+    },
+    {
+      "lesson": "12",
+      "issue": "原JIT timing只同步jit不等待非jit/预热结束",
+      "resolution": "两边同步预热，首调编译独立；CPU微基准不承诺任何固定倍数"
+    },
+    {
+      "lesson": "12",
+      "issue": "pmap包一层即完成大规模训练；旧部署服务/安装；LAMB叫二阶",
+      "resolution": "按当前官方pmap旧定位与shard_map导航；保留SPMD/通信/mesh原则，不固化旧部署；LAMB为适应式一阶"
+    },
+    {
+      "lesson": "13",
+      "issue": "50%ReLU零值即死亡、固定均值0/std1健康、固定梯度阈值/比例顺序误判",
+      "resolution": "单元跨数据活跃/更新证据、明确层顺序/RMS；原HEALTHY例子52%仍被DEAD_NEURONS误报实际记录"
+    },
+    {
+      "lesson": "13",
+      "issue": "小批不达100%必代码bug/通过代表全训练正确",
+      "resolution": "表达能力、标签冲突、正则/优化与仅局部闭环的边界；CPU小批程序明确假设"
+    },
+    {
+      "lesson": "13",
+      "issue": "NaN一律lr/clip，所有log加eps与除法加eps；shuffle再split必泄漏",
+      "resolution": "首次非有限值/定义域定位，稳定损失；split依时间/实体/近似IID场景"
+    },
+    {
+      "lesson": "13",
+      "issue": "梯度检查原地改训练dtype/所有目标double/随机与BN副作用，LR finder只恢复权重",
+      "resolution": "独立double光滑gradcheck、不改原model；候选副本与完整上下文恢复原则"
+    },
+    {
+      "lesson": "13",
+      "issue": "普通软件必崩溃、标签错率/60%-70%调试时间无普遍证据；W&B自动上传",
+      "resolution": "删不明比例、承认传统静默错误；本地记录优先，外部服务不默认执行"
+    }
+  ],
+  "output_files": [
+    "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+    "Python/实践/02-调试日志与性能定位.md"
+  ],
+  "output_checksums": [
+    {
+      "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+      "sha256": "b008d58d12c6fcfc8cb2cc85ea9356fb5e3e92626b07981624d719a54c980f14",
+      "lines": 897
+    },
+    {
+      "file": "Python/实践/02-调试日志与性能定位.md",
+      "sha256": "567c88e45daaa09c6c36edd3cf58cae24cc67b1352dc96083732b4504327fc37",
+      "lines": 153
+    }
+  ],
+  "fusion": [
+    "数学04管张量形状/视图、数学06管链式与标量自动微分；18扩展张量VJP/模块/真实状态和排错，不另造源站目录",
+    "深度01/05/09只读回链，训练/优化/正则基础与其他组统一；18有可运行框架与局部验证",
+    "Python实践02保留通用CPU调试/日志/计时/内存入口，框架长章由18维护，原Tensor摘要长段已去重"
+  ],
+  "official_verification": [
+    {
+      "topic": "BN",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.BatchNorm1d.html",
+      "sha256": "26cc81a08c592506278ab925face624579adb712154c2e837aab2605d562c5a3",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "ModuleList",
+      "url": "https://docs.pytorch.org/docs/2.14/generated/torch.nn.ModuleList.html",
+      "sha256": "1a242ee86722a16324c5afe37c9461c0d73d9c7f0ae8989875e961d0788d4083",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "amp",
+      "url": "https://docs.pytorch.org/docs/stable/notes/amp_examples.html",
+      "sha256": "3f8edba20931f11a8039fed89f16e53c2c5f05146b4cf2f3eea8d0acd76233e7",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "autograd",
+      "url": "https://docs.pytorch.org/docs/stable/notes/autograd.html",
+      "sha256": "e345515243b232883d7d23b8c99461abb0afd1a68d0a27c90ffcbf42ed74377a",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "dataloader",
+      "url": "https://docs.pytorch.org/docs/stable/data.html",
+      "sha256": "25f790332b427b06d74c961274b2d31aea6f019bf2420d82ca25d4228d85b614",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "equinox",
+      "url": "https://docs.kidger.site/equinox/api/nn/mlp/",
+      "sha256": "e2a3ae764827a86ff413ea702e052bf8f7d50164dfbc3ac2613f8201ed2e4854",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "flax-linen",
+      "url": "https://flax.readthedocs.io/en/latest/api_reference/flax.linen/module.html",
+      "sha256": "3f014c301496ed757410990d660a29135a31c4803531e5609ac313ee5e624760",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "func",
+      "url": "https://docs.pytorch.org/docs/stable/func.html",
+      "sha256": "c6e5a048e940e3285e8396998b09bed1ce35b09059303ae1166094869738f4c9",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "gradcheck",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.autograd.gradcheck.gradcheck.html",
+      "sha256": "ba2f22482542609f075cc34769aabb7a135f7b5b981a092493e380a9e92bab17",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "jax-async",
+      "url": "https://docs.jax.dev/en/latest/async_dispatch.html",
+      "sha256": "42a01fd7c83f266d3d2f44a470a5eab9c943f479a106ea166fe82f3895fc9694",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "jax-debug",
+      "url": "https://docs.jax.dev/en/latest/debugging.html",
+      "sha256": "cbe1d1dbf3d6026656cae3b860b6d55e7bdaa6086db6f31ec14d3eff28da7c66",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "jax-jit",
+      "url": "https://docs.jax.dev/en/latest/jit-compilation.html",
+      "sha256": "07e876c461c80b9e45fa34e2bfb3c2c095325c93a2b476e8d5230bb7c1f0094e",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "jax-pmap",
+      "url": "https://docs.jax.dev/en/latest/_autosummary/jax.pmap.html",
+      "sha256": "ab0724aeca81820714d55818679c66f7b6ed1c584041fe0ab8b6cd699a4eaf73",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "jax-rng",
+      "url": "https://docs.jax.dev/en/latest/random-numbers.html",
+      "sha256": "6ff06ea57384cf95bbf1202641f01db6231dd8f3d3ebf71718070c6765ddab36",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "jax-state",
+      "url": "https://docs.jax.dev/en/latest/stateful-computations.html",
+      "sha256": "944fc761d36351c710d892c0c214d2a4bceca777e764b297ab48734a46936e9c",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "jax-vmap",
+      "url": "https://docs.jax.dev/en/latest/automatic-vectorization.html",
+      "sha256": "cb85a63191fc8fabda5c8e9c7341c4c5f706824263e7e6c7efafb8ccab474487",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "module",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html",
+      "sha256": "25aeef38ced6aa7fd2a07d98e40ca41bd1262ad2668beba6301c3934b3aebe58",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "optax",
+      "url": "https://optax.readthedocs.io/en/latest/api/optimizers.html",
+      "sha256": "94b61f2e04cc00ec5b8251095167e94041e4eac99d17e23918ea1fad8f8800cb",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "save",
+      "url": "https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html",
+      "sha256": "b9b45218a4d74f7d7be8dbdb611f878572bbcf0620b46a6ab034433ac6b7579b",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "torch-compile",
+      "url": "https://docs.pytorch.org/docs/2.14/generated/torch.compile.html",
+      "sha256": "08f67e2bf4a38e7642424b4c41c10685ece945ce97682f011892c7a1fa8b2228",
+      "backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "status": "非404内容读取"
+    },
+    {
+      "topic": "ModuleList/torch.compile/vmap",
+      "urls": [
+        "https://docs.pytorch.org/docs/2.14/generated/torch.nn.ModuleList.html",
+        "https://docs.pytorch.org/docs/2.14/generated/torch.compile.html",
+        "https://docs.jax.dev/en/latest/automatic-vectorization.html"
+      ],
+      "backend": "web 官方页面fallback，已跟随重定向",
+      "date": "2026-10-03",
+      "status": "已核验"
+    }
+  ],
+  "validation": {
+    "runtime": {
+      "Python": "3.12.13",
+      "PyTorch": "2.14.1",
+      "JAX": "0.11.2",
+      "JAXlib": "0.11.2",
+      "NumPy": "2.4.6",
+      "SciPy": "1.17.1",
+      "NumPy路径": "/tmp/study-source1-dl-runtime/numpy/__init__.py",
+      "测试设备": "CPU",
+      "JAX设备": [
+        "cpu:0"
+      ],
+      "梯度烟测": "PyTorch/JAX对x²均得[2,4]通过",
+      "配置": "临时PyPI wheel隔离目录，未修改全局Python安装；没有关闭OpenMP重复检查；未下载数据或模型"
+    },
+    "markdown_blocks": [
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 1,
+        "context_blocks": [],
+        "start_line": 23,
+        "source_sha256": "bb9546b20530ed1af5d08b4a53b42027b1919e51852e93924d2cfb85a2e4c07e",
+        "execution_sha256": "bb9546b20530ed1af5d08b4a53b42027b1919e51852e93924d2cfb85a2e4c07e",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.06,
+        "output": "重复路径、广播还原、显式VJP均通过\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 2,
+        "context_blocks": [
+          1
+        ],
+        "start_line": 190,
+        "source_sha256": "a272cf598f1e590d91e207541b78ab8c1b72c063ff30e090792bbdb9017aee13",
+        "execution_sha256": "1f6f6d58698d50b7c65902f7cf24c1918b436e95c5ce79c0d10f4768bb2c785d",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.209,
+        "output": "重复路径、广播还原、显式VJP均通过\n批量Adam步数 900 测试准确率 0.988 参数恢复一致\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 3,
+        "context_blocks": [],
+        "start_line": 326,
+        "source_sha256": "503f6ba2a01420cc4f11bbb94d854b345e25735697a728b6692465e55e610874",
+        "execution_sha256": "503f6ba2a01420cc4f11bbb94d854b345e25735697a728b6692465e55e610874",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.053,
+        "output": "BN完整VJP最大绝对误差 1.4978862594716702e-10\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 4,
+        "context_blocks": [],
+        "start_line": 377,
+        "source_sha256": "f2157e5766271946c06ac73bda9ed780297e216d18d9dc4b638be148c6e64724",
+        "execution_sha256": "f2157e5766271946c06ac73bda9ed780297e216d18d9dc4b638be148c6e64724",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.802,
+        "output": "IDX小夹具解析和损坏长度拒绝均通过\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 5,
+        "context_blocks": [],
+        "start_line": 422,
+        "source_sha256": "fb9b59793af4f7254e9abb520b1d5db230c8c1bacc9bf55fb884c4a10d5411fa",
+        "execution_sha256": "fb9b59793af4f7254e9abb520b1d5db230c8c1bacc9bf55fb884c4a10d5411fa",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 1.475,
+        "output": "CPU测试准确率 0.96 选中epoch 69 参数恢复一致\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 6,
+        "context_blocks": [],
+        "start_line": 517,
+        "source_sha256": "76dd830296ee43bbfa339eff702f200cb2ac8decc1088daa748a57ac95027929",
+        "execution_sha256": "76dd830296ee43bbfa339eff702f200cb2ac8decc1088daa748a57ac95027929",
+        "status": "未运行片段",
+        "reason": "CUDA AMP流程仅官方核验；依赖用户数据/模型，不是独立CPU程序"
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 7,
+        "context_blocks": [],
+        "start_line": 553,
+        "source_sha256": "4c08338768f45e93559c67186eb114aa7a5815085e4efe0072211f8351744f98",
+        "execution_sha256": "4c08338768f45e93559c67186eb114aa7a5815085e4efe0072211f8351744f98",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 2.097,
+        "output": "JAX CPU测试准确率 0.96 逐样本梯度范数 [0.063 0.033 0.014 0.    2.95  2.21  0.17  0.   ]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 8,
+        "context_blocks": [],
+        "start_line": 626,
+        "source_sha256": "297979a1fcdc5be4b1a75398aa6f59d9341c3615c45163ce5a083f1611cb383a",
+        "execution_sha256": "297979a1fcdc5be4b1a75398aa6f59d9341c3615c45163ce5a083f1611cb383a",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.452,
+        "output": "dropout均值示例 1.005 分支与不可变更新通过\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 9,
+        "context_blocks": [],
+        "start_line": 653,
+        "source_sha256": "e110bf95f1546285e298b67b46e05967ffd6989239d80cae2477cd199105f6ea",
+        "execution_sha256": "e110bf95f1546285e298b67b46e05967ffd6989239d80cae2477cd199105f6ea",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.356,
+        "output": "首调含编译秒 0.024076916044577956 非jit每次秒 1.4672234343985717e-05 热jit每次秒 4.125002305954695e-06\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 10,
+        "context_blocks": [],
+        "start_line": 703,
+        "source_sha256": "8e4d8c0a8b9482cad05b4d93a70b1bbf8720c99f069655c2f562788da0504daf",
+        "execution_sha256": "8e4d8c0a8b9482cad05b4d93a70b1bbf8720c99f069655c2f562788da0504daf",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 1.006,
+        "output": "detach失败被捕获、修复有更新、gradcheck与不等微批梯度核对通过\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 11,
+        "context_blocks": [],
+        "start_line": 759,
+        "source_sha256": "1ecbdc4d6d332e5c31f26d4f5a77cae20f033fe88c2f17ebb100cf44dcbbc075",
+        "execution_sha256": "1ecbdc4d6d332e5c31f26d4f5a77cae20f033fe88c2f17ebb100cf44dcbbc075",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 1.044,
+        "output": "小批准确率 1.0 损失 0.000158 激活摘要数 3\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/18-张量框架与模型调试.md",
+        "block": 12,
+        "context_blocks": [],
+        "start_line": 808,
+        "source_sha256": "d4301574b21a4bc3f1f8a8d2e23bb86a3e59e0650200521e380caf707f57610b",
+        "execution_sha256": "d4301574b21a4bc3f1f8a8d2e23bb86a3e59e0650200521e380caf707f57610b",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 1.464,
+        "output": "LR扫描记录数 35 原参数/模式不变，CSV往返通过\n",
+        "stderr": ""
+      }
+    ],
+    "golden_gradient": {
+      "checks": "手写Tensor与PyTorch权重/输入/偏置/高维广播/种子VJP/稳定CE对照",
+      "status": "通过",
+      "returncode": 0,
+      "stdout": "重复路径、广播还原、显式VJP均通过\n矩阵/偏置/三维广播/归约VJP/极端logits与PyTorch一致，非整数标签被拒绝\n",
+      "stderr": ""
+    },
+    "original_probes": [
+      {
+        "lesson": "10-mini-framework",
+        "scope": "指定只读导入/小合成函数/原缺陷反例；没有执行网络下载入口",
+        "returncode": 0,
+        "status": "执行通过",
+        "seconds": 0.073,
+        "stdout": "Linear局部梯度通过；原BN单点backward对批forward不一致: 0.9999950000374997 4.999928249205254e-06\n源码训练每样本step为静态逐行确认；完整三轮训练未运行\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "11-intro-to-pytorch",
+        "scope": "指定只读导入/小合成函数/原缺陷反例；没有执行网络下载入口",
+        "returncode": 0,
+        "status": "执行通过",
+        "seconds": 1.357,
+        "stdout": "\n============================================================\n  Tensor Basics\n============================================================\n\n  torch.randn(3, 4):\n    shape=torch.Size([3, 4]), dtype=torch.float32, device=cpu\n\n  .to(torch.int8):\n    dtype=torch.int8\n\n  .view(2, 6):\n    shape=torch.Size([2, 6])\n\n  .unsqueeze(0):\n    shape=torch.Size([1, 3, 4])\n\n============================================================\n  Autograd Demo\n============================================================\n\n  x = [1.0, 2.0, 3.0]\n  y = x^2 + 3x\n  z = sum(y) = 32.0\n  dz/dx = 2x + 3 = [5.0, 7.0, 9.0]\n\n  Step 0: loss=2.0240, grad=[0.27464818954467773, 0.481092244386673, 2.7909016609191895]\n\n  Step 1: loss=1.2954, grad=[0.2197185456752777, 0.38487380743026733, 2.2327213287353516]\n\n  Step 2: loss=0.8290, grad=[0.17577484250068665, 0.3078990578651428, 1.7861770391464233]\n原训练函数合成数据一轮 (2.304361939430237, 0.1875)\n原评估函数 (2.3593459129333496, 0.0)\n原标签解析器没有拒绝n=2但仅1字节的截断payload\n没有调用原download_mnist/load_data/完整MNIST训练\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "12-intro-to-jax",
+        "scope": "指定只读导入/小合成函数/原缺陷反例；没有执行网络下载入口",
+        "returncode": 0,
+        "status": "执行通过",
+        "seconds": 1.73,
+        "stdout": "=== jax.grad demo ===\nf(2.0)   = 8.0\nf'(2.0)  = 12.0\nf''(2.0) = 12.0\n\n=== jax.vmap demo ===\nInput shape:  (5, 3)\nOutput shape: (5,)\nPredictions:  [-1.5154235  -0.5274848   0.3440321  -0.31137884  0.52590704]\n\n原MLP前向loss与参数梯度有限 3.346118927001953\n只执行白名单函数；未导入Optax/下载MNIST/执行1000矩阵计时与大训练\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "13-debugging-neural-networks",
+        "scope": "完整原程序CPU执行，无网络下载",
+        "returncode": 0,
+        "status": "执行通过",
+        "seconds": 1.12,
+        "stdout": "============================================================\nDEBUGGING NEURAL NETWORKS -- Phase 3, Lesson 13\n============================================================\n============================================================\nBUG 1: Learning rate too high (lr=10)\n============================================================\n\n=== NETWORK DEBUGGER REPORT ===\n\nLoss health: NOT_DECREASING\n  Last 5 losses: ['130706.6016', '2002789.0000', '1532422.2500', '108120.3359', '18085.9629']\n\nActivation diagnostics:\n  EXPLODING_ACTIVATIONS: 0 mean=-1532.40\n  DEAD_NEURONS: 1 has 84% zero activations\n  EXPLODING_ACTIVATIONS: 1 mean=276.82\n  EXPLODING_ACTIVATIONS: 2 mean=-268.47\n\nGradient diagnostics:\n  HEALTHY\n\nPer-layer activation stats:\n  0: mean=-1532.4026 std=4872.2778 zero=0.0%\n  1: mean=276.8246 std=1292.5792 zero=84.4%\n  2: mean=-268.4688 std=16827974.0000 zero=0.0%\n\nPer-layer gradient stats:\n  2: abs_mean=1.46e-03 max=1.56e-02\n  1: abs_mean=1.39e+00 max=8.51e+01\n  0: abs_mean=1.88e-02 max=2.71e+01\n\n============================================================\nBUG 2: Dead ReLUs from bad initialization\n============================================================\n\n=== NETWORK DEBUGGER REPORT ===\n\nLoss health: NOT_DECREASING\n  Last 5 losses: ['0.6887', '0.6886', '0.6886', '0.6885', '0.6884']\n\nActivation diagnostics:\n  DEAD_NEURONS: 1 has 97% zero activations\n  DEAD_NEURONS: 3 has 100% zero activations\n  COLLAPSED_ACTIVATIONS: 3 std=0.00e+00\n\nGradient diagnostics:\n  VANISHING_GRADIENT: 3 abs_mean=0.00e+00\n  VANISHING_GRADIENT: 2 abs_mean=0.00e+00\n  VANISHING_GRADIENT: 1 abs_mean=0.00e+00\n  VANISHING_GRADIENT: 0 abs_mean=0.00e+00\n\nPer-layer activation stats:\n  0: mean=-5.2569 std=3.2062 zero=0.0%\n  1: mean=0.0757 std=0.4221 zero=96.9%\n  2: mean=-7.4230 std=13.5083 zero=0.0%\n  3: mean=0.0000 std=0.0000 zero=100.0%\n  4: mean=-5.0000 std=0.0465 zero=0.0%\n\nPer-layer gradient stats:\n  4: abs_mean=7.77e-03 max=8.17e-03\n  3: abs_mean=0.00e+00 max=0.00e+00\n  2: abs_mean=0.00e+00 max=0.00e+00\n  1: abs_mean=0.00e+00 max=0.00e+00\n  0: abs_mean=0.00e+00 max=0.00e+00\n\n============================================================\nBUG 3: Missing zero_grad (gradients accumulate)\n============================================================\n\n=== NETWORK DEBUGGER REPORT ===\n\nLoss health: HEALTHY\n  Last 5 losses: ['0.1275', '0.1187', '0.1096', '0.1002', '0.0906']\n\nActivation diagnostics:\n  DEAD_NEURONS: 1 has 50% zero activations\n\nGradient diagnostics:\n  HEALTHY\n\nPer-layer activation stats:\n  0: mean=0.0596 std=0.7368 zero=0.0%\n  1: mean=0.3101 std=0.4902 zero=50.1%\n  2: mean=0.1820 std=3.1386 zero=0.0%\n\nPer-layer gradient stats:\n  2: abs_mean=1.01e-03 max=1.19e-02\n  1: abs_mean=5.86e-04 max=2.09e-02\n  0: abs_mean=3.53e-04 max=1.81e-02\n\n============================================================\nHEALTHY NETWORK: Correct setup for comparison\n============================================================\n\n=== NETWORK DEBUGGER REPORT ===\n\nLoss health: HEALTHY\n  Last 5 losses: ['0.5944', '0.5908', '0.5872', '0.5836', '0.5799']\n\nActivation diagnostics:\n  DEAD_NEURONS: 1 has 52% zero activations\n\nGradient diagnostics:\n  HEALTHY\n\nPer-layer activation stats:\n  0: mean=-0.0076 std=0.6178 zero=0.0%\n  1: mean=0.2402 std=0.3637 zero=52.0%\n  2: mean=-0.1791 std=0.2987 zero=0.0%\n\nPer-layer gradient stats:\n  2: abs_mean=6.70e-03 max=1.06e-02\n  1: abs_mean=7.18e-04 max=2.91e-03\n  0: abs_mean=3.39e-04 max=2.55e-03\n\n============================================================\nOVERFIT-ONE-BATCH TEST\n============================================================\n\n=== OVERFIT ONE BATCH TEST ===\nBatch size: 8, Steps: 200\n  Step   0 | Loss: 0.805003 | Accuracy: 37.5%\n  Step  50 | Loss: 0.000775 | Accuracy: 100.0%\n  Step 100 | Loss: 0.000303 | Accuracy: 100.0%\n  Step 150 | Loss: 0.000200 | Accuracy: 100.0%\n  Step 199 | Loss: 0.000142 | Accuracy: 100.0%\n\n  PASS: Loss converged to 0.000142\n\n============================================================\nLEARNING RATE FINDER\n============================================================\n\n=== LEARNING RATE FINDER ===\n  Swept 100 steps from 1e-07 to 8e+00\n  Minimum loss 0.0172 at lr=8.32e+00\n  Suggested learning rate: 1.32e+00\n\n============================================================\nGRADIENT CHECK (smooth model + MSE loss for clean finite differences)\n============================================================\n\n=== GRADIENT CHECK ===\n  0.weight: max_rel_diff=1.03e-08 [OK]\n  0.bias: max_rel_diff=5.05e-09 [OK]\n  2.weight: max_rel_diff=3.93e-12 [OK]\n  2.bias: max_rel_diff=1.94e-13 [OK]\n\n  Checked 14 parameters\n  PASS: Gradients match (rel_diff < 1e-5)\n",
+        "stderr": "/tmp/study-source1-ai-engineering/phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py:314: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.\n  loss.backward()\n/tmp/study-source1-ai-engineering/phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py:341: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.\n  loss.backward()\n/tmp/study-source1-ai-engineering/phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py:356: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.\n  loss.backward()\n/tmp/study-source1-ai-engineering/phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py:372: UserWarning: Full backward hook is firing when gradients are computed with respect to module outputs since no inputs require gradients. See https://docs.pytorch.org/docs/main/generated/torch.nn.Module.html#torch.nn.Module.register_full_backward_hook for more details.\n  loss.backward()\n"
+      }
+    ],
+    "structure": {
+      "files": 2,
+      "errors": []
+    }
+  },
+  "not_run": [
+    "CUDA/MPS/GPU AMP/多设备/TPU没有执行",
+    "原mini框架完整3次100epoch训练未运行，做了Linear与BN缺陷小探针",
+    "MNIST/Fashion-MNIST/CIFAR下载与完整训练未执行，IDX只用自生成小夹具",
+    "原JAX原文件顶层Optax/下载大训练没执行，只白名单基础与小MLPloss/梯度",
+    "Optax/Flax/Equinox/Orbax完整第三方工程与TensorBoard/W&B服务未执行",
+    "20层诊断/神经元重初始化/三类螺旋/CIFAR的开放练习只保留流程与判据，不编造效果"
+  ],
+  "final_status": "独占两文件已写入，正文11程序通过/1 CUDA非独立片段未运行；待root统一复核",
+  "统一验收日期": "2026-10-04",
+  "原核验日期说明": "原来源与定点官方核验保留原实际日期，不因隔日验收全部改成今天。",
+  "整体完成边界": "本批仅第1来源Phase03十三课；第1来源和五站尚未完成。"
+}
