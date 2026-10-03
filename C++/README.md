@@ -1,6 +1,6 @@
 # C++ 学习笔记
 
-当前目录按学习用途整理为三部分：
+当前目录按学习用途整理为两部分：
 
 ```text
 C++/
@@ -22,10 +22,8 @@ C++/
 │   ├── 14-Multithreading.md
 │   ├── 15-Modern-Features.md
 │   └── 16-Best-Practices.md
-├── Modern-C++/
-│   └── C++11/14/17/20 专题笔记
-└── Resources/
-    └── modern-cpp-tutorial-en-us.pdf
+└── Modern-C++/
+    └── C++11/14/17/20 专题笔记
 ```
 
 ## Core · C++ 基础主线
@@ -63,14 +61,16 @@ C++/
 - concepts、modules、ranges、coroutines
 - Modern C++ 工程最佳实践
 
-## Resources · 原始资料
+## 来源记录
 
-- [Modern C++ Tutorial: C++11/14/17/20 On the Fly](./Resources/modern-cpp-tutorial-en-us.pdf)
+原始资料完成吸收后不在 Study 中长期保留文件本体；需要时从官方入口重新获取。
 
-## 来源
-
-- Compile N Run C++ Tutorial: https://www.compilenrun.com/docs/language/cpp/
-- Modern C++ Tutorial: C++11/14/17/20 On the Fly — Changkun Ou
+- Compile N Run C++ Tutorial：https://www.compilenrun.com/docs/language/cpp/
+- Modern C++ Tutorial — Changkun Ou
+  - 官方网站：https://changkun.de/modern-cpp/
+  - 官方 GitHub：https://github.com/changkun/modern-cpp-tutorial
+  - 本轮曾使用的英文 PDF 下载页：https://changkun.de/modern-cpp/pdf/modern-cpp-tutorial-en-us.pdf
+  - 处理方式：知识已吸收到 `Core/` 与 `Modern-C++/`，原始 PDF 不再保存在仓库中。
 
 ## 从零开始的学习方式
 
