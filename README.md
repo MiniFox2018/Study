@@ -21,6 +21,7 @@
 - [LLM 工程实践](./LLM%20%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/README.md)
 - [Agentic Design Patterns](./Agentic%20Design%20Patterns/README.md)
 - [C++](./C++/)
+- [Python](./Python/README.md)
 
 ## 来源保全
 
