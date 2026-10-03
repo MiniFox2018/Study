@@ -232,7 +232,7 @@ $$
 
 先划分训练、验证、测试，再只在训练数据上拟合标准化与 PCA；验证与测试只调用 `transform`。所有调参包括 $k$ 和核参数只看训练/验证，最终测试保留到最后。
 
-可以用本地自带数字数据代替需要联网下载的 MNIST，减少首次学习的环境障碍。以下代码依赖 scikit-learn；2026-10-03 当前环境没有该依赖，只核验接口和语法，尚未实际运行此分类示例：
+可以用本地自带数字数据代替需要联网下载的 MNIST，减少首次学习的环境障碍。以下代码依赖 scikit-learn。首批验收时缺依赖未运行；2026-10-03 后续批次已用隔离的 scikit-learn 1.9.1 实际执行，同一数字数据得到验证准确率约0.9333、0.9644、0.9711，对应解释方差约0.7386、0.9599、0.9996。它只说明此数据与划分下的结果，不是PCA组件越多必然越好的保证：
 
 ```python
 from sklearn.datasets import load_digits
@@ -309,7 +309,7 @@ perplexity 是邻域分布的有效规模，不是固定每点取该数目的邻
 
 高维稠密输入先做几十维 PCA 常能加速和减噪；稀疏文本可先 TruncatedSVD，避免密集中心化。但“所有输入都必须先 PCA 50 维”不是定理，不能在只有 20 个特征时强行取 50。
 
-以下示例依赖 scikit-learn；2026-10-03 当前环境未提供该依赖，此 t-SNE 示例尚未运行，未生成或验收二维图：
+以下示例依赖 scikit-learn。首批缺依赖未运行；2026-10-03 后续批次已用隔离的 scikit-learn 1.9.1 实际计算得到 `(300, 2)`。未绘制和视觉验收完整邻域图，也未运行所有参数/种子组合：
 
 ```python
 from sklearn.datasets import load_digits
@@ -425,3 +425,7 @@ assert np.allclose(A @ v, sigma * u)
 - 图示的 PCA 轴、奇异谱保留和秩变化含义已改写为可复算数据；上游 SVD 图以能量混灰模拟“重建”的部分不作为真实低秩实验结果保存。
 - 官方核对：[NumPy SVD](https://numpy.org/doc/stable/reference/generated/numpy.linalg.svd.html)的约化因子维数与 `Vh`；[scikit-learn PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)的中心化及求解器；[TSNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html)的 `max_iter` 与近似方法；[UMAP 参数](https://umap-learn.readthedocs.io/en/latest/parameters.html)。核验日期 2026-10-03。
 - 本文纠正“95%方差等于95%知识”“低方差必是噪声”“全部 PCA 实现只用直接 SVD”“核 PCA 第一成分必分同心圆”等过度结论。可运行小例子与选定本地数字示例单独验证；MNIST 下载、大规模推荐、UMAP 与多种子绘图不算已实测。
+
+## 后续批次补验
+
+首批保留当时的缺依赖记录；本轮补验结果单独保存于[前批补验](../../维护/五站吸收/02-前批补验.json)，以免把旧验收改写成当时已运行。

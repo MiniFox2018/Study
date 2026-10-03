@@ -1,0 +1,33 @@
+{
+  "日期": "2026-10-03",
+  "版本": {
+    "scikit-learn": "1.9.1",
+    "optuna": "5.0.0",
+    "statsmodels": "0.15.0",
+    "sqlalchemy": "2.1.3",
+    "alembic": "1.20.0"
+  },
+  "结果": [
+    {
+      "文档": "AI 算法基础/机器学习专题/08-调参搜索与实验预算.md",
+      "代码块": 4,
+      "代码SHA256": "50dd54331a3750f67229ed4675ba016506fde4a7e5d1b9049976185bf3fba509",
+      "退出码": 0,
+      "输出": "{'alpha': 0.00031489116479568613} 0.21521883242073298\n",
+      "错误输出": "[I 2026-10-03 18:08:12,728] A new study created in memory with name: no-name-6ecea923-2442-4084-8db5-59a7ebd34963\n[I 2026-10-03 18:08:12,760] Trial 0 finished with value: 0.21521883242073298 and parameters: {'alpha': 0.00031489116479568613}. Best is trial 0 with value: 0.21521883242073298.\n[I 2026-10-03 18:08:12,788] Trial 1 finished with value: 0.49278083615265217 and parameters: {'alpha': 0.06351221010640698}. Best is trial 0 with value: 0.21521883242073298.\n[I 2026-10-03 18:08:12,816] Trial 2 finished with value: 0.36023909560880774 and parameters: {'alpha': 0.008471801418819975}. Best is trial 0 with value: 0.21521883242073298.\n[I 2026-10-03 18:08:12,844] Trial 3 finished with value: 0.2907623581123643 and parameters: {'alpha': 0.0024810409748678114}. Best is trial 0 with value: 0.21521883242073298.\n[I 2026-10-03 18:08:12,873] Trial 4 finished with value: 1.5915960114322862 and parameters: {'alpha': 4.207988669606632e-05}. Best is trial 0 with value: 0.21521883242073298.\n[I 2026-10-03 18:08:12,880] Trial 5 pruned. \n[I 2026-10-03 18:08:12,886] Trial 6 pruned. \n[I 2026-10-03 18:08:12,898] Trial 7 pruned. \n[I 2026-10-03 18:08:12,927] Trial 8 finished with value: 0.2919799691140813 and parameters: {'alpha': 0.002537815508265664}. Best is trial 0 with value: 0.21521883242073298.\n[I 2026-10-03 18:08:12,943] Trial 9 pruned. \n[I 2026-10-03 18:08:12,950] Trial 10 pruned. \n[I 2026-10-03 18:08:12,956] Trial 11 pruned. \n[I 2026-10-03 18:08:12,962] Trial 12 pruned. \n[I 2026-10-03 18:08:12,991] Trial 13 finished with value: 0.24557596215804975 and parameters: {'alpha': 0.0011616954269466908}. Best is trial 0 with value: 0.21521883242073298.\n[I 2026-10-03 18:08:12,997] Trial 14 pruned. \n",
+      "通过": true,
+      "说明": "分组初验时未安装，本轮根级隔离环境补验，不覆盖历史报告"
+    },
+    {
+      "文档": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+      "代码块": 2,
+      "代码SHA256": "28dc907123e82c171471e24e7e447f4bbf6c30f8df7cf41c4100c4951e756f72",
+      "退出码": 0,
+      "输出": "ADF单位根检验 -5.879 0.0 滞后数 0\nARIMA未来MAE 0.648\n",
+      "错误输出": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-ml-optional-rextjmfi/program.py:11: FutureWarning: adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.\n  stat, pvalue, usedlag, nobs, critical, icbest = adfuller(train, regression='c', autolag='AIC')\n",
+      "通过": true,
+      "说明": "分组初验时未安装，本轮根级隔离环境补验，不覆盖历史报告"
+    }
+  ],
+  "配置变化": "仅临时runtime目录添加依赖，全局Python安装未修改"
+}
