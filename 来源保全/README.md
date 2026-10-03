@@ -17,3 +17,4 @@
 - [Microsoft Data Science for Beginners](./Data-Science-For-Beginners/README.md)
 - [Docker 从入门到实践 v1.11.0](./docker_practice-v1.11.0/README.md)
 - [Linux 学习资源：Linux101-docs + linux-tutorial](./linux-resources/README.md)
+- [AI Engineering from Scratch来源记录](./AI-Engineering-From-Scratch.md)：正在按批次吸收，未保存原始镜像。

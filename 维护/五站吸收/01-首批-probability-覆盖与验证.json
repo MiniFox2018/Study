@@ -1,0 +1,2593 @@
+{
+  "scope": {
+    "source": "rohitg00/ai-engineering-from-scratch",
+    "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+    "commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+    "date": "2026-10-03",
+    "lesson_ids": [
+      "06",
+      "07",
+      "09",
+      "15",
+      "16",
+      "21",
+      "22"
+    ],
+    "read_other_requested_websites": false,
+    "status": "本代理7课已吸收；网站1整体未验收，网站2至5未读取"
+  },
+  "changed_files": [
+    "AI 算法基础/02-概率统计与信息论.md",
+    "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+    "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+    "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+    "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md"
+  ],
+  "lessons": [
+    {
+      "lesson": "06-probability-and-distributions",
+      "status": "有效知识已写入当前7课分工范围；未声称整个第1来源完成",
+      "read_evidence": [
+        {
+          "path": "phases/01-math-foundations/06-probability-and-distributions/code/main.jl",
+          "bytes": 8654,
+          "sha256": "c7787c690a675e2dfa4ce8bf85831bd7765d0b2728c150f0d0f5124847583bad",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/06-probability-and-distributions/code/probability.py",
+          "bytes": 10747,
+          "sha256": "5f160aaf1f264b303b215948eb3aec67ee3f3c82ede071024d46a6679085735c",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/06-probability-and-distributions/docs/en.md",
+          "bytes": 15232,
+          "sha256": "6af905cb9c5318be55d10a25d9ba18b2dc253d8b8fe6b5b4cc32fe243d2e47f8",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/06-probability-and-distributions/outputs/skill-probability-reasoning.md",
+          "bytes": 4644,
+          "sha256": "1ca89d0efce01d78ba9bfb0c1d10aab4782fb4959fab719a00e1529e6f407899",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/06-probability-and-distributions/quiz.json",
+          "bytes": 3527,
+          "sha256": "8520d773b3479050d78db5cd752d53a28d9b39236334988839f86104fc87d168",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        }
+      ],
+      "lesson_local_tests": [],
+      "tests_note": "递归文件清单确认本课无独立tests目录/文件；Python演示和Study代码已运行，不能称独立测试套件",
+      "heading_coverage": [
+        {
+          "source_heading": "Learning Objectives",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "source_heading": "The Problem",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "source_heading": "The Concept",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "source_heading": "Events, Sample Spaces, and Probability",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "source_heading": "Conditional Probability and Independence",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "source_heading": "Probability Mass Functions vs Probability Density Functions",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "2. 概率质量、概率密度和累积分布"
+          }
+        },
+        {
+          "source_heading": "Common Distributions",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "4. 常见分布：先看变量和生成机制"
+          }
+        },
+        {
+          "source_heading": "Expected Value and Variance",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "3. 期望和波动：为什么平均值还不够"
+          }
+        },
+        {
+          "source_heading": "Joint and Marginal Distributions",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "2. 概率质量、概率密度和累积分布"
+          }
+        },
+        {
+          "source_heading": "Why the Normal Distribution Shows Up Everywhere",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "3. 期望和波动：为什么平均值还不够"
+          }
+        },
+        {
+          "source_heading": "Log Probabilities",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "5. 模型为何使用 logits 和对数概率"
+          }
+        },
+        {
+          "source_heading": "Softmax as a Probability Distribution",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "5. 模型为何使用 logits 和对数概率"
+          }
+        },
+        {
+          "source_heading": "Sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "2. 从 Uniform 产生其他分布"
+          }
+        },
+        {
+          "source_heading": "Build It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "source_heading": "Step 1: Probability basics",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "source_heading": "Step 2: PMF and PDF from scratch",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "4. 常见分布：先看变量和生成机制"
+          }
+        },
+        {
+          "source_heading": "Step 3: Expected value and variance",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "3. 期望和波动：为什么平均值还不够"
+          }
+        },
+        {
+          "source_heading": "Step 4: Sampling from distributions",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "2. 从 Uniform 产生其他分布"
+          }
+        },
+        {
+          "source_heading": "Step 5: Softmax and log probabilities",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "5. 模型为何使用 logits 和对数概率"
+          }
+        },
+        {
+          "source_heading": "Step 6: Central Limit Theorem demonstration",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "3. 期望和波动：为什么平均值还不够"
+          }
+        },
+        {
+          "source_heading": "Step 7: Visualization",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "4. 常见分布：先看变量和生成机制"
+          }
+        },
+        {
+          "source_heading": "Use It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "source_heading": "Exercises",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "10. 自查与实践参考答案"
+          }
+        },
+        {
+          "source_heading": "Key Terms",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "source_heading": "Further Reading",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        }
+      ],
+      "quiz_coverage": [
+        {
+          "number": 1,
+          "question": "What is the difference between a probability mass function (PMF) and a probability density function (PDF)?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "number": 2,
+          "question": "What does the Central Limit Theorem state?",
+          "upstream_correct_index": 0,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "3. 期望和波动：为什么平均值还不够"
+          }
+        },
+        {
+          "number": 3,
+          "question": "Why does softmax subtract the maximum logit before exponentiating (the 'softmax trick')?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "number": 4,
+          "question": "Cross-entropy loss for classification simplifies to -log(q(true_class)). What does this mean intuitively?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        },
+        {
+          "number": 5,
+          "question": "Why do language models work with log probabilities instead of raw probabilities?",
+          "upstream_correct_index": 0,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "1. 概率描述什么：从事件到随机变量"
+          }
+        }
+      ],
+      "exercise_coverage": [
+        {
+          "source_number": 1,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "2. 从 Uniform 产生其他分布"
+          },
+          "knowledge_preserved": "指数逆CDF与均值/密度核对"
+        },
+        {
+          "source_number": 2,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "10. 自查与实践参考答案"
+          },
+          "knowledge_preserved": "偏骰联合表、边缘与独立性"
+        },
+        {
+          "source_number": 3,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "5. 模型为何使用 logits 和对数概率"
+          },
+          "knowledge_preserved": "5类logits的稳定CE，运行值0.420881"
+        },
+        {
+          "source_number": 4,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "10. 自查与实践参考答案"
+          },
+          "knowledge_preserved": "序列对数概率、排序与长度边界"
+        }
+      ],
+      "figure_coverage": [
+        {
+          "path": "site/figures-math.js",
+          "function": "gaussianPdf",
+          "read": "完整函数与图注读取",
+          "knowledge_preserved": "均值平移、方差伸缩、面积1与±sigma覆盖",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "4. 常见分布：先看变量和生成机制"
+          }
+        }
+      ]
+    },
+    {
+      "lesson": "07-bayes-theorem",
+      "status": "有效知识已写入当前7课分工范围；未声称整个第1来源完成",
+      "read_evidence": [
+        {
+          "path": "phases/01-math-foundations/07-bayes-theorem/code/bayes.py",
+          "bytes": 11329,
+          "sha256": "2ff7e18496d86277324c5574badb410b2fe8ca8d75a0fa25702baf768d6ee28f",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/07-bayes-theorem/docs/en.md",
+          "bytes": 20223,
+          "sha256": "e44e7db0a2b9c89dc09eecbe3ac41bb1c631b8aa239609b82b832c532d75ce6d",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/07-bayes-theorem/outputs/prompt-bayesian-reasoning.md",
+          "bytes": 2964,
+          "sha256": "c5db98d2c62c1712ef1376ef6c9bc6a882400c9045789c9957c0ef1a3776ec56",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/07-bayes-theorem/quiz.json",
+          "bytes": 2852,
+          "sha256": "691e5ea44a19bbcb550d41345289e82f21aebdc3a726203bc676db88bbd00b41",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        }
+      ],
+      "lesson_local_tests": [],
+      "tests_note": "递归文件清单确认本课无独立tests目录/文件；Python演示和Study代码已运行，不能称独立测试套件",
+      "heading_coverage": [
+        {
+          "source_heading": "Learning Objectives",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "The Problem",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "The Concept",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "From joint probability to Bayes",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "The four parts",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "Medical test example",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "Spam filter example",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "Naive Bayes: independence assumption",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "8. 手写词袋朴素贝叶斯"
+          }
+        },
+        {
+          "source_heading": "Maximum likelihood estimation (MLE)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "7. MLE、MAP 与完整后验"
+          }
+        },
+        {
+          "source_heading": "Maximum a posteriori (MAP)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "7. MLE、MAP 与完整后验"
+          }
+        },
+        {
+          "source_heading": "Bayesian vs frequentist: the practical difference",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "7. MLE、MAP 与完整后验"
+          }
+        },
+        {
+          "source_heading": "Why Bayesian thinking matters for ML",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "7. MLE、MAP 与完整后验"
+          }
+        },
+        {
+          "source_heading": "Build It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "Step 1: Bayes theorem function",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "Step 2: Naive Bayes classifier",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "8. 手写词袋朴素贝叶斯"
+          }
+        },
+        {
+          "source_heading": "Step 3: Train on spam data",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "8. 手写词袋朴素贝叶斯"
+          }
+        },
+        {
+          "source_heading": "Step 4: Inspect the learned probabilities",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "8. 手写词袋朴素贝叶斯"
+          }
+        },
+        {
+          "source_heading": "Use It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "Ship It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "Conjugate Priors",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "7. MLE、MAP 与完整后验"
+          }
+        },
+        {
+          "source_heading": "Sequential Bayesian Updating",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "7. MLE、MAP 与完整后验"
+          }
+        },
+        {
+          "source_heading": "Connection to A/B Testing",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "9. 贝叶斯 A/B：从“哪个均值大”到“值得切换吗”"
+          }
+        },
+        {
+          "source_heading": "Exercises",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "10. 自查与实践参考答案"
+          }
+        },
+        {
+          "source_heading": "Key Terms",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "source_heading": "Further Reading",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        }
+      ],
+      "quiz_coverage": [
+        {
+          "number": 1,
+          "question": "In Bayes' theorem, what is the 'prior'?",
+          "upstream_correct_index": 3,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "number": 2,
+          "question": "A rare disease affects 1 in 10,000 people. A 99% accurate test returns positive. What is the approximate probability you have the disease?",
+          "upstream_correct_index": 3,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "number": 3,
+          "question": "What is Laplace smoothing in a Naive Bayes classifier and why is it necessary?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "8. 手写词袋朴素贝叶斯"
+          }
+        },
+        {
+          "number": 4,
+          "question": "How does MAP (Maximum A Posteriori) estimation differ from MLE (Maximum Likelihood Estimation)?",
+          "upstream_correct_index": 2,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        },
+        {
+          "number": 5,
+          "question": "In sequential Bayesian updating, you start with Beta(1,1) and observe 7 heads and 3 tails. What is the posterior?",
+          "upstream_correct_index": 0,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        }
+      ],
+      "exercise_coverage": [
+        {
+          "source_number": 1,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          },
+          "knowledge_preserved": "两次条件独立告警：后验0.495"
+        },
+        {
+          "source_number": 2,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "10. 自查与实践参考答案"
+          },
+          "knowledge_preserved": "平滑0.01/0.1/1/10及零概率边界"
+        },
+        {
+          "source_number": 3,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "10. 自查与实践参考答案"
+          },
+          "knowledge_preserved": "消息长短特征计数与条件独立风险"
+        },
+        {
+          "source_number": 4,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "7. MLE、MAP 与完整后验"
+          },
+          "knowledge_preserved": "Beta(2,2)的MLE/MAP/后验均值手算"
+        }
+      ],
+      "figure_coverage": [
+        {
+          "path": "site/figures-math.js",
+          "function": "bayesUpdate",
+          "read": "完整函数与图注读取",
+          "knowledge_preserved": "基础率、灵敏度与误报率合成后验",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "6. 贝叶斯：证据怎样改变判断"
+          }
+        }
+      ]
+    },
+    {
+      "lesson": "09-information-theory",
+      "status": "有效知识已写入当前7课分工范围；未声称整个第1来源完成",
+      "read_evidence": [
+        {
+          "path": "phases/01-math-foundations/09-information-theory/code/information_theory.py",
+          "bytes": 11385,
+          "sha256": "33697ae8b42f13c08b2ab6382b0baed65701a2870e9a3f80e32078bbcc053f59",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/09-information-theory/docs/en.md",
+          "bytes": 17623,
+          "sha256": "56e2b277862358e636e71058ac13e9cd31366d39105702aa91570844e1e38953",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/09-information-theory/outputs/skill-information-theory.md",
+          "bytes": 4432,
+          "sha256": "60fb82f458e2dc36230da226d69434675920dd5607220c5896da3053ef86ae35",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/09-information-theory/quiz.json",
+          "bytes": 3301,
+          "sha256": "ffaf501d0873c2d7038308544fb3729cee4ce9b92e3a00bc55a5257b7d8ef721",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        }
+      ],
+      "lesson_local_tests": [],
+      "tests_note": "递归文件清单确认本课无独立tests目录/文件；Python演示和Study代码已运行，不能称独立测试套件",
+      "heading_coverage": [
+        {
+          "source_heading": "Learning Objectives",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "source_heading": "The Problem",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "source_heading": "The Concept",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "source_heading": "Information Content (Surprise)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "source_heading": "Entropy (Average Surprise)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "source_heading": "Cross-Entropy (The Loss Function You Use Every Day)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          }
+        },
+        {
+          "source_heading": "KL Divergence (Distance Between Distributions)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          }
+        },
+        {
+          "source_heading": "Mutual Information",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "11. 联合熵、条件熵和互信息"
+          }
+        },
+        {
+          "source_heading": "Conditional Entropy",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "11. 联合熵、条件熵和互信息"
+          }
+        },
+        {
+          "source_heading": "Joint Entropy",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "11. 联合熵、条件熵和互信息"
+          }
+        },
+        {
+          "source_heading": "Mutual Information (Deep Dive)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "11. 联合熵、条件熵和互信息"
+          }
+        },
+        {
+          "source_heading": "Label Smoothing and Cross-Entropy",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          }
+        },
+        {
+          "source_heading": "Why Cross-Entropy Is THE Classification Loss",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          }
+        },
+        {
+          "source_heading": "Bits vs Nats",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "source_heading": "Perplexity",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "12. Perplexity：平均损失的指数"
+          }
+        },
+        {
+          "source_heading": "Build It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "source_heading": "Step 1: Information content and entropy",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "source_heading": "Step 2: Cross-entropy and KL divergence",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          }
+        },
+        {
+          "source_heading": "Step 3: Cross-entropy as classification loss",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          }
+        },
+        {
+          "source_heading": "Step 4: Cross-entropy equals negative log-likelihood",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          }
+        },
+        {
+          "source_heading": "Step 5: Mutual information",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "11. 联合熵、条件熵和互信息"
+          }
+        },
+        {
+          "source_heading": "Use It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "source_heading": "Exercises",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "13. 自查与原任务练习的判断标准"
+          }
+        },
+        {
+          "source_heading": "Key Terms",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "source_heading": "Further Reading",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        }
+      ],
+      "quiz_coverage": [
+        {
+          "number": 1,
+          "question": "What does 'entropy' measure in information theory?",
+          "upstream_correct_index": 3,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "number": 2,
+          "question": "What is the cross-entropy loss commonly used for in neural networks?",
+          "upstream_correct_index": 2,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          }
+        },
+        {
+          "number": 3,
+          "question": "Why is minimizing cross-entropy equivalent to minimizing KL divergence during training?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          }
+        },
+        {
+          "number": 4,
+          "question": "A language model has perplexity 50 on a test set. What does this mean?",
+          "upstream_correct_index": 2,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        },
+        {
+          "number": 5,
+          "question": "How does mutual information differ from Pearson correlation for feature selection?",
+          "upstream_correct_index": 3,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "9. 信息量、熵与编码直觉"
+          }
+        }
+      ],
+      "exercise_coverage": [
+        {
+          "source_number": 1,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "13. 自查与原任务练习的判断标准"
+          },
+          "knowledge_preserved": "26字母最大熵和实际频率解释"
+        },
+        {
+          "source_number": 2,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "13. 自查与原任务练习的判断标准"
+          },
+          "knowledge_preserved": "给定logits目标1损失3.059113895与零损失极限"
+        },
+        {
+          "source_number": 3,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          },
+          "knowledge_preserved": "KL两个方向数值"
+        },
+        {
+          "source_number": 4,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "12. Perplexity：平均损失的指数"
+          },
+          "knowledge_preserved": "完整序列困惑度函数"
+        }
+      ],
+      "figure_coverage": [
+        {
+          "path": "site/figures-math.js",
+          "function": "entropyKl",
+          "read": "完整函数与图注读取",
+          "knowledge_preserved": "有限类别熵上界、KL非对称与支持集；图对q=0处理修正",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "10. 交叉熵、KL 和最大似然是一条线"
+          }
+        }
+      ]
+    },
+    {
+      "lesson": "15-statistics-for-ml",
+      "status": "有效知识已写入当前7课分工范围；未声称整个第1来源完成",
+      "read_evidence": [
+        {
+          "path": "phases/01-math-foundations/15-statistics-for-ml/code/statistics.py",
+          "bytes": 21935,
+          "sha256": "ade66d0ca60c9ea2f7c1e63e20e566ea01ce70311b66d4a91464bd834197e026",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/15-statistics-for-ml/docs/en.md",
+          "bytes": 20800,
+          "sha256": "9770d8e715f37b25538f2c9b0e78de30b38d7c1ddccc81765b124880071e0561",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/15-statistics-for-ml/outputs/skill-statistical-testing.md",
+          "bytes": 5008,
+          "sha256": "1ddb3a992e5b036dfd8b77b4e228ad4513c1626c2983985002dce2335ac11483",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/15-statistics-for-ml/quiz.json",
+          "bytes": 3477,
+          "sha256": "7004371ef15c96812d1704e13a4fbcab504b7537d031b6adbaf2b550c42775f3",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        }
+      ],
+      "lesson_local_tests": [],
+      "tests_note": "递归文件清单确认本课无独立tests目录/文件；Python演示和Study代码已运行，不能称独立测试套件",
+      "heading_coverage": [
+        {
+          "source_heading": "Learning Objectives",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "10. 可直接使用的实验复盘顺序"
+          }
+        },
+        {
+          "source_heading": "The Problem",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "10. 可直接使用的实验复盘顺序"
+          }
+        },
+        {
+          "source_heading": "The Concept",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "10. 可直接使用的实验复盘顺序"
+          }
+        },
+        {
+          "source_heading": "Descriptive Statistics: Summarizing Your Data",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "1. 描述数据：先看位置、波动和尾部"
+          }
+        },
+        {
+          "source_heading": "Correlation: How Variables Move Together",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "2. 相关、协方差与特征结构"
+          }
+        },
+        {
+          "source_heading": "Covariance Matrix",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "2. 相关、协方差与特征结构"
+          }
+        },
+        {
+          "source_heading": "Hypothesis Testing",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "5. 检验：把反事实假设变成可核验问题"
+          }
+        },
+        {
+          "source_heading": "The t-test",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "6. 选择检验：根据数据单位与目标"
+          }
+        },
+        {
+          "source_heading": "Chi-squared Test",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "6. 选择检验：根据数据单位与目标"
+          }
+        },
+        {
+          "source_heading": "A/B Testing for ML Models",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "7. 同一测试集比较两模型：完整配对 Bootstrap"
+          }
+        },
+        {
+          "source_heading": "Statistical Significance vs Practical Significance",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "9. 效应量、功效和真正值得改变的结果"
+          }
+        },
+        {
+          "source_heading": "Multiple Comparison Problem",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "8. 多次比较、反复窥看和数据泄漏"
+          }
+        },
+        {
+          "source_heading": "Bootstrap Methods",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "7. 同一测试集比较两模型：完整配对 Bootstrap"
+          }
+        },
+        {
+          "source_heading": "Parametric vs Non-parametric Tests",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "6. 选择检验：根据数据单位与目标"
+          }
+        },
+        {
+          "source_heading": "Central Limit Theorem: Practical Implications",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+            "heading": "3. 期望和波动：为什么平均值还不够"
+          }
+        },
+        {
+          "source_heading": "Common Statistical Mistakes in ML Papers",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "8. 多次比较、反复窥看和数据泄漏"
+          }
+        },
+        {
+          "source_heading": "Building It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "9. 效应量、功效和真正值得改变的结果"
+          }
+        },
+        {
+          "source_heading": "Key Terms",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "10. 可直接使用的实验复盘顺序"
+          }
+        }
+      ],
+      "quiz_coverage": [
+        {
+          "number": 1,
+          "question": "What does a p-value of 0.03 mean in a hypothesis test?",
+          "upstream_correct_index": 0,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "10. 可直接使用的实验复盘顺序"
+          }
+        },
+        {
+          "number": 2,
+          "question": "Why do you divide by (n-1) instead of n when computing sample variance?",
+          "upstream_correct_index": 3,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "10. 可直接使用的实验复盘顺序"
+          }
+        },
+        {
+          "number": 3,
+          "question": "You test 20 different model configurations at alpha = 0.05. What is the approximate probability of at least one false positive?",
+          "upstream_correct_index": 3,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "10. 可直接使用的实验复盘顺序"
+          }
+        },
+        {
+          "number": 4,
+          "question": "Model A scores 0.9234 and Model B scores 0.9237 on 1 million test samples with p-value = 0.001. What should you conclude?",
+          "upstream_correct_index": 2,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "10. 可直接使用的实验复盘顺序"
+          }
+        },
+        {
+          "number": 5,
+          "question": "What advantage does bootstrap have over the paired t-test for comparing two ML models?",
+          "upstream_correct_index": 2,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "6. 选择检验：根据数据单位与目标"
+          }
+        }
+      ],
+      "exercise_coverage": [
+        {
+          "source_number": 1,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "1. 描述数据：先看位置、波动和尾部"
+          },
+          "knowledge_preserved": "描述统计、分位插值与样本方差"
+        },
+        {
+          "source_number": 2,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "2. 相关、协方差与特征结构"
+          },
+          "knowledge_preserved": "Pearson/Spearman/协方差代码"
+        },
+        {
+          "source_number": 3,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "6. 选择检验：根据数据单位与目标"
+          },
+          "knowledge_preserved": "单样本/Welch/卡方与条件"
+        },
+        {
+          "source_number": 4,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "7. 同一测试集比较两模型：完整配对 Bootstrap"
+          },
+          "knowledge_preserved": "配对Bootstrap完整实现"
+        },
+        {
+          "source_number": 5,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "9. 效应量、功效和真正值得改变的结果"
+          },
+          "knowledge_preserved": "零效应与非零效应模拟/功效"
+        },
+        {
+          "source_number": 6,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "9. 效应量、功效和真正值得改变的结果"
+          },
+          "knowledge_preserved": "统计显著与业务最小收益区分"
+        }
+      ],
+      "figure_coverage": [
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "bootstrapResample",
+          "read": "完整函数与图注读取",
+          "knowledge_preserved": "有放回重采样到统计量分布及区间",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+            "heading": "7. 同一测试集比较两模型：完整配对 Bootstrap"
+          }
+        }
+      ]
+    },
+    {
+      "lesson": "16-sampling-methods",
+      "status": "有效知识已写入当前7课分工范围；未声称整个第1来源完成",
+      "read_evidence": [
+        {
+          "path": "phases/01-math-foundations/16-sampling-methods/code/sampling.py",
+          "bytes": 25490,
+          "sha256": "61fa89b6c020922b487a41734c5992d4325b97839b3b2431ade4683af162cf3e",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/16-sampling-methods/docs/en.md",
+          "bytes": 29488,
+          "sha256": "387bb3952f9a86f59c898179ec88597a8e9719e662ecab1b6b93bd6a977c2616",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/16-sampling-methods/outputs/skill-sampling-strategy.md",
+          "bytes": 4997,
+          "sha256": "93f7b1c58ee1c5889fc70fe0bc513c059ad0f0a9ca0d15a710bd2a28d445e9a8",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/16-sampling-methods/quiz.json",
+          "bytes": 3729,
+          "sha256": "5a4bdb12fa860168b8e4e90fcdc3f6fbba67e0d02d839004368eb462b05d0dd7",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        }
+      ],
+      "lesson_local_tests": [],
+      "tests_note": "递归文件清单确认本课无独立tests目录/文件；Python演示和Study代码已运行，不能称独立测试套件",
+      "heading_coverage": [
+        {
+          "source_heading": "Learning Objectives",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "1. 先区分三种目的"
+          }
+        },
+        {
+          "source_heading": "The Problem",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "1. 先区分三种目的"
+          }
+        },
+        {
+          "source_heading": "The Concept",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "1. 先区分三种目的"
+          }
+        },
+        {
+          "source_heading": "Why Sampling Matters",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "1. 先区分三种目的"
+          }
+        },
+        {
+          "source_heading": "Uniform Random Sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "2. 从 Uniform 产生其他分布"
+          }
+        },
+        {
+          "source_heading": "Inverse CDF Method (Inverse Transform Sampling)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "2. 从 Uniform 产生其他分布"
+          }
+        },
+        {
+          "source_heading": "Rejection Sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "3. 拒绝采样：包络必须真能盖住目标"
+          }
+        },
+        {
+          "source_heading": "Importance Sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "5. 重要性采样：换提议、保留目标"
+          }
+        },
+        {
+          "source_heading": "Monte Carlo Estimation",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "4. Monte Carlo：积分变平均，误差也要估计"
+          }
+        },
+        {
+          "source_heading": "Markov Chain Monte Carlo (MCMC): Metropolis-Hastings",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "4. Monte Carlo：积分变平均，误差也要估计"
+          }
+        },
+        {
+          "source_heading": "Gibbs Sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "6. MCMC：不需要算归一化常数"
+          }
+        },
+        {
+          "source_heading": "Temperature Sampling (Used in LLMs)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "7. 文本生成：温度、top-k、top-p"
+          }
+        },
+        {
+          "source_heading": "Top-k Sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "7. 文本生成：温度、top-k、top-p"
+          }
+        },
+        {
+          "source_heading": "Top-p (Nucleus) Sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "7. 文本生成：温度、top-k、top-p"
+          }
+        },
+        {
+          "source_heading": "Reparameterization Trick (Used in VAEs)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "8. 可微采样：重参数化与离散松弛"
+          }
+        },
+        {
+          "source_heading": "Gumbel-Softmax (Differentiable Categorical Sampling)",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "8. 可微采样：重参数化与离散松弛"
+          }
+        },
+        {
+          "source_heading": "Stratified Sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "4. Monte Carlo：积分变平均，误差也要估计"
+          }
+        },
+        {
+          "source_heading": "Connection to Diffusion Models",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "10. 扩散前向与反向：不能仅“减掉随机噪声”"
+          }
+        },
+        {
+          "source_heading": "Build It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "1. 先区分三种目的"
+          }
+        },
+        {
+          "source_heading": "Step 1: Uniform and inverse CDF sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "2. 从 Uniform 产生其他分布"
+          }
+        },
+        {
+          "source_heading": "Step 2: Rejection sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "3. 拒绝采样：包络必须真能盖住目标"
+          }
+        },
+        {
+          "source_heading": "Step 3: Importance sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "5. 重要性采样：换提议、保留目标"
+          }
+        },
+        {
+          "source_heading": "Step 4: Monte Carlo estimation of pi",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "4. Monte Carlo：积分变平均，误差也要估计"
+          }
+        },
+        {
+          "source_heading": "Step 5: Metropolis-Hastings MCMC",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "6. MCMC：不需要算归一化常数"
+          }
+        },
+        {
+          "source_heading": "Step 6: Gibbs sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "6. MCMC：不需要算归一化常数"
+          }
+        },
+        {
+          "source_heading": "Step 7: Temperature sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "7. 文本生成：温度、top-k、top-p"
+          }
+        },
+        {
+          "source_heading": "Step 8: Top-k and top-p sampling",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "7. 文本生成：温度、top-k、top-p"
+          }
+        },
+        {
+          "source_heading": "Step 9: Reparameterization trick",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "8. 可微采样：重参数化与离散松弛"
+          }
+        },
+        {
+          "source_heading": "Step 10: Gumbel-Softmax",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "8. 可微采样：重参数化与离散松弛"
+          }
+        },
+        {
+          "source_heading": "Use It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "1. 先区分三种目的"
+          }
+        },
+        {
+          "source_heading": "Exercises",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "13. 自查与原任务练习的判断标准"
+          }
+        },
+        {
+          "source_heading": "Key Terms",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "1. 先区分三种目的"
+          }
+        },
+        {
+          "source_heading": "Further Reading",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "1. 先区分三种目的"
+          }
+        }
+      ],
+      "quiz_coverage": [
+        {
+          "number": 1,
+          "question": "What does temperature < 1.0 do to a language model's output distribution?",
+          "upstream_correct_index": 3,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "7. 文本生成：温度、top-k、top-p"
+          }
+        },
+        {
+          "number": 2,
+          "question": "What is the key difference between top-k and top-p (nucleus) sampling?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "1. 先区分三种目的"
+          }
+        },
+        {
+          "number": 3,
+          "question": "Why can't you backpropagate through a standard sampling operation z ~ N(mu, sigma^2)?",
+          "upstream_correct_index": 0,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "1. 先区分三种目的"
+          }
+        },
+        {
+          "number": 4,
+          "question": "In Metropolis-Hastings MCMC, what happens if the proposal standard deviation is set much too large?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "6. MCMC：不需要算归一化常数"
+          }
+        },
+        {
+          "number": 5,
+          "question": "In rejection sampling, what happens to the acceptance rate as the dimensionality of the target distribution increases?",
+          "upstream_correct_index": 0,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "3. 拒绝采样：包络必须真能盖住目标"
+          }
+        }
+      ],
+      "exercise_coverage": [
+        {
+          "source_number": 1,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "2. 从 Uniform 产生其他分布"
+          },
+          "knowledge_preserved": "Cauchy逆CDF及重尾验证标准"
+        },
+        {
+          "source_number": 2,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "3. 拒绝采样：包络必须真能盖住目标"
+          },
+          "knowledge_preserved": "Beta(2,5)拒绝采样理论/运行接受率"
+        },
+        {
+          "source_number": 3,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "4. Monte Carlo：积分变平均，误差也要估计"
+          },
+          "knowledge_preserved": "sin积分三个N与MC误差验证逻辑"
+        },
+        {
+          "source_number": 4,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "6. MCMC：不需要算归一化常数"
+          },
+          "knowledge_preserved": "二维目标MH可运行及多初值/步长检查"
+        },
+        {
+          "source_number": 5,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "7. 文本生成：温度、top-k、top-p"
+          },
+          "knowledge_preserved": "10词20token四策略各五次生成"
+        }
+      ],
+      "figure_coverage": [
+        {
+          "path": "site/figures-math2.js",
+          "function": "monteCarloPi",
+          "read": "完整函数与图注读取",
+          "knowledge_preserved": "正方形/四分之一圆面积比；确定性图点不当iidMC",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "4. Monte Carlo：积分变平均，误差也要估计"
+          }
+        }
+      ]
+    },
+    {
+      "lesson": "21-graph-theory",
+      "status": "有效知识已写入当前7课分工范围；未声称整个第1来源完成",
+      "read_evidence": [
+        {
+          "path": "phases/01-math-foundations/21-graph-theory/code/graph_theory.py",
+          "bytes": 8744,
+          "sha256": "fffaec8e72ad1e46f4df7672abf7b9aa7d40fbdd047d8bb80ca163c51a6b6b4b",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/21-graph-theory/docs/en.md",
+          "bytes": 19342,
+          "sha256": "f604b6e3676d179188e0bbab407160cff0141ed22b21747339ca3b9fd28cb77f",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/21-graph-theory/outputs/skill-graph-analysis.md",
+          "bytes": 3306,
+          "sha256": "a03c4425f92cf0df57bba50512046eb12593298c37287730a0accbf302943340",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/21-graph-theory/quiz.json",
+          "bytes": 3258,
+          "sha256": "b30dd8eaa0b65be087510aefdf4942f702f73d0b2b0e40b76641e01e9fbb8458",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        }
+      ],
+      "lesson_local_tests": [],
+      "tests_note": "递归文件清单确认本课无独立tests目录/文件；Python演示和Study代码已运行，不能称独立测试套件",
+      "heading_coverage": [
+        {
+          "source_heading": "Learning Objectives",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "source_heading": "The Problem",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "source_heading": "The Concept",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "source_heading": "Graphs: Nodes and Edges",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "source_heading": "The Adjacency Matrix",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "source_heading": "Degree",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "source_heading": "BFS and DFS",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "2. 遍历和路径：先选对算法"
+          }
+        },
+        {
+          "source_heading": "The Graph Laplacian",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "3. 拉普拉斯与谱聚类：平滑的含义"
+          }
+        },
+        {
+          "source_heading": "Spectral Properties",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "3. 拉普拉斯与谱聚类：平滑的含义"
+          }
+        },
+        {
+          "source_heading": "Message Passing",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "4. 消息传递：把邻居信息写成矩阵运算"
+          }
+        },
+        {
+          "source_heading": "Concepts and ML Applications",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "4. 消息传递：把邻居信息写成矩阵运算"
+          }
+        },
+        {
+          "source_heading": "Build It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "source_heading": "Step 1: Graph class from scratch",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "source_heading": "Step 2: BFS and DFS",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "2. 遍历和路径：先选对算法"
+          }
+        },
+        {
+          "source_heading": "Step 3: Connected components and Laplacian eigenvalues",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "3. 拉普拉斯与谱聚类：平滑的含义"
+          }
+        },
+        {
+          "source_heading": "Step 4: Spectral clustering",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "3. 拉普拉斯与谱聚类：平滑的含义"
+          }
+        },
+        {
+          "source_heading": "Step 5: Message passing",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "4. 消息传递：把邻居信息写成矩阵运算"
+          }
+        },
+        {
+          "source_heading": "Use It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "5. 图随机游走与 PageRank"
+          }
+        },
+        {
+          "source_heading": "numpy spectral analysis",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "3. 拉普拉斯与谱聚类：平滑的含义"
+          }
+        },
+        {
+          "source_heading": "Ship It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "source_heading": "Connections",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "4. 消息传递：把邻居信息写成矩阵运算"
+          }
+        },
+        {
+          "source_heading": "Exercises",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "11. 练习与参考判断"
+          }
+        },
+        {
+          "source_heading": "Key Terms",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "source_heading": "Further Reading",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        }
+      ],
+      "quiz_coverage": [
+        {
+          "number": 1,
+          "question": "What does the adjacency matrix A[i][j] = 1 represent?",
+          "upstream_correct_index": 3,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        },
+        {
+          "number": 2,
+          "question": "What data structure does BFS use and what does it find?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "2. 遍历和路径：先选对算法"
+          }
+        },
+        {
+          "number": 3,
+          "question": "The graph Laplacian L = D - A of a connected graph has how many zero eigenvalues?",
+          "upstream_correct_index": 3,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "3. 拉普拉斯与谱聚类：平滑的含义"
+          }
+        },
+        {
+          "number": 4,
+          "question": "In GNN message passing, what does h_v^(k+1) = sigma(W * mean({h_u^(k) : u in neighbors(v)})) compute?",
+          "upstream_correct_index": 2,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "4. 消息传递：把邻居信息写成矩阵运算"
+          }
+        },
+        {
+          "number": 5,
+          "question": "How does spectral clustering use the Fiedler vector (eigenvector of the second-smallest eigenvalue of L)?",
+          "upstream_correct_index": 2,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "3. 拉普拉斯与谱聚类：平滑的含义"
+          }
+        }
+      ],
+      "exercise_coverage": [
+        {
+          "source_number": 1,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "5. 图随机游走与 PageRank"
+          },
+          "knowledge_preserved": "完整PageRank含dangling"
+        },
+        {
+          "source_number": 2,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "3. 拉普拉斯与谱聚类：平滑的含义"
+          },
+          "knowledge_preserved": "弱桥双社区谱分割"
+        },
+        {
+          "source_number": 3,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "2. 遍历和路径：先选对算法"
+          },
+          "knowledge_preserved": "完整Dijkstra与BFS对照"
+        },
+        {
+          "source_number": 4,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "4. 消息传递：把邻居信息写成矩阵运算"
+          },
+          "knowledge_preserved": "两轮消息聚合代码"
+        },
+        {
+          "source_number": 5,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "11. 练习与参考判断"
+          },
+          "knowledge_preserved": "Karate图完整计算流程、指标与分组比对；NetworkX环境缺失未运行"
+        }
+      ],
+      "figure_coverage": [
+        {
+          "path": "site/figures-math2.js",
+          "function": "graphDegrees",
+          "read": "完整函数与图注读取",
+          "knowledge_preserved": "度和=2边数、奇度个数偶数",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "1. 怎样把问题建成图"
+          }
+        }
+      ]
+    },
+    {
+      "lesson": "22-stochastic-processes",
+      "status": "有效知识已写入当前7课分工范围；未声称整个第1来源完成",
+      "read_evidence": [
+        {
+          "path": "phases/01-math-foundations/22-stochastic-processes/code/stochastic.py",
+          "bytes": 9370,
+          "sha256": "55423be8d4f037f431c00bc5dba886703794d30bb728f3dd93f0e40a497efc9e",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/22-stochastic-processes/docs/en.md",
+          "bytes": 23268,
+          "sha256": "c0c39f418206fc6ff14a9755bd9663147c3ab4b2f35beb03edd909c746ee3fc8",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/22-stochastic-processes/outputs/prompt-stochastic-process-advisor.md",
+          "bytes": 4350,
+          "sha256": "de9aaff5a9e3269f9add8e39984ebab7175b0d6fbbaefb083308f51a500d13fd",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        },
+        {
+          "path": "phases/01-math-foundations/22-stochastic-processes/quiz.json",
+          "bytes": 3503,
+          "sha256": "a6e9b92b61acc511aa5bdcff3b9919fd5e1b6e393c23dd58e39e437803ae7f53",
+          "read": "全文读取并按正文、代码、测验、参考输出角色分析"
+        }
+      ],
+      "lesson_local_tests": [],
+      "tests_note": "递归文件清单确认本课无独立tests目录/文件；Python演示和Study代码已运行，不能称独立测试套件",
+      "heading_coverage": [
+        {
+          "source_heading": "Learning Objectives",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "The Problem",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "The Concept",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "Random Walks",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "6. 随机游走：位置平均为0，距离却增长"
+          }
+        },
+        {
+          "source_heading": "Markov Chains",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "Connection to Language Models",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "Brownian Motion",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "8. Brownian 与 Langevin：连续时间的噪声"
+          }
+        },
+        {
+          "source_heading": "Langevin Dynamics",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "8. Brownian 与 Langevin：连续时间的噪声"
+          }
+        },
+        {
+          "source_heading": "MCMC: Markov Chain Monte Carlo",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "6. MCMC：不需要算归一化常数"
+          }
+        },
+        {
+          "source_heading": "Stochastic Processes in AI",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "10. 扩散前向与反向：不能仅“减掉随机噪声”"
+          }
+        },
+        {
+          "source_heading": "Build It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "Step 1: Random walk simulator",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "6. 随机游走：位置平均为0，距离却增长"
+          }
+        },
+        {
+          "source_heading": "Step 2: Markov chain",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "Step 3: Langevin dynamics",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "8. Brownian 与 Langevin：连续时间的噪声"
+          }
+        },
+        {
+          "source_heading": "Step 4: Metropolis-Hastings",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/12-采样蒙特卡洛与信息论.md",
+            "heading": "6. MCMC：不需要算归一化常数"
+          }
+        },
+        {
+          "source_heading": "Use It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "numpy for transition matrices",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "Connections to real frameworks",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "10. 扩散前向与反向：不能仅“减掉随机噪声”"
+          }
+        },
+        {
+          "source_heading": "Verifying Markov chain convergence",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "Ship It",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "Connections",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "10. 扩散前向与反向：不能仅“减掉随机噪声”"
+          }
+        },
+        {
+          "source_heading": "Exercises",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "11. 练习与参考判断"
+          }
+        },
+        {
+          "source_heading": "Key Terms",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "source_heading": "Further Reading",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        }
+      ],
+      "quiz_coverage": [
+        {
+          "number": 1,
+          "question": "What is the Markov property?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "number": 2,
+          "question": "In a 1D random walk, how does the expected distance from the origin scale with the number of steps n?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "number": 3,
+          "question": "What is the stationary distribution of a Markov chain?",
+          "upstream_correct_index": 3,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        },
+        {
+          "number": 4,
+          "question": "In Langevin dynamics x_{t+1} = x_t - dt * grad(U) + sqrt(2*T*dt) * z, what happens as temperature T approaches 0?",
+          "upstream_correct_index": 2,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "8. Brownian 与 Langevin：连续时间的噪声"
+          }
+        },
+        {
+          "number": 5,
+          "question": "In a diffusion model, what does the forward process do to a data sample over T steps?",
+          "upstream_correct_index": 1,
+          "answer_review": "独立改写参考答案；纠正上游绝对化解释，不直接复制选项",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          }
+        }
+      ],
+      "exercise_coverage": [
+        {
+          "source_number": 1,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "6. 随机游走：位置平均为0，距离却增长"
+          },
+          "knowledge_preserved": "1000条10000步游走终点分布统计"
+        },
+        {
+          "source_number": 2,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "7. Markov 链：不变分布不等于已收敛"
+          },
+          "knowledge_preserved": "BOS/EOS转移计数文本生成完整代码"
+        },
+        {
+          "source_number": 3,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "9. 模拟退火：目标在变化的优化过程"
+          },
+          "knowledge_preserved": "多井模拟退火完整代码"
+        },
+        {
+          "source_number": 4,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "8. Brownian 与 Langevin：连续时间的噪声"
+          },
+          "knowledge_preserved": "双井温度与混合诊断；不宣称唯一临界温度"
+        },
+        {
+          "source_number": 5,
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "10. 扩散前向与反向：不能仅“减掉随机噪声”"
+          },
+          "knowledge_preserved": "前向扩散与反向学习条件；天真减噪不冒充训练生成器"
+        }
+      ],
+      "figure_coverage": [
+        {
+          "path": "site/figures-math2.js",
+          "function": "randomWalkDiffusion",
+          "read": "完整函数与图注读取",
+          "knowledge_preserved": "独立增量方差相加、sqrt(t)标准差包络",
+          "target": {
+            "path": "AI 算法基础/数学与数值计算专题/13-图论与随机过程.md",
+            "heading": "6. 随机游走：位置平均为0，距离却增长"
+          }
+        }
+      ]
+    }
+  ],
+  "deduplication": [
+    {
+      "topic": "概率与统计主干",
+      "action": "根02保持主干概念与算例，补完整说明并链接专题10～12；无平行来源目录"
+    },
+    {
+      "topic": "MCMC",
+      "action": "16与22课同一算法融合到专题12第6节，13仅解释动态关系与跳转"
+    },
+    {
+      "topic": "GNN",
+      "action": "21课图基础落13，GCN/GAT/GraphSAGE进阶复用根10已有章"
+    },
+    {
+      "topic": "扩散",
+      "action": "16与22前向/反向数学融合到13第10节，完整生成模型复用既有深度生成章节"
+    },
+    {
+      "topic": "语言采样",
+      "action": "06/16/22基础与推断抽样融合到12第2/7/8节；与Markov全上下文条件衔接"
+    }
+  ],
+  "corrections_and_exclusions": [
+    "CLT补iid/可积/有限非零方差与标准化条件，删除任意分布和n>=30万能说法",
+    "密度可>1、对数密度可正；修正exp100必溢出和50项0.01概率必下溢",
+    "区分Bernoulli文档出现频率和Multinomial词次频率；修正OOV概率处理；NB输出不宣称校准",
+    "Beta均匀并非无假设，MAP内点条件与完整后验分开；Bayesian可选停止不自动控制频率错误",
+    "统计推断不宣称p证明真实；区分Pearson计算与推断条件，常量相关未定义",
+    "Bootstrap/秩检验非无假设，保留抽样单位/群聚/时间依赖；同测试集采用配对重采样；CV折共享训练集不能靠换检验修复",
+    "Bonferroni不要求独立；0.6415的具体误报计算要求独立；Cohen阈值非业务通则",
+    "自写不完全Beta/Gamma尾概率库不复制进主库，正式计算采用已核对SciPy",
+    "拒绝采样对未归一化目标接受率Z/M；维数上升非必然指数下降；网格最大值不视为全域包络证明",
+    "Gaussian全域IS不用有限Uniform支持；SNIS有限样本有偏；ESS与支持/方差条件明确",
+    "MH保留拒绝点、详细平衡非自动有限步收敛；0.234/固定burn-in百分比/默认thinning删除为通则",
+    "Gumbel输入区分logits/log_probs，有限温度为松弛，straight-through有偏；NumPy返回hard/soft不冒充梯度图",
+    "分层低方差加等概率层/独立抽样条件，分段常量只有与层对齐才精确",
+    "删除固定场景温度推荐与不具评估条件的PPL当代先进水平、GPT-2等排名数字",
+    "有向/负权图不套对称L半正定；加权度不混邻居数；Fiedler是第二小含零；谱符号切分非最优保证；多类谱变体不混",
+    "删除所有网络幂律/随机图皆Poisson与NetworkX任意规模C后端的无条件表述",
+    "平均绝对位移不等于sqrt(n)标准差；天气稳态补精确值0.545455/0.181818/0.272727（上游两位近似本身合理）",
+    "Markov有限不可约有唯一不变分布，非周期才任意初值收敛；token-only不当真实LLM的一阶完整状态",
+    "Langevin固定步长带偏差，并解析/运行验证；SGLD不宣称免费精确后验",
+    "扩散看abar累计噪声而非步数，100步可能剩信号；保存已知噪声相减不算训练反向生成器",
+    "上游outputs中的角色命令作为教材判断步骤吸收，不作为执行指令，不保存上游SKILL镜像"
+  ],
+  "official_verification": [
+    {
+      "url": "https://scikit-learn.org/stable/modules/naive_bayes.html",
+      "route": "agent-reach Jina",
+      "checked": "多项式/Bernoulli计数与概率校准限制"
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html",
+      "route": "agent-reach Jina",
+      "checked": "Pearson系数与p值条件、常量输入"
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html",
+      "route": "agent-reach Jina",
+      "checked": "paired共用索引、percentile/basic/BCa"
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html",
+      "route": "web primary",
+      "checked": "Welch与独立假设"
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html",
+      "route": "web primary",
+      "checked": "配对差值对称等条件"
+    },
+    {
+      "url": "https://mc-stan.org/docs/reference-manual/analysis.html",
+      "route": "web primary",
+      "checked": "MCMC有限运行诊断、ESS与thinning"
+    },
+    {
+      "url": "https://arxiv.org/abs/1807.09077",
+      "route": "web primary paper/author",
+      "checked": "区分停止规则独立、后验校准、频率抗可选停止"
+    },
+    {
+      "url": "https://arxiv.org/abs/0711.0189",
+      "route": "web primary paper",
+      "checked": "谱聚类变体、L条件与非最优离散割"
+    },
+    {
+      "url": "https://arxiv.org/html/2006.11239v2",
+      "route": "web primary paper",
+      "checked": "前向/反向链、累计alpha解析式与噪声预测参数化"
+    },
+    {
+      "url": "https://arxiv.org/html/1611.01144v5",
+      "route": "web primary paper",
+      "checked": "Gumbel-Max、可微松弛与温度"
+    }
+  ],
+  "validation": {
+    "study_code_results": {
+      "python": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "records": [
+        {
+          "file": "10-概率分布与贝叶斯推断.md",
+          "block": 1,
+          "status": "passed",
+          "output": "1 均值 0.49712 标准差 0.28821 理论标准差 0.28868\n2 均值 0.50271 标准差 0.20289 理论标准差 0.20412\n5 均值 0.50144 标准差 0.1304 理论标准差 0.1291\n30 均值 0.49959 标准差 0.05263 理论标准差 0.0527\n"
+        },
+        {
+          "file": "10-概率分布与贝叶斯推断.md",
+          "block": 2,
+          "status": "passed",
+          "output": "类别概率 [0.241501 0.053886 0.012024 0.656468 0.036121]\n目标类别3的损失 0.420881\n平移不改变概率 True\nPoisson零次事件 0.049787\n50项序列对数概率 -230.258509\n"
+        },
+        {
+          "file": "10-概率分布与贝叶斯推断.md",
+          "block": 3,
+          "status": "passed",
+          "output": "免费 奖品 {'垃圾': 0.8815, '正常': 0.1185} 垃圾\n项目 报告 {'垃圾': 0.1211, '正常': 0.8789} 正常\n未知词 {'垃圾': 0.5, '正常': 0.5} 垃圾\n"
+        },
+        {
+          "file": "10-概率分布与贝叶斯推断.md",
+          "block": 4,
+          "status": "passed",
+          "output": "B更好概率 0.9241\n提升超过0.5个百分点概率 0.8306\n绝对提升90%可信区间 [-0.00211  0.0323 ]\n"
+        },
+        {
+          "file": "11-统计估计检验与实验判断.md",
+          "block": 1,
+          "status": "passed",
+          "output": "Pearson 0.95137\nSpearman 1.0\n协方差 [[  1.66666667  34.66666667]\n [ 34.66666667 796.66666667]]\n"
+        },
+        {
+          "file": "11-统计估计检验与实验判断.md",
+          "block": 2,
+          "status": "passed",
+          "output": "均值95%区间 [ 8.036757 11.963243]\n单样本检验 TtestResult(statistic=np.float64(1.414213562373095), pvalue=np.float64(0.2301996410804989), df=np.int64(4))\n卡方 Power_divergenceResult(statistic=np.float64(8.0), pvalue=np.float64(0.004677734981047265))\nWelch TtestResult(statistic=np.float64(-1.6329931618554523), pvalue=np.float64(0.14529780267785938), df=np.float64(7.2))\n"
+        },
+        {
+          "file": "11-统计估计检验与实验判断.md",
+          "block": 3,
+          "status": "passed",
+          "output": "观测提升 0.03700000000000003\n差值95%分位区间 [0.007 0.068]\nBootstrap标准误 0.015234472398871579\n"
+        },
+        {
+          "file": "11-统计估计检验与实验判断.md",
+          "block": 4,
+          "status": "passed",
+          "output": "50 0.0 0.038 MCSE 0.009\n50 3.0 0.31 MCSE 0.021\n200 0.0 0.054 MCSE 0.01\n200 3.0 0.828 MCSE 0.017\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 1,
+          "status": "passed",
+          "output": "指数均值/目标 1.9877185827348367 2.0\n高斯均值、方差 -0.0035983095060035135 0.972159323629618\n类别频率 [0.201 0.495 0.304]\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 2,
+          "status": "passed",
+          "output": "接受率/理论 0.40766 0.40690104166666663\nBeta均值/理论 0.28722200662685693 0.2857142857142857\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 3,
+          "status": "passed",
+          "output": "1000 积分 1.977648 标准误 0.030453\n10000 积分 2.005539 标准误 0.00967\n100000 积分 2.001431 标准误 0.003059\n圆周率估计 3.15172\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 4,
+          "status": "passed",
+          "output": "普通/分层估计方差 0.0017665481504878736 3.3770871338320697e-06\n两种平均/目标 0.636364852208136 0.6364752983111653 0.6366197723675814\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 5,
+          "status": "passed",
+          "output": "E标准正态X²：IS/SNIS 0.9949125229279502 0.9947428576584365\n权重ESS 66039.07488432659\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 6,
+          "status": "passed",
+          "output": "标准正态MH均值/方差/接受率 0.0026030634403051353 0.9975481453247267 0.7036\n二维目标样本形状和接受率 (20000, 2) 0.52685\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 7,
+          "status": "passed",
+          "output": "均值/协方差 [0.01178607 0.01500543] [[0.99493519 0.79399248]\n [0.79399248 1.00235715]]\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 8,
+          "status": "passed",
+          "output": "{'temperature': 0.0} 非零候选 1\nthe the the the the the the the the the the the the the the the the the the the\nthe the the the the the the the the the the the the the the the the the the the\nthe the the the the the the the the the the the the the the the the the the the\nthe the the the the the the the the the the the the the the the the the the the\nthe the the the the the the the the the the the the the the the the the the the\n{'temperature': 0.7} 非零候选 10\nmat sat the a sat sat the the the mat the the the cat the on sat sat the cat\ncat cat the the the cat the the the cat the mat cat the cat the a cat sat the\ncat cat mat cat cat the the cat the the on mat the cat the cat the cat sat sat\nthe mat the the cat the on sat the a the cat the mat the the the ran on sat\non on cat the sat cat the the sat the mat the the on the the cat on the the\n{'k': 3} 非零候选 3\ncat sat the the the the the cat the the cat cat the cat cat cat the the sat the\nthe the cat sat the sat the cat cat the the the sat cat sat cat the cat the the\nsat cat the cat cat sat cat the the the cat sat the the the cat sat the the cat\nthe sat the the sat the the the the the the the the cat cat the the the sat sat\nthe the the the cat the the the cat the sat the sat the sat sat sat cat cat cat\n{'nucleus': 0.9} 非零候选 6\non the cat cat on cat cat sat the the cat cat the the the the the sat the a\nmat cat the cat on sat on cat sat the sat the sat on the sat the sat the mat\nthe a on cat on on mat the cat the sat the cat cat cat cat on on cat cat\nmat the the the sat cat on sat the mat on the the the the the mat cat cat sat\ncat mat on cat the a sat a the on sat the cat sat the cat on the cat cat\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 9,
+          "status": "passed",
+          "output": "均值导数/解析 1.0000000000065512 1.0\nlog方差导数/解析 -0.19260381250996159 -0.1926038125031612\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 10,
+          "status": "passed",
+          "output": "Gumbel-Max频率 [0.49395 0.3056  0.14965 0.0508 ]\n温度 0.1 软样本 [0.99894 0.      0.00106 0.     ]\n温度 0.5 软样本 [0.77271 0.02693 0.19646 0.00391]\n温度 1.0 软样本 [0.56753 0.10595 0.28617 0.04035]\n温度 5.0 软样本 [0.31484 0.22507 0.27455 0.18555]\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 11,
+          "status": "passed",
+          "output": "KL两个方向 0.5310044064107189 0.7369655941662061\n相关表互信息 0.5310044064107187\n支持集缺失CE inf\n"
+        },
+        {
+          "file": "12-采样蒙特卡洛与信息论.md",
+          "block": 12,
+          "status": "passed",
+          "output": "2.0\n"
+        },
+        {
+          "file": "13-图论与随机过程.md",
+          "block": 1,
+          "status": "passed",
+          "output": "BFS {0: 0, 1: 1, 2: 1}\nDFS [0, 1, 2]\n连通分量 [[0, 1, 2], [3]]\n成本最短路 {0: 0.0, 1: 1.0, 2: 2.0}\n"
+        },
+        {
+          "file": "13-图论与随机过程.md",
+          "block": 2,
+          "status": "passed",
+          "output": "度 [2.  2.  2.1 2.1 2.  2. ]\n特征值 [-0.        0.063771  3.        3.        3.        3.136229]\n符号组 [3 4 5] [0 1 2]\n半正定/常数零向量 True True\n"
+        },
+        {
+          "file": "13-图论与随机过程.md",
+          "block": 3,
+          "status": "passed",
+          "output": "一轮邻居均值 [[0.5 1. ]\n [1.  0.5]\n [0.5 0.5]]\n二轮邻居均值 [[0.75 0.5 ]\n [0.5  0.75]\n [0.75 0.75]]\n含自身传播 [[0.66666667 0.66666667]\n [0.66666667 0.66666667]\n [0.66666667 0.66666667]]\n"
+        },
+        {
+          "file": "13-图论与随机过程.md",
+          "block": 4,
+          "status": "passed",
+          "output": "PageRank [0.19758  0.281551 0.520869] 总质量 0.9999999999999998\n"
+        },
+        {
+          "file": "13-图论与随机过程.md",
+          "block": 5,
+          "status": "passed",
+          "output": "一维终点均值/std/平均绝对值 -2.176 98.70595232304889 79.656\n二维均方根/目标 31.925663657941396 31.622776601683793\n"
+        },
+        {
+          "file": "13-图论与随机过程.md",
+          "block": 6,
+          "status": "passed",
+          "output": "理论稳态 [0.545455 0.181818 0.272727]\n幂迭代 [0.545455 0.181818 0.272727]\n模拟频率 [0.54504 0.18255 0.27241]\n残差 2.220446049250313e-16\n"
+        },
+        {
+          "file": "13-图论与随机过程.md",
+          "block": 7,
+          "status": "passed",
+          "output": "狗 坐在 垫子 上\n狗 吃 鱼\n猫 坐在 地板 上\n狗 吃 鱼\n狗 坐在 地板 上\n"
+        },
+        {
+          "file": "13-图论与随机过程.md",
+          "block": 8,
+          "status": "passed",
+          "output": "Langevin均值/方差 0.006872635405468761 1.052903187288331\n连续目标/离散理论方差 1.0 1.0526315789473684\n"
+        },
+        {
+          "file": "13-图论与随机过程.md",
+          "block": 9,
+          "status": "passed",
+          "output": "最好位置/能量 -1.0240538896920603 -0.20244041541264682\n最后位置/能量 -1.0716860758663789 -0.19228168462513345\n"
+        },
+        {
+          "file": "13-图论与随机过程.md",
+          "block": 10,
+          "status": "passed",
+          "output": "步数/累计alpha/剩余振幅 100 0.3635632480554922 0.6029620618708048\n与原信号相关 0.532386254392473\n步数/累计alpha/剩余振幅 1000 4.035829765375676e-05 0.006352818087570016\n与原信号相关 -0.052941691164532345\n"
+        }
+      ]
+    },
+    "code_blocks": 30,
+    "code_blocks_passed": 30,
+    "environment": {
+      "python": "3.12.13",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "device": "CPU"
+    },
+    "upstream_demo_results": [
+      {
+        "lesson": "06-probability-and-distributions",
+        "code": "06-probability-and-distributions/code/probability.py",
+        "exit_code": 0,
+        "stdout_chars": 2737,
+        "stderr_tail": ""
+      },
+      {
+        "lesson": "07-bayes-theorem",
+        "code": "07-bayes-theorem/code/bayes.py",
+        "exit_code": 0,
+        "stdout_chars": 3403,
+        "stderr_tail": ""
+      },
+      {
+        "lesson": "09-information-theory",
+        "code": "09-information-theory/code/information_theory.py",
+        "exit_code": 0,
+        "stdout_chars": 5218,
+        "stderr_tail": ""
+      },
+      {
+        "lesson": "15-statistics-for-ml",
+        "code": "15-statistics-for-ml/code/statistics.py",
+        "exit_code": 0,
+        "stdout_chars": 4794,
+        "stderr_tail": ""
+      },
+      {
+        "lesson": "16-sampling-methods",
+        "code": "16-sampling-methods/code/sampling.py",
+        "exit_code": 0,
+        "stdout_chars": 6094,
+        "stderr_tail": ""
+      },
+      {
+        "lesson": "21-graph-theory",
+        "code": "21-graph-theory/code/graph_theory.py",
+        "exit_code": 0,
+        "stdout_chars": 2898,
+        "stderr_tail": ""
+      },
+      {
+        "lesson": "22-stochastic-processes",
+        "code": "22-stochastic-processes/code/stochastic.py",
+        "exit_code": 0,
+        "stdout_chars": 3193,
+        "stderr_tail": ""
+      }
+    ],
+    "upstream_python_demos": 7,
+    "upstream_python_demo_exit0": 7,
+    "local_relative_links": "5篇文件所有相对Markdown链接目标存在",
+    "math_and_fences": "$$和代码围栏计数均成对；未做渲染器的视觉验收",
+    "numeric_checks": [
+      "5类目标3 CE=0.420881",
+      "Bayes两次后验0.495",
+      "Beta拒绝接受率0.40766 vs理论0.406901",
+      "IS二阶矩0.9949 vs目标1",
+      "标准正态MH均值0.00260 方差0.99755 接受率0.7036",
+      "KL方向0.531004/0.736966 bit",
+      "配对Bootstrap提升0.037 区间0.007～0.068",
+      "天气稳态0.545455/0.181818/0.272727 残差2.22e-16",
+      "ULA方差1.05290 vs离散理论1.052632和连续目标1",
+      "100/1000扩散累计alpha0.363563/0.0000403583"
+    ],
+    "git_diff_check": "5篇独占文件git diff --check通过",
+    "coverage_target_heading_check": {
+      "entries": 207,
+      "missing": []
+    }
+  },
+  "not_completed": [
+    "仓库级python3 tools/check_knowledge.py与全局导航/更新记录由主代理统一执行，本代理未改共享文件",
+    "Julia实现已全文读取、同算法融合，但未运行Julia版本",
+    "NetworkX未安装；Karate Club图实验给出可复现流程与验收标准但未执行，不自动装依赖",
+    "30段Study代码运行和7段上游演示运行不等于完整数值算法/统计方法的所有边界测试",
+    "未训练真实语言模型、VAE、PPO、GNN或反向扩散网络；不把toy分布/前向扩散当真实效果",
+    "MCMC二维/多峰教学例子有限运行；未用完整多链Rhat/ESS工具宣称达到严格后验验收",
+    "图示核心含义已中文解释，未运行浏览器交互或复制原网站图渲染资源",
+    "本报告只覆盖7课，不代表phase01全部或整个来源1已完成"
+  ],
+  "全局状态提示": "这是第1来源首批34课的局部验收；第1来源及五站整体仍未完成。"
+}
