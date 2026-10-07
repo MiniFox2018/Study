@@ -82,6 +82,8 @@ expert parallel将专家分散到设备，dispatch把token按专家聚合，comb
 
 对确定性的因果decoder，未来token不改变旧位置表示，因而每层旧K/V可缓存。开启dropout、改adapter/权重/位置策略或让旧token读取未来时，不能直接保证等价。cache需绑定模型修订、token序列、position IDs、attention/padding mask、KV dtype/分片和上下文策略；同文字但不同chat template或tokenizer不是同前缀。
 
+源Phase10/12 attention在缓存时只取K[0]/V[0]，会丢其他batch项；decode还在每层内部advance共享seq_len，多层会错误推进长度。源单层/B1演示能运行不能证明多层/多batch正确。完整decoder应所有层使用同一旧长度，各自返回新cache，由模型/request边界提交一次长度；下方现有两层程序保留这一合同。
+
 新输入长为t，旧cache长s，则query绝对位置是`s..s+t−1`，key是`0..s+t−1`；允许key位置≤对应query位置。若只对`t×(s+t)`矩阵画左上角下三角，会让新query错误看不到旧前缀。多token增量、GQA、PAD以及滑窗丢掉旧缓存时还要保留绝对位置和有效长度。
 
 ### 3.1 完整小decoder：全序列、逐token、多token与回滚
@@ -395,6 +397,249 @@ prefix cache命中要包含完整输入和模型状态契约，量化、adapter�
 8. p=[.7,.2,.1]、q=[.3,.6,.1]：接受贡献[.3,.2,.1]、R=.4、残差[1,0,0]，合成p；反转p/q会错误。
 9. 前缀10、草稿5、第3拒绝：旧+前2 accepted的cache长12，再处理替代token；后续3个草稿全部作废，不只改文本列表。
 10. 可选真实实践：同一模型比较full/SWA/混合/差分，固定参数与训练token、报告质量/内存/耗时；拟合多组规模的留出loss；模拟page分配释放与共享prefix。开放实验没有预设优胜或固定GPU速度，本次未训练/部署。
+
+## 10. 投机采样的训练栈：EAGLE版本、树与词表
+
+### 10.1 先明确基本分布保证的适用边界
+
+本篇继续统一p=target、q=draft。§7的接受/残差/bonus恒等式和§3的真实小decoder回滚程序保留，不重建另一套基础解释。每次候选必须来自所保存的完整q_i，p_i按同一已接受前缀与采样约束计算；q_i仅保存被抽token的标量概率不足以生成残差向量。Phase10/25正文`q_probs[k]`就是标量却从完整p向量逐项减它，错误；该课main.py保存target/draft完整向量的静态fixture则是另一份实现，应分开判断。
+
+Phase10/12草稿token是uniform随机，另生成一组独立Dirichlet作q，又按人为acceptance_rate接受而不用p/q，拒绝时直接从p抽，不是严格speculative sampling。Phase10/15/25只用上下文无关概率分布，不包含真实EAGLE网络、tree LM验证或物理KV；名称和注释不替代能力。min(1,p/q)的极小非零q不能任意改成q+epsilon/max(q,epsilon)后仍声称数学精确；数值稳定应按实际概率/log-ratio与完整合同处理。
+
+若第j候选拒绝，只保留prefix及前j−1 accepted候选的KV；替代token尚待进入目标网络产生自己的KV，不能把旧被拒token的KV当替代token已完成。全部accepted后的bonus同理有“已输出但尚未处理”的阶段。EOS/max-output、每请求实际长度和scratch页面引用都需要按真正提交结果裁剪；源逻辑计数器直接+correction不证明物理缓存已正确。本篇§3.1实际decoder的crop与重算等价检查是这些状态的主验证入口。
+
+### 10.2 EAGLE-1/2/3各自增加了什么
+
+原EAGLE在可用高层特征上做自回归，用向前移动一时刻的已采样token输入消除特征预测的采样不确定性；目标侧的特征层位置和head路径依论文/公开checkpoint实现，不根据名称泛称“最后一层”。特征回归与token预测共同约束草稿输出。树候选和tree attention也已存在，不能说第2代才首次有树。
+
+EAGLE-2基于草稿confidence建立context-aware动态树并在预算内修剪，避免静态树把节点花在难以接受的位置。confidence只是acceptance的近似，不等于target与draft真实接受概率；树宽/深、节点总数和验证成本一起优化。[EAGLE原论文](https://arxiv.org/abs/2401.15077)，[EAGLE-2](https://arxiv.org/abs/2406.16858)
+
+EAGLE-3的公开论文§3.1–3.2将target的low/mid/high特征各d维拼成3d，再FC压到d维g。g与**已采样的下一token embedding**拼接/FC后输入单层causal decoder，得到自由向量a，经LM head得到草稿分布。target尚未验证的后续位置没有真实g，于是用草稿自身a代替该g继续预测。它去掉“a必须逼近target高层feature”的回归loss，以token预测为目标。[EAGLE-3论文](https://arxiv.org/abs/2503.01840)
+
+如果只在真实g输入上训练第一步，去掉feature约束后a可能偏离g的分布；第二步却要使用a，所以第一步接受提高不保证长链草稿也好。Training-time test在训练中展开自己的a作为后续输入，逐步施加token目标。关键是**自由特征的反馈分布**与相应attention因果结构，不是仅把模型输出token再喂回就自动修复exposure bias。原Figure6的多原始位置并行展开，后续测试步只读其正确原始前缀与自身分支，不能让相邻训练位置的不同预测彼此偷看。
+
+不同EAGLE版本、checkpoint、target修订、词表及具体decoder/head协议要匹配。“同家族”并不能保证兼容，更不能把论文的最大6.5×或某batch64实测值转写成所有2026服务默认与固定加速。源练习指§4讲TTT也不准确，§4是实验，方法在§3.1–3.2与Figure3/5/6。
+
+### 10.3 完整随机CPU草稿：fusion与自由向量反馈
+
+以下target是真正随机三层causal Transformer、冻结embedding/head；draft是3d→d fusion、拼token embedding→d、一个causal decoder。输入形状[B,T,d]，每个训练样本独立展开两个测试步；初始g_t与已观察token t+1配对，输出a_{t+1}预测token t+2；再把a_{t+1}追加为下一步feature，不接target的真实feature。监督使用随机teacher同位置soft-target token CE，没有feature回归。
+
+它保留**多层feature fusion、token shift、自由a反馈、因果decoder和完整梯度**这些机制，但不是EAGLE-3 checkpoint复现：teacher没预训练、未实现原多位置展开优化mask/动态树/生产head路径与缓存，也没有真实语料/接受率测量。训练中token输入采用已观察fixture，与推理真正随机采样的区别明确保留。
+
+```python
+import torch
+from torch import nn
+import torch.nn.functional as F
+torch.set_num_threads(1);torch.manual_seed(7)
+B,T,D,V=12,6,8,17
+ids=torch.randint(V,(B,T))
+class Teacher(nn.Module):
+    def __init__(self):
+        super().__init__();self.embedding=nn.Embedding(V,D)
+        self.layers=nn.ModuleList([nn.TransformerEncoderLayer(D,2,16,dropout=0.,batch_first=True) for _ in range(3)])
+        self.head=nn.Linear(D,V)
+    def forward(self,ids):
+        h=self.embedding(ids);features=[];mask=torch.triu(torch.ones(T,T,dtype=torch.bool),1)
+        for layer in self.layers:h=layer(h,src_mask=mask);features.append(h)
+        return features,self.head(h)
+teacher=Teacher().eval().requires_grad_(False)
+with torch.no_grad():features,target_logits=teacher(ids);teacher_p=target_logits.softmax(-1)
+class Draft(nn.Module):
+    def __init__(self):
+        super().__init__();self.fusion=nn.Linear(3*D,D);self.pair=nn.Linear(2*D,D)
+        self.decoder=nn.TransformerEncoderLayer(D,2,16,dropout=0.,batch_first=True)
+    def forward(self,g,next_ids):
+        pair=self.pair(torch.cat([g,teacher.embedding(next_ids)],-1))
+        n=pair.shape[1];mask=torch.triu(torch.ones(n,n,dtype=torch.bool),1)
+        a=self.decoder(pair,src_mask=mask)
+        return a,teacher.head(a)
+draft=Draft();opt=torch.optim.Adam(draft.parameters(),lr=.003)
+def objective():
+    # g_t pairs with the observed next token e_{t+1} to predict token t+2.
+    g=draft.fusion(torch.cat(features,-1))[:,:3]
+    shifted=ids[:,1:4];loss=0.
+    for j in range(2):
+        a,logits=draft(g,shifted)
+        loss+=-(teacher_p[:,3+j]*F.log_softmax(logits[:,-1],-1)).sum(-1).mean()
+        if j==0:
+            # Feed an unconstrained draft vector back; no target feature-fit loss.
+            g=torch.cat([g,a[:,-1:]],1);shifted=torch.cat([shifted,ids[:,4:5]],1)
+    return loss/2
+initial=float(objective().detach())
+for _ in range(60):
+    loss=objective();opt.zero_grad();loss.backward()
+    assert torch.isfinite(loss) and all(p.grad is None for p in teacher.parameters())
+    opt.step()
+print('random teacher soft-target token CE before/after',initial,float(objective().detach()))
+print('fusion/pair/one causal decoder; two-step free-vector feedback; no target-feature regression')
+```
+
+本次soft-target CE从约2.9294降至2.7108，teacher参数梯度始终None。这个数字仅证明小网络执行了所定义的优化目标，不是target能力、EAGLE接受率或加速结果。真实草稿训练还要匹配prompt/模板、覆盖实际温度/约束、分层采集与校准/留出、训练数据及权重许可，并测逐深度接受率，不能用简单高斯扰动概率向量冒充训练收益。
+
+## 11. 树状验证：共享前缀不允许兄弟互看
+
+候选树节点携带parent、depth、token；每节点只读committed prefix、自己的祖先及自身位置。把扁平index当连续位置会让同深度兄弟得到不同的位置语义；实际position_ids应按prefix长度+depth定义。生产kernel是否支持任意tree mask、paged/tree cache或稀疏结构须核实，不能声称任意FlashAttention默认支持任意mask。
+
+下面是自含的单头、无position embedding的attention+head随机fixture，算出所有候选位置logits后，与每条单独祖先路径逐一比较，并验证修改兄弟V不影响另一分支。最后做**greedy** walk：在当前节点target argmax候选存在时沿其子节点走，否则输出target argmax并结束。这不同于从所有叶子选概率最大者；后者会改变随机采样分布。
+
+```python
+import numpy as np
+rng=np.random.default_rng(6)
+# Root is last committed prefix token, followed by a 2x2 candidate tree.
+parents=np.array([-1,0,0,1,1,2,2]);ids=np.array([0,1,2,3,4,3,4])
+E=rng.normal(size=(5,4));Wq=rng.normal(size=(4,4));Wk=rng.normal(size=(4,4));Wv=rng.normal(size=(4,4));head=rng.normal(size=(4,5))
+paths=[]
+for i in range(len(parents)):
+    path=[];cur=i
+    while cur>=0:path.append(cur);cur=int(parents[cur])
+    paths.append(path[::-1])
+mask=np.zeros((7,7),dtype=bool)
+for i,path in enumerate(paths):mask[i,path]=True
+q=E[ids]@Wq;k=E[ids]@Wk;v=E[ids]@Wv
+scores=q@k.T/2;scores=np.where(mask,scores,-np.inf)
+a=np.exp(scores-scores.max(-1,keepdims=True));a/=a.sum(-1,keepdims=True);logits=(a@v)@head
+for i,path in enumerate(paths):
+    sc=q[i]@k[path].T/2;w=np.exp(sc-sc.max());w/=w.sum()
+    assert np.allclose(logits[i],(w@v[path])@head)
+assert not mask[3,2] and not mask[3,4] and mask[3,1]
+# A different sibling value cannot affect this branch's logits.
+v2=v.copy();v2[2]+=100
+assert np.allclose((a@v2)[3],(a@v)[3])
+# Greedy tree walk must follow the current node's target distribution.
+cur=0;accepted=[]
+while True:
+    wanted=int(logits[cur].argmax());children=np.flatnonzero(parents==cur)
+    match=[j for j in children if ids[j]==wanted]
+    if not match:accepted.append(wanted);break
+    cur=match[0];accepted.append(wanted)
+print('tree nodes',len(parents),'ancestor counts',mask.sum(1).tolist(),'greedy emitted',accepted)
+print('all candidate attention logits match individual paths; sibling isolation')
+```
+
+root+2+4共7节点，祖先数为[1,2,2,3,3,3,3]，本次greedy输出[2,2]。未实现全Transformer树、位置/多层KV或随机树采样协议；没有把top3宽树“最长看起来正确分支”叫精确随机采样。若多候选随机拒绝/接受，需要对应提议过程及条件残差证明，普通线性链的公式不自动覆盖任意tree选择。
+
+### 11.1 tokenizer相同是基本p/q的充分接口条件之一
+
+基础p/q公式中的每一坐标必须表示同一token事件，所以词表、special token与ID映射要对应，tokenizer字节不同不能直接按index相减。可研究具有明确文本对齐协议的跨tokenizer辅助生成：decode草稿成文本、带最近上下文重新encode为target tokens，再对齐追加点；target回给draft也要修其被丢弃KV。这比只确认两个模型同家族复杂。[Hugging Face UAG方法说明](https://huggingface.co/blog/universal_assisted_generation)
+
+该官方文章按发布时实现区分跨tokenizer的匹配采样与同tokenizer的严格拒绝采样；不能把UAG支持推成“任意tokenizer可直接套p/q”。具体当前库模式需查实际代码/版本，本章没有运行模型或给出跨词表精确性的新证明。EAGLE专用草稿依target特征结构，更要使用对应模型修订/训练协议。
+
+## 12. 成本、统计与回退策略
+
+### 12.1 产出数不是墙钟加速
+
+恒定独立接受率α的简化模型，K草稿的期望总产出（含correction或bonus）是`Σ_{j=0}^K α^j`，α1时K+1。真实位置条件接受率不同，应该用`1+α1+α1α2+...`，不能用一个平均率抹掉所有相关性。
+
+时间/token应计`(K*C_draft + C_verify(K,prefix,batch) + C_sync/cache/sample)/E[tokens]`。verify长K通常更贵，draft自身KV/feature提取、树scratch、target不同batch利用率也有成本；source默认verify=1只是简化模型。接受率高未必胜过廉价草稿；高并发也不意味着永远禁用，方法与目标设备不同可能改变结果。模型参数/FLOP比例c不能自动当wall-time比例。
+
+```python
+import numpy as np
+from scipy.stats import chisquare,chi2_contingency
+
+def expected(alpha,K):
+    if not np.isfinite(alpha) or not 0<=alpha<=1 or type(K) is not int or K<1:raise ValueError('合法alpha/K')
+    return sum(alpha**j for j in range(K+1))
+def estimate(alpha,K,draft_step,verify,sync):return (K*draft_step+verify(K)+sync)/expected(alpha,K)
+for a in [.5,.7,.9]:
+    costs=[estimate(a,K,.04,lambda k:1.+.03*k,.02) for K in range(1,21)]
+    K=int(np.argmin(costs))+1
+    print('declared varying-verify model',a,'bestK',K,'time/token',round(costs[K-1],4))
+assert expected(1.,4)==5 and expected(0.,4)==1
+p=np.array([.3,.22,.15,.1,.08,.07,.05,.03]);rng=np.random.default_rng(8)
+counts1=rng.multinomial(50000,p);counts2=rng.multinomial(50000,p)
+gof=chisquare(counts1,f_exp=50000*p)
+hom=chi2_contingency(np.stack([counts1,counts2]),correction=False)
+print('fixed-target goodness-of-fit chi2/p',float(gof.statistic),float(gof.pvalue))
+print('two-sample pooled homogeneity chi2/p',float(hom.statistic),float(hom.pvalue))
+# Larger temperature does not necessarily lower alpha; identical p/q always accept.
+logits=np.array([3.,1.,-2.])
+for T in [.5,1.,1.5,10.]:
+    prob=np.exp((logits-logits.max())/T);prob/=prob.sum()
+    assert np.minimum(prob,prob).sum()==1 or np.isclose(np.minimum(prob,prob).sum(),1)
+print('p=q accepts at every temperature; finite-frequency checks do not prove exact sampling')
+```
+
+在**已声明的虚拟verify=1+.03K**模型、draft每步.04、sync.02下，α=.5/.7/.9在K1–20的最优为3/5/12；换目标/设备/队列就会不同。温度提高不必使接受崩溃：p=q时所有温度都全接受；相同温度处理、alignment与sampling mask才是概率条件。source固定T>.8关闭、α<.4拒绝、K=chat4/code6均不作普适规则。
+
+### 12.2 分布证明与频数检验分开
+
+§7恒等式是数学证明；有限抽样只验证实现可观测的误差。用固定理论p作expected counts可做goodness-of-fit；比较两份随机频数需pooled homogeneity检验，不能拿第二份随机计数当无噪声理论期望再套同一χ²临界值。低expected-count、预先挑样本/重复直到pass、多重比较也要处理。source15的一侧随机χ²14.07门槛不能“证明定理”。source25 10K/32词频的TV是否<.01依样本波动，不是应该保证的阈值。
+
+监测requested/actually drafted/accepted/committed token数、按深度接受、拒绝位置、EOS/长度限制、prefill/verify/draft时间和缓存峰值。每request回退决策要有稳定的滑动窗口与冷启动处理，比较同质量、温度、输出长度、并发下的TTFT/TPOT/尾延迟/throughput。没有原始测量前不记录固定百分比性能。
+
+## 13. 分页缓存的所有权与可运行LRU
+
+分页把逻辑token位置映射到物理block，并非prefix trie的另一个名字。source12只存trie节点/部分KV对象，没有真正page allocator。块长b、序列长n占ceil(n/b)块，末块最多b−1个空位；这不消除metadata、对齐、workspace、动态尾页和所有碎片。contiguous可以动态增长，不是所有实现都预留最大128，所以图中max−seq只是所设策略。
+
+共享前缀需引用计数。写共享未满尾页先copy-on-write；释放一request只能归还无人引用的页面。缓存key由调用者完整编码target修订、tokenizer/模板、adapter、位置/attention规则、dtype/量化以及权限namespace；以下contract只用rev/tenant做示意，不能作为生产key完整设计。
+
+```python
+from collections import Counter,OrderedDict
+class Pool:
+    def __init__(self,size=4,capacity=8):self.size=size;self.free=list(range(capacity));self.pages={};self.refs={};self.requests={}
+    def alloc(self,data=None):
+        if not self.free:raise MemoryError('page pool exhausted')
+        p=self.free.pop();self.pages[p]=list(data or []);self.refs[p]=1;return p
+    def start(self,r):
+        if r in self.requests:raise ValueError('duplicate request')
+        self.requests[r]=[]
+    def fork(self,src,dst):
+        if dst in self.requests:raise ValueError('duplicate fork target')
+        self.requests[dst]=self.requests[src].copy()
+        for p in self.requests[dst]:self.refs[p]+=1
+    def append(self,r,token):
+        table=self.requests[r]
+        if not table or len(self.pages[table[-1]])==self.size:table.append(self.alloc())
+        elif self.refs[table[-1]]>1:
+            old=table[-1];new=self.alloc(self.pages[old]);self.refs[old]-=1;table[-1]=new
+        self.pages[table[-1]].append(token)
+    def read(self,r):return [x for p in self.requests[r] for x in self.pages[p]]
+    def release(self,r):
+        for p in self.requests.pop(r):
+            self.refs[p]-=1
+            if self.refs[p]==0:del self.refs[p];del self.pages[p];self.free.append(p)
+    def validate(self):
+        assert Counter(p for t in self.requests.values() for p in t)==Counter(self.refs)
+        assert not (set(self.free)&set(self.pages))
+p=Pool();p.start('A');p.append('A',1);p.append('A',2);p.fork('A','B')
+p.append('A',3);assert p.read('A')==[1,2,3] and p.read('B')==[1,2]
+p.append('B',4);p.validate();p.release('A');assert p.read('B')==[1,2,4]
+p.validate();p.release('B');assert not p.pages and len(p.free)==8
+class PrefixLRU:
+    # Capacity counts whole-prefix entries, not tokens/bytes. Payloads immutable.
+    def __init__(self,capacity):
+        if type(capacity) is not int or capacity<1:raise ValueError('positive capacity')
+        self.capacity=capacity;self.entries=OrderedDict()
+    def insert(self,contract,tokens,kv):
+        if len(tokens)!=len(kv) or not tokens:raise ValueError('complete nonempty prefix KV required')
+        key=(contract,tuple(tokens));self.entries[key]=tuple(kv);self.entries.move_to_end(key)
+        while len(self.entries)>self.capacity:self.entries.popitem(last=False)
+    def lookup(self,contract,tokens):
+        hits=[k for k in self.entries if k[0]==contract and tuple(tokens[:len(k[1])])==k[1]]
+        if not hits:return 0,()
+        key=max(hits,key=lambda k:len(k[1]));self.entries.move_to_end(key)
+        return len(key[1]),self.entries[key]
+c=PrefixLRU(2);c.insert(('rev1','tenantA'),[1,2],['k1','k2']);c.insert(('rev1','tenantA'),[3],['k3'])
+assert c.lookup(('rev1','tenantB'),[1,2,4])==(0,())
+assert c.lookup(('rev1','tenantA'),[1,2,4])[0]==2
+c.insert(('rev1','tenantA'),[5],['k5']);assert c.lookup(('rev1','tenantA'),[3])==(0,())
+try:c.insert(('rev1','tenantA'),[6,7],['k6'])
+except ValueError:pass
+else:raise AssertionError('incomplete KV falsely cached')
+print('partial-page fork uses COW; release/refcounts safe; contract-scoped longest complete prefix with LRU')
+```
+
+第一部分是真实page table/refcount/COW对象程序，保存整数token作为页载荷以便核查，不是GPU KV kernel。第二部分是**完整前缀entry**的LRU，容量按entry计，payload不可缺，lookup仅相同contract并选最长前缀；它没有承诺trie式任意partial-prefix复用或字节级容量控制。源trie沿结构走到某depth却可能对应kv_data=None，这不能算实际命中。生产可研究按block hash/radix/nodeLRU，同时保活引用，避免eviction删除正在执行的cache。
+
+## 14. 三课完整练习的处理与边界
+
+Inference12五题：FP16/FP8/INT4 KV容量先算Hkv而非Hq、每rank模型分片/缓存/metadata/peak；INT4容量不必4×，质量/支持另验。Pareto请求50条的slot占用曲线应声明arrival/prefill/cost与SLO，不能强制>80%；GQA例Hq64/Hkv8减KV理想8×但不减全部模型内存；LRU500/1000请求共享60%不能保证hit55%，热prefix长度/entry定义/到达模式影响；tree `[2,2,2]`的8叶对应全部节点数和每分支因果，不能把叶子数当verify成本。本章分页/树机制与工程03完整scheduler例给出独立验证，未做真实推理引擎/GPUbenchmark。
+
+EAGLE15五题：50K频数以固定p/pooled test正确检验，不由χ²通过证实定理；N1–10的wall time需要实测成本，virtual formula不叫实际延迟；8条树路径随机选择协议与greedy分开；两序列分别记录accepted/pending correction/bonus及KVcrop，不能统一逻辑length或写成“无任何浪费”；TTT是§3的自由feature反馈，不只是§4某段token自喂。
+
+Spec25五题：精确拒绝本篇§7主入口保留，TV容差按样本/词表与统计设计确定；最优K要有c与verify(K)，α单独不能求有成本的最优；124M→30M/100Mtoken distillation是开放实验，本批不下载/训练，不能预设接受.6–.7；top3树验证用祖先mask/真实target，不从parent列表宣称已验证LM；T1.5是否变慢由p/q和成本测试，不必崩溃。source15/25主程序只做静态分布、parent mask或计数器，它们的完整执行与能力范围另记。
+
+增量来源：固定AI Engineering from Scratch3be078b Phase10/12、15、25及相关source05/19图示，整理2026-10-05。保留原Phase07六个程序的最终代码SHA及当时真实CPU执行证据，本轮只运行新增/变化块；[vLLM当前speculative入口](https://docs.vllm.ai/en/latest/features/speculative_decoding/)用于核验支持与实际版本，未启动服务、下载草稿或模型，不保留“所有服务默认EAGLE3”或未经条件说明的速度排名。
 
 ## 来源与维护
 

@@ -426,3 +426,135 @@ Encoder-only常对源序列双向编码，用于分类、检索或标注；decod
 增量来源：[ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775)，Phase07第01～05课，读取始于2026-10-04，整理核验2026-10-05。保留既有核回归/Bahdanau/手算/mask内容；原算法中有效部分和语言实现边界融合，剔除硬件浪费率/固定性能/架构统一默认等断言。
 
 一手核验：[Transformer](https://arxiv.org/abs/1706.03762)、[RoPE](https://arxiv.org/abs/2104.09864)、[ALiBi](https://arxiv.org/abs/2108.12409)、[Norm位置](https://arxiv.org/abs/2002.04745)、[RMSNorm](https://arxiv.org/abs/1910.07467)、[GLU变体](https://arxiv.org/abs/2002.05202)、[PyTorch SDPA](https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html)、[MultiheadAttention](https://docs.pytorch.org/docs/stable/generated/torch.nn.MultiheadAttention.html)。CPU程序只核对数学/合同；没有GPU、外部权重或真实语料训练。
+
+## 21. 差分注意力：V1 的公式与 V2 的真实布局
+
+先修第14～18节。普通softmax权重非负、行和1；差分用两次聚合的差改变这个限制。令两图分别为A₁/A₂，输出 `(A₁−λA₂)V`，行和1−λ，可出现负权，输出不必在V的凸包内。若两分支的背景贡献相近、信号贡献不同，做差可能降低背景；若信号也相同，信号同样抵消。不能由softmax尾部非零直接推出“越长必然噪声越大”：概率总和始终1，尾部质量还取决于logit间隔、分布与训练。掩码处可严格为0，有限精度也会下溢。
+
+V1有两套Q/K分支、共享V，使用指数差与按深度初始化的λ，并在做差后加每头RMSNorm。作者布局以相对于baseline减半的头数和加倍value头宽保持投影预算，不能把源课的“头维一律减半”当唯一布局。第14篇工程实践已维护差分的负权性质，本节只补版本合同与可运行V2。
+
+2026-10-05核对[微软V2作者说明](https://huggingface.co/blog/microsoft/diff-attn-v2)及[作者模块](https://github.com/microsoft/unilm/blob/335fa4fd9e855b03c1f01e05a2173f89db6fe6e1/Diff-Transformer/Diff-Transformer-V2/multihead_flashdiffv2.py)：对baseline输出头数H、KV头数Hkv、每头d，Q变成2H头，K/V仍Hkv头；**同一GQA组的相邻两个Q头**聚合结果相减，λ由输入每token/每输出头投影后sigmoid，位于(0,1)。做差后回到H×d，WO保持原尺寸；去掉每头RMSNorm和V1指数λ初始化。不能先切前后两半再做差，那可能配对不同KV组。
+
+无bias时baseline投影参数为 `D×Hd + 2D×Hkv d + Hd×D`；V2新增 `D×Hd + D×H`，来自额外Q与λ投影。D=4096,H=32,Hkv=8,d=128时每层新增16,908,288个参数，32层新增541,065,216；若保持全模型参数预算，必须说明从哪个组件扣除。KV仍为 `2BNHkv d` 个元素；Q/注意力计算和训练激活增加，KV不增加不能推出“零成本”或任何设备同速。
+
+### 21.1 完整CPU V2：相邻配对、GQA与可微λ
+
+这里用显式softmax与CPU SDPA交叉核对同一前向，省略RoPE以孤立配对问题；在真实模型中应按第17节给Q/K旋转。随机权重只证明实现合同，不证明去幻觉、上下文检索或训练稳定。
+
+```python
+import torch
+from torch import nn
+from torch.nn.functional import scaled_dot_product_attention as sdpa
+torch.set_num_threads(1);torch.manual_seed(51)
+B,T,D,H,HK,d=2,5,16,4,2,4
+x=torch.randn(B,T,D,dtype=torch.float64)
+q_proj=nn.Linear(D,2*H*d,bias=False,dtype=torch.float64)
+k_proj=nn.Linear(D,HK*d,bias=False,dtype=torch.float64)
+v_proj=nn.Linear(D,HK*d,bias=False,dtype=torch.float64)
+o_proj=nn.Linear(H*d,D,bias=False,dtype=torch.float64)
+lam_proj=nn.Linear(D,H,bias=False,dtype=torch.float64)
+def split(z,h):return z.reshape(B,T,h,d).transpose(1,2)
+q,k,v=split(q_proj(x),2*H),split(k_proj(x),HK),split(v_proj(x),HK)
+group=2*H//HK
+assert group%2==0  # 相邻成对都在同一KV组。
+kr,vr=k.repeat_interleave(group,1),v.repeat_interleave(group,1)
+allowed=torch.tril(torch.ones(T,T,dtype=torch.bool))
+a=(q@kr.transpose(-1,-2)/d**.5).masked_fill(~allowed,-torch.inf).softmax(-1)
+raw=a@vr
+fast=sdpa(q,k,v,attn_mask=allowed,dropout_p=0.,enable_gqa=True)
+assert torch.allclose(raw,fast,atol=1e-12)
+lam=lam_proj(x).sigmoid().transpose(1,2)[...,None]
+mixed=raw[:,0::2]-lam*raw[:,1::2]
+weights=a[:,0::2]-lam*a[:,1::2]
+assert torch.allclose(weights.sum(-1),1-lam[...,0])
+paired_values=vr[:,0::2]
+assert torch.allclose(mixed,weights@paired_values)
+y=o_proj(mixed.transpose(1,2).reshape(B,T,H*d))
+y.square().mean().backward()
+assert lam_proj.weight.grad.norm()>0 and y.shape==(B,T,D)
+# 同组两图完全相同、lambda=1时信号也消失，不能称必然保信号。
+assert torch.equal(raw-raw,torch.zeros_like(raw))
+baseline=D*H*d+2*D*HK*d+H*d*D
+count=sum(m.weight.numel() for m in [q_proj,k_proj,v_proj,o_proj,lam_proj])
+assert count-baseline==D*H*d+D*H
+print('V2输出',tuple(y.shape),'相邻同组/行和/梯度通过；新增参数',count-baseline)
+```
+
+源动态图先将负权裁为0、再归一化，其“true token质量百分比”属于另一算子；不能当DIFF公式。源main用人为把signal logit置4的两张随机图、固定λ，不训练Q/K或λ。实际执行噪声标准差1.5时普通SNR约15.93、差分11.80，2.0时8.46与5.42；所谓“可靠提升”被自身实验反驳。该SNR是signal绝对权/其他绝对权均值，也不是输出误差或答案准确率。
+
+V2作者说明把大规模训练中的损失、尖峰和异常值作为阶段观察，长上下文下游结果当时仍待评测；保留方法，不把这些观察扩大成所有任务/长度的定律。更换已有attention会改变模型函数；普通Q投影的LoRA不会自动增加分支、λ和做差，须显式改结构、适配训练并验旧能力。与MLA/稀疏模式组合也需逐项实现与质量验证。
+
+## 22. NSA：三分支、离散选块与缓存账目
+
+NSA解决“每query读全历史”的开销。压缩分支把连续KV块用带块内位置的可学压缩器映射成摘要；选择分支用压缩注意力诱导重要性，读取top-n块的原始KV；窗口分支保留近处细节。输出是三分支分别attention后加权：`g_cmp o_cmp + g_sel o_sel + g_win o_win`。门来自输入特征MLP+sigmoid，每个在[0,1]，不必加和1；它们不是一张合并后再softmax的概率表。[NSA原论文第3节](https://arxiv.org/html/2502.11089v1#S3)
+
+原方法压缩块长度l、步幅s、选择块长b可以不同，常s<l以重叠减碎片；先按重叠关系将压缩分数汇总为选择块分数，再在同GQA组跨Q头汇总，组内共享所选块。简单“非重叠均值→top-k”仅是简化机制。长度N时一query读键数近似 `N/s + nb + W`，全序列约 `N(N/s+nb+W)`；固定s仍有二次项，不应称严格线性。l=s=b=64,n=16,W=512,N=65536时是2560而非dense的65536，25.6倍是键数比，不是延迟比。启动、压缩、选块、不同维度、重复读、通信和融合内核都未计入。
+
+**top-k索引不因复用attention分数而变可微。**固定所选集合内，选中KV和query的attention可反传；压缩分支独立给压缩器可微信号，门也可微。选择集合跳变处的离散导数仍不存在，未选块不会从选择分支得到本次梯度。可以联合预训练，不等于对离散路由进行了精确连续反传。
+
+动态选择可能在下一个query重新访问此前未选块，所以精细KV通常仍保留全历史。NSA降低每query读取和计算，**不能将缓存存量直接改成nb+W**；另需摘要缓存。若要永久丢历史，必须证明未来选块无需访问、并验任务损失。滑窗动态图只演示窗口mask，未实现压缩/选择/门，不能用它验完整NSA。
+
+### 22.1 完整CPU简化NSA：可学压缩、门与梯度路径
+
+本例单KV组、非重叠完整块、短序列、每query传入截至当前的前缀；窗口包含当前项。压缩MLP先学习块均值，用MSE和留出误差评价；它没有词表输出，不能报告perplexity。真实NSA的重叠映射、块位置编码、分组与稀疏GPU内核不由该toy复现。
+
+```python
+import torch
+from torch import nn
+torch.set_num_threads(1);torch.manual_seed(52)
+l,d=4,4
+compress=nn.Sequential(nn.Linear(l*d,32),nn.GELU(),nn.Linear(32,d))
+train=torch.randn(128,l,d);test=torch.randn(32,l,d)
+opt=torch.optim.Adam(compress.parameters(),lr=.015)
+with torch.no_grad():before=(compress(test.flatten(1))-test.mean(1)).square().mean()
+for _ in range(250):
+    loss=(compress(train.flatten(1))-train.mean(1)).square().mean()
+    opt.zero_grad();loss.backward();opt.step()
+with torch.no_grad():after=(compress(test.flatten(1))-test.mean(1)).square().mean()
+assert after<before and after<.1
+gate=nn.Linear(d,3);nn.init.zeros_(gate.weight);nn.init.zeros_(gate.bias)
+def attend(q,k,v):
+    if len(k)==0:return q.new_zeros(d),q.new_empty(0)
+    p=(k@q/d**.5).softmax(0);return p@v,p
+def nsa(q,k,v,n=2,w=3):
+    if k.shape!=v.shape or k.ndim!=2 or k.shape[1]!=d or len(k)<1 or n<1 or w<1:
+        raise ValueError('本例非空同形前缀KV，n/w正整数')
+    nb=len(k)//l;end=nb*l
+    if nb:
+        ck=compress(k[:end].reshape(nb,l*d));cv=compress(v[:end].reshape(nb,l*d))
+        oc,p=attend(q,ck,cv)
+        chosen=p.detach().topk(min(n,nb)).indices
+        ids=(chosen[:,None]*l+torch.arange(l)).flatten()
+        os,_=attend(q,k[ids],v[ids])
+    else:oc=os=q.new_zeros(d);ids=torch.empty(0,dtype=torch.long)
+    ow,_=attend(q,k[-w:],v[-w:]);g=gate(q).sigmoid()
+    return g[0]*oc+g[1]*os+g[2]*ow,(oc,os,g,nb,len(ids),min(w,len(k)))
+k=torch.randn(17,d,requires_grad=True);v=torch.randn(17,d,requires_grad=True)
+q=torch.randn(d,requires_grad=True)
+out,(oc,os,g,nc,ns,nw)=nsa(q,k,v)
+assert torch.allclose(g,torch.full((3,),.5)) and torch.isclose(g.sum(),torch.tensor(1.5))
+params=tuple(compress.parameters())
+# 所选原始KV的聚合不通过离散indices回到compress；摘要输出可反传。
+selected_grad=torch.autograd.grad(os.square().sum(),params,allow_unused=True,retain_graph=True)
+assert all(z is None for z in selected_grad)
+compressed_grad=torch.autograd.grad(oc.square().sum(),params,retain_graph=True)
+assert sum(z.norm().item() for z in compressed_grad)>0
+out.square().sum().backward();assert q.grad.norm()>0 and gate.weight.grad.norm()>0
+# 位置7的计算只传前8项；修改未来不改变该前缀。
+future=k.detach().clone();future[8:]+=100
+assert torch.allclose(nsa(q,k[:8],v[:8])[0],nsa(q,future[:8],v[:8])[0])
+assert nsa(q,k[:1],v[:1])[0].shape==(d,)
+print('压缩留出MSE',round(after.item(),4),'三支读键',nc,ns,nw,'原始KV仍存',len(k))
+print('top-k无索引梯度；摘要/门/所选KV可微；因果前缀与短块通过')
+```
+
+### 22.2 两课练习的参考判断
+
+1. 差分λ=0恢复第一支，λ=1同图完全抵消。扫描应用相同图/seed/噪声，保留变差的点；“最佳λ”依赖数据，固定λ扫描不是学到λ。V2的λ属于每token/head的sigmoid，而非全局扫描值。
+2. V2预算按21节公式，与相同Hkv的GQA比较；不能拿MHA作参数baseline、GQA作V2，再称差只来自Q。8KV、32输出头的缓存相同，Q实际64头。
+3. V1输出每头norm在小RMS时可放大激活/梯度；V2修改value头宽及λ粒度后去掉它，是作者实验选择，不是数学上对所有70B网络必然失稳。
+4. NSA扫l/n/W必须同时记录检索是否找到、答案是否正确、读取键数和真实时延，不能假设任一preset达到95% recall。均值任务用MSE，词表条件概率任务才用CE/PPL。
+5. 随机或零初始化的门没有“看远处自动偏selected”的保证；需训练与留出反例。512窗口、16选块等为实验配置而非通用门槛。
+6. NSA精细cache与dense基准按真实KV维度均随N增长；不能找一个N让它突然等于“固定nb缓存”。比较MLA还需区分latent和RoPE键，见[现代架构第15节](../../LLM%20基础/09-现代语言模型架构与生成.md)。复用压缩分数降低独立router成本并提供摘要分支学习信号，不使top-k成为恒等或可微操作。
+
+增量来源：第一来源同一固定commit，Phase10/16、17，2026-10-05完整读取正文、程序、SVG、输出模板与动态实现。源输出中的16K/32K硬拒绝、旧GPU禁令、固定质量提升和服务器集成断言不作为学习规则；NSA与DSA是分别描述的设计，不据“DeepSeek”名称判定某checkpoint使用NSA。本次仅执行CPU机制和源toy，未运行作者FlashAttention/Triton、真实长上下文训练或部署。
