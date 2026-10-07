@@ -74,6 +74,8 @@ MTEB 等公开基准适合做初筛，但最终仍应在自己的检索集上验
 - **HyDE**：先生成“假设性答案/文档”再做向量检索，用于 Query 与文档表述差异较大的场景；
 - **Step-Back**：先抽象出更高层问题，再结合原问题检索，适合部分复杂推理场景。
 
+同一虚构退款问题的独立改写、Multi-query与子问题拆解、HyDE错数值反例、Step-back双检索及Q-D重排例，见 [工程12第3.1节](../../LLM%20工程实践/12-文本检索与RAG文档工程.md#31-一个问题的改写多视角拆解hyde与step-back)。它们共享原问题的必需事实和权限边界。
+
 这些方法都可能增加调用次数、时延和噪声，因此**不要默认全开**。先建立直接检索基线，再只针对已经测出的召回缺口启用对应策略，并保留原始 Query 以便回溯。
 
 ### 实用 RAG 调试顺序
@@ -89,3 +91,73 @@ MTEB 等公开基准适合做初筛，但最终仍应在自己的检索集上验
 先定位是数据、分块、Query、检索还是生成阶段的问题，再做局部优化。
 
 来源：<https://datawhalechina.github.io/llm-universe/#/>（仅吸收经时效审计后仍有效的 RAG 方法）
+
+## 有界 Agentic RAG：动作、证据状态与终止
+
+Agentic RAG 把改写、再检索、重排或父段扩展变成可选择的读操作。每项动作须保留原任务、查询及证据版本、权限和消耗，不能因为“回答还不够好”无限循环。动态图 agentic-rag-loop 只有固定6秒的轨道动画，代码没有检索、judge 或终止逻辑，不能当已实现系统。
+
+下面使用明确的动作计划和检索表，不调用模型。support 标签是人工 fixture，验证的是控制流：证据有效/权限正确且主张支持才结束；重复无增益、动作/次数/调用预算耗尽或无证据都给明确状态；禁止动作在执行前拒绝。真实控制器需要独立核验标签来源及读操作实际范围，引用和最终答案仍按 [工程12](../../LLM%20工程实践/12-文本检索与RAG文档工程.md) 追溯。
+
+```python
+import hashlib, json
+
+ALLOWED={'retrieve','rewrite','rerank','expand_parent'}
+def bounded_rag(question,plan,tools,max_calls=4,budget_calls=4):
+    if not isinstance(question,str) or any(type(n) is not int or n<=0 for n in (max_calls,budget_calls)):
+        raise ValueError('任务和调用上限')
+    query=question;evidence=[];seen=set();trace=[];calls=0
+    for action in plan:
+        if action not in ALLOWED or action not in tools:
+            return {'status':'blocked_action','trace':trace,'calls':calls}
+        if calls>=max_calls:return {'status':'call_limit','trace':trace,'calls':calls}
+        if calls>=budget_calls:return {'status':'budget_limit','trace':trace,'calls':calls}
+        # 本例scope由控制器固定，计划/来源文本不能修改。
+        result=tools[action]({'original_question':question,'query':query,'scope':'public','evidence':evidence})
+        calls+=1
+        if not isinstance(result,dict) or set(result)-{'query','evidence','intent'}:raise ValueError('工具结果合同')
+        if 'query' in result:
+            if action!='rewrite' or result.get('intent')!='enterprise-refund':raise ValueError('本fixture只支持指定意图改写')
+            query=result['query']
+        if 'evidence' in result:
+            evidence=result['evidence']
+            if not isinstance(evidence,list) or any(set(e)!={'id','revision','scope','current','support'} or
+                    type(e['current']) is not bool or e['support'] not in {'supported','unsupported','unknown'} for e in evidence):
+                raise ValueError('证据结构')
+            valid=[e for e in evidence if e['scope']=='public' and e['current']]
+            fingerprint=hashlib.sha256(json.dumps(valid,sort_keys=True).encode()).hexdigest()
+            if valid and all(e['support']=='supported' for e in valid):
+                trace.append({'action':action,'query':query,'valid_evidence':valid})
+                return {'status':'supported_fixture','evidence':valid,'trace':trace,'calls':calls}
+            if fingerprint in seen:
+                trace.append({'action':action,'query':query,'valid_evidence':valid})
+                return {'status':'stalled','trace':trace,'calls':calls}
+            seen.add(fingerprint)
+        trace.append({'action':action,'query':query,'evidence_ids':[e['id'] for e in evidence]})
+    return {'status':'plan_exhausted','trace':trace,'calls':calls}
+
+def retrieve(state):
+    if state['query']=='企业客户当前退款期限':
+        return {'evidence':[{'id':'current','revision':'r2','scope':'public','current':True,'support':'supported'}]}
+    return {'evidence':[{'id':'old','revision':'r1','scope':'public','current':False,'support':'unknown'}]}
+def rewrite(state):
+    if state['original_question']!='企业退款时间':raise ValueError('有限改写不处理其他任务')
+    return {'query':'企业客户当前退款期限','intent':'enterprise-refund'}
+def identity(state):return {'evidence':state['evidence']}
+tools={'retrieve':retrieve,'rewrite':rewrite,'rerank':identity,'expand_parent':identity}
+ok=bounded_rag('企业退款时间',['retrieve','rewrite','retrieve'],tools)
+assert ok['status']=='supported_fixture' and ok['calls']==3
+assert bounded_rag('企业退款时间',['retrieve','retrieve'],tools)['status']=='stalled'
+assert bounded_rag('企业退款时间',['retrieve','rewrite','retrieve'],tools,budget_calls=2)['status']=='budget_limit'
+assert bounded_rag('企业退款时间',['retrieve','rewrite','retrieve'],tools,max_calls=2)['status']=='call_limit'
+assert bounded_rag('企业退款时间',['publish'],tools)['calls']==0
+assert bounded_rag('企业退款时间',['retrieve'],tools)['status']=='plan_exhausted'
+def private(state):return {'evidence':[{'id':'staff','revision':'r1','scope':'staff','current':True,'support':'supported'}]}
+assert bounded_rag('企业退款时间',['retrieve'],dict(tools,retrieve=private))['status']=='plan_exhausted'
+print('有界动作',ok['status'],'调用数',ok['calls'],'；停滞/预算/调用上限/权限与禁止写动作通过')
+```
+
+identity 重排/展开只演示允许的动作接口，没有实现实际 cross-encoder 或父段扩展算法；该算法由工程12维护。人工 supported 标签不能升级为真实自动 judge。真实多事实问题还须在控制器外锁定必需主张集合，逐项覆盖，不能因为“返回的一条证据受支持”就认为所有要求完成。
+
+停止时保留原因：无可用证据、权限限制、上下文预算不足、反复同结果、判断未知或调用失败。基线一次检索已足够时不必循环；改写和HyDE可能引入偏差、费用和额外泄漏范围，保持原问题与证据快照。语义效果与真正模型调用本批未测试。
+
+增量来源：AI Engineering from Scratch 固定提交 3be078b37ffd8f0c04953c0678e48f5c6d0c7775，Phase11第06/07课，完整阅读及本地控制流验证2026-10-07；上文2026-10-02的原有来源与边界保留。

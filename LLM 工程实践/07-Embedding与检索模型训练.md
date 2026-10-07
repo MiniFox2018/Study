@@ -44,6 +44,36 @@ for a, b in (([0, 0], [1, 0]), ([1, 0], [1, 0, 0]), ([math.nan], [1])):
 print("余弦：同方向、正交、零向量、维度及有限值检查通过")
 ```
 
+
+### 2.1 三种距离何时给同一排名
+
+非零向量分别归一化到单位长度后，q·d=cos(q,d)，且 ||q−d||²=2−2q·d，因此点积/余弦降序与 L2 升序等价；平方根单调，不改变排序。零向量、不同维度或非有限值应先拒绝。未归一化时点积受长度影响，换度量可能改名次；不能仅因文本长短就认定某一种必然最好。动态图 cosine-similarity 精确展示角度余弦，但0.7等“相似”标签没有文本任务校准，负余弦也不是语言否定的可靠检测器。
+
+```python
+import math
+
+def unit(v):
+    if not v or not all(math.isfinite(x) for x in v):raise ValueError('非空有限向量')
+    norm=math.sqrt(sum(x*x for x in v))
+    if norm==0:raise ValueError('零向量')
+    return [x/norm for x in v]
+def dot(a,b):
+    if len(a)!=len(b):raise ValueError('维度不同')
+    return sum(x*y for x,y in zip(a,b))
+def squared_l2(a,b):
+    if len(a)!=len(b):raise ValueError('维度不同')
+    return sum((x-y)**2 for x,y in zip(a,b))
+q=unit([1.,0.]);docs=list(map(unit,[[3.,4.],[1.,0.],[-1.,0.],[0.,1.]]))
+scores=[dot(q,d) for d in docs];dist=[squared_l2(q,d) for d in docs]
+assert all(math.isclose(v,2-2*s,abs_tol=1e-12) for s,v in zip(scores,dist))
+assert sorted(range(4),key=lambda i:(-scores[i],i))==sorted(range(4),key=lambda i:(dist[i],i))==[1,0,3,2]
+a,b=[.9,.1],[3.,4.]
+assert dot(q,unit(a))>dot(q,unit(b)) and dot(q,a)<dot(q,b)
+print('单位向量cos/dot/L2排名',scores,dist,'；未归一化点积可换名次')
+```
+
+OpenAI 的官方说明对其单位归一化 Embedding 给出同样的排名关系，并提供 text-embedding-3 的 dimensions 参数；手工截取后需重新归一化。这是指定模型契约，不推广到所有编码器；API 并未在此调用。[官方 Embeddings](https://developers.openai.com/api/docs/guides/embeddings)。
+
 ## 3. 训练数据：查询、正例、负例
 
 一个样本通常包括 `query、positive、negative`。正例应能回答这个查询，而非只是主题相似。随机负例容易；难负例看起来相关却不满足条件，例如查询“可报销的交通费”而候选讨论“不可报销的私人出行”。它们促使模型学会边界，但标签更容易出错。
@@ -146,6 +176,58 @@ print("完整首名", rank_full[0], "；短前缀得分", short_scores.tolist(),
 
 两阶段检索可先用短向量召回，再用完整向量或多向量重排；若短层漏掉正确文档，后层同样无法恢复。每阶段应记录 Recall、延迟、候选数和额外向量存储。3072 维 float32 的原始单向量为 `3072*4=12288` 字节，即 12 KiB；一亿条原始向量约 1.2288 TB（十进制）。这是数组体积，未含 ANN、元数据、副本和压缩，不能直接换成固定云价格。
 
+
+### 6.1 打包一 bit、Hamming 与候选漏召回
+
+符号量化将正数映射1、非正数映射0，按约定的位顺序打包后载荷为 ceil(d/8) 字节；未打包的 int8/Uint8Array 仍是 d 字节。来源的 TF-IDF 非负，取符号仅变成词是否出现，不构成稠密语义表示。下例用明确有正负值的人工向量测试实际 bytes、尾部位、维度和 Hamming，未训练编码器。
+
+压缩可以先召回再用原向量重评分，但原向量若仍驻留/保存在别处，必须计入总存储。短向量或二值层漏掉正确候选后，重评分无法补回；更少体积与真实检索质量需要一起验证。
+
+```python
+import math, struct
+
+def pack_sign(v):
+    if not v or not all(math.isfinite(x) for x in v):raise ValueError('非空有限向量')
+    payload=bytearray((len(v)+7)//8)
+    for i,x in enumerate(v):
+        if x>0:payload[i//8]|=1<<(i%8)
+    return len(v),bytes(payload)
+def validate_packed(p):
+    d,raw=p
+    if type(d) is not int or d<=0 or not isinstance(raw,bytes) or len(raw)!=(d+7)//8:raise ValueError('打包合同')
+    if d%8 and raw[-1]>>(d%8):raise ValueError('尾部未使用位必须为0')
+    return d,raw
+def hamming(a,b):
+    da,aa=validate_packed(a);db,bb=validate_packed(b)
+    if da!=db:raise ValueError('维度不同')
+    return sum((x^y).bit_count() for x,y in zip(aa,bb))
+def cosine(a,b):
+    if len(a)!=len(b) or not a or not all(math.isfinite(x) for x in a+b):raise ValueError('向量合同')
+    na=math.sqrt(sum(x*x for x in a));nb=math.sqrt(sum(x*x for x in b))
+    if not na or not nb:raise ValueError('零向量')
+    return sum(x*y for x,y in zip(a,b))/(na*nb)
+v=[1,-1,0,2,-2,3,-3,0,4];p=pack_sign(v)
+assert len(p[1])==2 and p[1]==bytes([41,1]) and hamming(p,p)==0
+assert len(struct.pack('<9f',*v))==36
+try:hamming(p,(9,bytes([41,129])))
+except ValueError:pass
+else:raise AssertionError('尾部污染须拒绝')
+try:hamming(p,pack_sign(v[:-1]))
+except ValueError:pass
+else:raise AssertionError('不能截到短维度')
+q=[1.,.01];docs=[[1.,100.],[1.,-.0001]]
+full=sorted(range(2),key=lambda i:(-cosine(q,docs[i]),i))
+binary=sorted(range(2),key=lambda i:(hamming(pack_sign(q),pack_sign(docs[i])),i))
+pool=binary[:1];rescored=sorted(pool,key=lambda i:-cosine(q,docs[i]))
+assert full[0]==1 and pool==[0] and rescored==[0]
+print('实际打包载荷',p[1].hex(),'字节',len(p[1]),'对照float32字节',36)
+print('精确余弦首名',full[0],'二值候选/重评首名',pool[0],rescored[0],'；漏召回无法恢复')
+```
+
+正式比较要锁定原模型、归一化、同一查询/gold和候选预算，报告精确全文库排名、压缩层 Recall@k、重评后的 nDCG/支持答案率、载荷/索引/原向量总内存及延迟。ANN 的近似损失与压缩损失还应分开：HNSW 的 M、efConstruction、efSearch 和过滤方法会改变折中；它没有每个数据分布都保证的 O(log n)/95%召回或固定数据库容量。本批未构建真实 ANN。
+
+MRL 需在多个前缀维度施加训练目标，第6节的多尺度目标继续有效；按词表前缀切 TF-IDF 或随机向量，只能作为任意截断反例。本例的 bit packing 也未证明二值化普遍只损失5%–10%。
+
 ## 7. 评价：损失好看不等于检索有用
 
 采用独立 query→相关集合，计算 Recall@k、MRR、nDCG，具体实现见 12。比较稠密、稀疏、多向量、混合方案时保持数据、预处理、gold 粒度和预算一致。多语言、长度、编号、否定、表格、时间条件和无答案要分切片；再观察 RAG 最终支持率和任务成功率。
@@ -174,3 +256,11 @@ MTEB 等基准提供不同任务和协议，排行榜总体分数不能代替当
 - 原仓库已有 [self-llm BGE-M3 微调资料](https://github.com/datawhalechina/self-llm/tree/master/examples/BGE-M3-Finetune) 的有效原理保留并融合。
 - 增量：[AI Engineering from Scratch](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775)，提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，Phase 05 第 14、22、23 课；整理 2026-10-04。模型功能与输入说明按 [BGE-M3 作者模型卡](https://huggingface.co/BAAI/bge-m3) 核验；MRL 原理参见 [原论文](https://arxiv.org/abs/2205.13147) 及 [Sentence Transformers 文档](https://sbert.net/docs/package_reference/sentence_transformer/losses.html#matryoshkaloss)。
 - 本篇例子用合成向量实测数学和边界，未下载模型、未微调 BGE-M3、未运行 MTEB 或真实 ANN 服务；源课哈希向量不能作为模型质量实验。
+
+## 10. 向量接口与压缩练习的可核对落点
+
+来源五项练习应分别核对：同单位向量的三种度量排名必相同，出现不同先查归一化/零向量/维度；改chunk大小以有出处的相关块集合和预算评价，不能把最高相似度当检索质量；普通词表前缀截断不构成MRL；binary对照既报top-k集合重叠，又用独立gold报Recall/nDCG，排名与集合不同，不能以overlap代替正确性；句子边界不保证语义最佳，超长句、标点、小数和中文必须保留原位置并对照。
+
+来源SimpleEmbedder对同义但无同词的付款例产生正交向量，不能验证语义匹配。重复index_documents还会在refit词表后附加旧空间向量；模型/词表/归一化变更应重建同快照，不能凭同维数复用。TS把不同维度截到较短侧的做法由本篇的严格拒绝替代。来源模型排名/固定精度损失/通用0.7阈值和HNSW容量表未作为事实收录。
+
+增量来源：固定AI Engineering from Scratch 3be078b37ffd8f0c04953c0678e48f5c6d0c7775，Phase11第04课，2026-10-07完整阅读与新增几何/打包探针执行；原2026-10-04对比训练/MRL/编码契约与程序证据保留。
