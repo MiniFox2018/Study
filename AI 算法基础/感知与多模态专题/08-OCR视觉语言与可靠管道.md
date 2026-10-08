@@ -441,3 +441,142 @@ microbatch等待窗口可能增加延迟并提高利用率，但吞吐收益依�
 - 2026-10-04：AI Engineering from Scratch Phase04/16、19、25及24的管道/概念处理增补，提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，正文、代码、测验、输出与图意完整读取；[来源记录](../../来源保全/AI-Engineering-From-Scratch.md)。CLIP/SigLIP图文对齐与zero-shot在03维护，图像SSL、检索评价与索引选型接06，几何与掩码指标在07。
 - 原机制：[CTC](https://www.cs.toronto.edu/~graves/icml_2006.pdf)、[CRNN](https://arxiv.org/abs/1507.05717)、[Donut](https://arxiv.org/abs/2111.15664)。当前核对：[PyTorch CTCLoss](https://docs.pytorch.org/docs/stable/generated/torch.nn.CTCLoss.html)、[PaddleOCR快速开始](https://www.paddleocr.ai/latest/en/quick_start.html)、[Qwen3-VL官方](https://github.com/QwenLM/Qwen3-VL)、[HF SAM3](https://huggingface.co/docs/transformers/model_doc/sam3)、[FastAPI lifespan](https://fastapi.tiangolo.com/advanced/events/)、[TorchServe维护说明](https://github.com/pytorch/serve)。
 - 未安装PaddleOCR/EasyOCR、未调用VLM/SAM/托管API、未开启HTTP服务或做GPU吞吐；程序验证只覆盖CTC/字段/桥接/自定义告警/合同/RLE的小fixture。旧`.ocr(image_path)`等高时效调用不复制为当前通用API，具体版本用官方入口复查。
+
+
+## 10. 文档解析先保留结构与出处
+
+一页PDF可能有可靠的文字层，也可能只是扫描图或错误文字层。先核对文字、字序和坐标是否对应原页，再决定抽取文本、做OCR、恢复布局/表格，或交给图像到结构模型。扫描噪声、旋转、双栏、手写覆盖与缺字分别留失败状态；“OCR-free”只说明不依赖外部OCR，不保证没有布局信息或不会幻觉。第1–6节的CTC、字段、坐标变换与连接器知识继续复用。
+
+TrOCR主要识别裁好的文本行，检测与阅读顺序仍需另有机制；Donut以页面图像预测任务结构；Nougat针对科学文档markup；DocLLM以text和bbox建模并避免image encoder，不能归作图像OCR-free模型。LayoutLMv3输入text、二维bbox和视觉patch，作者预训练目标是MLM、MIM及word-patch alignment，源课的“masked layout第三loss”不准确。一个word被分为多subword时须保持其bbox关联；`hash(text)%10000`不是tokenizer，`range(256)`也不是真实图像patch输入。[LayoutLMv3](https://arxiv.org/abs/2204.08387)、[DocLLM](https://arxiv.org/abs/2401.00908)
+
+### 10.1 页、表格与公式的证据合同
+
+保存 `document_id/revision/page_id`、页尺寸与坐标单位、区域bbox、block type、阅读顺序、原字符串和抽取器revision。双栏不宜全页按y排序；页眉/脚注可以从主体阅读流分离，但不能无记录地删除包含条件或出处的文字。表格在二维网格中保留 `row/col/rowspan/colspan`、层级表头、单位、脚注和跨页续表关系；拆到检索块时重复所需表头并保留原页位置。
+
+例如表头“收入，单位：百万元”与单元格`12.4`应组成一项有单位的事实；不能直接当12.4元。续页省略表头时，应记录 `header_from=前页区域ID` 与核对理由，不能只因列数相同就继承。两张表即使金额相等，也可能币种、期间、合并口径不同。合并cell覆盖的网格位置不能与另一个cell重叠，跨页拼接要先检查同document/revision/table ID及连续关系。
+
+公式需要核对上下标、分数边界、括号、负号和符号对应；LaTeX能解析或渲染只证明语法，不证明转写等价。`x_i`与`x_1`可能都合法。保留原区域供符号级复查，并区分“抄写原式”和“推导等价式”的目标。图表要同时读轴名、单位、legend、刻度与线性/对数尺度；把像素位置换成数值需要明确刻度映射、容差及截断范围。
+
+### 10.2 图解需要关系，而非只认出标签
+
+将图解表示为节点 `id,label,bbox` 与边 `from,to,type,label,evidence_region`。OCR认出“申请、审核、批准”并不证明顺序；反向箭头或否定分支会改变结论。连接线交叉不一定是连接点，箭头、端点、分支条件和图例需定位。评分至少拆为节点文字/定位、边连接与方向、关系问答；节点全对但边反向应判关系失败。
+
+下面只校验**人工结构输入**，不解析PDF、运行OCR或视觉模型。它把两页金额事实保留到原页，拒绝错单位、错版本、错表头、缺页、span重叠和bbox越界；图schema合法但箭头反向仍不匹配gold关系。
+
+### 10.3 完整续表、单位与箭头反例程序
+
+```python
+from copy import deepcopy
+from decimal import Decimal, InvalidOperation
+import math
+
+def bbox(box,size):
+    if len(box)!=4 or any(type(x) not in (int,float) or not math.isfinite(x) for x in box):
+        raise ValueError('有限xyxy像素框')
+    x0,y0,x1,y1=box; w,h=size
+    if not 0<=x0<x1<=w or not 0<=y0<y1<=h: raise ValueError('框越界或退化')
+
+def table(page):
+    required={'doc','revision','page','size','table_id','headers','unit','rows','cols','cells','continues'}
+    if set(page)!=required or type(page['page']) is not int or page['page']<1: raise ValueError('页schema')
+    if not all(isinstance(page[k],str) and page[k] for k in ('doc','revision','table_id','unit')): raise ValueError('身份/单位缺失')
+    if len(page['size'])!=2 or any(type(x) is not int or x<=0 for x in page['size']): raise ValueError('页尺寸')
+    if any(type(page[k]) is not int or page[k]<1 for k in ('rows','cols')): raise ValueError('行列数')
+    if page['continues'] is not None and (type(page['continues']) is not int or page['continues']<1):raise ValueError('续表页引用必须None或正整数，不接受bool')
+    if len(page['headers'])!=page['cols'] or any(not isinstance(x,str) or not x for x in page['headers']): raise ValueError('表头')
+    occupied=set(); out=[]
+    for c in page['cells']:
+        if set(c)!={'row','col','rowspan','colspan','text','bbox'}: raise ValueError('cell schema')
+        r,k,rs,cs=(c[x] for x in ('row','col','rowspan','colspan'))
+        if any(type(v) is not int for v in (r,k,rs,cs)) or min(r,k)<0 or min(rs,cs)<1: raise ValueError('span')
+        if r+rs>page['rows'] or k+cs>page['cols'] or not isinstance(c['text'],str): raise ValueError('cell范围')
+        bbox(c['bbox'],page['size']); covered={(i,j) for i in range(r,r+rs) for j in range(k,k+cs)}
+        if occupied & covered: raise ValueError('合并cell重叠')
+        occupied |= covered
+        out.append({**c,'source':(page['doc'],page['revision'],page['page']), 'unit':page['unit']})
+    if occupied!={(i,j) for i in range(page['rows']) for j in range(page['cols'])}:raise ValueError('cell缺失，不能当完整表')
+    return out
+
+def join_pages(pages):
+    if not pages: raise ValueError('无页，不是解析成功')
+    first=pages[0]; rows=[]
+    for i,p in enumerate(pages):
+        if (p['doc'],p['revision'],p['table_id'],p['headers'],p['unit']) != (
+            first['doc'],first['revision'],first['table_id'],first['headers'],first['unit']):
+            raise ValueError('跨页身份/表头/单位不同，不可直接续接')
+        if i and (p['page']!=pages[i-1]['page']+1 or p['continues']!=pages[i-1]['page']):
+            raise ValueError('缺页/续表关系未核')
+        if not i and p['continues'] is not None: raise ValueError('起始表页缺失')
+        rows.extend(table(p))
+    return rows
+
+def diagram(nodes,edges):
+    if len(nodes)!=len(set(nodes)): raise ValueError('节点ID重复')
+    for e in edges:
+        if set(e)!={'from','to','label','evidence'} or e['from'] not in nodes or e['to'] not in nodes:
+            raise ValueError('边端点/证据schema错误')
+        if not isinstance(e['evidence'],str) or not e['evidence']: raise ValueError('边须有定位证据')
+    return {(e['from'],e['to'],e['label']) for e in edges}
+
+p1={'doc':'report','revision':'r1','page':1,'size':(600,800),'table_id':'t1',
+    'headers':['期间','金额'],'unit':'CNY','rows':1,'cols':2,'continues':None,
+    'cells':[{'row':0,'col':0,'rowspan':1,'colspan':1,'text':'上半年','bbox':(10,40,100,60)},
+             {'row':0,'col':1,'rowspan':1,'colspan':1,'text':'120.00','bbox':(120,40,200,60)}]}
+p2=deepcopy(p1); p2.update(page=2,continues=1); p2['cells'][0]['text']='下半年';p2['cells'][1]['text']='130.00'
+rows=join_pages([p1,p2]); amount=sum(Decimal(c['text']) for c in rows if c['col']==1)
+assert amount==Decimal('250.00') and rows[-1]['source']==('report','r1',2)
+bad_cases=[]
+bad=deepcopy(p1);bad['cells'].pop();bad_cases.append([bad])
+bad=deepcopy(p2);bad['unit']='CNY_million';bad_cases.append([p1,bad])
+bad=deepcopy(p2);bad['revision']='r0';bad_cases.append([p1,bad])
+bad=deepcopy(p2);bad['headers']=['期间','数量'];bad_cases.append([p1,bad])
+bad=deepcopy(p2);bad['page']=3;bad_cases.append([p1,bad])
+bad=deepcopy(p2);bad['continues']=True;bad_cases.append([p1,bad])
+bad=deepcopy(p1);bad['cells'][0]['colspan']=2;bad_cases.append([bad])
+bad=deepcopy(p1);bad['cells'][0]['bbox']=(10,20,601,60);bad_cases.append([bad])
+for bad in bad_cases:
+    try: join_pages(bad)
+    except ValueError: pass
+    else: raise AssertionError('错误结构不得静默合并')
+edge={'from':'A','to':'B','label':'批准','evidence':'report:r1:p2:arrow7'}
+gold={('A','B','批准')}; assert diagram(['A','B'],[edge])==gold
+reversed_edge={**edge,'from':'B','to':'A'}
+assert diagram(['A','B'],[reversed_edge])!=gold  # 合法图schema仍可语义方向错。
+try: diagram(['A'],[edge])
+except ValueError: pass
+else: raise AssertionError('悬空边拒绝')
+print('结构fixture：2页/4cell，金额',str(amount),'CNY，续表/单位/版本/表头/span/坐标反例通过')
+print('箭头ID与方向另评；合法schema不等于原图识别正确')
+```
+
+合计250.00 CNY只来自给定fixture，不是自动读出了真实发票。结构校验不能替代真实字段/阅读顺序/图解识别；实际数据要按页/文档族独立切分并标注字段、cell拓扑、公式与边。表格可采用TEDS/GriTS等相应协议；图解另核方向与关系，不用整体OCR CER替代。
+
+### 10.4 解析器选择与错误复核
+
+Docling作者资料支持统一文档表示、布局、阅读顺序、表格与公式处理；Marker资料说明文字层、OCR、结构与可选LLM混合路线。它们是可以评测的解析实现，不是特定任务准确率保证。2026-10-08只核作者README指定片段，未安装、取权重、启动推理服务或使用远程LLM。[Docling固定README](https://github.com/docling-project/docling/blob/60b6f54c98a0a1532e1ecb213b87269104b5d6ec/README.md)、[Marker固定README](https://github.com/datalab-to/marker/blob/e7c67f1d239ea6a805cbf4ed6c6b2056d435e22d/README.md)
+
+OCR与VLM分歧时，把两者对齐到同一revision/page/region，保存原字符串、置信度含义及变换；再用金额/单位、行项和总数等领域约束辅助核对。模型投票或最高confidence不能独立定真；两者一致也可能共享误读。关键字段无法回原页确认时标 `unresolved`，不默选一个交下游。审计链还包括原件、解析revision、改动理由和复核责任；不能由“两个模型交叉验证”推出已符合法规。
+
+## 11. 文档五题的可评判参考
+
+### 文档练习 1：千万发票的成本与质量
+
+10M/day平均约115.74页/s，峰值、每张发票页数、可用率和复核队列另计。先按干净打印、旋转/模糊、手写、语言、模板、关键金额错误分层，比较文字层/OCR+布局、任务图像模型和混合route；报每页端到端耗时、硬件利用率、人工纠错与失败成本。用字段精确匹配、单位/币种及错付/漏付代价判质量，不预定某Era最省。纯净模板用便宜route、疑难页进复核是待实测假设；本程序没有千万页吞吐或真实识别成绩。
+
+### 文档练习 2：bbox提供什么，又不能补什么
+
+bbox给文本在页面上的空间关系、列/字段邻近及阅读线索，但依赖上游识别与坐标合同。它不能恢复未识别的字符、图像纹理或箭头方向，错误OCR和坐标会传播。LayoutLMv3还有视觉patch，不能把它简化为只有bbox或断言一定胜form QA、败scene text。可评判对照保持同数据/split/分辨率并分别消融text/layout/visual，观察字段与scene-text切片；本章未训练这些模型。
+
+### 文档练习 3：Nougat与VLM的公式对照
+
+设两个预标注fixture：清晰双栏科学页面含多级上下标；一页歪斜扫描、混合手写补注和图旁公式。指定输出是原式LaTeX，逐符号/区域核对、必要时渲染叠原图，不把等价但非原式的改写当精确转写。Nougat的领域训练可能帮助第一类，其他VLM可能有不同强项；实验前不能预定赢家。记录型号/checkpoint、预处理、完整失败与拒识，不用输出可编译就算正确。
+
+### 文档练习 4：PaliGemma 2提升的归因边界
+
+原题暗含“一项关键新增数据导致文档准确率提升”，作者并未给这样的统一因果结论。报告沿用PaliGemma预训练混合；文本/文档/屏幕/图表任务对分辨率提升较敏感，并扩展OCR和表格等transfer任务。§4.2的OCR微调涉及多种文字定位/识别数据，§4.3表格用PubTabNet与FinTabNet，不能将其中一个称为所有文档提升的唯一原因。回答须区分预训练、task transfer、模型尺寸和resolution消融；这里已核§3与§4.1–4.3指定片段，未运行论文实验。[PaliGemma 2报告](https://arxiv.org/html/2412.03555v1)
+
+### 文档练习 5：混合复核如何处理分歧
+
+保留OCR与VLM各自版本、原字符串及页区域；对齐后把金额/币种/税率/期间与行项目逐项核对。关键冲突回原图、重解析或人工复核，无法消解就`unresolved`并阻断依赖该字段的动作。普通字段可按事先验证的容差处理，不能事后选较顺眼的答案；一致结果也抽样查漏。验收为定位、分歧原因、复核决定和下游状态可回查，而非声称本练习已完成监管验收。
+
+增量来源：第1来源固定3be078b，Phase12/22，2026-10-08资料复核与新增本地结构程序执行；旧章节及旧程序日期保留。源三流哈希/占位schema/固定token与分数表仅是草图，未当LayoutLMv3/Donut实测。文档页面进入检索后，另见[页面与跨模态RAG](../../LLM%20工程实践/12-文本检索与RAG文档工程.md)。

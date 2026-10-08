@@ -264,3 +264,104 @@ MTEB 等基准提供不同任务和协议，排行榜总体分数不能代替当
 来源SimpleEmbedder对同义但无同词的付款例产生正交向量，不能验证语义匹配。重复index_documents还会在refit词表后附加旧空间向量；模型/词表/归一化变更应重建同快照，不能凭同维数复用。TS把不同维度截到较短侧的做法由本篇的严格拒绝替代。来源模型排名/固定精度损失/通用0.7阈值和HNSW容量表未作为事实收录。
 
 增量来源：固定AI Engineering from Scratch 3be078b37ffd8f0c04953c0678e48f5c6d0c7775，Phase11第04课，2026-10-07完整阅读与新增几何/打包探针执行；原2026-10-04对比训练/MRL/编码契约与程序证据保留。
+
+
+## 11. 页面多向量与MaxSim的输入合同
+
+ColPali将页面图像的上下文化视觉表示投影为矩阵 `P∈R^(N_p×d)`，查询编码成配套的 `Q∈R^(N_q×d)`；晚交互是在预计算表示上评分，不是查询时把全页和问题重新送同一cross-encoder。ColBERT对文本token采用类似机制；视觉patch、文本token和实际输出向量数量由具体processor/模型决定，不能固定所有checkpoint为729/128。[ColPali作者资料](https://github.com/illuin-tech/colpali/blob/97487f8871ff4d5d2284411fe61bdcd2cfe99894/README.md)
+
+$$s(q,p)=\sum_{i\in\mathrm{validQuery}}\max_{j\in\mathrm{validPage}}q_i^\top p_j.$$
+
+当每行单位归一化时点积是余弦；否则应遵循模型训练的距离合同。query padding不进入sum，page padding要在max前排除或赋负无穷。合法相似度全负时，0 padding会虚增分数。空有效查询/页、非有限值、有效零/近零向量、维度或encoder/preprocess revision不同，必须拒绝、明确empty或走定义过的fallback，不能zip到短维或自动得零分。
+
+MaxSim保留每个查询token的最好局部匹配，平均所有patch相似度可能稀释局部证据；但它允许多个query token匹配同一patch，不是严格一对一、更不是业务条件全部满足。对**已给定**page向量集合换顺序不改max/sum；真实上下文encoder若换原图布局，其向量可能改变，不能由评分不变推出整个系统不感知布局。得分受查询token数量影响，不同query的总分不能直接作同一正确率阈值。
+
+### 11.1 完整mask、负分与revision反例
+
+本例用人工二维向量，只验证MaxSim数学与数据合同；无页面encoder、神经检索训练、ANN或真实ViDoRe成绩。`Space`保存配套编码空间和预处理revision，而非只检查d相等。
+
+```python
+import math
+from dataclasses import dataclass, replace
+
+@dataclass(frozen=True)
+class Space:
+    encoder_revision: str='synthetic-pair-r1'
+    preprocess_revision: str='query-text+page-grid-r1'
+    dim: int=2
+    normalization: str='unit'
+
+def active_unit(vectors,valid,space):
+    if not vectors or len(vectors)!=len(valid) or any(type(x) is not bool for x in valid): raise ValueError('非空矩阵/boolean mask')
+    if space.dim<1 or space.normalization!='unit': raise ValueError('本例契约限定unit cosine')
+    out=[]
+    for vec,keep in zip(vectors,valid):
+        if len(vec)!=space.dim or any(type(x) not in (int,float) or not math.isfinite(x) for x in vec):
+            raise ValueError('维度/finite错误，不能zip截断')
+        if keep:
+            norm=math.hypot(*vec)  # 稳定缩放，避免有限大数平方溢出。
+            if not math.isfinite(norm) or norm<1e-300:
+                raise ValueError('有效零/近零向量或范数非有限，不能返回伪零方向')
+            out.append([x/norm for x in vec])
+    if not out: raise ValueError('有效token为空；另设empty状态')
+    return out
+
+def maxsim(q,qmask,d,dmask,qspace,dspace):
+    if qspace!=dspace: raise ValueError('encoder/preprocess/revision空间不配套')
+    qs=active_unit(q,qmask,qspace);ds=active_unit(d,dmask,dspace)
+    # 先过滤document padding，再max；query padding不进入sum。
+    similarity=[[sum(a*b for a,b in zip(x,y)) for y in ds] for x in qs]
+    return sum(max(row) for row in similarity),similarity
+
+space=Space(); q=[[1.,0.],[0.,1.],[0.,0.]]; qm=[True,True,False]
+d=[[1.,0.],[0.,1.],[0.,0.]];dm=[True,True,False]
+score,matrix=maxsim(q,qm,d,dm,space,space);assert score==2.
+assert maxsim(q,qm,d[::-1],dm[::-1],space,space)[0]==score
+negative=maxsim([[1.,0.]],[True],[[-1.,0.],[0.,0.]],[True,False],space,space)[0]
+assert negative==-1 and max(-1.,0.)==0.  # 把0 padding留在max里就伪增为0。
+assert maxsim([[1.,0.],[1.,0.]],[True,True],[[1.,0.]],[True],space,space)[0]==2.
+for args in [([[0.,0.]],[True],space),([[1.,0.]],[False],space),([[math.nan,0.]],[True],space),([[1.],[1.,0.]],[True,True],space)]:
+    try:active_unit(*args)
+    except ValueError:pass
+    else:raise AssertionError('无效向量/有效mask须拒绝')
+try:maxsim(q,qm,d,dm,space,replace(space,encoder_revision='r2'))
+except ValueError:pass
+else:raise AssertionError('同维不同revision须重编码')
+large=maxsim([[1e308,0.]],[True],[[1e308,0.]],[True],space,space)[0]
+large_negative=maxsim([[1e308,0.]],[True],[[-1e308,0.]],[True],space,space)[0]
+large_diagonal=maxsim([[1e308,1e308]],[True],[[1e308,1e308]],[True],space,space)[0]
+assert large==1. and large_negative==-1. and math.isclose(large_diagonal,1.,abs_tol=1e-12)
+for extreme in [[1e-310,0.],[1.79e308,1.79e308]]:
+    try:active_unit([extreme],[True],space)
+    except ValueError:pass
+    else:raise AssertionError('近零或不可表示的非有限范数须明确拒绝')
+raw=200*729*128*4; hypothetical=raw/8
+assert raw==74649600 and hypothetical==9331200
+million=1000000*729*128*4
+print('MaxSim',score,'pairmatrix',matrix,'padding负分反例',negative,'vs faulty 0')
+print('200页float32载荷B/MiB',raw,round(raw/2**20,4),'假设8x载荷',hypothetical)
+print('百万页原始向量B/GiB',million,round(million/2**30,4),'未含ANN/metadata/副本')
+print('大有限向量same/opposite/diagonal',large,large_negative,large_diagonal,'近零/非finite norm拒绝')
+```
+
+归一化用稳定`math.hypot`，避免`sum(x*x)`在`1e308`这样的有限输入上溢出并把方向错误变成零。示例的大同向/反向仍为1/−1；近零范数阈值`1e-300`仅是本例的数值合同，范数非有限也显式拒绝，不能据伪零分继续检索。真实encoder可采用稳健max-scale归一化，并按其dtype/精度约定处理极端输入。
+
+压缩降低维度精度的PQ/OPQ、减少向量数量的pooling和单向量候选层是不同改变。需同gold页/区域、候选预算比较Recall、nDCG、存储、检索延迟和回答支持率；粗层漏召回后，完整MaxSim重排无法恢复。热区可帮助回页找依据，但不会把retrieval score变成字段抽取证据。
+
+2026-10-08作者README明确 `colpali-engine` 已deprecated，新项目指向Sentence Transformers的MultiVectorEncoder；旧代码用于研究复现或存量项目。这里保留多向量原则与版本迁移检查，不给旧SDK安装/当前API承诺，也未安装或调用任一SDK。页面级索引、证据装配与问答维护在[12｜页面与跨模态RAG](12-文本检索与RAG文档工程.md)，不再复制另一套回答管道。
+
+## 12. 多向量三题的可评判参考
+
+### 多向量练习 1：200页存储与压缩
+
+题设200×729×128×4=`74,649,600` bytes，约71.1914 MiB；假定8倍载荷压缩为`9,331,200` bytes，约8.8989 MiB。这是题设数组算术，程序未实施PQ；codebook、索引、page metadata、原图、原向量重排存储与副本都另计。50页多向量与50个768维float32向量的原始数组比是121.5倍，源“约30倍”不符合它给定的参数。
+
+### 多向量练习 2：MaxSim比平均捕捉什么
+
+对每个有效query token选最好page token再sum，保留局部相关位置；平均所有pair可能把高匹配淹没。代码的单位正交矩阵score2；合法doc负余弦−1加padding若不mask会错成0。两相同query向量都可选同patch并得2，说明不是逻辑AND。比较算法应看同候选集合的gold排名与代价，而非因为sum数值大于mean就宣称召回更好。
+
+### 多向量练习 3：patch与word级索引的交换
+
+word级需可靠文本/OCR及word-position合同，适合精准编号/数字和可抽取文字；patch级可保视觉与布局条件，但resize/crop仍可能丢小字且多向量载荷大。不能说图像路径保留所有信息或文字RAG只存一整页向量。对同页集分别标文本、图表、表格、版式、多页证据，固定预算看Recall/nDCG与最终引用支持；可保双路径互补，不以材料含一张图为理由禁用文本索引。
+
+增量来源：第1来源固定3be078b，Phase12/23，2026-10-08新增本地MaxSim合同程序执行；旧代码块、SHA与2026-10-04/07日期保留。原课随机Gaussian+bias不读页面或真实query；MaxSim/mean总分、固定PQ和速度表未成为检索质量/性能结论。

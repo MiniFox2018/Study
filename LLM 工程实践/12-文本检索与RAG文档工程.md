@@ -649,3 +649,182 @@ Advanced RAG五项练习：BM25/词表向量/hybrid比较同ID和候选预算；
 调参保留直接检索基线，按故障只加一项；BM25不是bi-encoder，hybrid也有额外索引/计算成本。生成器加“仅用上下文”或temperature=0不保证不幻觉；RAG有引文也不保证来源真实/现行/可访问。Prompt、RAG与微调可组合，知识时效与行为稳定分别评价，不能照搬RAG“每次都胜FT”的成本/隐私表。
 
 增量来源：固定AI Engineering from Scratch 3be078b37ffd8f0c04953c0678e48f5c6d0c7775，Phase11第06/07课，2026-10-07完整读取与离线管道新例执行。既有Phase05的公式、程序、源码SHA和2026-10-04日期保留；所有真实语义模型/ANN/vectorDB/cross-encoder/HyDE/LLM生成未运行。
+
+
+## 10. 页面级视觉证据如何进入RAG
+
+文档解析保持[OCR与文档结构](../AI%20算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md)的页、区域、表头/单位与revision；编码与MaxSim由[07](07-Embedding与检索模型训练.md)维护。页面索引条目还需 `document_id,page_id,revision,access_scope,image_hash,encoder/preprocess/index_revision`、向量有效长度与原图位置。页面级召回返回的是候选页，不是已验证答案。
+
+链为PDF/页面资产→按固定预处理编码缓存→query配套编码→候选检索/完整MaxSim→当前权限和revision再核→原页与邻页/表头装配→回答→逐主张支持检查。OCR/文字块可以作为辅助精确数字腿；由图像向量召回，不等于下游禁止读文字。页面高分仍可能只含题目名而缺所需金额或期间，须回原页定位。
+
+### 10.1 多页、跨文档与两种编码器
+
+一页是原材料单位，证据单位可以是某row、图轴或箭头；跨页表格需带表头、单位与续接出处。邻页展开只在同document/revision/权限与预算内发生，不能拿别报告的单位解释当前数字。跨文档多跳保存每个中间实体和事实出处，ID相似不代表同公司/同期间。截图文字、caption/ASR和summary是派生证据，保留原资产及转写revision，关键细节回原页/音视频片段。
+
+M3DocRAG作者§2将每页独立用ColPali编码、按MaxSim检索top-K，再把多张原页和query送给回答VLM。回答器视觉编码与检索向量不同；该方法没有宣布一种普适的“所有页patch全互相attention”替换。增加page数有上下文/推理成本，漏召回仍不能由回答器凭空恢复。[M3DocRAG方法](https://arxiv.org/html/2411.04952v1)
+
+### 10.2 存储、两阶段索引与评价口径
+
+按题设百万页×729×128×4，原始多向量载荷`373,248,000,000` bytes，约347.6143 GiB；原图、索引/metadata、副本与重排保留的原向量另算。候选层可使用ANN/压缩/pooled表示，再用完整多向量评分；普通单向量HNSW不自动实现完整MaxSim。每个query扫描所有百万页与有限候选的复杂度、召回损失及端到端延迟不同。
+
+500ms目标须先定义是query编码+检索、还是还含VLM完整回答。记录编码、候选查找、重排、页加载、装配、prefill/decode、队列和失败，不将源10ms/200–500ms当硬件无关SLA。评价保page/region Recall、必需事实覆盖、答案/单位/期间正确、citation支持与unknown/权限/缺页切片；索引时间也计首次成本或明确摊销。
+
+## 11. 跨模态检索先对齐实体与硬条件
+
+CLIP类配套text/image空间与CLAP类text/audio空间分别训练；两者都能编码text不意味着image向量可以直接与另一个audio向量cosine。任意VLM hiddenstate也需任务适配的pooling、投影/训练和检索验证。维度相同只保证乘法可算，不保证分数有语义。
+
+每条证据保存 `source_id,entity_id,revision,modality,locator,access_scope` 及编码/预处理版本。图像locator可含page/region，音视频使用clip ID与原时间轴区间。门店A的照片不能补门店B的自然光，旧菜单不能证明现在提供素食；“没有音频”与“音频明确很吵”是不同状态。照片可支持其拍摄视角下的采光，却不独自证明当前菜单或整天噪音。
+
+### 11.1 分数融合不应覆盖硬约束
+
+不同retriever raw score量纲不同。weighted sum需要独立验证的校准及缺模态策略，不能默认缺失=0或zip静默丢尾；RRF利用rank避开raw量纲，但仍有candidate/entity去重、来源质量和query权重问题。实体去重只影响计分，不应丢掉同实体不同来源提供的补充事实。
+
+将“vegan、quiet、daylight”当用户必需条件时，每项都要有适当证据；高图像分数不能补偿菜单明确非素食，缺quiet应为unknown。先检查权限、版本、实体与硬条件，再排序符合者。MoE/attention融合需训练/泛化验证，也不能保证避免跨域偏差或证据缺失。
+
+### 11.2 引用支持与有界补充检索
+
+回答按 `claim→source_id→page/region/time` 组织。ID存在、定位合法、该来源支持这条主张是三个检查；引用列表列出所有来源不能代替逐项支持。NLI/judge只能辅助，实际结构/数字断言或人工gold仍要检验。query改写不改变原实体、时期、条件和权限；无证据不得把假设caption/生成文本当真来源。
+
+多hop以当前实体/revision的有效hard条件命题或相关否定/冲突事实增量为进展，设round/token/time预算；足证停止，换source ID却只重复已有命题仍标stalled，空结果/失败/未授权另留状态。不将加大某模态权重造成的score变高称作“confidence提升”。程序按`(entity,revision,条件,value)`判新增；相同条件的另一独立来源可能有复核价值，但本例不把来源数量当语义进展，也未实现开放文本新事实识别。以下用人工来源/检索列表演示两轮补证、硬冲突、unknown、错实体/旧版/私有引用和停滞；没有图片/声音encoder、生成模型或真实推荐。
+
+### 11.3 完整实体融合与逐主张回查程序
+
+```python
+from dataclasses import dataclass
+import math
+
+@dataclass(frozen=True)
+class Evidence:
+    sid: str
+    entity: str
+    revision: str
+    modality: str
+    locator: str
+    claims: tuple
+    access: str='public'
+
+CURRENT={'a':'r1','b':'r1','c':'r1'}
+SOURCES={e.sid:e for e in [
+    Evidence('a-menu','a','r1','text','menu:p1:r2',(('vegan',True),)),
+    Evidence('a-photo','a','r1','image','photo:roi-3',(('daylight',True),)),
+    Evidence('a-photo-repeat','a','r1','image','photo:roi-repeat',(('daylight',True),)),
+    Evidence('b-menu','b','r1','text','menu:p1:r2',(('vegan',False),)),
+    Evidence('b-photo','b','r1','image','photo:roi-1',(('daylight',True),)),
+    Evidence('b-audio','b','r1','audio','clip:12.0..18.0s',(('quiet',True),)),
+    Evidence('c-menu','c','r1','text','menu:p1:r4',(('vegan',True),)),
+    Evidence('c-photo','c','r1','image','photo:roi-7',(('daylight',True),)),
+    Evidence('c-audio','c','r1','audio','clip:2.0..8.0s',(('quiet',True),)),
+    Evidence('old-a-audio','a','r0','audio','clip:1..2s',(('quiet',True),)),
+    Evidence('private-a-audio','a','r1','audio','clip:1..2s',(('quiet',True),),'private')
+]}
+NEEDED={'vegan':True,'quiet':True,'daylight':True}
+
+def admissible(e):
+    return e.access=='public' and CURRENT.get(e.entity)==e.revision and bool(e.locator)
+
+def rrf(hit_lists,c=60):
+    if type(c) is not int or c<0:raise ValueError('RRF constant')
+    totals={};selected=set()
+    for hits in hit_lists:
+        seen=set();rank=0
+        for sid in hits:
+            if sid not in SOURCES:raise ValueError('source ID不存在')
+            e=SOURCES[sid]
+            if not admissible(e):continue
+            selected.add(sid)  # 实体去重只影响rank计分，不丢同实体别的证据。
+            if e.entity in seen:continue
+            seen.add(e.entity);rank+=1
+            totals[e.entity]=totals.get(e.entity,0)+1/(c+rank)
+    return sorted(totals,key=lambda k:(-totals[k],k)),selected
+
+def verify_claim(entity,key,value,sid):
+    e=SOURCES.get(sid)
+    return bool(e and admissible(e) and e.entity==entity and (key,value) in e.claims)
+
+def assess(entity,selected):
+    relevant=[SOURCES[s] for s in selected if SOURCES[s].entity==entity and admissible(SOURCES[s])]
+    support={}; conflicts=[]
+    for key,value in NEEDED.items():
+        good=[e.sid for e in relevant if (key,value) in e.claims]
+        bad=[e.sid for e in relevant if any(k==key and v!=value for k,v in e.claims)]
+        if bad:conflicts.append(key)
+        if good:support[key]=good[0]
+    if conflicts:return {'status':'constraint_conflict','fields':sorted(conflicts),'citations':support}
+    missing=set(NEEDED)-set(support)
+    return {'status':'unknown' if missing else 'supported','missing':sorted(missing),'citations':support}
+
+def hard_facts(selected):
+    # 对当前有权限的实体/版本，只计本题hard条件的命题；换ID不产生新事实。
+    return {(e.entity,e.revision,k,v) for sid in selected for e in [SOURCES[sid]]
+            if admissible(e) for k,v in e.claims if k in NEEDED}
+
+def bounded_search(rounds,max_rounds=3):
+    accumulated=set();seen_facts=set();trace=[]
+    for i,lists in enumerate(rounds[:max_rounds],1):
+        ranked,observed=rrf(lists)
+        combined=accumulated|observed;facts=hard_facts(combined)
+        new_facts=facts-seen_facts
+        if not new_facts:trace.append((i,'stalled','no_new_hard_fact'));break
+        accumulated=combined;seen_facts=facts
+        candidates={x:assess(x,accumulated) for x in ranked}
+        ready=[x for x in ranked if candidates[x]['status']=='supported']
+        trace.append((i,'new_hard_facts',len(new_facts)))
+        if ready:
+            x=ready[0];answer={'entity':x,'claims':NEEDED,'citations':candidates[x]['citations']}
+            assert all(verify_claim(x,k,v,answer['citations'][k]) for k,v in NEEDED.items())
+            return answer,trace
+    return {'status':'insufficient_evidence'},trace
+
+first=[['a-menu','b-menu','c-menu'],['a-photo','b-photo','c-photo'],['old-a-audio','private-a-audio','b-audio']]
+ranked,selected=rrf(first)
+assert 'old-a-audio' not in selected and 'private-a-audio' not in selected
+assert assess('a',selected)['status']=='unknown' and assess('b',selected)['status']=='constraint_conflict'
+_,kept=rrf([['c-menu','c-photo']]);assert kept=={'c-menu','c-photo'}
+assert not verify_claim('a','quiet',True,'b-audio')  # 同词不同实体不能拼接。
+assert not verify_claim('a','quiet',True,'old-a-audio')
+assert not verify_claim('b','vegan',True,'b-menu')  # ID合法但主张相反。
+answer,trace=bounded_search([first,[['c-menu'],['c-photo'],['c-audio']]])
+assert answer['entity']=='c'
+failed,stalled=bounded_search([first,first,first]);assert failed['status']=='insufficient_evidence' and stalled[-1][1]=='stalled'
+aliased,alias_trace=bounded_search([first,[['a-photo-repeat']]])
+assert aliased['status']=='insufficient_evidence' and alias_trace[-1][1]=='stalled'
+assert 'a-photo-repeat' not in selected and hard_facts(selected|{'a-photo-repeat'})==hard_facts(selected)
+print('不同sourceID同已有事实',alias_trace,'不算语义进展')
+print('按实体融合后',ranked,'a缺quiet未知，b硬条件冲突，c补充音频后有完整人工证据')
+print('答案结构fixture',answer,'trace',trace,'重复检索',stalled)
+print('检索list/事实为人工fixture；未运行CLIP/CLAP、LLM或真实餐厅推荐')
+```
+
+本例claims是人工事实fixture，`verify_claim`只检验结构化命题相等，不具有开放文本蕴含推理能力；真实图像、音频或文字事实抽取自身误差需另评。RRF只负责候选顺序，不能把分数当正确概率；最终c被接受是因为人工证据覆盖全部硬条件，不是因为它的排名原先最高。
+
+## 12. 页面与跨模态七题的参考验收
+
+### 页面检索练习 4：百万页与500ms目标
+
+先定query/页面分布、gold、权限和时效，锁定retriever与processor revision，按10.2算载荷；用候选层→完整评分→原页问答拆预算，报告检索P95与完整回答延迟分别是多少。ColQwen2、多向量或VisRAG单向量只说明可比较路线，不能凭名字承诺500ms。原课没有百万页benchmark；验收是同gold的Recall/nDCG/证据覆盖、存储与实际目标硬件时延，不是强行选一个赢家。
+
+### 页面检索练习 5：M3DocRAG的多页机制
+
+作者§2.1页面独立编码，§2.2全页库或单文档内MaxSim top-K，§2.3回答VLM重新编码多张原页并生成。与只取一页相比，新增的是跨页/跨文档证据召回与多图上下文，不是把ColPali MaxSim改成任意多页attention。检查页IDs/所属doc/revision与多跳中间事实，增加K仍需测试噪声和预算。已核方法指定范围，论文benchmark未本地复现。
+
+### 跨模态练习 1：照片与文字输入的医疗资料检索
+
+作为**检索协议设计题**，查询保存照片资产/部位描述和用户原文字，分别定位受控、可追溯的文字/图片资料，保source有效版本与专业复核状态；图片区和文字不经配套训练不能直接互算cosine。照片不能单独证明病因或严重程度，缺关键信息返回unknown并交适当专业流程，不能用高融合分数形成自动诊断/分诊决定。验收限于实体、权限、出处与缺失状态的正确处理；本章无真实医学数据、图片上传或临床验证。
+
+### 跨模态练习 2：weighted sum与MoE
+
+加权和的失败包括raw量纲不同、缺模态被当0、强模态淹没否定硬条件；代码的b即使高分仍因vegan=False拒绝。MoE能学习query相关路由，但训练标注不准、域迁移或缺证据时照样失败，不是自动避免这些问题。用同独立gold、相同候选和预算与校准sum/RRF比较，报条件覆盖与失败，不预设MoE必优。
+
+### 跨模态练习 3：综述taxonomy映射
+
+Abootorabi等的v3 §3实际分 retrieval strategy、fusion、augmentation、generation、training，源“固定三个canonical子问题”是教学简化。当前示例中：按模态取source是retrieval，RRF是fusion，第二轮补音频是augmentation，逐claim生成与支持检查是generation；训练方法本例未实现。三模块记忆框架可以用，但不能冒充各综述逐项一致或全文已读。[Ask in Any Modality](https://arxiv.org/html/2502.08826v3)
+
+### 跨模态练习 4：旅行规划评价
+
+给每条件标gold entity/source/时间有效期及必要证据集合；图片、音频、文字各报Recall@k和来源定位，融合报实体配对、硬条件覆盖与错误版本/权限入上下文率。答案报单位/日期/条件正确与citation支持，缺音频/无答案/冲突分别统计拒答、错误断言。预订完成还须独立订单/状态核对，不能拿“quiet”关键词或一次低dB值当所有时段结论；本fixture未采集真实环境音或完成旅行服务。
+
+### 跨模态练习 5：何时多hop值得
+
+对可明确缺哪条证据且可补充的query，多hop可带来进展；已有完整证据或原材料缺失时可能只增成本。新ID的照片若仍只证明已知daylight，不能补quiet；程序明确停滞。按同任务基线比较支持率/任务完成增益与新增检索/模型成本、P95及失败。不存在由题目难度一个阈值决定的通用答案；示例两轮c补quiet成功，重复第一轮则stalled，增加score不算证据增益。
+
+增量来源：第1来源固定3be078b，Phase12/23–24，2026-10-08新增本地证据程序执行。M3DocRAG方法、Ask in Any Modality §3只读指定范围；综述2503.18016作者为Xu Zheng等而非源Zhao，2301.10382是非相关量子物理论文，不作REACT依据。旧文字RAG知识、代码块和日期保留，未运行真实向量库、VLM或外部服务。

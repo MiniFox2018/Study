@@ -1,0 +1,2348 @@
+{
+  "schema": "study-source1-multimodal-audio-vla-20261008",
+  "date": "2026-10-08",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "source_root": "/tmp/study-source1-ai-engineering-20261008",
+  "study_root": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study",
+  "base_HEAD": "ac1090d",
+  "status": "本组课程完整读取与主题融合，逐项覆盖和最终CPU证据通过；第1来源/五站尚未完成",
+  "scope": [
+    "19-audio-language-whisper-to-af3",
+    "21-embodied-vlas-openvla-pi0-groot"
+  ],
+  "reading_checkpoint": "/tmp/study-source1-multimodal-tasks-reading.json",
+  "reading_checkpoint_sha256": "7b94c02c99c2eb293e23b567362c410fc3ad0a30f958c8d4711dbfaeb107cc6b",
+  "lessons": [
+    {
+      "lesson": "19-audio-language-whisper-to-af3",
+      "files": [
+        {
+          "path": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/assets/audio-llm-arc.svg",
+          "bytes": 5874,
+          "sha256": "2b71fb9d5910ec0d2db07f8a9250e5587ffbe4f791282645a7c26b05e8cae520",
+          "git_blob_sha": "55fd25c102c6cc2ff11cdbd2101315c72b5abdcd",
+          "read": true,
+          "restored_path": "/tmp/study-source1-ai-engineering-20261008/phases/12-multimodal-ai/19-audio-language-whisper-to-af3/assets/audio-llm-arc.svg",
+          "restoration_verified_date": "2026-10-08",
+          "restoration_match": true,
+          "read_date": "2026-10-08",
+          "read_range": {
+            "start": 1,
+            "end": 89
+          },
+          "read_kind": "完整XML解析，逐项读取全部文字标签、图形/箭头拓扑、元素属性；未在浏览器渲染或执行source",
+          "verified_on": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/code/main.py",
+          "bytes": 5473,
+          "sha256": "66fc70daa5f928c84899f27af39866087f1fc116c15193c220d8194d9815622a",
+          "git_blob_sha": "82401c47c0db613ffb05f8f017d1e92923f14627",
+          "read": true,
+          "read_date": "2026-10-07",
+          "read_range": {
+            "start": 1,
+            "end": 165
+          },
+          "read_kind": "本组实际完整正文/全部Python源码/完整输出资料读取，未运行或激活",
+          "restored_path": "/tmp/study-source1-ai-engineering-20261008/phases/12-multimodal-ai/19-audio-language-whisper-to-af3/code/main.py",
+          "restoration_verified_date": "2026-10-08",
+          "restoration_match": true,
+          "review_date": "2026-10-08",
+          "original_read_date_preserved": true,
+          "verified_on": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "bytes": 8985,
+          "sha256": "e804554df688d4902e1d44d47afde4440c7189f55ac0cf9d93d352b37ce9b43f",
+          "git_blob_sha": "f8dffbda581fe4f92b61a9e829539a22a0d64833",
+          "read": true,
+          "read_date": "2026-10-07",
+          "read_range": {
+            "start": 1,
+            "end": 157
+          },
+          "read_kind": "本组实际完整正文/全部Python源码/完整输出资料读取，未运行或激活",
+          "restored_path": "/tmp/study-source1-ai-engineering-20261008/phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "restoration_verified_date": "2026-10-08",
+          "restoration_match": true,
+          "review_date": "2026-10-08",
+          "original_read_date_preserved": true,
+          "verified_on": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/outputs/skill-audio-llm-pipeline-picker.md",
+          "bytes": 1959,
+          "sha256": "183f1ce6fa9b2f9b47e2bb30ab0b4cb7b7d343a53ae44139046e79c606cbd13c",
+          "git_blob_sha": "53eafd825d2fa40eb978fd1644b61beb7111fc44",
+          "read": true,
+          "read_date": "2026-10-07",
+          "read_range": {
+            "start": 1,
+            "end": 31
+          },
+          "read_kind": "本组实际完整正文/全部Python源码/完整输出资料读取，未运行或激活",
+          "restored_path": "/tmp/study-source1-ai-engineering-20261008/phases/12-multimodal-ai/19-audio-language-whisper-to-af3/outputs/skill-audio-llm-pipeline-picker.md",
+          "restoration_verified_date": "2026-10-08",
+          "restoration_match": true,
+          "review_date": "2026-10-08",
+          "original_read_date_preserved": true,
+          "verified_on": "2026-10-08"
+        }
+      ],
+      "quiz_status": "固定tree与实际目录核对：无quiz.json，正文有5道Exercises；不编造选择题、题号或已测验分数",
+      "empty_placeholders": [
+        "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/notebook/.gitkeep"
+      ],
+      "source_code_executed": true,
+      "output_activated": false,
+      "original_exercises": [
+        "1. Compute the log-Mel spectrogram dimension for a 30-second clip at 16kHz, 25ms window, 10ms hop, 80 Mel bins. How does this change at 48kHz?",
+        "2. Why does Whisper underperform on music? What audio features does BEATs capture that Whisper does not?",
+        "3. Audio Q-former with 64 queries vs 32: at what task complexity does 64 pay off? 32 save compute for what?",
+        "4. Read AF3 Section 4 on on-demand thinking. Propose three audio tasks where chain-of-thought helps the most.",
+        "5. Implement a minimal diarization pipeline using AF3's output. How do you signal speaker changes?"
+      ],
+      "dynamic_figure_id": "audio-text-ctc",
+      "svg_structure": {
+        "parsed_entire_xml": true,
+        "element_count": 63,
+        "counts": {
+          "svg": 1,
+          "defs": 1,
+          "marker": 1,
+          "path": 4,
+          "style": 1,
+          "text": 47,
+          "rect": 8
+        },
+        "external_image_elements": 0,
+        "text_labels": [
+          "Audio-LLM arc: Whisper (2022) to Audio Flamingo 3 (2025)",
+          "the pipeline: spectrogram -> encoder -> Q-former -> LLM",
+          "1. waveform",
+          "16 kHz mono",
+          "2. log-Mel spec",
+          "25ms win, 10ms hop",
+          "80 Mel bins",
+          "log compress",
+          "30s = 3000 frames",
+          "3. audio encoder",
+          "Whisper: speech strong",
+          "BEATs: music strong",
+          "AF-Whisper: concat",
+          "1 frame per 10ms",
+          "12-layer transformer",
+          "frozen at bridge train",
+          "4. audio Q-former",
+          "32-64 learnable queries",
+          "cross-attend over frames",
+          "output fixed-length tokens",
+          "training",
+          "stage 1: ITM + ITC + ITG",
+          "stage 2: instruction tune",
+          "5. LLM",
+          "Qwen2.5-7B",
+          "or Llama 3.1",
+          "output",
+          "captions",
+          "QA answers",
+          "with CoT",
+          "cascaded vs end-to-end task coverage",
+          "cascaded (Whisper -> LLM)",
+          "transcription: yes",
+          "summarization: yes",
+          "emotion: no",
+          "music genre: no",
+          "environmental: no",
+          "deepfake: no",
+          "MMAU ~0.50",
+          "end-to-end audio-LLM (AF3)",
+          "every cascaded task: yes",
+          "emotion / mood: yes",
+          "music / instruments: yes",
+          "environmental sounds: yes",
+          "temporal grounding: yes",
+          "on-demand CoT: +3-5 pts",
+          "MMAU 0.72 (open SOTA 2025)"
+        ],
+        "arrows": [
+          {
+            "d": "M 235 170 L 275 170",
+            "stroke": "#1a1a1a",
+            "stroke-width": "1.5",
+            "marker-end": "url(#arrow)"
+          },
+          {
+            "d": "M 485 170 L 525 170",
+            "stroke": "#1a1a1a",
+            "stroke-width": "1.5",
+            "marker-end": "url(#arrow)"
+          },
+          {
+            "d": "M 735 170 L 775 170",
+            "stroke": "#1a1a1a",
+            "stroke-width": "1.5",
+            "marker-end": "url(#arrow)"
+          }
+        ],
+        "elements_audit_path": "/tmp/study-source1-multimodal-svg-elements-20261008.json",
+        "visual_render_executed": false
+      },
+      "read_stage_analysis": {
+        "problem_and_prerequisites": "speech ASR文字、声学事件、音乐、说话人时段和回答推理属于不同目标。AF3在此明确指Audio Flamingo3，不是AlphaFold3。先用音频11/12/13的采样/特征/时间与14的桥接训练。",
+        "durable_learning": [
+          "ASR→文字LLM擅长文字可提取任务；保留ASR时间戳、说话人diarization/声学事件辅助可扩展级联。直接ALM输入保留更多声学条件，不保证识别、情绪、身份/深伪判断正确或必省费用。",
+          "Audio Flamingo3作者的AF-Whisper从Whisper-large-v3 encoder开始，用涵盖speech/sound/music的caption next-token目标重新训练统一表示；AF3主结构是AF-Whisper→MLP audio adaptor→Qwen2.5-7B。SALMONN的Whisper+BEATs+Q-Former不能复制到AF3。",
+          "AF3论文v1§3.1：16kHz mono、128mel、25ms window/10ms hop、30s非重叠窗；encoder50Hz后stride2池化=25Hz。以有效时长预算，10min约15000audio tokens，加问题/多audio标记/padding；不同checkpoint不可照搬80mel或固定12层。",
+          "对音频caption/QA条件生成，输入音频前缀与text目标、causal/padding mask、目标错位/忽略和clip ID是合同。固定骨干不等于切断decoder对adaptor的梯度；章节14已有随机projector梯度例可复用。",
+          "AF3论文课程分alignment只训adaptor→encoder+adaptor→full task tuning→长context/Think LoRA→chat/voice。音频输入、文字输出与另接streaming TTS分开；语音输入不自动说明原生full duplex。",
+          "多audio/长audio把ID、顺序、window offset与有效时长一并保留；thinking文本不是证据与质量保证。比较Think需同版本/split/prompts、同答案解析与全失败分母，补时间定位/声学事件和无答案切片。"
+        ],
+        "source_code_semantics": [
+          "代码为人工440/880Hz波、stdlib naive DFT与固定箱式频段，未做真实Mel滤波器/完整Whisper前端；无Hann taper，64个DFT频率只到2520Hz；20×3频带只用前60bin，余4遗漏，log1p magnitude与Whisper power/log10 clamp不同。",
+          "window_frames无center/pad，N=16000 win400 hop160时floor((N-win)/hop)+1=98，原~99不是实际严格长度；30s同样2998。hop=0会不前进，短audio为空后frames[0]失败；输入未校验。",
+          "QFormer只是固定随机query与input直接dot-softmax-加权和，无learned K/Q/V、多head、self-attn/FFN、scale或训练loss；输入维度zip截断，空frame max失败。不是真实Q-Former或AF3运行。",
+          "task_coverage表与MMAU40%等硬编码；没有ASR、ALM、diarization、真实身份/情绪/深伪实验，不支持这些任务自动yes。"
+        ],
+        "svg_semantics": "图谱→encoder→Qformer→LLM主链直接复述错误的AF-Whisper concat与80mel/12层；两栏覆盖率和MMAU数字是示意字面，正式知识要改为各架构的实际合同。",
+        "dynamic_semantics": {
+          "id": "audio-text-ctc",
+          "provider": "site/figures-multimodal.js",
+          "function_range": [
+            325,
+            397
+          ],
+          "inputs": "target固定CAT；frames默认12/4..24；dup默认1/1..4",
+          "calculation": "确定性分配连续重复letters，其余blank，先合并相邻重复再去blank；输出row一直画CAT，实际collapsed可不足CAT，如T4/dup4只生成C。",
+          "caption_and_limits": "是CTC collapse展示；无概率、路径sum、CTC loss、音频模型或ALM，更不是Whisper自回归decoder机制。字幕写audio理解但本课注册的是旧CTC图，不按asset文件名推Qformer。"
+        },
+        "exercise_reference_answers": [
+          "30s16k/25ms/10ms无pad=2998frames×80；Whisper配套center/pad固定窗口另为3000×checkpoint mel数。48k若保持物理window/hop帧数近同但必须先满足模型16k输入，不能把48k直接作为兼容。",
+          "Whisper训练分布speech主导与专用事件任务是选择依据，不宣称同参数BEATs始终胜；AF-Whisper本次作者原文纠正统一encoder。",
+          "32/64 query的效果需任务/时长/预算ablation，无通用复杂度拐点；AF3使用MLP并不采用此固定query数。",
+          "on-demand thinking用于复杂推理的任务假设应同gold/版本比较，不能预定+3..5pts或以更长解释为正确。",
+          "diarization需独立时间/匿名speaker标签与DER协议，不从AF3描述中直接当已实现实名识别；复用13的时间、15的DER。"
+        ],
+        "reject_or_reverify": [
+          "sourceAF3拼接/64query/8B/Qwen2/1M数据直接架构错误；无须保留为现方案。",
+          "所有audioencoder统一logmel、speech recognition solved、cascade perfectly summarizing、AF3自动deepfake yes均夸大。",
+          "MMAU版本/metrics/Thinking gain/领域排序、本地500ms与32query硬门槛不可直接继承；v1表MMAU72.28→73.14仅该split对照，差.86pts，不是普适3..5。"
+        ],
+        "proposed_primary_target": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md主写AF3专属结构/长audio；13保留Whisper主解释，12保留codec预算，15保留任务scorer并链接，避免重复。"
+      },
+      "source_execution_note": "原只读checkpoint的未执行边界仅指读取阶段；本轮完整原main已CPU执行，见original_source_runs，打印声明不当真实性能。",
+      "heading_mapping": [
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 10,
+          "source_level": 2,
+          "source_heading": "Learning Objectives",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10. Audio Flamingo 3：统一音频表征与长音频合同",
+            "line": 315
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 17,
+          "source_level": 2,
+          "source_heading": "The Problem",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.1 不把SALMONN的双编码器接法移到AF3",
+            "line": 319
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 29,
+          "source_level": 2,
+          "source_heading": "The Concept",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.1 不把SALMONN的双编码器接法移到AF3",
+            "line": 319
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 31,
+          "source_level": 3,
+          "source_heading": "Log-Mel spectrogram: the input feature",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.1 不把SALMONN的双编码器接法移到AF3",
+            "line": 319
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 43,
+          "source_level": 3,
+          "source_heading": "Whisper's encoder",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/13-语音识别与流式交互.md",
+            "heading": "3. Whisper：模型输入、任务token与训练合同",
+            "line": 417
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 51,
+          "source_level": 3,
+          "source_heading": "BEATs and audio-specific encoders",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.1 不把SALMONN的双编码器接法移到AF3",
+            "line": 319
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 59,
+          "source_level": 3,
+          "source_heading": "Audio Q-former",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.3 训练阶段、查询瓶颈与Thinking评价",
+            "line": 414
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 65,
+          "source_level": 3,
+          "source_heading": "The arc — SALMONN, Qwen-Audio, AF3",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.1 不把SALMONN的双编码器接法移到AF3",
+            "line": 319
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 77,
+          "source_level": 3,
+          "source_heading": "Cascaded vs end-to-end",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.1 不把SALMONN的双编码器接法移到AF3",
+            "line": 319
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 92,
+          "source_level": 3,
+          "source_heading": "2026 production recipe",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.3 训练阶段、查询瓶颈与Thinking评价",
+            "line": 414
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 101,
+          "source_level": 3,
+          "source_heading": "MMAU — the audio reasoning benchmark",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/15-音频安全与评价方法.md",
+            "heading": "9. 分类、ALM与流式互动",
+            "line": 278
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 115,
+          "source_level": 2,
+          "source_heading": "Use It",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.2 完整的有效时长、窗口padding和来源时间fixture",
+            "line": 329
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 123,
+          "source_level": 2,
+          "source_heading": "Ship It",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.3 训练阶段、查询瓶颈与Thinking评价",
+            "line": 414
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 127,
+          "source_level": 2,
+          "source_heading": "Exercises",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.4 来源19五项练习的参考答案与实践判据",
+            "line": 424
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 139,
+          "source_level": 2,
+          "source_heading": "Key Terms",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.1 不把SALMONN的双编码器接法移到AF3",
+            "line": 319
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "source_line": 151,
+          "source_level": 2,
+          "source_heading": "Further Reading",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.4 来源19五项练习的参考答案与实践判据",
+            "line": 424
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        }
+      ],
+      "exercise_mapping": [
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "number": 1,
+          "original_question": "1. Compute the log-Mel spectrogram dimension for a 30-second clip at 16kHz, 25ms window, 10ms hop, 80 Mel bins. How does this change at 48kHz?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.4 来源19五项练习的参考答案与实践判据",
+            "line": 424
+          },
+          "answer_line": 426,
+          "actual_answer": "1. **19-1｜30秒、16kHz、25ms窗、10ms hop、80 Mel的形状，48kHz时怎样变？** 无center/padding时帧数为 $\\lfloor(N-W)/H\\rfloor+1$：480000/400/160样本配置得到2998帧，即2998×80。真实Whisper固定窗口和center/padding需配套processor，且AF3/large-v3使用128 Mel；不能把这一toy直接当Whisper前端。48kHz保持物理窗/hop时为1440000/1200/480，仍为2998，但送AF3前必须按合同重采样至16kHz。",
+          "boundary": "真实模型/论文整文/外部任务未执行；涉及未读整文题使用明确实践判据，不称已完成论文阅读"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "number": 2,
+          "original_question": "2. Why does Whisper underperform on music? What audio features does BEATs capture that Whisper does not?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.4 来源19五项练习的参考答案与实践判据",
+            "line": 424
+          },
+          "answer_line": 427,
+          "actual_answer": "2. **19-2｜Whisper为何在音乐上可能不足，BEATs捕捉什么？** Whisper的预训练任务侧重语音文字；专门音频表征可训练声学事件、音色和音乐关系。效果需同任务/数据对照，不按参数量宣布BEATs必胜。AF3通过caption任务重新学习统一encoder，不能以此题推出AF-Whisper=双编码器concat。",
+          "boundary": "真实模型/论文整文/外部任务未执行；涉及未读整文题使用明确实践判据，不称已完成论文阅读"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "number": 3,
+          "original_question": "3. Audio Q-former with 64 queries vs 32: at what task complexity does 64 pay off? 32 save compute for what?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.4 来源19五项练习的参考答案与实践判据",
+            "line": 424
+          },
+          "answer_line": 428,
+          "actual_answer": "3. **19-3｜64与32个查询何时值得？** 在使用Q-Former的架构中，固定其他参数，按音频长短、同时事件、细节定位和token/延迟预算比较；检查正确性与失败，不预设复杂度拐点或最低32。AF3的MLP adaptor不能用此查询数作为配置旋钮。",
+          "boundary": "真实模型/论文整文/外部任务未执行；涉及未读整文题使用明确实践判据，不称已完成论文阅读"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "number": 4,
+          "original_question": "4. Read AF3 Section 4 on on-demand thinking. Propose three audio tasks where chain-of-thought helps the most.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.4 来源19五项练习的参考答案与实践判据",
+            "line": 424
+          },
+          "answer_line": 429,
+          "actual_answer": "4. **19-4｜阅读AF3 on-demand Thinking，并提出三类任务。** 本批读了v1架构、训练、长音频任务与Thinking相关表格片段，未读整篇所有附录。可设计乐器/结构关系、混合语音与环境事件关系、长对话先后/指代三类同题Think开关对照；每题需要独立gold与原clip/time证据。不要让解释长度、外部常识或对人物情绪的猜测代替听到的事实。",
+          "boundary": "真实模型/论文整文/外部任务未执行；涉及未读整文题使用明确实践判据，不称已完成论文阅读"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+          "number": 5,
+          "original_question": "5. Implement a minimal diarization pipeline using AF3's output. How do you signal speaker changes?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+            "heading": "10.4 来源19五项练习的参考答案与实践判据",
+            "line": 424
+          },
+          "answer_line": 430,
+          "actual_answer": "5. **19-5｜用AF3输出设计diarization并标说话人变化。** 自然语言描述不是正式diarization。实践先定义VAD/重叠、匿名speaker ID、原时间段、变更与unknown状态；必要时另接说话人表征/聚类，固定全局label匹配、collar与overlap，用15的DER协议比较。若没有真实录音/标注/模型输出，本章只完成协议设计，不能称已实现或识别真人身份。",
+          "boundary": "真实模型/论文整文/外部任务未执行；涉及未读整文题使用明确实践判据，不称已完成论文阅读"
+        }
+      ],
+      "output_title_mapping": {
+        "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/outputs/skill-audio-llm-pipeline-picker.md",
+        "frontmatter_name": "audio-llm-pipeline-picker",
+        "body_sections": [
+          "Produce:",
+          "Hard rejects:",
+          "Refusal rules:",
+          "Output: one-page plan with pipeline pick, encoder stack, bridge config, LLM pick, CoT flag, expected accuracy. End with arXiv 2212.04356 (Whisper) and 2507.08128 (AF3) for deeper reading."
+        ],
+        "target": {
+          "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+          "heading": "10.3 训练阶段、查询瓶颈与Thinking评价",
+          "line": 414
+        },
+        "handling": "输出picker仅作问题清单；不安装/激活source Skill，不继承模型推荐、固定query/速度/数据量与拒绝阈值"
+      },
+      "svg_mapping": {
+        "source": {
+          "parsed_entire_xml": true,
+          "element_count": 63,
+          "counts": {
+            "svg": 1,
+            "defs": 1,
+            "marker": 1,
+            "path": 4,
+            "style": 1,
+            "text": 47,
+            "rect": 8
+          },
+          "external_image_elements": 0,
+          "text_labels": [
+            "Audio-LLM arc: Whisper (2022) to Audio Flamingo 3 (2025)",
+            "the pipeline: spectrogram -> encoder -> Q-former -> LLM",
+            "1. waveform",
+            "16 kHz mono",
+            "2. log-Mel spec",
+            "25ms win, 10ms hop",
+            "80 Mel bins",
+            "log compress",
+            "30s = 3000 frames",
+            "3. audio encoder",
+            "Whisper: speech strong",
+            "BEATs: music strong",
+            "AF-Whisper: concat",
+            "1 frame per 10ms",
+            "12-layer transformer",
+            "frozen at bridge train",
+            "4. audio Q-former",
+            "32-64 learnable queries",
+            "cross-attend over frames",
+            "output fixed-length tokens",
+            "training",
+            "stage 1: ITM + ITC + ITG",
+            "stage 2: instruction tune",
+            "5. LLM",
+            "Qwen2.5-7B",
+            "or Llama 3.1",
+            "output",
+            "captions",
+            "QA answers",
+            "with CoT",
+            "cascaded vs end-to-end task coverage",
+            "cascaded (Whisper -> LLM)",
+            "transcription: yes",
+            "summarization: yes",
+            "emotion: no",
+            "music genre: no",
+            "environmental: no",
+            "deepfake: no",
+            "MMAU ~0.50",
+            "end-to-end audio-LLM (AF3)",
+            "every cascaded task: yes",
+            "emotion / mood: yes",
+            "music / instruments: yes",
+            "environmental sounds: yes",
+            "temporal grounding: yes",
+            "on-demand CoT: +3-5 pts",
+            "MMAU 0.72 (open SOTA 2025)"
+          ],
+          "arrows": [
+            {
+              "d": "M 235 170 L 275 170",
+              "stroke": "#1a1a1a",
+              "stroke-width": "1.5",
+              "marker-end": "url(#arrow)"
+            },
+            {
+              "d": "M 485 170 L 525 170",
+              "stroke": "#1a1a1a",
+              "stroke-width": "1.5",
+              "marker-end": "url(#arrow)"
+            },
+            {
+              "d": "M 735 170 L 775 170",
+              "stroke": "#1a1a1a",
+              "stroke-width": "1.5",
+              "marker-end": "url(#arrow)"
+            }
+          ],
+          "elements_audit_path": "/tmp/study-source1-multimodal-svg-elements-20261008.json",
+          "visual_render_executed": false
+        },
+        "target": {
+          "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+          "heading": "10.1 不把SALMONN的双编码器接法移到AF3",
+          "line": 319
+        },
+        "meaning_and_limitations": "图谱→encoder→Qformer→LLM主链直接复述错误的AF-Whisper concat与80mel/12层；两栏覆盖率和MMAU数字是示意字面，正式知识要改为各架构的实际合同。"
+      },
+      "dynamic_mapping": {
+        "renderer": {
+          "id": "audio-text-ctc",
+          "provider": "site/figures-multimodal.js",
+          "function_range": [
+            325,
+            397
+          ],
+          "inputs": "target固定CAT；frames默认12/4..24；dup默认1/1..4",
+          "calculation": "确定性分配连续重复letters，其余blank，先合并相邻重复再去blank；输出row一直画CAT，实际collapsed可不足CAT，如T4/dup4只生成C。",
+          "caption_and_limits": "是CTC collapse展示；无概率、路径sum、CTC loss、音频模型或ALM，更不是Whisper自回归decoder机制。字幕写audio理解但本课注册的是旧CTC图，不按asset文件名推Qformer。"
+        },
+        "target": {
+          "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+          "heading": "10.3 训练阶段、查询瓶颈与Thinking评价",
+          "line": 414
+        },
+        "helper_sources": [
+          {
+            "path": "site/figures-multimodal.js",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/site/figures-multimodal.js",
+            "bytes": 26102,
+            "sha256": "00ca17abbc0f4e661a84a46088fff389bbcaaa3678fc1b5b2f150e685f6d8d55",
+            "git_blob_sha": "c349e7febc43af72add1f7b6697629eba9fbc877",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                1,
+                74
+              ],
+              [
+                273,
+                397
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          },
+          {
+            "path": "site/figures-multimodal2.js",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/site/figures-multimodal2.js",
+            "bytes": 21438,
+            "sha256": "7f8b3586278ab2e8b2b3e3be87ffece26238a0f782477358d38cb0f98d6af3c2",
+            "git_blob_sha": "f489c67e2b47e46a6d20f36537e5d9da0859a6a9",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                1,
+                325
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          },
+          {
+            "path": "site/lesson-figures.js",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/site/lesson-figures.js",
+            "bytes": 72860,
+            "sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+            "git_blob_sha": "e90e743c4f4b3e282e46c1a27a6602faa9745973",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                54,
+                123
+              ],
+              [
+                120,
+                275
+              ],
+              [
+                313,
+                466
+              ],
+              [
+                480,
+                625
+              ],
+              [
+                1220,
+                1349
+              ],
+              [
+                277,
+                313
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          },
+          {
+            "path": "site/build.js",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/site/build.js",
+            "bytes": 104702,
+            "sha256": "0859517c9e3a6d70eb720c91ef4e81b0313145c2f3f06dbce91fffc71d098f37",
+            "git_blob_sha": "ec0bd096b4e9333430a12cce6bd048c5b326c63e",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                1,
+                108
+              ],
+              [
+                528,
+                648
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          },
+          {
+            "path": "site/lesson.html",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/site/lesson.html",
+            "bytes": 249289,
+            "sha256": "03a79431a160d84c30793da3433d565b236db586ba53083b45b07e304d15757e",
+            "git_blob_sha": "e0dab75fa0746e01a6618ff5b507975a70967334",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                2770,
+                2788
+              ],
+              [
+                4300,
+                4321
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          },
+          {
+            "path": ".gitignore",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/.gitignore",
+            "bytes": 1597,
+            "sha256": "0e6efe89dfea8a5e4581fc16010311b60def3c2fd2367d6751c35ecb158376cf",
+            "git_blob_sha": "f5183fed1e20555c3bcf218bd0fc142bb32bf307",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                76,
+                83
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          }
+        ],
+        "helper_actual_semantics": {
+          "registered_ids": [
+            "video-temporal-patches",
+            "mm-video-token-budget",
+            "audio-text-ctc",
+            "mm-action-tokens",
+            "mm-doc-layout",
+            "mm-maxsim",
+            "contrastive-matrix",
+            "mm-agent-loop"
+          ],
+          "providers": {
+            "figures-multimodal.js": [
+              "video-temporal-patches",
+              "audio-text-ctc",
+              "contrastive-matrix"
+            ],
+            "figures-multimodal2.js": [
+              "mm-video-token-budget",
+              "mm-action-tokens",
+              "mm-doc-layout",
+              "mm-maxsim",
+              "mm-agent-loop"
+            ]
+          },
+          "all_providers_scanned": true,
+          "override_matches": "对site/figures*.js按每个完整quoted ID扫描，8个ID均唯一匹配上述provider；注册表完整函数/数据/caption已读",
+          "manifest": "site/figure-manifest.js由build.js生成并gitignored，本checkout中不存在。静态读build provider-order/discoverUsedFigureIds/buildFigureProviderManifest，不执行build，不声称运行网站验收。",
+          "mount": "lesson.html将figure fence变为data-figure host；runtime按build manifest顺序加载模块；LF.register可覆盖旧注册，mount解析ID和可选JSONcfg，缺provider留data-figure-missing，异常清空host并记录warning。",
+          "control_helpers": "slider更新Number(input.value)、aria-valuetext并调用persistent renderer；el/svgEl构DOM/SVG，fmtInt只格式化。SVG accessibility从label/caption生成title/desc。",
+          "motion_helpers": "normalizeSmilAttrs会把带fill=freeze的indefinite或连续geometry动画改finite并freeze；SMIL有暂停/重放、reduced-motion静态帧、visibility/offscreen/print策略和disposer；这些是展示控制，不是模型/机器人执行控制。",
+          "runtime_not_executed": true
+        },
+        "boundary": "静态读取全部实际函数数据/control/caption与相关helper；未浏览器运行source renderer或build"
+      },
+      "read_stage_source_code_executed": false,
+      "source_code_executed_this_stage": true
+    },
+    {
+      "lesson": "21-embodied-vlas-openvla-pi0-groot",
+      "files": [
+        {
+          "path": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/assets/vla-lineage.svg",
+          "bytes": 6354,
+          "sha256": "b2e60f465a07e0da71f998dfa8f5443d84e2ffc438e135582d9aa88a5b6592e7",
+          "git_blob_sha": "b536a577e0b6604fede60428717996aa0e1a48e3",
+          "read": true,
+          "restored_path": "/tmp/study-source1-ai-engineering-20261008/phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/assets/vla-lineage.svg",
+          "restoration_verified_date": "2026-10-08",
+          "restoration_match": true,
+          "read_date": "2026-10-08",
+          "read_range": {
+            "start": 1,
+            "end": 93
+          },
+          "read_kind": "完整XML解析，逐项读取全部文字标签、图形/箭头拓扑、元素属性；未在浏览器渲染或执行source",
+          "verified_on": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/code/main.py",
+          "bytes": 4382,
+          "sha256": "7be29b3043f25386c9dbd2cf67c319abed69bebcd489cb6c1204392657871d9d",
+          "git_blob_sha": "51880b5f7e61ce787a516c6ed26c5da9a3234500",
+          "read": true,
+          "read_date": "2026-10-07",
+          "read_range": {
+            "start": 1,
+            "end": 130
+          },
+          "read_kind": "本组实际完整正文/全部Python源码/完整输出资料读取，未运行或激活",
+          "restored_path": "/tmp/study-source1-ai-engineering-20261008/phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/code/main.py",
+          "restoration_verified_date": "2026-10-08",
+          "restoration_match": true,
+          "review_date": "2026-10-08",
+          "original_read_date_preserved": true,
+          "verified_on": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "bytes": 9174,
+          "sha256": "74e67225ca1e15d42fa2a561e836c1053ce944c0f11e2706d237294a9550885e",
+          "git_blob_sha": "7ec8910b3a6d8fb8b5edbc1f907f6a20dc097556",
+          "read": true,
+          "read_date": "2026-10-07",
+          "read_range": {
+            "start": 1,
+            "end": 156
+          },
+          "read_kind": "本组实际完整正文/全部Python源码/完整输出资料读取，未运行或激活",
+          "restored_path": "/tmp/study-source1-ai-engineering-20261008/phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "restoration_verified_date": "2026-10-08",
+          "restoration_match": true,
+          "review_date": "2026-10-08",
+          "original_read_date_preserved": true,
+          "verified_on": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/outputs/skill-vla-action-format-picker.md",
+          "bytes": 1955,
+          "sha256": "77f5503e2bbf563ea5d5ae66678ff5f375ac4b9ed46c36123dadb96ce023ae6c",
+          "git_blob_sha": "fb04706211344fdd36dc85dc3b5c6bb312cc8e83",
+          "read": true,
+          "read_date": "2026-10-07",
+          "read_range": {
+            "start": 1,
+            "end": 31
+          },
+          "read_kind": "本组实际完整正文/全部Python源码/完整输出资料读取，未运行或激活",
+          "restored_path": "/tmp/study-source1-ai-engineering-20261008/phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/outputs/skill-vla-action-format-picker.md",
+          "restoration_verified_date": "2026-10-08",
+          "restoration_match": true,
+          "review_date": "2026-10-08",
+          "original_read_date_preserved": true,
+          "verified_on": "2026-10-08"
+        }
+      ],
+      "quiz_status": "固定tree与实际目录核对：无quiz.json，正文有5道Exercises；不编造选择题、题号或已测验分数",
+      "empty_placeholders": [
+        "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/notebook/.gitkeep"
+      ],
+      "source_code_executed": true,
+      "output_activated": false,
+      "original_exercises": [
+        "1. A 10-DOF arm at 30 Hz control rate. Discrete-bin tokenization at 256 bins emits how many tokens per second? Can a 7B VLM keep up?",
+        "2. FAST tokenization compresses 30-step trajectories to ~10 tokens. What does the user lose if the trajectory has high-frequency motion (e.g., drumming)?",
+        "3. π0's flow-matching head denoises in ~5 steps. Compare throughput to OpenVLA's autoregressive decode at 4-5 Hz.",
+        "4. GR00T's System 1 / System 2 split maps to Kahneman. Propose a different split (System 3?) that might help bipedal walking.",
+        "5. Read Open X-Embodiment Section 4 on dataset curation. Name the three curation rules that prevent domain leakage."
+      ],
+      "dynamic_figure_id": "mm-action-tokens",
+      "svg_structure": {
+        "parsed_entire_xml": true,
+        "element_count": 69,
+        "counts": {
+          "svg": 1,
+          "defs": 1,
+          "marker": 1,
+          "path": 1,
+          "style": 1,
+          "text": 55,
+          "rect": 9
+        },
+        "external_image_elements": 0,
+        "text_labels": [
+          "Embodied VLAs — RT-2 to GR00T, the action-format arc",
+          "four action formats in use today",
+          "discrete 256-bin",
+          "RT-2 (2023), OpenVLA",
+          "one token per DOF",
+          "text-vocab compatible",
+          "pros: simple",
+          "cons: ~300 tok/s needed",
+          "inference 3-5 Hz",
+          "FAST (DCT + quantize)",
+          "2024 improvement",
+          "~10 tokens / trajectory",
+          "low-freq coefficients",
+          "pros: 3-5x faster",
+          "cons: loses high-freq",
+          "used by pi0-FAST",
+          "flow-matching head",
+          "pi0 (2024)",
+          "continuous output",
+          "50-step trajectory",
+          "pros: smoothness",
+          "5 denoise steps",
+          "~50 Hz control",
+          "dual-system",
+          "GR00T N1 (2025)",
+          "System 2: VLM ~1 Hz",
+          "System 1: small ~100 Hz",
+          "pros: humanoid-scale",
+          "subgoals + fast control",
+          "best for 30+ DOF",
+          "training recipe + safety",
+          "co-fine-tune",
+          "ratio ~0.5:1 to 1:1",
+          "web VQA + robot demos",
+          "preserves general knowledge",
+          "robot-only -> forgets lang",
+          "fine-tune path",
+          "LoRA on 100-1000 demos",
+          "to adapt to new robot",
+          "Open X-Embodiment",
+          "22 datasets",
+          "1M trajectories",
+          "22 robot embodiments",
+          "ALOHA / Bridge / Droid",
+          "unified schema",
+          "state, camera, action",
+          "open-source",
+          "safety gates (outside VLA)",
+          "hard joint limits",
+          "velocity clipping",
+          "workspace bounds",
+          "HITL approval for novel tasks",
+          "VLA suggests, controller enforces",
+          "always treat VLA output as prior,",
+          "not a command"
+        ],
+        "arrows": [],
+        "elements_audit_path": "/tmp/study-source1-multimodal-svg-elements-20261008.json",
+        "visual_render_executed": false
+      },
+      "read_stage_analysis": {
+        "problem_and_prerequisites": "VLA以相机/语言/本体state预测动作，而动作语义、单位、控制时钟和安全控制由机器人接口确定；先读04已有运动学/动力学/反馈与sim2real。不得把视觉输出、离线预测误差或手算token当实际机器人操作能力。",
+        "durable_learning": [
+          "每个动作维度必须标state/action keys、顺序、单位、参考坐标系、绝对/相对、EE/joint、旋转表示、gripper开闭约定、控制dt、action horizon H与执行horizon h<=H、dataset/model修订和normalization stats；7DoF本体不等于所有任务7/10维动作。",
+          "离散动作生成可用conditional token CE；动作ID须映射真实LLM词表、目标mask/EOS合法，反解时恢复配套数据集尺度。OpenVLA官方predict_action按unnorm_key选择q01/q99并只对mask维度恢复a=.5(z+1)(high-low)+low，错stats可把合法token变危险物理动作。",
+          "量化误差依定义。source floor mapping含端点2/(B-1)间隔，误差小于一格且有向下偏；真实OpenVLA源码256个edges/255centers及vocab-offset有专属规则，不能用sourceuniform roundtrip当其相同比特协议。",
+          "FAST真实过程是每维训练分位归一→沿时间DCT→scale-and-round稀疏系数→按低频跨维优先展开→学得BPE→tokens；反解BPE/尺度/DCT/归一。截前4coeff只是一种有损toy，没有FAST BPE，也不保证30步只10tokens。",
+          "π0为连续action chunk的flow目标。官方openpi固定源码用x_t=t*noise+(1-t)*a，u_t=noise-a，MSE(v_theta(x_t,t,obs),u_t)沿动作维平均；采样从t1噪声到t0动作，dt为负，默认10steps。符号约定与论文可能相反，必须与实现配套。",
+          "预测H未来动作，执行h后用新观测重规划；模型推理频率、机器人controller频率、chunk内时间分辨率是三个指标，H50不意味着实测50Hz。GR00T当前作者接口返回B×T×D物理单位；embodiment tag决定keys/normalization，不能按同shape跨本体套用。",
+          "闭环要检查传感时戳与延迟、工作空间/joint/速度/加速度/碰撞/急停和失联安全状态；模型不能独立覆盖未知动力学约束。open-loop MAE/MSE、仿真任务成功、真实任务成功按不同阶段与split记录；本批无真实执行。"
+        ],
+        "source_code_semantics": [
+          "discretize将[-1,1]按int floor截断并clip；没有type/finite/bins>=2/invalidtoken检查，undiscretize无越界检查。",
+          "fast_compress对每维DCT取4coeff/len并clamp再uniform32bins；30×10原tokens300、4×10输出40（7.5倍数量比），不是约10tokens，不含BPE/ID映射/反DCT/重建评价。",
+          "continuous_flow_count=1硬编码把一次head调用标1token；不含flow network/loss/积分，不能与AR token数量直接当速度。谱系、co-finetune比例和控制Hz全print字串，无模型、sensor、training或robot控制。"
+        ],
+        "svg_semantics": "四栏动作格式及底部训练/安全条目；保留多种动作表示与控制外层原则，图中10token/5step/50Hz/100Hz、固定数据比例及dual-system必选不作为当前证据。",
+        "dynamic_semantics": {
+          "id": "mm-action-tokens",
+          "provider": "site/figures-multimodal2.js",
+          "function_range": [
+            159,
+            199
+          ],
+          "data": "连续sine曲线120步，6固定samples=[10,30,50,70,90,110]；每23px snap，只有5条bin gridline（b=-2..2）",
+          "caption_and_limits": "显示256bins/10DOF的字面标签，但未实际计算256bins、vocab IDs、真实motor命令。示意变量为jointtarget，不证明RT2真实动作都joint；共用SMIL helper会freeze几何，未执行。"
+        },
+        "exercise_reference_answers": [
+          "假定D10、30steps/s且每维1token，则300action tokens/s；是否跟得上需端到端latency与chunk调度，不因7B断言必行/不行。",
+          "删高频会损尖锐/快速动作；FAST scale/BPE并非固定删高频4项，应反解重建并做真实task评价才可选择。",
+          "flow多步head与AR多token可parallel不同轴，比较需要实际prefill/cache/step数/hardware和controller时钟；source没有吞吐。",
+          "可加独立状态/安全监督与重规划层，但System3命名不证明稳定步态；需spec与闭环证据。",
+          "Open X-Embodiment原文§4未全文读，本次不虚构作者三条规则；可独立要求episode/robot/scene/sensor分组split及统计仅train，标为本站建议而非原题唯一答案。"
+        ],
+        "reject_or_reverify": [
+          "π0-FAST是autoregressive FAST-action VLA，不能写flow+FAST同一个head；openpi README已明确分两类。",
+          "RT2所有动作joint/10DoF、万能web:robot混比、100..1000demo保证迁移、>30DoF必dual-system、固定Hz/速度无本次实测均不继承。",
+          "GR00T现代N1.7实现与历史N1论文要按版本分离；当前README给relative EEF/flow-DiT/40horizon，不能沿源N1.7 late2025伪历史或1Hz高层subgoal设定当实际接口。"
+        ],
+        "proposed_primary_target": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md：深化既有§8 VLA动作合同/量化/FAST与flow目标及horizon；不改现sim2real已有实测日期。"
+      },
+      "source_execution_note": "原只读checkpoint的未执行边界仅指读取阶段；本轮完整原main已CPU执行，见original_source_runs，打印声明不当真实性能。",
+      "heading_mapping": [
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 10,
+          "source_level": 2,
+          "source_heading": "Learning Objectives",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13. VLA动作要先成为有单位的接口，再谈策略",
+            "line": 260
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 17,
+          "source_level": 2,
+          "source_heading": "The Problem",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.1 状态、动作、归一化与时间合同",
+            "line": 264
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 28,
+          "source_level": 2,
+          "source_heading": "The Concept",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.1 状态、动作、归一化与时间合同",
+            "line": 264
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 30,
+          "source_level": 3,
+          "source_heading": "Action tokenization (RT-2)",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.1 状态、动作、归一化与时间合同",
+            "line": 264
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 43,
+          "source_level": 3,
+          "source_heading": "OpenVLA — the open 7B reference",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.1 状态、动作、归一化与时间合同",
+            "line": 264
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 51,
+          "source_level": 3,
+          "source_heading": "FAST tokenizer — faster action decode",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.3 FAST离散序列与π0连续flow的目标不同",
+            "line": 401
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 57,
+          "source_level": 3,
+          "source_heading": "π0 and flow-matching actions",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.3 FAST离散序列与π0连续flow的目标不同",
+            "line": 401
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 69,
+          "source_level": 3,
+          "source_heading": "GR00T N1 — dual-system for humanoids",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.4 闭环、训练混合与可复查边界",
+            "line": 489
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 80,
+          "source_level": 3,
+          "source_heading": "Open X-Embodiment",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.4 闭环、训练混合与可复查边界",
+            "line": 489
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 90,
+          "source_level": 3,
+          "source_heading": "Co-fine-tuning vs robot-only",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.4 闭环、训练混合与可复查边界",
+            "line": 489
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 98,
+          "source_level": 3,
+          "source_heading": "Safety and action limits",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.4 闭环、训练混合与可复查边界",
+            "line": 489
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 113,
+          "source_level": 2,
+          "source_heading": "Use It",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.2 完整的本体绑定、动作往返与执行horizon程序",
+            "line": 274
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 122,
+          "source_level": 2,
+          "source_heading": "Ship It",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.4 闭环、训练混合与可复查边界",
+            "line": 489
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 126,
+          "source_level": 2,
+          "source_heading": "Exercises",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.5 来源21五项练习的参考答案与实践判据",
+            "line": 497
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 138,
+          "source_level": 2,
+          "source_heading": "Key Terms",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.1 状态、动作、归一化与时间合同",
+            "line": 264
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "source_line": 150,
+          "source_level": 2,
+          "source_heading": "Further Reading",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.5 来源21五项练习的参考答案与实践判据",
+            "line": 497
+          },
+          "handling": "融合原理/解释和纠错，当前型号排名/固定门槛淘汰；FurtherReading与论文练习仅实际已读范围，其余明确未整文"
+        }
+      ],
+      "exercise_mapping": [
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "number": 1,
+          "original_question": "1. A 10-DOF arm at 30 Hz control rate. Discrete-bin tokenization at 256 bins emits how many tokens per second? Can a 7B VLM keep up?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.5 来源21五项练习的参考答案与实践判据",
+            "line": 497
+          },
+          "answer_line": 499,
+          "actual_answer": "1. **21-1｜10维动作、30Hz、每维一个离散token需多少token/s，7B能跟上吗？** 在该假设下为300 action tokens/s，还未计输入/边界。是否跟上需实测单次推理、chunk、通信与控制时钟，不能以7B参数量直接答行或不行；10维不应冒称RT2全部真实动作。",
+          "boundary": "真实模型/论文整文/外部任务未执行；涉及未读整文题使用明确实践判据，不称已完成论文阅读"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "number": 2,
+          "original_question": "2. FAST tokenization compresses 30-step trajectories to ~10 tokens. What does the user lose if the trajectory has high-frequency motion (e.g., drumming)?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.5 来源21五项练习的参考答案与实践判据",
+            "line": 497
+          },
+          "answer_line": 500,
+          "actual_answer": "2. **21-2｜30步压成约10FAST tokens，鼓点等高频动作损失什么？** 固定10是未经证明的前提。删/量化高频系数可能损快速变化，真实FAST保留scale-round后的全系数结构并BPE；反解后比较峰值、时序、单位误差和任务成功，不能只看序列变短。",
+          "boundary": "真实模型/论文整文/外部任务未执行；涉及未读整文题使用明确实践判据，不称已完成论文阅读"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "number": 3,
+          "original_question": "3. π0's flow-matching head denoises in ~5 steps. Compare throughput to OpenVLA's autoregressive decode at 4-5 Hz.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.5 来源21五项练习的参考答案与实践判据",
+            "line": 497
+          },
+          "answer_line": 501,
+          "actual_answer": "3. **21-3｜约5步flow与4～5Hz OpenVLA如何比较吞吐？** 原数字不能当本次实测。flow的积分步数、AR输出步数、prefill/cache和chunk并行轴不同；统一硬件/输入/动作长度及精度，分别测预测频率、执行频率和延迟。当前openpi默认采样源码为10步，也不是永久5步或“50动作=50Hz”。",
+          "boundary": "真实模型/论文整文/外部任务未执行；涉及未读整文题使用明确实践判据，不称已完成论文阅读"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "number": 4,
+          "original_question": "4. GR00T's System 1 / System 2 split maps to Kahneman. Propose a different split (System 3?) that might help bipedal walking.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.5 来源21五项练习的参考答案与实践判据",
+            "line": 497
+          },
+          "answer_line": 502,
+          "actual_answer": "4. **21-4｜在GR00T快慢分工外提出System3助步行。** 可设计独立的状态/平衡/安全监督，拒绝失联、越界或不稳定目标，并重新规划；说明所需可观测量、dt、失败终态及和低层controller的接口。System3名称不是稳定性证明，需仿真和真实闭环证据，本批仅协议构思。",
+          "boundary": "真实模型/论文整文/外部任务未执行；涉及未读整文题使用明确实践判据，不称已完成论文阅读"
+        },
+        {
+          "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/docs/en.md",
+          "number": 5,
+          "original_question": "5. Read Open X-Embodiment Section 4 on dataset curation. Name the three curation rules that prevent domain leakage.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+            "heading": "13.5 来源21五项练习的参考答案与实践判据",
+            "line": 497
+          },
+          "answer_line": 503,
+          "actual_answer": "5. **21-5｜读Open X-Embodiment第4节，列三项防泄漏规则。** 本批未完成该节整文阅读，不能虚构作者恰有三条。本站可评判实践设计是按episode/source/本体与场景分组split、train-only归一与预处理拟合、测试不回流调参及跨来源重复检查；这三组判据是本章方案，须对照原文后才能归属作者。",
+          "boundary": "真实模型/论文整文/外部任务未执行；涉及未读整文题使用明确实践判据，不称已完成论文阅读"
+        }
+      ],
+      "output_title_mapping": {
+        "source_file": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/outputs/skill-vla-action-format-picker.md",
+        "frontmatter_name": "vla-action-format-picker",
+        "body_sections": [
+          "Produce:",
+          "Hard rejects:",
+          "Refusal rules:",
+          "Output: one-page plan with action format, VLA pick, control rate check, co-fine-tune mix, safety gates. End with arXiv 2307.15818 (RT-2), 2406.09246 (OpenVLA), 2410.24164 (π0), 2503.14734 (GR00T)."
+        ],
+        "target": {
+          "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+          "heading": "13.4 闭环、训练混合与可复查边界",
+          "line": 489
+        },
+        "handling": "输出picker仅作问题清单；不安装/激活source Skill，不继承模型推荐、固定query/速度/数据量与拒绝阈值"
+      },
+      "svg_mapping": {
+        "source": {
+          "parsed_entire_xml": true,
+          "element_count": 69,
+          "counts": {
+            "svg": 1,
+            "defs": 1,
+            "marker": 1,
+            "path": 1,
+            "style": 1,
+            "text": 55,
+            "rect": 9
+          },
+          "external_image_elements": 0,
+          "text_labels": [
+            "Embodied VLAs — RT-2 to GR00T, the action-format arc",
+            "four action formats in use today",
+            "discrete 256-bin",
+            "RT-2 (2023), OpenVLA",
+            "one token per DOF",
+            "text-vocab compatible",
+            "pros: simple",
+            "cons: ~300 tok/s needed",
+            "inference 3-5 Hz",
+            "FAST (DCT + quantize)",
+            "2024 improvement",
+            "~10 tokens / trajectory",
+            "low-freq coefficients",
+            "pros: 3-5x faster",
+            "cons: loses high-freq",
+            "used by pi0-FAST",
+            "flow-matching head",
+            "pi0 (2024)",
+            "continuous output",
+            "50-step trajectory",
+            "pros: smoothness",
+            "5 denoise steps",
+            "~50 Hz control",
+            "dual-system",
+            "GR00T N1 (2025)",
+            "System 2: VLM ~1 Hz",
+            "System 1: small ~100 Hz",
+            "pros: humanoid-scale",
+            "subgoals + fast control",
+            "best for 30+ DOF",
+            "training recipe + safety",
+            "co-fine-tune",
+            "ratio ~0.5:1 to 1:1",
+            "web VQA + robot demos",
+            "preserves general knowledge",
+            "robot-only -> forgets lang",
+            "fine-tune path",
+            "LoRA on 100-1000 demos",
+            "to adapt to new robot",
+            "Open X-Embodiment",
+            "22 datasets",
+            "1M trajectories",
+            "22 robot embodiments",
+            "ALOHA / Bridge / Droid",
+            "unified schema",
+            "state, camera, action",
+            "open-source",
+            "safety gates (outside VLA)",
+            "hard joint limits",
+            "velocity clipping",
+            "workspace bounds",
+            "HITL approval for novel tasks",
+            "VLA suggests, controller enforces",
+            "always treat VLA output as prior,",
+            "not a command"
+          ],
+          "arrows": [],
+          "elements_audit_path": "/tmp/study-source1-multimodal-svg-elements-20261008.json",
+          "visual_render_executed": false
+        },
+        "target": {
+          "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+          "heading": "13.1 状态、动作、归一化与时间合同",
+          "line": 264
+        },
+        "meaning_and_limitations": "四栏动作格式及底部训练/安全条目；保留多种动作表示与控制外层原则，图中10token/5step/50Hz/100Hz、固定数据比例及dual-system必选不作为当前证据。"
+      },
+      "dynamic_mapping": {
+        "renderer": {
+          "id": "mm-action-tokens",
+          "provider": "site/figures-multimodal2.js",
+          "function_range": [
+            159,
+            199
+          ],
+          "data": "连续sine曲线120步，6固定samples=[10,30,50,70,90,110]；每23px snap，只有5条bin gridline（b=-2..2）",
+          "caption_and_limits": "显示256bins/10DOF的字面标签，但未实际计算256bins、vocab IDs、真实motor命令。示意变量为jointtarget，不证明RT2真实动作都joint；共用SMIL helper会freeze几何，未执行。"
+        },
+        "target": {
+          "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+          "heading": "13.3 FAST离散序列与π0连续flow的目标不同",
+          "line": 401
+        },
+        "helper_sources": [
+          {
+            "path": "site/figures-multimodal.js",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/site/figures-multimodal.js",
+            "bytes": 26102,
+            "sha256": "00ca17abbc0f4e661a84a46088fff389bbcaaa3678fc1b5b2f150e685f6d8d55",
+            "git_blob_sha": "c349e7febc43af72add1f7b6697629eba9fbc877",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                1,
+                74
+              ],
+              [
+                273,
+                397
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          },
+          {
+            "path": "site/figures-multimodal2.js",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/site/figures-multimodal2.js",
+            "bytes": 21438,
+            "sha256": "7f8b3586278ab2e8b2b3e3be87ffece26238a0f782477358d38cb0f98d6af3c2",
+            "git_blob_sha": "f489c67e2b47e46a6d20f36537e5d9da0859a6a9",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                1,
+                325
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          },
+          {
+            "path": "site/lesson-figures.js",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/site/lesson-figures.js",
+            "bytes": 72860,
+            "sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+            "git_blob_sha": "e90e743c4f4b3e282e46c1a27a6602faa9745973",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                54,
+                123
+              ],
+              [
+                120,
+                275
+              ],
+              [
+                313,
+                466
+              ],
+              [
+                480,
+                625
+              ],
+              [
+                1220,
+                1349
+              ],
+              [
+                277,
+                313
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          },
+          {
+            "path": "site/build.js",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/site/build.js",
+            "bytes": 104702,
+            "sha256": "0859517c9e3a6d70eb720c91ef4e81b0313145c2f3f06dbce91fffc71d098f37",
+            "git_blob_sha": "ec0bd096b4e9333430a12cce6bd048c5b326c63e",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                1,
+                108
+              ],
+              [
+                528,
+                648
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          },
+          {
+            "path": "site/lesson.html",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/site/lesson.html",
+            "bytes": 249289,
+            "sha256": "03a79431a160d84c30793da3433d565b236db586ba53083b45b07e304d15757e",
+            "git_blob_sha": "e0dab75fa0746e01a6618ff5b507975a70967334",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                2770,
+                2788
+              ],
+              [
+                4300,
+                4321
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          },
+          {
+            "path": ".gitignore",
+            "restored_path": "/tmp/study-source1-ai-engineering-20261008/.gitignore",
+            "bytes": 1597,
+            "sha256": "0e6efe89dfea8a5e4581fc16010311b60def3c2fd2367d6751c35ecb158376cf",
+            "git_blob_sha": "f5183fed1e20555c3bcf218bd0fc142bb32bf307",
+            "read_date": "2026-10-08",
+            "actual_read_ranges": [
+              [
+                76,
+                83
+              ]
+            ],
+            "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+          }
+        ],
+        "helper_actual_semantics": {
+          "registered_ids": [
+            "video-temporal-patches",
+            "mm-video-token-budget",
+            "audio-text-ctc",
+            "mm-action-tokens",
+            "mm-doc-layout",
+            "mm-maxsim",
+            "contrastive-matrix",
+            "mm-agent-loop"
+          ],
+          "providers": {
+            "figures-multimodal.js": [
+              "video-temporal-patches",
+              "audio-text-ctc",
+              "contrastive-matrix"
+            ],
+            "figures-multimodal2.js": [
+              "mm-video-token-budget",
+              "mm-action-tokens",
+              "mm-doc-layout",
+              "mm-maxsim",
+              "mm-agent-loop"
+            ]
+          },
+          "all_providers_scanned": true,
+          "override_matches": "对site/figures*.js按每个完整quoted ID扫描，8个ID均唯一匹配上述provider；注册表完整函数/数据/caption已读",
+          "manifest": "site/figure-manifest.js由build.js生成并gitignored，本checkout中不存在。静态读build provider-order/discoverUsedFigureIds/buildFigureProviderManifest，不执行build，不声称运行网站验收。",
+          "mount": "lesson.html将figure fence变为data-figure host；runtime按build manifest顺序加载模块；LF.register可覆盖旧注册，mount解析ID和可选JSONcfg，缺provider留data-figure-missing，异常清空host并记录warning。",
+          "control_helpers": "slider更新Number(input.value)、aria-valuetext并调用persistent renderer；el/svgEl构DOM/SVG，fmtInt只格式化。SVG accessibility从label/caption生成title/desc。",
+          "motion_helpers": "normalizeSmilAttrs会把带fill=freeze的indefinite或连续geometry动画改finite并freeze；SMIL有暂停/重放、reduced-motion静态帧、visibility/offscreen/print策略和disposer；这些是展示控制，不是模型/机器人执行控制。",
+          "runtime_not_executed": true
+        },
+        "boundary": "静态读取全部实际函数数据/control/caption与相关helper；未浏览器运行source renderer或build"
+      },
+      "read_stage_source_code_executed": false,
+      "source_code_executed_this_stage": true
+    }
+  ],
+  "author_contract_sources": [
+    {
+      "path": "AGENTS.md",
+      "restored_path": "/tmp/study-source1-ai-engineering-20261008/AGENTS.md",
+      "bytes": 13617,
+      "sha256": "24a1cb3e111107b1a3d922f550776e7573396bc9d0b651b33b1e2cc1d7e1bcc2",
+      "git_blob_sha": "3be7cf810ba6879a068d6da4756a399eab129740",
+      "read_date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          1,
+          245
+        ],
+        [
+          245,
+          311
+        ]
+      ],
+      "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限"
+    },
+    {
+      "path": ".claude/skills/learn/SKILL.md",
+      "restored_path": "/tmp/study-source1-ai-engineering-20261008/.claude/skills/learn/SKILL.md",
+      "bytes": 8839,
+      "sha256": "48595700a457f6652048c85cdd15b552ab26515354c567b40a81c9c140207eaa",
+      "git_blob_sha": "f9dc1050be4cdca7f2ecee612fb8cb8cbfaf4701",
+      "read_date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          1,
+          182
+        ]
+      ],
+      "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限",
+      "canonical_equivalent_path": "skills/learn/SKILL.md",
+      "canonical_identical_bytes": true
+    },
+    {
+      "path": ".claude/skills/start-learning/SKILL.md",
+      "restored_path": "/tmp/study-source1-ai-engineering-20261008/.claude/skills/start-learning/SKILL.md",
+      "bytes": 8196,
+      "sha256": "36ac84162b24e3008cd4af0e25eaedbee336fa2ab6595c24dde815e4f4783c7c",
+      "git_blob_sha": "5039333bfa588e2c80914f6ce7df893e7c85b730",
+      "read_date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          1,
+          181
+        ]
+      ],
+      "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限",
+      "canonical_equivalent_path": "skills/start-learning/SKILL.md",
+      "canonical_identical_bytes": true
+    },
+    {
+      "path": ".claude/skills/check-understanding/SKILL.md",
+      "restored_path": "/tmp/study-source1-ai-engineering-20261008/.claude/skills/check-understanding/SKILL.md",
+      "bytes": 8205,
+      "sha256": "c6e2e985794e281922872af186dd0aba1920faca1950ecf85e9596b53ced56d9",
+      "git_blob_sha": "aa6d45512e27561ee6012af04f2d98beaf708f23",
+      "read_date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          1,
+          167
+        ]
+      ],
+      "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限",
+      "canonical_equivalent_path": "skills/check-understanding/SKILL.md",
+      "canonical_identical_bytes": true
+    },
+    {
+      "path": ".claude/skills/course-guide/SKILL.md",
+      "restored_path": "/tmp/study-source1-ai-engineering-20261008/.claude/skills/course-guide/SKILL.md",
+      "bytes": 6668,
+      "sha256": "6814073193db531b665616188ba94b3949445306d107a60e800b5cbad5bcef34",
+      "git_blob_sha": "b1aa85c440681697b2b548876fcb759676c07fa8",
+      "read_date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          1,
+          129
+        ]
+      ],
+      "read_kind": "静态源码/资料片段实际读取；未运行、未安装或应用为本任务权限",
+      "canonical_equivalent_path": "skills/course-guide/SKILL.md",
+      "canonical_identical_bytes": true
+    }
+  ],
+  "author_contract_boundary": "AGENTS为贡献者课程契约：每课docs/code/quiz/outputs、stdlib-first和作者自检，不是本任务的操作授权。4个source tutor SKILL虽与canonical副本字节同一，但仅资料读取：交互教学、LEARNING路由/隔离、答题后揭答案、至少70%重学等属作者产品流程；当前任务是吸收审计，未安装激活、未生成LEARNING、未测验用户。8个outputs只有picker说明及硬编码拒绝/模型排名，未核通用阈值不继承为本站知识或权限规则。",
+  "primary_verification": [
+    {
+      "repo": "NVIDIA/audio-flamingo",
+      "url": "https://github.com/NVIDIA/audio-flamingo/blob/f4579633f5b7ceaa5001f44d49fce5247777ab1e/README.md",
+      "commit": "f4579633f5b7ceaa5001f44d49fce5247777ab1e",
+      "git_blob_sha": "3b636c7569f514e5c91cb9144b6a132f55d2f244",
+      "sha256": "0fe1cc4f60684b6f685dc289237c9fd2412979633599e7d4d185873887309f46",
+      "bytes": 17159,
+      "lines": 299,
+      "path": "/tmp/study-source1-multimodal-primary-20261008/NVIDIA--audio-flamingo.md",
+      "fetch_date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          70,
+          145
+        ]
+      ],
+      "read_scope": "README指定片段，非全部repository/全部论文",
+      "verified_claims": "AF3系列README入口及统一AF-Whisper/7B/10min/AF3Chat辅助TTS；不采模型榜单。",
+      "executed": false,
+      "accepted_for_requested_model": true
+    },
+    {
+      "repo": "openvla/openvla",
+      "url": "https://github.com/openvla/openvla/blob/c8f03f48af692657d3060c19588038c7220e9af9/README.md",
+      "commit": "c8f03f48af692657d3060c19588038c7220e9af9",
+      "git_blob_sha": "075feef94adfeb802d1d89856159a974bf5358f8",
+      "sha256": "ba8e9a2884e38a8000dafc98af4116512e37b0e143dad2f940100482bfd6b75c",
+      "bytes": 38458,
+      "lines": 645,
+      "path": "/tmp/study-source1-multimodal-primary-20261008/openvla--openvla.md",
+      "fetch_date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          45,
+          85
+        ],
+        [
+          611,
+          641
+        ]
+      ],
+      "read_scope": "README指定片段，非全部repository/全部论文",
+      "verified_claims": "7DoF BridgeData反归一unnorm_key接口、实际机器人/推理pipeline独立核对与targetdomain限制；固定demo数/Hz仅作者方案非通用。",
+      "executed": false,
+      "accepted_for_requested_model": true
+    },
+    {
+      "repo": "Physical-Intelligence/openpi",
+      "url": "https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md",
+      "commit": "215abfb217dbac7d5f1273282331b9b1866c0479",
+      "git_blob_sha": "d16e43d4790c60d9e22e67c58a407594fa6fb772",
+      "sha256": "567fc57766bd736664f50126cab8145af4071ca16cc5e238f2b11e369169c3b5",
+      "bytes": 23254,
+      "lines": 323,
+      "path": "/tmp/study-source1-multimodal-primary-20261008/Physical-Intelligence--openpi.md",
+      "fetch_date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          1,
+          150
+        ]
+      ],
+      "read_scope": "README指定片段，非全部repository/全部论文",
+      "verified_claims": "pi0 flow与pi0FAST autoregressive分开；datasetinput/outputmapping、actionchunk和checkpoint不保证跨robot成功。",
+      "executed": false,
+      "accepted_for_requested_model": true
+    },
+    {
+      "repo": "NVIDIA/Isaac-GR00T",
+      "url": "https://github.com/NVIDIA/Isaac-GR00T/blob/51d4c89f72fda44cbf77285c6a8114b52676b8a1/README.md",
+      "commit": "51d4c89f72fda44cbf77285c6a8114b52676b8a1",
+      "git_blob_sha": "6d86ea8af1a7f303b8cb71e8e281606f71f7a0f3",
+      "sha256": "62f6c55a356be039287416f97e03a3b5541052d038a3daec208ea9ff8045a067",
+      "bytes": 34759,
+      "lines": 635,
+      "path": "/tmp/study-source1-multimodal-primary-20261008/NVIDIA--Isaac-GR00T.md",
+      "fetch_date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          66,
+          126
+        ],
+        [
+          278,
+          305
+        ]
+      ],
+      "read_scope": "README指定片段，非全部repository/全部论文",
+      "verified_claims": "当前N1.7 flow-DiT、relativeEEF与embodiment数据/normalization；action/executionhorizon版本区分。",
+      "executed": false,
+      "accepted_for_requested_model": true
+    },
+    {
+      "repo": "NVIDIA/audio-flamingo",
+      "branch": "audio_flamingo_3",
+      "commit": "1337fb9dfffe6e40f1d204f137da71e7208b4742",
+      "blob": "a851d4a1e5f043687c9499e6b5414dc21bd86820",
+      "sha256": "740834bda2146718d64e19fa5527cd46b6013ec0cc21d0095508fe6347d4e3a8",
+      "lines": 244,
+      "date": "2026-10-08",
+      "path": "/tmp/study-source1-multimodal-primary-20261008/AF3-branch-readme.md",
+      "url": "https://github.com/NVIDIA/audio-flamingo/blob/1337fb9dfffe6e40f1d204f137da71e7208b4742/README.md",
+      "actual_read_ranges": [
+        [
+          1,
+          90
+        ]
+      ],
+      "read_scope": "AF3 branch README architecture fragment",
+      "verified_claims": "AF3为统一AFWhisper、MLPadaptor、Qwen2.5-7B，AF3Chat另含streamingTTS",
+      "executed": false
+    },
+    {
+      "repo": "openvla/openvla",
+      "path": "prismatic/vla/action_tokenizer.py",
+      "commit": "c8f03f48af692657d3060c19588038c7220e9af9",
+      "git_blob_sha": "fc1841a714f40ba677a1493782da23db4f9d4f4b",
+      "sha256": "fdc98fcbf5b0926ef2181db71946d23ffbfa052cf8443dc933d52c42a191352c",
+      "local_path": "/tmp/study-source1-multimodal-primary-20261008/openvla--openvla--action_tokenizer.py",
+      "lines": 72,
+      "date": "2026-10-08",
+      "url": "https://github.com/openvla/openvla/blob/c8f03f48af692657d3060c19588038c7220e9af9/prismatic/vla/action_tokenizer.py",
+      "actual_read_ranges": [
+        [
+          1,
+          72
+        ]
+      ],
+      "read_scope": "作者源码/接口文档指定范围实际读取，非完整仓库",
+      "executed": false
+    },
+    {
+      "repo": "openvla/openvla",
+      "path": "prismatic/extern/hf/modeling_prismatic.py",
+      "commit": "c8f03f48af692657d3060c19588038c7220e9af9",
+      "git_blob_sha": "4a26c487190fa2359007b30a78094a6c432d6519",
+      "sha256": "9ce241c5ca09a4bed73654d0ca509baaff0fc5887d0bdd62e360ca8254f7794a",
+      "local_path": "/tmp/study-source1-multimodal-primary-20261008/openvla--openvla--modeling_prismatic.py",
+      "lines": 562,
+      "date": "2026-10-08",
+      "url": "https://github.com/openvla/openvla/blob/c8f03f48af692657d3060c19588038c7220e9af9/prismatic/extern/hf/modeling_prismatic.py",
+      "actual_read_ranges": [
+        [
+          493,
+          562
+        ]
+      ],
+      "read_scope": "作者源码/接口文档指定范围实际读取，非完整仓库",
+      "executed": false
+    },
+    {
+      "repo": "Physical-Intelligence/openpi",
+      "path": "src/openpi/models/pi0.py",
+      "commit": "215abfb217dbac7d5f1273282331b9b1866c0479",
+      "git_blob_sha": "ae7c4590f330f160aa9baa713d5b77fc060120de",
+      "sha256": "24b32d7c6ed5e409459afa8ca5af96a4dae09c2dcdf48e828907e411f4f12342",
+      "local_path": "/tmp/study-source1-multimodal-primary-20261008/Physical-Intelligence--openpi--pi0.py",
+      "lines": 279,
+      "date": "2026-10-08",
+      "url": "https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/src/openpi/models/pi0.py",
+      "actual_read_ranges": [
+        [
+          189,
+          279
+        ]
+      ],
+      "read_scope": "作者源码/接口文档指定范围实际读取，非完整仓库",
+      "executed": false
+    },
+    {
+      "repo": "NVIDIA/Isaac-GR00T",
+      "path": "getting_started/policy.md",
+      "commit": "51d4c89f72fda44cbf77285c6a8114b52676b8a1",
+      "git_blob_sha": "cf1020b9e46d9ef9474cfc5ece07086a63fd2382",
+      "sha256": "f5ec4c9aa37714837c1d0758597b1f07e0dd7a3def8715be26660368828fec04",
+      "local_path": "/tmp/study-source1-multimodal-primary-20261008/NVIDIA--Isaac-GR00T--policy.md",
+      "lines": 579,
+      "date": "2026-10-08",
+      "url": "https://github.com/NVIDIA/Isaac-GR00T/blob/51d4c89f72fda44cbf77285c6a8114b52676b8a1/getting_started/policy.md",
+      "actual_read_ranges": [
+        [
+          76,
+          177
+        ]
+      ],
+      "read_scope": "作者源码/接口文档指定范围实际读取，非完整仓库",
+      "executed": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.08128",
+      "version": "v2 metadata,2025-07-28",
+      "date": "2026-10-08",
+      "read_scope": "仅摘要/元数据",
+      "verified_claims": "AF3 title/authors；统一encoder、thinking、多audio、10min及五stage claim；不作为独立实测",
+      "executed": false
+    },
+    {
+      "url": "https://arxiv.org/html/2507.08128v1",
+      "version": "v1,2025-07-10",
+      "date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          109,
+          126
+        ],
+        [
+          138,
+          163
+        ],
+        [
+          179,
+          209
+        ]
+      ],
+      "read_scope": "§3.1架构、§4.2任务片段、§5训练与table2局部；非整文/附录",
+      "verified_claims": "统一AFWhisper训练起点与16kmono/128mel/30s窗口/50→25Hz；adaptor/Qwen2.5；trainingfreeze与contextstage分工。层数/head数未采纳；v1benchmark只证明对应协议，非当前排行。",
+      "executed": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2307.15818",
+      "date": "2026-10-08",
+      "read_scope": "标题/摘要开头，未读methodactiondescription",
+      "verified_claims": "RT2题名与web知识转动作研究目标；不据此采用源joint/10DoF/ratio/Hz",
+      "executed": false
+    },
+    {
+      "url": "https://arxiv.org/html/2501.09747v1",
+      "date": "2026-10-08",
+      "actual_read_ranges": [
+        [
+          94,
+          135
+        ]
+      ],
+      "read_scope": "FAST §V方法片段与Algorithm1；非整文/全部实验",
+      "verified_claims": "训练q01/q99归一、每维时间DCT、scale-round、低频跨维first flatten、BPE；sourcekeep4coeff缺BPE/反解，token比不能证明速度",
+      "executed": false
+    }
+  ],
+  "primary_boundary": "复用10-08实际读的固定作者README、源码和论文方法/摘要范围；非重新网络请求、非整仓/全部论文，旧冻结记录未扩大。",
+  "formal_code_runs": [
+    {
+      "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "block": 1,
+      "line": 23,
+      "sha256": "659f2a3199bae026f541d0b6e40a34f55b7515b43a3f138a67be2613cefd48dc",
+      "sha_convention": "exact fenced body including final LF",
+      "execution": "historical_same_body_sha_reuse",
+      "executed_this_batch": false,
+      "original_execution_date": "2026-10-04",
+      "evidence_source": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/08-生成式AI-跨模态生成与评价-覆盖与验证.json",
+      "evidence_sha256": "659f2a3199bae026f541d0b6e40a34f55b7515b43a3f138a67be2613cefd48dc",
+      "evidence_sha_convention": "including final LF",
+      "original_block": 1,
+      "exit_code": 0,
+      "stdout": "长度调节器：6帧，1800样本，75ms；形状与时长对齐通过\n",
+      "stderr": "",
+      "environment": "原持久CPU环境，详见evidence_source",
+      "verified_on": "2026-10-08",
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "根最终块": 1
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "block": 2,
+      "line": 76,
+      "sha256": "447969173cac95056980508408b299ac9cea669587c88e78543293485ff6aee3",
+      "sha_convention": "exact fenced body including final LF",
+      "execution": "historical_same_body_sha_reuse",
+      "executed_this_batch": false,
+      "original_execution_date": "2026-10-04",
+      "evidence_source": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/08-生成式AI-跨模态生成与评价-覆盖与验证.json",
+      "evidence_sha256": "447969173cac95056980508408b299ac9cea669587c88e78543293485ff6aee3",
+      "evidence_sha_convention": "including final LF",
+      "original_block": 2,
+      "exit_code": 0,
+      "stdout": "随机微型声码器 (1, 1, 24) 初始合成损失 0.647064 梯度通过\n",
+      "stderr": "",
+      "environment": "原持久CPU环境，详见evidence_source",
+      "verified_on": "2026-10-08",
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "根最终块": 2
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "block": 3,
+      "line": 131,
+      "sha256": "fce82d2c43fa8e3e257b06e3cfdd66a34cbd4cfffb3638ba5621c3fd45c62b06",
+      "sha_convention": "exact fenced body including final LF",
+      "execution": "historical_same_body_sha_reuse",
+      "executed_this_batch": false,
+      "original_execution_date": "2026-10-04",
+      "evidence_source": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/08-生成式AI-跨模态生成与评价-覆盖与验证.json",
+      "evidence_sha256": "fce82d2c43fa8e3e257b06e3cfdd66a34cbd4cfffb3638ba5621c3fd45c62b06",
+      "evidence_sha_convention": "including final LF",
+      "original_block": 3,
+      "exit_code": 0,
+      "stdout": "kNN逐帧fixture：k=1邻帧与k=2均值通过；没有合成变声\n",
+      "stderr": "",
+      "environment": "原持久CPU环境，详见evidence_source",
+      "verified_on": "2026-10-08",
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "根最终块": 3
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "block": 4,
+      "line": 167,
+      "sha256": "397d3f864360b4a1c663e5b4e4e759b8d414377fb501a604918742ec181866ff",
+      "sha_convention": "exact fenced body including final LF",
+      "execution": "historical_same_body_sha_reuse",
+      "executed_this_batch": false,
+      "original_execution_date": "2026-10-04",
+      "evidence_source": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/08-生成式AI-跨模态生成与评价-覆盖与验证.json",
+      "evidence_sha256": "397d3f864360b4a1c663e5b4e4e759b8d414377fb501a604918742ec181866ff",
+      "evidence_sha_convention": "including final LF",
+      "original_block": 4,
+      "exit_code": 0,
+      "stdout": "合成规则音列2秒；crossfade后3.9秒；10段长拼接为273秒\n",
+      "stderr": "",
+      "environment": "原持久CPU环境，详见evidence_source",
+      "verified_on": "2026-10-08",
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "根最终块": 4
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "block": 5,
+      "line": 210,
+      "sha256": "5c28fab42bd6a7f4986197b2a7cba0036871915f0eb2c5948cf303aa48ab11f6",
+      "sha_convention": "exact fenced body including final LF",
+      "execution": "historical_same_body_sha_reuse",
+      "executed_this_batch": false,
+      "original_execution_date": "2026-10-05",
+      "evidence_source": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/08-生成式AI-跨模态生成与评价-覆盖与验证.json",
+      "evidence_sha256": "5c28fab42bd6a7f4986197b2a7cba0036871915f0eb2c5948cf303aa48ab11f6",
+      "evidence_sha_convention": "including final LF",
+      "original_block": 5,
+      "exit_code": 0,
+      "stdout": "双码本delay/往返/tail、浮点与空Q拒绝通过；75Hz×8=600索引/s、6kbps基础载荷\n",
+      "stderr": "",
+      "environment": "原持久CPU环境，详见evidence_source",
+      "verified_on": "2026-10-08",
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "根最终块": 5
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "block": 6,
+      "line": 264,
+      "sha256": "9035600b1d9fa4a5c3889fe44315a923613219540debdd614a6924f3d753396f",
+      "sha_convention": "exact fenced body including final LF",
+      "execution": "historical_same_body_sha_reuse",
+      "executed_this_batch": false,
+      "original_execution_date": "2026-10-04",
+      "evidence_source": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/08-生成式AI-跨模态生成与评价-覆盖与验证.json",
+      "evidence_sha256": "9035600b1d9fa4a5c3889fe44315a923613219540debdd614a6924f3d753396f",
+      "evidence_sha_convention": "including final LF",
+      "original_block": 6,
+      "exit_code": 0,
+      "stdout": "音频/文本拼接 (2, 7, 8) 冻结骨干、适配器梯度通过\n",
+      "stderr": "",
+      "environment": "原持久CPU环境，详见evidence_source",
+      "verified_on": "2026-10-08",
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "根最终块": 6
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "block": 1,
+      "line": 182,
+      "sha256": "dd6372db186eb2c49aca1b87a5111a7d21da6be4d8644dc821dcb2e56a66bdf5",
+      "sha_convention": "exact fenced body including final LF",
+      "execution": "historical_same_body_sha_reuse",
+      "executed_this_batch": false,
+      "original_execution_date": "2026-10-05",
+      "evidence_source": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/09-强化学习-偏好多智能体与迁移-覆盖与验证.json",
+      "evidence_sha256": "dd6372db186eb2c49aca1b87a5111a7d21da6be4d8644dc821dcb2e56a66bdf5",
+      "evidence_sha_convention": "including final LF",
+      "original_block": 1,
+      "exit_code": 0,
+      "stdout": "b 0.5 nominal/DR单步误差 0.25 0.36\nb 1.0 nominal/DR单步误差 0.0 0.04\nb 1.5 nominal/DR单步误差 0.25 0.04\nb 0.2 nominal/DR单步误差 0.64 0.7056\nb 3.0 nominal/DR单步误差 4.0 1.96\nDR参数 0.8 平均改善/支持点损害/OOD/多步失稳边界通过\n",
+      "stderr": "",
+      "environment": "原持久CPU环境，详见evidence_source",
+      "verified_on": "2026-10-08",
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "根最终块": 1
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "block": 2,
+      "line": 213,
+      "sha256": "fc7428a7b053264a36c438fc137f2e093099560aa8a215585d39b2e317f96499",
+      "sha_convention": "exact fenced body including final LF",
+      "execution": "historical_same_body_sha_reuse",
+      "executed_this_batch": false,
+      "original_execution_date": "2026-10-05",
+      "evidence_source": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/09-强化学习-偏好多智能体与迁移-覆盖与验证.json",
+      "evidence_sha256": "fc7428a7b053264a36c438fc137f2e093099560aa8a215585d39b2e317f96499",
+      "evidence_sha_convention": "including final LF",
+      "original_block": 2,
+      "exit_code": 0,
+      "stdout": "合成SI参数 0.82 0.045 残差预测/秩不足/4N限幅通过；最终速度 1.0 m/s\n",
+      "stderr": "",
+      "environment": "原持久CPU环境，详见evidence_source",
+      "verified_on": "2026-10-08",
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "根最终块": 2
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "block": 7,
+      "line": 333,
+      "sha256": "abc33e00783619cf11d829e8d1ef5dc82eb21bae4b5e886ab1354eaa322a10e2",
+      "sha_convention": "exact fenced body including final LF",
+      "exit_code": 0,
+      "stdout": "31秒有效/native 775 1500 末窗跨度 {'clip_id': 'a', 'revision': 'r1', 'start_s': 30.0, 'end_s': 31.0} 10分钟预算 15000 部分尾位置/空clip/错来源均核对\n",
+      "stderr": "",
+      "date": "2026-10-08",
+      "execution": "new_cpu_fixture",
+      "env": {
+        "python": "3.12.13",
+        "executable": "/Users/wangshuiqing/codex-tools/bin/python3",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "backend": "stdlib CPU artificial metadata/action/trajectory/oracle"
+      },
+      "script": "/tmp/study-source1-multimodal-audio-vla-validation/14-7.py",
+      "elapsed_seconds": 0.0202917909482494,
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "根最终块": 7
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "block": 3,
+      "line": 278,
+      "sha256": "d36d9a1b553c8a6f4ae75c127e07b13a65d5674dba302a7a95a41e99b79ea4ec",
+      "sha_convention": "exact fenced body including final LF",
+      "exit_code": 0,
+      "stdout": "人工动作往返 [-0.020000000000000004, 0.09999999999999998, 0.7] 端点量化IDs [102, 153, 217] 执行前缀 {'actions': [[-0.020000000000000004, 0.09999999999999998, 0.7], [-0.020000000000000004, 0.09999999999999998, 0.7]], 'planned_seconds': 0.30000000000000004, 'execute_seconds': 0.2, 'reobserve_after_steps': 2, 'fixture_only': True} 未知本体/单位/坐标/统计/越界/时钟均拒绝\n",
+      "stderr": "",
+      "date": "2026-10-08",
+      "execution": "new_cpu_fixture",
+      "env": {
+        "python": "3.12.13",
+        "executable": "/Users/wangshuiqing/codex-tools/bin/python3",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "backend": "stdlib CPU artificial metadata/action/trajectory/oracle"
+      },
+      "script": "/tmp/study-source1-multimodal-audio-vla-validation/04-3.py",
+      "elapsed_seconds": 0.018797375028952956,
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "根最终块": 3
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "block": 4,
+      "line": 409,
+      "sha256": "df2282ef773c69db026c79b40b1b58a959110d6e36a66c097a8cec2c8c3c5752",
+      "sha_convention": "exact fenced body including final LF",
+      "exit_code": 0,
+      "stdout": "人工DCT/BPE整数 16 压后 7 量化MSE 2.9773201233174504e-05 错误flow速度MSE 0.5 oracle逆时间积分 [0.1999999999999995, -0.3999999999999996]\n",
+      "stderr": "",
+      "date": "2026-10-08",
+      "execution": "new_cpu_fixture",
+      "env": {
+        "python": "3.12.13",
+        "executable": "/Users/wangshuiqing/codex-tools/bin/python3",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "backend": "stdlib CPU artificial metadata/action/trajectory/oracle"
+      },
+      "script": "/tmp/study-source1-multimodal-audio-vla-validation/04-4.py",
+      "elapsed_seconds": 0.010390667011961341,
+      "根核对SHA定义": "围栏正文加末尾LF",
+      "根最终文件": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "根最终块": 4
+    }
+  ],
+  "original_source_runs": [
+    {
+      "source_path": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/code/main.py",
+      "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+      "sha256": "66fc70daa5f928c84899f27af39866087f1fc116c15193c220d8194d9815622a",
+      "git_blob_sha": "82401c47c0db613ffb05f8f017d1e92923f14627",
+      "exit_code": 0,
+      "stdout": "============================================================\nAUDIO-LANGUAGE: WHISPER TO AF3 (Phase 12, Lesson 19)\n============================================================\n\nLOG-MEL SPECTROGRAM (1s @ 16kHz, 25ms win, 10ms hop, 20 mel bins)\n------------------------------------------------------------\n  frames : 98 (should be ~99 at 1s)\n  per-frame mel dim: 20\n  first frame log-mel (rounded): [0.0, 0.0, 0.0, 3.54, 0.0, 0.0, 0.0, 2.66, 0.0, 0.0]...\n\nAUDIO Q-FORMER (N=8 queries over 20-dim frames)\n------------------------------------------------------------\n  input frames: 99\n  output tokens: 8 of dim 20\n  each token attends over the full audio by soft attention weights\n\nCASCADED (Whisper -> LLM) vs END-TO-END AUDIO-LLM\n------------------------------------------------------------\n  task                          cascaded      end-to-end\n  transcription                 yes           yes\n  keyword extraction            yes           yes\n  summarization                 yes           yes\n  speaker diarization           partial       yes\n  emotion inference             no            yes\n  music genre classification    no            yes\n  instrument recognition        no            yes\n  environmental sound ID        no            yes\n  temporal event grounding      partial       yes\n  deepfake detection            no            yes\n\n  cascaded: fast + reliable for text-extractable signals\n  end-to-end: required for acoustic-only signals (~40% of MMAU)\n\n2026 RECIPE\n------------------------------------------------------------\n  encoder : AF-Whisper + BEATs concat\n  bridge  : 64-query Q-former\n  LLM     : Qwen2.5-7B with audio tokens\n  training: AudioCaps + Clotho + MMAU-style instructions\n  option  : on-demand thinking for complex reasoning\n",
+      "stderr": "",
+      "date": "2026-10-08",
+      "elapsed_seconds": 0.029617666034027934,
+      "environment": "Python3.12.13 CPU stdlib; isolated PYTHONPATH",
+      "scope": "完整源main，仅合成波形/随机attention或动作数学；打印模型能力/速度/比例为硬编码，不当实测"
+    },
+    {
+      "source_path": "phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/code/main.py",
+      "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+      "sha256": "7be29b3043f25386c9dbd2cf67c319abed69bebcd489cb6c1204392657871d9d",
+      "git_blob_sha": "51880b5f7e61ce787a516c6ed26c5da9a3234500",
+      "exit_code": 0,
+      "stdout": "============================================================\nEMBODIED VLAS (Phase 12, Lesson 21)\n============================================================\n\nROUND-TRIP: 10-DOF action through discretize + undiscretize\n------------------------------------------------------------\n  original  : [0.1, -0.5, 0.25, -0.75, 0.9, -0.1, 0.0, 0.33, -0.67, 0.5]\n  tokens    : [140, 63, 159, 31, 242, 114, 127, 169, 42, 191]\n  recovered : [0.098, -0.506, 0.247, -0.757, 0.898, -0.106, -0.004, 0.325, -0.671, 0.498]\n  max abs error: 0.0069  (bin width = 2/255 ~ 0.0078)\n\nACTION TOKEN COUNTS (30-step trajectory, 10-DOF)\n------------------------------------------------------------\n  discrete 256-bin (RT-2)          300 tokens   (per-step autoregressive)\n  FAST 4-coeff per dim              40 tokens   (sequence compressor)\n  flow-matching (pi0)                1 tokens   (single head output)\n\n  speedup: FAST ~7.5x vs discrete bin\n\nVLA LINEAGE\n------------------------------------------------------------\n  model       year  pattern                     open/closed\n  RT-2        2023  PaLM-X + discrete bin       closed\n  OpenVLA     2024  Llama 7B + discrete bin     open\n  Octo        2024  small diffusion head        open\n  pi0         2024  flow-matching head          open\n  pi0-FAST    2025  flow + FAST tokenizer       open\n  GR00T N1    2025  dual-system humanoid        open\n  GR00T N1.7  2025  sim-to-real data scale      open\n\nCO-FINE-TUNING RATIO (web VQA : robot trajectories)\n------------------------------------------------------------\n  RT-2       : ~1:1\n  OpenVLA    : ~0.5:1 web-to-robot\n  pi0        : similar balance\n  too much VQA -> forgets actions; too much robot -> loses language\n",
+      "stderr": "",
+      "date": "2026-10-08",
+      "elapsed_seconds": 0.017775582964532077,
+      "environment": "Python3.12.13 CPU stdlib; isolated PYTHONPATH",
+      "scope": "完整源main，仅合成波形/随机attention或动作数学；打印模型能力/速度/比例为硬编码，不当实测"
+    }
+  ],
+  "target_files": [
+    {
+      "path": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "absolute_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+      "sha256": "f3cabd9859aa8641a58e126dc91149c9136f5bfaa6bbd5685348c5187d2c0229",
+      "before_sha256": "978a478713b48ccd90229c6ab7ec58c1602bae4d742eb36c41262ea9952f1a1a",
+      "old_text_preserved_verbatim": true,
+      "old_python_blocks_preserved": 6,
+      "final_python_blocks": 7,
+      "new_python_blocks": 1,
+      "historical_dates_preserved": true,
+      "new_section_start_line": 315,
+      "报告交付时SHA256": "f3cabd9859aa8641a58e126dc91149c9136f5bfaa6bbd5685348c5187d2c0229",
+      "lines": 440,
+      "根快照说明": "最终文字/导航或同站复核修订后的快照；源文件/旧代码与实际原日期不改"
+    },
+    {
+      "path": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "absolute_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "sha256": "abbe80e144aea5628e0f6ceff39feb978e380302b3a6f5e4467f9f9042b07c83",
+      "before_sha256": "39bec3d869b48f853f1adc68212200d8cb25c55c69f01d8944fadb4e90ba3fe8",
+      "old_text_preserved_verbatim": true,
+      "old_python_blocks_preserved": 2,
+      "final_python_blocks": 4,
+      "new_python_blocks": 2,
+      "historical_dates_preserved": true,
+      "new_section_start_line": 260,
+      "报告交付时SHA256": "abbe80e144aea5628e0f6ceff39feb978e380302b3a6f5e4467f9f9042b07c83",
+      "lines": 509,
+      "根快照说明": "最终文字/导航或同站复核修订后的快照；源文件/旧代码与实际原日期不改"
+    }
+  ],
+  "counts": {
+    "lessons": 2,
+    "source_nonempty_files": 8,
+    "original_exercises": 10,
+    "mapped_exercises": 10,
+    "svg": 2,
+    "dynamic": 2,
+    "source_quiz": 0,
+    "final_formal_python_blocks": 11,
+    "new_formal_cpu_runs": 3,
+    "historical_same_SHA_reused": 8,
+    "full_source_cpu_main_runs": 2,
+    "source_docs_H2_H4": 32
+  },
+  "validation_scope": [
+    "新3个程序从最终Markdown提取，Python3.12.13/stdlib CPU实际执行成功，SHA含围栏内末LF；旧8块只复用同正文SHA持久成功记录，按各receipt原末LF约定核对。",
+    "旧正文去除新增节后逐字等于执行前快照，旧Python块与索引未变；旧日期与原来源保留。",
+    "只写音频14/机器人04与/tmp记录；无README/状态/更新/来源/Git修改。"
+  ],
+  "not_performed": [
+    "真实AF3/Whisper/BEATs/ALM训练或推理、真人音频/采音/播音、真实diarization",
+    "真实机器人/相机/控制器、动作回放、仿真benchmark/VLA训练或部署",
+    "模型/数据下载、安装、API、服务、GPU、browser/ComputerUse动作",
+    "Video09/视觉16或其历史程序改动；22–25课正文工作不在本次两课范围",
+    "OXE原文第4节及其他未标实际读取的整篇论文练习；当前排行榜/Hz/模型性能声明"
+  ],
+  "checks": {
+    "structure_check": {
+      "command": "python3 Study/tools/check_knowledge.py",
+      "date": "2026-10-08",
+      "exit_code": 0,
+      "stdout": "检查文档610篇，主库297篇，本地链接3575；93结构有效Notebook+1已登记空文件；395有效SVG；969来源校验；结构通过，不代替专业与程序验收"
+    },
+    "git_diff_check": {
+      "date": "2026-10-08",
+      "exit_code": 0,
+      "scope": "当前未提交变更，包括root并行修改，本站只写04/14"
+    },
+    "final_code_ast_parse": [
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "block": 1,
+        "passed": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "block": 2,
+        "passed": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "block": 3,
+        "passed": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "block": 4,
+        "passed": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "block": 5,
+        "passed": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "block": 6,
+        "passed": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "block": 7,
+        "passed": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+        "block": 1,
+        "passed": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+        "block": 2,
+        "passed": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+        "block": 3,
+        "passed": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+        "block": 4,
+        "passed": true
+      }
+    ],
+    "old_text_and_code_preservation": [
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "passed": true,
+        "old_blocks": 6,
+        "historical_dates_preserved": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+        "passed": true,
+        "old_blocks": 2,
+        "historical_dates_preserved": true
+      }
+    ],
+    "local_links": [
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "target": "02-语音与音频.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "target": "../数学与数值计算专题/09-复数傅里叶与频域理解.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "target": "15-音频安全与评价方法.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "target": "12-神经音频编码与说话人表征.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "target": "../深度学习专题/10-深度生成模型.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "target": "12-神经音频编码与说话人表征.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "target": "11-数字音频特征与分类.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "target": "13-语音识别与流式交互.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "target": "12-神经音频编码与说话人表征.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "target": "15-音频安全与评价方法.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+        "target": "../深度学习专题/15-强化学习进阶与世界模型.md",
+        "exists": true
+      }
+    ],
+    "wiki_link_check": "仅检查移除fenced code后的Markdown；Python二维数组[[不当wikilink"
+  },
+  "报告交付时状态": "两课写入完成；32正文H2–H4与10原练习全部映射；新增3CPU/历史8同SHA/原main2分别入账，结构与差异检查通过，交root专业复核",
+  "根统一核对": {
+    "日期": "2026-10-08",
+    "源文件/正文标题/原练习/最终代码SHA": "通过",
+    "知识语义/交叉/数学/全库收尾": "详见12-多模态统一检查.json；结构计数不替代真实模型效果",
+    "标题口径": "本组H2–H4为原source docs标题映射，不是新增Study标题数",
+    "最终检查结果": "通过；源392标题/125题、21新+59旧最终SHA与真实运行证据；详见统一检查"
+  },
+  "整体边界": "本组及本批验收不代表第1来源或五站完成；不把资料或CPU例子写成用户掌握经历。",
+  "统一验收日期": "2026-10-08",
+  "本批统一验收后累计标准课": 248
+}
