@@ -55,6 +55,8 @@ Origin防DNS rebinding，应精确匹配允许源；没有Origin的非浏览器�
 
 输入是JSON消息对象与可选镜像头；输出为状态/响应或通知无响应。成功列表有cache字段，recognized错误保持分层。最后按2字节切割中文JSON帧，证明本地buffer正确；它没有启动真pipe或HTTP，不证明反压、子进程退出和网络协商。这里只检查已说明的能力结构和几个方法，方法专用全schema仍须SDK/完整验证器。
 
+`serverInfo`是结果的建议自报元数据（SHOULD），不属于必填认证身份；缺失可接受，存在时仍核类型。本例发送它供显示/调试，并同时验证省略和错误类型两种情况。[官方Base元数据](https://modelcontextprotocol.io/specification/2026-07-28/basic)。
+
 ```python
 import copy,json
 V='2026-07-28';PV='io.modelcontextprotocol/protocolVersion';CAP='io.modelcontextprotocol/clientCapabilities'
@@ -121,8 +123,11 @@ def consume(message,response):
     if kind=='input_required':
         if m not in MRTR or not ('inputRequests' in r or 'requestState' in r) or 'inputRequests' in r and type(r['inputRequests']) is not dict or 'requestState' in r and type(r['requestState']) is not str:raise ValueError('MRTR shape')
     elif kind=='complete':
-        meta=r.get('_meta');info=meta.get('io.modelcontextprotocol/serverInfo') if type(meta) is dict else None
-        if type(info) is not dict or any(type(info.get(k)) is not str for k in ('name','version')):raise ValueError('server identity metadata')
+        meta=r.get('_meta',{})
+        if type(meta) is not dict:raise ValueError('metadata object')
+        if 'io.modelcontextprotocol/serverInfo' in meta:
+            info=meta['io.modelcontextprotocol/serverInfo']
+            if type(info) is not dict or any(type(info.get(k)) is not str for k in ('name','version')):raise ValueError('server info shape')
         if m in CACHE and (type(r.get('ttlMs')) is not int or r['ttlMs']<0 or r.get('cacheScope') not in ('public','private')):raise ValueError('cache hints')
     else:raise ValueError('unknown/unnegotiated result type')
     return copy.deepcopy(r)
@@ -135,7 +140,9 @@ invalid=request(99,'tools/list');invalid['id']=True
 assert 'id' not in serve(invalid)[1] and serve([1])[1]['error']['code']==-32600
 a=request(1,'tools/list');ok=serve(a)[1];assert consume(a,ok)['tools']==[]
 assert serve(request(100,'fixture/unsupported'))[0]==404
-no_identity=copy.deepcopy(ok);no_identity['result'].pop('_meta');rejects(lambda:consume(a,no_identity))
+no_identity=copy.deepcopy(ok);no_identity['result'].pop('_meta');assert consume(a,no_identity)['tools']==[]
+bad_identity=copy.deepcopy(ok);bad_identity['result']['_meta']['io.modelcontextprotocol/serverInfo']['name']=True
+rejects(lambda:consume(a,bad_identity))
 b=request(2,'tools/list');b['params']['_meta'].pop(CAP);assert serve(b)[1]['error']['code']==-32602
 bad=request(3,'tools/list',version='2027-01-01');h={'MCP-Protocol-Version':V,'Mcp-Method':'tools/list'}
 assert serve(bad,h)[1]['error']['code']==-32020
@@ -466,7 +473,7 @@ scope需要三层：可信principal有workspace权限→解码/规范化后组�
 
 requestState影响业务时必须防篡改，HMAC提供完整性，AEAD还可保密。绑定主体、method/tool、原参数digest、候选集、目标revision/hash、nonce和短expiry。仅签phase或Base64不够。主体/TTL/参数绑定约束replay范围，却不保证single-use；不可重复动作要共享事务nonce store。
 
-本例策略：cancel不消耗nonce，expiry前可重新提交；decline终止该nonce但不删除；accept把选择指纹、nonce、删除与receipt一起提交。同nonce同回答可在有效期内取原receipt，防丢响应后重复删除；同nonce不同回答拒绝；expiry先拒再查receipt。新独立意图用新nonce。服务器重核可信权限和live revision，旧展示的批准不能删除后来改过的记录。
+本例策略：尚未消费的nonce收到cancel不消耗，expiry前可重新提交；decline终止该nonce但不删除；accept把选择指纹、nonce、删除与receipt一起提交。同nonce同回答可在有效期内取原receipt，防丢响应后重复删除；同nonce不同回答拒绝，已accept后再cancel也不能隐藏已删除效果；expiry先拒再查receipt。新独立意图用新nonce。服务器重核可信权限和live revision，旧展示的批准不能删除后来改过的记录。
 
 ### 7.4 完整CPU例：批准、两轮假host与SQLite竞争
 
@@ -520,7 +527,6 @@ def finish(path,principal,args,token,answer,now):
     if type(answer) is not dict or answer.get('action') not in ('accept','decline','cancel'):raise ValueError('elicitation action')
     action=answer['action'];a=answer.get('content',{})
     if action=='accept' and (type(a) is not dict or set(a)!={'noteId','confirm'} or a.get('confirm') is not True or a.get('noteId') not in s['candidates']):raise ValueError('accept schema/candidate')
-    if action=='cancel':return {'resultType':'complete','content':[{'type':'text','text':'cancelled'}],'structuredContent':{'deleted':False},'isError':False}
     fingerprint=digest(answer);c=db(path)
     try:
         c.execute('BEGIN IMMEDIATE')
@@ -529,6 +535,9 @@ def finish(path,principal,args,token,answer,now):
         if old:
             if old[0]!=fingerprint:raise ValueError('nonce already bound to another answer')
             c.execute('COMMIT');return json.loads(old[1])
+        if action=='cancel':
+            c.execute('COMMIT') # 仅尚未消费的nonce可取消且保留重试机会；已执行效果不能隐藏。
+            return {'resultType':'complete','content':[{'type':'text','text':'cancelled'}],'structuredContent':{'deleted':False},'isError':False}
         # receipt命中仅在仍有效且同回答时返回；新执行必须核当前授权和实际记录。
         authorize(principal,args)
         deleted=False
@@ -568,6 +577,8 @@ with tempfile.TemporaryDirectory(dir='/tmp',prefix='study-mrtr-') as folder:
     committed=next(x for x in answers if type(x) is dict);winner=committed['structuredContent']['noteId'];same={'action':'accept','content':{'noteId':winner,'confirm':True}}
     committed['structuredContent']['deleted']='tampered'
     replay=finish(path,'alice',args,token,same,103);assert replay['structuredContent']['deleted'] is True
+    reject(lambda:finish(path,'alice',args,token,{'action':'cancel'},103))
+    assert finish(path,'alice',args,token,same,103)==replay
     c=db(path);assert c.execute('SELECT count(*) FROM effects').fetchone()[0]==1;c.close()
     reject(lambda:finish(path,'alice',args,token,same,130))
     # 新nonce绑定仍在库中的目标；审批展示后改revision，不能沿用旧批准。
@@ -623,7 +634,7 @@ tasks/cancel是普通新请求，ack不保证worker已停，也不保证最终ca
 
 ### 8.3 原子存储与worker提交权
 
-临时文件replace证明单机原子替换，不证明断电落盘、多worker互斥、跨replica即时读取或事务。实际持久任务需要共享store和可靠worker机制。SQLite例每次读共享文件，BEGIN IMMEDIATE串行化改状态；租约是提交权，过期后新worker拿新token，旧worker即使完成计算也不能写回。副作用与结果若在外系统，仍需外部幂等/outbox，单机SQLite不能宣称全球exactly-once。
+临时文件replace证明单机原子替换，不证明断电落盘、多worker互斥、跨replica即时读取或事务。实际持久任务需要共享store和可靠worker机制。SQLite例每次读共享文件，BEGIN IMMEDIATE串行化改状态；租约是提交权，过期后新worker拿新token。worker请求输入与提交最终结果都核同一个当前lease/token/expiry，旧worker不能通过中间状态入口清掉新lease；用户的update/cancel是另外的授权接口。副作用与结果若在外系统，仍需外部幂等/outbox，单机SQLite不能宣称全球exactly-once。
 
 ### 8.4 完整CPU例：持久任务与两个连接
 
@@ -670,13 +681,15 @@ class Store:
             if outer:out['resultType']='complete'
             return out
         finally:c.close()
-    def need_input(self,i,principal,caps,keys,now):
+    def need_input(self,i,principal,caps,keys,now,lease_token):
         require(caps)
         if not form(caps):raise ValueError('form capability: -32021')
         c=self.db()
         try:
             c.execute('BEGIN IMMEDIATE');r=self.owned(c,i,principal,now)
-            if r['status']!='working':raise ValueError('cannot request input from terminal/waiting')
+            if (type(lease_token) is not str or r['status']!='working' or
+                r['lease']!=lease_token or now>=r['lease_until']):
+                raise ValueError('stale lease/terminal cannot request input')
             for k in keys:c.execute('INSERT INTO inputs VALUES(?,?,NULL)',(i,k)) # PK禁止整个task寿命重用key。
             c.execute('UPDATE tasks SET status=?,updated=?,revision=revision+1,lease=NULL,lease_until=NULL WHERE id=?',('input_required',now,i));c.execute('COMMIT')
         except BaseException:
@@ -735,25 +748,32 @@ def reject(fn):
 with tempfile.TemporaryDirectory(dir='/tmp',prefix='study-tasks-') as folder:
     path=str(Path(folder)/'tasks.db');s=Store(path);reject(lambda:s.create('alice',{},0));i=s.create('alice',CAPS,0)['taskId']
     s=Store(path);assert s.get(i,'alice',CAPS,1)['status']=='working';reject(lambda:s.get(i,'bob',CAPS,1))
-    s.need_input(i,'alice',CAPS,['outline-1','format-2'],2);reject(lambda:s.get(i,'alice',{'extensions':{EXT:{}}},3))
+    first_lease=s.claim(i,'alice','input-worker',1)
+    s.need_input(i,'alice',CAPS,['outline-1','format-2'],2,first_lease);reject(lambda:s.get(i,'alice',{'extensions':{EXT:{}}},3))
     s.update(i,'alice',CAPS,{'outline-1':{'action':'accept','content':{'yes':True}},'unknown':{}},3)
     assert list(s.get(i,'alice',CAPS,4)['inputRequests'])==['format-2']
     s.update(i,'alice',CAPS,{'format-2':{'action':'accept','content':{'yes':True}}},5);assert s.get(i,'alice',CAPS,6)['status']=='working'
-    reject(lambda:s.need_input(i,'alice',CAPS,['outline-1'],6))
     gate=threading.Barrier(2)
     def race(w):gate.wait();return Store(path).claim(i,'alice',w,10)
     with ThreadPoolExecutor(2) as pool:tickets=list(pool.map(race,['worker-A','worker-B']))
     assert sum(x is not None for x in tickets)==1;old=next(x for x in tickets if x)
     new=s.claim(i,'alice','recovery-worker',61);reject(lambda:s.finish(i,'alice',old,62))
+    reject(lambda:s.need_input(i,'alice',CAPS,['stale-worker-input'],62,old))
+    assert s.get(i,'alice',CAPS,62)['status']=='working' # 旧worker不能清掉新worker的lease。
     ack=s.cancel(i,'alice',CAPS,62);assert ack=={'resultType':'complete'} and s.get(i,'alice',CAPS,62)['status']=='working'
     assert s.finish(i,'alice',new,63)=='cancelled';reject(lambda:s.finish(i,'alice',new,64))
     assert s.cancel(i,'alice',CAPS,65)==ack and s.get(i,'alice',CAPS,65)['status']=='cancelled'
     j=s.create('alice',CAPS,70)['taskId'];t=s.claim(j,'alice','worker',71);s.cancel(j,'alice',CAPS,72)
     assert s.finish(j,'alice',t,73,honor_cancel=False,tool_error=True)=='completed'
     done=Store(path).get(j,'alice',CAPS,74);assert done['resultType']=='complete' and done['result']['isError'] is True
-    reject(lambda:s.need_input(j,'alice',CAPS,['late'],75));reject(lambda:s.get(j,'alice',CAPS,1070))
-    k=s.create('alice',CAPS,80)['taskId'];t=s.claim(k,'alice','worker',81);assert s.finish(k,'alice',t,82,rpc_error={'code':-32603,'message':'renderer'})=='failed'
-    assert Store(path).get(k,'alice',CAPS,83)['error']['code']==-32603
+    reject(lambda:s.need_input(j,'alice',CAPS,['late'],75,t));reject(lambda:s.get(j,'alice',CAPS,1070))
+    k=s.create('alice',CAPS,80)['taskId'];t=s.claim(k,'alice','worker',81)
+    s.need_input(k,'alice',CAPS,['unique-input'],82,t)
+    s.update(k,'alice',CAPS,{'unique-input':{'action':'accept','content':{'yes':True}}},83)
+    t=s.claim(k,'alice','worker',84)
+    reject(lambda:s.need_input(k,'alice',CAPS,['unique-input'],85,t)) # PK证明整个task寿命不重用key。
+    assert s.finish(k,'alice',t,86,rpc_error={'code':-32603,'message':'renderer'})=='failed'
+    assert Store(path).get(k,'alice',CAPS,87)['error']['code']==-32603
 print('tasks:持久后返回/重开、owner/能力、部分输入/永久unique key、双连接lease竞争与旧worker拒绝、ack非终态/终态冻结、tool-error与RPC-failed通过')
 ```
 
@@ -926,7 +946,7 @@ def descriptor(caps):
 class Host:
     def __init__(self,principal='alice'):
         self.principal=principal # 由fixture的可信host边界注入，不取event/clientInfo。
-        self.peer=object();self.origin='https://sandbox.example';self.state='new';self.allowed={'tools/call'};self.next_id=100;self.core_sent=[];self.sensitive_view=False
+        self.peer=object();self.origin='https://sandbox.example';self.state='new';self.allowed={'tools/call'};self.next_id=100;self.core_sent=[];self.sensitive_view=False;self.revoked=False
     def receive(self,event):
         if event.get('source') is not self.peer or event.get('origin')!=self.origin:raise ValueError('peer source/origin')
         m=event.get('data')
@@ -952,9 +972,9 @@ class Host:
         self.core_sent.append(wire)
         return {'jsonrpc':'2.0','id':m['id'],'result':{'content':[{'type':'text','text':'fixture read only'}],'isError':False}}
     def tool_data(self):
-        if self.state!='ready':raise ValueError('no host notification before readiness')
+        if self.state!='ready' or self.revoked:raise ValueError('readiness and current data permission required')
         self.sensitive_view=True;return {'jsonrpc':'2.0','method':'ui/notifications/tool-result','params':{'content':[{'type':'text','text':'fixture'}]}}
-    def revoke(self):self.allowed.clear();self.sensitive_view=False
+    def revoke(self):self.allowed.clear();self.sensitive_view=False;self.revoked=True
     def event(self,m):return {'origin':self.origin,'source':self.peer,'data':m}
 def init_message(version=True):
     p={'appInfo':{'name':'timeline','version':'1'},'appCapabilities':{}}
@@ -976,7 +996,7 @@ reject(lambda:h.receive({**h.event(call),'source':object()}));reject(lambda:h.re
 reject(lambda:h.receive(h.event({**call,'params':{**call['params'],'server':'other'}})))
 reject(lambda:h.receive(h.event({**call,'params':{'name':'admin_export','arguments':{}}})))
 assert [n for n,t in TOOLS.items() if 'model' in t['visibility']]==['admin_export','timeline']
-h.revoke();reject(lambda:h.receive(h.event(call)));assert not h.sensitive_view
+h.revoke();reject(lambda:h.receive(h.event(call)));reject(h.tool_data);assert not h.sensitive_view
 print('Apps: MIME capability/预声明binding、独立UI版本/完整初始化/ready顺序、可信peer与visibility/同server/action实时撤权、完整新core元数据通过；未iframe/CSP/浏览器')
 ```
 
@@ -1027,8 +1047,11 @@ def response(req,status,r):
     if status!=200:raise ValueError('success status')
     result=r['result']
     if type(result) is not dict:raise ValueError('result object')
-    meta=result.get('_meta');info=meta.get('io.modelcontextprotocol/serverInfo') if type(meta) is dict else None
-    if type(info) is not dict or any(type(info.get(k)) is not str for k in ('name','version')):raise ValueError('server identity metadata')
+    meta=result.get('_meta',{})
+    if type(meta) is not dict:raise ValueError('metadata object')
+    if 'io.modelcontextprotocol/serverInfo' in meta:
+        info=meta['io.modelcontextprotocol/serverInfo']
+        if type(info) is not dict or any(type(info.get(k)) is not str for k in ('name','version')):raise ValueError('server info shape')
     kind=result.get('resultType');m=req['method']
     if kind=='complete':
         if m in CACHE and (type(result.get('ttlMs')) is not int or result['ttlMs']<0 or result.get('cacheScope') not in ('private','public')):raise ValueError('cache contract')
@@ -1083,7 +1106,9 @@ headers={'MCP-Protocol-Version':V,'Mcp-Method':'tools/list'};info_meta={'io.mode
 r={'jsonrpc':'2.0','id':1,'result':{'resultType':'complete','tools':[],'ttlMs':0,'cacheScope':'private','futureHint':7,'_meta':info_meta}}
 evidence=transcript(req,headers,200,r)
 reject(lambda:response(req,200,{**r,'result':{'resultType':'complete','tools':[],'_meta':info_meta}})) # 专测cache缺失。
-no_identity=copy.deepcopy(r);no_identity['result'].pop('_meta');reject(lambda:response(req,200,no_identity))
+no_identity=copy.deepcopy(r);no_identity['result'].pop('_meta');response(req,200,no_identity)
+bad_identity=copy.deepcopy(r);bad_identity['result']['_meta']['io.modelcontextprotocol/serverInfo']['version']=False
+reject(lambda:response(req,200,bad_identity))
 reject(lambda:response(req,200,{**r,'id':True}))
 bad_headers={**headers,'MCP-Protocol-Version':'2027-01-01'};reject(lambda:transcript(req,bad_headers,500,{'jsonrpc':'2.0','id':1,'error':{'code':-32603,'message':'proxy'}}))
 assert transcript(req,bad_headers,400,{'jsonrpc':'2.0','id':1,'error':{'code':-32020,'message':'mismatch'}})
@@ -1167,7 +1192,86 @@ print('evidence:fixture拒绝响应证据、cache/task CAP负例、method-specif
 
 第31课的四实验分别比较modern/legacy discriminator、加严fallback与recognized错误、additive字段对unknown resultType、SDK projection损失与proxy修复。只给本地异常不构成server拒绝证据。SSE开放lab还要实际status/contentType/ordered events/终止、错误ID与buffering反例、redact前不落盘raw、首event latency/时长/count进入真实health。当前只有对象fixture与CPU模型；这些真实边界尚未执行。
 
-72道原quiz的答案与逐题判断在本批覆盖清单保留。学习者可用本章自检核对：是否区分角色/primitive、逐请求/legacy、error层、cache scope、opaque cursor、MRTR输入与业务task、RPC完成与job完成、取消ack与实际停止、Apps桥接与core版本、附加字段与discriminator、fixture与集成证明。正确答案不代表实际掌握；开放题用上述可观察判据，不编造唯一生产配置。
+72道原quiz的中文题答见下节；来源原选项与逐题映射另在覆盖清单保留。学习者可用本章自检核对：是否区分角色/primitive、逐请求/legacy、error层、cache scope、opaque cursor、MRTR输入与业务task、RPC完成与job完成、取消ack与实际停止、Apps桥接与core版本、附加字段与discriminator、fixture与集成证明。正确答案不代表实际掌握；开放题用上述可观察判据，不编造唯一生产配置。
+
+### 12.1 原72道quiz的中文自检与答案
+
+先遮住第三列，说明“为什么”再核对。原题中的旧API、过严策略或错误前提已在答案纠正；回答概念不代表真实SDK、浏览器、授权、部署或自己的学习已完成。
+
+| 原课/题 | 中文问题 | 答案与边界 |
+|---|---|---|
+| 06/1 | 两个现代请求之间由什么建立协议session？ | 协议核心无跨请求session；每次自描述，不把进程/HTTP连接当协议状态 |
+| 06/2 | 每个请求_meta的两个必填字段是什么？ | 必需protocolVersion/clientCapabilities；clientInfo建议而非auth |
+| 06/3 | server必须提供哪个发现方法？ | 服务器必须discover，客户端可选，发现不是授权 |
+| 06/4 | 错误-32022表示什么？ | -32022指有效字符串版本未支持；data requested/supported |
+| 06/5 | 哪种结果需要ttlMs/cacheScope？ | tools/list完整结果cache ttlMs/scope必需；tool call不据此缓存 |
+| 06/6 | 处理本次请求时从哪里取client能力？ | CAP只能本次metadata，不继承旧request |
+| 07/1 | 现代server从哪里读取client能力？ | 每次params._meta给CAP，不能取session或initialize |
+| 07/2 | 现代server必须实现什么方法？ | 现代服务器必须discover，旧initialize隔离 |
+| 07/3 | tools/list成功结果需要什么，serverInfo是否必填？ | resultType:complete、tools列表、ttlMs/cacheScope；serverInfo为SHOULD，省略可接受，提供时核类型，不用于认证 |
+| 07/4 | 为什么工具目录要确定排序？ | 固定排序稳定cache与上下文，不能产生权限 |
+| 07/5 | 调用有效但业务失败，用什么结果？ | 有效调用domain失败isError完整结果；未知tool走RPCerror |
+| 07/6 | 什么结束stdio运输寿命？ | stdin EOF结束transport，stdout不污染，不是protocolsession关闭 |
+| 08/1 | 双时代stdio client宜先发送什么？ | stdio宜discover先判era，modernonly也可直接RPC |
+| 08/2 | discover返回-32022且有共同版本时怎么办？ | -32022是现代证据；新ID选择共同version，不initialize |
+| 08/3 | 什么时候可以选择legacy时代？ | 白名单只允许有界probe，positive initialize是课程应用加严，非协议全部MUST |
+| 08/4 | 两个peer都有search如何合并？ | prefix/reject明确owner，不silentlyoverwrite/continue |
+| 08/5 | 已选legacy后缺resultType如何解释？ | 只有已选legacy才将缺resultType视complete |
+| 08/6 | 运输失效后恢复路由前做什么？ | 运输重连重新discover/list/listen；unsafe写核回执再retry |
+| 09/1 | 现代HTTP消息用什么method发送？ | 每条客户端消息新POST单endpoint，不POSTresponse |
+| 09/2 | modern-only endpoint如何处理GET/DELETE？ | 现代GET/DELETE不属运输，modern-only 405是推荐响应 |
+| 09/3 | 哪些HTTP头必须镜像正文？ | protocol/method及条件name对正文镜像一致；names casefold values exact |
+| 09/4 | 怎样请求长时变化通知？ | subscriptions/listen POST-response stream，ack与subscriptionId |
+| 09/5 | 普通SSE断在最终响应前如何恢复？ | 断SSE不能LastEventId恢复，新ID按业务安全性retry |
+| 09/6 | 现代请求里的Mcp-Session-Id怎么处理？ | 忽略旧sessionheader，不mint/echo；与legacy adapter隔离 |
+| 10/1 | 按稳定URI读架构文档用哪个primitive？ | 稳定URI读取适resource，三primitive按consumer intent |
+| 10/2 | resources/read遇到未知URI返回什么？ | 不存在resource-32602；不能伪空contents成功 |
+| 10/3 | 用户自己的note应采用何种cache策略？ | 用户特定resource private且current授权；credential上下文不混用 |
+| 10/4 | 订阅中的每个通知如何关联listen？ | listen request ID就是subscriptionId，每条通知tagged且ack first |
+| 10/5 | 相同输入目录为什么要确定性？ | 成员可因本次auth变化，不能连接历史改变；稳定ordering |
+| 10/6 | 可直接resources/list时server还需提供什么？ | server/discover强制服务端，client可直接其他RPC处理versionerror |
+| 11/1 | 新server需要模型推理优先什么架构？ | 新server优先directprovider，Sampling窗口期compat，职责转server |
+| 11/2 | 兼容Sampling如何在现代tools/call请求？ | MRTR input_required内sampling；不得live reverseRPC，工具先discover/list |
+| 11/3 | 哪个标识证明MRTR重试是新RPC？ | retry原方法/args、当轮inputs/state，新JSON-RPC ID |
+| 11/4 | requestState影响访问时应保护什么？ | state影响resource/business必须integrity；TTL主体/动作仅限制replay不singleuse |
+| 11/5 | 本次未声明Sampling，返回什么协议错误？ | 缺当前Sampling可返回-32021及requiredCapabilities，不能补CAP |
+| 11/6 | 两轮兼容输入怎样保持协议无session？ | 当轮输入与signedphase/middata使retry自描述；hardround/byte/tokenbudget |
+| 12/1 | Roots究竟提供哪种安全保证？ | Roots信息非auth/containment/OSsandbox，且2026弃用 |
+| 12/2 | 每call范围会变化时怎样替代Roots？ | workspace显式args但仍可信principal policy授权 |
+| 12/3 | 现代form elicitation怎样送达client？ | form在MRTR inputRequests；elicitation{}隐式form，URL-only不够 |
+| 12/4 | 什么值不能通过form收集？ | API token等secret禁止form；URL安全出站、同用户绑定、无prefetch |
+| 12/5 | 用户decline删除后应怎样处理？ | decline保数据且不强问；完整无误refusal是可选应用策略 |
+| 12/6 | 怎样把危险动作批准绑定用户看到的版本？ | 绑定principal/method/args/candidates/revision/TTL/nonce并事务singleuse/receipt |
+| 13/1 | 协议无session怎样运行十分钟任务？ | 持久task handle+applicationstore可跨运输寿命；不恢复session |
+| 13/2 | 何时可从tools/call返回task？ | 本次task extension且durablyreadable后server-directed task |
+| 13/3 | poll complete而job working是什么意思？ | 外poll RPC complete但innerjob working；nestedtoolresult typed |
+| 13/4 | 已建task后怎样回答input_required？ | 建task后输入走get→update，不重试原call；lifetime unique keys |
+| 13/5 | tasks/cancel成功保证什么？ | cancelack只承认意图，worker未必停/状态未必cancelled |
+| 13/6 | 当前Tasks有哪些方法？ | current get/update/cancel，McpName=taskId；不新教旧status/result/list |
+| 14/1 | tool何时绑定UI resource？ | tool list时预声明_meta.ui.resourceUri，不等toolcall才发现UI |
+| 14/2 | client怎样声明Apps支持？ | perrequest extensions.UI设置需mimeTypes数组，单ui:{}不足 |
+| 14/3 | ui/initialize初始化哪一层？ | ui/initialize是Apps bridge2026-01-26，含appInfo/appCAP/version与完整host结果 |
+| 14/4 | 用户无关的bundle App资源如何处理？ | 完整resource/cache/CSP合法，但否定网络/隔离需浏览器证据 |
+| 14/5 | resource URI与Mcp-Name冲突怎么办？ | 镜像错先400/-32020，不能由header替代body或version错误掩盖 |
+| 14/6 | host无Apps支持时如何fallback？ | 无UI支持保普通text/structuredtool，不授予extension，UI-onlyresource可不list |
+| 28/1 | outputSchema为array时什么structuredContent合法？ | structuredContent可array/scalar/null，但outputschema若给必须符合包括isError |
+| 28/2 | nextCursor是空字符串时怎么办？ | emptystringcursor非null继续，opaque不decode；结束与localpagebudget分开 |
+| 28/3 | 哪些x-mcp-header参数需要加严拒绝？ | 敏感xheader建议可本地加严拒绝；nestedproperties链合法、非法组合/ref拒绝 |
+| 28/4 | resource_link与embedded resource有什么区别？ | link后续fetch再授权；embedded当前payload，links可不list |
+| 28/5 | 页内一个descriptor坏了，如何消费其他工具？ | HTTP按每descriptor独立admission，坏tool不拖垮全部有效tool |
+| 28/6 | 哪些失败属于RPC error而非isError？ | 未知tool等无法dispatchRPCerror，actionabledomain失败isError且守schema |
+| 29/1 | 未知写结果用新RPC ID重试，安全性来自什么？ | durable业务key+相同参数fingerprint才条件retry，RPCid不去重 |
+| 29/2 | stdio怎样取消在途RPC？ | stdio cancel notification，无相关RPCresponse；unknown/late gracefullyignore |
+| 29/3 | HTTP怎样取消在途RPC？ | HTTP close原响应stream，ordinary不POSTcancelnotification |
+| 29/4 | 进度持续到达时哪个deadline仍有效？ | progress可reset idle，absolute maximum永不reset；keepalive非semanticprogress |
+| 29/5 | task cancel ack证明什么？ | tasks/cancel acknowledge而非保证stop；依需求决定继续观察 |
+| 29/6 | 订阅断流如何恢复，progress前提是否合法？ | newlisten/newID/refetchauthoritative，无LastEventId、unsafe mutation不重放；原题把ordinary progress放订阅不合法，实际应按相关原请求SSE与订阅各自通道处理 |
+| 31/1 | 一次SDK tools/list成功为何不足以证明符合性？ | SDKnormalization可能藏wire/cache/version/proxy变化，需raw证据 |
+| 31/2 | probe返回-32021时是否降级？ | recognized-32021保持modern并补所需optionalCAP；metadata缺失仍-32602 |
+| 31/3 | complete结果带未知附加字段怎么办？ | additivefield可保真/有意ignore，unknowndiscriminator拒绝 |
+| 31/4 | 无ID通知应有怎样的RPC回应？ | 普通通知无相关RPCresponse；HTTP接受202empty、拒收可无id诊断body |
+| 31/5 | 怎样证明proxy保留origin协议错误？ | proxy ingress/origin/egress比status与body，先redact再hash，不伪称真实proxy |
+| 31/6 | 候选失败且无旧版本准入/健康证据怎么办？ | 无verified健康rollback不能猜版本；未投流失败hold，已投流再按证据rollback |
 
 ## 13. 图示、作者产物与实际未覆盖
 

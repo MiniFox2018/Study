@@ -69,8 +69,8 @@
     },
     {
       "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
-      "sha256": "79a4ee8e1a5e8d63e3764ef854580485754332e135e5cbd23d1565d3564639a2",
-      "bytes": 106866,
+      "sha256": "6822989b9364150ae326cf623e25d8ce31ef9dbdf3cf393976ca2d7d7a2f39ea",
+      "bytes": 118618,
       "python_blocks": 8
     },
     {
@@ -99,7 +99,7 @@
     },
     "mcp-core": {
       "file": "维护/五站吸收/13-工具与协议-MCP通信状态-覆盖与验证.json",
-      "sha256": "a2e70ff6d6618ddad36f480cc34022a2dbbe6bfc57ec1ccd43227c560321490f"
+      "sha256": "75e0b5907b3d2abc1a8d84a4bde643dc2663cfaa0914ab7ff981d4613d6718ac"
     },
     "interop-observability": {
       "file": "维护/五站吸收/13-工具与协议-互操作路由与观测-覆盖与验证.json",
@@ -394,7 +394,7 @@
       "说明": "结构检查不替代语义、外链在线状态和实验运行验证",
       "Markdown总数": 616,
       "主库Markdown": 303,
-      "本地链接检查次数": 3691,
+      "本地链接检查次数": 3693,
       "有效Notebook": 93,
       "已登记上游空Notebook": 1,
       "来源文件校验数": 969,
@@ -441,7 +441,7 @@
     },
     {
       "文件": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
-      "SHA256": "79a4ee8e1a5e8d63e3764ef854580485754332e135e5cbd23d1565d3564639a2"
+      "SHA256": "6822989b9364150ae326cf623e25d8ce31ef9dbdf3cf393976ca2d7d7a2f39ea"
     },
     {
       "文件": "Agentic Design Patterns/06-专题扩展/07-工具授权与发布治理.md",
@@ -469,7 +469,7 @@
     },
     {
       "文件": "更新记录.md",
-      "SHA256": "7e2c10d6ea820f6746c3d82c477f035207a1eb7d87263ead791ffa951ecc1368"
+      "SHA256": "750cf98a0b8f4753c3e94303b06b3e67967dbdd1a09a3de5dd51f562b246a598"
     },
     {
       "文件": "来源保全/AI-Engineering-From-Scratch.md",
@@ -477,11 +477,11 @@
     },
     {
       "文件": "维护/五站吸收/13-工具与协议批次验收.md",
-      "SHA256": "0e5a6063eb65a99acb98e329c8207837f872f180ac68f3d6301bb184a16619bf"
+      "SHA256": "f9b56b802df4eb6323e1376c8f95469376de14c2616dd9456d42f974d6e84a84"
     },
     {
       "文件": "维护/五站吸收/进度与续接.md",
-      "SHA256": "f2b354ff06f8248896050922dda17784658a512b32b2f4a0227bd02adb43400b"
+      "SHA256": "ff81c1f06a98208f144308495a6d5dddc6ec8421e500c30761cf986b213d273e"
     }
   ],
   "累计验收数": 279,
@@ -506,7 +506,20 @@
     "OAuth finite typedclock",
     "旧review重提不重置撤销/隔离",
     "wire未知method404及serverInfo消费负例",
-    "golden list/task serverInfo与独立missingcache负例"
+    "golden list/task serverInfo与独立missingcache负例",
+    "MRTR accept后cancel核同nonce持久receipt，不能隐藏已删除effect",
+    "worker need_input和finish均核当前lease_token/expiry，旧worker不能清掉新lease",
+    "Apps revoke后双方向：call和host-to-view tool_data都拒绝",
+    "serverInfo官方SHOULD/No；省略接受、提供错型拒绝，不能当认证",
+    "72中文quiz题答直接进入MCP正文12.1"
   ],
-  "根接续说明": "root逐篇增量正文/新专题与正式例子复核；A同站交叉复核root治理5项；B外部评阅代理额度中断，由root直接复核，不伪称其完成"
+  "根接续说明": "root逐篇增量正文和正式教具复核；独立MCP读者曾额度中断，恢复后交叉审阅给出3问题并已修；另72中文quiz进入正文、Base serverInfo建议字段已纠正",
+  "后续独立审阅": {
+    "修正前提交": "5dbbad9175fbb7f6cf3d4dedf374772191bb32ab",
+    "日期": "2026-10-08",
+    "审阅者": "protocols_interop_observability_write",
+    "复核结果": "后续消息实际复核原3反例均无阻断；未执行代码；根改变1/4/5/7/8实际CPU重跑0",
+    "额外规范核对": "官方Base327–332：serverInfo为SHOULD/Required No，省略合法；提供须类型，自报信息不用于认证",
+    "可学习性补齐": "原72quiz的中文问题/答案已进正文12.1"
+  }
 }
