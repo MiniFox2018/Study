@@ -190,3 +190,53 @@ print('内存wire：逐请求meta/三能力/版本/严格整数/handle授权/MRT
 迁移提示：2026-07-28的Roots、Sampling、Logging和OAuth DCR已标Deprecated但窗口期不等立即失效；需要其旧功能时按详细页/SDK支持选择，不能教作现代新默认。Streamable HTTP取消通过关闭请求响应流，取消不自动撤销已发生副作用；OAuth/token audience与资源scope仍在执行边界检查。[变更表](https://modelcontextprotocol.io/specification/2026-07-28/changelog)、[授权规范](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization)
 
 SDK落实：另外只读核对MCP Python SDK固定commit `91941ed4d3985d59def99e090baa3f880c626cc8`的README和protocol-versions文档（v2文档接口）。其`Client`文档提供auto/legacy/现代version pin，pin可省discover但不自动取得server信息；旧`ClientSession/FastMCP`教程不能与这份接口混写。文档中的概述不能取代详细规范对recognized modern error的判断。此处没有安装/运行该SDK，实际项目须锁包版本并对metadata、MRTR、错误和两种传输做独立测试；本例手写内存server类不是`mcp.server.MCPServer`实现。[该固定SDK版本文档](https://github.com/modelcontextprotocol/python-sdk/blob/91941ed4d3985d59def99e090baa3f880c626cc8/docs/protocol-versions.md)
+
+## 输入、结果与发现：先看完整合同
+
+2026-10-08增量核验保留上面的2026-10-07内存强例及其原执行证据。完整通信、持久状态和新的CPU反例进入[专题06：MCP通信与状态工程](../06-专题扩展/06-MCP通信与状态工程.md)。学习顺序是本章的角色/逐请求合同→专题中的传输与消费→输入交互→任务和取消→Apps与证据；原理、手写子集与真实集成分别验收。
+
+一次工具调用至少跨过五道门：发现目录→客户端准入描述→验证本次参数/权限并构造传输元数据→服务器执行→客户端检查结果再交模型。工具参数写得像JSON、服务器返回一个字典、SDK调用成功，各自只说明一道边界的一部分。工具描述、资源文字、提示模板和结果仍是外部数据，不能升级为host的可信系统指令。
+
+`inputSchema`是JSON Schema对象，工具参数总是JSON对象，因此根的`type: "object"`是必需的；根旁边仍可使用`oneOf`、`allOf`、`if`、`$defs`等2020-12关键词。`outputSchema`若出现，完整结果的`structuredContent`必须符合它，包括`isError: true`的结果。`structuredContent`可为数组、标量或null；它是服务器产出的业务数据，与LLM“受约束生成”是不同层。描述可选，要求每个工具有足够有用的描述是有价值的应用准入策略，不是字段必需性的协议规则。
+
+例如标签目录的请求与结果可以是下面的**消息示意**，不是可运行网络服务：
+
+```json
+{"jsonrpc":"2.0","id":41,"method":"tools/call","params":{"name":"tag_catalog","arguments":{},"_meta":{"io.modelcontextprotocol/protocolVersion":"2026-07-28","io.modelcontextprotocol/clientCapabilities":{}}}}
+```
+
+```json
+{"jsonrpc":"2.0","id":41,"result":{"resultType":"complete","content":[{"type":"text","text":"[\"mcp\",\"contracts\"]"}],"structuredContent":["mcp","contracts"],"isError":false,"_meta":{"io.modelcontextprotocol/serverInfo":{"name":"catalog-fixture","version":"1"}}}}
+```
+
+描述中的输出schema应为`{"type":"array","items":{"type":"string"}}`。客户端若强行要求字典，会拒绝合法数组；若只解析兼容text却不验证`structuredContent`，会绕过真正合同。序列化JSON到text是兼容建议，不能改说标准强制每个结果都有非空text。`content`本身是列表；没有输出schema的合法空列表和“资源不存在却返回空contents”也要区分。
+
+| 决策 | 正确判断 |
+|---|---|
+| 缺必需元数据、元数据错类型 | `-32602`，不能从过去请求补齐 |
+| 本次缺处理所需可选能力 | `-32021`，data列`requiredCapabilities` |
+| 支持的字符串版本未实现 | `-32022`，data列`requested`与`supported` |
+| HTTP镜像字段与正文不一致 | 先返回`-32020`，不由header替代正文 |
+| 未找到工具、无法按请求schema分派 | JSON-RPC错误；未知工具示例用`-32602` |
+| 已进入工具的业务/输入范围失败 | 完整结果`isError: true`，仍守输出schema |
+| 新字段与未知`resultType` | 新字段可保留/有意忽略；未知生命周期判别值必须拒绝 |
+
+不能为业务限流/容量错误随意占用`-32020`至`-32099`：这段归MCP规范，目前这里定义的是三种现代错误。业务错误可在工具结果表达；确需自定义RPC码时，应选择JSON-RPC保留区之外并明确自己的合同。`clientInfo/serverInfo`是自报软件信息，不能代替可信认证主体或稳定peer配置身份。[Base与错误分配](https://modelcontextprotocol.io/specification/2026-07-28/basic)、[Tools与输出schema](https://modelcontextprotocol.io/specification/2026-07-28/server/tools)
+
+### 多服务器发现不等于授予执行权
+
+`server/discover`是服务器必需实现的方法，返回版本、能力、可选使用说明与cache hints；客户端可选先调用，也可直接调用其他方法再处理版本错误。它不是握手、授权票据或后续元数据检查的替代品。声明tools/resources/prompts能力后，应提供对应list方法，目录可以为空；成员可因本次授权变化，不能因先前连接历史偷偷变化。
+
+多服务器聚合记录**配置peer→canonical name→local name**。例如`notes/search`展示给模型，实际发给notes peer的参数仍是`name: "search"`。同名冲突应按固定规则加前缀或明确报错；不能静默覆盖或悄悄丢掉。self-reported serverInfo.name未保证唯一，不适合作为安全路由标识。peer的运输句柄、所选era、目录和健康记录是客户端管理状态，不能变成服务器省略逐请求元数据的理由。
+
+旧版`2025-11-25`及以前的初始化分支仍可用于明确兼容。recognized现代错误证明对端懂现代语义，应修复请求或选共同版本，不降级。官方允许不识别错误/超时后的旧版探测；课程采用精确peer白名单、有界探测和有效initialize正证，是**应用加严策略**，不能冒称所有这些都是协议MUST。两套parser应隔离，旧能力不能漏进现代请求。[发现](https://modelcontextprotocol.io/specification/2026-07-28/server/discover)、[版本兼容](https://modelcontextprotocol.io/specification/2026-07-28/basic/versioning)
+
+### 自检与下一步
+
+**题**：目录是public、tool标idempotent、用户点击Apps按钮，是否足以重试写动作？**判据**：不足。public只描述缓存共享，annotation只是提示，按钮表达意图；仍需当前授权、动作合同和业务幂等/回执。RPC新ID也不去重副作用。
+
+**题**：task轮询返回`resultType: complete`，但`status: working`，能显示完成吗？**判据**：只表示轮询RPC完成。任务寿命、取消和最终结果独立，继续按应用需要观察；task取消确认也不保证worker停止。
+
+**题**：缓存resource的MRTR重试结果或用旧草稿批准编辑新revision，为什么不安全？**判据**：前者依赖额外input/state，规范禁止缓存；后者批准对象已变，必须重新确认。专题的事务例进一步验证nonce、版本和回执。
+
+本次固定来源仍为AI Engineering from Scratch `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，Phase13第06–14/28/29/31课于2026-10-08完整读取。官方Base固定`0a11bf68c7ec4473526ec15589f592afcd12d1e8`；Tasks与Apps扩展各自版本和范围见专题来源段。源测试仅阅读，作者输出Skill未安装；专题新CPU例的成功不意味着真实MCP部署或用户掌握。

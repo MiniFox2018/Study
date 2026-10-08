@@ -1,0 +1,4901 @@
+{
+  "date": "2026-10-08",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "source_root": "/tmp/study-source1-ai-engineering-20261008",
+  "status": "机械发现，不是阅读/融合",
+  "lessons": [
+    {
+      "lesson": "01-the-tool-interface",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/01-the-tool-interface/assets/tool-loop.svg",
+          "bytes": 5174,
+          "sha256": "bc51e2684be663543949f64902ceaa704144920baca70ec509c0731c85f5ca99",
+          "git_blob_sha": "57bb5f8482177b8cc16e61907ed5c459715226f1"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/01-the-tool-interface/code/main.py",
+          "bytes": 7844,
+          "sha256": "27692fffd3af4163972b8d7d7cb4e328c7f8178fb7889fe6e90eb428c82a056d",
+          "git_blob_sha": "384f169b8a74a863942daa869535ef05ebaa1070"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/01-the-tool-interface/code/main.ts",
+          "bytes": 8257,
+          "sha256": "213ef94bff3f576af804356b43afd683a8cc374421fb13adcb5a4de45bedb50d",
+          "git_blob_sha": "ea735ef777ddf1ea12a4874e4310b46ae23a86cd"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/01-the-tool-interface/docs/en.md",
+          "bytes": 12806,
+          "sha256": "03823fa620a739c438f4e907af32445f81cc3a26387b86d13ca90ff0d1f14533",
+          "git_blob_sha": "503ff561f2b74fadbeeabced064b8a1437cf14c4"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/01-the-tool-interface/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/01-the-tool-interface/outputs/skill-tool-interface-reviewer.md",
+          "bytes": 2652,
+          "sha256": "b16903644e03f4c4fb70aed55c1ef6bf115536cdd93ee2098d3a12cc7759eceb",
+          "git_blob_sha": "fe0c0e0aa0120bc1dca0392f4bbbd8916131f4af"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Step one: describe",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "Step two: decide",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "Step three: execute",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "Step four: observe",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "The trust split",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "Where the loop lives",
+          "level": 3,
+          "line": 68
+        },
+        {
+          "heading": "Why not just prompt the model to emit JSON?",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "Circuit breakers",
+          "level": 3,
+          "line": 87
+        },
+        {
+          "heading": "Where Phase 13 goes from here",
+          "level": 3,
+          "line": 95
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 109
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 119
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 123
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 135
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 150
+        }
+      ],
+      "figures_discovered": [
+        "tp-tool-loop"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "02-function-calling-deep-dive",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/02-function-calling-deep-dive/assets/provider-shapes.svg",
+          "bytes": 4905,
+          "sha256": "4c3f77c931389087574805cca8dcc9f8746904b1a46bc2512cda5d570819907a",
+          "git_blob_sha": "87eee242cb7b855fd46b13dc0da834ab04251adb"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/02-function-calling-deep-dive/code/main.py",
+          "bytes": 8028,
+          "sha256": "aeaddcafc116b57f259106982d983c6c49274859ea23dedc182391aec1dacad2",
+          "git_blob_sha": "9356f00d3d1b776d3ca27118915f050f9c83ecae"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/02-function-calling-deep-dive/docs/en.md",
+          "bytes": 11770,
+          "sha256": "4691bbc616aa41426d78eb1e3b77b8635de13cf451272e63fba79b59094a7e71",
+          "git_blob_sha": "8ff9fd5c427174bad344135a102d8de851d0571f"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/02-function-calling-deep-dive/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/02-function-calling-deep-dive/outputs/skill-provider-portability-audit.md",
+          "bytes": 2585,
+          "sha256": "741765fded8cc17dd91e089f9ac2cbc974aad95c8b444aa122a71a451f58a3fd",
+          "git_blob_sha": "3ff1eae2e6fbb32442703770c2dccd65098c082a"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "The common structure",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "Shape diffs, field by field",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "Limits you will actually hit",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "`tool_choice` behavior",
+          "level": 3,
+          "line": 63
+        },
+        {
+          "heading": "Parallel calls",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "Streaming",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "Errors and repair",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "The translator pattern",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 121
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 131
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 135
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 147
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 162
+        }
+      ],
+      "figures_discovered": [
+        "function-call-args"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "03-parallel-and-streaming-tool-calls",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/03-parallel-and-streaming-tool-calls/assets/parallel-streaming.svg",
+          "bytes": 3652,
+          "sha256": "e85cfce4b8977cfafeefc376071a18b31dc0cc657a2ab7998d380665efcc6f69",
+          "git_blob_sha": "622da60b4c28fe6bcf15b118ca33330cbcab1721"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/03-parallel-and-streaming-tool-calls/code/main.py",
+          "bytes": 5445,
+          "sha256": "846f5176ec20f77ab0607fb14ed7cda2a8870afc42296b9131864a95a21f3462",
+          "git_blob_sha": "0a7c84d4d9821b982ac2e95e67593283cd59c316"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/03-parallel-and-streaming-tool-calls/docs/en.md",
+          "bytes": 11202,
+          "sha256": "b848b9e12e391ea6442042d0108f5c9cc9a5527a5f31a8acabed0083e8da9306",
+          "git_blob_sha": "6bbd8e446c3faa6351e7e7eaf6c71d9460fcd5a3"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/03-parallel-and-streaming-tool-calls/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/03-parallel-and-streaming-tool-calls/outputs/skill-parallel-call-safety-check.md",
+          "bytes": 2247,
+          "sha256": "cbecad12b583c95b2c310b2deca4a2b512dbae7e9fa9ae2752ebfe033be8ff42",
+          "git_blob_sha": "9a6dc10d41a1b773a78d4dda1c41789e1511b2f0"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 47
+        },
+        {
+          "heading": "Enabling parallel",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "Id correlation",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "Running calls concurrently",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "Streaming tool calls",
+          "level": 3,
+          "line": 71
+        },
+        {
+          "heading": "Partial JSON and the parse-early trap",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "Out-of-order completion",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "Benchmark: sequential vs parallel",
+          "level": 3,
+          "line": 103
+        },
+        {
+          "heading": "Streaming fan-out wall-clock",
+          "level": 3,
+          "line": 109
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 117
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 127
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 131
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 143
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 158
+        }
+      ],
+      "figures_discovered": [
+        "tp-parallel-fanout"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "04-structured-output",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/04-structured-output/assets/structured-output.svg",
+          "bytes": 4311,
+          "sha256": "b4d30ad12f0d1bc1b152fd2ebe207c27e15ff28283a90987d9873cf9ed56d586",
+          "git_blob_sha": "c3dbc8452be262225a980f67836c101cbc3d623b"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/04-structured-output/code/main.py",
+          "bytes": 7516,
+          "sha256": "7f689e21eb4d9995c3991cbd792cf54b67e0e932ee5af508df7bfd749ce3db07",
+          "git_blob_sha": "1e27e1f1c1ae1ca40a6c69fdb0c80123ae02d07b"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/04-structured-output/docs/en.md",
+          "bytes": 10873,
+          "sha256": "bd468ed5c79526e09282f88722e4603d5f80e9a3087e8de0e151dd94d48f73cc",
+          "git_blob_sha": "a070e1707d05b9e4a83dd0f1d0c76f039d29ce16"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/04-structured-output/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/04-structured-output/outputs/skill-structured-output-designer.md",
+          "bytes": 2353,
+          "sha256": "ed32f68b81d504483607a0cc1ab93881bddd7cb9fec17c59a813c2a5f53eb65e",
+          "git_blob_sha": "fb69270000d9955aa2bf956f5d2f57deee54f314"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "JSON Schema 2020-12 — the lingua franca",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "Pydantic, the Python binding",
+          "level": 3,
+          "line": 53
+        },
+        {
+          "heading": "Zod, the TypeScript binding",
+          "level": 3,
+          "line": 66
+        },
+        {
+          "heading": "Refusals",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "Constrained decoding in the open",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "The three failure modes",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "Retry strategy",
+          "level": 3,
+          "line": 90
+        },
+        {
+          "heading": "Small-model support",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 108
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 118
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 122
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 134
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 149
+        }
+      ],
+      "figures_discovered": [
+        "constrained-decoding"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "05-tool-schema-design",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/05-tool-schema-design/assets/schema-design.svg",
+          "bytes": 4139,
+          "sha256": "6d1e02119e7e51ee3cb6b95ea9aaec271f0e5848aecf43df1340194db30deb05",
+          "git_blob_sha": "a53daa281cc59bce07d1a23055e44d81251c20b8"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/05-tool-schema-design/code/main.py",
+          "bytes": 7685,
+          "sha256": "16d73804c69b205f2ef107b273f42ae5e2f62689a4379b7a8824c1604848f587",
+          "git_blob_sha": "2c29800029877b971b44bdc1386f53077b4b784c"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/05-tool-schema-design/docs/en.md",
+          "bytes": 10157,
+          "sha256": "960a389a1c12b06ec7f4731f06cfb5713657b665b15e09cd271c2be6c92a8d2b",
+          "git_blob_sha": "6823ca2559bb232a885ee02a85aa4da823970f91"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/05-tool-schema-design/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/05-tool-schema-design/outputs/skill-tool-schema-linter.md",
+          "bytes": 2120,
+          "sha256": "b7b2f068d87b6b60ccdbff2d6b36e6311f4aba055e969375cc6e56221eac42ad",
+          "git_blob_sha": "596a8e174739a9da4e9ecba4d15659f41d205f35"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "Naming rules",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "Description pattern",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "Atomic vs monolithic",
+          "level": 3,
+          "line": 61
+        },
+        {
+          "heading": "Parameter design",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "Error messages as teaching signals",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "Versioning",
+          "level": 3,
+          "line": 103
+        },
+        {
+          "heading": "Tool poisoning prevention",
+          "level": 3,
+          "line": 112
+        },
+        {
+          "heading": "Benchmarks",
+          "level": 3,
+          "line": 116
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 128
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 139
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 143
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 155
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 170
+        }
+      ],
+      "figures_discovered": [
+        "tp-schema-routing"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "06-mcp-fundamentals",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/06-mcp-fundamentals/assets/mcp-primitives.svg",
+          "bytes": 4226,
+          "sha256": "ab722a6163f8d4dc2c0f5abe754d9c7498c1898cac951c4122390bb59c0c71a6",
+          "git_blob_sha": "4554e0e7bd3da53e818fe486460f3f00d1cac8f8"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/06-mcp-fundamentals/code/main.py",
+          "bytes": 8501,
+          "sha256": "b7238a353821378b212c18bdb3c1742e6df1f05c1ead27ffe91507bf31d94b06",
+          "git_blob_sha": "f7e2af636fdead9feab441fe3d0fb8a39da83a49"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/06-mcp-fundamentals/code/tests/test_main.py",
+          "bytes": 2732,
+          "sha256": "a590200fd883b7bf3c35e593a9e1d583421355f35773dbb1039bfd6d919c420c",
+          "git_blob_sha": "0f4f76ce0ed0f459de5eb6c7d3ed899ba6df7e38"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/06-mcp-fundamentals/docs/en.md",
+          "bytes": 10360,
+          "sha256": "9724abed6bec27050404bf895aa78579fb8b4d7ae70bb99a6a2edccf46eca7d6",
+          "git_blob_sha": "1478396c69ec1aa7c9113f7181cbf1fb9c7f2a7b"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/06-mcp-fundamentals/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/06-mcp-fundamentals/outputs/skill-mcp-handshake-tracer.md",
+          "bytes": 2300,
+          "sha256": "1f1e2e341129d0fe2f0b1b50d62e1f78a9b56a7d4ee097890b4b24c2b9a6bf91",
+          "git_blob_sha": "9d0e66a568bb7339368d11af0f1f82b47dc97e25"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/06-mcp-fundamentals/quiz.json",
+          "bytes": 2387,
+          "sha256": "ebb9f20d33c8099670264fc6148e99bd98f91ad43232b2f4e657ac9c3a4e5dfe",
+          "git_blob_sha": "f0a76d3567fcd97b195538aa4812131f67ab2d9d"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "Server primitives",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "JSON-RPC envelopes",
+          "level": 3,
+          "line": 45
+        },
+        {
+          "heading": "Required request metadata",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "Complete results and server identity",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "Discovery without a handshake",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "One request lifecycle",
+          "level": 3,
+          "line": 129
+        },
+        {
+          "heading": "Explicit legacy compatibility",
+          "level": 3,
+          "line": 147
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 161
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 176
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 180
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 188
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 201
+        }
+      ],
+      "figures_discovered": [
+        "mcp-tool-call"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "07-building-an-mcp-server",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/07-building-an-mcp-server/assets/server-anatomy.svg",
+          "bytes": 4060,
+          "sha256": "bd41f9f167d5a5e0161b072efcd2a341d04d4845fe8e77c8f86f78c659fac453",
+          "git_blob_sha": "b0795dbb2ca43dc031f3bae5c8ca952d8d536f01"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/07-building-an-mcp-server/code/main.py",
+          "bytes": 13987,
+          "sha256": "988cd592064dc69243725a95dc0525db3df9400e18f7384a02f9a0d6dbb74b96",
+          "git_blob_sha": "aac2ff175d0e7493ff961d9c3b0b3a057902f3d1"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/07-building-an-mcp-server/code/main.ts",
+          "bytes": 13462,
+          "sha256": "af227efc2053ed5cb5f0a2fcdbbb5b1bea26bb57f8340710bafb7641226f2519",
+          "git_blob_sha": "53e6fc447aefbe517ada16ef37f984553dd94b50"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/07-building-an-mcp-server/code/tests/test_main.py",
+          "bytes": 5694,
+          "sha256": "bab8da60534dc3b44b0b221ffcd33472dbd8bece0db8bc51ceb02ec5be83099a",
+          "git_blob_sha": "7ad78e9e4f32432e7ac2d43e8e0ac6947c7b6561"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/07-building-an-mcp-server/docs/en.md",
+          "bytes": 8867,
+          "sha256": "8acac5ca68ac5a3057d94199905e5f26743fda4624b4eea05087a84e2857a76e",
+          "git_blob_sha": "8f43bf1fd0e829d9388bcd01bfeb64bd2808946e"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/07-building-an-mcp-server/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/07-building-an-mcp-server/outputs/skill-mcp-server-scaffolder.md",
+          "bytes": 2349,
+          "sha256": "4bb5094c129f1b8f41937f2705dff7e7e98e751151dda7b1d368cdfeb64a002d",
+          "git_blob_sha": "f23030fa1ef13a23fa6332233563b33700626a81"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/07-building-an-mcp-server/quiz.json",
+          "bytes": 2265,
+          "sha256": "6febb7d1c2e7a30cdd09ffbf5c90930d3c0e57008489e78228d9e18a7ec77161",
+          "git_blob_sha": "bff7c069003700c1ddca791eb6ebbe8c9a7db15f"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "The modern dispatch loop",
+          "level": 3,
+          "line": 28
+        },
+        {
+          "heading": "Request validation",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "Mandatory discovery",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "Tools",
+          "level": 3,
+          "line": 98
+        },
+        {
+          "heading": "Resources",
+          "level": 3,
+          "line": 113
+        },
+        {
+          "heading": "Prompts",
+          "level": 3,
+          "line": 121
+        },
+        {
+          "heading": "Every successful result is typed",
+          "level": 3,
+          "line": 125
+        },
+        {
+          "heading": "No server-initiated requests",
+          "level": 3,
+          "line": 140
+        },
+        {
+          "heading": "Explicit legacy compatibility",
+          "level": 3,
+          "line": 146
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 156
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 174
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 178
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 186
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 199
+        }
+      ],
+      "figures_discovered": [
+        "t3-dispatch-loop"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "08-building-an-mcp-client",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/08-building-an-mcp-client/assets/client-routing.svg",
+          "bytes": 3736,
+          "sha256": "0e7297e7367b6bd63458eed44d3f62076d9dc8d2d1f25193b3edcdadc90a98e7",
+          "git_blob_sha": "b59cd8193ac58932c04e4fdded349c2ccaf293b5"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/08-building-an-mcp-client/code/main.py",
+          "bytes": 22786,
+          "sha256": "be18e2e7f801772c07c2af5ca81e86b7e6f18c0d5d838fd4487977efc761d4c4",
+          "git_blob_sha": "e2f6b2d7cda942c550e158ebbc6e6943fcbbf311"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/08-building-an-mcp-client/code/tests/test_main.py",
+          "bytes": 11836,
+          "sha256": "52f507bf63888da261b924569867b9915c381a3135f5a22912c4f824f435dd71",
+          "git_blob_sha": "b43967d7659aecf7f24a241dd650efabd18a9027"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/08-building-an-mcp-client/docs/en.md",
+          "bytes": 12510,
+          "sha256": "dc2ca4a30c21094e72f5e225724c5a6680119d65aa974e34d411be4ce458fc6d",
+          "git_blob_sha": "7e12c0a2f7bd1c39ebf7e516afd3525c636365ba"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/08-building-an-mcp-client/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/08-building-an-mcp-client/outputs/skill-mcp-client-harness.md",
+          "bytes": 2939,
+          "sha256": "cc91c1bc5540577b7a27f34588aaeec0e3931c73dc88aad6ae78bf81076567c7",
+          "git_blob_sha": "4211641b0b59f7242186c0c6ca8598936dc312ed"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/08-building-an-mcp-client/quiz.json",
+          "bytes": 2528,
+          "sha256": "812e7aa2995c79271ca6cce0aea6e1e4b5fcc2f287d18eefa64875733ce05cb2",
+          "git_blob_sha": "096ff0a92d0a0ce9ccbbea6a70797f345ea9a775"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 32
+        },
+        {
+          "heading": "A peer, not a protocol session",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "Build every modern request from scratch",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "Modern discovery",
+          "level": 3,
+          "line": 68
+        },
+        {
+          "heading": "The stdio compatibility probe",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "Allowlisting is operator intent, not evidence",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "Legacy is a compatibility branch",
+          "level": 3,
+          "line": 114
+        },
+        {
+          "heading": "Discovering and caching tools",
+          "level": 3,
+          "line": 126
+        },
+        {
+          "heading": "Collision-safe namespace merge",
+          "level": 3,
+          "line": 134
+        },
+        {
+          "heading": "Routing a call",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "Notifications and subscriptions",
+          "level": 3,
+          "line": 158
+        },
+        {
+          "heading": "No server-initiated requests",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 174
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 194
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 198
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 206
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 221
+        }
+      ],
+      "figures_discovered": [
+        "tp-client-merge"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "09-mcp-transports",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/09-mcp-transports/assets/transports.svg",
+          "bytes": 4266,
+          "sha256": "54e8e76ce226890372567e6274e1ed0bdb5a794c52366125a0b8d5d961a3a0d7",
+          "git_blob_sha": "2534b915e54c42a374c435c1529a36dbcb8c116d"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/09-mcp-transports/code/main.py",
+          "bytes": 21280,
+          "sha256": "21d7f10f37eb2a95089f87404feb4fdb662ef461ebaa0f5be3c3b01c1527996a",
+          "git_blob_sha": "0734ad6cc86d90d3566fc64067f4a371548cdb0a"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/09-mcp-transports/code/tests/test_main.py",
+          "bytes": 11452,
+          "sha256": "2a9ad8ecd6f24a8c22ce8a38207ae682e8790bdbec2c55fdbde2ebb2dde57de0",
+          "git_blob_sha": "02d076286707a5c0e2b1b4f1b09bc9f5e55e9291"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/09-mcp-transports/docs/en.md",
+          "bytes": 12568,
+          "sha256": "8b35336a155283e509f16008a3acd65caedd87c443bde2c86c7836d615f6bb4e",
+          "git_blob_sha": "91eeea6172a0afd2b724a3aed365eebcf8d40cfb"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/09-mcp-transports/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/09-mcp-transports/outputs/skill-mcp-transport-migrator.md",
+          "bytes": 2950,
+          "sha256": "da38eb049aaa296ccd1431c6be9e56ffe72ab628a1f33b1ec3282633839663ac",
+          "git_blob_sha": "791f9ac351efb34bf7837dc1d2a76f3dd8a583d5"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/09-mcp-transports/quiz.json",
+          "bytes": 2266,
+          "sha256": "ecdc2406a69abdbbc749da7edf52ae2581605a6840128eeae0625c7f835b3ec7",
+          "git_blob_sha": "418e766d67292fd6ed20bd2c36a50e74e6279a1d"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "stdio",
+          "level": 3,
+          "line": 28
+        },
+        {
+          "heading": "Streamable HTTP in 2026-07-28",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "POST-only means POST-only",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "Origin validation",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "Required HTTP metadata headers",
+          "level": 3,
+          "line": 78
+        },
+        {
+          "heading": "Request-scoped SSE",
+          "level": 3,
+          "line": 108
+        },
+        {
+          "heading": "Long-lived changes use subscriptions/listen",
+          "level": 3,
+          "line": 124
+        },
+        {
+          "heading": "Explicit application state",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "HTTP dual-era compatibility",
+          "level": 3,
+          "line": 172
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 185
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 206
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 210
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 218
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 231
+        }
+      ],
+      "figures_discovered": [
+        "tp-transport-handshake"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "10-mcp-resources-and-prompts",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/10-mcp-resources-and-prompts/assets/primitive-split.svg",
+          "bytes": 2981,
+          "sha256": "661d8936420cccbc81cbbdc7ec25c7f2dda5a0fed494b8931676dc29b29ed71b",
+          "git_blob_sha": "396b90a334a2c0311589d2ace5321238615bc325"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/10-mcp-resources-and-prompts/code/main.py",
+          "bytes": 11465,
+          "sha256": "612f2fec4892cc7b9d60708e185496e339724eff3afdc5c4832670f36e77e611",
+          "git_blob_sha": "037681adafbfc0a53cc9d3349727d27b7844dc32"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/10-mcp-resources-and-prompts/code/tests/test_main.py",
+          "bytes": 4911,
+          "sha256": "b1b79b7343e1fa01bfc7c055c7194eb446d0013732ffa8e3f3b5fb28db7cc20f",
+          "git_blob_sha": "eefc7d78224b2a4738ce099a7b5f49c39464d585"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/10-mcp-resources-and-prompts/docs/en.md",
+          "bytes": 15610,
+          "sha256": "fc4d77f598eca44d493dd1cb765d2355a739577a65387a4a1a7e0e1d55946579",
+          "git_blob_sha": "f0227896319487879482b7b7d540ba8a043ad82c"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/10-mcp-resources-and-prompts/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/10-mcp-resources-and-prompts/outputs/skill-primitive-splitter.md",
+          "bytes": 2035,
+          "sha256": "81a9b677f4d9193a47b20bef213460fc11f9e07918cce362d056c8399cdb70de",
+          "git_blob_sha": "cd8744e673b3aa2448bb75376e7735792bf914e3"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/10-mcp-resources-and-prompts/quiz.json",
+          "bytes": 3473,
+          "sha256": "ec529fc0f188a902509a4095b61ab93093d1ec56386b952e6116db8b7dc8cae9",
+          "git_blob_sha": "b514e8563e5b43ef7856d7362ea7183549cf7553"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Start With the Consumer",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "The 2026-07-28 Stateless Envelope",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "Resources Are Stable URI Contracts",
+          "level": 2,
+          "line": 80
+        },
+        {
+          "heading": "Resource templates",
+          "level": 3,
+          "line": 136
+        },
+        {
+          "heading": "Content is not trusted instruction",
+          "level": 3,
+          "line": 142
+        },
+        {
+          "heading": "Prompts Are User-Controlled Templates",
+          "level": 2,
+          "line": 146
+        },
+        {
+          "heading": "Cache Hints Are Part of Correctness",
+          "level": 2,
+          "line": 178
+        },
+        {
+          "heading": "Subscriptions Use a Client-Opened Response Stream",
+          "level": 2,
+          "line": 193
+        },
+        {
+          "heading": "Interactive Lab",
+          "level": 2,
+          "line": 269
+        },
+        {
+          "heading": "Practice Lab",
+          "level": 2,
+          "line": 275
+        },
+        {
+          "heading": "Shipped Artifact",
+          "level": 2,
+          "line": 296
+        },
+        {
+          "heading": "Verify It",
+          "level": 2,
+          "line": 302
+        },
+        {
+          "heading": "Capstone Connection",
+          "level": 2,
+          "line": 312
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 318
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 327
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 340
+        }
+      ],
+      "figures_discovered": [
+        "t3-primitive-sort"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "11-mcp-sampling",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/11-mcp-sampling/assets/sampling-loop.svg",
+          "bytes": 4353,
+          "sha256": "33c02a6bf2fce512ff01a5067bf701fce011b800f7c7744bdc7db614bd884865",
+          "git_blob_sha": "244f234e150bcba4d0a5e7f68714a6213ba3f084"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/11-mcp-sampling/code/main.py",
+          "bytes": 13043,
+          "sha256": "02a6f02cabd190db6890528265f756694a38c796471e12b29adb5415286cb452",
+          "git_blob_sha": "f61bd8c849aa75ab75cb5ba5888a3cecc4235e39"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/11-mcp-sampling/code/tests/test_main.py",
+          "bytes": 7483,
+          "sha256": "4ba3672d80577ee7cb987540c9e7f518421c5f90ea79475619772fd6c8eda61f",
+          "git_blob_sha": "2aec4a64cd92a8bd1506ad29b7c385631cfa18c8"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/11-mcp-sampling/docs/en.md",
+          "bytes": 12877,
+          "sha256": "a205ee1e92a30eb61080e980620eaf0c5dbd1772db8b35da65a453273ed4fd71",
+          "git_blob_sha": "2844580753e85bf81c392f82cabf50117f8c6846"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/11-mcp-sampling/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/11-mcp-sampling/outputs/skill-sampling-loop-designer.md",
+          "bytes": 3351,
+          "sha256": "6b58d6513423cffc2fd1e6f16e7bc2b41e260fe881d962862126dc75b65206b5",
+          "git_blob_sha": "876cfb578759c4249230d76246a3cf2dae04c839"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/11-mcp-sampling/quiz.json",
+          "bytes": 3724,
+          "sha256": "15508c49e349a9b1b520bcd4983f10e916ccac536d31fad5ff56cb144591ad6c",
+          "git_blob_sha": "d73225cf98d7e5d68cf4d7729cb6bea31390479f"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Decision Before the Protocol",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "New server: integrate with a model provider directly",
+          "level": 3,
+          "line": 28
+        },
+        {
+          "heading": "Existing Sampling workflow: migrate it to MRTR",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "The Stateless Contract",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "One MRTR Round",
+          "level": 2,
+          "line": 76
+        },
+        {
+          "heading": "Multi-Round State",
+          "level": 2,
+          "line": 147
+        },
+        {
+          "heading": "Model Preferences Are Hints",
+          "level": 2,
+          "line": 168
+        },
+        {
+          "heading": "Safety Invariants",
+          "level": 2,
+          "line": 174
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 192
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 206
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 227
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 231
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 239
+        },
+        {
+          "heading": "Legacy Compatibility",
+          "level": 2,
+          "line": 254
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 260
+        }
+      ],
+      "figures_discovered": [
+        "t3-sampling-flip"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "12-mcp-roots-and-elicitation",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/assets/roots-elicitation.svg",
+          "bytes": 4381,
+          "sha256": "58714902c33205d5630ef26676b620b69d7842e0b82a017a2b39a214feefef69",
+          "git_blob_sha": "b3ca09e391b0a8d0aa2edb7d0750d26a8c0bc0ea"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/code/main.py",
+          "bytes": 18693,
+          "sha256": "d6baa51b6c4ec61e32be7670da27e930b87e21703f7ba11fecbdb9841f0d6ee2",
+          "git_blob_sha": "d0bc9bb4dae547966d7e4b8a4e5639fdb880a1d0"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/code/tests/test_main.py",
+          "bytes": 15427,
+          "sha256": "6287dc611eb2208c6f728c67d5397455010751197df9e415636e93daea961b32",
+          "git_blob_sha": "f68f972780e690bb96badc5a17a387d323bcd5e3"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/docs/en.md",
+          "bytes": 15448,
+          "sha256": "5b061e2bec0962f9a1bcf881f7886fbe16426236f428311f30199f398c1af6bd",
+          "git_blob_sha": "89f63092ce48d689da83938681d97d9b5c532bfe"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/outputs/skill-elicitation-form-designer.md",
+          "bytes": 3581,
+          "sha256": "6f3883b4946f4cdde1d8ca38b4e110debfec1a8d9ef499d0fdc99ab0bf0eb09a",
+          "git_blob_sha": "ea9dd4dbef62f4914d09c6b949248b027f875cdd"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/quiz.json",
+          "bytes": 3612,
+          "sha256": "ca82af19e905c3efe28591d20fd8ce3066c76ec2fc781f9aa784ff1141ffc6e3",
+          "git_blob_sha": "7e73a45f4ab1e531c541255dc5c2c44ba883c5f9"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Two Problems That Look Similar",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Roots Are a Migration Surface",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "The three-layer rule",
+          "level": 3,
+          "line": 45
+        },
+        {
+          "heading": "Elicitation Still Exists, but Delivery Changed",
+          "level": 2,
+          "line": 65
+        },
+        {
+          "heading": "Capability Negotiation Is Per Request",
+          "level": 2,
+          "line": 134
+        },
+        {
+          "heading": "Form Mode",
+          "level": 2,
+          "line": 156
+        },
+        {
+          "heading": "URL Mode",
+          "level": 2,
+          "line": 171
+        },
+        {
+          "heading": "Response Branches",
+          "level": 2,
+          "line": 192
+        },
+        {
+          "heading": "Protecting Destructive MRTR State",
+          "level": 2,
+          "line": 204
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 227
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 243
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 267
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 271
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 279
+        },
+        {
+          "heading": "Legacy Compatibility",
+          "level": 2,
+          "line": 294
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 298
+        }
+      ],
+      "figures_discovered": [
+        "t3-roots-boundary"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "13-mcp-async-tasks",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/13-mcp-async-tasks/assets/task-lifecycle.svg",
+          "bytes": 4601,
+          "sha256": "35240d93fc02136bd2203197844151a0fd760264f30433bcfb149c8999f26f72",
+          "git_blob_sha": "ffc422ad83c6605b97374b73c2e80263dab9cb83"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/13-mcp-async-tasks/code/main.py",
+          "bytes": 17655,
+          "sha256": "675245a235f4941402eb50df8cd18102662238f0d3cc6f69ddd29530c19b214b",
+          "git_blob_sha": "074dc8390892eb777941e68b380edc71fac2f208"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/13-mcp-async-tasks/code/tests/test_main.py",
+          "bytes": 11045,
+          "sha256": "e2510b3327b01bab45736613d4dcdbfe6764a33cf9ba590eedd7295fa983ee16",
+          "git_blob_sha": "beae03f6efcc563cb040a457911e03339432d756"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/13-mcp-async-tasks/docs/en.md",
+          "bytes": 21392,
+          "sha256": "6987b0cabf06d9f37c5f42b31a76889ad26b36b3571aeaae6629ceb2cd0f7314",
+          "git_blob_sha": "561b27507688a5ebca431a1596dc317904f59035"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/13-mcp-async-tasks/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/13-mcp-async-tasks/outputs/skill-task-store-designer.md",
+          "bytes": 4243,
+          "sha256": "cb826189effed7c7010fbdc93e1f6f31903cfdc36874f6fd85d2233017ac02d1",
+          "git_blob_sha": "a30af3ed4a36a0a4b3f6df11032b2264b2d6131c"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/13-mcp-async-tasks/quiz.json",
+          "bytes": 3593,
+          "sha256": "13082aef59bb2fde853929b0bb1ecf2ad6442dc71e25481b7dba93b91229e1be",
+          "git_blob_sha": "c6b92168a7bcb3a86916b584e6db605fc59dc914"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Why Tasks Are an Extension",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "Stateless Core, Stateful Application",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "Capability Negotiation",
+          "level": 2,
+          "line": 61
+        },
+        {
+          "heading": "Server-Directed Task Creation",
+          "level": 2,
+          "line": 90
+        },
+        {
+          "heading": "The Task Shape",
+          "level": 2,
+          "line": 139
+        },
+        {
+          "heading": "Poll with `tasks/get`",
+          "level": 2,
+          "line": 158
+        },
+        {
+          "heading": "Input During Task Execution",
+          "level": 2,
+          "line": 235
+        },
+        {
+          "heading": "Input needed before task creation",
+          "level": 3,
+          "line": 239
+        },
+        {
+          "heading": "Input needed after task creation",
+          "level": 3,
+          "line": 243
+        },
+        {
+          "heading": "Cancellation Is Cooperative",
+          "level": 2,
+          "line": 313
+        },
+        {
+          "heading": "Optional Notifications",
+          "level": 2,
+          "line": 354
+        },
+        {
+          "heading": "Failure Semantics",
+          "level": 2,
+          "line": 362
+        },
+        {
+          "heading": "Protocol error",
+          "level": 3,
+          "line": 366
+        },
+        {
+          "heading": "Task execution outcome",
+          "level": 3,
+          "line": 370
+        },
+        {
+          "heading": "Durability, Expiry, and Ownership",
+          "level": 2,
+          "line": 376
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 390
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 409
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 433
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 437
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 445
+        },
+        {
+          "heading": "Legacy Compatibility",
+          "level": 2,
+          "line": 460
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 464
+        }
+      ],
+      "figures_discovered": [
+        "tp-task-lifecycle"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "14-mcp-apps",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/14-mcp-apps/assets/mcp-apps.svg",
+          "bytes": 4418,
+          "sha256": "5e4af3b68533189e9017bd599e17ceea1252e554100738d236cbb8e9af0efe40",
+          "git_blob_sha": "198cee737caab63fe72d30773b2adfa4578fb294"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/14-mcp-apps/code/main.py",
+          "bytes": 11055,
+          "sha256": "9bf3c8789eae10bf85e383039c2c6d7612a1c1d42bf93d0cc8b886c0954bf635",
+          "git_blob_sha": "9a7a625da75b12bfae8bf9a2a39acb4093b07a2c"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/14-mcp-apps/code/tests/test_main.py",
+          "bytes": 6960,
+          "sha256": "6ae3b01722b48f7b3c781e56529a6c738cd176fa747cadeb5c7209d656dd1ac6",
+          "git_blob_sha": "523243aea3b807c859ba54bb70a4fdb73d390bec"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/14-mcp-apps/docs/en.md",
+          "bytes": 16220,
+          "sha256": "40f058cda91f1ed151492d82de0578ec39a8df5ded405087c2824c4d885abdcc",
+          "git_blob_sha": "7dad1a8c5751e348e3e78edbdd5b6ce099299b37"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/14-mcp-apps/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/14-mcp-apps/outputs/skill-mcp-apps-spec.md",
+          "bytes": 3500,
+          "sha256": "cbd3eda509e9aee46289ae2c7d8ddd5c8c64b845b863bcbb125ecd08d66f2867",
+          "git_blob_sha": "8f7f72e5af84ad0508061700e2436b1823fb7848"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/14-mcp-apps/quiz.json",
+          "bytes": 3079,
+          "sha256": "733a1c55d87023b378ed67c2b13afb119c522e83294f9bf8c50ab709d715d413",
+          "git_blob_sha": "624be5434324594900bcac272814245f4b57c0f3"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "Two protocols, one feature",
+          "level": 3,
+          "line": 37
+        },
+        {
+          "heading": "Discover before rendering",
+          "level": 3,
+          "line": 71
+        },
+        {
+          "heading": "Declare the UI on the tool definition",
+          "level": 3,
+          "line": 99
+        },
+        {
+          "heading": "Return data, then let the host bind the view",
+          "level": 3,
+          "line": 123
+        },
+        {
+          "heading": "Serve the app as a resource",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "Cache UI resources as executable content",
+          "level": 3,
+          "line": 187
+        },
+        {
+          "heading": "Reject wire ambiguity before feature policy",
+          "level": 3,
+          "line": 193
+        },
+        {
+          "heading": "The sandbox is a boundary, not a trust verdict",
+          "level": 3,
+          "line": 206
+        },
+        {
+          "heading": "The Apps bridge has its own lifecycle",
+          "level": 3,
+          "line": 223
+        },
+        {
+          "heading": "Host context, actions, and revocation",
+          "level": 3,
+          "line": 231
+        },
+        {
+          "heading": "Fallback is part of the contract",
+          "level": 3,
+          "line": 244
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 257
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 279
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 285
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 289
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 297
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 313
+        }
+      ],
+      "figures_discovered": [
+        "t3-ui-sandbox"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "15-mcp-security-tool-poisoning",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/assets/mcp-attacks.svg",
+          "bytes": 4581,
+          "sha256": "404706df5c4a94407289758102093025bfdbf61e713ff09b1df7c0426b596ed6",
+          "git_blob_sha": "a5e1786dadcb1ffdc90bf8dd6afe807a6fc04678"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/code/main.py",
+          "bytes": 18579,
+          "sha256": "aa9394a785e0b8b35e9f0fc51fa9d1c2465d58c4d9845484c5ac196f91dad035",
+          "git_blob_sha": "64fa3f5b6c0fadf21c1bea0717679413994443bd"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/code/tests/test_main.py",
+          "bytes": 18010,
+          "sha256": "b223ecbd27301b4e4d9396c6370240081a3e7216d2f47f49c5775d74495c1c33",
+          "git_blob_sha": "370ded2f2bde6941ed748eb7b5bebc2e50754a27"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/docs/en.md",
+          "bytes": 16404,
+          "sha256": "8df9c5d03680ae24853c738c8c3876eb8e95decd5932e8356ac7c3b2915820e6",
+          "git_blob_sha": "51dc7c9ac58635f5d3436e04e97a69f442aef150"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/outputs/skill-mcp-threat-model.md",
+          "bytes": 3816,
+          "sha256": "c6e7c0174adaade28b916f1aa6b9d654878aeb2a242b9266022e5526147f0362",
+          "git_blob_sha": "781431e736d6c42bac571c55a010cfabf83373b7"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/quiz.json",
+          "bytes": 3196,
+          "sha256": "9fcc3d6a3db51eba6d89c240f87aa466196f0adc2ffd69bf17987a1001f61e29",
+          "git_blob_sha": "3612e161d4c73651f418556363778610e49c2a03"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "Seven attack surfaces worth checking",
+          "level": 3,
+          "line": 28
+        },
+        {
+          "heading": "The current request envelope is evidence, not identity",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "Validate routing before policy",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "Pin the whole descriptor",
+          "level": 3,
+          "line": 83
+        },
+        {
+          "heading": "Static scanning is a tripwire",
+          "level": 3,
+          "line": 103
+        },
+        {
+          "heading": "Namespace before merging",
+          "level": 3,
+          "line": 109
+        },
+        {
+          "heading": "Capabilities are compatibility declarations",
+          "level": 3,
+          "line": 120
+        },
+        {
+          "heading": "Protect stateless MRTR confirmation",
+          "level": 3,
+          "line": 132
+        },
+        {
+          "heading": "Rule of two for high-risk calls",
+          "level": 3,
+          "line": 198
+        },
+        {
+          "heading": "Reduce authority before execution",
+          "level": 3,
+          "line": 208
+        },
+        {
+          "heading": "Current and legacy interaction paths",
+          "level": 3,
+          "line": 221
+        },
+        {
+          "heading": "Stateless transport checks",
+          "level": 3,
+          "line": 227
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 240
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 256
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 262
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 266
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 275
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 290
+        }
+      ],
+      "figures_discovered": [
+        "tp-tool-poisoning"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "16-mcp-security-oauth-2-1",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/assets/oauth-step-up.svg",
+          "bytes": 5005,
+          "sha256": "8afc212597a14d1d83e95aef7f7499d86e95ba834f5f1a3ac87913398432e97c",
+          "git_blob_sha": "e573a7555837204dc1f7d18aac6ea989f1737062"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/code/main.py",
+          "bytes": 25199,
+          "sha256": "f0bd98ea1011d461b38ebef4ef99e74826cf98dad40db1e9de084e08e77759ff",
+          "git_blob_sha": "69e2db5b93476d7844f133a92666b251fbd10a01"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/code/tests/test_main.py",
+          "bytes": 16891,
+          "sha256": "7b2c9fa4debf714e7318a5162776643149ac786e22e702312382388e2c084cbc",
+          "git_blob_sha": "6334a8c354dd1cb99cfcbb6ca5003255ce3305e5"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/docs/en.md",
+          "bytes": 16334,
+          "sha256": "74e8633388346ce360cc53b8aca33dcf3be056362c1111c54c367c257a32dde0",
+          "git_blob_sha": "485641fc103743fdb7e9c19e511ee7d468b75f1e"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/outputs/skill-oauth-scope-planner.md",
+          "bytes": 4302,
+          "sha256": "7a0612f8ca37daf3c976ecaf642c6db202b1ae76393f55752619ee825d5ec2aa",
+          "git_blob_sha": "d6de26092be173958afb415e845287cb37bb63b9"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/quiz.json",
+          "bytes": 3169,
+          "sha256": "75b4a7f19783d3e4492b2825d0f5e86dafd70501f8f4cbf344977b8e0b8312a5",
+          "git_blob_sha": "4055607b857092a8e455ea1a5e1e73a757b876a7"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "Know the three roles",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "Authorization applies to HTTP",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "Start with protected-resource metadata",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "Verify authorization server metadata",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "Follow the registration priority",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "Prefer Client ID Metadata Documents",
+          "level": 3,
+          "line": 88
+        },
+        {
+          "heading": "DCR is a compatibility path",
+          "level": 3,
+          "line": 109
+        },
+        {
+          "heading": "Bind credentials to the issuer",
+          "level": 3,
+          "line": 132
+        },
+        {
+          "heading": "Authorization code with PKCE",
+          "level": 3,
+          "line": 145
+        },
+        {
+          "heading": "Validate `iss` exactly",
+          "level": 3,
+          "line": 159
+        },
+        {
+          "heading": "Validate audience at the MCP server",
+          "level": 3,
+          "line": 167
+        },
+        {
+          "heading": "Request the smallest current scope",
+          "level": 3,
+          "line": 178
+        },
+        {
+          "heading": "Authorization and the stateless MCP wire",
+          "level": 3,
+          "line": 192
+        },
+        {
+          "heading": "No token passthrough",
+          "level": 3,
+          "line": 232
+        },
+        {
+          "heading": "Refresh tokens",
+          "level": 3,
+          "line": 236
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 244
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 260
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 270
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 274
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 282
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 297
+        }
+      ],
+      "figures_discovered": [
+        "t3-scope-stepup"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "17-mcp-gateways-and-registries",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/17-mcp-gateways-and-registries/assets/gateway.svg",
+          "bytes": 5698,
+          "sha256": "94aef70a87291cc1f0b5a0a18a5758fdfbde4d893ef1579e8beb519c9849772a",
+          "git_blob_sha": "19fcc02c3ef86cf01ba4d00bbdaf0a3f2ae4e568"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/17-mcp-gateways-and-registries/code/main.py",
+          "bytes": 19003,
+          "sha256": "20d8655d352fe696a788014bb786b24c6abb2324bfc2c1efe79ab80eaa8717af",
+          "git_blob_sha": "0fdd8db04606e473b399d4b495912998dbaedefd"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/17-mcp-gateways-and-registries/code/tests/test_main.py",
+          "bytes": 9633,
+          "sha256": "343048e0ad7c9f4e56c51a3ae442451b75d350ba43992685c555d9820153b7c5",
+          "git_blob_sha": "fd4738890927a55dd403fb47d30cf525970624d1"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/17-mcp-gateways-and-registries/docs/en.md",
+          "bytes": 19270,
+          "sha256": "6c72285350d087babd97ec9907f94137be217337999ed1b4e44f299b4e3b1692",
+          "git_blob_sha": "323cc386dd4880267e86eb2b08c7fc99a9d6ec2f"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/17-mcp-gateways-and-registries/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/17-mcp-gateways-and-registries/outputs/skill-gateway-bootstrap.md",
+          "bytes": 4143,
+          "sha256": "bd0ec64d18ac8f22d1e1fb981fa992863baa9d5399959235cb041398be8ae87f",
+          "git_blob_sha": "a1ebab0cd409fc6b0e4e3c34c14b81460d96c98d"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/17-mcp-gateways-and-registries/quiz.json",
+          "bytes": 3208,
+          "sha256": "e0459cf610535ebdd944a6ea9fabd68427ecde106b1d8a172af21c92afc5dcb3",
+          "git_blob_sha": "6836b40a8bc90491aecf5a5a0ef835e4b594b288"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "The modern gateway path",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Runtime policy is the primary gateway decision",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "One POST endpoint",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "Implement discovery at every layer",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "Per-request client capabilities",
+          "level": 3,
+          "line": 107
+        },
+        {
+          "heading": "Deterministic namespacing",
+          "level": 3,
+          "line": 124
+        },
+        {
+          "heading": "Pin approved descriptors",
+          "level": 3,
+          "line": 141
+        },
+        {
+          "heading": "Registries help discover, not decide",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "Credential mediation",
+          "level": 3,
+          "line": 206
+        },
+        {
+          "heading": "Rate limits without sessions",
+          "level": 3,
+          "line": 219
+        },
+        {
+          "heading": "Audit the decision chain",
+          "level": 3,
+          "line": 225
+        },
+        {
+          "heading": "Request-scoped SSE",
+          "level": 3,
+          "line": 239
+        },
+        {
+          "heading": "Long-lived change notifications",
+          "level": 3,
+          "line": 245
+        },
+        {
+          "heading": "MRTR through a gateway",
+          "level": 3,
+          "line": 287
+        },
+        {
+          "heading": "Tasks extension routing",
+          "level": 3,
+          "line": 293
+        },
+        {
+          "heading": "Compatibility boundary",
+          "level": 3,
+          "line": 305
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 318
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 334
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 345
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 349
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 357
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 371
+        }
+      ],
+      "figures_discovered": [
+        "t3-gateway-funnel"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "18-mcp-auth-production",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/18-mcp-auth-production/assets/auth-flow.svg",
+          "bytes": 7136,
+          "sha256": "76f59a5667ed37f9dd2b3158d46ae9077328bfd035ae7e15024800d12573d17e",
+          "git_blob_sha": "65aaf2042bbf5c6816a92080b1818eb980f505ae"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/18-mcp-auth-production/code/main.py",
+          "bytes": 32397,
+          "sha256": "21a9e5511f0426680c508ae4d126567456746e009be7f3f4b2ca752becbb443b",
+          "git_blob_sha": "5ed25a4e29fbdc0e7a1982d97616ebbaeabb001f"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/18-mcp-auth-production/code/tests/test_main.py",
+          "bytes": 24332,
+          "sha256": "5e3d5e5fc17b362050049ac8c6cb0947e9b9f49ce7146ac7907299cf811ba693",
+          "git_blob_sha": "2d2567cd2488ed0d62f3c1aae0672144564552ea"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/18-mcp-auth-production/docs/en.md",
+          "bytes": 37187,
+          "sha256": "da053b84576ba4daba8561f51966376185fd250bcb8792830a9ca043845d5f4b",
+          "git_blob_sha": "6bddf8d02d1f3153bc8e8eabf27150582d24beb5"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/18-mcp-auth-production/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/18-mcp-auth-production/outputs/skill-mcp-auth.md",
+          "bytes": 7149,
+          "sha256": "7e8785dd824dc3a18805cd9cc8226e3cbfaecc37c464871853d2af8561c872da",
+          "git_blob_sha": "aa41faee37b7746e3469c5b21c53faa95bc95c28"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/18-mcp-auth-production/quiz.json",
+          "bytes": 4057,
+          "sha256": "b9859fe5c4e3646db14eabefce8e2f0e8065b2dd1fa915b3c31a773e6b8ffa1e",
+          "git_blob_sha": "e2c790fa4b0ad80042915d62f2a41b0fcc1d4664"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 23
+        },
+        {
+          "heading": "Scope: Production Enforcement After Lesson 16",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 49
+        },
+        {
+          "heading": "RFC 8414 — OAuth Authorization Server Metadata",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "RFC 9728 (recap) — Protected Resource Metadata",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "Client ID Metadata Documents (the recommended default)",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "RFC 7591: deprecated compatibility enrollment",
+          "level": 3,
+          "line": 132
+        },
+        {
+          "heading": "RFC 8707 (recap) — Resource Indicators",
+          "level": 3,
+          "line": 174
+        },
+        {
+          "heading": "RFC 7636 (recap) — PKCE",
+          "level": 3,
+          "line": 178
+        },
+        {
+          "heading": "MCP 2026-07-28 authorization profile",
+          "level": 3,
+          "line": 182
+        },
+        {
+          "heading": "Deployment capability checklist",
+          "level": 3,
+          "line": 197
+        },
+        {
+          "heading": "JWKS refresh pattern (rotate at the AS, refresh at the resource server)",
+          "level": 3,
+          "line": 213
+        },
+        {
+          "heading": "The validation routine",
+          "level": 3,
+          "line": 240
+        },
+        {
+          "heading": "Opaque tokens use introspection, not guesswork",
+          "level": 3,
+          "line": 252
+        },
+        {
+          "heading": "Revocation is a freshness contract",
+          "level": 3,
+          "line": 260
+        },
+        {
+          "heading": "Dependency failure needs a declared decision",
+          "level": 3,
+          "line": 268
+        },
+        {
+          "heading": "Audience-replay walkthrough (access-token privilege restriction)",
+          "level": 3,
+          "line": 283
+        },
+        {
+          "heading": "Mix-up attacks (a client-side defense the server cannot provide)",
+          "level": 3,
+          "line": 298
+        },
+        {
+          "heading": "Failure modes",
+          "level": 3,
+          "line": 308
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 323
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 351
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 355
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 371
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 390
+        }
+      ],
+      "figures_discovered": [
+        "t3-jwks-rotate"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "19-a2a-protocol",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/assets/a2a.svg",
+          "bytes": 3718,
+          "sha256": "f0823d48c58d156066c73c4f355c5bea6f6dcff22a10eea2e2f7da506e3e5df5",
+          "git_blob_sha": "c32c5854a877c861a5efb2a4c6b108cd520c7db9"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/code/main.py",
+          "bytes": 4762,
+          "sha256": "5623c202fef4cdcf44764607bd0ae067a614834801391be473a3378483ca5942",
+          "git_blob_sha": "4d79c7850f82b20d73ea298e4d0318c78b40b1b4"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/code/main.ts",
+          "bytes": 6120,
+          "sha256": "4f93bbc481d0db3f05cee91db2ccf2547a444b513974a718ff0f5655109df72b",
+          "git_blob_sha": "474aa2cf8fe100638894e62a3f643bf8880255b3"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/docs/en.md",
+          "bytes": 8735,
+          "sha256": "5c54f7443ce3693f8b9f4b7eb9e37daea2d9b74b2ff37e7afed9835df87dfd9c",
+          "git_blob_sha": "2d877744bad9978bfa0aeedb0787e138f3c7b8e5"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/outputs/skill-a2a-agent-spec.md",
+          "bytes": 1692,
+          "sha256": "511dd8e030829a608926d4964af5d79da4329d925d539a0fb0a6ca84cdd65265",
+          "git_blob_sha": "0774c13ed111d02ce93e19872aaed4807e288f22"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "Agent Card",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "Signed Agent Cards (AP2)",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "Task lifecycle",
+          "level": 3,
+          "line": 61
+        },
+        {
+          "heading": "Messages and Parts",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "Artifacts",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "Two transport bindings",
+          "level": 3,
+          "line": 105
+        },
+        {
+          "heading": "Opacity preservation",
+          "level": 3,
+          "line": 112
+        },
+        {
+          "heading": "Timeline",
+          "level": 3,
+          "line": 118
+        },
+        {
+          "heading": "Relationship to MCP",
+          "level": 3,
+          "line": 126
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 143
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 155
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 159
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 171
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 186
+        }
+      ],
+      "figures_discovered": [
+        "a2a-task-lifecycle"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "20-opentelemetry-genai",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/assets/otel-spans.svg",
+          "bytes": 2566,
+          "sha256": "9979e5d2816dc96160bd4553ab8d92c5ddb55981bbc7b357c7c1b7bab93d6cc5",
+          "git_blob_sha": "5218f48fb54d2c1e9403791ba65accc3ead4dc69"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/code/main.py",
+          "bytes": 5636,
+          "sha256": "93ac6540cf23c67eacb07a78eeb4aa102d44acdae3978b41627121a0a984f150",
+          "git_blob_sha": "1497cf3c4e93465eb3f246fb12c42dcc64d6e959"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/docs/en.md",
+          "bytes": 8070,
+          "sha256": "473d0c4210eddf4b2ae01ce38d1b5a997e75fab66b4be17c32b319c666d88dbb",
+          "git_blob_sha": "975100e60daaa26fa6f659167169f9dd60819101"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/outputs/skill-otel-genai-instrumentation.md",
+          "bytes": 1900,
+          "sha256": "42704991654e1e234d32d56a9b1184b92f1e1af5afe49fa75ecbf7abb246c311",
+          "git_blob_sha": "8f0f1d71b9e027ee1c59e7c3dd5184ab31eae658"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Span hierarchy",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "Required attributes",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "Span kinds",
+          "level": 3,
+          "line": 61
+        },
+        {
+          "heading": "Opt-in content capture",
+          "level": 3,
+          "line": 66
+        },
+        {
+          "heading": "Events on spans",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "Exporters",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "Propagation across MCP",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "Metrics",
+          "level": 3,
+          "line": 98
+        },
+        {
+          "heading": "AgentOps layer",
+          "level": 3,
+          "line": 108
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 116
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 127
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 131
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 143
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 158
+        }
+      ],
+      "figures_discovered": [
+        "t3-span-waterfall"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "21-llm-routing-layer",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/assets/routing-gateway.svg",
+          "bytes": 4380,
+          "sha256": "2e3a407edccaa976a9450732e365cc15cf3bb718224ac131e85241bc928603d4",
+          "git_blob_sha": "7dfe2d1c8798b6fdd7ba659a44c967047006eb6b"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/code/main.py",
+          "bytes": 4612,
+          "sha256": "bdea81aa42c4747bb3a142b364bca343e8ebc89334e5cadff4d8b3f751b1e836",
+          "git_blob_sha": "fa807ac32df2341ca36e099db5e238c55c6f96a3"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/docs/en.md",
+          "bytes": 7971,
+          "sha256": "76708436ac5d3bafa1bcf40c7a4a7cc6cdb7e89b9d75bd0694bc5cc81549549a",
+          "git_blob_sha": "9b0be2762587bdd0e454bac181b40198bc20a82f"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/outputs/skill-routing-config-designer.md",
+          "bytes": 1664,
+          "sha256": "77468c2a0b969d7215a62a02447f103555a190f48b3c6836dda65d4bf75ece66",
+          "git_blob_sha": "12d1bfa5d68747a57d701763a50c146415d96866"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "OpenAI-compatible proxy shape",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "Model aliases",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "Fallback chains",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "Semantic caching",
+          "level": 3,
+          "line": 54
+        },
+        {
+          "heading": "Guardrails",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "Per-key rate limits",
+          "level": 3,
+          "line": 68
+        },
+        {
+          "heading": "Self-hosted vs managed trade-offs",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "Cost tracking",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "MCP plus routing",
+          "level": 3,
+          "line": 89
+        },
+        {
+          "heading": "Routing strategies",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 105
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 116
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 120
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 132
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 148
+        }
+      ],
+      "figures_discovered": [
+        "tp-router-failover"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "22-skills-and-agent-sdks",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/assets/skills-stack.svg",
+          "bytes": 2649,
+          "sha256": "c94446f9057528abb214904ea6a29bdfb2157cd050d13c94640f48f75ea73cd1",
+          "git_blob_sha": "84fc107e6b435023f7e31671c52ccff0bd86a19e"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/code/main.py",
+          "bytes": 11385,
+          "sha256": "571791b390ee15dc974e053b89bc5fc1de19b89a0465ea47f1586f5fce53b17f",
+          "git_blob_sha": "3cdbed465d4fca9e9c6ac980f09892a99bc125bf"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/code/tests/test_main.py",
+          "bytes": 8758,
+          "sha256": "2e049c481c8df6f54170033068377d3d52118d726eb57f40a0c9812ddb5ded04",
+          "git_blob_sha": "7dbdc7d8169a56a0378311b7d87de3f7df0c2f2e"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/docs/en.md",
+          "bytes": 22304,
+          "sha256": "adc5ec9cd045c954ade287b53453397cfaf3c1152024d5cf01f896b80f4ff2b6",
+          "git_blob_sha": "dc15dc239734dfcdb947deb52c4fd2cc7e5cbbe3"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/outputs/skill-contract-reviewer/SKILL.md",
+          "bytes": 1798,
+          "sha256": "84345705cb4959f2234d49b35fffbcf15066109e8e90925877f1283129dbbe73",
+          "git_blob_sha": "b2155d134f62a625561b3c2abec352d3ef6ae743"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/outputs/skill-contract-reviewer/assets/task-shapes.json",
+          "bytes": 634,
+          "sha256": "399b199e18a9f92e9ff35e2b40400cc4c65129c0d9d5a07b3a43c25f0d7e6ac7",
+          "git_blob_sha": "869eca15c0a1e6206d819d2164e6020b3228db83"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/outputs/skill-contract-reviewer/references/contract.md",
+          "bytes": 1039,
+          "sha256": "8435abe9bf7845bbe23c67aafb45e0f43c2ddb44681feb224e2b809b3594a7de",
+          "git_blob_sha": "c117ab522ae0ee0ddb35f7ba4e1ade06e0b64ecf"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/outputs/skill-contract-reviewer/references/decision-model.md",
+          "bytes": 1059,
+          "sha256": "9bfc0dc27efd2d249532d774e3a3a92c88fff57dead1f682207093f5ef320804",
+          "git_blob_sha": "fea2d6a06729a30e066378bd31ed86dfb13b2b4d"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/outputs/skill-contract-reviewer/scripts/check_skill.py",
+          "bytes": 7058,
+          "sha256": "16461bea4f33c711ab1135aacf5434f85c9cbd6bd6495514a5d874a0cfc80eeb",
+          "git_blob_sha": "384677baa3ccfb41d0a181768e861332c42107c0"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/22-skills-and-agent-sdks/quiz.json",
+          "bytes": 4193,
+          "sha256": "b95fc551f16c7f88cc9c6345f0c7474d99b8340ac126999afa971138dbd515d7",
+          "git_blob_sha": "cb2de811b6713d8622d070fbdccf45421162a206"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Ten-Minute First Success",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "Preflight for the real-host lab",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "1. Start in an empty working directory",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "2. Install the complete reviewer bundle",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "3. Invoke it explicitly",
+          "level": 3,
+          "line": 113
+        },
+        {
+          "heading": "4. Probe implicit selection",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "5. Clean up",
+          "level": 3,
+          "line": 166
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 179
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 189
+        },
+        {
+          "heading": "Skills encode procedural knowledge",
+          "level": 3,
+          "line": 191
+        },
+        {
+          "heading": "The neighboring abstractions",
+          "level": 3,
+          "line": 201
+        },
+        {
+          "heading": "The word \"skill\" names two different ideas",
+          "level": 3,
+          "line": 216
+        },
+        {
+          "heading": "The portable core",
+          "level": 3,
+          "line": 233
+        },
+        {
+          "heading": "Runtime extensions are a second layer",
+          "level": 3,
+          "line": 269
+        },
+        {
+          "heading": "Frontmatter is executable metadata",
+          "level": 3,
+          "line": 285
+        },
+        {
+          "heading": "The skill lifecycle",
+          "level": 3,
+          "line": 297
+        },
+        {
+          "heading": "Skills and tools are orthogonal",
+          "level": 3,
+          "line": 316
+        },
+        {
+          "heading": "Skills and repository instructions are different scopes",
+          "level": 3,
+          "line": 326
+        },
+        {
+          "heading": "Skills do not import one another",
+          "level": 3,
+          "line": 332
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 346
+        },
+        {
+          "heading": "Validation order matters",
+          "level": 3,
+          "line": 373
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 383
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 398
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 420
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 429
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 440
+        }
+      ],
+      "figures_discovered": [
+        "skill-package-anatomy",
+        "skill-runtime-lifecycle",
+        "skill-tool-orthogonality",
+        "skill-validation-order"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "23-capstone-tool-ecosystem",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/assets/capstone-architecture.svg",
+          "bytes": 4824,
+          "sha256": "561dbaf8820869fecb5eec48d93c611a35515a877e68a45de891e9c931a1e682",
+          "git_blob_sha": "0feb15eead8c17a4d631e82c3f7890a7079e7f65"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/code/main.py",
+          "bytes": 12134,
+          "sha256": "1b6570628ccd12f5f6ebac3af3009529c68d6f93afb1c6ab33d3daa4d5ea3ee9",
+          "git_blob_sha": "52346bf80c2751f9443e16bb4e839c121b6bff31"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/code/tests/test_main.py",
+          "bytes": 7005,
+          "sha256": "ace65926076be1592eb6f3bf94d36439b6e9c45cb0b77d14a6e701791d36b508",
+          "git_blob_sha": "43b7aeb2f9b3d10cab5fdae97db743c6a435a38d"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/docs/en.md",
+          "bytes": 16471,
+          "sha256": "8502c8512390067ef4d8bad0dcafcf1cfe9f3a40d6f24e71b9d54939f13ab4c4",
+          "git_blob_sha": "4598dfae8635d38c4cb99257ffaf0dcc3b37745f"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/outputs/skill-ecosystem-blueprint.md",
+          "bytes": 2207,
+          "sha256": "61efbd2ddd4ff84e8acab8439915efaa348aed9f2043beb4838f4ab0e6c5730b",
+          "git_blob_sha": "138c8678c4fffb5771c9223572ca7691109b1465"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/quiz.json",
+          "bytes": 3633,
+          "sha256": "e38ef3c3520460b2bf9086f33f511a86d45a3e1ee848c7c3420fde79fcad55a8",
+          "git_blob_sha": "ce57a7f2d9dec3085f4ce05b78b8fb214a54a84e"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "Target architecture",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "Target trace",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "Current protocol surfaces",
+          "level": 3,
+          "line": 78
+        },
+        {
+          "heading": "Stateless MCP changes the integration boundary",
+          "level": 3,
+          "line": 95
+        },
+        {
+          "heading": "Security posture",
+          "level": 3,
+          "line": 118
+        },
+        {
+          "heading": "Skills are procedure, not transport",
+          "level": 3,
+          "line": 132
+        },
+        {
+          "heading": "Course artifact metadata is a local adapter",
+          "level": 3,
+          "line": 148
+        },
+        {
+          "heading": "Simulation versus production",
+          "level": 3,
+          "line": 167
+        },
+        {
+          "heading": "Phase 13 map",
+          "level": 3,
+          "line": 183
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 199
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 219
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 234
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 240
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 250
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 261
+        }
+      ],
+      "figures_discovered": [
+        "t3-capstone-chain"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "24-skill-discovery-and-progressive-disclosure",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/24-skill-discovery-and-progressive-disclosure/code/main.py",
+          "bytes": 14324,
+          "sha256": "d74e0a551be532fa34a3d70375fba994c33ac23837408ea4d60107071ded6fea",
+          "git_blob_sha": "3565890aa87aad15aa5aeafa8a910505b626155f"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/24-skill-discovery-and-progressive-disclosure/code/tests/test_main.py",
+          "bytes": 13854,
+          "sha256": "1bdddde9fb5edbe9ec92e5364b9d39ccdbc20731d26660540a74a1186c5700ce",
+          "git_blob_sha": "f3d49d6e90f5167d1157c619f4dc06a81edcfff9"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/24-skill-discovery-and-progressive-disclosure/docs/en.md",
+          "bytes": 14954,
+          "sha256": "5880cb2e0c0d2bc5e83ad8e6e5633e7645db5f67fefd5c78323ff81ef974bc8c",
+          "git_blob_sha": "76c968ac19efa51b9182d18a4db37f23013aaf55"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/24-skill-discovery-and-progressive-disclosure/outputs/skill-catalog-builder/SKILL.md",
+          "bytes": 993,
+          "sha256": "85b778e99d31b44a6a322d34a0d2afbfc9a4102f448a45b8ef2ada18d0396ad2",
+          "git_blob_sha": "b0e685fdb9bcf3c61bde68de8c610ee7c6e46799"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/24-skill-discovery-and-progressive-disclosure/outputs/skill-catalog-builder/assets/scope-policy.json",
+          "bytes": 235,
+          "sha256": "dfdd7a9a96eecb7148f52c1237f889cdaef01607a6fc5b9ad464e06e7ce1c861",
+          "git_blob_sha": "e471db144ac0740ad368b637bfbf4c8aece476bb"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/24-skill-discovery-and-progressive-disclosure/outputs/skill-catalog-builder/references/discovery-contract.md",
+          "bytes": 639,
+          "sha256": "14f19a276f66f304f8024bd92153c57186073be49d536021b8c82c889cc12de3",
+          "git_blob_sha": "859d455179d4a30122bb50f40f0f86e6b423387f"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/24-skill-discovery-and-progressive-disclosure/outputs/skill-catalog-builder/scripts/build_catalog.py",
+          "bytes": 8848,
+          "sha256": "5fe341b3bb3467a17aef82eaa3f319665af0c9888227f98a85b417d7e9425a6a",
+          "git_blob_sha": "d87c5202dd4dfd5ef54fa78891b6372593f594d3"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/24-skill-discovery-and-progressive-disclosure/quiz.json",
+          "bytes": 4274,
+          "sha256": "725aff534f834fd93367a28997d2285d624c61ca6ab9bf20269448f5095ed893",
+          "git_blob_sha": "d00d1a9f0310c3269a19695fbfbf2f26df50f0e1"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Discovery is a compiler pipeline",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "Scope is runtime policy",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "Collisions need identity beyond `name`",
+          "level": 3,
+          "line": 68
+        },
+        {
+          "heading": "Three disclosure levels",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "Level 1: catalog metadata",
+          "level": 4,
+          "line": 101
+        },
+        {
+          "heading": "Level 2: active instructions",
+          "level": 4,
+          "line": 113
+        },
+        {
+          "heading": "Level 3: supporting resources",
+          "level": 4,
+          "line": 129
+        },
+        {
+          "heading": "Branch-specific references beat topic dumps",
+          "level": 3,
+          "line": 141
+        },
+        {
+          "heading": "Choose the path",
+          "level": 2,
+          "line": 146
+        },
+        {
+          "heading": "Catalog budget and active context are different budgets",
+          "level": 3,
+          "line": 162
+        },
+        {
+          "heading": "Resource paths are a trust boundary",
+          "level": 3,
+          "line": 180
+        },
+        {
+          "heading": "Loading must be observable",
+          "level": 3,
+          "line": 197
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 213
+        },
+        {
+          "heading": "Why discovery is shallow",
+          "level": 3,
+          "line": 246
+        },
+        {
+          "heading": "Why the lab does not parse arbitrary YAML",
+          "level": 3,
+          "line": 250
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 254
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 269
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 275
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 284
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 295
+        }
+      ],
+      "figures_discovered": [
+        "skill-discovery-pipeline",
+        "skill-disclosure-levels",
+        "skill-reference-map",
+        "skill-resource-containment"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "25-skill-invocation-and-routing",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/25-skill-invocation-and-routing/code/main.py",
+          "bytes": 12498,
+          "sha256": "690eab3a4f08a3d25362fbdcdd4c1f6bb6a5941524f4371e4438d3fb324fcaa1",
+          "git_blob_sha": "ff0731caa4be041de664e912e20de12fec3b2bd2"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/25-skill-invocation-and-routing/code/tests/test_main.py",
+          "bytes": 13903,
+          "sha256": "ab5eb2acac6836bde5650348b6c6c96e8fd75939b3748851856b08f0e6a8c63f",
+          "git_blob_sha": "8fae3b49c3b3e84958104c929fd152faf08e5689"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/25-skill-invocation-and-routing/docs/en.md",
+          "bytes": 16054,
+          "sha256": "f4fa06f11b9425126ba87828fd851254847552c5b73142d6ca5f0ae8c7e056cc",
+          "git_blob_sha": "9dd0c29c53b012983f71f27c596e317d60912370"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/25-skill-invocation-and-routing/outputs/skill-invocation-router/SKILL.md",
+          "bytes": 1554,
+          "sha256": "7376d66c0da85506c349cae52ea8383896791e39e6499f6a4b1e9ed5dab9313c",
+          "git_blob_sha": "d61406fec9ed214aac23ab7f554e8ad90568b364"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/25-skill-invocation-and-routing/outputs/skill-invocation-router/assets/host-policy.json",
+          "bytes": 406,
+          "sha256": "4bc5420523a540000f1a7d4fb16da3d0821f3e1312868a2759d96216864edbcc",
+          "git_blob_sha": "3ce80fc723e15f196f5ab48a974170b4137237e9"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/25-skill-invocation-and-routing/outputs/skill-invocation-router/references/invocation-model.md",
+          "bytes": 1398,
+          "sha256": "54b22c45aceecd9b4dea0ed5989d02238f052f2f71653259ff1727671d220a86",
+          "git_blob_sha": "813d6512e27e890cb27908a0e0b72c9b9bdd9925"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/25-skill-invocation-and-routing/outputs/skill-invocation-router/scripts/simulate_invocation.py",
+          "bytes": 7033,
+          "sha256": "f82dfb5d422850babfad7b50ba49946c03060a3c18bc18fb13bb97c915f8a037",
+          "git_blob_sha": "018665d00423eea0d47807de4166d579e417432e"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/25-skill-invocation-and-routing/quiz.json",
+          "bytes": 4219,
+          "sha256": "d10a022ab941750c2ac4fd8764135c97f47b35322e9f2d9ccaf6fc073df40b60",
+          "git_blob_sha": "cecd8f1d178931dd9ec2ddf77a59839629a6125c"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "Five channels can start the lifecycle",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "The five invocation stages",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "Human and model invocation form a 2x2 matrix",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "Explicit invocation is identity-first",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "Implicit invocation is description-first",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "Routing is classification with an abstain option",
+          "level": 3,
+          "line": 122
+        },
+        {
+          "heading": "Eligibility must precede ranking",
+          "level": 3,
+          "line": 138
+        },
+        {
+          "heading": "Routing evals need near misses",
+          "level": 3,
+          "line": 153
+        },
+        {
+          "heading": "Arguments have three representations",
+          "level": 3,
+          "line": 175
+        },
+        {
+          "heading": "Application invocation is explicit orchestration",
+          "level": 3,
+          "line": 192
+        },
+        {
+          "heading": "Skill-to-skill invocation is a tool-like edge",
+          "level": 3,
+          "line": 204
+        },
+        {
+          "heading": "Context lifecycle is host-specific",
+          "level": 3,
+          "line": 229
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 241
+        },
+        {
+          "heading": "Why core and extension adapters are separate",
+          "level": 3,
+          "line": 266
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 272
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 295
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 301
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 310
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 322
+        }
+      ],
+      "figures_discovered": [
+        "skill-invocation-stages",
+        "skill-routing-abstention",
+        "skill-argument-boundaries",
+        "skill-host-adapter"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "26-skill-permissions-sandboxes-and-trust",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/code/main.py",
+          "bytes": 11638,
+          "sha256": "5a3a950e99fe8ff94daccb88596577f7bc991b5bffa9694d451c7c342a7ff5f1",
+          "git_blob_sha": "82964fc735bb8bc8a71b7fae159f9d5d0b11eaa7"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/code/sandbox/Containerfile",
+          "bytes": 130,
+          "sha256": "48d575b26405efeed9dd12cf1d214d476447008b9636ddcff4717f1cf7dccda7",
+          "git_blob_sha": "f4b9233316fb8003f1de829211bbb25395412f74"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/code/sandbox/input/message.txt",
+          "bytes": 25,
+          "sha256": "927d652c29b63b0d52ec94c26941a402e034f95debd33c3d9634fb988206f813",
+          "git_blob_sha": "3098819b1c5237a145472976b00644d772d2b2e4"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/code/sandbox/probe.py",
+          "bytes": 1849,
+          "sha256": "47cf67a10bed290fff4ffc894b1d54360db9897c843fb808bb0a1502b12ab5d8",
+          "git_blob_sha": "d564d3f76912bc379073b215ecf21d31fa0d4b1f"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/code/tests/test_main.py",
+          "bytes": 11324,
+          "sha256": "6a96f6fe27a7e20d55313d57daf9d4b3aea72b459cbaca812f6040aa5a8604c0",
+          "git_blob_sha": "04ccc5354f84ed604744212885fdc7739fd21375"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/docs/en.md",
+          "bytes": 20665,
+          "sha256": "6acf4d2930900f2c820ee96d445365a21e5bf62fead6006e6fd1638d2339d4f1",
+          "git_blob_sha": "301fc59453d2f01ded1a86888ce87e97adb11cbd"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/outputs/skill-safety-reviewer/SKILL.md",
+          "bytes": 942,
+          "sha256": "2b7d146b81ff7d3d6ee7c92a02f97abd1362744ff7134966cea4eb3140e119f2",
+          "git_blob_sha": "303fd346c506038efd6cad2ef15ab7da88c67bfa"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/outputs/skill-safety-reviewer/assets/example-request.json",
+          "bytes": 232,
+          "sha256": "3074526c5481ffa49b1e431cfe392a5ac7d5a49d070526a91170d8a1e5be175a",
+          "git_blob_sha": "6f5f391268b5511756e9e6311deb24bbe4a6dc48"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/outputs/skill-safety-reviewer/assets/sandbox-policy.json",
+          "bytes": 277,
+          "sha256": "a4f74f5e0a3f5aea6484acb447c63dc009b0f467d4e5a92e3181000d9cc5f773",
+          "git_blob_sha": "fca677b8069da8fe2ee52b4bdb0395cac46918c6"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/outputs/skill-safety-reviewer/references/threat-model.md",
+          "bytes": 954,
+          "sha256": "22bc8201c74542b8036f13e3e1dfc069acafafe653652a8b4f3b487d55d9d149",
+          "git_blob_sha": "b134ea8e591682c64f35cff02a840a3e11ca139d"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/outputs/skill-safety-reviewer/scripts/review_action.py",
+          "bytes": 10104,
+          "sha256": "336186389d689e75b5059fc80730b745a808cd1a8d65a385852b7b13a27a0713",
+          "git_blob_sha": "2bc3cd378e33e99e219177dff34fafc935c99959"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/quiz.json",
+          "bytes": 4349,
+          "sha256": "bf4d314d1ad022d1a645d3ec06b949f7deda84b84d56c8bd15e98fa662c4e198",
+          "git_blob_sha": "04765ee5f7e7ebfa14e6c7523dd1398cb00ca9a5"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Before You Start",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "Skills are context, not a security boundary",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "Five control layers",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "Threat-model the complete package",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "1. A malicious package",
+          "level": 4,
+          "line": 74
+        },
+        {
+          "heading": "2. A compromised dependency",
+          "level": 4,
+          "line": 78
+        },
+        {
+          "heading": "3. Untrusted task content",
+          "level": 4,
+          "line": 82
+        },
+        {
+          "heading": "4. An ordinary bug",
+          "level": 4,
+          "line": 86
+        },
+        {
+          "heading": "Package trust begins before activation",
+          "level": 3,
+          "line": 96
+        },
+        {
+          "heading": "Content has authority levels",
+          "level": 3,
+          "line": 115
+        },
+        {
+          "heading": "Review actions as structured requests",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "Command policy needs structure",
+          "level": 3,
+          "line": 150
+        },
+        {
+          "heading": "Path policy must resolve reality",
+          "level": 3,
+          "line": 181
+        },
+        {
+          "heading": "Secret handling is capability design",
+          "level": 3,
+          "line": 195
+        },
+        {
+          "heading": "Network is an independent permission",
+          "level": 3,
+          "line": 211
+        },
+        {
+          "heading": "Approval should follow consequence",
+          "level": 3,
+          "line": 226
+        },
+        {
+          "heading": "Choose the isolation boundary",
+          "level": 3,
+          "line": 238
+        },
+        {
+          "heading": "Scripts should be boring",
+          "level": 3,
+          "line": 253
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 270
+        },
+        {
+          "heading": "Run the isolation drill",
+          "level": 3,
+          "line": 300
+        },
+        {
+          "heading": "Why `ask` is not `allow`",
+          "level": 3,
+          "line": 319
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 329
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 348
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 354
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 363
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 375
+        }
+      ],
+      "figures_discovered": [
+        "skill-authority-chain",
+        "skill-trust-surface",
+        "skill-approval-decision"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "27-skill-evals-packaging-and-portability",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/code/main.py",
+          "bytes": 40874,
+          "sha256": "0e4966b1a49655a9383e6cf3537f146f7d5219319fba1045deaf7f77ffa15c18",
+          "git_blob_sha": "51d332da8778017c948f991b5b4a91a77f33c08b"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/code/tests/test_main.py",
+          "bytes": 51056,
+          "sha256": "986cec3d063e5a9569ef6ba09f675efde997bfd378c7dfce58e819ee736cafdc",
+          "git_blob_sha": "aa44f37bf8ec976f68764be3e173d3975e068087"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/docs/en.md",
+          "bytes": 32090,
+          "sha256": "789e3988293fc077fc9ddb8511779f1f7b345a89406ec03589c2b4b8745c3ce3",
+          "git_blob_sha": "438af2fb654b13f63d59a5df3941232553dca2cf"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/outputs/skill-release-gate/SKILL.md",
+          "bytes": 4025,
+          "sha256": "b57d0f111224c29bc589aefedd2d88c825177f22a3dcee21fd6590f68efd4453",
+          "git_blob_sha": "dde1b5d78fa534e72400b29b7a2344e661345437"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/outputs/skill-release-gate/assets/hosts.json",
+          "bytes": 752,
+          "sha256": "2fda2f2813f3cd148f42a4fc5f44d04954021681430901197003265930950323",
+          "git_blob_sha": "c1a834652eb8ae82c4819f9358284778e8f71621"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/outputs/skill-release-gate/assets/manifest.json",
+          "bytes": 782,
+          "sha256": "e3b4a60dbd9ab97e0b42686eac8cf85ed1ef8491add37c91b15b362ffc2e5d5b",
+          "git_blob_sha": "714dc685327f180d66aa6b63460d5d61cacf03a9"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/outputs/skill-release-gate/evals/artifacts.json",
+          "bytes": 316,
+          "sha256": "4be0a182bfcf799decf0589e5e72744caf1a81caf3dbad40fe2ff68d8aad7041",
+          "git_blob_sha": "266c75bcdf9dfb6a8eee5c27254f43a1747abdc3"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/outputs/skill-release-gate/evals/cases.json",
+          "bytes": 866,
+          "sha256": "ab96a4f1af5c96e0adb64a6b3620e407e7e5a1952fb1bfb6599ec83426c22aff",
+          "git_blob_sha": "d02543ad790c1ff605c5c5b26c26efd8a79b6a33"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/outputs/skill-release-gate/evals/evidence.json",
+          "bytes": 606,
+          "sha256": "8466ec1c250699f4652191e7f3298aec40c485dc0e6d88311da7b724194b263a",
+          "git_blob_sha": "f256d1f7a79a760bbb0706df25dc1ce1670dd21c"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/outputs/skill-release-gate/references/eval-contract.md",
+          "bytes": 3737,
+          "sha256": "280d5afab9be15c6e8c5efd57d9e41dc0ee591368af27f735f10fda3d35126a9",
+          "git_blob_sha": "31e14f4ccfc6eb6fa8cd26b1d97346707bf18b3a"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/outputs/skill-release-gate/scripts/evaluate_skill.py",
+          "bytes": 38473,
+          "sha256": "0143d2fc9440e697992980292d86d90142af4ef0572c515cfdcf47de639a906c",
+          "git_blob_sha": "852a608c192d5ce199a08061e90921f08886325e"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/quiz.json",
+          "bytes": 4442,
+          "sha256": "77b91d93170b247af12fe1f08e3ce2028d0c3023b34ae81e3fb4c6dd6c0e4c5a",
+          "git_blob_sha": "de25daa7ab8100c2424bb90bc5542af8931fcd27"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Start from a real workflow, not a topic",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Separate judgment from deterministic work",
+          "level": 3,
+          "line": 64
+        },
+        {
+          "heading": "Author the package in dependency order",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "Six eval layers",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "Layer 1: Package Structure",
+          "level": 2,
+          "line": 99
+        },
+        {
+          "heading": "Layer 2: Trigger Routing",
+          "level": 2,
+          "line": 123
+        },
+        {
+          "heading": "Routing evals must use the target runtime",
+          "level": 3,
+          "line": 150
+        },
+        {
+          "heading": "Layer 3: Instruction and Artifact Behavior",
+          "level": 2,
+          "line": 154
+        },
+        {
+          "heading": "Artifact contracts make behavior executable",
+          "level": 3,
+          "line": 191
+        },
+        {
+          "heading": "Layer 4: Script Correctness",
+          "level": 2,
+          "line": 213
+        },
+        {
+          "heading": "Layer 5: Safety and Authority",
+          "level": 2,
+          "line": 234
+        },
+        {
+          "heading": "Layer 6: Packaging and Portability",
+          "level": 2,
+          "line": 253
+        },
+        {
+          "heading": "Install the directory as one unit",
+          "level": 3,
+          "line": 255
+        },
+        {
+          "heading": "Portability is a capability matrix",
+          "level": 3,
+          "line": 288
+        },
+        {
+          "heading": "Portability tests need host fixtures",
+          "level": 3,
+          "line": 315
+        },
+        {
+          "heading": "Scale data is not quality evidence",
+          "level": 3,
+          "line": 332
+        },
+        {
+          "heading": "Repeated Runs and Uncertainty",
+          "level": 2,
+          "line": 340
+        },
+        {
+          "heading": "Release Gates",
+          "level": 2,
+          "line": 354
+        },
+        {
+          "heading": "Separate fixture success, local integrity, and production readiness",
+          "level": 3,
+          "line": 382
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 402
+        },
+        {
+          "heading": "Read the report by layer",
+          "level": 3,
+          "line": 434
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 440
+        },
+        {
+          "heading": "Real-Host Portability Checkpoint",
+          "level": 2,
+          "line": 450
+        },
+        {
+          "heading": "1. Establish the local fixture boundary",
+          "level": 3,
+          "line": 463
+        },
+        {
+          "heading": "2. Install the complete bundle into the first host",
+          "level": 3,
+          "line": 481
+        },
+        {
+          "heading": "3. Probe discovery, routing, references, and scripts",
+          "level": 3,
+          "line": 502
+        },
+        {
+          "heading": "4. Probe approval behavior",
+          "level": 3,
+          "line": 547
+        },
+        {
+          "heading": "5. Use a second host or declare the fallback",
+          "level": 3,
+          "line": 560
+        },
+        {
+          "heading": "6. Exercise upgrade and uninstall",
+          "level": 3,
+          "line": 578
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 592
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 616
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 627
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 639
+        }
+      ],
+      "figures_discovered": [
+        "skill-workflow-extraction",
+        "skill-eval-layers",
+        "skill-package-install",
+        "skill-authoring-loop"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "28-mcp-tool-contracts-and-content",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/28-mcp-tool-contracts-and-content/code/main.py",
+          "bytes": 31183,
+          "sha256": "c9645b0bd400a392b8028b118358ad0e5d7fb04cb2403ce136bbcc79aa8a2844",
+          "git_blob_sha": "dd56e095e6067932a2e1f1f11088f22f408f18f0"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/28-mcp-tool-contracts-and-content/code/tests/test_main.py",
+          "bytes": 18471,
+          "sha256": "d7e220dd4c54c751b25bbf22a6b0943b5cb6ef0c7709b6b832d08b31ce46e1bf",
+          "git_blob_sha": "88721ec9bc723acf003c2187cf6dfc1392f0a2d6"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/28-mcp-tool-contracts-and-content/docs/en.md",
+          "bytes": 20708,
+          "sha256": "713a0c2c7a28774c61b59756221528c57dbae1361521967d95ac7647a98f7864",
+          "git_blob_sha": "4390a159ac6d337fb8dd45cca917e9c7b096c4d6"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/28-mcp-tool-contracts-and-content/outputs/skill-mcp-contract-reviewer.md",
+          "bytes": 5340,
+          "sha256": "2be6bf7a2390835a813ad91da5d250dc6c2c8dc5be81f45dbe67a1dccb457255",
+          "git_blob_sha": "af2a0850d67633d9b94351e98b231d3de9a84433"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/28-mcp-tool-contracts-and-content/quiz.json",
+          "bytes": 3603,
+          "sha256": "d5711c61dff482fbcda06e0620fe2fb6d889bf70d3b86186e18a975ee4edf59d",
+          "git_blob_sha": "077d5dd11ab58dc9e8be0a6ee22efb56534eb841"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "The Contract Pipeline",
+          "level": 2,
+          "line": 38
+        },
+        {
+          "heading": "JSON Schema Is a Runtime Boundary",
+          "level": 2,
+          "line": 54
+        },
+        {
+          "heading": "Structured content is any JSON value",
+          "level": 3,
+          "line": 75
+        },
+        {
+          "heading": "A small validator still teaches the boundary",
+          "level": 3,
+          "line": 120
+        },
+        {
+          "heading": "Content Blocks Carry Different Costs",
+          "level": 2,
+          "line": 133
+        },
+        {
+          "heading": "`x-mcp-header` Is Routing Metadata",
+          "level": 2,
+          "line": 151
+        },
+        {
+          "heading": "Encode values before building HTTP headers",
+          "level": 3,
+          "line": 191
+        },
+        {
+          "heading": "The server checks the mirrored copy",
+          "level": 3,
+          "line": 212
+        },
+        {
+          "heading": "Pagination Cursors Are Opaque",
+          "level": 2,
+          "line": 231
+        },
+        {
+          "heading": "Completion Is an Authorization Surface",
+          "level": 2,
+          "line": 261
+        },
+        {
+          "heading": "Two Error Layers",
+          "level": 2,
+          "line": 298
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 321
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 349
+        },
+        {
+          "heading": "Interactive Lab",
+          "level": 2,
+          "line": 364
+        },
+        {
+          "heading": "Practice Lab",
+          "level": 2,
+          "line": 386
+        },
+        {
+          "heading": "Shipped Artifact",
+          "level": 2,
+          "line": 404
+        },
+        {
+          "heading": "Verify It",
+          "level": 2,
+          "line": 408
+        },
+        {
+          "heading": "Production Failure Modes",
+          "level": 2,
+          "line": 431
+        },
+        {
+          "heading": "Capstone Connection",
+          "level": 2,
+          "line": 448
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 461
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 474
+        }
+      ],
+      "figures_discovered": [
+        "mcp-contract-pipeline"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "29-mcp-reliability-cancellation-and-flow-control",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/29-mcp-reliability-cancellation-and-flow-control/code/main.py",
+          "bytes": 20045,
+          "sha256": "68144d5c88c3ae1ab2e853d8e31198643542d431a8302c3f0191d54396debcea",
+          "git_blob_sha": "cf8925f7ca126685404ee09916db2cb473ffc18b"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/29-mcp-reliability-cancellation-and-flow-control/code/tests/test_main.py",
+          "bytes": 14651,
+          "sha256": "c065c51e83c812323c65d2f787bd0bb94880d90b6a3950cb51134e61b94d3c6b",
+          "git_blob_sha": "bd39876b7cc13808c5e430a621593e282a7d80eb"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/29-mcp-reliability-cancellation-and-flow-control/docs/en.md",
+          "bytes": 19939,
+          "sha256": "50f4b4cf4a382debc911c7f769cb3699bf0f54f4789bf19b9418635097be25df",
+          "git_blob_sha": "909c843b9ee9c0c5a71bd973c6c8c9dde4d64244"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/29-mcp-reliability-cancellation-and-flow-control/outputs/skill-mcp-reliability-reviewer.md",
+          "bytes": 5163,
+          "sha256": "f8f9c04c050ece580c64279e93394527e6826d2492e14d2e774605ae7574b1b1",
+          "git_blob_sha": "4d6b472040da223c6cbdf2827521ac34dc518be8"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/29-mcp-reliability-cancellation-and-flow-control/quiz.json",
+          "bytes": 3504,
+          "sha256": "f1b02c78e314bcb9caa7e3a9033093bafc172c928c32a6e47ed5dcfb0aed1fe8",
+          "git_blob_sha": "bc306aa54fb48de6480c55ad79c144024e9ce031"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Request Cancellation Is Transport-Specific",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "stdio",
+          "level": 3,
+          "line": 45
+        },
+        {
+          "heading": "Streamable HTTP",
+          "level": 3,
+          "line": 66
+        },
+        {
+          "heading": "Server-sent cancellation is narrow",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "Cancellation Is a Race",
+          "level": 2,
+          "line": 78
+        },
+        {
+          "heading": "Cancellation wins",
+          "level": 3,
+          "line": 82
+        },
+        {
+          "heading": "Completion wins",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "Timeouts Need Two Clocks",
+          "level": 2,
+          "line": 110
+        },
+        {
+          "heading": "Request Cancellation Is Not `tasks/cancel`",
+          "level": 2,
+          "line": 136
+        },
+        {
+          "heading": "A New JSON-RPC ID Is Not Idempotency",
+          "level": 2,
+          "line": 150
+        },
+        {
+          "heading": "The ledger boundary must be atomic and durable",
+          "level": 3,
+          "line": 177
+        },
+        {
+          "heading": "Retry matrix",
+          "level": 3,
+          "line": 207
+        },
+        {
+          "heading": "Backpressure Is Part of Correctness",
+          "level": 2,
+          "line": 219
+        },
+        {
+          "heading": "Proxy buffering",
+          "level": 3,
+          "line": 237
+        },
+        {
+          "heading": "Reconnect Means Refetch",
+          "level": 2,
+          "line": 261
+        },
+        {
+          "heading": "Prevent a reconnect herd",
+          "level": 3,
+          "line": 275
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 291
+        },
+        {
+          "heading": "`RequestCoordinator`",
+          "level": 3,
+          "line": 295
+        },
+        {
+          "heading": "`MutationLedger`",
+          "level": 3,
+          "line": 304
+        },
+        {
+          "heading": "`DurableTaskService`",
+          "level": 3,
+          "line": 314
+        },
+        {
+          "heading": "`BoundedSseBuffer`",
+          "level": 3,
+          "line": 320
+        },
+        {
+          "heading": "Recovery helpers",
+          "level": 3,
+          "line": 326
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 332
+        },
+        {
+          "heading": "Interactive Lab",
+          "level": 2,
+          "line": 347
+        },
+        {
+          "heading": "Practice Lab",
+          "level": 2,
+          "line": 365
+        },
+        {
+          "heading": "Shipped Artifact",
+          "level": 2,
+          "line": 388
+        },
+        {
+          "heading": "Verify It",
+          "level": 2,
+          "line": 392
+        },
+        {
+          "heading": "Production Failure Modes",
+          "level": 2,
+          "line": 410
+        },
+        {
+          "heading": "Capstone Connection",
+          "level": 2,
+          "line": 429
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 446
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 461
+        }
+      ],
+      "figures_discovered": [
+        "mcp-reliability-race"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "30-mcp-registry-supply-chain-and-drift",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/30-mcp-registry-supply-chain-and-drift/code/main.py",
+          "bytes": 22657,
+          "sha256": "e9c29231178868e137019a8c4221110484b858096557a965fd425b37fd86d782",
+          "git_blob_sha": "2b2e0912f67e7ed8b31aea7613d838162da8e70e"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/30-mcp-registry-supply-chain-and-drift/code/tests/test_main.py",
+          "bytes": 17646,
+          "sha256": "87cc692eefeec2d2c9e701523dfc21ce0dde5da8e5334a3c977806c86d1314d8",
+          "git_blob_sha": "22de0d3dd6896524916b6d859109f0b873d2d7b4"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/30-mcp-registry-supply-chain-and-drift/docs/en.md",
+          "bytes": 18284,
+          "sha256": "734698d661d450db141c54509144cf914443f3b335e4b18a14d175bad520d60b",
+          "git_blob_sha": "db2dab0c4ffe7ed2e5552d70582b5767e4260926"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/30-mcp-registry-supply-chain-and-drift/outputs/skill-mcp-registry-admission.md",
+          "bytes": 5465,
+          "sha256": "68e34fc1aed75969d3133e0baaffc058029e6704c2470c5ecb615b66749711d9",
+          "git_blob_sha": "5af9a871c37ffe58aae4a3a6024f91899467b20d"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/30-mcp-registry-supply-chain-and-drift/quiz.json",
+          "bytes": 3763,
+          "sha256": "59d5160820f74d19c21065c9142baec47d392eb7c876cf9579e05a28b765cf45",
+          "git_blob_sha": "96480ee7d04ee482738b3de936e5b1e4917d27d7"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "The Registry Is an Index, Not Your Approval System",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Seven Controls in One Admission Decision",
+          "level": 2,
+          "line": 55
+        },
+        {
+          "heading": "1. Namespace verification",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "2. Provenance join",
+          "level": 3,
+          "line": 71
+        },
+        {
+          "heading": "3. Pin the decision, not only the version",
+          "level": 3,
+          "line": 87
+        },
+        {
+          "heading": "4. Live drift detection",
+          "level": 3,
+          "line": 108
+        },
+        {
+          "heading": "5. Registry status is live state",
+          "level": 3,
+          "line": 123
+        },
+        {
+          "heading": "6. Rollback means route restoration",
+          "level": 3,
+          "line": 135
+        },
+        {
+          "heading": "7. Append an admission ledger",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 157
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 198
+        },
+        {
+          "heading": "Interactive Lab",
+          "level": 2,
+          "line": 215
+        },
+        {
+          "heading": "Lab A: namespace collision",
+          "level": 3,
+          "line": 219
+        },
+        {
+          "heading": "Lab B: descriptor drift",
+          "level": 3,
+          "line": 238
+        },
+        {
+          "heading": "Lab C: status and rollback",
+          "level": 3,
+          "line": 251
+        },
+        {
+          "heading": "Practice Lab",
+          "level": 2,
+          "line": 265
+        },
+        {
+          "heading": "Shipped Artifact",
+          "level": 2,
+          "line": 280
+        },
+        {
+          "heading": "Verify It",
+          "level": 2,
+          "line": 284
+        },
+        {
+          "heading": "Production Failure Modes",
+          "level": 2,
+          "line": 308
+        },
+        {
+          "heading": "Operational Rule",
+          "level": 2,
+          "line": 322
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 326
+        }
+      ],
+      "figures_discovered": [
+        "mcp-registry-admission"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    },
+    {
+      "lesson": "31-mcp-conformance-versioning-and-operations",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/31-mcp-conformance-versioning-and-operations/code/main.py",
+          "bytes": 34939,
+          "sha256": "ed76ed27a5da7fa39ede87ccc09dfc7af8edc697cb8492ca5bbeccb15f0de582",
+          "git_blob_sha": "9622defc2e36e936118da9d0688c64a2821a3275"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/31-mcp-conformance-versioning-and-operations/code/tests/test_main.py",
+          "bytes": 17969,
+          "sha256": "66a026744c427f1225bae737b5722da15ca6bc5a998c505f67a64921602e7e14",
+          "git_blob_sha": "ad428a9a656912778bda3a49735d3fe12098e26c"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/31-mcp-conformance-versioning-and-operations/docs/en.md",
+          "bytes": 25556,
+          "sha256": "fa7b16e90177a54f5ee0adb5c8a0d471a454074dda0ba277dc93b0e6abe28d57",
+          "git_blob_sha": "4683d8d63ac47337c4a8db21847a1fdd9c1f232a"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/31-mcp-conformance-versioning-and-operations/outputs/skill-mcp-conformance-release-gate.md",
+          "bytes": 9106,
+          "sha256": "f9e0f51c68cf590aa8dc8b3c12012ddd5d02c9280767a467d61cc7732b15ec62",
+          "git_blob_sha": "d0b580ee9706035a791d2f1fb5e519004c05b3a8"
+        },
+        {
+          "path": "phases/13-tools-and-protocols/31-mcp-conformance-versioning-and-operations/quiz.json",
+          "bytes": 3534,
+          "sha256": "76dda2ab6e8899aa88a9164358999ba3808dfbbcfa784d4e2a638325cada93b9",
+          "git_blob_sha": "0660fe15819a9cb49bc42ad3c40cac6454e15fbc"
+        }
+      ],
+      "headings": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Start With Version Eras",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "Strict mode",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "Fallback mode",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "Build a Transcript Corpus",
+          "level": 2,
+          "line": 69
+        },
+        {
+          "heading": "Golden transcripts",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "Negative transcripts",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "Header Values Must Match the RPC Body",
+          "level": 2,
+          "line": 142
+        },
+        {
+          "heading": "Unknown Fields Are Not Unknown Results",
+          "level": 2,
+          "line": 160
+        },
+        {
+          "heading": "Additive unknown fields",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "Unknown `resultType`",
+          "level": 3,
+          "line": 170
+        },
+        {
+          "heading": "The Notification Invariant",
+          "level": 2,
+          "line": 180
+        },
+        {
+          "heading": "Add an SDK Differential",
+          "level": 2,
+          "line": 188
+        },
+        {
+          "heading": "Capture Proxy Evidence",
+          "level": 2,
+          "line": 205
+        },
+        {
+          "heading": "Redact Before Evidence Leaves Memory",
+          "level": 2,
+          "line": 222
+        },
+        {
+          "heading": "Make Health and Rollback Part of the Gate",
+          "level": 2,
+          "line": 230
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 261
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 300
+        },
+        {
+          "heading": "Interactive Lab",
+          "level": 2,
+          "line": 313
+        },
+        {
+          "heading": "Lab A: prove the era boundary",
+          "level": 3,
+          "line": 315
+        },
+        {
+          "heading": "Lab B: additive field versus discriminator",
+          "level": 3,
+          "line": 347
+        },
+        {
+          "heading": "Lab C: inspect an SDK transformation",
+          "level": 3,
+          "line": 356
+        },
+        {
+          "heading": "Lab D: repair the proxy",
+          "level": 3,
+          "line": 367
+        },
+        {
+          "heading": "Practice Lab",
+          "level": 2,
+          "line": 371
+        },
+        {
+          "heading": "Shipped Artifact",
+          "level": 2,
+          "line": 387
+        },
+        {
+          "heading": "Verify It",
+          "level": 2,
+          "line": 391
+        },
+        {
+          "heading": "Production Failure Modes",
+          "level": 2,
+          "line": 421
+        },
+        {
+          "heading": "Operational Rule",
+          "level": 2,
+          "line": 438
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 442
+        }
+      ],
+      "figures_discovered": [
+        "mcp-conformance-operations"
+      ],
+      "status": "机械发现；未完整阅读/融合/验收"
+    }
+  ],
+  "计数说明": "仅机械发现31课/189非空/23空/653原正文H2至H4；不是阅读、知识融合或验收。当前各分组正在完整读取与官方范围核验。"
+}
