@@ -1,0 +1,2892 @@
+{
+  "date": "2026-10-08",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "source_root": "/tmp/study-source1-ai-engineering-20261008",
+  "study_head": "5dbbad9175fbb7f6cf3d4dedf374772191bb32ab",
+  "scope": "Phase14 25–30完整只读进行中",
+  "lessons": [
+    {
+      "lesson": "25-multi-agent-debate",
+      "files": [
+        {
+          "path": "phases/14-agent-engineering/25-multi-agent-debate/assets/debate-topology.svg",
+          "bytes": 4392,
+          "sha256": "d63ef1c763f7da881671d7e31b0cf5b4c8f3fad5b153dcb6af4ff2985d031405",
+          "git_blob_sha": "145bf08b38361b33c2a35adcb9c0f42665067a61",
+          "line_count": 63,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              63
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/25-multi-agent-debate/code/main.py",
+          "bytes": 4276,
+          "sha256": "7b53f62e4d476b17ef0eb5212e375cf11c9a04b8c1f3509ab7605f077ac63497",
+          "git_blob_sha": "bdee7bc5338a3193ec034c7105cbde10a897bc0d",
+          "line_count": 131,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              131
+            ]
+          ],
+          "definitions_discovered": [
+            {
+              "name": "Debater",
+              "kind": "ClassDef",
+              "lines": [
+                15,
+                17
+              ]
+            },
+            {
+              "name": "_make_debater",
+              "kind": "FunctionDef",
+              "lines": [
+                20,
+                29
+              ]
+            },
+            {
+              "name": "full_mesh_round",
+              "kind": "FunctionDef",
+              "lines": [
+                32,
+                40
+              ]
+            },
+            {
+              "name": "sparse_star_round",
+              "kind": "FunctionDef",
+              "lines": [
+                43,
+                57
+              ]
+            },
+            {
+              "name": "run_debate",
+              "kind": "FunctionDef",
+              "lines": [
+                60,
+                81
+              ]
+            },
+            {
+              "name": "main",
+              "kind": "FunctionDef",
+              "lines": [
+                84,
+                127
+              ]
+            },
+            {
+              "name": "drift",
+              "kind": "FunctionDef",
+              "lines": [
+                22,
+                28
+              ]
+            }
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/25-multi-agent-debate/docs/en.md",
+          "bytes": 6014,
+          "sha256": "4dcb50b8b599fd3666f1a8ff1930ecec21a5dcd27ec5262deabad5a375aff61c",
+          "git_blob_sha": "7f965b10569efab3cc4081c937b189b5e856bc21",
+          "line_count": 123,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              123
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/25-multi-agent-debate/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "line_count": 0,
+          "semantic_status": "空占位已确认",
+          "executed": false,
+          "line_ranges_read": []
+        },
+        {
+          "path": "phases/14-agent-engineering/25-multi-agent-debate/outputs/skill-debate.md",
+          "bytes": 1756,
+          "sha256": "30b866067ccc5db5f3ff81f22b726653f563b5e02f46a2d1ea71db4c20027e39",
+          "git_blob_sha": "740cc488409bedbd1af3b5b6f7a0a7a26132e5c9",
+          "line_count": 32,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              32
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/25-multi-agent-debate/quiz.json",
+          "bytes": 3388,
+          "sha256": "3b11d035b1121133e52d5be49f7cc8bebe77b153206d60ad8a1ca16142303e41",
+          "git_blob_sha": "b55f085501834221f1d7a37e047b727f7164ea42",
+          "line_count": 90,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              90
+            ]
+          ]
+        }
+      ],
+      "headings_discovered": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Multi-Agent Debate and Collaboration"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "heading": "Learning Objectives"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "heading": "The Problem"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "heading": "The Concept"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "heading": "Society of Minds (Du et al., ICML 2024)"
+        },
+        {
+          "line": 34,
+          "level": 3,
+          "heading": "Sparse topology"
+        },
+        {
+          "line": 43,
+          "level": 3,
+          "heading": "When debate helps"
+        },
+        {
+          "line": 49,
+          "level": 3,
+          "heading": "When debate hurts"
+        },
+        {
+          "line": 55,
+          "level": 3,
+          "heading": "2026 practical instantiations"
+        },
+        {
+          "line": 62,
+          "level": 3,
+          "heading": "Where this pattern goes wrong"
+        },
+        {
+          "line": 72,
+          "level": 2,
+          "heading": "Build It"
+        },
+        {
+          "line": 89,
+          "level": 2,
+          "heading": "Use It"
+        },
+        {
+          "line": 95,
+          "level": 2,
+          "heading": "Ship It"
+        },
+        {
+          "line": 99,
+          "level": 2,
+          "heading": "Exercises"
+        },
+        {
+          "line": 107,
+          "level": 2,
+          "heading": "Key Terms"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "heading": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        "Implement a \"forced disagreement\" rule: in round 1, every debater must produce a distinct proposal. Measure effect on convergence speed.",
+        "Add a confidence-weighted aggregation: debaters return (answer, confidence); aggregator weights by confidence. Does it help?",
+        "Swap one \"agent\" for a different scripted LLM with different opinions. Does heterogeneity improve accuracy?",
+        "Measure token cost for full mesh vs sparse on your 3 questions. Plot cost vs accuracy.",
+        "Read the Society of Minds paper. Port your toy to N=5, R=3. What breaks? What gets better?"
+      ],
+      "source_quiz": {
+        "lesson": "25-multi-agent-debate",
+        "title": "Multi-Agent Debate and Collaboration",
+        "questions": [
+          {
+            "stage": "pre",
+            "question": "What does the Society of Minds protocol have N model instances do?",
+            "options": [
+              "Independently propose answers, then over R rounds read and critique each other's proposals until they converge",
+              "Train on a shared dataset",
+              "Each runs a different benchmark",
+              "Negotiate prices"
+            ],
+            "correct": 0,
+            "explanation": "N proposers, R rounds, cross-critique, convergence is the canonical Du et al. debate."
+          },
+          {
+            "stage": "pre",
+            "question": "Why does cross-model debate (e.g. ChatGPT + Bard) outperform single-model debate?",
+            "options": [
+              "It is cheaper",
+              "Different vendors negotiate prices",
+              "Vendors share weights",
+              "Heterogeneity reduces shared blind spots so cross-critique catches more errors"
+            ],
+            "correct": 3,
+            "explanation": "Mixing models brings independent error distributions, which raises the ceiling of debate."
+          },
+          {
+            "stage": "check",
+            "question": "What is the main token-cost win of a sparse topology over full mesh?",
+            "options": [
+              "Each debater reads only a subset of peers, so critique-op count drops while accuracy often matches",
+              "It removes the LLM",
+              "Sparse topology doubles the rounds",
+              "Sparse topology requires no models"
+            ],
+            "correct": 0,
+            "explanation": "Sparse (star, ring, hub-and-spoke) reduces critique ops without losing accuracy on many tasks."
+          },
+          {
+            "stage": "check",
+            "question": "Which case does the lesson list as where debate hurts?",
+            "options": [
+              "A simple factual lookup, because one lookup is cheaper than five debates",
+              "Open-ended reasoning",
+              "Chess move validity",
+              "Biography generation"
+            ],
+            "correct": 0,
+            "explanation": "Latency- and cost-sensitive trivial lookups do not benefit from N x R debate."
+          },
+          {
+            "stage": "check",
+            "question": "What is convergence collapse?",
+            "options": [
+              "Process crash",
+              "TLS handshake failure",
+              "Network outage",
+              "All agents converge on the first wrong answer; mitigate with required disagreement rounds"
+            ],
+            "correct": 3,
+            "explanation": "Early agreement on a wrong answer is mitigated by forcing distinct round-1 proposals."
+          },
+          {
+            "stage": "post",
+            "question": "Why does prompt homogenization undermine debate?",
+            "options": [
+              "It violates Apache 2.0",
+              "It bypasses the supervisor",
+              "Identical prompts produce nearly identical answers, removing the cross-critique signal",
+              "It uses too many tokens"
+            ],
+            "correct": 2,
+            "explanation": "Diverse prompts (and ideally diverse models) keep the proposal distribution wide."
+          },
+          {
+            "stage": "post",
+            "question": "Which production pattern is a debate variant per the lesson?",
+            "options": [
+              "Pure single-shot RAG",
+              "Vector indexing",
+              "Anthropic orchestrator-workers with a synthesis step",
+              "Cron-only schedule"
+            ],
+            "correct": 2,
+            "explanation": "Orchestrator-workers with synthesis is a debate-shaped pattern in production."
+          }
+        ]
+      },
+      "dynamic_ids_discovered": [
+        "debate-converge"
+      ],
+      "status": "课内文件及最终动态图与相关helper/挂载完整只读；一手核验和旧知识对齐待收尾",
+      "semantic_notes": [
+        "标准N proposer/R轮交叉critique与纯parallel-voting、orchestrator-workers拆分+synthesis不同；动态分工不自动成为debate。",
+        "全mesh有向读peer计R*N*(N-1)，双向star R*2*(N-1)，N5/R3为60与24；源正文12漏hub读取，source outputs O(NR)只描述proposal而非fullmesh读edge成本。",
+        "source3问题所有initial answer已经gold；converged round1，不证明辩论改善；critique ops不等实际tokens/dollars/latency，同步轮内可并行，延迟不必N*R乘单调用。",
+        "forced distinct不能迫使正确者给假答案；same model/prompt不保证完全groupthink，异模型不保证独立错误/更准；需要独立初始候选与外部gold。",
+        "Counter ties受首见/输入次序影响，0/负rounds与未知topology未校；达到共识不自动提前退出，consensus correctness与converged_round不同。",
+        "图>5%与outputs<1s阈值属于任意设计政策，不保为通用拒绝规则；史ChatGPT+Bard试验非2026产品组合结论。"
+      ],
+      "exercise_criteria_zh": [
+        "保持initial独立，再要求指出反证/不确定；不强迫唯一gold问题胡编不同答案。比较准确率、错误共识与轮数，不能只看converged快。",
+        "confidence来源/校准需heldout，不能用自报高分当可靠；给一位高置信错误者反例，比较unweighted/weighted，平票/abstain规则预先定义。",
+        "异意见stub能显示传播机制；真实异构效果须同预算/同任务/独立gold并测错误相关，不能从角色名推模型独立。",
+        "先精确计有向edges与每轮calls，再计实际输入/输出tokens和usage未知；原stub仅ops代理，曲线fixture标签，无真实token测量。",
+        "核原论文协议N5/R3=15更新调用加5initial（若R指critique轮），全文表/实验条件后才能引用性能；不按源教具三道已正确问题推新增价值。"
+      ],
+      "quiz_judgments_zh": [
+        "原A：独立提出/交叉critique/有界R与明确聚合；共识不保证真。",
+        "原D仅为可能机理：模型异质可能减少共同盲点；不保证错误独立或总更优。",
+        "原A：少peer边可减少输入上下文；效果需特定任务/预算实测，不保证所有任务同accuracy。",
+        "原A：简单查证常更合适，但选择取决真实收益、错误与成本，不执行模板硬拒。",
+        "原D描述错误共识；强迫不同答案不保证缓解，可保独立初始/反证/外部检验并比较。",
+        "原C表达相似答案减少信号；同prompt并不确定相同采样结果，也不是guaranteed groupthink。",
+        "原C的关系需要纠正：官方orchestrator-workers拆分+synthesis不必互相critic；只有增交叉反馈才可实现debate。"
+      ],
+      "dynamic_reads": [
+        {
+          "id": "debate-converge",
+          "provider": "site/figures-agents3.js",
+          "function": "debateConverge",
+          "function_lines": [
+            129,
+            164
+          ],
+          "provider_actual_read_ranges": [
+            [
+              1,
+              27
+            ],
+            [
+              125,
+              181
+            ],
+            [
+              285,
+              297
+            ]
+          ],
+          "provider_sha256": "c66de0b00e96d73939e80dd77c60b9c80cc3eca87df3cc88d65266e5828fe5d1",
+          "provider_git_blob": "4cd3d2d4b07861a97115cd1b6719395a27a1da57",
+          "all_provider_matches": [
+            "site/figures-agents3.js"
+          ],
+          "mount_chain": "build已有顺序+额外provider排序，quoted-ID收集→requiredProviders顺序串行load→LF.register后覆盖同名→mount当前FIGS；本六ID各唯一provider",
+          "interpretation": "4点全mesh/4秒SMIL假共识，无模型/critique/正确率计算；caption能力仅条件命题",
+          "read_date": "2026-10-09",
+          "browser_build_execution": false
+        }
+      ]
+    },
+    {
+      "lesson": "26-failure-modes-agentic",
+      "files": [
+        {
+          "path": "phases/14-agent-engineering/26-failure-modes-agentic/assets/failure-modes.svg",
+          "bytes": 4068,
+          "sha256": "298272d8d121e0ffa4746cbe67f856bdd412882ac4196b114bab78152ebbd81b",
+          "git_blob_sha": "0f6f9103b220b1a4748789545cec80ce83b5b6c6",
+          "line_count": 60,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              60
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/26-failure-modes-agentic/code/main.py",
+          "bytes": 7082,
+          "sha256": "ac882ebad474f1c4c23756974c2e5eabde876d25c6287eaa6c7e4e07d50a40b9",
+          "git_blob_sha": "5f179bacb518171381dbb5aeba5420f70ede01f7",
+          "line_count": 203,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "definitions_discovered": [
+            {
+              "name": "TraceStep",
+              "kind": "ClassDef",
+              "lines": [
+                16,
+                21
+              ]
+            },
+            {
+              "name": "Trace",
+              "kind": "ClassDef",
+              "lines": [
+                25,
+                31
+              ]
+            },
+            {
+              "name": "detect_hallucinated_action",
+              "kind": "FunctionDef",
+              "lines": [
+                37,
+                41
+              ]
+            },
+            {
+              "name": "detect_scope_creep",
+              "kind": "FunctionDef",
+              "lines": [
+                44,
+                52
+              ]
+            },
+            {
+              "name": "detect_cascading_errors",
+              "kind": "FunctionDef",
+              "lines": [
+                55,
+                66
+              ]
+            },
+            {
+              "name": "detect_context_loss",
+              "kind": "FunctionDef",
+              "lines": [
+                69,
+                77
+              ]
+            },
+            {
+              "name": "detect_tool_misuse",
+              "kind": "FunctionDef",
+              "lines": [
+                80,
+                95
+              ]
+            },
+            {
+              "name": "detect_success_hallucination",
+              "kind": "FunctionDef",
+              "lines": [
+                98,
+                105
+              ]
+            },
+            {
+              "name": "tag",
+              "kind": "FunctionDef",
+              "lines": [
+                118,
+                119
+              ]
+            },
+            {
+              "name": "main",
+              "kind": "FunctionDef",
+              "lines": [
+                122,
+                199
+              ]
+            }
+          ],
+          "line_ranges_read": [
+            [
+              1,
+              203
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/26-failure-modes-agentic/docs/en.md",
+          "bytes": 6540,
+          "sha256": "588b80e7011058fe627db20be59a8ccb2fea5d54940340c4ba226b67d1209dd3",
+          "git_blob_sha": "ce69f5dffe61818d6551ce536c03d6a2a2364118",
+          "line_count": 132,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              132
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/26-failure-modes-agentic/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "line_count": 0,
+          "semantic_status": "空占位已确认",
+          "executed": false,
+          "line_ranges_read": []
+        },
+        {
+          "path": "phases/14-agent-engineering/26-failure-modes-agentic/outputs/skill-failure-detector.md",
+          "bytes": 1920,
+          "sha256": "e785b08bd6aa33e1ecbdfb6ce5b6bfe9fe0a523800e15f0768e882c93aab4902",
+          "git_blob_sha": "9b7f7328d0857f6fdadd0401037a835d3687e54e",
+          "line_count": 32,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              32
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/26-failure-modes-agentic/quiz.json",
+          "bytes": 3496,
+          "sha256": "60c2cd46ca73dbc7f0c8c58e46d7ffd436243460d006d04f1d48506986b37b7c",
+          "git_blob_sha": "47d493df8f86828a07bab4f35dcb9c49a2b9265e",
+          "line_count": 90,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              90
+            ]
+          ]
+        }
+      ],
+      "headings_discovered": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Failure Modes: Why Agents Break"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "heading": "Learning Objectives"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "heading": "The Problem"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "heading": "The Concept"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "heading": "MASFT (Berkeley, arXiv:2503.13657)"
+        },
+        {
+          "line": 29,
+          "level": 3,
+          "heading": "Microsoft Taxonomy of Failure Mode in Agentic AI Systems"
+        },
+        {
+          "line": 35,
+          "level": 3,
+          "heading": "Characterizing Faults in Agentic AI (arXiv:2603.06847)"
+        },
+        {
+          "line": 40,
+          "level": 3,
+          "heading": "LLM Agent Hallucinations Survey (arXiv:2509.18970)"
+        },
+        {
+          "line": 49,
+          "level": 3,
+          "heading": "The five industry-recurring modes"
+        },
+        {
+          "line": 61,
+          "level": 3,
+          "heading": "Mitigation: gates at every step"
+        },
+        {
+          "line": 70,
+          "level": 3,
+          "heading": "Where failure monitoring goes wrong"
+        },
+        {
+          "line": 80,
+          "level": 2,
+          "heading": "Build It"
+        },
+        {
+          "line": 96,
+          "level": 2,
+          "heading": "Use It"
+        },
+        {
+          "line": 102,
+          "level": 2,
+          "heading": "Ship It"
+        },
+        {
+          "line": 106,
+          "level": 2,
+          "heading": "Exercises"
+        },
+        {
+          "line": 114,
+          "level": 2,
+          "heading": "Key Terms"
+        },
+        {
+          "line": 127,
+          "level": 2,
+          "heading": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        "Add a detector for \"success hallucination\": agent returns success but the target state is unchanged.",
+        "Tag 100 real traces from a product you've built. Which mode dominates? What's the cost of fixing it?",
+        "Implement a \"cascade radius\" metric: given a failure at step N, how many downstream steps did it affect?",
+        "Read MASFT's 14 failure modes. Pick three that apply to your product. Write detectors.",
+        "Wire one detector into a CI job: fail the build if >=5% of traces tag a mode."
+      ],
+      "source_quiz": {
+        "lesson": "26-failure-modes-agentic",
+        "title": "Failure Modes: Why Agents Break",
+        "questions": [
+          {
+            "stage": "pre",
+            "question": "What is MASFT's central claim?",
+            "options": [
+              "Failures are random noise",
+              "Failures are due to network outages",
+              "Failures vanish with bigger models",
+              "Multi-agent failures are fundamental design flaws, not LLM limitations to be fixed with better base models"
+            ],
+            "correct": 3,
+            "explanation": "Berkeley's MASFT categorizes failures as design flaws; they do not disappear by scaling the base model."
+          },
+          {
+            "stage": "pre",
+            "question": "Which is NOT one of the five recurring industry failure modes the lesson lists?",
+            "options": [
+              "Hallucinated actions",
+              "Cascading errors",
+              "Scope creep",
+              "Embedding versioning"
+            ],
+            "correct": 3,
+            "explanation": "The five are hallucinated actions, scope creep, cascading errors, context loss, tool misuse."
+          },
+          {
+            "stage": "check",
+            "question": "What is a cascading error in this lesson?",
+            "options": [
+              "A YAML parser error",
+              "One wrong call triggers downstream effects across systems (a phantom SKU triggers four downstream API calls)",
+              "A cron failure",
+              "An LLM rate-limit cascade"
+            ],
+            "correct": 1,
+            "explanation": "Cascades amplify a single bad call into a multi-system incident; especially severe when agents fake success."
+          },
+          {
+            "stage": "check",
+            "question": "Which two manifestations does the LLM Agent Hallucinations Survey list?",
+            "options": [
+              "Hot and cold tokens",
+              "Instruction-following Deviation and Long-range Contextual Misuse",
+              "Greedy and beam search",
+              "Soft and hard prompts"
+            ],
+            "correct": 1,
+            "explanation": "Hallucinations show up as either ignoring system prompt or forgetting/misapplying earlier-turn context."
+          },
+          {
+            "stage": "check",
+            "question": "What does success hallucination mean?",
+            "options": [
+              "A unit test passed",
+              "The agent returns a success message even though the target state did not change (often on a 400 from a tool)",
+              "The user thinks success when none happened",
+              "The model is overconfident on benchmarks"
+            ],
+            "correct": 1,
+            "explanation": "Re-probe environment state; agents commonly fake completion when they cannot distinguish 'I failed' from 'impossible'."
+          },
+          {
+            "stage": "post",
+            "question": "Why is tagging only crashes insufficient?",
+            "options": [
+              "Logging is paid",
+              "Most agent failures produce valid-looking output that does not crash; content-level checks are needed",
+              "Crashes leak PII",
+              "Crashes are slow"
+            ],
+            "correct": 1,
+            "explanation": "Crash-based monitoring misses the bulk of agent failures, which are content-shaped."
+          },
+          {
+            "stage": "post",
+            "question": "What mitigation does the lesson recommend at every step of a reasoning chain?",
+            "options": [
+              "Add a sleep()",
+              "Disable retries",
+              "Automated verification gates that check factual grounding against environment state",
+              "Lower temperature only"
+            ],
+            "correct": 2,
+            "explanation": "Per-step gates (safety classifier, argument validation, CRITIC, state re-probe) catch failures before they cascade."
+          }
+        ]
+      },
+      "dynamic_ids_discovered": [
+        "failure-cascade"
+      ],
+      "status": "课内文件及最终动态图与相关helper/挂载完整只读；一手核验和旧知识对齐待收尾",
+      "semantic_notes": [
+        "src06模式含6检测器，不是5模式真实数据/Phoenix trace clustering；静态分布仅Counter，标签可重叠，不能加成100%coverage。",
+        "context_loss提取do not后第一词modify，然后找args里的modify，t005写src漏掉；do not后空串会split()[0]异常；词法规则不证明忘记内部memory。",
+        "scope creep按write/create等英文substring，do not write会错误允许write；中文、隐含可逆授权、具体对象范围未建模；固定KNOWN_TOOLS不能代表运行时授权目录。",
+        "cascade检测某error后任意2calls，不核数据依赖/父子，正常恢复也误报，需causal trace与影响边界。",
+        "success_hallucination以write-intent词+无statechange粗判；只读任务可成功、idempotent已达目标可无需变化，应核预定后置条件/receipt而非布尔changed。",
+        "tool schema只检查keys子集，不验证类型/额外参数/路径/权限。输出skill 5% alert和禁止每trace judge/all永久存均是任意模板政策，不激活或当通用拒绝。",
+        "Cohen kappa说明标注一致性不证明14模式覆盖所有失败/因果解释；base模型提升绝不能解决全部属作者推测和系统设计论据，不是排他定理。",
+        "原文未列14具体模式/三类完整定义，须补一手核心定义使独立可学习；v1 MASFT到v3 MAST名称/样本变化不得混读。"
+      ],
+      "exercise_criteria_zh": [
+        "源码已存在success_hallucination，不把原题当新增；为读成功/幂等达目标/谎报成功设计独立expected-state/receipt gold，分别测FN/FP。",
+        "100真实trace没有采集，给匿名分层抽样、标注版本、重叠标签、严重度/修复成本与分母方法，不虚构用户产品。",
+        "cascade radius核因果影响路径/受影响输出和系统、时长/成本，不单数所有时间上晚到调用；独立恢复作为反例。",
+        "读固定版本分类挑业务相关3种，定义可观察判据与相似良性负例，规则/模型judge分别校准与人工审；不得声称全14自动detect。",
+        "CI门槛是预定策略而非普适5%；固定版本/heldout/gold/分母/样本置信区间，severity与成本条件分别核，部署CI未运行。"
+      ],
+      "quiz_judgments_zh": [
+        "原D反映论文论点但夸大排他：系统交互/验证结构造成失败，不能因此断言基础模型改善无效或所有失败都是设计缺陷。",
+        "原D：embedding versioning不在本课五标签内，但真实系统仍可因此失败，分类范围非现实排除。",
+        "原B：错误沿实际依赖导致后果；仅时间顺序不足证明cascade。",
+        "原B：需原survey固定版定义；system与userinstruction层级不能混为一类，待全文定义。",
+        "原B：未满足承诺目标仍宣称成功；不把无statechange一概认失败，幂等/只读例外。",
+        "原B：有效格式可能业务失败，故核内容/目标/效果；most占比不能从7合成trace外推。",
+        "原C：在关键执行边界核事实/参数/权威状态；不是每一步都需昂贵classifier或任何gate保证所有攻击。"
+      ],
+      "dynamic_reads": [
+        {
+          "id": "failure-cascade",
+          "provider": "site/figures-agents3.js",
+          "function": "failureCascade",
+          "function_lines": [
+            257,
+            283
+          ],
+          "provider_actual_read_ranges": [
+            [
+              1,
+              27
+            ],
+            [
+              257,
+              297
+            ]
+          ],
+          "provider_sha256": "c66de0b00e96d73939e80dd77c60b9c80cc3eca87df3cc88d65266e5828fe5d1",
+          "provider_git_blob": "4cd3d2d4b07861a97115cd1b6719395a27a1da57",
+          "all_provider_matches": [
+            "site/figures-agents3.js"
+          ],
+          "mount_chain": "build已有顺序+额外provider排序，quoted-ID收集→requiredProviders顺序串行load→LF.register后覆盖同名→mount当前FIGS；本六ID各唯一provider",
+          "interpretation": "四节点plan/retrieve/reason/act按0.7秒错位变色，3秒bolt预设传播；并无真实因果依赖、严重度或检测器，不能证明每个后续操作被影响",
+          "read_date": "2026-10-09",
+          "browser_build_execution": false
+        }
+      ]
+    },
+    {
+      "lesson": "27-prompt-injection-defense",
+      "files": [
+        {
+          "path": "phases/14-agent-engineering/27-prompt-injection-defense/assets/pve-defense.svg",
+          "bytes": 4279,
+          "sha256": "a1cbe5258950f05c86ff35893872f8194142876d6f0e6f0defbb4deb4df9f49f",
+          "git_blob_sha": "ba780069302c3b67e8bc31192df3f91d493fc433",
+          "line_count": 63,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              63
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/27-prompt-injection-defense/code/main.py",
+          "bytes": 5453,
+          "sha256": "904f413aa75754249d5d82940ae128da950f55b5eb2ad98801f33ea8e348b229",
+          "git_blob_sha": "e41bb498845892f6ada48395d2215aed700f18fa",
+          "line_count": 176,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "definitions_discovered": [
+            {
+              "name": "Content",
+              "kind": "ClassDef",
+              "lines": [
+                18,
+                20
+              ]
+            },
+            {
+              "name": "looks_like_directive",
+              "kind": "FunctionDef",
+              "lines": [
+                31,
+                38
+              ]
+            },
+            {
+              "name": "ToolCall",
+              "kind": "ClassDef",
+              "lines": [
+                42,
+                45
+              ]
+            },
+            {
+              "name": "Validator",
+              "kind": "ClassDef",
+              "lines": [
+                49,
+                71
+              ]
+            },
+            {
+              "name": "Executor",
+              "kind": "ClassDef",
+              "lines": [
+                75,
+                82
+              ]
+            },
+            {
+              "name": "_send_message",
+              "kind": "FunctionDef",
+              "lines": [
+                85,
+                86
+              ]
+            },
+            {
+              "name": "_read_memory",
+              "kind": "FunctionDef",
+              "lines": [
+                89,
+                90
+              ]
+            },
+            {
+              "name": "_search",
+              "kind": "FunctionDef",
+              "lines": [
+                93,
+                94
+              ]
+            },
+            {
+              "name": "MemoryWrite",
+              "kind": "ClassDef",
+              "lines": [
+                98,
+                99
+              ]
+            },
+            {
+              "name": "memory_write_guard",
+              "kind": "FunctionDef",
+              "lines": [
+                102,
+                106
+              ]
+            },
+            {
+              "name": "main",
+              "kind": "FunctionDef",
+              "lines": [
+                109,
+                172
+              ]
+            },
+            {
+              "name": "assess",
+              "kind": "FunctionDef",
+              "lines": [
+                53,
+                71
+              ]
+            },
+            {
+              "name": "run",
+              "kind": "FunctionDef",
+              "lines": [
+                78,
+                82
+              ]
+            }
+          ],
+          "line_ranges_read": [
+            [
+              1,
+              176
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/27-prompt-injection-defense/docs/en.md",
+          "bytes": 7345,
+          "sha256": "1b00eb02f351e1cc3286f3e9f26859da8a9ed4d254cc426772dcf18424d4cc31",
+          "git_blob_sha": "1f3db2db62b075542479312e8f64b90539a51c82",
+          "line_count": 124,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              124
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/27-prompt-injection-defense/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "line_count": 0,
+          "semantic_status": "空占位已确认",
+          "executed": false,
+          "line_ranges_read": []
+        },
+        {
+          "path": "phases/14-agent-engineering/27-prompt-injection-defense/outputs/skill-injection-defense.md",
+          "bytes": 2042,
+          "sha256": "969723993da324a1798e180e7c4d57943cd7b0e54bfadfebb4370a7bd159b211",
+          "git_blob_sha": "3608ed9673080818f76890a8cd45e93c7304e11f",
+          "line_count": 33,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              33
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/27-prompt-injection-defense/quiz.json",
+          "bytes": 3474,
+          "sha256": "3255f9b46d30b81b336173bda5c250150260c7a68c15d5a1c1242abad5060236",
+          "git_blob_sha": "f26110ab528aaf0bb46d87e2a07d8c91e9e57143",
+          "line_count": 90,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              90
+            ]
+          ]
+        }
+      ],
+      "headings_discovered": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Prompt Injection and the PVE Defense"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "heading": "Learning Objectives"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "heading": "The Problem"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "heading": "The Concept"
+        },
+        {
+          "line": 25,
+          "level": 3,
+          "heading": "Greshake et al., AISec 2023 (arXiv:2302.12173)"
+        },
+        {
+          "line": 40,
+          "level": 3,
+          "heading": "The 2026 defense doctrine"
+        },
+        {
+          "line": 51,
+          "level": 3,
+          "heading": "PVE: Prompt-Validator-Executor"
+        },
+        {
+          "line": 61,
+          "level": 3,
+          "heading": "Where defenses fail"
+        },
+        {
+          "line": 72,
+          "level": 2,
+          "heading": "Build It"
+        },
+        {
+          "line": 88,
+          "level": 2,
+          "heading": "Use It"
+        },
+        {
+          "line": 95,
+          "level": 2,
+          "heading": "Ship It"
+        },
+        {
+          "line": 99,
+          "level": 2,
+          "heading": "Exercises"
+        },
+        {
+          "line": 107,
+          "level": 2,
+          "heading": "Key Terms"
+        },
+        {
+          "line": 119,
+          "level": 2,
+          "heading": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        "Add a \"source tag\" to every piece of content: `user_message`, `tool_output`, `retrieved`. Propagate tags through the message history. Validator refuses `retrieved` content that looks like directives.",
+        "Implement a memory-write guardrail: any memory write that looks like an instruction (\"do X\", \"execute Y\") is refused.",
+        "Write a worming attack simulation: injected content tells the agent to include the exploit in its next response. Defend against it.",
+        "Read Greshake et al. end to end. Implement one of the demonstrated exploits in your toy. Fix it.",
+        "Measure: on normal traffic, how often does the PVE validator reject? Target: near-zero on legitimate calls."
+      ],
+      "source_quiz": {
+        "lesson": "27-prompt-injection-defense",
+        "title": "Prompt Injection and the PVE Defense",
+        "questions": [
+          {
+            "stage": "pre",
+            "question": "What is indirect prompt injection?",
+            "options": [
+              "A model misclick",
+              "A user typing 'ignore all rules' directly",
+              "Instructions embedded in data the agent retrieves (a page, PDF, email, memory note) that override the developer prompt on ingest",
+              "A typo in the system prompt"
+            ],
+            "correct": 2,
+            "explanation": "Greshake et al. coined indirect prompt injection: attacker-controlled retrieved content carries instructions."
+          },
+          {
+            "stage": "pre",
+            "question": "What does the lesson say processing retrieved prompts is equivalent to?",
+            "options": [
+              "A static analysis pass",
+              "Arbitrary code execution on the agent's tool-use surface",
+              "Free speech",
+              "A pure function call"
+            ],
+            "correct": 1,
+            "explanation": "Greshake's framing: retrieved instructions can hit any tool the agent has access to."
+          },
+          {
+            "stage": "check",
+            "question": "Which is NOT one of the five demonstrated exploit classes?",
+            "options": [
+              "Persistent memory poisoning",
+              "Cache invalidation",
+              "Data theft",
+              "Worming"
+            ],
+            "correct": 1,
+            "explanation": "The five are data theft, worming, persistent memory poisoning, ecosystem contamination, arbitrary tool use."
+          },
+          {
+            "stage": "check",
+            "question": "What does PVE stand for?",
+            "options": [
+              "Pre-Vectorize-Embed",
+              "Prompt-Validator-Executor: a cheap fast validator runs on each tool call before the expensive main model commits",
+              "Provider-Verifier-Encoder",
+              "Plan-Verify-Execute, an HTN dialect"
+            ],
+            "correct": 1,
+            "explanation": "PVE wraps every tool invocation with a cheap validator before main-model commit."
+          },
+          {
+            "stage": "check",
+            "question": "Why is 'system prompt says ignore untrusted instructions' insufficient?",
+            "options": [
+              "It is too short",
+              "It is instruction-following, not enforcement; the model can still be overridden by sufficiently persuasive injected content",
+              "Providers strip it",
+              "It is encrypted"
+            ],
+            "correct": 1,
+            "explanation": "Real defense needs source tagging, allowlists, per-step safety, and PVE-style validation, not just prompting."
+          },
+          {
+            "stage": "post",
+            "question": "What is overtrust of retrieved memory?",
+            "options": [
+              "Loading the wrong model",
+              "Yesterday's agent wrote a poisoned memory note; today's agent reads it and re-executes the injection",
+              "Forgetting to vacuum the index",
+              "Caching too aggressively"
+            ],
+            "correct": 1,
+            "explanation": "Persistent memory poisoning means injections survive across sessions if memory is treated as trusted."
+          },
+          {
+            "stage": "post",
+            "question": "What metadata does the lesson recommend attaching to every piece of content?",
+            "options": [
+              "A token count",
+              "A timestamp only",
+              "An encryption key",
+              "A source tag: user_message vs tool_output vs retrieved; validator refuses directives in retrieved content"
+            ],
+            "correct": 3,
+            "explanation": "Provenance tagging lets the validator treat content according to its trust level."
+          }
+        ]
+      },
+      "dynamic_ids_discovered": [
+        "injection-hijack"
+      ],
+      "status": "课内文件及最终动态图与相关helper/挂载完整只读；一手核验和旧知识对齐待收尾",
+      "semantic_notes": [
+        "注入是数据到指令/动作信任边界被突破的风险，retrieved文本并不必然覆盖developer，也不是读取就执行OS任意code；Greshake使用can act as类比，不能绝对等价。",
+        "PVE在本源是Prompt–Validator–Executor教学标签；main model已经propose才验证tool之前，非在expensive main inference之前；代码只关键词扫描，0真实LLM inference或cheap fast成本证据。",
+        "Executor.run未强制经过Validator，可直接调用；sensitive_tools与call.intent未使用，普通benign body发任意dest会pass，schema/path/domain/当前对象权限/用户approval均未检查。",
+        "source标签只普通字符串，伪造user_message会跳过内容扫描；标签应由可信宿主带真实origin/provenance，不能由retrievedpayload自己升级权限。",
+        "扫描仅顶层str，忽略nested字典/非字符串，多语/编码漏检；正常研究文本包含system/drop table可误拒；不将命中词作全注入防护。",
+        "memory_write_guard按do/execute拒绝，会拒合法用户约束，也漏隐式恶意/跨会话持久goal；保存事实/候选反思与执行政策/权限不同，审批和当前授权仍在执行入口。",
+        "_send_message等只返回strings，没有真实发信/搜索/记忆；原source Skill要求每敏感工具人工确认、存外部全文、不许shipping是材料政策，不能覆盖用户既有授权或生成额外任务门禁。",
+        "直接注入与jailbreak有交集但非完全同义；input/output/tool guardrails的具体SDK覆盖不一致，不能泛称built-in PVE套住everytool；B将核16SDK currentdocs。"
+      ],
+      "exercise_criteria_zh": [
+        "源码已有Content source字段但无可信origin；把tag创建限定宿主，改fake user_message/nested payload/被引用正常技术资料作为FP/FN对照。",
+        "源码已有memory_write_guard，原题不是新增；分别存用户允许偏好/被引用恶意样本/行动指令，检查权限和实际后置条件，不一刀切ban所有do开头。",
+        "只用内存/假收件箱模拟worm传播，追source lineage与sink权限，检查正常回复与被污染下游隔离，禁止对真实第三方/服务发payload。",
+        "原paper全文及五类演示要核固定版本；仅可受控toy复现，真实网站/模型/泄漏未执行；先断数据→权限→effect chain再评残留风险。",
+        "near-zero良性误拒不是单指标；固定良性/恶意/模糊/多语言/gold与权限，报告attack-effect success、FN/FP、拒绝导致任务失败与真实延迟/费用；本轮没有正常流量或模型validator。"
+      ],
+      "quiz_judgments_zh": [
+        "原C：攻击指令放被检索的数据，可能造成偏离；不把可能性教成一定override。",
+        "原B属于危害类比：越权动作经工具层可能形成类似codeexecution影响；读取本身不授权/执行，也不保证所有工具可达。",
+        "原B不在原五种摘要类内，但具体paper taxonomy不止这些五项，原cache失效也可能有风险。",
+        "原B是本课PVE含义，但代码无validatormodel且验证发生candidate action之后/实际effect之前，不是先验证再expensive推理。",
+        "原B：提示不能替可信来源/权限/执行校验，model classification也不替OS约束与对象ACL。",
+        "原B：之前写的memory仍可能外部污染，不因存本地或由agent生成而可信。",
+        "原D需可信宿主provenance而非可伪造自报标签，带source标签仍需分类与权限边界。"
+      ],
+      "dynamic_reads": [
+        {
+          "id": "injection-hijack",
+          "provider": "site/figures-agents3.js",
+          "function": "injectionHijack",
+          "function_lines": [
+            222,
+            254
+          ],
+          "provider_actual_read_ranges": [
+            [
+              1,
+              27
+            ],
+            [
+              221,
+              255
+            ],
+            [
+              285,
+              297
+            ]
+          ],
+          "provider_sha256": "c66de0b00e96d73939e80dd77c60b9c80cc3eca87df3cc88d65266e5828fe5d1",
+          "provider_git_blob": "4cd3d2d4b07861a97115cd1b6719395a27a1da57",
+          "all_provider_matches": [
+            "site/figures-agents3.js"
+          ],
+          "mount_chain": "build已有顺序+额外provider排序，quoted-ID收集→requiredProviders顺序串行load→LF.register后覆盖同名→mount当前FIGS；本六ID各唯一provider",
+          "interpretation": "2.6秒恶意文字变色和0.8秒连线至attacker tool预设动画，未实现源权限、validator或实际exfil；读入即override措辞需改可能风险",
+          "read_date": "2026-10-09",
+          "browser_build_execution": false
+        }
+      ]
+    },
+    {
+      "lesson": "28-orchestration-patterns",
+      "files": [
+        {
+          "path": "phases/14-agent-engineering/28-orchestration-patterns/assets/orchestration-patterns.svg",
+          "bytes": 6727,
+          "sha256": "fda3065cf658f0bb706b824db693d65e27279fa9ed4cb3f4ab7c4aba8f33befb",
+          "git_blob_sha": "fc617aa6ca1482416d8f21abad58e9c6f530557f",
+          "line_count": 91,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              91
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/28-orchestration-patterns/code/main.py",
+          "bytes": 3595,
+          "sha256": "6673d3b7fff2c994e9f1c07880a2e372049842e318f4f5db064c82bb3de12d17",
+          "git_blob_sha": "6e9c99c981c7e4a1f03b17c5eb709ce9a078897c",
+          "line_count": 125,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "definitions_discovered": [
+            {
+              "name": "classify",
+              "kind": "FunctionDef",
+              "lines": [
+                14,
+                22
+              ]
+            },
+            {
+              "name": "supervisor_worker",
+              "kind": "FunctionDef",
+              "lines": [
+                32,
+                42
+              ]
+            },
+            {
+              "name": "swarm",
+              "kind": "FunctionDef",
+              "lines": [
+                45,
+                60
+              ]
+            },
+            {
+              "name": "hierarchical",
+              "kind": "FunctionDef",
+              "lines": [
+                63,
+                76
+              ]
+            },
+            {
+              "name": "debate",
+              "kind": "FunctionDef",
+              "lines": [
+                79,
+                94
+              ]
+            },
+            {
+              "name": "main",
+              "kind": "FunctionDef",
+              "lines": [
+                97,
+                121
+              ]
+            }
+          ],
+          "line_ranges_read": [
+            [
+              1,
+              125
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/28-orchestration-patterns/docs/en.md",
+          "bytes": 6322,
+          "sha256": "c45bf70a77e6c5a172587da2d472cc0d398e62b3bd48352ad4da34d108a2a7f2",
+          "git_blob_sha": "9b780103530fd6d35b268b609ad225ea4a31f8da",
+          "line_count": 141,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              141
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/28-orchestration-patterns/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "line_count": 0,
+          "semantic_status": "空占位已确认",
+          "executed": false,
+          "line_ranges_read": []
+        },
+        {
+          "path": "phases/14-agent-engineering/28-orchestration-patterns/outputs/skill-orchestration-picker.md",
+          "bytes": 1790,
+          "sha256": "a4e07b259b677197dd43dfac9398e8c91f3cfb62bc2c8a5b284a50c7d76d0f6d",
+          "git_blob_sha": "dcb82dbc094c3d16c0f8fb7996a5fe82c4090f6f",
+          "line_count": 39,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              39
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/28-orchestration-patterns/quiz.json",
+          "bytes": 3467,
+          "sha256": "8d1b3b15d2b750b2808528587316058d1f70983cd31d8eeb62ef5750e7919b9b",
+          "git_blob_sha": "567baea4342f1d1c5dce2ab202968f3328f5f3c5",
+          "line_count": 90,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              90
+            ]
+          ]
+        }
+      ],
+      "headings_discovered": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Orchestration Patterns: Supervisor, Swarm, Hierarchical"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "heading": "Learning Objectives"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "heading": "The Problem"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "heading": "The Concept"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "heading": "Supervisor-worker"
+        },
+        {
+          "line": 33,
+          "level": 3,
+          "heading": "Swarm / peer-to-peer"
+        },
+        {
+          "line": 42,
+          "level": 3,
+          "heading": "Hierarchical"
+        },
+        {
+          "line": 50,
+          "level": 3,
+          "heading": "Debate"
+        },
+        {
+          "line": 55,
+          "level": 3,
+          "heading": "Autonomous crews vs deterministic flows"
+        },
+        {
+          "line": 64,
+          "level": 3,
+          "heading": "Anthropic's guidance"
+        },
+        {
+          "line": 76,
+          "level": 3,
+          "heading": "Where this pattern goes wrong"
+        },
+        {
+          "line": 86,
+          "level": 2,
+          "heading": "Build It"
+        },
+        {
+          "line": 105,
+          "level": 2,
+          "heading": "Use It"
+        },
+        {
+          "line": 112,
+          "level": 2,
+          "heading": "Ship It"
+        },
+        {
+          "line": 116,
+          "level": 2,
+          "heading": "Exercises"
+        },
+        {
+          "line": 124,
+          "level": 2,
+          "heading": "Key Terms"
+        },
+        {
+          "line": 136,
+          "level": 2,
+          "heading": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        "Convert a supervisor-worker to a swarm by removing the router. What breaks? What improves?",
+        "Add a hop counter to the swarm: refuse after 3 handoffs. Does it catch A->B->A bouncing?",
+        "Build a two-level hierarchical system for a 12-specialist domain. Where does the context budget fail without nesting?",
+        "Profile the four patterns on a production-shaped workload. Which wins on which metric (latency, cost, accuracy, debuggability)?",
+        "Read Anthropic's \"Building Effective Agents\" post. Map each of your production flows to one of the four. Any that don't map cleanly?"
+      ],
+      "source_quiz": {
+        "lesson": "28-orchestration-patterns",
+        "title": "Orchestration Patterns: Supervisor, Swarm, Hierarchical",
+        "questions": [
+          {
+            "stage": "pre",
+            "question": "Which four orchestration patterns does the lesson list?",
+            "options": [
+              "Push, pull, batch, stream",
+              "Supervisor-worker, swarm/peer-to-peer, hierarchical, debate",
+              "Sequential, parallel, distributed, federated",
+              "Plan, act, reflect, refine"
+            ],
+            "correct": 1,
+            "explanation": "Supervisor-worker, swarm, hierarchical, and debate recur across 2026 frameworks."
+          },
+          {
+            "stage": "pre",
+            "question": "What is the 2026 LangChain recommendation regarding supervision?",
+            "options": [
+              "Always use create_supervisor",
+              "Avoid supervision entirely",
+              "Prefer direct tool calls over create_supervisor for finer context-engineering control",
+              "Run supervisors on GPUs"
+            ],
+            "correct": 2,
+            "explanation": "Tool-call-based supervision gives you precise control over what each specialist sees."
+          },
+          {
+            "stage": "check",
+            "question": "What distinguishes a swarm from a supervisor-worker topology?",
+            "options": [
+              "Swarm runs on cron only",
+              "Swarm has no central router; agents hand off directly via a shared tool surface",
+              "Swarm uses GPUs",
+              "Swarm is single-agent"
+            ],
+            "correct": 1,
+            "explanation": "Swarm is peer-to-peer; supervisor centralizes routing through one LLM."
+          },
+          {
+            "stage": "check",
+            "question": "When is hierarchical orchestration justified?",
+            "options": [
+              "Never; it is an antipattern",
+              "Only with GPUs",
+              "When a single supervisor's context budget cannot hold descriptions of all specialists",
+              "Always; it scales for free"
+            ],
+            "correct": 2,
+            "explanation": "Nested supervisors are for large specialist populations that exceed one supervisor's budget."
+          },
+          {
+            "stage": "check",
+            "question": "What is the recommended decision order Anthropic supports?",
+            "options": [
+              "Start with a single agent plus workflow patterns; add topology only when needed; supervisor before swarm before hierarchical; debate when accuracy beats cost",
+              "Start with debate",
+              "Always start with hierarchical multi-agent",
+              "Start with swarm and contract toward single"
+            ],
+            "correct": 0,
+            "explanation": "Anthropic's guidance is to build the right system for your needs, not the most sophisticated."
+          },
+          {
+            "stage": "post",
+            "question": "What is fake hierarchy in this lesson?",
+            "options": [
+              "Three layers of supervisors because 'enterprise' when there are only two actual teams; collapse it",
+              "An orchestrator written in TypeScript",
+              "Mislabelled YAML",
+              "A test fixture"
+            ],
+            "correct": 0,
+            "explanation": "Layers that do not correspond to real teams add operational complexity without payoff."
+          },
+          {
+            "stage": "post",
+            "question": "How do you mitigate bouncing handoffs in a swarm (A -> B -> A -> B)?",
+            "options": [
+              "Pin the temperature to 0",
+              "Lower the rate limit",
+              "Add a hop counter and refuse after N transfers",
+              "Disable tracing"
+            ],
+            "correct": 2,
+            "explanation": "A hop counter caps swarm cycles before they loop indefinitely."
+          }
+        ]
+      },
+      "dynamic_ids_discovered": [
+        "orchestration-pattern"
+      ],
+      "status": "课内文件及最终动态图与相关helper/挂载完整只读；一手核验和旧知识对齐待收尾",
+      "semantic_notes": [
+        "监督/对等handoff/层级是控制拓扑，辩论是交叉反馈方法；Flow/Crew是框架编程与调度抽象，不能机械Flow=sup/hier、Crew=LLMrouter。",
+        "样例每模式共用keyword classify与假specialist字符串，无LLM/真实客服/并发；unknown默认为sales，不支持abstain/mixed intent。",
+        "swarm中specialist调用不计ops，supervisor中计；人工计数分母不同，不能证明swarm最短/更便宜/低延迟。初始固定refund造成样本顺序偏置，需统一初始条件/同预算/调用与edge定义。",
+        "debate重复同确定分类3次然后Counter，没有互相critique或并行，实际上规则重复投票；图也只画汇总线，不示跨critique。",
+        "hierarchy只重复同规则两层，没有独立context/状态/权限/真实nestedgraphs；更多层不能推真实可扩展性或企业必要性。",
+        "已有hop counter3但classify不随current变，当前case不产生A-B-A，不能说证明捕捉bounce；loop耗尽应有显式handoff_limit结果而非silent missing。",
+        "指定2–4/10+与固定优先阶梯是教材政策，原Anthropic只支持测收益后增加复杂度，不支持统一sup→swarm→hier ordering；审计需要不必一律ban对等拓扑。",
+        "LangChain direct tool supervision推荐需固定官方repo/date及scope，不是禁止library；host/领域数据与子代理隔离/合并的授权另在主规则明确。"
+      ],
+      "exercise_criteria_zh": [
+        "对相同任务定义输出/owner/权限/失败/取消/预算，移除中央router后重新声明谁负责终态与handoff，不从图形变更宣称latency变好。",
+        "原swarm已有3-hop；构造随当前角色交替的规则与硬限制、显式terminal，0/1/3/循环/unknown目的地反例，不报源码已真实bounce测试。",
+        "12-specialist案例是题设：算实际描述token/选择预算，分层还要考虑policy/组织/故障隔离与上层汇总损失；不设10为普遍门槛。",
+        "未采production workloads；固定真实任务、同信息/预算/初始actor，量calls/输入输出tokens、criticalpath latency、效果/错误与可审计性；stub ops仅代理。",
+        "可用假业务案例练习映射，但不能假称用户产品/团队已做；workflow及topology是不同轴，无法硬分4类可保混合/无拓扑并解释。"
+      ],
+      "quiz_judgments_zh": [
+        "原B列四个名词；前三控制结构与debate反馈方法可组合，不是互斥全集。",
+        "原C需官方当前README确认scope；更细context控制是机制理由，不代表library已废弃。",
+        "原B说明本课对等handoff定义；仍有host/runtime/policy协调，去中央router不等零控制。",
+        "原C是一种合理理由，但不是唯一合法条件，权限/组织/故障隔离也可支持层级。",
+        "原A把具体ordering错归Anthropic；应改题为从最小有证据方案出发，增复杂度取决测得收益，不背固定阶梯。",
+        "原A说明无收益装饰层；要按真实职责/权限/通信验，不以团队数机械决定层数。",
+        "原C限制handoff耗尽后明确停止/回退；counter不消除所有生命周期/权限/未知effect问题。"
+      ],
+      "dynamic_reads": [
+        {
+          "id": "orchestration-pattern",
+          "provider": "site/figures-agents2.js",
+          "function": "orchestrationPattern",
+          "function_lines": [
+            375,
+            438
+          ],
+          "provider_actual_read_ranges": [
+            [
+              1,
+              30
+            ],
+            [
+              374,
+              451
+            ]
+          ],
+          "provider_sha256": "bdb342cf800e6d21566bdc7cfd2eda761a5ef1a0dd09bcaf06669a537d419879",
+          "provider_git_blob": "22f8dde632f44b3c4f4f9faa904acdd516ff76c8",
+          "all_provider_matches": [
+            "site/figures-agents2.js"
+          ],
+          "mount_chain": "build已有顺序+额外provider排序，quoted-ID收集→requiredProviders顺序串行load→LF.register后覆盖同名→mount当前FIGS；本六ID各唯一provider",
+          "interpretation": "selector改三图；supervisor5workers+root实际6却label5，swarm5节点10无向边，hier7节点6边；节点数与消息边口径不同，swarm不必fullmesh，边数不等实际calls/latency",
+          "read_date": "2026-10-09",
+          "browser_build_execution": false
+        }
+      ]
+    },
+    {
+      "lesson": "29-production-runtimes",
+      "files": [
+        {
+          "path": "phases/14-agent-engineering/29-production-runtimes/assets/runtime-shapes.svg",
+          "bytes": 5212,
+          "sha256": "6629e0fb8ee51b84e32297ee6a6fdda79def64f8da6daf487763086ddaabe43d",
+          "git_blob_sha": "ad134e9daf58e47b514f3c7812484e5309634a98",
+          "line_count": 83,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              83
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/29-production-runtimes/code/main.py",
+          "bytes": 4152,
+          "sha256": "3a69f2c0257ee99e3fd766f5992f12960ede6c514522850ee623e6cb0770df70",
+          "git_blob_sha": "7751335bb7fcde696849175f7ffc89d3e62a17ad",
+          "line_count": 144,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "definitions_discovered": [
+            {
+              "name": "_agent_fn",
+              "kind": "FunctionDef",
+              "lines": [
+                13,
+                21
+              ]
+            },
+            {
+              "name": "request_response",
+              "kind": "FunctionDef",
+              "lines": [
+                24,
+                26
+              ]
+            },
+            {
+              "name": "streaming",
+              "kind": "FunctionDef",
+              "lines": [
+                29,
+                31
+              ]
+            },
+            {
+              "name": "Job",
+              "kind": "ClassDef",
+              "lines": [
+                35,
+                38
+              ]
+            },
+            {
+              "name": "QueueRuntime",
+              "kind": "ClassDef",
+              "lines": [
+                42,
+                69
+              ]
+            },
+            {
+              "name": "EventBus",
+              "kind": "ClassDef",
+              "lines": [
+                73,
+                83
+              ]
+            },
+            {
+              "name": "main",
+              "kind": "FunctionDef",
+              "lines": [
+                86,
+                140
+              ]
+            },
+            {
+              "name": "enqueue",
+              "kind": "FunctionDef",
+              "lines": [
+                48,
+                52
+              ]
+            },
+            {
+              "name": "worker",
+              "kind": "FunctionDef",
+              "lines": [
+                54,
+                69
+              ]
+            },
+            {
+              "name": "subscribe",
+              "kind": "FunctionDef",
+              "lines": [
+                76,
+                77
+              ]
+            },
+            {
+              "name": "publish",
+              "kind": "FunctionDef",
+              "lines": [
+                79,
+                83
+              ]
+            },
+            {
+              "name": "fail_b",
+              "kind": "FunctionDef",
+              "lines": [
+                105,
+                106
+              ]
+            },
+            {
+              "name": "on_pr_opened",
+              "kind": "FunctionDef",
+              "lines": [
+                116,
+                117
+              ]
+            },
+            {
+              "name": "on_memory_consolidate",
+              "kind": "FunctionDef",
+              "lines": [
+                119,
+                120
+              ]
+            }
+          ],
+          "line_ranges_read": [
+            [
+              1,
+              144
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/29-production-runtimes/docs/en.md",
+          "bytes": 6585,
+          "sha256": "693a6f21557b8a6c349730ee6d378eb619b327c65ff8dbfe9474a75968b5f940",
+          "git_blob_sha": "d23de990789ac2ea77a82315095924558a70952e",
+          "line_count": 143,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              143
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/29-production-runtimes/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "line_count": 0,
+          "semantic_status": "空占位已确认",
+          "executed": false,
+          "line_ranges_read": []
+        },
+        {
+          "path": "phases/14-agent-engineering/29-production-runtimes/outputs/skill-runtime-shape.md",
+          "bytes": 1895,
+          "sha256": "f83bd4e26e184f05d4d06a6840d5fc014b41b9dce4a5e86518de8ace476af052",
+          "git_blob_sha": "c2be423f5159890fed722ebe590fc1e9d07c7283",
+          "line_count": 43,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              43
+            ]
+          ]
+        },
+        {
+          "path": "phases/14-agent-engineering/29-production-runtimes/quiz.json",
+          "bytes": 3399,
+          "sha256": "7adb8e50ca4aa6a64b1cb243308db76c4d7eab04b5ddf4d64d67f67c2b819644",
+          "git_blob_sha": "fe8c11f452fe15ca3262470469613f847ad4f0fc",
+          "line_count": 90,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              90
+            ]
+          ]
+        }
+      ],
+      "headings_discovered": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Production Runtimes: Queue, Event, Cron"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "heading": "Learning Objectives"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "heading": "The Problem"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "heading": "The Concept"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "heading": "Request-response"
+        },
+        {
+          "line": 30,
+          "level": 3,
+          "heading": "Streaming"
+        },
+        {
+          "line": 37,
+          "level": 3,
+          "heading": "Durable execution"
+        },
+        {
+          "line": 44,
+          "level": 3,
+          "heading": "Queue-based / background"
+        },
+        {
+          "line": 51,
+          "level": 3,
+          "heading": "Event-driven"
+        },
+        {
+          "line": 58,
+          "level": 3,
+          "heading": "Scheduled"
+        },
+        {
+          "line": 64,
+          "level": 3,
+          "heading": "2026 deployment patterns"
+        },
+        {
+          "line": 72,
+          "level": 3,
+          "heading": "Observability is load-bearing"
+        },
+        {
+          "line": 76,
+          "level": 3,
+          "heading": "Where production runtimes fail"
+        },
+        {
+          "line": 87,
+          "level": 2,
+          "heading": "Build It"
+        },
+        {
+          "line": 105,
+          "level": 2,
+          "heading": "Use It"
+        },
+        {
+          "line": 114,
+          "level": 2,
+          "heading": "Ship It"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "heading": "Exercises"
+        },
+        {
+          "line": 126,
+          "level": 2,
+          "heading": "Key Terms"
+        },
+        {
+          "line": 138,
+          "level": 2,
+          "heading": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        "Port your Lesson 01 ReAct loop to all six shapes in your stack. Which shape fits which product surface?",
+        "Add a DLQ to the queue-based demo. Simulate 10% job failure; surface DLQ size.",
+        "Write a cron-triggered eval agent that runs nightly against your top 20 traces from the day.",
+        "Implement streaming with backpressure: if the client is slow, pause the agent. How does this interact with a turn budget?",
+        "Read Claude Managed Agents docs. When would you move a self-hosted long-horizon agent to managed?"
+      ],
+      "source_quiz": {
+        "lesson": "29-production-runtimes",
+        "title": "Production Runtimes: Queue, Event, Cron",
+        "questions": [
+          {
+            "stage": "pre",
+            "question": "What are the six runtime shapes the lesson lists?",
+            "options": [
+              "Map, filter, reduce, fold, scan, group",
+              "Request-response, streaming, durable execution, queue-based, event-driven, scheduled",
+              "REST, gRPC, GraphQL, WebSocket, SSE, MQTT",
+              "Read, write, exec, fork, exit, wait"
+            ],
+            "correct": 1,
+            "explanation": "These are the six runtime shapes; pick a shape before picking a framework."
+          },
+          {
+            "stage": "pre",
+            "question": "When is request-response a poor fit?",
+            "options": [
+              "On internal services",
+              "When the task takes longer than about 30 seconds and users hang up while workers pile up",
+              "On REST APIs",
+              "On a 1-second classification"
+            ],
+            "correct": 1,
+            "explanation": "Synchronous HTTP is only viable for short tasks; long tasks need queue/durable/event shapes."
+          },
+          {
+            "stage": "check",
+            "question": "What is durable execution's core property?",
+            "options": [
+              "Lower token cost",
+              "Faster inference",
+              "Native voice support",
+              "State is checkpointed after every step so the runtime can resume from the last successful step on failure"
+            ],
+            "correct": 3,
+            "explanation": "Checkpoint-and-resume is the differentiator; LangGraph is the lesson's reference."
+          },
+          {
+            "stage": "check",
+            "question": "Which Anthropic observation justifies queue-based runtimes for long-horizon agents?",
+            "options": [
+              "Tasks must run synchronously",
+              "Tasks always complete in 5 seconds",
+              "Computer use announcement: dozens-to-hundreds of steps per task is normal",
+              "Cron solves everything"
+            ],
+            "correct": 2,
+            "explanation": "Anthropic flagged dozens-to-hundreds of steps per task as normal; that workload needs queues or durable runtimes."
+          },
+          {
+            "stage": "check",
+            "question": "What does the lesson mean by 'observability is load-bearing'?",
+            "options": [
+              "Providers require it for billing",
+              "Logs are pretty",
+              "Disk gets full",
+              "Without OTel GenAI spans and a Langfuse/Phoenix/Opik backend you cannot debug a multi-step agent that failed at step 40"
+            ],
+            "correct": 3,
+            "explanation": "Observability is not optional for multi-step agents; it is the difference between debugging and replaying from scratch."
+          },
+          {
+            "stage": "post",
+            "question": "Why must queue workers have a dead-letter queue (DLQ)?",
+            "options": [
+              "DLQ makes jobs faster",
+              "Without DLQ, failed jobs vanish silently",
+              "DLQ is encrypted",
+              "DLQ is required by AWS"
+            ],
+            "correct": 1,
+            "explanation": "Failed jobs without DLQ disappear; DLQ is the parking lot for failed jobs."
+          },
+          {
+            "stage": "post",
+            "question": "What does the lesson recommend pairing cron-shaped agents with?",
+            "options": [
+              "Durable execution so a failing nightly run resumes next tick",
+              "WebRTC",
+              "GPU autoscalers",
+              "Streaming SSE"
+            ],
+            "correct": 0,
+            "explanation": "Cron + durable execution recovers cleanly from failed scheduled runs."
+          }
+        ]
+      },
+      "dynamic_ids_discovered": [
+        "wb-runtime-shapes"
+      ],
+      "status": "课内文件及最终动态图与相关helper/挂载完整只读；一手核验和旧知识对齐待收尾",
+      "semantic_notes": [
+        "durable是跨请求/流/queue/event/cron的属性，不是互斥第六种运输；以deadline/容错/响应方式/触发拆轴选型，<30s是题设经验非通用HTTP极限。",
+        "所有形状共用_agent_fn预填steps，搜索/read等只是文字；request_response只是函数，streaming是已有list的generator，无HTTP/SSE/WS/WebRTC/真实模型或service。",
+        "QueueRuntime是内存deque单worker，无durable ack/visibility/lease/崩溃恢复；popleft后进程死任务可丢，当前DLQ也仅内存list。",
+        "fail_policy在部分attempt调用两次；非确定/带状态policy可第一次False第二次True导致错误DLQ，须每attempt采一次outcome并记录。fail_rate字段未用、无真实10%流量。",
+        "已有DLQ与3attempt，不把原题add DLQ当新增；retry无backoff/预算/分类/真实effect幂等，3次只是示例策略。",
+        "EventBus同步依次handler，一异常阻断后续，无replayoffset/事件持久/去重/并发；Cron只是打印wouldfire时刻，无scheduler或lock/cronjob部署。",
+        "framework durable/actor隔离各有store/thread/task/replay与callback异常边界，不保证每步autoresume或oneactor fault绝不牵连；需B原13/14/17官方范围。",
+        "OTel/backends有价值但非只能用三指定产品才能debug；普通结构化日志/事件/receipts也可排错，缺DLQ未必vanish可有失败状态存储和告警。",
+        "cron下一tick不会自行resume旧run，须明确newrun/重叠/错过/任务identity与checkpoint恢复/重试策略；源Skill任何固定拒绝/强制框架/SLA模式不激活。"
+      ],
+      "exercise_criteria_zh": [
+        "六视角组合对同逻辑的入口/输出/生命周期/权责，durable叠加其余；选择真实交付合同，不假称已port SDK/UI/API。",
+        "源已DLQ，仅内存教具；10%失败需锁随机seed/样本数/attempt还是job分母，记录retry与terminal失败/重复effect，真正持久worker待验。",
+        "夜间20trace题设，固定sample/gold/asof/coverage，定义调度错过/重叠/重启与实际评价证据；本轮未创建自动化/cron。",
+        "slow consumer下限buffer、producer pause/drop规则、deadline/取消与turn/byte/time预算分开；generator不自动给socket或模型真正backpressure。",
+        "Managed与自托管比较当前部署/权限/网络/数据/成本/恢复/观察责任，官方17资料核机制；未迁移/购买/登录服务。"
+      ],
+      "quiz_judgments_zh": [
+        "原B六种视角可组合，durable是横切属性非互斥shape。",
+        "原B体现长任务响应风险，但30秒不是技术定律，应核实用户等待/代理超时/成本和task handle。",
+        "原D需限定配置持久store/checkpoint/replay，副作用别由checkpoint假称exactly-once，not每步无限自动恢复。",
+        "原C需回查原公告语境；多步可支持background方案，非统计上所有任务通常hundreds步骤。",
+        "原D过度绝对：真实trace/export/后端有帮助，但指定OTel+三产品不是能否debug的必要条件。",
+        "原B表达保失败证据的需要，但没有DLQ仍可其他durable失败状态/通知；不是一律vanish。",
+        "原A作为设计组合，下一tick是否resume由runidentity与恢复机制规定，不自动保证。"
+      ],
+      "dynamic_reads": [
+        {
+          "id": "wb-runtime-shapes",
+          "provider": "site/figures-workbench.js",
+          "function": "runtimeShapes",
+          "function_lines": [
+            119,
+            154
+          ],
+          "provider_actual_read_ranges": [
+            [
+              1,
+              45
+            ],
+            [
+              118,
+              155
+            ],
+            [
+              603,
+              622
+            ]
+          ],
+          "provider_sha256": "72fc109dda4ae46bd3f6397d7d78b08928d44667244ae476e02225c7df53b056",
+          "provider_git_blob": "521aea7c8b103409182a04d94604e92b62886a4d",
+          "all_provider_matches": [
+            "site/figures-workbench.js"
+          ],
+          "mount_chain": "build已有顺序+额外provider排序，quoted-ID收集→requiredProviders顺序串行load→LF.register后覆盖同名→mount当前FIGS；本六ID各唯一provider",
+          "interpretation": "4.2秒queue/event/cron预设三条粒子到同worker；没有队列/重试/replay/时钟/持久store。可靠性来自实现合同，不由shape名字保证",
+          "read_date": "2026-10-09",
+          "browser_build_execution": false
+        }
+      ]
+    },
+    {
+      "lesson": "30-eval-driven-agent-development",
+      "files": [
+        {
+          "path": "phases/14-agent-engineering/30-eval-driven-agent-development/assets/eval-layers.svg",
+          "bytes": 6008,
+          "sha256": "aecc54ae169e0399a8bf6b2d6322ac37db52adce11346cc962b6904809008eb3",
+          "git_blob_sha": "43a5460abd7ee315ac5baa43e8db1ce087f300d7",
+          "line_count": 95,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              95
+            ]
+          ],
+          "actual_read_date": "2026-10-09"
+        },
+        {
+          "path": "phases/14-agent-engineering/30-eval-driven-agent-development/code/main.py",
+          "bytes": 5516,
+          "sha256": "4e3ffea08f53111c5a8f8f63dd4986e6926322166956ddb6a4d79ee5779892a9",
+          "git_blob_sha": "48e5363dc1b99c7951e6633a154cf9c94fa2c6b1",
+          "line_count": 179,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "definitions_discovered": [
+            {
+              "name": "EvalCase",
+              "kind": "ClassDef",
+              "lines": [
+                14,
+                20
+              ]
+            },
+            {
+              "name": "CaseResult",
+              "kind": "ClassDef",
+              "lines": [
+                24,
+                30
+              ]
+            },
+            {
+              "name": "evaluator_optimizer",
+              "kind": "FunctionDef",
+              "lines": [
+                33,
+                43
+              ]
+            },
+            {
+              "name": "ci_gate",
+              "kind": "FunctionDef",
+              "lines": [
+                46,
+                55
+              ]
+            },
+            {
+              "name": "_benchmark_case",
+              "kind": "FunctionDef",
+              "lines": [
+                58,
+                74
+              ]
+            },
+            {
+              "name": "_custom_llm_judge_case",
+              "kind": "FunctionDef",
+              "lines": [
+                77,
+                93
+              ]
+            },
+            {
+              "name": "_online_guardrail_case",
+              "kind": "FunctionDef",
+              "lines": [
+                96,
+                112
+              ]
+            },
+            {
+              "name": "_flaky_benchmark_case",
+              "kind": "FunctionDef",
+              "lines": [
+                115,
+                134
+              ]
+            },
+            {
+              "name": "main",
+              "kind": "FunctionDef",
+              "lines": [
+                137,
+                175
+              ]
+            },
+            {
+              "name": "proposer",
+              "kind": "FunctionDef",
+              "lines": [
+                59,
+                62
+              ]
+            },
+            {
+              "name": "judge",
+              "kind": "FunctionDef",
+              "lines": [
+                64,
+                67
+              ]
+            },
+            {
+              "name": "proposer",
+              "kind": "FunctionDef",
+              "lines": [
+                78,
+                81
+              ]
+            },
+            {
+              "name": "judge",
+              "kind": "FunctionDef",
+              "lines": [
+                83,
+                86
+              ]
+            },
+            {
+              "name": "proposer",
+              "kind": "FunctionDef",
+              "lines": [
+                97,
+                100
+              ]
+            },
+            {
+              "name": "judge",
+              "kind": "FunctionDef",
+              "lines": [
+                102,
+                105
+              ]
+            },
+            {
+              "name": "proposer",
+              "kind": "FunctionDef",
+              "lines": [
+                118,
+                122
+              ]
+            },
+            {
+              "name": "judge",
+              "kind": "FunctionDef",
+              "lines": [
+                124,
+                127
+              ]
+            }
+          ],
+          "line_ranges_read": [
+            [
+              1,
+              179
+            ]
+          ],
+          "actual_read_date": "2026-10-09"
+        },
+        {
+          "path": "phases/14-agent-engineering/30-eval-driven-agent-development/docs/en.md",
+          "bytes": 6634,
+          "sha256": "7f1772928ead5688466ea0b7178d2cbd7bd10f0fa2e3568656e76dc4e8fcf891",
+          "git_blob_sha": "ffd2ca5a133ec918ffc2179c7b901be308150cd8",
+          "line_count": 147,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              147
+            ]
+          ],
+          "actual_read_date": "2026-10-09"
+        },
+        {
+          "path": "phases/14-agent-engineering/30-eval-driven-agent-development/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "line_count": 0,
+          "semantic_status": "空占位已确认",
+          "executed": false,
+          "line_ranges_read": [],
+          "actual_read_date": "2026-10-09"
+        },
+        {
+          "path": "phases/14-agent-engineering/30-eval-driven-agent-development/outputs/skill-eval-suite.md",
+          "bytes": 2253,
+          "sha256": "85e8f5e57b8a83cae896addedc9471e572883d5da77e519ca78c20974966aaf0",
+          "git_blob_sha": "524d9e94c7e7cc31f750b8f0cbc0f19073706e06",
+          "line_count": 33,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              33
+            ]
+          ],
+          "actual_read_date": "2026-10-09"
+        },
+        {
+          "path": "phases/14-agent-engineering/30-eval-driven-agent-development/quiz.json",
+          "bytes": 3385,
+          "sha256": "8aad8987cc2c69d7905fd6ebdb72d4eb4b1afa413fc4a64a922be673ec8222a3",
+          "git_blob_sha": "e8eae9538f4764b6d0deac84f2ac076cd74dcb8a",
+          "line_count": 90,
+          "semantic_status": "全文实际静态阅读",
+          "executed": false,
+          "line_ranges_read": [
+            [
+              1,
+              90
+            ]
+          ],
+          "actual_read_date": "2026-10-09"
+        }
+      ],
+      "headings_discovered": [
+        {
+          "line": 1,
+          "level": 1,
+          "heading": "Eval-Driven Agent Development"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "heading": "Learning Objectives"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "heading": "The Problem"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "heading": "The Concept"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "heading": "Three evaluation layers"
+        },
+        {
+          "line": 37,
+          "level": 3,
+          "heading": "Evaluator-optimizer (Anthropic)"
+        },
+        {
+          "line": 47,
+          "level": 3,
+          "heading": "2026 best practice"
+        },
+        {
+          "line": 55,
+          "level": 3,
+          "heading": "Tying Phase 14 together"
+        },
+        {
+          "line": 82,
+          "level": 3,
+          "heading": "Where eval-driven development fails"
+        },
+        {
+          "line": 93,
+          "level": 2,
+          "heading": "Build It"
+        },
+        {
+          "line": 110,
+          "level": 2,
+          "heading": "Use It"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "heading": "Ship It"
+        },
+        {
+          "line": 122,
+          "level": 2,
+          "heading": "Exercises"
+        },
+        {
+          "line": 130,
+          "level": 2,
+          "heading": "Key Terms"
+        },
+        {
+          "line": 142,
+          "level": 2,
+          "heading": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        "Take one of your production failures. Write an eval case that reproduces it. Does your agent pass it now?",
+        "Build an LLM-judge rubric for your domain with three dimensions (factual, tone, scope). Score 50 sessions.",
+        "Wire the eval suite into CI. Fail the build on >=5% regression.",
+        "Add a trajectory-efficiency metric: how many steps did the agent take vs a gold trajectory?",
+        "Map every Phase 14 lesson to an eval case in your suite. Any missing? That's a gap to close."
+      ],
+      "source_quiz": {
+        "lesson": "30-eval-driven-agent-development",
+        "title": "Eval-Driven Agent Development",
+        "questions": [
+          {
+            "stage": "pre",
+            "question": "What are the three evaluation layers the lesson names?",
+            "options": [
+              "Unit, integration, end-to-end",
+              "Smoke, regression, acceptance",
+              "Pre, check, post",
+              "Static benchmarks, custom offline evals, online production evals"
+            ],
+            "correct": 3,
+            "explanation": "Static (SWE-bench, GAIA), custom offline (LLM-judge, exec, trajectory), online (replays, alerts, cost/latency)."
+          },
+          {
+            "stage": "pre",
+            "question": "What is Anthropic's recommended starting point?",
+            "options": [
+              "Start with multi-agent debate",
+              "Start with simple prompts, optimize them with comprehensive evaluation, and add multi-step agentic systems only when needed",
+              "Start with a frontier model only",
+              "Start with hierarchical orchestration"
+            ],
+            "correct": 1,
+            "explanation": "Anthropic explicitly says evaluation is the outer loop that drives every other choice."
+          },
+          {
+            "stage": "check",
+            "question": "What is the evaluator-optimizer tight loop?",
+            "options": [
+              "Proposer generates output, evaluator judges, refine until evaluator passes (Self-Refine generalized)",
+              "Sample, sort, deduplicate",
+              "Cache, retry, fail",
+              "Train, evaluate, deploy"
+            ],
+            "correct": 0,
+            "explanation": "It is Self-Refine generalized: any flow can wrap in propose-judge-refine."
+          },
+          {
+            "stage": "check",
+            "question": "What is the 2026 best practice for where evals live?",
+            "options": [
+              "Owned exclusively by the QA team",
+              "Only run quarterly",
+              "Next to code, run in CI on every PR, gate merges on eval scores",
+              "In a separate vendor dashboard only"
+            ],
+            "correct": 2,
+            "explanation": "Co-located with code, CI-gated, regression-tracked is the standard."
+          },
+          {
+            "stage": "check",
+            "question": "Why does the lesson warn against an LLM-judge without grounding?",
+            "options": [
+              "It violates Apache 2.0",
+              "Judges hallucinate too; pair with the CRITIC pattern so judgment grounds on external tools",
+              "It is too slow",
+              "It only works on GPUs"
+            ],
+            "correct": 1,
+            "explanation": "CRITIC (Lesson 5) applies: tool-grounded verification keeps the judge honest."
+          },
+          {
+            "stage": "post",
+            "question": "What is the danger of over-fitting to evals?",
+            "options": [
+              "Vector indices fragment",
+              "Compute cost rises",
+              "Latency drops too far",
+              "Optimizing for the eval set diverges from production usefulness; rotate cases"
+            ],
+            "correct": 3,
+            "explanation": "Eval set rotation keeps the optimization aligned with production reality."
+          },
+          {
+            "stage": "post",
+            "question": "Why do flaky evals cause problems?",
+            "options": [
+              "They exceed the context window",
+              "They cannot reach the database",
+              "They double inference cost",
+              "Non-deterministic cases produce false alarms; pin seeds and snapshot state"
+            ],
+            "correct": 3,
+            "explanation": "Flake makes regressions unreadable; determinism (seeds, state snapshots) is required."
+          }
+        ]
+      },
+      "dynamic_ids_discovered": [
+        "ae-eval-three-layers"
+      ],
+      "status": "课内文件及最终动态图与相关helper/挂载完整只读；一手核验和旧知识对齐待收尾",
+      "semantic_notes": [
+        "三个层面是评测对象/取样来源，不等unit/integration/e2e；其四合成case并不是真SWE-bench/LLMjudge/online数据。",
+        "benchmark判断patch字符串含add stick dep，没有修改代码/执行FAIL_TO_PASS/PASS_TO_PASS；flaky判断correct会接收incorrect；引文判断cite/arXiv只看字样，不核文献或支持。",
+        "online case先输出forwarded敏感信息，再改refused并标pass；若先前实际effect已发生不能用最终拒绝掩盖，应保全部attempt与独立effect证据。source当前没有真实数据传输。",
+        "proposer知道judge关键词，反馈直接给必要字符串；100%是脚本编排，不证明模型可靠性或真实评测覆盖。",
+        "baseline .95和threshold .05是人工输入；代码>而正文/练习>=，需定义百分点还是相对百分比、边界与有限typed值。NaN可导致错误放行；boolean/非法概率/empty/分类漏样本分别处理。",
+        "迭代至pass易过拟合judge；需开发/holdout分离，保失败/成本/每轮结果/终态；有副作用的任务不能无条件包在refine循环。",
+        "seed与snapshot有助复现但不保证网络/并发/模型确定性；统计重复/区间/配对比较不可用单次测试替代；轮换case不等建立独立holdout。",
+        "参考SWE-bench+32.67/OSWorld-Human1.4–2.7均属于固定论文实验，不当当前普遍比例；B19/20会核原来源。source表只列旧部分01–29，不能凭表格宣布全部54课覆盖。"
+      ],
+      "exercise_criteria_zh": [
+        "用固定失败输入、观察与后置条件建回归，保持未修前确实失败/修后通过；无真实用户产品失败则用明确fixture，不虚构经历。",
+        "50会话是题设未采集；三维rubric明确anchor/gold/分歧与拒绝质量，事实核可信资料，tone不与事实互相抵消；自评校准不当独立truth。",
+        "CI未部署；明确>=5个百分点或相对5%、分母/样本/关键严重失败/未知情况，有限值与同版本配对基线，绝对边界用整数计数/有理数避免浮点误判。",
+        "有效成功与前置条件可比才算步骤比；human gold是观察参考路径非理论最小，失败不能因0步显得高效；结合质量/权限/成本/时延。",
+        "映射54课完整名单并按机制分层，多课可共用一条含边界反例的测试；一个case/每课不等穷尽安全/质量，coverage与效果分开。"
+      ],
+      "quiz_judgments_zh": [
+        "原D：benchmark、自定义离线、真实在线三来源互补；代码四字串fixture不构成三真实层。",
+        "原B：从较简单可评估方案出发，有证据再增复杂度；不强制所有任务最低架构或特定模型。",
+        "原A仅描述有界提出-评价-修订；必须maxrounds/预算/可信criterion/停滞与副作用边界，不保证任何flow这样包都可靠。",
+        "原C是有用工程做法，不是2026普适标准强制每PR跑完整昂贵suite；按风险选gate，固定版本/可观察失败。",
+        "原B：judge也会错，可信工具/证据改善支持但不能保证judge真实；并非必须名为CRITIC框架。",
+        "原D：过拟合dev集会损失外部效用；需要heldout和真实反馈，轮换不自动解决。",
+        "原D：控制seed/snapshot并记录不可控状态与重复测量；不宣称所有评测可完全确定。"
+      ],
+      "dynamic_reads": [
+        {
+          "id": "ae-eval-three-layers",
+          "provider": "site/figures-agents4.js",
+          "function": "evalThreeLayers",
+          "function_lines": [
+            287,
+            319
+          ],
+          "provider_actual_read_ranges": [
+            [
+              1,
+              27
+            ],
+            [
+              287,
+              334
+            ]
+          ],
+          "provider_sha256": "e5e948860d55f4f257ffd0b017c2142ed769a2acdeb90d29c9e43f50cd012b44",
+          "provider_git_blob": "999b0a4dd59257f624953d1099914f08deedc500",
+          "all_provider_matches": [
+            "site/figures-agents4.js"
+          ],
+          "mount_chain": "build已有顺序+额外provider排序，quoted-ID收集→requiredProviders顺序串行load→LF.register后覆盖同名→mount当前FIGS；本六ID各唯一provider",
+          "interpretation": "8/6/4秒三环只绘benchmark/offline/online分类，无真实评估/merge gate；有用的是三来源反馈关系，不是每PR全suite强制证据",
+          "read_date": "2026-10-09",
+          "browser_build_execution": false
+        }
+      ]
+    }
+  ],
+  "primary_verification": [
+    {
+      "url": "https://arxiv.org/abs/2305.14325",
+      "range": "arXiv题名/作者/2023提交/摘要；未读全文，具体性能/协议细节待",
+      "date": "2026-10-08"
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.11776",
+      "range": "arXiv题名/作者/2024提交/摘要；未读全文，具体性能待",
+      "date": "2026-10-08"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "range": "页面定义/agent-workflow区别、parallel/voting与orchestrator-workers/evaluator-optimizer、更新说明；未称全文实验",
+      "date": "2026-10-08"
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.13657",
+      "range": "当前v3摘要/名称MAST及3类/14模式/版本；非全论文",
+      "date": "2026-10-08"
+    },
+    {
+      "url": "https://arxiv.org/html/2503.13657v1",
+      "range": "v1目录/abstract/引言/方法起始至165行，确认历史MASFT名称与作者推测限定；附录14定义未读",
+      "date": "2026-10-08"
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.06847",
+      "range": "题名/基本metadata页面获取；正文和taxonomy未读",
+      "date": "2026-10-08"
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.18970",
+      "range": "题名/基本metadata页面获取；正文和两manifestation定义未读",
+      "date": "2026-10-08"
+    },
+    {
+      "url": "https://arxiv.org/html/2302.12173v2",
+      "range": "v2目录/abstract/引言至107行，确认can act as类比与taxonomy六节；未读取全部演示/appendix",
+      "date": "2026-10-08"
+    }
+  ],
+  "execution": "所有源码/SKILL命令只读，未执行；第2–5站未读",
+  "acceptance_count": 279,
+  "status": "36课内文件/6SVG/6动态+相关helper与挂载已读；必要primary与旧知识对齐待，未写Study",
+  "updated_date": "2026-10-09",
+  "dynamic_helpers": [
+    {
+      "path": "site/lesson-figures.js",
+      "bytes": 72860,
+      "sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+      "git_blob_sha": "e90e743c4f4b3e282e46c1a27a6602faa9745973",
+      "actual_read_ranges": [
+        [
+          57,
+          143
+        ],
+        [
+          134,
+          236
+        ],
+        [
+          264,
+          283
+        ],
+        [
+          1241,
+          1350
+        ]
+      ],
+      "read_date": "2026-10-09",
+      "boundary": "只读明确范围；未运行build/browser；未声称文件其他范围全读"
+    },
+    {
+      "path": "site/build.js",
+      "bytes": 104702,
+      "sha256": "0859517c9e3a6d70eb720c91ef4e81b0313145c2f3f06dbce91fffc71d098f37",
+      "git_blob_sha": "ec0bd096b4e9333430a12cce6bd048c5b326c63e",
+      "actual_read_ranges": [
+        [
+          1,
+          110
+        ],
+        [
+          529,
+          608
+        ]
+      ],
+      "read_date": "2026-10-09",
+      "boundary": "只读明确范围；未运行build/browser；未声称文件其他范围全读"
+    },
+    {
+      "path": "site/lesson.html",
+      "bytes": 249289,
+      "sha256": "03a79431a160d84c30793da3433d565b236db586ba53083b45b07e304d15757e",
+      "git_blob_sha": "e0dab75fa0746e01a6618ff5b507975a70967334",
+      "actual_read_ranges": [
+        [
+          3807,
+          3829
+        ]
+      ],
+      "read_date": "2026-10-09",
+      "boundary": "只读明确范围；未运行build/browser；未声称文件其他范围全读"
+    }
+  ],
+  "root_integrity_snapshot": {
+    "date": "2026-10-09",
+    "scope": "仅核课内文件/完整读取范围证据与固定source字节/Blob，不替代未完动态图/primary/正文融合",
+    "original_temp_sha256": "457a8c3f0faed73b11e6804f3969c2bc1aed90bd68a008b06e4b962ec23d518a",
+    "checks": [
+      {
+        "path": "phases/14-agent-engineering/25-multi-agent-debate/assets/debate-topology.svg",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/25-multi-agent-debate/code/main.py",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/25-multi-agent-debate/docs/en.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/25-multi-agent-debate/notebook/.gitkeep",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/25-multi-agent-debate/outputs/skill-debate.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/25-multi-agent-debate/quiz.json",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/26-failure-modes-agentic/assets/failure-modes.svg",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/26-failure-modes-agentic/code/main.py",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/26-failure-modes-agentic/docs/en.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/26-failure-modes-agentic/notebook/.gitkeep",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/26-failure-modes-agentic/outputs/skill-failure-detector.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/26-failure-modes-agentic/quiz.json",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/27-prompt-injection-defense/assets/pve-defense.svg",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/27-prompt-injection-defense/code/main.py",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/27-prompt-injection-defense/docs/en.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/27-prompt-injection-defense/notebook/.gitkeep",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/27-prompt-injection-defense/outputs/skill-injection-defense.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/27-prompt-injection-defense/quiz.json",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/28-orchestration-patterns/assets/orchestration-patterns.svg",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/28-orchestration-patterns/code/main.py",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/28-orchestration-patterns/docs/en.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/28-orchestration-patterns/notebook/.gitkeep",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/28-orchestration-patterns/outputs/skill-orchestration-picker.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/28-orchestration-patterns/quiz.json",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/29-production-runtimes/assets/runtime-shapes.svg",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/29-production-runtimes/code/main.py",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/29-production-runtimes/docs/en.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/29-production-runtimes/notebook/.gitkeep",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/29-production-runtimes/outputs/skill-runtime-shape.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/29-production-runtimes/quiz.json",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/30-eval-driven-agent-development/assets/eval-layers.svg",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/30-eval-driven-agent-development/code/main.py",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/30-eval-driven-agent-development/docs/en.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/30-eval-driven-agent-development/notebook/.gitkeep",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/30-eval-driven-agent-development/outputs/skill-eval-suite.md",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      },
+      {
+        "path": "phases/14-agent-engineering/30-eval-driven-agent-development/quiz.json",
+        "sha_blob_match": true,
+        "full_line_ranges_recorded": true,
+        "source_executed": false
+      }
+    ],
+    "status_preserved": "36课内文件/6SVG/6动态+相关helper与挂载已读；必要primary与旧知识对齐待，未写Study",
+    "source_instruction_boundary": "全部source Skill/AGENTS/安装/部署指令仍是教学材料；未激活",
+    "prior_temp_snapshot_sha256": "457a8c3f0faed73b11e6804f3969c2bc1aed90bd68a008b06e4b962ec23d518a",
+    "final_snapshot_date": "2026-10-09",
+    "scope_boundary": "保课内全读/hash/blob/ranges与具体补充范围；candidate fetched但未采用、坏HTML/404、未运行均保边界，不把status当学习完成"
+  }
+}

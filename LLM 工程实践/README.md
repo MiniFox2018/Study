@@ -117,3 +117,9 @@
 ## 外部工具与完整应用的连接
 
 [13](13-结构化输出与对话状态.md)新增发票的单位/总额/证据核验：输出形状正确仍可能业务错误；来源自己冲突和候选生成错误分别判定。[10](10-案例方法论.md)把MCP/Tasks、A2A和观测接成持久handle/receipt的本地综合例。具体协议、Skills与授权只有一个主维护入口，按[Agent工具与协议路线](../Agentic%20Design%20Patterns/README.md#工具mcp与skills的具体学习顺序)进入。能形成trace字典不等collector收到，能本地恢复不等真实外部效果已exactly-once。
+
+## 从Agent运行接到需求与成果
+
+2026-10-09补强：[03服务化](03-推理与服务化.md)将请求/stream/queue/event/调度与持久恢复分轴；[06评测](06-评测与实验管理.md)核每个test ID、完整失败分母与所有attempt，最终refused不能隐藏此前效果；[10案例](10-案例方法论.md)保工作流、假设、最小slice、规格判断、指标、prototype/pilot/production责任与反馈退役。
+
+先选可在当前许可/材料中回答的未知，写清观察与缺值/严重失败规则，再运行对应小程序；产生文件、漂亮UI或readiness=True不能自证真实成果。循环、计划、记忆、协作与工作台的机制回到[Agent具体路线](../Agentic%20Design%20Patterns/README.md#从循环状态走到实际成果)。
