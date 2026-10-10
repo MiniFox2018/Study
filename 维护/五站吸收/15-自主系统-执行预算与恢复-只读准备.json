@@ -1,0 +1,1421 @@
+{
+  "status": "只读审查完成，正文写作尚未开始",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "date": "2026-10-09",
+  "files": [
+    {
+      "path": "09-coding-agent-landscape/assets/scaffold-map.svg",
+      "bytes": 4788,
+      "sha256": "132403c88ed6d1d0835446a2a169ec550c51b0ba61926d0d7fa100bae1182308",
+      "read_state": "SVG XML全文和文本语义已读；未声称光栅视觉验收",
+      "svg_text": [
+        "Scaffolding moves the score more than the base model",
+        "base model",
+        "Claude Sonnet 4.5",
+        "(fixed weights)",
+        "SWE-agent v1",
+        "ACI command set",
+        "JSON tool calls",
+        "Cline autonomous",
+        "VS Code + policy",
+        "verifier loop",
+        "SWE-bench Verified",
+        "500 curated tasks",
+        "(same tasks)",
+        "the score delta",
+        "same model: SWE-agent v1  43.2%    |    Cline autonomous  59.8%",
+        "+16.6 absolute points from scaffolding alone. (OpenHands, Epoch AI 2026)",
+        "CodeAct scaffold (OpenHands)",
+        "+ composable: one action edits many files",
+        "+ catches exceptions inside an action",
+        "- larger per-action blast radius",
+        "- requires hardened sandbox (Docker)",
+        "use when: agent is inside an isolated container",
+        "         and composability is worth the audit cost",
+        "arXiv:2407.16741 · MIT license · most active open platform",
+        "JSON tool-call scaffold",
+        "+ every action goes through a validator",
+        "+ easy to audit turn-by-turn",
+        "- one action per turn; more turns for same task",
+        "- compositionality lives in the orchestrator",
+        "use when: provider controls the executor",
+        "         (Claude Managed Agents, OpenAI Assistants)",
+        "dominant in managed services, where safety is by construction"
+      ]
+    },
+    {
+      "path": "09-coding-agent-landscape/code/main.py",
+      "bytes": 5921,
+      "sha256": "ed8f2e6fb66eebdd6c9b832efd2157f40ab05767782266756b88d347fb4c9a1d",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "09-coding-agent-landscape/docs/en.md",
+      "bytes": 8876,
+      "sha256": "62d80c824129f6f23833be3473421afaa99330f4dfa617f49108013fe76bfeb3",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "09-coding-agent-landscape/notebook/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_state": "空占位核对"
+    },
+    {
+      "path": "09-coding-agent-landscape/outputs/skill-scaffold-audit.md",
+      "bytes": 3103,
+      "sha256": "32d1f0d17f33740e4520aae500dd42abd7cfed89f69ac3337805de864005db3e",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "10-claude-code-permission-modes/assets/permission-ladder.svg",
+      "bytes": 5480,
+      "sha256": "249f6e58f9f465cb35ece552adb206f4b3360b759ff9b975634eeef8f1622af5",
+      "read_state": "SVG XML全文和文本语义已读；未声称光栅视觉验收",
+      "svg_text": [
+        "Claude Code permission modes and the Auto Mode classifier",
+        "permission ladder (tight -> loose)",
+        "plan",
+        "ask before anything",
+        "default",
+        "ask on risky ops",
+        "acceptEdits",
+        "writes auto; exec asks",
+        "auto",
+        "classifier approves",
+        "dontAsk",
+        "no prompts",
+        "bypassPermissions",
+        "throwaway sandbox",
+        "Auto Mode (March 24, 2026) — action-review classifier",
+        "proposed action",
+        "tool + payload",
+        "from agent loop",
+        "classifier model",
+        "separate model",
+        "reviews each action",
+        "before it runs",
+        "escalation block",
+        "blocks actions that",
+        "escalate beyond",
+        "the request",
+        "HITL",
+        "blocked actions",
+        "fall to user",
+        "approved -> execute immediately",
+        "hard-block on priv-esc / exfil shapes",
+        "budget controls are non-negotiable (Lesson 13)",
+        "max_turns = hard cap on agent loop iterations",
+        "max_budget_usd = dollar kill switch; aborts session on breach",
+        "per-tool caps = e.g. no more than N WebFetch calls per session",
+        "Availability depends on plan, org enablement, model, and provider; classifier is a layer, not a solution."
+      ]
+    },
+    {
+      "path": "10-claude-code-permission-modes/code/main.py",
+      "bytes": 6306,
+      "sha256": "65162ab3b6578e4bcc52b9f0b575686a6c1b7ad62b48801e0f44d0d9d6a184c4",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "10-claude-code-permission-modes/docs/en.md",
+      "bytes": 9236,
+      "sha256": "89c7658a26b24a863992b5284936730885ea25c254e3a4b1c1949126da9d683c",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "10-claude-code-permission-modes/notebook/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_state": "空占位核对"
+    },
+    {
+      "path": "10-claude-code-permission-modes/outputs/skill-permission-mode-picker.md",
+      "bytes": 2607,
+      "sha256": "fb3f5a0f681032ab128f8da5ed0d9f4c8bd42d6bdc8dd85f096fd89b485cc67a",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "11-browser-agents/assets/attack-surface.svg",
+      "bytes": 5093,
+      "sha256": "889b7a21e1a5a1fd43ab8f4f10ee6cd4474f1d4cd29dbdb4905ed06a3bd4a202",
+      "read_state": "SVG XML全文和文本语义已读；未声称光栅视觉验收",
+      "svg_text": [
+        "Indirect prompt injection: attack surface and defense layers",
+        "out-of-trust content",
+        "• any third-party page",
+        "• user-generated posts",
+        "• search-engine snippets",
+        "• URL fragment / query",
+        "• prior memory entries",
+        "browser agent",
+        "read + reason + act loop",
+        "tool allowlist per task",
+        "scoped credentials only",
+        "session-isolated workspace",
+        "logs retained for audit",
+        "consequential sinks",
+        "• form submits",
+        "• backend tool calls",
+        "• memory writes",
+        "• file downloads",
+        "• credential use",
+        "defense layers",
+        "1. content sanitizer",
+        "strip known-bad patterns",
+        "\"ignore previous\", \"post to\"",
+        "catches visible-text injection",
+        "MISSES URL-fragment payloads",
+        "2. R/W boundary",
+        "reads free; writes require",
+        "fresh approval when",
+        "content_origin = out-of-trust",
+        "catches fragment injection too",
+        "3. tool allowlist + HITL",
+        "tool allowlist per task",
+        "HITL on irreversible writes",
+        "propose-then-commit (L15)",
+        "canary tokens on memory (L14)",
+        "documented 2025–2026 attacks",
+        "Tainted Memories (Atlas CSRF, 2025) — attacker page binds instructions to the agent's memory",
+        "HashJack (Cato Networks, 2026) — payload hidden in URL fragment / query string",
+        "Perplexity Comet hijacks (2026) — one-click button rides follow-on payload",
+        "OpenAI preparedness head (2025): indirect prompt injection \"is not a bug that can be fully patched\"",
+        "defense-in-depth: sanitizer + R/W boundary + allowlist + HITL + canaries; any single layer insufficient"
+      ]
+    },
+    {
+      "path": "11-browser-agents/code/main.py",
+      "bytes": 5428,
+      "sha256": "c55cacbd2b98a77ac05d0e0cdebe7df289cd3d50b7604004a1ebe3e706e6c931",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "11-browser-agents/docs/en.md",
+      "bytes": 9727,
+      "sha256": "fc1ad4d5c053b9effc8840efa4d993faabe6639a80b00a6485529331ddc0d493",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "11-browser-agents/notebook/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_state": "空占位核对"
+    },
+    {
+      "path": "11-browser-agents/outputs/skill-browser-agent-trust-boundary.md",
+      "bytes": 3183,
+      "sha256": "920ecf62f58ceb1a9e8330a4cd1764aafcef2b41d25810dd14aa7f16a140d347",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "12-durable-execution/assets/activity-replay.svg",
+      "bytes": 4220,
+      "sha256": "8a07c236d603b8b864642641581b19bb385199c84f07d0f6a56d01ef6c6f0c82",
+      "read_state": "SVG XML全文和文本语义已读；未声称光栅视觉验收",
+      "svg_text": [
+        "Durable execution: replay re-runs workflow, logged activities skip",
+        "attempt 1 — crash after call_llm",
+        "fetch_docs",
+        "run, log done",
+        "call_llm",
+        "run, log done",
+        "CRASH",
+        "write_report not yet run",
+        "event log (durable)",
+        "[fetch_docs started, fetch_docs done (result=X),",
+        " call_llm started, call_llm done (result=Y)]",
+        "attempt 2 — replay",
+        "fetch_docs",
+        "replay from log",
+        "call_llm",
+        "replay from log",
+        "write_report",
+        "run, log done",
+        "return report",
+        "done",
+        "what makes replay work",
+        "1. Workflow code is deterministic (no wall clock, no random, no hidden I/O).",
+        "2. Every activity is logged with args + result; replay re-reads the log.",
+        "3. Backend survives the crash (PostgreSQL / Durable Objects; not SQLite for prod).",
+        "4. HITL pauses are a workflow signal, not a polling loop.",
+        "LLM calls fit the activity shape: non-deterministic, expensive, potentially failing."
+      ]
+    },
+    {
+      "path": "12-durable-execution/code/main.py",
+      "bytes": 5415,
+      "sha256": "8408af76b83dbbb429cd646cc8fef88f3acdf4ba3aaf50a8a9f4fb2f2836e780",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "12-durable-execution/docs/en.md",
+      "bytes": 8765,
+      "sha256": "adc5aa6f20ee09b6920ab01aec2e062234e9e6620ca58f4e43fc59f073c15bba",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "12-durable-execution/notebook/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_state": "空占位核对"
+    },
+    {
+      "path": "12-durable-execution/outputs/skill-durable-execution-review.md",
+      "bytes": 3369,
+      "sha256": "df483b85dda7c692ee04d7698de83c75987d8c53305a722d8df95ef60959bcc6",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "13-cost-governors/assets/governor-stack.svg",
+      "bytes": 4940,
+      "sha256": "1d756c655edd9eb0977b78feaa598dc3a9a30bca1246a312f798d77546bc7078",
+      "read_state": "SVG XML全文和文本语义已读；未声称光栅视觉验收",
+      "svg_text": [
+        "Cost governors layer by time scale. Each layer catches a distinct failure.",
+        "time scale",
+        "layer",
+        "catches",
+        "per request (<1 s)",
+        "max_tokens",
+        "unbounded completion (single LLM call)",
+        "per session (min)",
+        "max_turns, max_budget_usd",
+        "long reasoning loop in one session",
+        "per tool (sess.)",
+        "per-tool cap (e.g., ≤5 WebFetch)",
+        "new tool triggers new loop (e.g. order-track)",
+        "velocity (10 min)",
+        "cut off above $50 / 10 min",
+        "runaway loop; fast-burn",
+        "per day",
+        "rolling daily cap + alert",
+        "slow leak; gradual doubling",
+        "per week/month",
+        "hard monthly cap + weekly alert",
+        "bad release; regression across sessions",
+        "orthogonal: cost reduction at constant quality",
+        "prompt caching · context windowing / compaction · tiered model routing · parallel cache for long-horizon runs",
+        "kill switch on breach",
+        "any cap fires → session aborts → alert → manual re-enable required → agent cannot modify its own cap",
+        "observed 2026: e-commerce agent $1,200 → $4,800 after tool addition; weekly-growth alert was the fix."
+      ]
+    },
+    {
+      "path": "13-cost-governors/code/main.py",
+      "bytes": 5124,
+      "sha256": "c19ba0a690a5a0e066bcef63382a71b846f37e96a1d1ef6f5c69883a5c5fb003",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "13-cost-governors/docs/en.md",
+      "bytes": 8104,
+      "sha256": "4bbc8166514794ae938da3981b90bf55549cde613ad6b5440da67115dbb7fd83",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "13-cost-governors/notebook/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_state": "空占位核对"
+    },
+    {
+      "path": "13-cost-governors/outputs/skill-agent-budget-audit.md",
+      "bytes": 2623,
+      "sha256": "a94ca3ff61ff0c54f8f70e365045e59e97014377f502fefa340a2643f9610305",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "14-kill-switches-canaries/assets/tripwires.svg",
+      "bytes": 4102,
+      "sha256": "0404a72838150c6c8a670662c5fc53d7eb0ef640d15b8be2dcf3f54b4a21497a",
+      "read_state": "SVG XML全文和文本语义已读；未声称光栅视觉验收",
+      "svg_text": [
+        "Three detectors, three failure classes",
+        "agent",
+        "reads, reasons, acts",
+        "cannot touch tripwires",
+        "kill switch",
+        "external boolean",
+        "• feature flag / Redis / signed cfg",
+        "• checked every action, not boot",
+        "• agent cannot set OFF",
+        "• re-enable = explicit human",
+        "circuit breaker",
+        "pattern-specific pause",
+        "• 5 identical tool calls",
+        "• N consecutive failures",
+        "• rate above threshold",
+        "• closed / open / half-open",
+        "canary token",
+        "bait with no legitimate use",
+        "• fake AWS_SECRET_ACCESS_KEY",
+        "• fake DB record sentinel",
+        "• fake file in workspace",
+        "• fake memory entry",
+        "what each catches",
+        "kill: operator decision  ·  breaker: repetitive / rate patterns  ·  canary: intent to touch off-limit resource",
+        "Cilium/eBPF egress redirect (under 500ms) complements canaries: quarantined pod goes to forensic honeypot",
+        "what no detector catches",
+        "semantic composites: individual actions pass every detector; composition is the attack (see Lesson 10)"
+      ]
+    },
+    {
+      "path": "14-kill-switches-canaries/code/main.py",
+      "bytes": 4610,
+      "sha256": "5c8a1bc47f2efbceef8234df2fa8eb408861ecbfdd42a561cf04d1cfb503d586",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "14-kill-switches-canaries/docs/en.md",
+      "bytes": 9602,
+      "sha256": "75ace984dda6cc34bc2dabf0da98bed969cb849bba80530b34e2b65413e4b64d",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "14-kill-switches-canaries/notebook/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_state": "空占位核对"
+    },
+    {
+      "path": "14-kill-switches-canaries/outputs/skill-tripwire-design.md",
+      "bytes": 2959,
+      "sha256": "45974ad580a3b695bc6c46ba56cd8df0258530117e3191d671f05320cd7631ff",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "15-propose-then-commit/assets/propose-commit.svg",
+      "bytes": 4884,
+      "sha256": "1c96c4a280673b8b73b9d91059db46027121ea7ce7a8bb2bed6bd5e6aacc15f3",
+      "read_state": "SVG XML全文和文本语义已读；未声称光栅视觉验收",
+      "svg_text": [
+        "Propose → Surface → Commit → Verify (all four required)",
+        "1. propose",
+        "intent + lineage +",
+        "permissions + blast +",
+        "rollback + idempotency",
+        "2. surface",
+        "durable store",
+        "(PostgreSQL, Redis,",
+        "Durable Object)",
+        "3. commit",
+        "challenge-and-response",
+        "checklist, positive ack",
+        "idempotent re-exec",
+        "4. verify",
+        "re-read target",
+        "confirm side effect",
+        "alert on mismatch",
+        "rubber-stamp (fails audit)",
+        "one \"Approve?\" button",
+        "no structured metadata surfaced",
+        "reviewer clicks in under 1s",
+        "approvals predict nothing",
+        "EU AI Act Article 14 is explicit: effective human oversight",
+        "excludes rubber-stamp patterns.",
+        "challenge-and-response (passes)",
+        "[ ] I understand what this touches",
+        "[ ] I verified the blast radius",
+        "[ ] I have a rollback plan",
+        "Approve enabled only when all three set",
+        "documented in Anthropic and MS compliance docs;",
+        "required by EU AI Act Article 14 for high-risk systems.",
+        "idempotency key = hash(thread_id, action, payload)",
+        "propose(P) + propose(P) -> same record (no duplicate)",
+        "commit(k) + commit(k) -> execute once, subsequent commits are no-ops",
+        "retry after transient failure: Stripe/AWS-style idempotency, reused for agent approvals",
+        "wall-clock in the key is a logging timestamp, not an idempotency key",
+        "LangGraph interrupt() · MS RequestInfoEvent · Cloudflare waitForApproval() — same shape, different names"
+      ]
+    },
+    {
+      "path": "15-propose-then-commit/code/main.py",
+      "bytes": 7281,
+      "sha256": "86d432873e19061b1a78ad28b6616d44b9c55dab770bdc7f522cb6b000658eac",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "15-propose-then-commit/docs/en.md",
+      "bytes": 8993,
+      "sha256": "066d62177805838d9d0678e12e73824d860440642edd386b738307c20ee579c4",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "15-propose-then-commit/notebook/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_state": "空占位核对"
+    },
+    {
+      "path": "15-propose-then-commit/outputs/skill-hitl-design.md",
+      "bytes": 2805,
+      "sha256": "51cc3b7fec0b83bf42c2d47a3a6408e28f2b5840f56f74746068b3207a3510b3",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "16-checkpoints-rollback/assets/checkpoint-lifecycle.svg",
+      "bytes": 4757,
+      "sha256": "c054fb725a2fee25ea51539be161d3fc3598ff418fc7d5c547b3bb0dbcb8efaf",
+      "read_state": "SVG XML全文和文本语义已读；未声称光栅视觉验收",
+      "svg_text": [
+        "Checkpoint lifecycle: idempotency + precondition + verify + rollback",
+        "approved action",
+        "idempotency key k",
+        "precondition check",
+        "state still consistent?",
+        "mark-as-done-first",
+        "persist \"committed\" BEFORE exec",
+        "execute side effect",
+        "tool call / DB write / send",
+        "post-action verify",
+        "re-read target resource",
+        "verify passes",
+        "done",
+        "verify fails",
+        "known-bad state detected",
+        "rollback fires",
+        "in-band / compensating / alert",
+        "the sharp failure: double-execute on retry after crash",
+        "1. commit starts · 2. execute succeeds · 3. crash before persisting \"committed\"",
+        "4. resume, sees \"approved not committed\" · 5. re-executes · 6. side effect fires twice",
+        "mitigation: persist \"committed\" BEFORE execute (\"mark-as-done-first\" pattern)",
+        "EU AI Act Article 14 — operational reading",
+        "checkpoints queryable (auditor access, not just logs)",
+        "rollbacks rehearsed (end-to-end test, not documented intent)",
+        "audit trail survives deploys (PostgreSQL or Durable Objects, not in-memory)"
+      ]
+    },
+    {
+      "path": "16-checkpoints-rollback/code/main.py",
+      "bytes": 7097,
+      "sha256": "8fb1311428db4d3fb22bf9b92504d5463f6bcdc74758e8391aa555d403ecd859",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "16-checkpoints-rollback/docs/en.md",
+      "bytes": 8823,
+      "sha256": "a530818bb301abf263f3ca3b331287160ae5f94b4557b5a0cb5e01133f611d62",
+      "read_state": "完整读取"
+    },
+    {
+      "path": "16-checkpoints-rollback/notebook/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_state": "空占位核对"
+    },
+    {
+      "path": "16-checkpoints-rollback/outputs/skill-rollback-rehearsal.md",
+      "bytes": 2905,
+      "sha256": "52bb9e3e140444bb1c758eeff2940d686b4027ba6f4e290a94367c7c5537c1ee",
+      "read_state": "完整读取"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "09-coding-agent-landscape",
+      "headings": [
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 10,
+          "text": "## The Problem"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 18,
+          "text": "## The Concept"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 20,
+          "text": "### SWE-bench, one paragraph"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 24,
+          "text": "### What the 2022 → 2026 curve actually shows"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 33,
+          "text": "### CodeAct vs JSON tool calls"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 44,
+          "text": "### Scaffolds in the 2026 landscape"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 55,
+          "text": "### Why scaffolding dominates"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 63,
+          "text": "### Benchmark saturation and the real distribution"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 73,
+          "text": "## Use It"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 82,
+          "text": "## Ship It"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 86,
+          "text": "## Exercises"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 98,
+          "text": "## Key Terms"
+        },
+        {
+          "path": "09-coding-agent-landscape/docs/en.md",
+          "line": 111,
+          "text": "## Further Reading"
+        }
+      ],
+      "exercise_count": 5,
+      "quiz_count": 0,
+      "source_code_executed": false
+    },
+    {
+      "id": "10-claude-code-permission-modes",
+      "headings": [
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 10,
+          "text": "## The Problem"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 18,
+          "text": "## The Concept"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 20,
+          "text": "### The six permission modes"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 33,
+          "text": "### Auto Mode in one page"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 46,
+          "text": "### What the system catches"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 52,
+          "text": "### What the system can miss"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 58,
+          "text": "### Research preview framing"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 62,
+          "text": "### Where this ladder lives in your workflow"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 73,
+          "text": "## Use It"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 77,
+          "text": "## Ship It"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 81,
+          "text": "## Exercises"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 93,
+          "text": "## Key Terms"
+        },
+        {
+          "path": "10-claude-code-permission-modes/docs/en.md",
+          "line": 106,
+          "text": "## Further Reading"
+        }
+      ],
+      "exercise_count": 5,
+      "quiz_count": 0,
+      "source_code_executed": false
+    },
+    {
+      "id": "11-browser-agents",
+      "headings": [
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 10,
+          "text": "## The Problem"
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 18,
+          "text": "## The Concept"
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 20,
+          "text": "### The 2026 landscape, in one paragraph per system"
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 30,
+          "text": "### BrowseComp vs OSWorld vs WebArena"
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 41,
+          "text": "### The attack surface, named"
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 50,
+          "text": "### Why \"not fully patchable\""
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 56,
+          "text": "### Defense posture that actually ships"
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 69,
+          "text": "## Use It"
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 73,
+          "text": "## Ship It"
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 77,
+          "text": "## Exercises"
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 89,
+          "text": "## Key Terms"
+        },
+        {
+          "path": "11-browser-agents/docs/en.md",
+          "line": 102,
+          "text": "## Further Reading"
+        }
+      ],
+      "exercise_count": 5,
+      "quiz_count": 0,
+      "source_code_executed": false
+    },
+    {
+      "id": "12-durable-execution",
+      "headings": [
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 10,
+          "text": "## The Problem"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 21,
+          "text": "## The Concept"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 23,
+          "text": "### Activities, workflows, and replay"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 32,
+          "text": "### Why LLM calls fit the pattern"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 42,
+          "text": "### Checkpoints keyed by `thread_id`"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 53,
+          "text": "### Human-input as a first-class state"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 57,
+          "text": "### The 35-minute degradation"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 61,
+          "text": "### When durable execution is the wrong answer"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 71,
+          "text": "## Use It"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 81,
+          "text": "## Ship It"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 85,
+          "text": "## Exercises"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 97,
+          "text": "## Key Terms"
+        },
+        {
+          "path": "12-durable-execution/docs/en.md",
+          "line": 110,
+          "text": "## Further Reading"
+        }
+      ],
+      "exercise_count": 5,
+      "quiz_count": 0,
+      "source_code_executed": false
+    },
+    {
+      "id": "13-cost-governors",
+      "headings": [
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 10,
+          "text": "## The Problem"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 18,
+          "text": "## The Concept"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 20,
+          "text": "### The cost-governor stack"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 35,
+          "text": "### Why the stack, not one cap"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 44,
+          "text": "### A harness budget surface"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 55,
+          "text": "### EU AI Act, OWASP Agentic Top 10"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 59,
+          "text": "### The observed $1,200 → $4,800 case"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 67,
+          "text": "## Use It"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 71,
+          "text": "## Ship It"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 75,
+          "text": "## Exercises"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 87,
+          "text": "## Key Terms"
+        },
+        {
+          "path": "13-cost-governors/docs/en.md",
+          "line": 100,
+          "text": "## Further Reading"
+        }
+      ],
+      "exercise_count": 5,
+      "quiz_count": 0,
+      "source_code_executed": false
+    },
+    {
+      "id": "14-kill-switches-canaries",
+      "headings": [
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 10,
+          "text": "## The Problem"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 22,
+          "text": "## The Concept"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 24,
+          "text": "### Kill switches"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 40,
+          "text": "### Circuit breakers"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 55,
+          "text": "### Canary tokens"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 68,
+          "text": "### Why layer statistical and hard limits"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 74,
+          "text": "### Quarantine via eBPF datapath redirect"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 78,
+          "text": "### What no detector catches"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 87,
+          "text": "## Use It"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 91,
+          "text": "## Ship It"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 95,
+          "text": "## Exercises"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 107,
+          "text": "## Key Terms"
+        },
+        {
+          "path": "14-kill-switches-canaries/docs/en.md",
+          "line": 120,
+          "text": "## Further Reading"
+        }
+      ],
+      "exercise_count": 5,
+      "quiz_count": 0,
+      "source_code_executed": false
+    },
+    {
+      "id": "15-propose-then-commit",
+      "headings": [
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 10,
+          "text": "## The Problem"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 18,
+          "text": "## The Concept"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 20,
+          "text": "### The propose-then-commit state machine"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 33,
+          "text": "### The idempotency key"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 39,
+          "text": "### Durability: why approvals outlast processes"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 43,
+          "text": "### Rubber-stamp approvals and the challenge-and-response mitigation"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 53,
+          "text": "### What counts as consequential"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 61,
+          "text": "### Post-action verification"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 65,
+          "text": "### EU AI Act Article 14"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 73,
+          "text": "## Use It"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 77,
+          "text": "## Ship It"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 81,
+          "text": "## Exercises"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 93,
+          "text": "## Key Terms"
+        },
+        {
+          "path": "15-propose-then-commit/docs/en.md",
+          "line": 106,
+          "text": "## Further Reading"
+        }
+      ],
+      "exercise_count": 5,
+      "quiz_count": 0,
+      "source_code_executed": false
+    },
+    {
+      "id": "16-checkpoints-rollback",
+      "headings": [
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 10,
+          "text": "## The Problem"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 22,
+          "text": "## The Concept"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 24,
+          "text": "### Every transition persists"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 28,
+          "text": "### Lease recovery"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 32,
+          "text": "### Idempotency plus preconditions"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 41,
+          "text": "### Post-action verification"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 52,
+          "text": "### Rollback plans"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 62,
+          "text": "### EU AI Act Article 14 operational reading"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 73,
+          "text": "### The sharp failure mode: the double-execute"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 89,
+          "text": "## Use It"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 93,
+          "text": "## Ship It"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 97,
+          "text": "## Exercises"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 109,
+          "text": "## Key Terms"
+        },
+        {
+          "path": "16-checkpoints-rollback/docs/en.md",
+          "line": 122,
+          "text": "## Further Reading"
+        }
+      ],
+      "exercise_count": 5,
+      "quiz_count": 0,
+      "source_code_executed": false
+    }
+  ],
+  "counts": {
+    "courses": 8,
+    "files": 40,
+    "nonempty": 32,
+    "true_h2_h4": 104,
+    "exercise_count": 40,
+    "quiz_count": 0,
+    "svg": 8,
+    "source_programs_run": 0
+  },
+  "primary_sources": [
+    {
+      "id": "claude-permissions",
+      "url": "https://code.claude.com/docs/en/permissions",
+      "cache": "/tmp/study-autonomous-runtime-primary/claude-permissions.md",
+      "bytes": 75978,
+      "sha256": "50f28c5ad23ae850112ebb2f3f3903525256d68b5f572745f4d302176bae1bbc",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "claude-permission-modes",
+      "url": "https://code.claude.com/docs/en/permission-modes",
+      "cache": "/tmp/study-autonomous-runtime-primary/claude-permission-modes.md",
+      "bytes": 85951,
+      "sha256": "a697c232dc4238fe3d3f5ff371ce76b4ac4e15ce1c75b51a63bcf4db70368373",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "claude-sdk-permissions",
+      "url": "https://platform.claude.com/docs/en/agent-sdk/permissions",
+      "cache": "/tmp/study-autonomous-runtime-primary/claude-sdk-permissions.md",
+      "bytes": 14557,
+      "sha256": "4712ed68373715e8074b0502aa50eb556d8a541c626f7da071e0f4adf4898f1b",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "claude-sdk-cost",
+      "url": "https://platform.claude.com/docs/en/agent-sdk/cost-tracking",
+      "cache": "/tmp/study-autonomous-runtime-primary/claude-sdk-cost.md",
+      "bytes": 19391,
+      "sha256": "8db964d11e97aaa9ae909d4f15f97794adad50854f428444b72b0d8cc6e8791b",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "claude-sdk-python",
+      "url": "https://platform.claude.com/docs/en/agent-sdk/python",
+      "cache": "/tmp/study-autonomous-runtime-primary/claude-sdk-python.md",
+      "bytes": 87681,
+      "sha256": "b893aa4ee056b24f5355786736672b4972882c64b14ad9fd6944fa1c1c4f40be",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "claude-prompt-cache",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "cache": "/tmp/study-autonomous-runtime-primary/claude-prompt-cache.md",
+      "bytes": 38015,
+      "sha256": "28b0dc6e6514d851d8bdb5e8ae60d60ce4aa6204aec9ae6157c02799cf2b9db2",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "langgraph-durable",
+      "url": "https://docs.langchain.com/oss/python/langgraph/durable-execution",
+      "cache": "/tmp/study-autonomous-runtime-primary/langgraph-durable.md",
+      "bytes": 3982,
+      "sha256": "02329d05cf0d94cd69772965b56c62519257cd7d15a97725c2ae35103b3e8eff",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "langgraph-interrupts",
+      "url": "https://docs.langchain.com/oss/python/langgraph/interrupts",
+      "cache": "/tmp/study-autonomous-runtime-primary/langgraph-interrupts.md",
+      "bytes": 18763,
+      "sha256": "b80f32b4b6fe364c0023f5aca552e287a8616b49bc7bc62ca1af07bed59bac43",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "langgraph-persistence",
+      "url": "https://docs.langchain.com/oss/python/langgraph/persistence",
+      "cache": "/tmp/study-autonomous-runtime-primary/langgraph-persistence.md",
+      "bytes": 3940,
+      "sha256": "59c8a8a55850fa14d6742cd65297a19be2f1cc413c32936fdfe4d21c3baa0a79",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "cloudflare-hitl",
+      "url": "https://developers.cloudflare.com/agents/concepts/human-in-the-loop/",
+      "cache": "/tmp/study-autonomous-runtime-primary/cloudflare-hitl.md",
+      "bytes": 24535,
+      "sha256": "67b1e0a6f358835da76b54ff4ec515109f4c38a3c238c6c380b750b4dc025e34",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "temporal-tasks",
+      "url": "https://docs.temporal.io/tasks",
+      "cache": "/tmp/study-autonomous-runtime-primary/temporal-tasks.md",
+      "bytes": 11935,
+      "sha256": "e200e207bf50a74bb7083d9c1aa300321e97fcde53a0346b1a5665563359b6a2",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "temporal-idempotency",
+      "url": "https://temporal.io/blog/idempotency-and-durable-execution",
+      "cache": "/tmp/study-autonomous-runtime-primary/temporal-idempotency.md",
+      "bytes": 23631,
+      "sha256": "f7129bfb4af3fe208d1a8826a9b22d00c1ccc37000ccb14c452294bc55782381",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "cilium-policy",
+      "url": "https://docs.cilium.io/en/stable/security/network/",
+      "cache": "/tmp/study-autonomous-runtime-primary/cilium-policy.md",
+      "bytes": 9302,
+      "sha256": "fc0fc6ba0dd1620241b79d60a5ce1ed2324c5e4de36eb9d825b9890fa7e23688",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "cilium-egress",
+      "url": "https://docs.cilium.io/en/stable/network/egress-gateway/egress-gateway/",
+      "cache": "/tmp/study-autonomous-runtime-primary/cilium-egress.md",
+      "bytes": 19615,
+      "sha256": "2c6a5678a84abb25f142c5ada4c2741744ebaba3dd36e38424ddbbeb79905048",
+      "method": "Jina Reader",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "microsoft-hitl",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop",
+      "status": "fetch-failed",
+      "error": "HTTP Error 429: Too Many Requests",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "eurlex-ai",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+      "status": "fetch-failed",
+      "error": "HTTP Error 429: Too Many Requests",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "langgraph-checkpointers",
+      "url": "https://docs.langchain.com/oss/python/langgraph/checkpointers",
+      "cache": "/tmp/study-autonomous-runtime-primary/langgraph-checkpointers.md",
+      "bytes": 27181,
+      "sha256": "1aa7fb4017d0860eeaa8352ec99588b644ec6f627e8bcbd946cc67930fcb92f6",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "openai-computer",
+      "url": "https://developers.openai.com/api/docs/guides/tools-computer-use",
+      "cache": "/tmp/study-autonomous-runtime-primary/openai-computer.md",
+      "bytes": 83005,
+      "sha256": "3121f7531c3a96241b97d86856e36c81c91d90e5f0b91296fec3fbee445aae6e",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "anthropic-autonomy",
+      "url": "https://www.anthropic.com/research/measuring-agent-autonomy",
+      "cache": "/tmp/study-autonomous-runtime-primary/anthropic-autonomy.md",
+      "bytes": 42693,
+      "sha256": "2b339daf428654b2b7df6d46bcc205a0540e0f3188698f3293d3ad3908a17bf9",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "openhands-paper",
+      "url": "https://arxiv.org/html/2407.16741v3",
+      "cache": "/tmp/study-autonomous-runtime-primary/openhands-paper.md",
+      "bytes": 224,
+      "sha256": "b3bf6c130f660407d3ab3306e5757f39d56577abf5bb203915f6c98c598329e8",
+      "status": "无效正文缓存，不作为证据",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "swe-pro-paper",
+      "url": "https://arxiv.org/html/2509.16941v1",
+      "cache": "/tmp/study-autonomous-runtime-primary/swe-pro-paper.md",
+      "bytes": 64341,
+      "sha256": "2fcbfa8e8a98cd1e349b04ab2e07f7a4705d6271df29e36a0353d756b4d7f9a8",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "webarena-paper",
+      "url": "https://openreview.net/pdf?id=94tlGxmqkN",
+      "cache": "/tmp/study-autonomous-runtime-primary/webarena-paper.md",
+      "bytes": 436,
+      "sha256": "0904427f8d4a158412e8e969cc87dc086ddb4fa65f003ab272061dfbd4d32aec",
+      "status": "无效正文缓存，不作为证据",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "eurlex-article14",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
+      "cache": "/tmp/study-autonomous-runtime-primary/eurlex-article14.md",
+      "bytes": 594018,
+      "sha256": "b3f51901c9ab601f5b8d7a50c7cc29ef6ed9b604bc15f12e56f11b86a3233fa4",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "microsoft-hitl-retry",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop",
+      "cache": "/tmp/study-autonomous-runtime-primary/microsoft-hitl-retry.md",
+      "bytes": 12304,
+      "sha256": "18c9a904572b2df7ea330ae565e450c2e9878d82226395bb095bed7d8a2180f9",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "openhands-readme",
+      "url": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/README.md",
+      "cache": "/tmp/study-autonomous-runtime-primary/openhands-readme.md",
+      "bytes": 12945,
+      "sha256": "ac7154eb19e8b8a362fd527dcf35795204c4e9634be11c2a8c2b66ff9ec3b13c",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    },
+    {
+      "id": "openhands-license",
+      "url": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/LICENSE",
+      "cache": "/tmp/study-autonomous-runtime-primary/openhands-license.md",
+      "bytes": 1203,
+      "sha256": "a5d5de9e696e3a8c515c599a0ce34aa83976c7641166b20d1b79a564f4af9f1c",
+      "status": "选取相关章节核验，未声称完整阅读全文",
+      "verification_date": "2026-10-09"
+    }
+  ],
+  "old_body_and_code": [
+    {
+      "path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/Agentic Design Patterns/01-核心章节/12-异常处理和恢复.md",
+      "before_sha256": "238a714941803b1a2ea7974aa440cc006deb7ab7032646e5a53f071b8d5cb705",
+      "python_blocks": [
+        {
+          "python_block": 1,
+          "sha256_with_lf": "d9b8d306d07fbc6525c3beb727416a1aa45736ca1af6db5455a5d5d21ed03df5"
+        }
+      ]
+    },
+    {
+      "path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/Agentic Design Patterns/01-核心章节/13-人机协同.md",
+      "before_sha256": "2c1db68fee7d49b34232ff0220c410cee9188132a0152afb9b93b1009dc54574",
+      "python_blocks": [
+        {
+          "python_block": 1,
+          "sha256_with_lf": "769eaba8705fd97b072387cda10242d537bfcb41f762fe2c1259a54f76c04c19"
+        }
+      ]
+    },
+    {
+      "path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/Agentic Design Patterns/01-核心章节/16-资源感知优化.md",
+      "before_sha256": "a0e394024a8df0f505155c26087deba8639938c2bb9bf25a5fe3cb8d7bcac5fc",
+      "python_blocks": [
+        {
+          "python_block": 1,
+          "sha256_with_lf": "e8730d1aa46fe8bbac932c132102f6ae923b56191c8a0168a6640b4bd963bcdc"
+        },
+        {
+          "python_block": 2,
+          "sha256_with_lf": "a8a8e44032b0475175b6cf49e6c3e464c975152788ec2faa4a45750e2eae8de9"
+        }
+      ]
+    },
+    {
+      "path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/Agentic Design Patterns/06-专题扩展/02-Coding-Agent与通用Agent.md",
+      "before_sha256": "a47b3d791e294d4769ccbd4ea6a5b03b7c803990ab9e6a505c86355a24da260d",
+      "python_blocks": [
+        {
+          "python_block": 1,
+          "sha256_with_lf": "e7d87dd6888a305b70d3e4a01fcf8f7afeee9e9a3b7031ac5a77825edc449d32"
+        },
+        {
+          "python_block": 2,
+          "sha256_with_lf": "580ec5a87bddb35a43a7ad69f62a90badfe391d1fcdbc0656eeb27ab1d048d30"
+        },
+        {
+          "python_block": 3,
+          "sha256_with_lf": "70e24b81cbdc89c42b4243faeabbd4f7dfd8b02010f2f014d558252399eaed31"
+        }
+      ]
+    }
+  ],
+  "dynamic_reading": "根代理读取注册动态图并提供真实实现含义，随后正文明确其不是runtime实跑",
+  "critical_corrections": [
+    "09 CodeAct程序仅字符串replace和stub判定，并未执行代码/模型；两者3/3，turn4/2。JSON可批量多tool，结构化≠安全。43.2/59.8与当前排名未primary核，不作为实证。SWE-bench始于2023，源2022时间线错误。Pro是独立数据集非Verified困难子集，v1 §1有161/500和107.4行/4.1files，历史数字非当前榜。",
+    "10 plan并非每次read审批；acceptEdits某些fs shell操作可autoapprove，有限路径/保护例外；dontAsk不等只列allowtool才可跑；bypass仍有deny/hook/关键路径例外；allowed_tools只预批准非完全能力剥夺；截至今日不同版本默认可auto。source two-stage是toy非产品合同，允许host子串有伪装域漏洞且先allow遮蔽恶意附加操作。",
+    "11 readingneverconsequential错误：已登录请求、访问日志、secret读取、恶意GET都可能有后果。rw_boundary content_origin在toy由攻击分支设置，实际不能信模型自报。Loeb analogy非prompt injection不可能性证明。WebArena Hard search摘要137而源258，PDF正文不可用，不纳未验证数字。",
+    "12 replay缓存name+args缺tenant/run/logical step/version，合法同参数重复活动被折叠；完成日志gap仍重试可能重复计费与副作用；JSON未原子无锁。已核Temporal重试至少一次/目的端幂等，LangGraphsuperstep含durability sync/async/exit，interrupt前node重跑。35min/平方退化不受引用Anthropic研究支持；SQLite并非必然重启丢失，DO内存≠持久storage。",
+    "13 1200到4800是4倍300%增长非tripled，无primary具体case故不用真实事故标签；source价0.003/千token不是Sonnet实际报价，30s8000token=.048$/min，永远不到5，最高10000轮239.5215不到500。max_budget当前call own spend/resume旧计费不计预算/clear重置，非长期任务硬总额。promptcache非近零所有token计费。",
+    "14 总第7触发第五次相同，break导致第9canary不可达；只有open无halfopen实现；source全局dict不能证明外部权限隔离。Ciliumegressgateway路由/SNAT非任意把目标改为蜜罐，新pod策略delay可有未导流包。SVG500ms与datapathP99不是隔离传播保证。kill应阻断dispatch/权限，保可信audit，不能禁止任何日志。",
+    "15 key内容hash会折叠合法重复业务意图；需稳定operationID+tenant+intentdigest，payload变化同key拒绝。approval真假bool校验、reviewer权限/版本/TTL/revocation需真实实现；重复批准能将committed覆为approved重发。execute后写committedgap，verifyFalse仍True/committed是缺陷。EU14没有强制3勾选/指定库/逐动作批准，适用高风险与比例原则，不能当合规认证。",
+    "16 prewritecommitted前崩溃可永久漏执行，execute后崩溃永远跳过verify；真实需pending/executing/receipt+目的端幂等/unknown/reconciliation。单last_txid被其他事务覆盖无可靠proof；condition在同目的事务/CAS；误写回滚全快照会覆盖他人，补偿需单独幂等+版本边界。SVG markdonefirst错误，outputs既写executing又hardreject状态afterexec冲突。"
+  ]
+}

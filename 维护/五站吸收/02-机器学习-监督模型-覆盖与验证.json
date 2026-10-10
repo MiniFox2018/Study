@@ -1,0 +1,4396 @@
+{
+  "date": "2026-10-03",
+  "source": "rohitg00/ai-engineering-from-scratch",
+  "commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "source_scope": "仅第1来源Phase02分配的6课；第2～5来源未读取",
+  "written_files": [
+    "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+    "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+    "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+    "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+    "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+    "AI 算法基础/04-经典监督学习.md",
+    "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md"
+  ],
+  "lessons": [
+    {
+      "lesson": "02-linear-regression",
+      "evidence": [
+        {
+          "path": "phases/02-ml-fundamentals/02-linear-regression/code/linear_regression.py",
+          "sha256": "52138669e8ef53c97e9f7a5bf936fc70b60ab0de96bf8c508164c9e1a2ccb439",
+          "git_blob_sha": "7c34cc43e87b22d073d2a67d735809952a9088e9",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/02-linear-regression/code/main.jl",
+          "sha256": "0b4d3571f4cf58128f44fb33d9d61f64485840679142c960f312e5d257547f4c",
+          "git_blob_sha": "8335b80f1fcab5d4970e1c8f5d089950ed412dbc",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/02-linear-regression/docs/en.md",
+          "sha256": "893df66ce1cf29d175e9a63cdd73b1af0c67e934f4a134b7a84d53f2170954af",
+          "git_blob_sha": "b74fc715003ecbed7928b1620c772aeb45e5e518",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/02-linear-regression/outputs/skill-regression.md",
+          "sha256": "da4c7c99052e23a2642a4b38d355918ac270c464350baf82651c6a8e4b93d378",
+          "git_blob_sha": "c616941fab4ef2d73e80b9bbbf68ebfc4dc2cc55",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/02-linear-regression/quiz.json",
+          "sha256": "16a13451b9f740517e5b326caad77688230bcaaa02746e23e517ad4c175605f2",
+          "git_blob_sha": "56a69f3de76914e91cd56cf374c156fe902c80cb",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        }
+      ],
+      "heading_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "1. 从预测连续值开始：模型、目标与单位",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "2. 一次梯度更新要能手算",
+              "line": 21
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "3. 闭式解：用于理解，不要显式求逆",
+              "line": 42
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "6. 多项式：增强表达，也扩大外推与数值风险",
+              "line": 134
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "7. Ridge、Lasso、Elastic Net：目标约定与选择",
+              "line": 142
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "1. 从预测连续值开始：模型、目标与单位",
+              "line": 5
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 25,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "1. 从预测连续值开始：模型、目标与单位",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "2. 一次梯度更新要能手算",
+              "line": 21
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "3. 闭式解：用于理解，不要显式求逆",
+              "line": 42
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "5. 评价与诊断：分数后面还有误差结构",
+              "line": 114
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "6. 多项式：增强表达，也扩大外推与数值风险",
+              "line": 134
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "7. Ridge、Lasso、Elastic Net：目标约定与选择",
+              "line": 142
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Model",
+          "source_line": 27,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "1. 从预测连续值开始：模型、目标与单位",
+              "line": 5
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Cost Function (Mean Squared Error)",
+          "source_line": 48,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "1. 从预测连续值开始：模型、目标与单位",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "2. 一次梯度更新要能手算",
+              "line": 21
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "5. 评价与诊断：分数后面还有误差结构",
+              "line": 114
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Gradient Descent",
+          "source_line": 60,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "2. 一次梯度更新要能手算",
+              "line": 21
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Normal Equation (Closed-Form Solution)",
+          "source_line": 93,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "3. 闭式解：用于理解，不要显式求逆",
+              "line": 42
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Multiple Linear Regression",
+          "source_line": 103,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "1. 从预测连续值开始：模型、目标与单位",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Polynomial Regression",
+          "source_line": 115,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "6. 多项式：增强表达，也扩大外推与数值风险",
+              "line": 134
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "8. 实践完整例子：先验证挑次数，最后才测试",
+              "line": 194
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "R-Squared Score",
+          "source_line": 127,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "5. 评价与诊断：分数后面还有误差结构",
+              "line": 114
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Regularization Preview (Ridge Regression)",
+          "source_line": 140,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "7. Ridge、Lasso、Elastic Net：目标约定与选择",
+              "line": 142
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 154,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: Generate sample data",
+          "source_line": 156,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: Linear regression from scratch with gradient descent",
+          "source_line": 176,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "2. 一次梯度更新要能手算",
+              "line": 21
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: Normal equation (closed-form solution)",
+          "source_line": 229,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "3. 闭式解：用于理解，不要显式求逆",
+              "line": 42
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Multiple linear regression",
+          "source_line": 265,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "1. 从预测连续值开始：模型、目标与单位",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 5: Polynomial regression",
+          "source_line": 354,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "6. 多项式：增强表达，也扩大外推与数值风险",
+              "line": 134
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "8. 实践完整例子：先验证挑次数，最后才测试",
+              "line": 194
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 6: Ridge regression (L2 regularization)",
+          "source_line": 422,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "7. Ridge、Lasso、Elastic Net：目标约定与选择",
+              "line": 142
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 467,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "8. 实践完整例子：先验证挑次数，最后才测试",
+              "line": 194
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 515,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "5. 评价与诊断：分数后面还有误差结构",
+              "line": 114
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "7. Ridge、Lasso、Elastic Net：目标约定与选择",
+              "line": 142
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "9. 自查与源练习的参考答案",
+              "line": 230
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 520,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "9. 自查与源练习的参考答案",
+              "line": 230
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 526,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "1. 从预测连续值开始：模型、目标与单位",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "2. 一次梯度更新要能手算",
+              "line": 21
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "3. 闭式解：用于理解，不要显式求逆",
+              "line": 42
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "5. 评价与诊断：分数后面还有误差结构",
+              "line": 114
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "6. 多项式：增强表达，也扩大外推与数值风险",
+              "line": 134
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "7. Ridge、Lasso、Elastic Net：目标约定与选择",
+              "line": 142
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 543,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "来源与核验",
+              "line": 240
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "id": "linreg-pre-1",
+          "question": "What does the learning rate control in gradient descent?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "2. 一次梯度更新要能手算",
+              "line": 21
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "linreg-pre-2",
+          "question": "What does R-squared = 0 mean for a regression model?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "5. 评价与诊断：分数后面还有误差结构",
+              "line": 114
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "linreg-post-1",
+          "question": "Why is feature scaling important for gradient descent in multiple linear regression?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "2. 一次梯度更新要能手算",
+              "line": 21
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "linreg-post-2",
+          "question": "The normal equation gives optimal weights directly. Why would you prefer gradient descent instead?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "3. 闭式解：用于理解，不要显式求逆",
+              "line": 42
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "linreg-post-3",
+          "question": "A degree-10 polynomial regression model fits training data perfectly (R^2 = 1.0) but has R^2 = 0.3 on test data. What should you do?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "6. 多项式：增强表达，也扩大外推与数值风险",
+              "line": 134
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "7. Ridge、Lasso、Elastic Net：目标约定与选择",
+              "line": 142
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "8. 实践完整例子：先验证挑次数，最后才测试",
+              "line": 194
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        }
+      ],
+      "exercise_mapping": [
+        {
+          "number": 1,
+          "source_exercise": "Implement batch gradient descent, stochastic gradient descent (SGD), and mini-batch gradient descent. Compare convergence speed on the same dataset. Which converges fastest? Which has the smoothest cost curve?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "2. 一次梯度更新要能手算",
+              "line": 21
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "4. 完整 NumPy 例子：批量、SGD、小批量与闭式解",
+              "line": 63
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "9. 自查与源练习的参考答案",
+              "line": 230
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 2,
+          "source_exercise": "Generate data from a cubic function (y = ax^3 + bx^2 + cx + d + noise). Fit polynomials of degree 1, 3, and 10. Compare training R^2 and test R^2. At what degree does overfitting become obvious?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "6. 多项式：增强表达，也扩大外推与数值风险",
+              "line": 134
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "8. 实践完整例子：先验证挑次数，最后才测试",
+              "line": 194
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "9. 自查与源练习的参考答案",
+              "line": 230
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 3,
+          "source_exercise": "Implement Lasso regression (L1 regularization: penalty = alpha * sum(|w_i|)). Train on the multi-feature housing data. Compare which weights go to zero vs Ridge. Why does L1 produce sparse solutions while L2 does not?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "7. Ridge、Lasso、Elastic Net：目标约定与选择",
+              "line": 142
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "9. 自查与源练习的参考答案",
+              "line": 230
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        }
+      ],
+      "figure_mapping": {
+        "id": "linear-regression-fit",
+        "renderer": "site/figures-ml.js",
+        "read_status": "已读取相关绘图/交互逻辑",
+        "targets": [
+          {
+            "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+            "heading": "1. 从预测连续值开始：模型、目标与单位",
+            "line": 5
+          },
+          {
+            "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+            "heading": "2. 一次梯度更新要能手算",
+            "line": 21
+          },
+          {
+            "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+            "heading": "5. 评价与诊断：分数后面还有误差结构",
+            "line": 114
+          }
+        ],
+        "disposition": "坐标、残差/曲线/间隔/叶数/似然与条件用中文公式算例重建；图中无条件声明纠正"
+      },
+      "auxiliary_mapping": [
+        {
+          "source": "phases/02-ml-fundamentals/02-linear-regression/outputs/skill-regression.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "5. 评价与诊断：分数后面还有误差结构",
+              "line": 114
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "7. Ridge、Lasso、Elastic Net：目标约定与选择",
+              "line": 142
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+              "heading": "9. 自查与源练习的参考答案",
+              "line": 230
+            }
+          ],
+          "disposition": "吸收选型/诊断方法；不把上游prompt/skill作为用户系统指令或安装新Skill"
+        }
+      ],
+      "fusion_notes": "批量/SGD/小批量、闭式与缩放系数恢复、次数选择、Ridge/Lasso/ElasticNet融入同一回归专题；不保留一万行/五次多项式等硬阈值。"
+    },
+    {
+      "lesson": "03-logistic-regression",
+      "evidence": [
+        {
+          "path": "phases/02-ml-fundamentals/03-logistic-regression/code/logistic_regression.py",
+          "sha256": "25a177e24278e4cc00ae56851646cfd4296fa4d286d9ed65f07760d9f3dcf8a5",
+          "git_blob_sha": "0d678258a52beaacf2d571084b671f4a1b7781c4",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/03-logistic-regression/code/main.jl",
+          "sha256": "5a3aabb3e9016764e19e369b74c3aba9e97983a228163a656adfbe27d62c7605",
+          "git_blob_sha": "53a7bde52af752b59bf9e21b4e7b07f025349992",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/03-logistic-regression/docs/en.md",
+          "sha256": "28c89a0c75029f41edaaa3aae7428a8a5b30479765ec4c1afdf4853917c25954",
+          "git_blob_sha": "89965b45b1f780b29d5ba5e4e530210e7a4c894b",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/03-logistic-regression/outputs/skill-classification-baseline.md",
+          "sha256": "08a4092682688343a319d11511e3f50409c46b55df6e00001ddeee95a0c5baa6",
+          "git_blob_sha": "dab097cd71c7cc19990e387f9e83572ee974eece",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/03-logistic-regression/quiz.json",
+          "sha256": "ad08f4479ff81322fecbd2f2dc92442554b8865879c416725072a01964e9f583",
+          "git_blob_sha": "06f0a3e294b42a432b91fdec86a75303db5912c9",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        }
+      ],
+      "heading_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "4. 混淆矩阵、阈值与 ROC 的可核对例子",
+              "line": 137
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 25,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "4. 混淆矩阵、阈值与 ROC 的可核对例子",
+              "line": 137
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Why Linear Regression Fails for Classification",
+          "source_line": 27,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Sigmoid Function",
+          "source_line": 43,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Logistic Regression = Linear Model + Sigmoid",
+          "source_line": 60,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Binary Cross-Entropy Loss",
+          "source_line": 75,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Gradient Descent for Logistic Regression",
+          "source_line": 91,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Decision Boundary",
+          "source_line": 113,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Multi-Class Classification with Softmax",
+          "source_line": 123,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Evaluation Metrics",
+          "source_line": 141,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "4. 混淆矩阵、阈值与 ROC 的可核对例子",
+              "line": 137
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 176,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: Sigmoid function and data generation",
+          "source_line": 178,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: Logistic regression from scratch",
+          "source_line": 215,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: Confusion matrix and metrics from scratch",
+          "source_line": 281,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "4. 混淆矩阵、阈值与 ROC 的可核对例子",
+              "line": 137
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Decision boundary analysis",
+          "source_line": 329,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 5: Multi-class with softmax",
+          "source_line": 353,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 6: Threshold tuning",
+          "source_line": 445,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "4. 混淆矩阵、阈值与 ROC 的可核对例子",
+              "line": 137
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 461,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "9. 工程选择：线性求解器、核模型与概率",
+              "line": 310
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 500,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "9. 工程选择：线性求解器、核模型与概率",
+              "line": 310
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 505,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "11. 自查与练习参考答案",
+              "line": 359
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 511,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "4. 混淆矩阵、阈值与 ROC 的可核对例子",
+              "line": 137
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "id": "logreg-pre-1",
+          "question": "What is the range of the sigmoid function's output?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "logreg-pre-2",
+          "question": "Why is logistic regression called 'regression' even though it is used for classification?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "logreg-post-1",
+          "question": "Why is binary cross-entropy used instead of MSE for logistic regression?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "2. 从 Bernoulli 似然推导交叉熵与梯度",
+              "line": 28
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "logreg-post-2",
+          "question": "A spam filter has precision = 0.95 and recall = 0.60. What does this mean in practical terms?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "4. 混淆矩阵、阈值与 ROC 的可核对例子",
+              "line": 137
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "logreg-post-3",
+          "question": "In softmax regression for 4 classes, what is true about the output probabilities?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        }
+      ],
+      "exercise_mapping": [
+        {
+          "number": 1,
+          "source_exercise": "Generate a dataset that is NOT linearly separable (e.g., two concentric circles). Train logistic regression and observe its failure. Then add polynomial features (x1^2, x2^2, x1*x2) and train again. Show that the accuracy improves.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "1. 分类需要区分分数、概率和决策",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "11. 自查与练习参考答案",
+              "line": 359
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 2,
+          "source_exercise": "Implement a multi-class confusion matrix for the 3-class softmax model. Compute per-class precision and recall. Which class is hardest to classify?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "3. 完整手写二分类与多分类",
+              "line": 60
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "11. 自查与练习参考答案",
+              "line": 359
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 3,
+          "source_exercise": "Build an ROC curve from scratch. For 100 threshold values from 0 to 1, compute the true positive rate and false positive rate. Calculate the AUC (area under the curve) using the trapezoidal rule.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "4. 混淆矩阵、阈值与 ROC 的可核对例子",
+              "line": 137
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "11. 自查与练习参考答案",
+              "line": 359
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        }
+      ],
+      "figure_mapping": {
+        "id": "logistic-sigmoid",
+        "renderer": "site/figures-ml.js",
+        "read_status": "已读取相关绘图/交互逻辑",
+        "targets": [
+          {
+            "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+            "heading": "1. 分类需要区分分数、概率和决策",
+            "line": 5
+          }
+        ],
+        "disposition": "坐标、残差/曲线/间隔/叶数/似然与条件用中文公式算例重建；图中无条件声明纠正"
+      },
+      "auxiliary_mapping": [
+        {
+          "source": "phases/02-ml-fundamentals/03-logistic-regression/outputs/skill-classification-baseline.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "4. 混淆矩阵、阈值与 ROC 的可核对例子",
+              "line": 137
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "9. 工程选择：线性求解器、核模型与概率",
+              "line": 310
+            }
+          ],
+          "disposition": "吸收选型/诊断方法；不把上游prompt/skill作为用户系统指令或安装新Skill"
+        }
+      ],
+      "fusion_notes": "Logistic/BCE/Softmax、混淆矩阵、精确ROC和阈值在同一概率/间隔分类专题；纠正凸性唯一解和MSE禁止说法。"
+    },
+    {
+      "lesson": "04-decision-trees",
+      "evidence": [
+        {
+          "path": "phases/02-ml-fundamentals/04-decision-trees/code/trees.py",
+          "sha256": "2cdcabe2cf06ad0119f2aca50ccd67063d40ba1a7826ff4b3a3197744a7602c2",
+          "git_blob_sha": "5cdeb64aab843d7e4b8b5fbd07d7e576aa32e826",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/04-decision-trees/docs/en.md",
+          "sha256": "012e6e8f09a1eda4f03ca395221e5aa30287a782b885a197d563ff79b5ca750c",
+          "git_blob_sha": "89b19288c719ca1fbf1363f7879b559ce23b14ca",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/04-decision-trees/outputs/prompt-tree-interpreter.md",
+          "sha256": "a6a7aa7c01202c7e59dba8843ee444e4d3822456dcf6771b63e9daaf24b34cf1",
+          "git_blob_sha": "98edfc6556db1c46e734ddbc65cb49c417fdc917",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/04-decision-trees/quiz.json",
+          "sha256": "d23613c3e41e9ae5d239816f4bd7aa4f94e4069cceaf936a644749935c3d6100",
+          "git_blob_sha": "0bb04597c488c79027d7215b7867b1afbf057936",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        }
+      ],
+      "heading_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "1. 树把输入空间切成规则区域",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "4. 深度、叶样本数与剪枝",
+              "line": 182
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "5. 随机森林：抽样与随机候选特征怎样降低相关性",
+              "line": 195
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "6. 特征重要性：模型依赖，不是因果解释",
+              "line": 217
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "1. 树把输入空间切成规则区域",
+              "line": 5
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 25,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "1. 树把输入空间切成规则区域",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "4. 深度、叶样本数与剪枝",
+              "line": 182
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "5. 随机森林：抽样与随机候选特征怎样降低相关性",
+              "line": 195
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "6. 特征重要性：模型依赖，不是因果解释",
+              "line": 217
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "What a decision tree does",
+          "source_line": 27,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "1. 树把输入空间切成规则区域",
+              "line": 5
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Split criteria: measuring impurity",
+          "source_line": 45,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "How splitting works",
+          "source_line": 92,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Stopping conditions",
+          "source_line": 106,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "4. 深度、叶样本数与剪枝",
+              "line": 182
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Decision trees for regression",
+          "source_line": 122,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Random forests: the power of ensembles",
+          "source_line": 134,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "5. 随机森林：抽样与随机候选特征怎样降低相关性",
+              "line": 195
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Feature importance",
+          "source_line": 162,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "6. 特征重要性：模型依赖，不是因果解释",
+              "line": 217
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "7. 成熟库例子：剪枝、森林树数、MDI与置换",
+              "line": 223
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "When trees beat neural networks",
+          "source_line": 177,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "1. 树把输入空间切成规则区域",
+              "line": 5
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 196,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: Gini impurity and entropy",
+          "source_line": 198,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: Find the best split",
+          "source_line": 226,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: Build the DecisionTree class",
+          "source_line": 246,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Build the RandomForest class",
+          "source_line": 374,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "5. 随机森林：抽样与随机候选特征怎样降低相关性",
+              "line": 195
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 419,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "7. 成熟库例子：剪枝、森林树数、MDI与置换",
+              "line": 223
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 439,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "4. 深度、叶样本数与剪枝",
+              "line": 182
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "6. 特征重要性：模型依赖，不是因果解释",
+              "line": 217
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "7. 成熟库例子：剪枝、森林树数、MDI与置换",
+              "line": 223
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 443,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "8. 自查与练习参考答案",
+              "line": 272
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 455,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "1. 树把输入空间切成规则区域",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "4. 深度、叶样本数与剪枝",
+              "line": 182
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "5. 随机森林：抽样与随机候选特征怎样降低相关性",
+              "line": 195
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "6. 特征重要性：模型依赖，不是因果解释",
+              "line": 217
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 472,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "来源与核验",
+              "line": 285
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "id": "trees-pre-1",
+          "question": "What does Gini impurity measure at a decision tree node?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "trees-pre-2",
+          "question": "What is the main advantage of tree-based models over neural networks for tabular data?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "1. 树把输入空间切成规则区域",
+              "line": 5
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "trees-post-1",
+          "question": "Why does a random forest use both bootstrap sampling AND random feature subsets at each split?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "5. 随机森林：抽样与随机候选特征怎样降低相关性",
+              "line": 195
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "trees-post-2",
+          "question": "A node contains 8 dogs and 2 cats. What is its Gini impurity?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "trees-post-3",
+          "question": "MDI (Mean Decrease in Impurity) feature importance is biased toward which type of feature?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "6. 特征重要性：模型依赖，不是因果解释",
+              "line": 217
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        }
+      ],
+      "exercise_mapping": [
+        {
+          "number": 1,
+          "source_exercise": "Train a single decision tree on a 2D dataset with 3 classes. Manually trace the splits and draw the rectangular decision boundaries. Compare the boundaries at max_depth=2 vs max_depth=10.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "1. 树把输入空间切成规则区域",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "4. 深度、叶样本数与剪枝",
+              "line": 182
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "8. 自查与练习参考答案",
+              "line": 272
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 2,
+          "source_exercise": "Implement variance reduction splitting for regression trees. Generate y = sin(x) + noise for 200 points and fit your regression tree. Plot the tree's piecewise-constant predictions against the true curve.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "3. 完整教学实现：一套递归服务分类、回归和森林",
+              "line": 41
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "8. 自查与练习参考答案",
+              "line": 272
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 3,
+          "source_exercise": "Build a random forest with 1, 5, 10, 50, and 200 trees. Plot training accuracy and test accuracy vs number of trees. Observe that test accuracy plateaus but does not decrease (forests resist overfitting).",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "5. 随机森林：抽样与随机候选特征怎样降低相关性",
+              "line": 195
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "7. 成熟库例子：剪枝、森林树数、MDI与置换",
+              "line": 223
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "8. 自查与练习参考答案",
+              "line": 272
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 4,
+          "source_exercise": "Compare Gini impurity vs entropy as split criteria on 5 different datasets. Measure accuracy and tree depth. In most cases, they produce nearly identical results. Explain why.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "2. 不纯度、加权收益和一次手算",
+              "line": 15
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "7. 成熟库例子：剪枝、森林树数、MDI与置换",
+              "line": 223
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "8. 自查与练习参考答案",
+              "line": 272
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 5,
+          "source_exercise": "Implement permutation importance. Compare it with MDI importance on a dataset where one feature is random noise but has high cardinality. MDI will rank the noise feature highly. Permutation importance will not.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "6. 特征重要性：模型依赖，不是因果解释",
+              "line": 217
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "7. 成熟库例子：剪枝、森林树数、MDI与置换",
+              "line": 223
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "8. 自查与练习参考答案",
+              "line": 272
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        }
+      ],
+      "figure_mapping": {
+        "id": "decision-tree-depth",
+        "renderer": "site/figures-ml.js",
+        "read_status": "已读取相关绘图/交互逻辑",
+        "targets": [
+          {
+            "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+            "heading": "1. 树把输入空间切成规则区域",
+            "line": 5
+          },
+          {
+            "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+            "heading": "4. 深度、叶样本数与剪枝",
+            "line": 182
+          }
+        ],
+        "disposition": "坐标、残差/曲线/间隔/叶数/似然与条件用中文公式算例重建；图中无条件声明纠正"
+      },
+      "auxiliary_mapping": [
+        {
+          "source": "phases/02-ml-fundamentals/04-decision-trees/outputs/prompt-tree-interpreter.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "4. 深度、叶样本数与剪枝",
+              "line": 182
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "6. 特征重要性：模型依赖，不是因果解释",
+              "line": 217
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+              "heading": "7. 成熟库例子：剪枝、森林树数、MDI与置换",
+              "line": 223
+            }
+          ],
+          "disposition": "吸收选型/诊断方法；不把上游prompt/skill作为用户系统指令或安装新Skill"
+        }
+      ],
+      "fusion_notes": "Gini/entropy、加权收益、分类/回归、森林与重要性完整同主题实现；纠正树免类别编码、森林单调分数、稳定性重复样本泄漏。"
+    },
+    {
+      "lesson": "05-support-vector-machines",
+      "evidence": [
+        {
+          "path": "phases/02-ml-fundamentals/05-support-vector-machines/code/main.jl",
+          "sha256": "b03f0a8e39941ae3403ec3b3c7c9c48371bb93b730af9b7b6ee7aad66381e537",
+          "git_blob_sha": "4a2cd35a11e4e086299728884a495e7003ba0c4c",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/05-support-vector-machines/code/svm.py",
+          "sha256": "52cd86ce507bceaf92587edc0a99843bd3e9f5d05cf24780d1d831d07347c292",
+          "git_blob_sha": "aeb425706f144a2c1b49cc53008494f5f3a9b69b",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/05-support-vector-machines/docs/en.md",
+          "sha256": "4032f704f9675d31f9c0a1dfbf768283b9c50b5699ccebc90fa5813819136ddd",
+          "git_blob_sha": "f4b2f9d07df3a9982b9470cb8b025e2fc9d8eadd",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/05-support-vector-machines/outputs/skill-svm-kernel-chooser.md",
+          "sha256": "10e0960d2fd9d1b7a6fa1d78f0349f10dc354b7c65f1f045da2b6a3f8096ec8c",
+          "git_blob_sha": "2d9e872ef897c03a889b9074621f8eaa25bf97e5",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/05-support-vector-machines/quiz.json",
+          "sha256": "65b8c0ffde7305736bc13e66d528dc815718edb2008bf67e864dd7424d0fd3a9",
+          "git_blob_sha": "0418c03e137357c64e1c271285ee0aa7de493495",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        }
+      ],
+      "heading_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "6. SVM：用间隔比较多个分隔面",
+              "line": 206
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "8. 对偶与核：相似度为什么必须有条件",
+              "line": 276
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "9. 工程选择：线性求解器、核模型与概率",
+              "line": 310
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "10. SVR：连续值也可用间隔思想",
+              "line": 322
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "6. SVM：用间隔比较多个分隔面",
+              "line": 206
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 27,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "6. SVM：用间隔比较多个分隔面",
+              "line": 206
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "8. 对偶与核：相似度为什么必须有条件",
+              "line": 276
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "9. 工程选择：线性求解器、核模型与概率",
+              "line": 310
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "10. SVR：连续值也可用间隔思想",
+              "line": 322
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The maximum margin classifier",
+          "source_line": 29,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "6. SVM：用间隔比较多个分隔面",
+              "line": 206
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Support vectors: the critical few",
+          "source_line": 68,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "6. SVM：用间隔比较多个分隔面",
+              "line": 206
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Soft margin: handling noise with the C parameter",
+          "source_line": 84,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Hinge loss: the SVM loss function",
+          "source_line": 103,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Training a linear SVM with gradient descent",
+          "source_line": 140,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The dual formulation and the kernel trick",
+          "source_line": 158,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "8. 对偶与核：相似度为什么必须有条件",
+              "line": 276
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "SVM for regression (SVR)",
+          "source_line": 191,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "10. SVR：连续值也可用间隔思想",
+              "line": 322
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Why SVMs lost to deep learning (and when they still win)",
+          "source_line": 204,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "9. 工程选择：线性求解器、核模型与概率",
+              "line": 310
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 228,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: Hinge loss and gradient",
+          "source_line": 230,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: Linear SVM via gradient descent",
+          "source_line": 244,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: Kernel functions",
+          "source_line": 277,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "8. 对偶与核：相似度为什么必须有条件",
+              "line": 276
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Margin and support vector identification",
+          "source_line": 293,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "6. SVM：用间隔比较多个分隔面",
+              "line": 206
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 309,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "9. 工程选择：线性求解器、核模型与概率",
+              "line": 310
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 340,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "11. 自查与练习参考答案",
+              "line": 359
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 352,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "6. SVM：用间隔比较多个分隔面",
+              "line": 206
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "8. 对偶与核：相似度为什么必须有条件",
+              "line": 276
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "10. SVR：连续值也可用间隔思想",
+              "line": 322
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 370,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "来源与核验",
+              "line": 372
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "id": "svm-pre-1",
+          "question": "What are support vectors in an SVM?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "6. SVM：用间隔比较多个分隔面",
+              "line": 206
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "svm-pre-2",
+          "question": "What does the SVM maximize when finding the decision boundary?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "6. SVM：用间隔比较多个分隔面",
+              "line": 206
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "svm-post-1",
+          "question": "What happens when you increase the C parameter in an SVM?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "8. 对偶与核：相似度为什么必须有条件",
+              "line": 276
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "svm-post-2",
+          "question": "How does the kernel trick enable SVMs to learn nonlinear boundaries?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "8. 对偶与核：相似度为什么必须有条件",
+              "line": 276
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "svm-post-3",
+          "question": "Hinge loss is zero when y * f(x) >= 1. What does this mean in terms of classification?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        }
+      ],
+      "exercise_mapping": [
+        {
+          "number": 1,
+          "source_exercise": "Generate a 2D linearly separable dataset. Train your LinearSVM and identify the support vectors. Verify that the support vectors are the points closest to the decision boundary.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "6. SVM：用间隔比较多个分隔面",
+              "line": 206
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "11. 自查与练习参考答案",
+              "line": 359
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 2,
+          "source_exercise": "Vary C from 0.001 to 1000 on a noisy dataset. Plot the decision boundary for each C value. Observe the transition from wide margin (underfitting) to narrow margin (overfitting).",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "8. 对偶与核：相似度为什么必须有条件",
+              "line": 276
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "11. 自查与练习参考答案",
+              "line": 359
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 3,
+          "source_exercise": "Create a dataset where class boundaries are circular (not linear). Show that a linear SVM fails. Compute the RBF kernel matrix and show that the classes become separable in the kernel-induced feature space.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "5. 圆形边界例子：先改变表示，再增加模型复杂度",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "8. 对偶与核：相似度为什么必须有条件",
+              "line": 276
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "11. 自查与练习参考答案",
+              "line": 359
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 4,
+          "source_exercise": "Compare hinge loss vs logistic loss on the same dataset. Train a linear SVM and logistic regression. Count how many training points contribute to each model's decision boundary (support vectors vs all points).",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "9. 工程选择：线性求解器、核模型与概率",
+              "line": 310
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "11. 自查与练习参考答案",
+              "line": 359
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 5,
+          "source_exercise": "Implement SVR (epsilon-insensitive loss). Fit it to y = sin(x) + noise. Plot the epsilon tube around the predictions and highlight the support vectors (points outside the tube).",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "10. SVR：连续值也可用间隔思想",
+              "line": 322
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "11. 自查与练习参考答案",
+              "line": 359
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        }
+      ],
+      "figure_mapping": {
+        "id": "svm-margin",
+        "renderer": "site/figures-ml.js",
+        "read_status": "已读取相关绘图/交互逻辑",
+        "targets": [
+          {
+            "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+            "heading": "6. SVM：用间隔比较多个分隔面",
+            "line": 206
+          },
+          {
+            "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+            "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+            "line": 220
+          }
+        ],
+        "disposition": "坐标、残差/曲线/间隔/叶数/似然与条件用中文公式算例重建；图中无条件声明纠正"
+      },
+      "auxiliary_mapping": [
+        {
+          "source": "phases/02-ml-fundamentals/05-support-vector-machines/outputs/skill-svm-kernel-chooser.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "7. 软间隔、Hinge 与支持向量的正确判定",
+              "line": 220
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "8. 对偶与核：相似度为什么必须有条件",
+              "line": 276
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+              "heading": "9. 工程选择：线性求解器、核模型与概率",
+              "line": 310
+            }
+          ],
+          "disposition": "吸收选型/诊断方法；不把上游prompt/skill作为用户系统指令或安装新Skill"
+        }
+      ],
+      "fusion_notes": "硬/软间隔、次梯度、对偶、核、支持集、C-gamma联合调参、SVR；不安装Julia，不复制语言版本，OneClass最小区分接统一异常专题。"
+    },
+    {
+      "lesson": "06-knn-and-distances",
+      "evidence": [
+        {
+          "path": "phases/02-ml-fundamentals/06-knn-and-distances/code/knn.py",
+          "sha256": "09aceb2515d264465187f7f37cc4eabd78d52d1fd0249e9ff39b8ae5007c41dd",
+          "git_blob_sha": "385a09735baa505871ebcaf68af17878e8c76955",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/06-knn-and-distances/docs/en.md",
+          "sha256": "f18a8624854931bd3757829e4d4626d4dc3b6f10f0ad2cf3c2011e983172f1d4",
+          "git_blob_sha": "7ecd324e9a00caefd3e7e0e530d93b6a3edbdc61",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/06-knn-and-distances/outputs/prompt-distance-metric-advisor.md",
+          "sha256": "643b8bc5e3a594779aa22d0a2ab65543f7c9f6c46b87fce39f4749f890e65cad",
+          "git_blob_sha": "4a80a6c84ac7d0c030ff6fe5ff9bb2de08c8dcce",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/06-knn-and-distances/quiz.json",
+          "sha256": "354d41b629240a6ffcf0edbac98a2e72a5e09abbf5a9bc60fd4239194540a659",
+          "git_blob_sha": "402a273039fd71c3d8da6033a3bc9d31ffaf4999",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        }
+      ],
+      "heading_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "2. 距离选择先问“什么差异有意义”",
+              "line": 17
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "5. 高维问题：无关维度会稀释邻居信息",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "6. 精确KD-tree：剪枝为什么不会漏真邻居",
+              "line": 190
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "7. 性能实验与ANN：速度和邻居正确性分开",
+              "line": 260
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "4. 尺度实验：先切分，再在训练拟合变换",
+              "line": 139
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 27,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "2. 距离选择先问“什么差异有意义”",
+              "line": 17
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "5. 高维问题：无关维度会稀释邻居信息",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "6. 精确KD-tree：剪枝为什么不会漏真邻居",
+              "line": 190
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "7. 性能实验与ANN：速度和邻居正确性分开",
+              "line": 260
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "How KNN works",
+          "source_line": 29,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "4. 尺度实验：先切分，再在训练拟合变换",
+              "line": 139
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Choosing K",
+          "source_line": 53,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "4. 尺度实验：先切分，再在训练拟合变换",
+              "line": 139
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Distance metrics",
+          "source_line": 80,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "2. 距离选择先问“什么差异有意义”",
+              "line": 17
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Weighted KNN",
+          "source_line": 124,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The curse of dimensionality",
+          "source_line": 141,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "5. 高维问题：无关维度会稀释邻居信息",
+              "line": 169
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "KD-trees: fast nearest neighbor search",
+          "source_line": 163,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "6. 精确KD-tree：剪枝为什么不会漏真邻居",
+              "line": 190
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "7. 性能实验与ANN：速度和邻居正确性分开",
+              "line": 260
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Ball trees: better for moderate dimensions",
+          "source_line": 183,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "6. 精确KD-tree：剪枝为什么不会漏真邻居",
+              "line": 190
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Lazy learning vs eager learning",
+          "source_line": 194,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "7. 性能实验与ANN：速度和邻居正确性分开",
+              "line": 260
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "KNN for regression",
+          "source_line": 212,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 230,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: Distance functions",
+          "source_line": 232,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "2. 距离选择先问“什么差异有意义”",
+              "line": 17
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: KNN classifier and regressor",
+          "source_line": 259,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: KD-tree for efficient search",
+          "source_line": 282,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "6. 精确KD-tree：剪枝为什么不会漏真邻居",
+              "line": 190
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "7. 性能实验与ANN：速度和邻居正确性分开",
+              "line": 260
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Feature scaling",
+          "source_line": 301,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "4. 尺度实验：先切分，再在训练拟合变换",
+              "line": 139
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 317,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "4. 尺度实验：先切分，再在训练拟合变换",
+              "line": 139
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "7. 性能实验与ANN：速度和邻居正确性分开",
+              "line": 260
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 346,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "8. 完成练习的参考答案与判断标准",
+              "line": 297
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 358,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "2. 距离选择先问“什么差异有意义”",
+              "line": 17
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "5. 高维问题：无关维度会稀释邻居信息",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "6. 精确KD-tree：剪枝为什么不会漏真邻居",
+              "line": 190
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "7. 性能实验与ANN：速度和邻居正确性分开",
+              "line": 260
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 375,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "来源与核验",
+              "line": 307
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "id": "knn-pre-1",
+          "question": "KNN is called a 'lazy learner.' What does that mean?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "knn-pre-2",
+          "question": "Why is feature scaling critical for KNN?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "2. 距离选择先问“什么差异有意义”",
+              "line": 17
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "4. 尺度实验：先切分，再在训练拟合变换",
+              "line": 139
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "knn-post-1",
+          "question": "In 100 dimensions with uniform random points, what happens to the ratio of max distance to min distance?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "5. 高维问题：无关维度会稀释邻居信息",
+              "line": 169
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "knn-post-2",
+          "question": "Which distance metric is most appropriate for comparing text documents represented as TF-IDF vectors?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "2. 距离选择先问“什么差异有意义”",
+              "line": 17
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "knn-post-3",
+          "question": "What happens to the KNN decision boundary as K increases from 1 to N (the full dataset size)?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        }
+      ],
+      "exercise_mapping": [
+        {
+          "number": 1,
+          "source_exercise": "Implement KNN classification on a 2D dataset with 3 classes. Plot the decision boundary for K=1, K=5, K=15, and K=N. Observe the transition from overfitting to underfitting.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "1. KNN把预测推迟到查询时",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "4. 尺度实验：先切分，再在训练拟合变换",
+              "line": 139
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "8. 完成练习的参考答案与判断标准",
+              "line": 297
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 2,
+          "source_exercise": "Generate 1000 random points in 2, 5, 10, 50, 100, and 500 dimensions. For each dimensionality, compute the ratio of the maximum pairwise distance to the minimum pairwise distance. Plot the ratio vs dimensionality to visualize the curse of dimensionality.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "5. 高维问题：无关维度会稀释邻居信息",
+              "line": 169
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "8. 完成练习的参考答案与判断标准",
+              "line": 297
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 3,
+          "source_exercise": "Compare L1, L2, and cosine distance for KNN on a text classification problem (use TF-IDF vectors). Which metric gives the best accuracy? Why does cosine tend to win for text?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "2. 距离选择先问“什么差异有意义”",
+              "line": 17
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "8. 完成练习的参考答案与判断标准",
+              "line": 297
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 4,
+          "source_exercise": "Implement a KD-tree and measure query time vs brute force for datasets of 1k, 10k, and 100k points in 2D, 10D, and 50D. At what dimensionality does the KD-tree stop being faster than brute force?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "6. 精确KD-tree：剪枝为什么不会漏真邻居",
+              "line": 190
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "7. 性能实验与ANN：速度和邻居正确性分开",
+              "line": 260
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "8. 完成练习的参考答案与判断标准",
+              "line": 297
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 5,
+          "source_exercise": "Build a weighted KNN regressor for y = sin(x) + noise. Compare it with unweighted KNN for K=3, 10, 30. Show that weighting produces smoother predictions, especially for large K.",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+              "line": 37
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "8. 完成练习的参考答案与判断标准",
+              "line": 297
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        }
+      ],
+      "figure_mapping": {
+        "id": "knn-smoothness",
+        "renderer": "site/figures-ml.js",
+        "read_status": "已读取相关绘图/交互逻辑",
+        "targets": [
+          {
+            "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+            "heading": "1. KNN把预测推迟到查询时",
+            "line": 5
+          },
+          {
+            "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+            "heading": "3. 完整KNN：处理形状、k、零距离和并列",
+            "line": 37
+          }
+        ],
+        "disposition": "坐标、残差/曲线/间隔/叶数/似然与条件用中文公式算例重建；图中无条件声明纠正"
+      },
+      "auxiliary_mapping": [
+        {
+          "source": "phases/02-ml-fundamentals/06-knn-and-distances/outputs/prompt-distance-metric-advisor.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "2. 距离选择先问“什么差异有意义”",
+              "line": 17
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "4. 尺度实验：先切分，再在训练拟合变换",
+              "line": 139
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+              "heading": "7. 性能实验与ANN：速度和邻居正确性分开",
+              "line": 260
+            }
+          ],
+          "disposition": "吸收选型/诊断方法；不把上游prompt/skill作为用户系统指令或安装新Skill"
+        }
+      ],
+      "fusion_notes": "数学距离保持既有主入口，新增KNN边界、完整KD和分维性能；不保留高维固定极值比/维数截止线、加权必平滑、懒学习零成本绝对说法。"
+    },
+    {
+      "lesson": "14-naive-bayes",
+      "evidence": [
+        {
+          "path": "phases/02-ml-fundamentals/14-naive-bayes/code/naive_bayes.py",
+          "sha256": "07e18ede8ef3eab8401fae499ffe642406607f452b29f79d33f7576c562d309b",
+          "git_blob_sha": "318936c44002d58321fe4a7e1370e0248c3d437c",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/14-naive-bayes/docs/en.md",
+          "sha256": "cda8fef9420715c6fd52a94ea81e2d3a93ae60d32e08a4170ddf8e56696b5a63",
+          "git_blob_sha": "1a77bfdf32803abf06123925554d824f8955e512",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/14-naive-bayes/outputs/skill-naive-bayes-chooser.md",
+          "sha256": "ceb1d59430a88dce16c1bad9217d954f41fc546fb43d378818ecb5481f46d061",
+          "git_blob_sha": "90c4e9774c509d46b67b36e1fa5ea0f2c72774d9",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/14-naive-bayes/quiz.json",
+          "sha256": "9926ecd04e5a71e4212d4ad5471196d334f9070d1fcd19b77f927b2001388c40",
+          "git_blob_sha": "640d786df6278163291fc5571cb4550d9d5fe42f",
+          "read_status": "已完整读取",
+          "disposition": "中文知识重组；不提交原站镜像"
+        }
+      ],
+      "heading_mapping": [
+        {
+          "source_heading": "Learning Objectives",
+          "source_line": 10,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "3. BernoulliNB：缺席也有证据",
+              "line": 58
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "4. GaussianNB：估类内均值、方差与密度",
+              "line": 72
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "source_line": 17,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "source_line": 27,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "3. BernoulliNB：缺席也有证据",
+              "line": 58
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "4. GaussianNB：估类内均值、方差与密度",
+              "line": 72
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Bayes' Theorem (Quick Review)",
+          "source_line": 29,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Naive Independence Assumption",
+          "source_line": 44,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Why It Still Works",
+          "source_line": 58,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "The Math Step by Step",
+          "source_line": 70,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Three Variants",
+          "source_line": 105,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "3. BernoulliNB：缺席也有证据",
+              "line": 58
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "4. GaussianNB：估类内均值、方差与密度",
+              "line": 72
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Multinomial Naive Bayes",
+          "source_line": 109,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Gaussian Naive Bayes",
+          "source_line": 119,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "4. GaussianNB：估类内均值、方差与密度",
+              "line": 72
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Bernoulli Naive Bayes",
+          "source_line": 129,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "3. BernoulliNB：缺席也有证据",
+              "line": 58
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "When to Use Each Variant",
+          "source_line": 139,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "3. BernoulliNB：缺席也有证据",
+              "line": 58
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "4. GaussianNB：估类内均值、方差与密度",
+              "line": 72
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Laplace Smoothing",
+          "source_line": 147,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Log-Space Computation",
+          "source_line": 172,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Naive Bayes vs Logistic Regression",
+          "source_line": 191,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "8. 练习、学习曲线与参考答案",
+              "line": 242
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Classification Pipeline",
+          "source_line": 207,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "source_line": 232,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "MultinomialNB",
+          "source_line": 236,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "GaussianNB",
+          "source_line": 271,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "4. GaussianNB：估类内均值、方差与密度",
+              "line": 72
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Demo: Text Classification",
+          "source_line": 298,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Demo: Continuous Features",
+          "source_line": 304,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "4. GaussianNB：估类内均值、方差与密度",
+              "line": 72
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Prediction Speed",
+          "source_line": 313,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "source_line": 321,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "TF-IDF with Naive Bayes",
+          "source_line": 355,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "BernoulliNB for Short Text",
+          "source_line": 372,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "3. BernoulliNB：缺席也有证据",
+              "line": 58
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Calibrating NB Probabilities",
+          "source_line": 388,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Common Gotchas",
+          "source_line": 402,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "source_line": 412,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "When Naive Bayes Fails",
+          "source_line": 418,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "source_line": 430,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "8. 练习、学习曲线与参考答案",
+              "line": 242
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "source_line": 442,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "3. BernoulliNB：缺席也有证据",
+              "line": 58
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "4. GaussianNB：估类内均值、方差与密度",
+              "line": 72
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "source_line": 456,
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "来源与核验",
+              "line": 255
+            }
+          ],
+          "status": "有效知识已吸收；泛化承诺/包装介绍按正文修正或淘汰"
+        }
+      ],
+      "quiz_mapping": [
+        {
+          "id": "nb-pre-1",
+          "question": "What is the 'naive' assumption in Naive Bayes?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "nb-pre-2",
+          "question": "What does Laplace smoothing prevent in Naive Bayes?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "nb-post-1",
+          "question": "The naive independence assumption is clearly wrong for text. Why does Naive Bayes still classify well?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "nb-post-2",
+          "question": "When should you use Multinomial NB versus Gaussian NB?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "3. BernoulliNB：缺席也有证据",
+              "line": 58
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "4. GaussianNB：估类内均值、方差与密度",
+              "line": 72
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        },
+        {
+          "id": "nb-post-3",
+          "question": "An email contains 'free' twice and 'money' once. In Multinomial NB with log probabilities, how is the spam score computed?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            }
+          ],
+          "answer_status": "已用中文练习重新说明；错误绝对前提不沿用"
+        }
+      ],
+      "exercise_mapping": [
+        {
+          "number": 1,
+          "source_exercise": "**Smoothing experiment.** Train MultinomialNB on text data with alpha values of 0.01, 0.1, 1.0, 10.0, and 100.0. Plot accuracy vs alpha. Where does performance peak? Why does very high alpha hurt?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "2. 多项式NB：次数是指数，分母是类别总词数",
+              "line": 23
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "8. 练习、学习曲线与参考答案",
+              "line": 242
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 2,
+          "source_exercise": "**Feature independence test.** Take a real text dataset. Pick two words that are obviously correlated (\"machine\" and \"learning\"). Compute P(word1 | class) * P(word2 | class) and compare to P(word1 AND word2 | class). How wrong is the independence assumption? Does it affect classification accuracy?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "1. 先验、似然、后验，不能把分数叫成概率",
+              "line": 5
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "8. 练习、学习曲线与参考答案",
+              "line": 242
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 3,
+          "source_exercise": "**Bernoulli implementation.** Extend the code with a BernoulliNB class. Convert bag-of-words to binary (present/absent) and compare accuracy against MultinomialNB on text data. When does Bernoulli win?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "3. BernoulliNB：缺席也有证据",
+              "line": 58
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "5. 三种模型的完整NumPy实现与库对照",
+              "line": 87
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "8. 练习、学习曲线与参考答案",
+              "line": 242
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 4,
+          "source_exercise": "**NB vs Logistic Regression.** Train both on text data. Start with 100 training samples and increase to 10,000. Plot accuracy vs training set size for both. At what point does Logistic Regression overtake Naive Bayes?",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "8. 练习、学习曲线与参考答案",
+              "line": 242
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        },
+        {
+          "number": 5,
+          "source_exercise": "**Spam filter.** Build a complete spam classifier: tokenize raw email text, build vocabulary, create bag-of-words features, train MultinomialNB, evaluate with precision and recall (not just accuracy -- why?).",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "8. 练习、学习曲线与参考答案",
+              "line": 242
+            }
+          ],
+          "status": "方法/答案/判断标准保留；未承诺真实或大规模实验已运行"
+        }
+      ],
+      "figure_mapping": {
+        "id": "naive-bayes",
+        "renderer": "site/figures-ml.js",
+        "read_status": "已读取相关绘图/交互逻辑",
+        "targets": [
+          {
+            "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+            "heading": "4. GaussianNB：估类内均值、方差与密度",
+            "line": 72
+          }
+        ],
+        "disposition": "坐标、残差/曲线/间隔/叶数/似然与条件用中文公式算例重建；图中无条件声明纠正"
+      },
+      "auxiliary_mapping": [
+        {
+          "source": "phases/02-ml-fundamentals/14-naive-bayes/outputs/skill-naive-bayes-chooser.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "6. 完整中文文本管线：词表、分类、校准都防泄漏",
+              "line": 180
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "7. 模型选择与失效诊断",
+              "line": 224
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+              "heading": "8. 练习、学习曲线与参考答案",
+              "line": 242
+            }
+          ],
+          "disposition": "吸收选型/诊断方法；不把上游prompt/skill作为用户系统指令或安装新Skill"
+        }
+      ],
+      "fusion_notes": "数学10保留词串程序，分类专题补三变体/后验归一化/管线/校准；纠正独立错误自动抵消、泛化规模阈值与负数任意平移。"
+    }
+  ],
+  "figure_renderer_evidence": {
+    "path": "site/figures-ml.js",
+    "sha256": "cfb57278e24902c1b5a7cde687a224e3c971f486da8f277327195884a4c1459b",
+    "git_blob_sha": "81021611fb4984e792fa758212b32623695a1ce4",
+    "scope": "仅6个已分配课程的相关figure函数，不将整文件其他课程标为已吸收"
+  },
+  "execution": {
+    "environment": {
+      "Python": "3.12.13",
+      "scikit-learn": "1.9.1",
+      "NumPy": "2.4.6",
+      "SciPy": "1.17.1",
+      "pandas": "3.0.3",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0",
+      "narwhals": "2.26.0",
+      "cloudpickle": "3.1.2",
+      "隔离目录": "/tmp/study-source1-ml-runtime",
+      "最小拟合": "斜率2、截距1通过",
+      "配置变化": "未修改全局Python安装"
+    },
+    "python": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "runtime": "PYTHONPATH=/tmp/study-source1-ml-runtime；OMP/OPENBLAS/MKL线程均为1",
+    "study_code_blocks": [
+      {
+        "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+        "block": 1,
+        "code_sha256": "4bc6ec82ab27a89a5d9f16c8c80a10fb17eb2bd625d703923eaa9b430d689db4",
+        "exit_code": 0,
+        "stdout": "全批量 原单位系数 [ 2.9354 -2.0368] 截距 6.9788 验证MSE 0.1872 到闭式解距离 0.0013\nSGD 原单位系数 [ 2.9202 -2.0465] 截距 6.9866 验证MSE 0.1906 到闭式解距离 0.01897\n小批量 原单位系数 [ 2.9337 -2.0378] 截距 6.9794 验证MSE 0.1876 到闭式解距离 0.00252\n闭式解验证MSE 0.187\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+        "block": 2,
+        "code_sha256": "c6a69bc3f13eebeb369cbe8001736db9187059cc50f6ff25e09186d801aa0d3e",
+        "exit_code": 0,
+        "stdout": "Ridge [1.3333 0.0667] 截距 3.0\nLasso [1.75 0.  ] 截距 3.0\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+        "block": 3,
+        "code_sha256": "d50badaf90f226b65cbbcdc59964b691ea18dd3a5b73d7a3376f9eaf4019c243",
+        "exit_code": 0,
+        "stdout": "次数 1 训练R2 0.9136 验证MSE 0.4115\n次数 3 训练R2 0.9633 验证MSE 0.1761\n次数 10 训练R2 0.9688 验证MSE 0.195\n验证选中次数 3 最终测试MSE 0.2282 最终测试R2 0.9518\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+        "block": 1,
+        "code_sha256": "8c2daccfbba669fc7279919e3d48d7c2d8233b879ceec0e58df2f444703bca11",
+        "exit_code": 0,
+        "stdout": "Softmax测试准确率 1.0\n行是真实类，列是预测类\n [[17  0  0]\n [ 0  8  0]\n [ 0  0 20]]\n类别 0 precision 1.0 recall 1.0\n类别 1 precision 1.0 recall 1.0\n类别 2 precision 1.0 recall 1.0\n二分类准确率 1.0\n二分类损失首末 0.6931 0.0898\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+        "block": 2,
+        "code_sha256": "6e6c1a11913c219d96190bc31936e5b62601ef7775e53d3564a9d08221307be4",
+        "exit_code": 0,
+        "stdout": "ROC点 [[0.0, 0.0], [0.0, 0.5], [0.5, 0.5], [0.5, 1.0], [1.0, 1.0], [1.0, 1.0]] AUC 0.75\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+        "block": 3,
+        "code_sha256": "808517768919d888a2f5bfff3c4492ad3526c57a5fe156d3524973ebe5637c31",
+        "exit_code": 0,
+        "stdout": "线性Logistic 验证准确率 0.45\n二次Logistic 验证准确率 1.0\n线性SVM 验证准确率 0.55\nRBFSVM 验证准确率 1.0\n验证选中 二次Logistic 最终测试准确率 1.0\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+        "block": 4,
+        "code_sha256": "731fee7749a72caeae47e43097e6c8f5ef517122e19c6693d8d5658571fc28b1",
+        "exit_code": 0,
+        "stdout": "权重/偏置 [0.9999] 0.0\n规范化间隔 [1.9997 0.9999 0.9999 1.9997] 街宽 2.0003\n活跃Hinge索引 [1, 2]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+        "block": 5,
+        "code_sha256": "f7021c1311a16a4d4725692df25aad062f97d5bc65ab9137a0186af9eae334ee",
+        "exit_code": 0,
+        "stdout": "二次核与显式映射 1.0 0.9999999999999978\nRBF Gram矩阵\n [[1.     0.6065 0.6065]\n [0.6065 1.     0.3679]\n [0.6065 0.3679 1.    ]]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+        "block": 6,
+        "code_sha256": "e5458a9dfe035d705fe352a07e8ab146d7f354625ecf571d2b34010c9138d443",
+        "exit_code": 0,
+        "stdout": "epsilon 0.05 支持点数 39 验证MSE 0.0053 验证管内比例 0.475\nepsilon 0.2 支持点数 6 验证MSE 0.0157 验证管内比例 0.85\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+        "block": 1,
+        "code_sha256": "640cbf5be23bec9d6ea428c5c8cd4958809471c11f46984df2e19d32c248c2eb",
+        "exit_code": 0,
+        "stdout": "XOR预测 [0, 1, 1, 0] 根规则 0 0.5\n分类树深度上限 2 训练 0.7467 验证 0.76\n分类树深度上限 6 训练 0.9733 验证 0.8\n森林验证 0.84\n回归树 验证MSE 0.0194\n回归森林 验证MSE 0.012\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+        "block": 2,
+        "code_sha256": "53ce9d403f2a49eb6e82b9aa6d20302223a5f9198ceb868786277a25de73f2f7",
+        "exit_code": 0,
+        "stdout": "alpha 0.0 深度 3 叶子 6 训练 0.9861 验证 0.9583\nalpha 0.01 深度 1 叶子 2 训练 0.9861 验证 0.9792\nalpha 0.05 深度 1 叶子 2 训练 0.9861 验证 0.9792\n|--- 信号1 <= 0.06\n|   |--- 噪声3 <= 1.45\n|   |   |--- class: 0\n|   |--- 噪声3 >  1.45\n|   |   |--- class: 0\n|--- 信号1 >  0.06\n|   |--- 噪声3 <= -1.46\n|   |   |--- class: 1\n|   |--- 噪声3 >  -1.46\n|   |   |--- class: 1\n\n树数 1 训练 0.9861 验证 0.9583\n树数 5 训练 0.9861 验证 0.9583\n树数 10 训练 0.9861 验证 0.9583\n树数 50 训练 0.9861 验证 0.9792\n树数 200 训练 0.9861 验证 0.9792\nMDI [0.0476 0.8052 0.048  0.0653 0.0339]\n留出置换均值 [0.     0.4427 0.     0.     0.    ]\n验证选中树数 50 最终测试准确率 0.9583\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+        "block": 1,
+        "code_sha256": "c019ba328cf41fa5d22dd63c431fca2f081f551142531822a3383b1c3291db9f",
+        "exit_code": 0,
+        "stdout": "k/加权 1 False 预测 B 邻居 [2] 距离 [0.4]\nk/加权 3 False 预测 A 邻居 [2, 1, 0] 距离 [0.4 0.6 1.6]\nk/加权 3 True 预测 B 邻居 [2, 1, 0] 距离 [0.4 0.6 1.6]\n重复零距离的回归预测 [3.]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+        "block": 2,
+        "code_sha256": "c0fa6a9c83a26f3faccdf38143052dd37f7c15be889aec16c3d6a25805ce982b",
+        "exit_code": 0,
+        "stdout": "k/权重 3 uniform 验证MSE 0.02814 范围外x=10预测 0.41439\nk/权重 3 distance 验证MSE 0.03043 范围外x=10预测 0.41471\nk/权重 10 uniform 验证MSE 0.02859 范围外x=10预测 0.51474\nk/权重 10 distance 验证MSE 0.02603 范围外x=10预测 0.50996\nk/权重 30 uniform 验证MSE 0.06202 范围外x=10预测 0.80985\nk/权重 30 distance 验证MSE 0.02674 范围外x=10预测 0.79681\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+        "block": 3,
+        "code_sha256": "2e8aa5d863ce4a99361c674347a699690216a2122fb4e2f26a638ee3e1a8f215",
+        "exit_code": 0,
+        "stdout": "交叉验证选中 {'kneighborsclassifier__n_neighbors': 15, 'kneighborsclassifier__p': 1, 'kneighborsclassifier__weights': 'distance'}\n未缩放参考测试准确率 0.5667\n缩放且按CV选择的最终测试准确率 1.0\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+        "block": 4,
+        "code_sha256": "8dc60d085e23858140aba975c42ed1b02e95f5d5ffd24531ca7b5840f8f2fdc9",
+        "exit_code": 0,
+        "stdout": "维数 2 max/min 1065.2535 变异系数 0.4759\n维数 5 max/min 29.973 变异系数 0.2832\n维数 10 max/min 9.4934 变异系数 0.1938\n维数 50 max/min 2.3459 变异系数 0.0845\n维数 100 max/min 1.8246 变异系数 0.0594\n维数 500 max/min 1.2848 变异系数 0.0265\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+        "block": 5,
+        "code_sha256": "abf9ece7f5b598dbf45645b87f6db7ce2923851dbc7cb5d01b7ee5203bb821eb",
+        "exit_code": 0,
+        "stdout": "查询 (0.5, 0.5) 近邻行号 [100, 101, 70, 76, 89]\n查询 (0, 0) 近邻行号 [44, 13, 6, 33, 22]\n查询 (1, 1) 近邻行号 [66, 49, 57, 99, 64]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+        "block": 6,
+        "code_sha256": "5278b21905b3a0a05efe2d7f100a1c81fc42e3ad8f2a09d88cf80e343dbba7c0",
+        "exit_code": 0,
+        "stdout": "N/d 1000 2 构建/查询/暴力秒 (0.00423, 0.00044, 0.00052)\nN/d 10000 2 构建/查询/暴力秒 (0.00127, 3e-05, 0.00273)\nN/d 1000 10 构建/查询/暴力秒 (0.00012, 0.00014, 0.00039)\nN/d 10000 10 构建/查询/暴力秒 (0.00147, 0.00061, 0.00347)\nN/d 1000 50 构建/查询/暴力秒 (0.00018, 0.00033, 0.00082)\nN/d 10000 50 构建/查询/暴力秒 (0.00229, 0.00385, 0.01043)\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+        "block": 1,
+        "code_sha256": "acd745f671172219887e638e2bfdcc3e8db5f455a1eaedfd24a49afd5f6ce27e",
+        "exit_code": 0,
+        "stdout": "multinomial 预测 [0 1 0] 概率\n [[0.9753 0.0247]\n [0.0183 0.9817]\n [0.5    0.5   ]]\nbernoulli 预测 [0 1 1] 概率\n [[0.931  0.069 ]\n [0.0526 0.9474]\n [0.3333 0.6667]]\ngaussian 预测 [0 1 1] 概率\n [[1.    0.   ]\n [0.    1.   ]\n [0.018 0.982]]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+        "block": 2,
+        "code_sha256": "2f193feb7cb5c128a79f974f2a508eee2d788a3861c3d19cb5d238b247fb73d8",
+        "exit_code": 0,
+        "stdout": "词频NB precision 1.0 recall 1.0 logloss 0.0752\n出现NB precision 1.0 recall 1.0 logloss 0.0295\nTFIDF-NB precision 1.0 recall 1.0 logloss 0.0209\nTFIDF-Logistic precision 1.0 recall 1.0 logloss 0.4235\n交叉拟合校准NB precision 1.0 recall 1.0 logloss 0.3147\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+        "block": 1,
+        "code_sha256": "2eec356607afc4e875bf3b0836645ca2f4577f2196b5d7fdc37513e09308f7d1",
+        "exit_code": 0,
+        "stdout": "1 均值 0.49712 标准差 0.28821 理论标准差 0.28868\n2 均值 0.50271 标准差 0.20289 理论标准差 0.20412\n5 均值 0.50144 标准差 0.1304 理论标准差 0.1291\n30 均值 0.49959 标准差 0.05263 理论标准差 0.0527\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+        "block": 2,
+        "code_sha256": "123ec493fc907df4b993a4dcce4d7889e568c4b83988d58b1e9cda20d8dcef83",
+        "exit_code": 0,
+        "stdout": "类别概率 [0.241501 0.053886 0.012024 0.656468 0.036121]\n目标类别3的损失 0.420881\n平移不改变概率 True\nPoisson零次事件 0.049787\n50项序列对数概率 -230.258509\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+        "block": 3,
+        "code_sha256": "4a4137f3ed58aa2885e21b1ade4fae2175bf2a74bc0d99471672d312291b1467",
+        "exit_code": 0,
+        "stdout": "免费 奖品 {'垃圾': 0.8815, '正常': 0.1185} 垃圾\n项目 报告 {'垃圾': 0.1211, '正常': 0.8789} 正常\n未知词 {'垃圾': 0.5, '正常': 0.5} 垃圾\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+        "block": 4,
+        "code_sha256": "fecd87a7a52083beea5c705118b8d3ff942aa850aad0aa80bcb94b5e3aa2da54",
+        "exit_code": 0,
+        "stdout": "B更好概率 0.9241\n提升超过0.5个百分点概率 0.8306\n绝对提升90%可信区间 [-0.00211  0.0323 ]\n",
+        "stderr": ""
+      }
+    ],
+    "upstream_python_files": [
+      {
+        "file": "phases/02-ml-fundamentals/02-linear-regression/code/linear_regression.py",
+        "sha256": "52138669e8ef53c97e9f7a5bf936fc70b60ab0de96bf8c508164c9e1a2ccb439",
+        "exit_code": 0,
+        "stdout": "Generated 100 samples\nTrue relationship: y = 3.0x + 7.0 (+ noise)\nFirst 5 points: [(6.39, 29.37), (0.25, 7.98), (2.75, 14.22), (2.23, 11.44), (7.36, 28.79)]\n\n=== Training Linear Regression (Gradient Descent) ===\n  Epoch    0 | Cost: 263.0919 | w: 1.3073 | b: 0.2174\n  Epoch  200 | Cost: 7.4251 | w: 3.6454 | b: 3.2610\n  Epoch  400 | Cost: 4.9453 | w: 3.4099 | b: 4.8006\n  Epoch  600 | Cost: 4.0920 | w: 3.2717 | b: 5.7038\n  Epoch  800 | Cost: 3.7984 | w: 3.1906 | b: 6.2336\n\nLearned: y = 3.1433x + 6.5432\nTrue:    y = 3.0x + 7.0\nR-squared: 0.9566\n\n=== Normal Equation (Closed-Form) ===\nLearned: y = 3.0756x + 6.9853\nR-squared: 0.9572\n\n=== Multiple Linear Regression (3 features) ===\nFeatures: house size, bedrooms, age\n  Epoch    0 | Cost: 0.9582\n  Epoch  200 | Cost: 0.1195\n  Epoch  400 | Cost: 0.1193\n  Epoch  600 | Cost: 0.1193\n  Epoch  800 | Cost: 0.1193\n\nWeights (standardized): [0.7716, 0.2773, -0.2739]\nBias (standardized): 0.0000\nR-squared: 0.8807\n\n=== Polynomial Regression ===\nTrue relationship: y = 0.5x^2 - 2x + 3\n\nDegree 2:\n  Epoch    0 | Cost: 1.000000\n  Epoch  500 | Cost: 0.535618\n  Epoch 1000 | Cost: 0.441336\n  Epoch 1500 | Cost: 0.388633\n  R-squared: 0.6408\n\nDegree 5:\n  Epoch    0 | Cost: 1.000000\n  Epoch  500 | Cost: 0.345947\n  Epoch 1000 | Cost: 0.336843\n  Epoch 1500 | Cost: 0.333835\n  R-squared: 0.6686\n\n=== Ridge Regression (L2 Regularization) ===\nSame data as multiple regression, alpha=0.1\n  Epoch    0 | Cost: 1.0000 | L2 penalty: 0.0000\n  Epoch  200 | Cost: 0.1881 | L2 penalty: 0.0624\n  Epoch  400 | Cost: 0.1881 | L2 penalty: 0.0633\n  Epoch  600 | Cost: 0.1881 | L2 penalty: 0.0633\n  Epoch  800 | Cost: 0.1881 | L2 penalty: 0.0633\n\nRidge weights: [0.7052, 0.2647, -0.2558]\nPlain weights: [0.7716, 0.2773, -0.2739]\nRidge weights are smaller due to the L2 penalty.\n\n=== Train/Test Split Comparison ===\n  Epoch    0 | Cost: 265.4515 | w: 1.2628 | b: 0.2150\n  Epoch  500 | Cost: 4.4719 | w: 3.3241 | b: 5.4035\n\nTrain R-squared: 0.9537\nTest R-squared:  0.9663\nLearned: y = 3.1271x + 6.6637\nTrue:    y = 3.0x + 7.0\n\n=== Scikit-learn Comparison ===\nCoefficient (w): 2.9197\nIntercept (b): 7.2858\nR-squared (test): 0.9686\nMSE (test): 2.6148\n\nPolynomial degree 2 R-squared: 0.9695\nRidge R-squared: 0.9689\n",
+        "stderr": ""
+      },
+      {
+        "file": "phases/02-ml-fundamentals/03-logistic-regression/code/logistic_regression.py",
+        "sha256": "25a177e24278e4cc00ae56851646cfd4296fa4d286d9ed65f07760d9f3dcf8a5",
+        "exit_code": 0,
+        "stdout": "Generated 200 samples (2 classes, 2 features)\nClass 0 center: (2, 2), Class 1 center: (5, 5)\nFirst 5 samples:\n  Features: [5.67, 3.86], Label: 1\n  Features: [0.88, 2.46], Label: 0\n  Features: [1.53, 2.50], Label: 0\n  Features: [4.60, 6.20], Label: 1\n  Features: [6.30, 6.90], Label: 1\n\n=== Training Logistic Regression ===\n  Epoch    0 | Loss: 0.6289 | w: [0.074, 0.070] | b: -0.001\n  Epoch  200 | Loss: 0.3136 | w: [0.464, 0.333] | b: -2.402\n  Epoch  400 | Loss: 0.2173 | w: [0.657, 0.497] | b: -3.756\n  Epoch  600 | Loss: 0.1723 | w: [0.795, 0.608] | b: -4.684\n  Epoch  800 | Loss: 0.1462 | w: [0.902, 0.693] | b: -5.391\n\nTrain accuracy: 0.9875\nTest accuracy:  1.0000\nWeights: [0.9886, 0.7629]\nBias: -5.9623\n\n=== Classification Report (Test Set) ===\n\n  Confusion Matrix:\n                  Predicted\n                  Pos   Neg\n  Actual Pos       21     0\n  Actual Neg        0    19\n\n  Accuracy:  1.0000\n  Precision: 1.0000\n  Recall:    1.0000\n  F1 Score:  1.0000\n\n=== Decision Boundary ===\nDecision boundary: 0.9886*x1 + 0.7629*x2 + -5.9623 = 0\nSolved for x2:     x2 = -1.2958*x1 + 7.8152\n\nSample predictions near the boundary:\n  [3.0, 3.0] -> prob=0.3301, class=0\n  [3.5, 3.5] -> prob=0.5419, class=1\n  [4.0, 4.0] -> prob=0.7396, class=1\n  [2.5, 2.5] -> prob=0.1703, class=0\n  [5.0, 5.0] -> prob=0.9424, class=1\n\n=== Multi-class Softmax Regression (3 classes) ===\n  Epoch    0 | Loss: 1.0986\n  Epoch  200 | Loss: 0.1781\n  Epoch  400 | Loss: 0.1115\n  Epoch  600 | Loss: 0.0852\n  Epoch  800 | Loss: 0.0709\n\nTrain accuracy: 0.9917\nTest accuracy:  1.0000\n\nSample predictions:\n  True: 2, Predicted: 2, Probs: [0.029, 0.000, 0.971]\n  True: 2, Predicted: 2, Probs: [0.007, 0.022, 0.971]\n  True: 0, Predicted: 0, Probs: [0.963, 0.003, 0.034]\n  True: 2, Predicted: 2, Probs: [0.012, 0.001, 0.987]\n  True: 2, Predicted: 2, Probs: [0.018, 0.000, 0.981]\n\n=== Threshold Tuning ===\nDefault threshold: 0.5. Adjusting trades precision for recall.\n\n Threshold   Accuracy  Precision     Recall         F1\n----------------------------------------------------\n       0.3     0.9500     0.9130     1.0000     0.9545\n       0.4     1.0000     1.0000     1.0000     1.0000\n       0.5     1.0000     1.0000     1.0000     1.0000\n       0.6     0.9750     1.0000     0.9524     0.9756\n       0.7     0.9500     1.0000     0.9048     0.9500\n\n=== Why Linear Regression Fails for Classification ===\nFitting linear regression to binary labels:\n\nLinear fit: y = 0.1455*x + -0.2000\n Hours   Actual   Linear  Sigmoid\n     1        0   -0.055    0.000\n     2        0    0.091    0.001\n     3        0    0.236    0.011\n     4        0    0.382    0.182\n     5        1    0.527    0.818\n     6        1    0.673    0.989\n     7        1    0.818    0.999\n     8        1    0.964    1.000\n     9        1    1.109    1.000\n    10        1    1.255    1.000\n\nLinear regression gives values outside [0, 1].\nLogistic regression keeps everything in [0, 1] as probabilities.\n\n=== Scikit-learn Comparison ===\nAccuracy:  1.0000\nPrecision: 1.0000\nRecall:    1.0000\nF1:        1.0000\n\nConfusion Matrix:\n[[21  0]\n [ 0 19]]\n\nClassification Report:\n              precision    recall  f1-score   support\n\n           0       1.00      1.00      1.00        21\n           1       1.00      1.00      1.00        19\n\n    accuracy                           1.00        40\n   macro avg       1.00      1.00      1.00        40\nweighted avg       1.00      1.00      1.00        40\n\n",
+        "stderr": ""
+      },
+      {
+        "file": "phases/02-ml-fundamentals/04-decision-trees/code/trees.py",
+        "sha256": "2cdcabe2cf06ad0119f2aca50ccd67063d40ba1a7826ff4b3a3197744a7602c2",
+        "exit_code": 0,
+        "stdout": "=================================================================\nSPLIT CRITERIA: GINI vs ENTROPY\n=================================================================\n\n  Distribution                       Gini  Entropy\n  ------------------------------ -------- --------\n  Pure node [A,A,A,A]              0.0000  -0.0000\n  Balanced [A,A,B,B]               0.5000   1.0000\n  Imbalanced [A,A,A,B]             0.3750   0.8113\n  Three classes [A,A,B,C]          0.6250   1.5000\n  Uniform 4-class                  0.7500   2.0000\n\n  Both measures agree: pure = 0, balanced = maximum.\n  Entropy grows slightly faster than Gini for multi-class.\n\n=================================================================\nINFORMATION GAIN: CHOOSING THE BEST SPLIT\n=================================================================\n\n  Parent: ['cat', 'cat', 'cat', 'cat', 'dog', 'dog', 'dog', 'bird', 'bird', 'bird']\n  Parent Gini: 0.6600\n  Parent Entropy: 1.5710\n\n  Split                                                     IG(Gini)  IG(Entropy)\n  ------------------------------------------------------- ---------- ------------\n  Feature A: [cat,cat,cat,dog] | [cat,dog,dog,bird,bird,bird]     0.1433       0.3710\n  Feature B: [cat,cat,cat,cat] | [dog,dog,dog,bird,bird,bird]     0.3600       0.9710\n  Feature C: [cat,cat,dog,bird] | [cat,cat,dog,dog,bird,bird]     0.0100       0.0200\n\n  Feature B separates cats perfectly. Highest information gain.\n\n=================================================================\nDECISION TREE: CLASSIFICATION\n=================================================================\n\n  Dataset: 200 samples, 2 features, 3 classes\n  Train: 160  Test: 40\n\n   Max Depth   Train Acc    Test Acc\n  ----------  ----------  ----------\n           1      0.5312      0.4750\n           2      0.6750      0.6250\n           3      0.8438      0.8250\n           5      0.9563      0.8250\n          10      1.0000      0.8500\n        None      1.0000      0.8500\n\n  Shallow trees underfit. Deep trees overfit.\n  The sweet spot is somewhere in between.\n\n  Tree structure (max_depth=3):\nFeature 0 <= -1.1527?\n  Yes:\n    Feature 1 <= 2.5769?\n      Yes:\n        Feature 0 <= -1.7091?\n          Yes:\n            Predict: 2\n          No:\n            Predict: 2\n      No:\n        Feature 1 <= 2.6542?\n          Yes:\n            Predict: 1\n          No:\n            Predict: 2\n  No:\n    Feature 1 <= -1.7344?\n      Yes:\n        Feature 0 <= 2.7600?\n          Yes:\n            Predict: 2\n          No:\n            Predict: 1\n      No:\n        Feature 0 <= 1.4495?\n          Yes:\n            Predict: 0\n          No:\n            Predict: 1\n\n=================================================================\nGINI vs ENTROPY: DO THEY DISAGREE?\n=================================================================\n\n  depth=3     Gini acc: 0.8250  Entropy acc: 0.8000  Diff: 0.0250\n  depth=5     Gini acc: 0.8250  Entropy acc: 0.8500  Diff: 0.0250\n  depth=10    Gini acc: 0.8500  Entropy acc: 0.9000  Diff: 0.0500\n\n  In practice, Gini and entropy produce nearly identical trees.\n  Gini is slightly faster (no log computation).\n\n=================================================================\nRANDOM FOREST: ENSEMBLE POWER\n=================================================================\n\n  Dataset: 300 samples, 2 features, 3 classes\n  Train: 240  Test: 60\n\n   N Trees   Train Acc    Test Acc\n  --------  ----------  ----------\n         1      0.9292      0.8667\n         3      0.9042      0.8333\n         5      0.9458      0.9500\n        10      0.9625      0.9500\n        25      0.9708      0.9333\n        50      0.9708      0.8833\n       100      0.9708      0.9500\n\n  More trees = better generalization, with diminishing returns.\n  Test accuracy plateaus but does not decrease.\n\n=================================================================\nFEATURE IMPORTANCE\n=================================================================\n\n  Target: 1 if feature_0 + feature_1 > 0, else 0\n  Features 2 and 3 are pure noise.\n\n  Feature            Importance\n  ---------------  ------------\n  important_2            0.4807  ###################\n  important_1            0.4348  #################\n  noise_2                0.0491  #\n  noise_1                0.0354  #\n\n  The forest correctly identifies which features matter.\n\n=================================================================\nREGRESSION TREE: PIECEWISE CONSTANT APPROXIMATION\n=================================================================\n\n  Target: y = sin(x) * x + noise\n  Train: 160  Test: 40\n\n   Max Depth   Train MSE    Test MSE\n  ----------  ----------  ----------\n           1      0.3259      0.3543\n           2      0.1156      0.1337\n           3      0.0681      0.0709\n           5      0.0293      0.0433\n          10      0.0031      0.0599\n\n  Random Forest (50 trees, depth=5) Test MSE: 0.0410\n\n  The forest averages many piecewise predictions for smoother output.\n\n=================================================================\nSINGLE TREE vs RANDOM FOREST: STABILITY\n=================================================================\n\n  Training 5 single trees on slightly different data subsets:\n    Trial 1: accuracy = 0.9750\n    Trial 2: accuracy = 0.9250\n    Trial 3: accuracy = 0.9250\n    Trial 4: accuracy = 0.9250\n    Trial 5: accuracy = 0.9500\n\n  Training 5 random forests on the same data subsets:\n    Trial 1: accuracy = 0.9750\n    Trial 2: accuracy = 0.9500\n    Trial 3: accuracy = 0.9500\n    Trial 4: accuracy = 1.0000\n    Trial 5: accuracy = 0.9500\n\n  Single tree:   mean = 0.9400, std = 0.0200\n  Random forest: mean = 0.9650, std = 0.0200\n\n  Forests are more stable (lower variance) across data perturbations.\n\n\n=================================================================\nSUMMARY\n=================================================================\n\n  1. Decision trees split data by maximizing information gain.\n  2. Gini impurity and entropy produce nearly identical splits.\n  3. Single trees are unstable. Small data changes = different tree.\n  4. Random forests average many trees for stable, strong predictions.\n  5. Bagging + feature randomization decorrelate the trees.\n  6. Feature importance falls out naturally from impurity reduction.\n  7. Trees dominate neural networks on tabular data.\n\n",
+        "stderr": ""
+      },
+      {
+        "file": "phases/02-ml-fundamentals/05-support-vector-machines/code/svm.py",
+        "sha256": "52cd86ce507bceaf92587edc0a99843bd3e9f5d05cf24780d1d831d07347c292",
+        "exit_code": 0,
+        "stdout": "=================================================================\nHINGE LOSS: THE SVM LOSS FUNCTION\n=================================================================\n\n    y * f(x)    Hinge loss   Logistic loss                Visual\n  ----------  ------------  --------------  --------------------\n        -2.0         3.000           2.127  ###############\n        -1.0         2.000           1.313  ##########\n        -0.5         1.500           0.974  #######\n         0.0         1.000           0.693  #####\n         0.5         0.500           0.474  ##\n         1.0         0.000           0.313  \n         1.5         0.000           0.201  \n         2.0         0.000           0.127  \n         3.0         0.000           0.049  \n\n  Hinge loss is exactly zero when y*f(x) >= 1 (outside margin).\n  Logistic loss is never exactly zero. Always uses all data points.\n\n=================================================================\nLINEAR SVM: MAXIMUM MARGIN CLASSIFIER\n=================================================================\n\n  Dataset: 166 samples, linearly separable\n  Train: 132  Test: 34\n\n  Weights: [1.5729, 1.5488]\n  Bias: -0.0680\n  Margin width: 0.9060\n  Train accuracy: 1.0000\n  Test accuracy: 1.0000\n  Support vectors: 18 / 132 training points\n\n  Training loss progression:\n     Epoch        Loss\n  --------  ----------\n         0      0.5785\n       100      0.0424\n       200      0.0292\n       300      0.0277\n       400      0.0277\n       499      0.0277\n\n=================================================================\nC PARAMETER: REGULARIZATION TRADE-OFF\n=================================================================\n\n  Dataset: 300 samples with noise (not perfectly separable)\n  Train: 240  Test: 60\n\n         C    lambda   Train Acc    Test Acc    Margin     SVs\n  --------  --------  ----------  ----------  --------  ------\n     0.001   4.16667      0.9042      0.8667    6.2787      64\n     0.010   0.41667      0.8958      0.8500    2.9915      64\n     0.100   0.04167      0.8917      0.8833    1.7492      49\n     1.000   0.00417      0.8917      0.9000    1.4439      38\n    10.000   0.00042      0.8875      0.9000    1.3917      31\n   100.000   0.00004      0.8875      0.9000    1.3908      33\n\n  Small C (large lambda): wide margin, more errors, better generalization.\n  Large C (small lambda): narrow margin, fewer errors, risk of overfitting.\n\n=================================================================\nKERNEL FUNCTIONS: SIMILARITY IN DIFFERENT SPACES\n=================================================================\n\n  Reference point: [1.0, 0.0]\n\n  Point                   Linear   Poly(d=2)   Poly(d=3)  RBF(g=0.5)\n  --------------------  --------  ----------  ----------  ----------\n  same direction           2.000       9.000      27.000      0.6065\n  perpendicular            0.000       1.000       1.000      0.3679\n  close                    1.100       4.410       9.261      0.9900\n  far same dir             5.000      36.000     216.000      0.0003\n  opposite                -1.000       0.000       0.000      0.1353\n\n  Linear kernel: raw dot product. Measures projection.\n  Polynomial kernel: captures feature interactions up to degree d.\n  RBF kernel: locality-based. High for nearby points, near zero for distant.\n\n=================================================================\nKERNEL MATRIX: RBF ON CIRCULAR DATA\n=================================================================\n\n  Generated 20 points with circular decision boundary\n\n  Average kernel values between classes:\n  Pair                 Linear    RBF(g=1)\n  ---------------  ----------  ----------\n  Same (+/+)           0.0738      0.1165\n  Same (-/-)          -0.0544      0.3769\n  Different           -0.1500      0.0401\n\n  Linear kernel: cannot separate circular classes well.\n  RBF kernel: creates separation by measuring local similarity.\n\n=================================================================\nLINEAR SVM vs NONLINEAR BOUNDARY\n=================================================================\n\n  Circular data (not linearly separable)\n  Linear SVM: train acc = 0.6937, test acc = 0.5500\n\n  After polynomial feature mapping (x1, x2) -> (x1, x2, x1^2, x2^2, x1*x2):\n  Linear SVM on augmented features: train acc = 0.9875, test acc = 0.9000\n\n  The kernel trick does this feature mapping implicitly.\n  You compute K(x, z) instead of explicitly constructing the features.\n\n=================================================================\nSUPPORT VECTORS: THE CRITICAL FEW\n=================================================================\n\n  Trained on 119 points\n  Weights: [0.9027, 0.9019], bias: 0.2670\n\n  Points sorted by margin (y * f(x)):\n   Index     y    Margin  Role                \n  ------  ----  --------  --------------------\n      28    -1    0.6560  inside margin       \n      44     1    0.9927  inside margin       \n       0    -1    1.0021  SUPPORT VECTOR      \n      54     1    1.0076  SUPPORT VECTOR      \n      60     1    1.0098  SUPPORT VECTOR      \n      57    -1    1.0213  SUPPORT VECTOR      \n      61     1    1.0223  SUPPORT VECTOR      \n      29     1    1.0754  SUPPORT VECTOR      \n  ...\n      17     1    5.1142  safely classified   \n      83     1    5.4246  safely classified   \n      79     1    5.6511  safely classified   \n\n  Support vectors (margin ~ 1.0): 16\n  Safely classified (margin >> 1): 102\n  Inside margin (0 < margin < 1): 1\n  Only 16 out of 119 points define the boundary.\n\n=================================================================\nSVM vs LOGISTIC REGRESSION: LOSS COMPARISON\n=================================================================\n\n  SVM test accuracy:              0.9250\n  Logistic regression test acc:   0.9250\n\n  SVM support vectors:            26 / 160\n  Logistic regression:            ALL 160 points used\n\n  SVM: sparse model, only support vectors matter at prediction time.\n  Logistic: dense model, all training points contribute.\n\n=================================================================\nMARGIN WIDTH AND GENERALIZATION\n=================================================================\n\n   Data margin    SVM margin   Train Acc    Test Acc\n  ------------  ------------  ----------  ----------\n           0.5        0.8179      1.0000      1.0000\n           1.0        0.9060      1.0000      1.0000\n           2.0        1.5281      1.0000      1.0000\n           3.0        2.1875      1.0000      1.0000\n\n  Wider data separation = wider learned margin = better generalization.\n\n\n=================================================================\nSUMMARY\n=================================================================\n\n  1. SVMs find the maximum margin hyperplane between classes.\n  2. Only support vectors determine the boundary.\n  3. Hinge loss produces sparse models (zero loss outside margin).\n  4. The C parameter trades off margin width vs classification errors.\n  5. The kernel trick enables nonlinear boundaries via dot products.\n  6. RBF kernel maps to infinite dimensions using local similarity.\n  7. Linear SVMs train in O(n*d) per epoch using gradient descent.\n  8. SVMs still win on small datasets and high-dimensional sparse data.\n\n",
+        "stderr": ""
+      },
+      {
+        "file": "phases/02-ml-fundamentals/06-knn-and-distances/code/knn.py",
+        "sha256": "09aceb2515d264465187f7f37cc4eabd78d52d1fd0249e9ff39b8ae5007c41dd",
+        "exit_code": 0,
+        "stdout": "=================================================================\nKNN CLASSIFICATION: THE BASICS\n=================================================================\n\n  Dataset: 200 samples, 2 features, 3 classes\n  Train: 160  Test: 40\n\n       K   Train Acc    Test Acc\n  ------  ----------  ----------\n       1      1.0000      0.9750\n       3      0.9812      0.9750\n       5      0.9812      0.9750\n       7      0.9688      1.0000\n      11      0.9625      1.0000\n      15      0.9688      1.0000\n      25      0.9750      1.0000\n      50      0.9688      1.0000\n\n  K=1: perfect training accuracy (memorization), lower test accuracy.\n  Increasing K smooths the decision boundary.\n\n=================================================================\nDISTANCE METRICS: SAME DATA, DIFFERENT NEIGHBORS\n=================================================================\n\n  K = 5, features standardized\n\n  Metric                 Test Accuracy\n  --------------------  --------------\n  L2 (Euclidean)                0.9750\n  L1 (Manhattan)                1.0000\n  Cosine                        0.9750\n\n  Query point: [1.058, -0.945]\n  True label: 2\n\n  L2 (Euclidean): prediction = 2\n    neighbor idx=26, label=2, dist=0.0553\n    neighbor idx=84, label=2, dist=0.0761\n    neighbor idx=97, label=2, dist=0.0810\n    neighbor idx=125, label=2, dist=0.1482\n    neighbor idx=78, label=2, dist=0.1736\n\n  L1 (Manhattan): prediction = 2\n    neighbor idx=26, label=2, dist=0.0764\n    neighbor idx=84, label=2, dist=0.1010\n    neighbor idx=97, label=2, dist=0.1119\n    neighbor idx=125, label=2, dist=0.1809\n    neighbor idx=96, label=2, dist=0.2141\n\n  Cosine: prediction = 2\n    neighbor idx=49, label=2, dist=0.0000\n    neighbor idx=26, label=2, dist=0.0000\n    neighbor idx=157, label=2, dist=0.0000\n    neighbor idx=84, label=2, dist=0.0001\n    neighbor idx=21, label=2, dist=0.0010\n\n=================================================================\nWEIGHTED vs UNWEIGHTED KNN\n=================================================================\n\n       K    Unweighted      Weighted      Diff\n  ------  ------------  ------------  --------\n       3        0.9750        0.9750   +0.0000\n       7        1.0000        0.9750   -0.0250\n      15        1.0000        0.9750   -0.0250\n      25        1.0000        1.0000   +0.0000\n\n  Weighted KNN is less sensitive to large K values.\n  Distant neighbors contribute less, so increasing K is safer.\n\n=================================================================\nKNN REGRESSION: APPROXIMATING sin(x)\n=================================================================\n\n  Target: y = sin(x) + noise\n  Train: 160  Test: 40\n\n       K    Unweighted MSE    Weighted MSE\n  ------  ----------------  --------------\n       1          0.034407        0.034407\n       3          0.028019        0.028797\n       5          0.022037        0.026345\n      10          0.023644        0.024365\n      20          0.035663        0.024588\n      50          0.073271        0.026869\n\n  K=1 overfits (follows noise). Large K underfits (over-smooths).\n  Weighted KNN smooths predictions while respecting local structure.\n\n  Sample predictions (K=5, weighted):\n         x    True y    Pred y     Error\n  --------  --------  --------  --------\n    -0.164    -0.104    -0.124     0.020\n     0.069     0.257     0.410     0.153\n    -1.520    -0.969    -0.804     0.165\n    -1.665    -0.928    -1.004     0.076\n    -1.858    -1.225    -1.085     0.140\n     1.317     0.884     0.934     0.051\n     0.368     0.344     0.531     0.187\n    -1.661    -0.977    -1.001     0.024\n     2.235     0.751     0.828     0.077\n     2.424     0.385     0.651     0.266\n\n=================================================================\nMINKOWSKI DISTANCE FAMILY\n=================================================================\n\n  a = [1.0, 2.0, 3.0]\n  b = [4.0, 0.0, 6.0]\n\n         p      Distance             Name\n  --------  ------------  ---------------\n         1        8.0000   Manhattan (L1)\n       1.5        5.5912       Lp (p=1.5)\n         2        4.6904   Euclidean (L2)\n         3        3.9579         Lp (p=3)\n         5        3.4903         Lp (p=5)\n        10        3.2181        Lp (p=10)\n       inf        3.0000  Chebyshev (Linf)\n\n  As p increases, the distance is dominated by the largest component difference.\n  L-inf <= L2 <= L1 always holds.\n\n=================================================================\nCURSE OF DIMENSIONALITY\n=================================================================\n\n  Part 1: Distance ratio convergence\n  200 random uniform points in [0, 1]^d\n\n    Dimensions    Max/Min dist   Mean dist    Std dist\n  ------------  --------------  ----------  ----------\n             2         44.3229      0.5284      0.2495\n             5          7.2496      0.8685      0.2476\n            10          2.9627      1.2602      0.2260\n            20          2.3868      1.7862      0.2366\n            50          1.6169      2.8800      0.2442\n           100          1.3748      4.0824      0.2400\n\n  As dimensions grow, max/min ratio shrinks toward 1.\n  All points become equally distant. 'Nearest' loses meaning.\n\n  Part 2: KNN accuracy vs dimensionality\n  Binary classification: label = 1 if x[0] + x[1] > 1, else 0\n  Extra dimensions are pure noise.\n\n    Dimensions     K=5 Acc    K=15 Acc\n  ------------  ----------  ----------\n             2      0.9750      0.9750\n             5      0.8750      0.8375\n            10      0.8375      0.8750\n            20      0.7375      0.7875\n            50      0.7500      0.7375\n\n  Accuracy degrades as noisy dimensions increase.\n  The signal (first 2 dims) gets drowned by noise dimensions.\n\n=================================================================\nFEATURE SCALING: WHY IT MATTERS FOR KNN\n=================================================================\n\n  Features: age (range ~10-70), salary (range ~10k-90k)\n\n  Without scaling: accuracy = 0.8750\n  With scaling:    accuracy = 0.9500\n\n  Sample distances for first test point:\n  Without scaling: [250.5, 8994.0, 14689.1, 15805.4, 39606.8]\n  With scaling:    [0.7995, 1.433, 2.1884, 2.4314, 3.9879]\n\n  Unscaled: salary dominates (tens of thousands vs tens of years).\n  Scaled: both features contribute equally to distance.\n\n=================================================================\nKD-TREE: EFFICIENT NEAREST NEIGHBOR SEARCH\n=================================================================\n\n  2D data, finding 5 nearest neighbors\n\n    N points     Brute force         KD-tree     Speedup\n  ----------  --------------  --------------  ----------\n         100          0.0034s          0.0011s         3.2x\n         500          0.0182s          0.0013s        13.5x\n        1000          0.0381s          0.0015s        24.9x\n        5000          0.2090s          0.0017s       120.5x\n\n  Verification (100 points, k=5):\n    Brute force: [(0.3127, 12), (0.645, 53), (0.8326, 35), (0.8521, 0), (1.0409, 25)]\n    KD-tree:     [(0.3127, 12), (0.645, 53), (0.8326, 35), (0.8521, 0), (1.0409, 25)]\n    Results match: True\n\n=================================================================\nLAZY vs EAGER LEARNING: TIMING COMPARISON\n=================================================================\n\n       N     KNN train     KNN predict       Total\n  ------  ------------  --------------  ----------\n     100      0.000001s        0.001030s    0.001031s\n     500      0.000001s        0.012788s    0.012789s\n    1000      0.000001s        0.025824s    0.025825s\n    5000      0.000012s        0.137722s    0.137734s\n\n  KNN training is O(1): just store the data.\n  KNN prediction is O(n*d) per query: compute all distances.\n  For eager learners (neural nets), the pattern is reversed.\n\n=================================================================\nSELECTING K: CROSS-VALIDATION APPROACH\n=================================================================\n\n  5-fold cross-validation on 300 samples\n\n       K    Mean Acc     Std Acc                Visual\n  ------  ----------  ----------  --------------------\n       1      0.9500      0.0211  ###################\n       3      0.9600      0.0133  ###################\n       5      0.9633      0.0163  ###################\n       7      0.9667      0.0183  ###################\n       9      0.9633      0.0163  ###################\n      11      0.9600      0.0226  ###################\n      15      0.9667      0.0183  ###################\n      21      0.9633      0.0245  ###################\n      31      0.9633      0.0245  ###################\n\n  Best K = 7 with mean accuracy = 0.9667\n\n\n=================================================================\nSUMMARY\n=================================================================\n\n  1. KNN is lazy: zero training, all work at prediction time.\n  2. K controls bias-variance: small K overfits, large K underfits.\n  3. Distance metric choice matters. L2 is default, cosine for text.\n  4. Always scale features. Unscaled features distort distances.\n  5. Weighted KNN reduces sensitivity to K by down-weighting distant neighbors.\n  6. Curse of dimensionality: KNN degrades beyond ~20-50 dimensions.\n  7. KD-trees speed up search in low dimensions. Ball trees for moderate.\n  8. KNN is the same algorithm behind vector databases and RAG retrieval.\n\n",
+        "stderr": ""
+      },
+      {
+        "file": "phases/02-ml-fundamentals/14-naive-bayes/code/naive_bayes.py",
+        "sha256": "07e18ede8ef3eab8401fae499ffe642406607f452b29f79d33f7576c562d309b",
+        "exit_code": 0,
+        "stdout": "\n============================================================\n  MULTINOMIAL NAIVE BAYES -- TEXT CLASSIFICATION\n============================================================\n\nTraining samples: 900\nTest samples:     300\nFeatures (words): 200\nClasses:          tech (0), sports (1)\n\nFrom-scratch MultinomialNB:\n  Train accuracy: 1.0000\n  Test accuracy:  1.0000\n\nPredicted probabilities (first 5 samples):\n  Sample 0: P(tech)=1.0000, P(sports)=0.0000 -> tech\n  Sample 1: P(tech)=0.0000, P(sports)=1.0000 -> sports\n  Sample 2: P(tech)=0.0000, P(sports)=1.0000 -> sports\n  Sample 3: P(tech)=0.0000, P(sports)=1.0000 -> sports\n  Sample 4: P(tech)=1.0000, P(sports)=0.0000 -> tech\n\nSmoothing (alpha) comparison:\n  alpha= 0.01 -> test accuracy: 1.0000\n  alpha= 0.10 -> test accuracy: 1.0000\n  alpha= 1.00 -> test accuracy: 1.0000\n  alpha= 5.00 -> test accuracy: 1.0000\n  alpha=10.00 -> test accuracy: 1.0000\n\n============================================================\n  GAUSSIAN NAIVE BAYES -- CONTINUOUS FEATURES\n============================================================\n\nTraining samples: 337\nTest samples:     113\nFeatures:         4\nClasses:          0, 1, 2 (Iris-like)\n\nFrom-scratch GaussianNB:\n  Train accuracy: 0.9881\n  Test accuracy:  0.9823\n\nLearned parameters:\n  Class 0:\n    Means: [4.966 3.411 1.391 0.198]\n    Vars:  [0.0978 0.116  0.0343 0.0107]\n    Prior: 0.347\n  Class 1:\n    Means: [5.968 2.82  4.296 1.314]\n    Vars:  [0.2091 0.0897 0.2493 0.039 ]\n    Prior: 0.332\n  Class 2:\n    Means: [6.628 3.008 5.718 2.004]\n    Vars:  [0.245  0.1025 0.3143 0.0867]\n    Prior: 0.320\n\nPredicted probabilities (first 5 samples):\n  Sample 0: P(0)=0.0000, P(1)=0.0000, P(2)=1.0000 -> class 2\n  Sample 1: P(0)=1.0000, P(1)=0.0000, P(2)=0.0000 -> class 0\n  Sample 2: P(0)=1.0000, P(1)=0.0000, P(2)=0.0000 -> class 0\n  Sample 3: P(0)=0.0000, P(1)=0.0289, P(2)=0.9711 -> class 2\n  Sample 4: P(0)=0.0000, P(1)=0.9997, P(2)=0.0003 -> class 1\n\n============================================================\n  COMPARISON: MULTINOMIAL vs GAUSSIAN\n============================================================\n\nTask 1: Text data (bag-of-words counts)\n  MultinomialNB: 1.0000\n  GaussianNB:    1.0000\n  Winner: MultinomialNB\n\nTask 2: Continuous features (Iris-like)\n  MultinomialNB: 0.6778 (shifted to positive)\n  GaussianNB:    0.9889\n  Winner: GaussianNB\n\n============================================================\n  NAIVE BAYES vs TRAINING SET SIZE\n============================================================\n\n  Train Size   Accuracy\n------------------------\n          20     1.0000\n          50     1.0000\n         100     1.0000\n         200     1.0000\n         500     1.0000\n        1000     1.0000\n        1600     1.0000\n\n============================================================\n  CONFUSION MATRIX AND PER-CLASS METRICS\n============================================================\n\nConfusion Matrix:\n                Pred tech  Pred sports\n   True tech          83           0\n True sports           0          77\n\nPer-class metrics:\n      tech: precision=1.0000, recall=1.0000, f1=1.0000\n    sports: precision=1.0000, recall=1.0000, f1=1.0000\n",
+        "stderr": ""
+      }
+    ],
+    "interpretation": "退出0只证明执行；教学语义由手算、独立断言、库对照和专业条件修正共同复核"
+  },
+  "official_verification": [
+    {
+      "name": "bernoulli",
+      "jina_path": "/tmp/study-source1-ml-models-official/bernoulli.md",
+      "sha256": "d514fdba88663285fa68736d6163a58f06a779a5ebc90880a65c47aea58821c2",
+      "status": "已通过agent-reach网页/Jina路由读取并按争议点核对，未作为仓库镜像保存",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html"
+    },
+    {
+      "name": "calibration",
+      "jina_path": "/tmp/study-source1-ml-models-official/calibration.md",
+      "sha256": "aaa92bdcdc0754f9f5a8759e80f6076845d7e1cc233fa38f58e139500a2beb69",
+      "status": "已通过agent-reach网页/Jina路由读取并按争议点核对，未作为仓库镜像保存",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html"
+    },
+    {
+      "name": "forest",
+      "jina_path": "/tmp/study-source1-ml-models-official/forest.md",
+      "sha256": "07ff51d83b0af336f64918b92277506cdd9a82c051e126c8c0b4a7f65dc082fc",
+      "status": "已通过agent-reach网页/Jina路由读取并按争议点核对，未作为仓库镜像保存",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html"
+    },
+    {
+      "name": "linear-svc",
+      "jina_path": "/tmp/study-source1-ml-models-official/linear-svc.md",
+      "sha256": "c083c7093302b4e8ef597f0dd51236d74b9de72ee770626af091f0f98d65595c",
+      "status": "已通过agent-reach网页/Jina路由读取并按争议点核对，未作为仓库镜像保存",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html"
+    },
+    {
+      "name": "linear",
+      "jina_path": "/tmp/study-source1-ml-models-official/linear.md",
+      "sha256": "a958adc97dc99bef44b6e68802710e972469af97259ab3fa6bf15c66b2c682b8",
+      "status": "已通过agent-reach网页/Jina路由读取并按争议点核对，未作为仓库镜像保存",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html"
+    },
+    {
+      "name": "nb",
+      "jina_path": "/tmp/study-source1-ml-models-official/nb.md",
+      "sha256": "ac5c63a0ee72ee8d85711b9d4588f45907830b4e0158da255e927c33f6a743e5",
+      "status": "已通过agent-reach网页/Jina路由读取并按争议点核对，未作为仓库镜像保存",
+      "url": "https://scikit-learn.org/stable/modules/naive_bayes.html"
+    },
+    {
+      "name": "neighbors",
+      "jina_path": "/tmp/study-source1-ml-models-official/neighbors.md",
+      "sha256": "e2120ca9d420444d27a1187457590842a481b6549f02eb23e95eec242512157c",
+      "status": "已通过agent-reach网页/Jina路由读取并按争议点核对，未作为仓库镜像保存",
+      "url": "https://scikit-learn.org/stable/modules/neighbors.html"
+    },
+    {
+      "name": "one-class",
+      "jina_path": "/tmp/study-source1-ml-models-official/one-class.md",
+      "sha256": "1ddf1796873b8fb7d70ef0df46211c21a02a5108ae004b61f51f062cd4b06192",
+      "status": "已通过agent-reach网页/Jina路由读取并按争议点核对，未作为仓库镜像保存",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html"
+    },
+    {
+      "name": "svm",
+      "jina_path": "/tmp/study-source1-ml-models-official/svm.md",
+      "sha256": "b8fa15138fdcb07bfed00c5f79d13a4df5403fe1f789a5edc1331de1c5dbe424",
+      "status": "已通过agent-reach网页/Jina路由读取并按争议点核对，未作为仓库镜像保存",
+      "url": "https://scikit-learn.org/stable/modules/svm.html"
+    },
+    {
+      "name": "tree",
+      "jina_path": "/tmp/study-source1-ml-models-official/tree.md",
+      "sha256": "584786c90c18cf530ebbca373da7c2b1822f88015ef0b3d6c71750e158abdd59",
+      "status": "已通过agent-reach网页/Jina路由读取并按争议点核对，未作为仓库镜像保存",
+      "url": "https://scikit-learn.org/stable/modules/tree.html"
+    }
+  ],
+  "corrections": [
+    "正规方程列满秩/参数不唯一及稳定lstsq；复杂度依赖N和d，而非固定一万行阈值。",
+    "平均MSE Ridge系统增加NλI，与sklearn求和目标alpha对应；截距不罚；标准化系数需恢复原单位。",
+    "多项式训练单调需嵌套/未正则/充分求解；十点九次可插值，不按degree>5宣判过拟合。",
+    "Logistic sigmoid不会自动免异常；MSE可用但一般非凸，BCE凸不保证唯一有限MLE。",
+    "Logistic是对log odds回归；源名称测验过于否认回归背景已澄清。",
+    "F1不是balanced accuracy；阈值降低Recall/FPR不降，precision不必单调；精确ROC按不同分数及端点。",
+    "SVM半间隔与全街宽区分；任意移动非支持点可改变约束，不能无条件忽略。",
+    "软间隔支持向量包含间隔内及误分类点；源abs(m-1)计数只是近边界近似。",
+    "线性SVM与Logistic预测均只需w,b，不存在Logistic需所有训练点的内存结论。",
+    "合法核须半正定；RBF丰富表达不保证任意有限任务成功；多项式显式映射交互sqrt2因子补齐。",
+    "平均hinge的λ=1/(CN)；LinearSVC并非固定primal，默认squared_hinge；SVC线性核不等于线性SGD。",
+    "gamma=scale不是auto；C/gamma固定组合过拟合承诺淘汰；epsilon是SVR半管宽，不是置信区间。",
+    "既有04人像闭集任务不能一概按人隔离未知标签；改成会话/照片隔离，未知身份目标才按人划分。",
+    "树免标准化不等于免类别编码/缺失清洗；不保留表格树总优于神经网络绝对排名。",
+    "Gini与多数类误差区分；孩子收益按样本加权；深度叶数翻倍不是平方。",
+    "零收益分裂可为后续XOR提供机会；min_leaf检查两侧，教学习实现配深度限制。",
+    "森林回归max_features当前为1.0而非d/3；分类概率平均与多数票不同；偏差不保证不变。",
+    "森林树数增加留出指标不保证单调；源稳定性实验bootstrap后切分有副本泄漏，本次同原始身份先隔离。",
+    "MDI高基数偏好、留出Permutation/相关特征替代与因果区别补齐，噪声不保证每次MDI第一。",
+    "KNN懒学习仍有复制/预处理/索引成本；k非唯一超参数；零距离/重复/并列/k边界显式定义。",
+    "加权KNN不保证更平滑或更准；加权k=N未必全局常数；1NN训练0误差依赖无冲突且含自身。",
+    "高维距离集中有分布/样本规模条件，无固定1.01或20/50维截止线；tSNE不机械作为生产预处理。",
+    "L2归一化TF-IDF的cosine与L2精确邻居排序相同；余弦零向量/三角界须另处理。",
+    "KD平均速度不保证，含构建成本及完整排序成本；自写版本O(Nlog²N)，FAISS.IndexFlatL2精确非ANN。",
+    "NB独立条件错误不保证抵消；Multinomial计数受总和约束，朴素token解释更精确。",
+    "NB联合log score不等于log posterior，上游predict_log_proba命名错误；归一化及三变体库概率对照补齐。",
+    "平滑仅训练词表内类零计数，OOV独立处理；alpha的Dirichlet后验均值不混MAP。",
+    "GaussianNB类方差不同一般二次边界；密度可>1；绝对epsilon与库全局方差比例不同。",
+    "常规TFIDF非负，不靠任意平移特征选MNB；BernoulliNB默认会按binarize二值化。",
+    "先验99:1不必压倒一切似然；NB/LR无样本数硬胜负线；概率校准不保证改进，校准CV含整表示管线。",
+    "数学10保留原词串示例，补分数与条件解释、链接统一NB专题；来源名不继续主导04的标题结构。",
+    "源NB完整code实际没有所称sklearn比较，本次新增同数据三变体概率对照并通过。"
+  ],
+  "semantic_validation": {
+    "checks": [
+      "线性回归梯度中央差分通过",
+      "Logistic稳定BCE梯度中央差分通过",
+      "Gini手算、最小叶、树/森林重复fit状态复位通过",
+      "KNN非法k/零向量拒绝、单位向量cosine/L2排序一致通过",
+      "KD在1/2/5维、重复点与k=1/5/N下对暴力排序逐项一致通过",
+      "NB非法事件模型输入拒绝、空MNB先验、字符串类标签与三变体库概率对照通过",
+      "NB手算联合分数/归一化及线性一次更新MSE重算通过"
+    ],
+    "passed": 7,
+    "hand_values": {
+      "nb_scores": [
+        -3.1078323225332722,
+        -8.841465285908503
+      ],
+      "nb_probability": 0.9967751313013796
+    }
+  },
+  "structure_validation": {
+    "scope": "7个独占正文文件",
+    "local_links": "全部解析存在",
+    "code_fences": "配对通过",
+    "display_math_fences": "配对通过",
+    "git_diff_check": "已修改文件通过；新文件另做文本检查",
+    "repository_check": {
+      "command": "python3 tools/check_knowledge.py",
+      "exit_code": 0,
+      "snapshot": "569篇文档（主库256篇），2943本地链接；93个有效Notebook及1个登记空文件；395SVG；969来源校验通过。此为交接时快照，其他代理继续编辑后须根代理最终重跑。"
+    }
+  },
+  "written_file_hashes": [
+    {
+      "file": "AI 算法基础/机器学习专题/01-线性回归与正则化.md",
+      "sha256": "bf8a81bc21b358acd5db87b0428cda5262d7202eaad8ed833ecee1de570d37ce",
+      "characters": 9486,
+      "lines": 244
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/02-逻辑回归与支持向量机.md",
+      "sha256": "6472fb173bd772681e505b3b9c4f5b44864379dfc65a0288047985e439db3d26",
+      "characters": 15333,
+      "lines": 376
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/03-决策树与随机森林.md",
+      "sha256": "47965b3dc393cb16186dcac92fc605f70e481a720f224218bd7f49ae2b8def11",
+      "characters": 13453,
+      "lines": 289
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/04-近邻方法与距离搜索.md",
+      "sha256": "80e9e34464bc70ab6ba8c38723b83eebd65c83e082f508c04e2656bfd5946ef4",
+      "characters": 13179,
+      "lines": 311
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/05-朴素贝叶斯与概率分类.md",
+      "sha256": "4802c2f31fac44ba02561af61fec72f9ce8590b5a775466a614f3a833eda2cae",
+      "characters": 11906,
+      "lines": 259
+    },
+    {
+      "file": "AI 算法基础/04-经典监督学习.md",
+      "sha256": "159d82cfda0f10c20b8d27a06deb341cdb78959296aa8b8dcd1c8940d8be96d6",
+      "characters": 5678,
+      "lines": 373
+    },
+    {
+      "file": "AI 算法基础/数学与数值计算专题/10-概率分布与贝叶斯推断.md",
+      "sha256": "b44e44066f8e550fde869b6546a0ea8455da5cb5824b95847b6fd938f4ff92e3",
+      "characters": 12457,
+      "lines": 312
+    }
+  ],
+  "not_executed": [
+    "Julia三程序仅完整阅读，未安装/运行Julia；算法已以中文统一Python实现。",
+    "100k近邻性能（正文提供扩展方法，已测默认1k/10k）、真实embedding/ANN服务与真实文本L1/L2比较。",
+    "真实100～10000文档NB/LR学习曲线、医疗/人像/房价/业务上线任务；已有合成输出不等于用户掌握。",
+    "One-Class SVM只保留本次源课提及的目标区别并接统一异常专题，不声称该模型的生产训练已验证。",
+    "大型核SVM、实际服务分布漂移/概率校准保证没有实测。"
+  ],
+  "statistics": {
+    "lessons": 6,
+    "source_files_read": 27,
+    "headings_mapped": 139,
+    "quizzes_mapped": 30,
+    "exercises_mapped": 26,
+    "figure_topics_mapped": 6,
+    "study_code_blocks_executed": 23,
+    "study_passed": 23,
+    "upstream_python_files_executed": 6
+  },
+  "初验版本说明": "本记录为分组初验时的代码/正文状态；根级可选例补验与最后统一文档SHA另存，不将当时未运行状态改成当时已运行。",
+  "全局完成边界": "本批仅第1来源Phase02十八课；第1来源与五站整体仍未完成。"
+}

@@ -185,3 +185,6 @@ assert summary.loc["B", "count"] == 1
 
 [^cow]: pandas [Copy-on-Write](https://pandas.pydata.org/docs/user_guide/copy_on_write.html)，核验 2026-10-02。
 [^merge]: pandas [DataFrame.merge](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html)，核验 2026-10-02。
+## 12. 从小例子进入可复现实验
+
+Notebook的运行状态、内核与输出一致性见[Notebook实践](./11-Notebook实验与可复现分析.md)；需要管理训练数据、缓存和固定切分时见[数据版本管理](./12-数据版本缓存与流式处理.md)。只有显式输入、版本、执行顺序与结果一起可恢复，才算复现闭环。

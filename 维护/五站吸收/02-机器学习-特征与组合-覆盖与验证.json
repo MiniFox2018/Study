@@ -1,0 +1,4335 @@
+{
+  "agent": "source1_ml_patterns",
+  "date": "2026-10-03",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "scope": "仅第一来源Phase02指定6课；不读取后四站；不声称第一来源全部完成",
+  "output_files": [
+    "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+    "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+    "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+    "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+    "AI 算法基础/05-特征工程-评估与无监督学习.md",
+    "AI 算法基础/17-关联规则与时间序列.md"
+  ],
+  "lessons": [
+    {
+      "lesson": "07-unsupervised-learning",
+      "primary_target": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+      "source_files": [
+        {
+          "path": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "kind": "代码",
+          "sha256": "9ac4208cc3e7cfb40f9392f17b4bf0dddf8c9ecefef0a6fe93c7ec1c7a90fd83",
+          "git_blob_sha": "dde621d064ff378e06ed6e1af852145afdbf327f",
+          "bytes": 12674,
+          "lines": 397,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/07-unsupervised-learning/docs/en.md",
+          "kind": "正文",
+          "sha256": "5e26db25c8145c483fe715d119cb472956305f42597061fc5841a1838999af38",
+          "git_blob_sha": "a51653c5c81227c73fb62725e3ee5bed98644bec",
+          "bytes": 19615,
+          "lines": 501,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/07-unsupervised-learning/outputs/skill-clustering-guide.md",
+          "kind": "选型/规划输出",
+          "sha256": "8789dae4f0114ab213c3762c5bb60dc7200cef46daad011d16b79c4c0f4f12cf",
+          "git_blob_sha": "2d9204fc7fb8b8894901156be395810f1375d05b",
+          "bytes": 4942,
+          "lines": 77,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/07-unsupervised-learning/quiz.json",
+          "kind": "测验",
+          "sha256": "343c9cbe85e630a35c7151c6d90a1fce225be21c78905806f5dd10e4b209b98c",
+          "git_blob_sha": "7d98687ecb82760a2992c833c757e9854a05f2fe",
+          "bytes": 3140,
+          "lines": 67,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "level": 2,
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "1. 无标签意味着没有唯一正确分组"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Problem",
+          "level": 2,
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "1. 无标签意味着没有唯一正确分组"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Concept",
+          "level": 2,
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "1. 无标签意味着没有唯一正确分组"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Clustering: Grouping Similar Things Together",
+          "level": 3,
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "1. 无标签意味着没有唯一正确分组"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "K-Means: The Workhorse",
+          "level": 3,
+          "line": 44,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "2. K-Means：交替最小化什么"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Choosing K",
+          "level": 3,
+          "line": 57,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "3. 怎样选 K，怎样评价"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "DBSCAN: Density-Based Clustering",
+          "level": 3,
+          "line": 65,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "4. DBSCAN：从密度连接得到簇"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Hierarchical Clustering",
+          "level": 3,
+          "line": 82,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "5. 层次聚类：合并依据比树形图更重要"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Gaussian Mixture Models (GMM)",
+          "level": 3,
+          "line": 98,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "6. GMM：软分配与 EM 的完整链"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "When to Use Which",
+          "level": 3,
+          "line": 109,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "8. 选型、练习与参考答案"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Anomaly Detection with Clustering",
+          "level": 3,
+          "line": 118,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "8. 选型、练习与参考答案"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Build It",
+          "level": 2,
+          "line": 129,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "1. 无标签意味着没有唯一正确分组"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 1: K-Means from scratch",
+          "level": 3,
+          "line": 131,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "2. K-Means：交替最小化什么"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 2: Elbow method and silhouette score",
+          "level": 3,
+          "line": 181,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "3. 怎样选 K，怎样评价"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 3: DBSCAN from scratch",
+          "level": 3,
+          "line": 247,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "4. DBSCAN：从密度连接得到簇"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 4: Gaussian Mixture Model (EM algorithm)",
+          "level": 3,
+          "line": 301,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "6. GMM：软分配与 EM 的完整链"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 5: Generate test data and run everything",
+          "level": 3,
+          "line": 366,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "7. 一个完整的库实现比较"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Use It",
+          "level": 2,
+          "line": 457,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "7. 一个完整的库实现比较"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Ship It",
+          "level": 2,
+          "line": 474,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "选型流程融合正文；不复制提示词包装或生成原站技能"
+        },
+        {
+          "source_heading": "Exercises",
+          "level": 2,
+          "line": 478,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "8. 选型、练习与参考答案"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Key Terms",
+          "level": 2,
+          "line": 484,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "1. 无标签意味着没有唯一正确分组"
+          },
+          "disposition": "定义合入相关方法正文，不建立第二套词条"
+        },
+        {
+          "source_heading": "Further Reading",
+          "level": 2,
+          "line": 497,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "保留必要一手核验与追溯入口，不镜像下载"
+        }
+      ],
+      "code_symbols": [
+        {
+          "symbol": "euclidean_distance",
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "line_start": 5,
+          "line_end": 6,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "1. 无标签意味着没有唯一正确分组"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "kmeans",
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "line_start": 9,
+          "line_end": 45,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "1. 无标签意味着没有唯一正确分组"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "compute_inertia",
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "line_start": 48,
+          "line_end": 52,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "2. K-Means：交替最小化什么"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "silhouette_score",
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "line_start": 55,
+          "line_end": 90,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "3. 怎样选 K，怎样评价"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "find_best_k",
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "line_start": 93,
+          "line_end": 108,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "1. 无标签意味着没有唯一正确分组"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "dbscan",
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "line_start": 111,
+          "line_end": 159,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "4. DBSCAN：从密度连接得到簇"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "gmm",
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "line_start": 162,
+          "line_end": 221,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "6. GMM：软分配与 EM 的完整链"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "agglomerative_clustering",
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "line_start": 224,
+          "line_end": 302,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "5. 层次聚类：合并依据比树形图更重要"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "make_blobs",
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "line_start": 305,
+          "line_end": 315,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "7. 一个完整的库实现比较"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "make_moons",
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py",
+          "line_start": 318,
+          "line_end": 335,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "7. 一个完整的库实现比较"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "unsupervised-pre-1",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "1. 无标签意味着没有唯一正确分组"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "unsupervised-pre-2",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "2. K-Means：交替最小化什么"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "unsupervised-post-1",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "4. DBSCAN：从密度连接得到簇"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "unsupervised-post-2",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "3. 怎样选 K，怎样评价"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "unsupervised-post-3",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "6. GMM：软分配与 EM 的完整链"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "Implement K-Means++ initialization: instead of picking random centroids, pick the first randomly and each subsequent centroid with probability proportional to its squared distance from the nearest existing centroid. Compare convergence speed to random initialization.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "8. 选型、练习与参考答案"
+          },
+          "reference_answer_number": 2,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 2,
+          "description": "Add hierarchical agglomerative clustering to the code. Implement Ward's linkage and produce a dendrogram (as a nested list of merges). Cut it at different levels and compare to K-Means results.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "8. 选型、练习与参考答案"
+          },
+          "reference_answer_number": 3,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 3,
+          "description": "Build a simple anomaly detection pipeline: run DBSCAN and GMM on the same data, flag points that both methods agree are outliers (noise in DBSCAN, low probability in GMM). Measure the overlap and discuss when the methods disagree.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+            "section": "8. 选型、练习与参考答案"
+          },
+          "reference_answer_number": 6,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/02-ml-fundamentals/07-unsupervised-learning/outputs/skill-clustering-guide.md",
+          "target": [
+            {
+              "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+              "section": "1. 无标签意味着没有唯一正确分组"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+              "section": "2. K-Means：交替最小化什么"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+              "section": "3. 怎样选 K，怎样评价"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+              "section": "4. DBSCAN：从密度连接得到簇"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+              "section": "5. 层次聚类：合并依据比树形图更重要"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+              "section": "6. GMM：软分配与 EM 的完整链"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+              "section": "7. 一个完整的库实现比较"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+              "section": "8. 选型、练习与参考答案"
+            }
+          ],
+          "disposition": "数据画像、约束、方法选择、边界和检查流程融合；淘汰固定规模阈值、绝对性能和自动成功保证"
+        }
+      ],
+      "reading_complete": true
+    },
+    {
+      "lesson": "08-feature-engineering",
+      "primary_target": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+      "source_files": [
+        {
+          "path": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "kind": "代码",
+          "sha256": "5b1d1888d6bed446dd5b5e9a5bf9ad0b3a65e839b1a4b3fc93c569bb7fb7c718",
+          "git_blob_sha": "984f3130df23d0a22cc83e521bb185762331fede",
+          "bytes": 12306,
+          "lines": 391,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/08-feature-engineering/docs/en.md",
+          "kind": "正文",
+          "sha256": "964a9b0cd007a7d7e78196fb390fbc8bd84d227bdfcadf3c7db9e7749e70ca9c",
+          "git_blob_sha": "49c241005dab6186cc54c1ea78dc43ca5290bf9b",
+          "bytes": 21906,
+          "lines": 584,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/08-feature-engineering/outputs/prompt-feature-engineer.md",
+          "kind": "选型/规划输出",
+          "sha256": "6584c979af0dc0aa72d18285110a52643e9e2c5fda8e677aa1239c2dfe9956d7",
+          "git_blob_sha": "d51bac0cbcbed276d49c04ef6424f9ebc14df0d1",
+          "bytes": 2317,
+          "lines": 65,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/08-feature-engineering/quiz.json",
+          "kind": "测验",
+          "sha256": "aa32ff44cc46230c24dad9792f83b4d653bed953801fa6a47aa57e5f970cc10e",
+          "git_blob_sha": "374365498b5f83ade939e10c2ebe684648ec2bfa",
+          "bytes": 3447,
+          "lines": 67,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "level": 2,
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Problem",
+          "level": 2,
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Concept",
+          "level": 2,
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Feature Pipeline",
+          "level": 3,
+          "line": 29,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Numerical Features",
+          "level": 3,
+          "line": 44,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "3. 数值变换：公式、目的和边界"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Categorical Features",
+          "level": 3,
+          "line": 56,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "4. 类别编码：无序类别不能凭整数制造次序"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Text Features",
+          "level": 3,
+          "line": 66,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "5. 文本：从词计数到 TF-IDF"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Missing Values",
+          "level": 3,
+          "line": 78,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "2. 缺失：先解释原因，再选填补"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Feature Interaction",
+          "level": 3,
+          "line": 88,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "3. 数值变换：公式、目的和边界"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Feature Selection",
+          "level": 3,
+          "line": 92,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Build It",
+          "level": 2,
+          "line": 111,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 1: Numerical transforms from scratch",
+          "level": 3,
+          "line": 113,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "3. 数值变换：公式、目的和边界"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 2: Categorical encoding from scratch",
+          "level": 3,
+          "line": 165,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "4. 类别编码：无序类别不能凭整数制造次序"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 3: Text features from scratch",
+          "level": 3,
+          "line": 207,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "5. 文本：从词计数到 TF-IDF"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 4: Missing value imputation from scratch",
+          "level": 3,
+          "line": 266,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "2. 缺失：先解释原因，再选填补"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 5: Feature selection from scratch",
+          "level": 3,
+          "line": 304,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 6: Full pipeline and demo",
+          "level": 3,
+          "line": 387,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "6. 完整预处理程序：只在训练上 fit"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Use It",
+          "level": 2,
+          "line": 526,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "6. 完整预处理程序：只在训练上 fit"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Ship It",
+          "level": 2,
+          "line": 555,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "选型流程融合正文；不复制提示词包装或生成原站技能"
+        },
+        {
+          "source_heading": "Exercises",
+          "level": 2,
+          "line": 560,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "9. 练习与参考判断"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Key Terms",
+          "level": 2,
+          "line": 566,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "定义合入相关方法正文，不建立第二套词条"
+        },
+        {
+          "source_heading": "Further Reading",
+          "level": 2,
+          "line": 580,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "保留必要一手核验与追溯入口，不镜像下载"
+        }
+      ],
+      "code_symbols": [
+        {
+          "symbol": "min_max_scale",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 5,
+          "line_end": 10,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "3. 数值变换：公式、目的和边界"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "standardize",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 13,
+          "line_end": 18,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "3. 数值变换：公式、目的和边界"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "log_transform",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 21,
+          "line_end": 22,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "3. 数值变换：公式、目的和边界"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "bin_values",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 25,
+          "line_end": 36,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "3. 数值变换：公式、目的和边界"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "polynomial_features",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 39,
+          "line_end": 48,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "3. 数值变换：公式、目的和边界"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "one_hot_encode",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 51,
+          "line_end": 62,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "4. 类别编码：无序类别不能凭整数制造次序"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "label_encode",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 65,
+          "line_end": 68,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "4. 类别编码：无序类别不能凭整数制造次序"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "target_encode",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 71,
+          "line_end": 87,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "4. 类别编码：无序类别不能凭整数制造次序"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "count_vectorize",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 90,
+          "line_end": 106,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "5. 文本：从词计数到 TF-IDF"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "tfidf",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 109,
+          "line_end": 143,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "5. 文本：从词计数到 TF-IDF"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "impute_mean",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 146,
+          "line_end": 151,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "2. 缺失：先解释原因，再选填补"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "impute_median",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 154,
+          "line_end": 163,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "2. 缺失：先解释原因，再选填补"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "impute_mode",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 166,
+          "line_end": 174,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "2. 缺失：先解释原因，再选填补"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "add_missing_indicator",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 177,
+          "line_end": 178,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "2. 缺失：先解释原因，再选填补"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "correlation",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 181,
+          "line_end": 190,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "mutual_information",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 193,
+          "line_end": 223,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "variance_threshold",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 226,
+          "line_end": 238,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "remove_correlated",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 241,
+          "line_end": 258,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "make_housing_data",
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/code/features.py",
+          "line_start": 261,
+          "line_end": 291,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "feateng-pre-1",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "feateng-pre-2",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "4. 类别编码：无序类别不能凭整数制造次序"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "feateng-post-1",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "4. 类别编码：无序类别不能凭整数制造次序"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "feateng-post-2",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "5. 文本：从词计数到 TF-IDF"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "feateng-post-3",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "Add robust scaling (using median and interquartile range instead of mean and standard deviation) to the numerical transforms. Compare it to standard scaling on data with extreme outliers.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "9. 练习与参考判断"
+          },
+          "reference_answer_number": 2,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 2,
+          "description": "Implement leave-one-out target encoding: for each row, compute the target mean excluding that row's own target value. Show how this reduces overfitting compared to naive target encoding.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "9. 练习与参考判断"
+          },
+          "reference_answer_number": 3,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 3,
+          "description": "Build an automated feature selection pipeline that combines variance threshold, correlation filtering, and mutual information ranking. Apply it to the housing dataset and compare model performance (use a simple linear regression) with all features vs selected features.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "9. 练习与参考判断"
+          },
+          "reference_answer_number": 6,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/02-ml-fundamentals/08-feature-engineering/outputs/prompt-feature-engineer.md",
+          "target": [
+            {
+              "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+              "section": "1. 从数据字典开始，不从“多造列”开始"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+              "section": "2. 缺失：先解释原因，再选填补"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+              "section": "3. 数值变换：公式、目的和边界"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+              "section": "4. 类别编码：无序类别不能凭整数制造次序"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+              "section": "5. 文本：从词计数到 TF-IDF"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+              "section": "6. 完整预处理程序：只在训练上 fit"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+              "section": "7. 特征选择：四种证据不能互换"
+            }
+          ],
+          "disposition": "数据画像、约束、方法选择、边界和检查流程融合；淘汰固定规模阈值、绝对性能和自动成功保证"
+        }
+      ],
+      "reading_complete": true
+    },
+    {
+      "lesson": "11-ensemble-methods",
+      "primary_target": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+      "source_files": [
+        {
+          "path": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "kind": "代码",
+          "sha256": "e5daa72780ca33c6ac4965792787de6665933e09c02772c0cdb6c6ff374c5acc",
+          "git_blob_sha": "6effa6c43a06ad248fa1ee623ea295c182065939",
+          "bytes": 16077,
+          "lines": 502,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/11-ensemble-methods/docs/en.md",
+          "kind": "正文",
+          "sha256": "64b7a605139b29e5400bd8d0d44a77a977dd4787e3140133d9f4c05f162e2532",
+          "git_blob_sha": "2f048a35a4d944ceaf80ae671d9a23a50f2ed1b0",
+          "bytes": 16001,
+          "lines": 355,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/11-ensemble-methods/outputs/prompt-ensemble-selector.md",
+          "kind": "选型/规划输出",
+          "sha256": "b66d2f2ca880bad2ece009c245b1cd36ac7beac7402b56e2f25e6e6b3bdd258d",
+          "git_blob_sha": "9fcec5e1f8b533329c07aa546e3cff295f366ba4",
+          "bytes": 3946,
+          "lines": 87,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/11-ensemble-methods/outputs/skill-ensemble-builder.md",
+          "kind": "选型/规划输出",
+          "sha256": "d5bf95623e89722df2017dc77844690ea96f8d8fb8b2b8887a18e8f9055e468e",
+          "git_blob_sha": "725941864450f249e15120debef6d5b334b7be28",
+          "bytes": 5100,
+          "lines": 94,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/11-ensemble-methods/quiz.json",
+          "kind": "测验",
+          "sha256": "7afd32a8d0499d2d56854b74f7eb80ec4de856d5003ce2b36c9570442ceb578e",
+          "git_blob_sha": "d76c7c98892b3a3264b7e65b49ac71b3d966d3f6",
+          "bytes": 3450,
+          "lines": 67,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "level": 2,
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Problem",
+          "level": 2,
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Concept",
+          "level": 2,
+          "line": 23,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Why Ensembles Work",
+          "level": 3,
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Bagging (Bootstrap Aggregating)",
+          "level": 3,
+          "line": 42,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "2. Bagging 与随机森林"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Boosting (Sequential Error Correction)",
+          "level": 3,
+          "line": 72,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "4. 梯度提升：拟合负梯度，不总是原始残差"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "AdaBoost",
+          "level": 3,
+          "line": 92,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "3. AdaBoost：权重更新可以手算"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Gradient Boosting",
+          "level": 3,
+          "line": 116,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "4. 梯度提升：拟合负梯度，不总是原始残差"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "XGBoost: Why It Dominates Tabular Data",
+          "level": 3,
+          "line": 139,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "5. XGBoost 的二阶目标，及实现选择"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Stacking (Meta-Learning)",
+          "level": 3,
+          "line": 152,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "6. Voting 和 Stacking：训练边界在哪里"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Voting",
+          "level": 3,
+          "line": 177,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "6. Voting 和 Stacking：训练边界在哪里"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Build It",
+          "level": 2,
+          "line": 188,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 1: Decision Stump (Base Learner)",
+          "level": 3,
+          "line": 190,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "3. AdaBoost：权重更新可以手算"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 2: AdaBoost from Scratch",
+          "level": 3,
+          "line": 227,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "3. AdaBoost：权重更新可以手算"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 3: Gradient Boosting from Scratch",
+          "level": 3,
+          "line": 261,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "4. 梯度提升：拟合负梯度，不总是原始残差"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 4: Compare against sklearn",
+          "level": 3,
+          "line": 291,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "7. 怎样检查集成是否值得"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Use It",
+          "level": 2,
+          "line": 295,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "When to Use Each Method",
+          "level": 3,
+          "line": 297,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "7. 怎样检查集成是否值得"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Production Stack for Tabular Data",
+          "level": 3,
+          "line": 308,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "7. 怎样检查集成是否值得"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Ship It",
+          "level": 2,
+          "line": 319,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "选型流程融合正文；不复制提示词包装或生成原站技能"
+        },
+        {
+          "source_heading": "Exercises",
+          "level": 2,
+          "line": 323,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "8. 练习与参考答案"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Key Terms",
+          "level": 2,
+          "line": 335,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "定义合入相关方法正文，不建立第二套词条"
+        },
+        {
+          "source_heading": "Further Reading",
+          "level": 2,
+          "line": 349,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "保留必要一手核验与追溯入口，不镜像下载"
+        }
+      ],
+      "code_symbols": [
+        {
+          "symbol": "make_classification_data",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 5,
+          "line_end": 10,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "make_regression_data",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 13,
+          "line_end": 17,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "train_test_split",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 20,
+          "line_end": 24,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "DecisionStump",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 27,
+          "line_end": 56,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "3. AdaBoost：权重更新可以手算"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "AdaBoostScratch",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 59,
+          "line_end": 90,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "3. AdaBoost：权重更新可以手算"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "TreeNode",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 93,
+          "line_end": 99,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "4. 梯度提升：拟合负梯度，不总是原始残差"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "SimpleRegressionTree",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 102,
+          "line_end": 163,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "4. 梯度提升：拟合负梯度，不总是原始残差"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "GradientBoostingScratch",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 166,
+          "line_end": 193,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "BaggingClassifier",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 196,
+          "line_end": 217,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "2. Bagging 与随机森林"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "StackingClassifier",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 220,
+          "line_end": 271,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "6. Voting 和 Stacking：训练边界在哪里"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_adaboost",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 274,
+          "line_end": 297,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "3. AdaBoost：权重更新可以手算"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_gradient_boosting",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 300,
+          "line_end": 322,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "4. 梯度提升：拟合负梯度，不总是原始残差"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_learning_rate_effect",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 325,
+          "line_end": 348,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "4. 梯度提升：拟合负梯度，不总是原始残差"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_bagging",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 351,
+          "line_end": 370,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "2. Bagging 与随机森林"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_stacking",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 373,
+          "line_end": 424,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "6. Voting 和 Stacking：训练边界在哪里"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_comparison",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 427,
+          "line_end": 450,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "7. 怎样检查集成是否值得"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_sklearn_comparison",
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py",
+          "line_start": 453,
+          "line_end": 491,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "7. 怎样检查集成是否值得"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "ensemble-pre-1",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "1. 多个模型为什么可能更好，也可能没有收益"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "ensemble-pre-2",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "2. Bagging 与随机森林"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "ensemble-post-1",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "3. AdaBoost：权重更新可以手算"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "ensemble-post-2",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "2. Bagging 与随机森林"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "ensemble-post-3",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "4. 梯度提升：拟合负梯度，不总是原始残差"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "Modify the AdaBoost implementation to track training accuracy after each round. Plot accuracy vs. number of estimators. When does it converge?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "8. 练习与参考答案"
+          },
+          "reference_answer_number": 8,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 2,
+          "description": "Implement a random forest from scratch by adding random feature subsampling to the regression tree. Train 100 trees with `max_features=sqrt(n_features)` and average predictions. Compare variance reduction to a single tree.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "8. 练习与参考答案"
+          },
+          "reference_answer_number": 4,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 3,
+          "description": "In the gradient boosting implementation, add early stopping: track validation loss after each round and stop when it has not improved for 10 consecutive rounds. How many trees does it actually need?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "8. 练习与参考答案"
+          },
+          "reference_answer_number": 3,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 4,
+          "description": "Build a stacking ensemble with three base models (logistic regression, decision tree, k-nearest neighbors) and a logistic regression meta-learner. Use 5-fold cross-validation to generate meta-features. Compare to each base model alone.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "8. 练习与参考答案"
+          },
+          "reference_answer_number": 5,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 5,
+          "description": "Run XGBoost on the same dataset with default parameters. Compare its accuracy to your from-scratch gradient boosting. Time both. How large is the speed difference?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+            "section": "8. 练习与参考答案"
+          },
+          "reference_answer_number": 9,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/outputs/prompt-ensemble-selector.md",
+          "target": [
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "1. 多个模型为什么可能更好，也可能没有收益"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "2. Bagging 与随机森林"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "3. AdaBoost：权重更新可以手算"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "4. 梯度提升：拟合负梯度，不总是原始残差"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "5. XGBoost 的二阶目标，及实现选择"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "6. Voting 和 Stacking：训练边界在哪里"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "7. 怎样检查集成是否值得"
+            }
+          ],
+          "disposition": "数据画像、约束、方法选择、边界和检查流程融合；淘汰固定规模阈值、绝对性能和自动成功保证"
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/11-ensemble-methods/outputs/skill-ensemble-builder.md",
+          "target": [
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "1. 多个模型为什么可能更好，也可能没有收益"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "2. Bagging 与随机森林"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "3. AdaBoost：权重更新可以手算"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "4. 梯度提升：拟合负梯度，不总是原始残差"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "5. XGBoost 的二阶目标，及实现选择"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "6. Voting 和 Stacking：训练边界在哪里"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+              "section": "7. 怎样检查集成是否值得"
+            }
+          ],
+          "disposition": "数据画像、约束、方法选择、边界和检查流程融合；淘汰固定规模阈值、绝对性能和自动成功保证"
+        }
+      ],
+      "reading_complete": true
+    },
+    {
+      "lesson": "15-time-series",
+      "primary_target": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+      "source_files": [
+        {
+          "path": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "kind": "代码",
+          "sha256": "082487be1c60133f84a9588c821f1752977ce497353f8576896a48d62376c298",
+          "git_blob_sha": "5dbbc1d63ef45b05aeabe02978f18224ee633818",
+          "bytes": 10609,
+          "lines": 352,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/15-time-series/docs/en.md",
+          "kind": "正文",
+          "sha256": "48ffca9e2410801a507c35ebc6769ba0ecf075a51bb943684c219198a75b9d81",
+          "git_blob_sha": "b4f4480ee45ebb3ac136fc36b9879ccf8b8c8fe1",
+          "bytes": 23798,
+          "lines": 463,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/15-time-series/outputs/prompt-time-series-advisor.md",
+          "kind": "选型/规划输出",
+          "sha256": "b92af811d8f30ccec3901c196ca7b819d34cfb74806aeb1a4893bd8dc50e48bb",
+          "git_blob_sha": "2a2ee84ea47a84ba52e4367d73d97b1234c24343",
+          "bytes": 3393,
+          "lines": 66,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/15-time-series/quiz.json",
+          "kind": "测验",
+          "sha256": "c40d5d0ae23c46e50a05f2a0550fc4ef33f85cd31780dbe97ac05d6e6623a952",
+          "git_blob_sha": "b9282fa132ccb7bbeb442d115aa14bdd7c9a8387",
+          "bytes": 3307,
+          "lines": 67,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "level": 2,
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Problem",
+          "level": 2,
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Concept",
+          "level": 2,
+          "line": 29,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "What Makes Time Series Different",
+          "level": 3,
+          "line": 31,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Components of a Time Series",
+          "level": 3,
+          "line": 65,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Stationarity",
+          "level": 3,
+          "line": 84,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Autocorrelation",
+          "level": 3,
+          "line": 110,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Lag Features: Turning Time Series into Supervised Learning",
+          "level": 3,
+          "line": 121,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "2. 滞后、滚动、日历特征：错一行即可泄漏"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Walk-Forward Validation",
+          "level": 3,
+          "line": 147,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "5. Walk-forward：模拟真实预测服务"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "ARIMA Intuition",
+          "level": 3,
+          "line": 190,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "4. AR、MA、ARIMA 与其他基线"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "When to Use What",
+          "level": 3,
+          "line": 202,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "4. AR、MA、ARIMA 与其他基线"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Forecasting Horizons and Strategies",
+          "level": 3,
+          "line": 214,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "5. Walk-forward：模拟真实预测服务"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Common Mistakes in Time Series",
+          "level": 3,
+          "line": 226,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Build It",
+          "level": 2,
+          "line": 241,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Lag Feature Creator",
+          "level": 3,
+          "line": 245,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "2. 滞后、滚动、日历特征：错一行即可泄漏"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Walk-Forward Cross-Validation",
+          "level": 3,
+          "line": 259,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "5. Walk-forward：模拟真实预测服务"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Simple Autoregressive Model",
+          "level": 3,
+          "line": 275,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "4. AR、MA、ARIMA 与其他基线"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Stationarity Check",
+          "level": 3,
+          "line": 298,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Autocorrelation",
+          "level": 3,
+          "line": 319,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Use It",
+          "level": 2,
+          "line": 333,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "sklearn TimeSeriesSplit",
+          "level": 3,
+          "line": 361,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "5. Walk-forward：模拟真实预测服务"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Evaluation Metrics",
+          "level": 3,
+          "line": 385,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "6. 评价、漂移与部署一致性"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Rolling Features",
+          "level": 3,
+          "line": 394,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "2. 滞后、滚动、日历特征：错一行即可泄漏"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Ship It",
+          "level": 2,
+          "line": 400,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "选型流程融合正文；不复制提示词包装或生成原站技能"
+        },
+        {
+          "source_heading": "Baselines You Must Beat",
+          "level": 3,
+          "line": 406,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "4. AR、MA、ARIMA 与其他基线"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Practical Tips",
+          "level": 3,
+          "line": 416,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "6. 评价、漂移与部署一致性"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Exercises",
+          "level": 2,
+          "line": 430,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "7. 时间序列练习与参考判断"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Key Terms",
+          "level": 2,
+          "line": 442,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "定义合入相关方法正文，不建立第二套词条"
+        },
+        {
+          "source_heading": "Further Reading",
+          "level": 2,
+          "line": 458,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "保留必要一手核验与追溯入口，不镜像下载"
+        }
+      ],
+      "code_symbols": [
+        {
+          "symbol": "make_synthetic_series",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 4,
+          "line_end": 13,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "make_seasonal_series",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 16,
+          "line_end": 26,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "difference",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 29,
+          "line_end": 33,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "check_stationarity",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 36,
+          "line_end": 57,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "autocorrelation",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 60,
+          "line_end": 72,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "make_lag_features",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 75,
+          "line_end": 86,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "2. 滞后、滚动、日历特征：错一行即可泄漏"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "walk_forward_split",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 89,
+          "line_end": 103,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "5. Walk-forward：模拟真实预测服务"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "SimpleAR",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 106,
+          "line_end": 140,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "4. AR、MA、ARIMA 与其他基线"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "mse",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 143,
+          "line_end": 144,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "6. 评价、漂移与部署一致性"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "mae",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 147,
+          "line_end": 148,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "6. 评价、漂移与部署一致性"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "mape",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 151,
+          "line_end": 153,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "6. 评价、漂移与部署一致性"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "print_separator",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 156,
+          "line_end": 159,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_stationarity",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 162,
+          "line_end": 175,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_autocorrelation",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 178,
+          "line_end": 195,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_lag_features",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 198,
+          "line_end": 220,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_walk_forward",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 223,
+          "line_end": 252,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "5. Walk-forward：模拟真实预测服务"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_random_vs_walk_forward",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 255,
+          "line_end": 289,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "5. Walk-forward：模拟真实预测服务"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_lag_comparison",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 292,
+          "line_end": 314,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_forecasting",
+          "source_file": "phases/02-ml-fundamentals/15-time-series/code/time_series.py",
+          "line_start": 317,
+          "line_end": 342,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "5. Walk-forward：模拟真实预测服务"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "timeseries-pre-1",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "5. Walk-forward：模拟真实预测服务"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "timeseries-pre-2",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "timeseries-post-1",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "timeseries-post-2",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "2. 滞后、滚动、日历特征：错一行即可泄漏"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "timeseries-post-3",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "5. Walk-forward：模拟真实预测服务"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**Stationarity experiment.** Generate a series with a linear trend. Check stationarity with rolling statistics. Apply first differencing. Check again. How many rounds of differencing does it take for a quadratic trend?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "7. 时间序列练习与参考判断"
+          },
+          "reference_answer_number": 1,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**Lag selection.** Compute ACF on a seasonal series (period=7). Which lags have the highest autocorrelation? Create lag features using only those lags (not consecutive lags). Does accuracy improve compared to using lags 1 through 7?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "7. 时间序列练习与参考判断"
+          },
+          "reference_answer_number": 3,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**Walk-forward vs random split.** Train a Ridge regression on lag features. Evaluate with random 80/20 split and with walk-forward validation. How much does the random split overestimate performance?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "7. 时间序列练习与参考判断"
+          },
+          "reference_answer_number": 8,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 4,
+          "description": "**Feature engineering.** Add rolling mean (window=7), rolling std (window=7), and day-of-week features to the lag features. Compare accuracy with and without these extras using walk-forward validation.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "7. 时间序列练习与参考判断"
+          },
+          "reference_answer_number": 6,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 5,
+          "description": "**Multi-step forecasting.** Modify the AR model to predict 5 steps ahead instead of 1. Compare two strategies: (a) predict one step, use the prediction as input for the next step (recursive), and (b) train separate models for each horizon (direct). Which is more accurate?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "7. 时间序列练习与参考判断"
+          },
+          "reference_answer_number": 9,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/02-ml-fundamentals/15-time-series/outputs/prompt-time-series-advisor.md",
+          "target": [
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "1. 定义预测时刻、数据时间与可用时间"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "2. 滞后、滚动、日历特征：错一行即可泄漏"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "4. AR、MA、ARIMA 与其他基线"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "5. Walk-forward：模拟真实预测服务"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "6. 评价、漂移与部署一致性"
+            }
+          ],
+          "disposition": "数据画像、约束、方法选择、边界和检查流程融合；淘汰固定规模阈值、绝对性能和自动成功保证"
+        }
+      ],
+      "reading_complete": true
+    },
+    {
+      "lesson": "16-anomaly-detection",
+      "primary_target": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+      "source_files": [
+        {
+          "path": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "kind": "代码",
+          "sha256": "6f35c37f0b78b2d4cdabf82a2c7a97280e822583e6a6693d2cdc8e85de278890",
+          "git_blob_sha": "4b5e35284e892ea5f2dec4fb418c214eab61801a",
+          "bytes": 10997,
+          "lines": 340,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/16-anomaly-detection/docs/en.md",
+          "kind": "正文",
+          "sha256": "fd2418cd6ece3eb747a71ab926fe1b05f2c1c0e4fb07fafd8506081354a99106",
+          "git_blob_sha": "6168b151d613d6c82abcc4e3734ee0e75824c323",
+          "bytes": 25447,
+          "lines": 463,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/16-anomaly-detection/outputs/skill-anomaly-detector.md",
+          "kind": "选型/规划输出",
+          "sha256": "11da28d9cd03d58c92c873aaa3b9560ee9693634e0a4eeef064810fca05fbdac",
+          "git_blob_sha": "1f7aa909f84764806ae35c89df1aca8c0d2f61f2",
+          "bytes": 3542,
+          "lines": 60,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/16-anomaly-detection/quiz.json",
+          "kind": "测验",
+          "sha256": "ab3ec3e745e0809e5a36a1edf33e7a277dcca54e6302c7bd61e6b748bf748baa",
+          "git_blob_sha": "02b92d4a29259b14613ff4aa1c32b7f6fd5d3b71",
+          "bytes": 3480,
+          "lines": 67,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "level": 2,
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Problem",
+          "level": 2,
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "8. 异常检测：异常分数不是故障概率"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Concept",
+          "level": 2,
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Types of Anomalies",
+          "level": 3,
+          "line": 29,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "8. 异常检测：异常分数不是故障概率"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Unsupervised Framing",
+          "level": 3,
+          "line": 54,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "8. 异常检测：异常分数不是故障概率"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Supervised vs Unsupervised: The Tradeoff",
+          "level": 3,
+          "line": 64,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "8. 异常检测：异常分数不是故障概率"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Z-Score Method",
+          "level": 3,
+          "line": 83,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "9. Z-score、IQR与在线统计"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "IQR Method",
+          "level": 3,
+          "line": 102,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "9. Z-score、IQR与在线统计"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Isolation Forest",
+          "level": 3,
+          "line": 123,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "10. Isolation Forest：短路径与分数方向"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Local Outlier Factor (LOF)",
+          "level": 3,
+          "line": 166,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "11. LOF、One-Class SVM 与重建模型"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Comparison",
+          "level": 3,
+          "line": 187,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Evaluation Challenges",
+          "level": 3,
+          "line": 196,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "12. 完整告警实验：训练、校准、测试分开"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Anomaly Detection Pipeline",
+          "level": 3,
+          "line": 216,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "13. 阈值、成本、组合与漂移"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Build It",
+          "level": 2,
+          "line": 234,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Z-Score Detector",
+          "level": 3,
+          "line": 238,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "9. Z-score、IQR与在线统计"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "IQR Detector",
+          "level": 3,
+          "line": 251,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "9. Z-score、IQR与在线统计"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Isolation Forest from Scratch",
+          "level": 3,
+          "line": 265,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "10. Isolation Forest：短路径与分数方向"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Demo Scenarios",
+          "level": 3,
+          "line": 322,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "12. 完整告警实验：训练、校准、测试分开"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Use It",
+          "level": 2,
+          "line": 332,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "12. 完整告警实验：训练、校准、测试分开"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "sklearn Contamination Parameter",
+          "level": 3,
+          "line": 353,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "10. Isolation Forest：短路径与分数方向"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "One-Class SVM",
+          "level": 3,
+          "line": 364,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "11. LOF、One-Class SVM 与重建模型"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Autoencoder Approach (Preview)",
+          "level": 3,
+          "line": 378,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "11. LOF、One-Class SVM 与重建模型"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Ensemble Anomaly Detection",
+          "level": 3,
+          "line": 384,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "13. 阈值、成本、组合与漂移"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Production Considerations",
+          "level": 3,
+          "line": 397,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "13. 阈值、成本、组合与漂移"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Ship It",
+          "level": 2,
+          "line": 405,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "选型流程融合正文；不复制提示词包装或生成原站技能"
+        },
+        {
+          "source_heading": "Choosing a Threshold",
+          "level": 3,
+          "line": 411,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "13. 阈值、成本、组合与漂移"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Scaling to Production",
+          "level": 3,
+          "line": 421,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "13. 阈值、成本、组合与漂移"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Exercises",
+          "level": 2,
+          "line": 430,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "14. 异常练习与参考判断"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Key Terms",
+          "level": 2,
+          "line": 442,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "定义合入相关方法正文，不建立第二套词条"
+        },
+        {
+          "source_heading": "Further Reading",
+          "level": 2,
+          "line": 457,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "保留必要一手核验与追溯入口，不镜像下载"
+        }
+      ],
+      "code_symbols": [
+        {
+          "symbol": "zscore_detect",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 4,
+          "line_end": 11,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "9. Z-score、IQR与在线统计"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "iqr_detect",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 14,
+          "line_end": 25,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "9. Z-score、IQR与在线统计"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "_c_factor",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 28,
+          "line_end": 34,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "10. Isolation Forest：短路径与分数方向"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "IsolationTree",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 37,
+          "line_end": 87,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "10. Isolation Forest：短路径与分数方向"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "IsolationForest",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 90,
+          "line_end": 132,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "10. Isolation Forest：短路径与分数方向"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "make_anomaly_data",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 135,
+          "line_end": 162,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "12. 完整告警实验：训练、校准、测试分开"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "make_multimodal_data",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 165,
+          "line_end": 178,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "12. 完整告警实验：训练、校准、测试分开"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "precision_recall",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 181,
+          "line_end": 190,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "12. 完整告警实验：训练、校准、测试分开"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "precision_at_k",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 193,
+          "line_end": 195,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "12. 完整告警实验：训练、校准、测试分开"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "print_separator",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 198,
+          "line_end": 201,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_zscore",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 204,
+          "line_end": 218,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "9. Z-score、IQR与在线统计"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_iqr",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 221,
+          "line_end": 235,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "9. Z-score、IQR与在线统计"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_isolation_forest",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 238,
+          "line_end": 265,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "10. Isolation Forest：短路径与分数方向"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_comparison",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 268,
+          "line_end": 298,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "12. 完整告警实验：训练、校准、测试分开"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "demo_multimodal",
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py",
+          "line_start": 301,
+          "line_end": 332,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "1. 定义预测时刻、数据时间与可用时间"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "anomaly-pre-1",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "8. 异常检测：异常分数不是故障概率"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "anomaly-pre-2",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "8. 异常检测：异常分数不是故障概率"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "anomaly-post-1",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "9. Z-score、IQR与在线统计"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "anomaly-post-2",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "10. Isolation Forest：短路径与分数方向"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "anomaly-post-3",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "8. 异常检测：异常分数不是故障概率"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**Threshold tuning.** Run the Z-score detector with thresholds from 1.0 to 5.0 in steps of 0.5. Plot precision and recall at each threshold. Where is the sweet spot for your data?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "14. 异常练习与参考判断"
+          },
+          "reference_answer_number": 1,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**Multivariate anomalies.** Create 2D data where each feature individually looks normal, but the combination is anomalous (e.g., points far from the main cluster diagonal). Show that Z-score per feature misses these but Isolation Forest catches them.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "14. 异常练习与参考判断"
+          },
+          "reference_answer_number": 2,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**LOF from scratch.** Implement Local Outlier Factor using k-nearest neighbors. Compare against sklearn's LocalOutlierFactor on the same data. Use k=10 and k=50 -- how does the choice of k affect results?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "14. 异常练习与参考判断"
+          },
+          "reference_answer_number": 3,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 4,
+          "description": "**Streaming anomaly detection.** Modify the Z-score detector to work in a streaming setting: update the running mean and variance as new points arrive (Welford's online algorithm). Compare to batch Z-score on the same data.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "14. 异常练习与参考判断"
+          },
+          "reference_answer_number": 4,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 5,
+          "description": "**Real-world evaluation.** Take a dataset with known anomalies (credit card fraud from Kaggle, for example). Evaluate all four methods using precision@100, precision@500, and AUPRC. Which method works best? Why?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+            "section": "14. 异常练习与参考判断"
+          },
+          "reference_answer_number": 7,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/02-ml-fundamentals/16-anomaly-detection/outputs/skill-anomaly-detector.md",
+          "target": [
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "8. 异常检测：异常分数不是故障概率"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "9. Z-score、IQR与在线统计"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "10. Isolation Forest：短路径与分数方向"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "11. LOF、One-Class SVM 与重建模型"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "12. 完整告警实验：训练、校准、测试分开"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+              "section": "13. 阈值、成本、组合与漂移"
+            }
+          ],
+          "disposition": "数据画像、约束、方法选择、边界和检查流程融合；淘汰固定规模阈值、绝对性能和自动成功保证"
+        }
+      ],
+      "reading_complete": true
+    },
+    {
+      "lesson": "18-feature-selection",
+      "primary_target": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+      "source_files": [
+        {
+          "path": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "kind": "代码",
+          "sha256": "ce1f4218d17bb32c68ed76ce19b022dd330978fa3ad08a7ed66040d95e7e433d",
+          "git_blob_sha": "3dfe79a1e0a6c590f6f024607d66cebdb9a6c3ff",
+          "bytes": 11581,
+          "lines": 353,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/18-feature-selection/docs/en.md",
+          "kind": "正文",
+          "sha256": "b4f79a2e5880be45c0b77713c11805a39b853b2852e15eda314ee1997a107161",
+          "git_blob_sha": "ab8bae02e2ff015c908fd6153c380be74fa1a3de",
+          "bytes": 22648,
+          "lines": 540,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/18-feature-selection/outputs/skill-feature-selector.md",
+          "kind": "选型/规划输出",
+          "sha256": "b2b8262b1a6c14c13a0bdbe0b338b24f509fcd5f63353207aad0b223580adb6d",
+          "git_blob_sha": "c6d75d83d2663591611a03eb181c9e490ecea52f",
+          "bytes": 3693,
+          "lines": 79,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        },
+        {
+          "path": "phases/02-ml-fundamentals/18-feature-selection/quiz.json",
+          "kind": "测验",
+          "sha256": "a8ba92597c1f6ebc9f4c488792da1cbcc96f6c4ed69359f6bdba38f116be6886",
+          "git_blob_sha": "9b8ce7805e8c7b4c32418964809e60675bcae13a",
+          "bytes": 3716,
+          "lines": 67,
+          "read_status": "已逐行完整读取",
+          "reading_evidence": "正文、代码、测验、输出各自读取；代码函数和标题另有逐项映射"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "level": 2,
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Problem",
+          "level": 2,
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "The Concept",
+          "level": 2,
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Three Categories of Feature Selection",
+          "level": 3,
+          "line": 29,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Variance Threshold",
+          "level": 3,
+          "line": 59,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Mutual Information",
+          "level": 3,
+          "line": 75,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Recursive Feature Elimination (RFE)",
+          "level": 3,
+          "line": 98,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "L1 (Lasso) Regularization",
+          "level": 3,
+          "line": 121,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Tree-Based Feature Importance",
+          "level": 3,
+          "line": 139,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Permutation Importance",
+          "level": 3,
+          "line": 155,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Comparison Table",
+          "level": 3,
+          "line": 167,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Decision Flowchart",
+          "level": 3,
+          "line": 179,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Build It",
+          "level": 2,
+          "line": 209,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 1: Generate synthetic data with known feature structure",
+          "level": 3,
+          "line": 211,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "8. 完整选择实验：同一切分比较，测试保持独立"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 2: Variance threshold",
+          "level": 3,
+          "line": 252,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 3: Mutual information (discrete)",
+          "level": 3,
+          "line": 261,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 4: Recursive Feature Elimination",
+          "level": 3,
+          "line": 297,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 5: L1 feature selection",
+          "level": 3,
+          "line": 339,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 6: Tree-based importance (simple decision tree)",
+          "level": 3,
+          "line": 367,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Step 7: Run all methods and compare",
+          "level": 3,
+          "line": 462,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "8. 完整选择实验：同一切分比较，测试保持独立"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Use It",
+          "level": 2,
+          "line": 466,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "8. 完整选择实验：同一切分比较，测试保持独立"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Ship It",
+          "level": 2,
+          "line": 503,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "选型流程融合正文；不复制提示词包装或生成原站技能"
+        },
+        {
+          "source_heading": "Exercises",
+          "level": 2,
+          "line": 508,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "9. 练习与参考判断"
+          },
+          "disposition": "保留融合"
+        },
+        {
+          "source_heading": "Key Terms",
+          "level": 2,
+          "line": 520,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "定义合入相关方法正文，不建立第二套词条"
+        },
+        {
+          "source_heading": "Further Reading",
+          "level": 2,
+          "line": 535,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "保留必要一手核验与追溯入口，不镜像下载"
+        }
+      ],
+      "code_symbols": [
+        {
+          "symbol": "make_feature_selection_data",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 4,
+          "line_end": 34,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "8. 完整选择实验：同一切分比较，测试保持独立"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "variance_threshold",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 37,
+          "line_end": 40,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "discretize",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 43,
+          "line_end": 49,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "mutual_information",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 52,
+          "line_end": 73,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "simple_logistic_importance",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 76,
+          "line_end": 88,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "rfe",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 91,
+          "line_end": 112,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "soft_threshold",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 115,
+          "line_end": 116,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "l1_feature_selection",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 119,
+          "line_end": 137,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "gini_impurity",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 140,
+          "line_end": 145,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "best_split",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 148,
+          "line_end": 165,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "_build_tree_importance",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 168,
+          "line_end": 197,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "tree_importance",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 200,
+          "line_end": 220,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "evaluate_accuracy",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 223,
+          "line_end": 234,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "8. 完整选择实验：同一切分比较，测试保持独立"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "feature_group",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 237,
+          "line_end": 242,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        },
+        {
+          "symbol": "print_feature_scores",
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py",
+          "line_start": 245,
+          "line_end": 249,
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "1. 从数据字典开始，不从“多造列”开始"
+          },
+          "disposition": "核心算法重写或融合为教学实现；生成/打印演示去重，按现行边界核对"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "featsel-pre-1",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "featsel-pre-2",
+          "stage": "pre",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "featsel-post-1",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "featsel-post-2",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        },
+        {
+          "id": "featsel-post-3",
+          "stage": "post",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "7. 特征选择：四种证据不能互换"
+          },
+          "evidence": "定义、例子和边界合入正文；有偏或绝对化解释纠正后采用"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**Forward selection**: implement the opposite of RFE. Start with zero features. At each step, add the feature that improves model performance the most. Stop when adding features no longer helps. Compare the selected features against RFE results. Which is faster? Which gives better results?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "9. 练习与参考判断"
+          },
+          "reference_answer_number": 9,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**Stability selection**: run L1 feature selection 50 times, each time on a random 80% subsample of the data, with slightly different alpha values. Count how often each feature is selected. Features selected in > 80% of runs are \"stable.\" Compare stable features against single-run L1 selection. Which is more reliable?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "9. 练习与参考判断"
+          },
+          "reference_answer_number": 5,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**Multicollinearity detection**: compute the correlation matrix for all features. Implement a function that, given a correlation threshold (e.g., 0.9), removes one feature from each highly-correlated pair (keeping the one with higher mutual information with the target). Test on the synthetic dataset and verify it removes the redundant correlated features.",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "9. 练习与参考判断"
+          },
+          "reference_answer_number": 4,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 4,
+          "description": "**Feature selection pipeline**: chain variance threshold, mutual information filter, and RFE into a single pipeline. First remove near-zero-variance features, then keep the top 50% by mutual information, then run RFE on the survivors. Compare this pipeline against running RFE alone on all features. Is the pipeline faster? Is it equally accurate?",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "9. 练习与参考判断"
+          },
+          "reference_answer_number": 6,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        },
+        {
+          "source_exercise": 5,
+          "description": "**Permutation importance from scratch**: implement permutation importance. For each feature, shuffle its values 10 times, measure the average drop in F1 score. Compare the ranking against tree-based importance. Find cases where they disagree and explain why (hint: correlated features).",
+          "target": {
+            "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+            "section": "9. 练习与参考判断"
+          },
+          "reference_answer_number": 7,
+          "disposition": "保留学习任务与参考过程；开放数据结果未编造"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/02-ml-fundamentals/18-feature-selection/outputs/skill-feature-selector.md",
+          "target": [
+            {
+              "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+              "section": "1. 从数据字典开始，不从“多造列”开始"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+              "section": "7. 特征选择：四种证据不能互换"
+            },
+            {
+              "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+              "section": "8. 完整选择实验：同一切分比较，测试保持独立"
+            }
+          ],
+          "disposition": "数据画像、约束、方法选择、边界和检查流程融合；淘汰固定规模阈值、绝对性能和自动成功保证"
+        }
+      ],
+      "reading_complete": true
+    }
+  ],
+  "figures": [
+    {
+      "source_file": "site/figures-ml.js",
+      "source_file_sha256": "cfb57278e24902c1b5a7cde687a224e3c971f486da8f277327195884a4c1459b",
+      "function": "kmeansStep",
+      "line_start": 198,
+      "line_end": 267,
+      "function_sha256": "2c51cae3f309c833bc2775ee7d72fe461d4b8c11e67153b64fc656b5bfaa7f2d",
+      "reading": "已读取生成函数与原图的核心数据/步骤/标签/说明",
+      "target": {
+        "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+        "section": "2. K-Means：交替最小化什么"
+      },
+      "disposition": "核心逻辑转成手算、公式、程序与边界解释；不镜像动画资产"
+    },
+    {
+      "source_file": "site/figures-ml.js",
+      "source_file_sha256": "cfb57278e24902c1b5a7cde687a224e3c971f486da8f277327195884a4c1459b",
+      "function": "featureScaling",
+      "line_start": 321,
+      "line_end": 360,
+      "function_sha256": "88d5f6a4396858586a3275aa67bf21cc1278624e4d719102a318f36a6fa1ff82",
+      "reading": "已读取生成函数与原图的核心数据/步骤/标签/说明",
+      "target": {
+        "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+        "section": "3. 数值变换：公式、目的和边界"
+      },
+      "disposition": "核心逻辑转成手算、公式、程序与边界解释；不镜像动画资产"
+    },
+    {
+      "source_file": "site/figures-foundations3.js",
+      "source_file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+      "function": "ensembleAverage",
+      "line_start": 127,
+      "line_end": 159,
+      "function_sha256": "f9cd73d93c0cf8b26979c7cef151f77890c5d923ac4cbc976bfcf3fef8b12034",
+      "reading": "已读取生成函数与原图的核心数据/步骤/标签/说明",
+      "target": {
+        "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+        "section": "1. 多个模型为什么可能更好，也可能没有收益"
+      },
+      "disposition": "核心逻辑转成手算、公式、程序与边界解释；不镜像动画资产"
+    },
+    {
+      "source_file": "site/figures-foundations3.js",
+      "source_file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+      "function": "seriesDecompose",
+      "line_start": 200,
+      "line_end": 230,
+      "function_sha256": "731345b08adebb83c126adf836e9a6cc97874a8aacc9213096b9de4c1b944210",
+      "reading": "已读取生成函数与原图的核心数据/步骤/标签/说明",
+      "target": {
+        "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+        "section": "3. 平稳性、差分与 ACF：检验没有一票保证"
+      },
+      "disposition": "核心逻辑转成手算、公式、程序与边界解释；不镜像动画资产"
+    },
+    {
+      "source_file": "site/figures-foundations3.js",
+      "source_file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+      "function": "anomalyFence",
+      "line_start": 232,
+      "line_end": 260,
+      "function_sha256": "dd64e49607ce43b5496ffe87f19efef849b3bef7a91818f49956e650d5e40ad4",
+      "reading": "已读取生成函数与原图的核心数据/步骤/标签/说明",
+      "target": {
+        "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+        "section": "8. 异常检测：异常分数不是故障概率"
+      },
+      "disposition": "核心逻辑转成手算、公式、程序与边界解释；不镜像动画资产"
+    },
+    {
+      "source_file": "site/figures-foundations3.js",
+      "source_file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+      "function": "featurePrune",
+      "line_start": 262,
+      "line_end": 292,
+      "function_sha256": "a9cd9b61759bde688c6edccc52fd7b05e54138f20aada836c4542fc5c5268c87",
+      "reading": "已读取生成函数与原图的核心数据/步骤/标签/说明",
+      "target": {
+        "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+        "section": "7. 特征选择：四种证据不能互换"
+      },
+      "disposition": "核心逻辑转成手算、公式、程序与边界解释；不镜像动画资产"
+    }
+  ],
+  "corrections": [
+    {
+      "lesson": "07",
+      "issue": "上游声称sklearn常规聚类实现具有GPU加速",
+      "resolution": "不保留笼统GPU断言，区分原理与具体实现"
+    },
+    {
+      "lesson": "07",
+      "issue": "手写GMM仅标量方差却概括椭圆模型；E步责任度返回旧参数；指数截断改变尾部",
+      "resolution": "注明spherical范围，重写稳定log-space diag EM，最终重算责任度，解释full/diag/tied/spherical"
+    },
+    {
+      "lesson": "07",
+      "issue": "低分量最大责任度当异常概率；DBSCAN噪声等同真实异常",
+      "resolution": "分开边缘密度、归属不确定性和业务确认；覆盖率与噪声报告并列"
+    },
+    {
+      "lesson": "07",
+      "issue": "源moon demo在既定eps=.3噪声=.1下实跑只有1簇，不能声称示例已分两月牙",
+      "resolution": "新版用明确生成参数比较ARI/silhouette，不宣称任意密度参数成功"
+    },
+    {
+      "lesson": "08",
+      "issue": "均值填补保持分布形状；整数类别只要树模型就安全；标准化变正态",
+      "resolution": "解释方差压缩、人为数值次序和尺度变换；加完整pipeline"
+    },
+    {
+      "lesson": "08",
+      "issue": "全数据拟合填补、词表、缩放和自编码用于演示，不能当评估流程；LOO并非免疫泄漏",
+      "resolution": "先切分、折内拟合、OOF/时间分组cross fitting、未知类别回退"
+    },
+    {
+      "lesson": "08/18",
+      "issue": "L1归为wrapper；逻辑损失L1叫Lasso；低方差/ID固定阈值必删",
+      "resolution": "L1是embedded；区分平方回归和逻辑分类，保留稀有有用字段和部署审计"
+    },
+    {
+      "lesson": "18",
+      "issue": "单列MI可完全判定信号；RFE总更好；L1可靠挑出真实相关列",
+      "resolution": "XOR反例、估计偏差、模型依赖、相关替代不稳、外层验证和稳定性说明"
+    },
+    {
+      "lesson": "18",
+      "issue": "每树抽固定特征子集与真正随机森林每节点抽特征混淆",
+      "resolution": "明确简化随机子空间与逐节点抽样区别"
+    },
+    {
+      "lesson": "11",
+      "issue": "21/101个独立p=.6多数票准确率声称74%/84%",
+      "resolution": "scipy.stats.binom.sf实算0.8256221336/0.979103309，且只适用独立同率假设"
+    },
+    {
+      "lesson": "11",
+      "issue": "随机森林永不拟合噪声、平均不增加偏差、boosting只降bias等绝对说法",
+      "resolution": "推导相关误差方差，阐明有限样本、复杂度、共同偏差与实际评价"
+    },
+    {
+      "lesson": "11",
+      "issue": "LightGBM是XGBoost继任者；树永胜神经网络；固定规模算法/速度保证",
+      "resolution": "改成同任务/预算/硬件比较，删除无依据排行保证"
+    },
+    {
+      "lesson": "11",
+      "issue": "上游tanh平方损失元模型梯度少1-tanh^2；重新fit未清空；回归提升当分类完全等价",
+      "resolution": "用规范LogisticRegression OOF元分类器；教学程序重置状态；区分损失与link"
+    },
+    {
+      "lesson": "11",
+      "issue": "原代码algorithm=SAMME在当前sklearn失败",
+      "resolution": "完整执行原程序记录TypeError；新例省略旧参数并运行通过"
+    },
+    {
+      "lesson": "15",
+      "issue": "ADF拒绝即证明平稳；差分永不有害；线性不能处理趋势而树可以自动外推",
+      "resolution": "查单位根检验条件、过度差分；区分趋势回归与树叶范围"
+    },
+    {
+      "lesson": "15",
+      "issue": "按真实测试lag整块预测被当固定起点多步；训练origin先于测试就认为无泄漏",
+      "resolution": "标签截止与发布时间审计，明确逐日更新/固定起点，多horizon direct/recursive实跑"
+    },
+    {
+      "lesson": "15",
+      "issue": "MA是历史预测误差口语化、普通KFold必随机、基线胜复杂模型必bug",
+      "resolution": "定义创新项、KFold训练含未来边界、承认基线可合理胜出"
+    },
+    {
+      "lesson": "16",
+      "issue": "无监督必捕获未知异常且更抗漂移；多检测器一致几乎确定异常",
+      "resolution": "条件化覆盖、确认反馈与共同失败；组合precision/recall真实评估"
+    },
+    {
+      "lesson": "16",
+      "issue": "OneClass nu当未来异常比例；LOF novelty在训练集调用；contamination必真实比例",
+      "resolution": "查官方nu界与novelty限制，阈值分离原始分数，校准样本/新样本独立"
+    },
+    {
+      "lesson": "16",
+      "issue": "训练/被检测集合直接算Z/IQR统计；IQR=0改1没有单位说明",
+      "resolution": "训练正常基线、独立校准/测试；零尺度按业务容差并明确保护"
+    },
+    {
+      "lesson": "16",
+      "issue": "高维、混合字段、AE重建、iForest多变量能力保证",
+      "resolution": "编码/尺度/联合结构及失败反例；运行固定联合异常实验，未运行深度AE明确说明"
+    },
+    {
+      "lesson": "15/16",
+      "issue": "正文宣称ARIMA/rolling/sklearn比较/高维场景在code内，实际文件并非全部实现",
+      "resolution": "逐行读取实际代码，不把正文宣称当测试；新增明确完整程序与未运行标记"
+    }
+  ],
+  "fusion": [
+    "05主章从来源增量段重构成知识入口，聚类/特征细节归统一10/11专题；评估接07、调参接08、pipeline接09",
+    "17关联规则主干保留，长篇时间详解融合入13，17保留独立入门例子与上下游导航，避免两份同义维护",
+    "数学03PCA、10分布、13图/随机过程只链接不重写；06概率潜变量解释EM条件，10补具体稳定算法与评价",
+    "11特征工程与选择把源08/18合为一章；13时间与异常共享可用时间、窗口特征和告警评价",
+    "源提示词/技能包装不复制，实际选型约束与检查流程合入正文；没有新增来源主导的学习目录"
+  ],
+  "official_verification": [
+    {
+      "topic": "ADF",
+      "url": "https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.adfuller.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "549c47f94ed51887140cfd7ab4b1c72fb9d2784f4bc18afc89cdd14d58d1d07b",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "ARIMA",
+      "url": "https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "6aa6e756687da91c08f1732d320988790c4d86c49497b463a974d50feff0301c",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "AdaBoostClassifier",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "9d0e5f041639b2aa96019b67e625547363ce278ba3670bfdce427f551a9c0888",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "OneClassSVM",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "73747b07d9cce9c112cb9840d00c635d40fd7991d2500b2b5791fddb011bdd88",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "TargetEncoder",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.TargetEncoder.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "84f67d2cb18f9757580d1b9df8cb0b425fc42bec9d3f4c35b8f0a266dda6b5c8",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "TfidfVectorizer",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "4c00d1dea71ab9baf8320b67c99527b0fcdc1d42028ab90534bdee1e9466d8ae",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "asof",
+      "url": "https://pandas.pydata.org/docs/reference/api/pandas.merge_asof.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "043fe4369246f380ef497797b650e9736c0c14c839990dea4a78e4208524b7f1",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "cluster",
+      "url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "d9f5e6c812699b1c8addf366b120108f9e051744103cdcf487aaf9fd642f8dcd",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "differencing",
+      "url": "https://otexts.com/fpp3/stationarity.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "4c65a5fac794c20a8ce43605378a3897f901f32f72c4971ee7593c65fecb7368",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "encoding",
+      "url": "https://scikit-learn.org/stable/modules/preprocessing.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "8de831b3d51b35f663afb93185fa374f0bde5c92198c52d9db2ee8b8c44ea539",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "ensemble",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "446148bb6c847714fc8da8890a76b50d3edb1a6068411ec085ca5a7908f0b08a",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "gmm",
+      "url": "https://scikit-learn.org/stable/modules/mixture.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "730317a01378281a7b1d437545ac5c3bc44a4f7014a43297493c7d0e32e62823",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "outlier",
+      "url": "https://scikit-learn.org/stable/modules/outlier_detection.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "9b2bdf88a536b5b70c1e59d37545519822863bfdc89bf2a71c10dfdf75c7abfe",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "permutation",
+      "url": "https://scikit-learn.org/stable/modules/permutation_importance.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "add93d954d7ae6c63036a23fb8692a3c9049a3f8f1be5eaa1e65604bfc4bcd5e",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "selection",
+      "url": "https://scikit-learn.org/stable/modules/feature_selection.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "b9129ef04395d540692ca641acfabec24a5632b654c42aa1ce29b646745f38d1",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "silhouette",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "37e0b876d8689d2fec5a2f73819514a1e13a2326d3cc83085750d01066f1a106",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    },
+    {
+      "topic": "xgboost",
+      "url": "https://xgboost.readthedocs.io/en/stable/tutorials/model.html",
+      "retrieval_backend": "agent-reach Jina Reader",
+      "date": "2026-10-03",
+      "sha256": "34f1aa3b5b06300f136b4715e4737539c60b0ff98ab9d0205210f502ef9402f8",
+      "use": "核对本专题的方法条件和当前接口；不把缓存镜像提交Study"
+    }
+  ],
+  "validation": {
+    "runtime": {
+      "Python": "3.12.13",
+      "scikit-learn": "1.9.1",
+      "NumPy": "2.4.6",
+      "SciPy": "1.17.1",
+      "pandas": "3.0.3",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0",
+      "narwhals": "2.26.0",
+      "cloudpickle": "3.1.2",
+      "隔离目录": "/tmp/study-source1-ml-runtime",
+      "最小拟合": "斜率2、截距1通过",
+      "配置变化": "未修改全局Python安装"
+    },
+    "markdown_blocks": [
+      {
+        "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+        "block": 1,
+        "start_line": 27,
+        "sha256": "b7da9bfeeda2ab077c2afa7275ee07875e68da6f2b4bb6c8c0997140c122544e",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.098,
+        "output": "中心 [9. 1.] 平方和 4.0\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+        "block": 2,
+        "start_line": 91,
+        "sha256": "bfe48b01b0f14ff922f9d3cc4f8ed2d8ae7d9d8e973c7918f69465e6950d500a",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.043,
+        "output": "密度分组 [ 0  0  0  1  1  1 -1]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+        "block": 3,
+        "start_line": 174,
+        "sha256": "e6e70f7bf304122f10bc2b05c4ab018ca8816113e4f10a80a38d3a3ee8df90b5",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.187,
+        "output": "均值 [-2.99  3.01] 权重 [0.5 0.5]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+        "block": 4,
+        "start_line": 230,
+        "sha256": "9707de9ac98a2be94c5bcb85ea5a042c204ebd5a805ffc5ab442156ca518db5c",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 1.172,
+        "output": "K-Means ARI 0.47 覆盖率 1.0 silhouette 0.495\nDBSCAN ARI 1.0 覆盖率 1.0 silhouette 0.384\n层次-single ARI 1.0 覆盖率 1.0 silhouette 0.384\nGMM-full ARI 0.47 覆盖率 1.0 silhouette 0.496\n合并表最后一行 [35.   37.    7.44 20.  ]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+        "block": 1,
+        "start_line": 60,
+        "sha256": "3f90d79d03a87c38f80b2db8ff6ec15dba4a2204a37031b400146f06e49d53bc",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.682,
+        "output": "训练折外编码 [0.583 0.583 0.583 0.417 0.417 0.417] 测试 [0.643 0.5  ]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+        "block": 2,
+        "start_line": 107,
+        "sha256": "04354cbeea2764b81816212f701f83c1e4a5cdf31c524917d26611ec806a6685",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.759,
+        "output": "房价合成实验 MAE 8.28\n新样本预测 [126.82]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+        "block": 3,
+        "start_line": 163,
+        "sha256": "9f6798a0931754becf8d09a5e6a6abaab2fba68bc1e7b44c2444c4c17618f3db",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.045,
+        "output": "二次关系 MI 1.055 XOR 单列 MI 0.0\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+        "block": 4,
+        "start_line": 211,
+        "sha256": "d17c559010270e4bfa87df936770f6ecb25ff6e143f6130928f57bfae903e6e7",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.945,
+        "output": "全部非恒定列 训练内部 CV F1 0.782\nMI加RFE 训练内部 CV F1 0.788\n内部选中 MI加RFE 最终测试 F1 0.867\n测试解释前五列 [ 8 15 14 10 12]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+        "block": 1,
+        "start_line": 43,
+        "sha256": "97197ed052dbb4061484157c8758d771777d18ce53af58dbd37253986b1dc929",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.046,
+        "output": "每轮训练准确率 [0.8, 0.8, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+        "block": 2,
+        "start_line": 104,
+        "sha256": "c1a8e0e84425970d2e049a3bd76273aa027038112d52685d4ee934fa13a97173",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.805,
+        "output": "保留树数 119 测试 MSE 0.212\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+        "block": 3,
+        "start_line": 189,
+        "sha256": "8d20cabe97fb4475c066d2c70b6d58134197b2986f3824498c6224c553d4ac67",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 1.064,
+        "output": "单树 内部CV F1 0.851\n随机森林 内部CV F1 0.904\nAdaBoost 内部CV F1 0.89\n梯度提升 内部CV F1 0.883\n概率投票 内部CV F1 0.896\n折外Stacking 内部CV F1 0.905\n内部选中 折外Stacking 测试F1 0.865\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+        "block": 1,
+        "start_line": 13,
+        "sha256": "ab44abd653c763723ad45576b8099d7cfdae44286fe5d7c45bccf62d1bea1f00",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.18,
+        "output": "               预测时间  指标\n2026-01-01 10:00:00  20\n2026-01-01 12:00:00  25\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+        "block": 2,
+        "start_line": 60,
+        "sha256": "28dc907123e82c171471e24e7e447f4bbf6c30f8df7cf41c4100c4951e756f72",
+        "status": "未运行",
+        "reason": "本批未安装statsmodels，已核验官方接口"
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+        "block": 3,
+        "start_line": 89,
+        "sha256": "f52d4fec02fbdf087e45d9345a5ab064bcf9c2bdcf35a87e1daf518ea5682528",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.783,
+        "output": "递归 总体MAE 0.66 按horizon [0.648 0.71  0.588 0.533 0.629 0.785 0.73 ]\n直接 总体MAE 0.668 按horizon [0.648 0.708 0.591 0.54  0.597 0.83  0.761]\n季节朴素 总体MAE 0.802 按horizon [0.644 0.764 0.806 0.777 0.766 0.976 0.877]\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+        "block": 4,
+        "start_line": 172,
+        "sha256": "55e18435be9cee20ece46e6ae1f7eb802db1acd27d8fde42137e8d69394f67f7",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.045,
+        "output": "流式均值/总体方差 12.0 2.0\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+        "block": 5,
+        "start_line": 203,
+        "sha256": "f1b75446aaf33a3a9903602072dd74b4efeecc425e9228d806d5a3895fbba0c0",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.07,
+        "output": "正常/远点平均分 0.444 0.704\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+        "block": 6,
+        "start_line": 276,
+        "sha256": "2a22d0e2ff0375a3e1f46cb19991f878e299a959554cebc52377f1c601899e3d",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.75,
+        "output": "手写LOF远点 13.666\n",
+        "stderr": ""
+      },
+      {
+        "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+        "block": 7,
+        "start_line": 312,
+        "sha256": "17b58d5f182239210d39041dd01101269014fe541553ba59889e15e1faa2c664",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.848,
+        "output": "Z-score 告警数 8 P/R/F1 [0. 0. 0.] P@30 0.0 AP 0.136\nIQR距离 告警数 9 P/R/F1 [0. 0. 0.] P@30 0.0 AP 0.136\nIsolationForest 告警数 0 P/R/F1 [0. 0. 0.] P@30 0.2 AP 0.241\nLOF新颖检测 告警数 32 P/R/F1 [0.781 0.833 0.806] P@30 0.8 AP 0.859\nOneClassSVM 告警数 29 P/R/F1 [0.759 0.733 0.746] P@30 0.767 AP 0.782\nPCA重建 告警数 35 P/R/F1 [0.771 0.9   0.831] P@30 0.867 AP 0.913\n",
+        "stderr": ""
+      }
+    ],
+    "original_scripts": [
+      {
+        "lesson": "07-unsupervised-learning",
+        "file": "07-unsupervised-learning/code/clustering.py",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.14,
+        "stdout": "=== K-Means on 3 blobs ===\n  Converged at iteration 4\n  Centroids: [[5.0, 8.05], [2.12, 1.98], [8.11, 3.16]]\n  Silhouette score: 0.7541\n\n=== Elbow Method ===\nElbow method:\n  Converged at iteration 2\n  K=1: inertia=2127.55\n  Converged at iteration 3\n  K=2: inertia=1031.04\n  Converged at iteration 4\n  K=3: inertia=190.22\n  Converged at iteration 3\n  K=4: inertia=158.49\n  Converged at iteration 8\n  K=5: inertia=132.42\n  Converged at iteration 15\n  K=6: inertia=115.03\n\nSilhouette scores:\n  Converged at iteration 3\n  K=2: silhouette=0.5479\n  Converged at iteration 4\n  K=3: silhouette=0.7541\n  Converged at iteration 3\n  K=4: silhouette=0.6137\n  Converged at iteration 8\n  K=5: silhouette=0.4881\n  Converged at iteration 15\n  K=6: silhouette=0.3368\n\n=== DBSCAN on 3 blobs ===\n  Found 3 clusters, 0 noise points\n\n=== GMM on 3 blobs ===\n  GMM converged at iteration 9\n  Means: [[5.0, 8.05], [2.12, 1.98], [8.11, 3.16]]\n  Weights: [0.333, 0.333, 0.333]\n  Silhouette score: 0.7541\n\n=== Hierarchical Clustering on 3 blobs (Ward linkage) ===\n  Silhouette score: 0.4473\n  Last 3 merges: [(50, 53, 1.52), (16, 51, 2.25), (52, 54, 3.7)]\n\n=== DBSCAN on moons (non-spherical clusters) ===\n  Found 1 clusters, 0 noise points\n\n=== K-Means on moons (will fail to separate) ===\n  Converged at iteration 5\n  Silhouette score: 0.4895\n  K-Means splits moons poorly because they are not spherical\n\n=== Anomaly detection with DBSCAN ===\n  Detected 3 anomalies\n    Point [20.0, 20.0]\n    Point [-5.0, -5.0]\n    Point [15.0, 0.0]\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "08-feature-engineering",
+        "file": "08-feature-engineering/code/features.py",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.016,
+        "stdout": "=== Raw Data Sample ===\n  {'sqft': 3377.4205930604767, 'bedrooms': 1, 'age': 37.077524987991644, 'neighborhood': 'downtown', 'has_pool': True, 'price': 215321.8755948546}\n  {'sqft': 3157.2163060206785, 'bedrooms': 1, 'age': None, 'neighborhood': 'downtown', 'has_pool': True, 'price': 216302.14281835558}\n  {'sqft': 1394.7694280899182, 'bedrooms': 5, 'age': None, 'neighborhood': 'suburbs', 'has_pool': False, 'price': 169398.00476443034}\n\n=== Missing Value Handling ===\n  sqft missing: 6/200\n  age missing: 20/200\n  sqft filled with median: 2753\n  age filled with mean: 25.2\n\n=== Numerical Transforms ===\n  sqft standardized: mean=-0.0000, std=1.0000\n  age min-max: [0.00, 1.00]\n  age bins: [0, 1, 2, 3, 4]\n\n=== Categorical Encoding ===\n  One-hot categories: ['downtown', 'rural', 'suburbs']\n  Sample encoding: downtown -> [1, 0, 0]\n  Label encoding map: {'downtown': 0, 'rural': 1, 'suburbs': 2}\n  Target encoding: {'downtown': 228152, 'suburbs': 188042, 'rural': 190398}\n\n=== Text Features ===\n  Vocabulary size: 21\n  Doc 0 non-zero features: 5\n  TF-IDF vocabulary size: 21\n  Doc 0 top TF-IDF words: ['house', 'pool', 'large']\n\n=== Polynomial Features ===\n  Input: [0.475, 0.7427]\n  Polynomial: [0.475, 0.7427, 0.2257, 0.5517, 0.3528]\n  Features: [x1, x2, x1^2, x2^2, x1*x2]\n\n=== Feature Selection ===\n  Total features: 7\n  After variance threshold (0.01): 7 features kept\n  After correlation filter (0.9): 7 features kept\n\n  Mutual information with target:\n    sqft: MI=0.3886\n    age: MI=0.0358\n    sqft_missing: MI=0.0000\n    age_missing: MI=0.0020\n    neigh_downtown: MI=0.0158\n    neigh_rural: MI=0.0041\n    neigh_suburbs: MI=0.0038\n\n  Correlation with price:\n    sqft: r=0.8196\n    age: r=-0.2578\n    sqft_missing: r=0.0609\n    age_missing: r=-0.0761\n    neigh_downtown: r=0.2639\n    neigh_rural: r=-0.1145\n    neigh_suburbs: r=-0.1482\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "11-ensemble-methods",
+        "file": "11-ensemble-methods/code/ensembles.py",
+        "status": "失败",
+        "returncode": 1,
+        "seconds": 15.114,
+        "stdout": "============================================================\nADABOOST FROM SCRATCH\n============================================================\n  n_estimators=  1  train_acc=0.828  test_acc=0.750\n  n_estimators=  5  train_acc=0.881  test_acc=0.762\n  n_estimators= 10  train_acc=0.922  test_acc=0.787\n  n_estimators= 25  train_acc=0.950  test_acc=0.800\n  n_estimators= 50  train_acc=0.981  test_acc=0.838\n\n  Single stump accuracy: 0.750\n  AdaBoost 50 accuracy:  0.838\n  Improvement: 0.088\n\n============================================================\nGRADIENT BOOSTING FROM SCRATCH\n============================================================\n  n_estimators=  1  train_mse=3.7395  test_mse=4.3711\n  n_estimators= 10  train_mse=1.2620  test_mse=1.7324\n  n_estimators= 50  train_mse=0.1572  test_mse=0.4450\n  n_estimators=100  train_mse=0.0623  test_mse=0.3073\n  n_estimators=200  train_mse=0.0260  test_mse=0.2784\n\n  Single tree MSE: 1.3385\n  GBM 100 MSE:     0.2784\n\n============================================================\nLEARNING RATE vs NUMBER OF TREES\n============================================================\n  lr=0.50, n_trees= 20  test_mse=0.3759\n  lr=0.10, n_trees=100  test_mse=0.3073\n  lr=0.05, n_trees=200  test_mse=0.2961\n  lr=0.01, n_trees=500  test_mse=0.4652\n\nLower learning rates need more trees but often generalize better.\n\n============================================================\nBAGGING CLASSIFIER\n============================================================\n  Single tree accuracy: 0.750\n  Bagging (20 trees):   0.863\n  Variance reduction:   +0.113\n\n============================================================\nSTACKING ENSEMBLE\n============================================================\n  Tree depth=3 accuracy: 0.825\n  Tree depth=5 accuracy: 0.750\n  Tree depth=7 accuracy: 0.825\n  Stacking accuracy:    0.838\n  Meta-learner weights: [0.54838655 0.2129523  0.39293023]\n\n============================================================\nFULL COMPARISON\n============================================================\n  Single tree (d=5):    0.870\n  Bagging (20, d=5):    0.880\n  AdaBoost (50 stumps): 0.870\n\nBagging reduces variance (better than single tree).\nBoosting reduces bias (learns complex boundaries from weak learners).\n\n============================================================\nSKLEARN COMPARISON\n============================================================\n  Our AdaBoost:      0.870\n",
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/study-source1-ai-engineering/phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py\", line 501, in <module>\n    demo_sklearn_comparison()\n  File \"/tmp/study-source1-ai-engineering/phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py\", line 479, in demo_sklearn_comparison\n    ada_sk = AdaBoostClassifier(n_estimators=50, random_state=42, algorithm=\"SAMME\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: AdaBoostClassifier.__init__() got an unexpected keyword argument 'algorithm'\n"
+      },
+      {
+        "lesson": "15-time-series",
+        "file": "15-time-series/code/time_series.py",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.065,
+        "stdout": "\n============================================================\n  STATIONARITY CHECK\n============================================================\n\nOriginal series (trend + seasonality):\n  Mean: 57.46, Std: 8.33\n  Stationary: False\n\nAfter first differencing:\n  Mean: 0.0439, Std: 3.25\n  Stationary: True\n\n============================================================\n  AUTOCORRELATION ANALYSIS\n============================================================\n\nACF of differenced series (first 15 lags):\n  Lag      ACF   Significance\n----------------------------\n    0   1.0000  *** ##############################\n    1   0.2701  *** ########\n    2  -0.1446  *** ####\n    3  -0.5681  *** #################\n    4  -0.6365  *** ###################\n    5  -0.1155  *** ###\n    6   0.4311  *** ############\n    7   0.6765  *** ####################\n    8   0.3995  *** ###########\n    9  -0.1344  *** ####\n   10  -0.6381  *** ###################\n   11  -0.5985  *** #################\n   12  -0.1536  *** ####\n   13   0.3943  *** ###########\n   14   0.6720  *** ####################\n\nSignificance threshold (95%): +/-0.1027\nLags 7 and 14 should show spikes (weekly seasonality)\n\n============================================================\n  LAG FEATURES AND AR MODEL\n============================================================\n\nSeries length: 400\nFeature matrix: (390, 10) (samples x lag features)\nTarget vector: (390,)\n\nFirst 3 samples:\n  Lags: [61.0, 59.4, 61.8, 63.0, 58.4, ...] -> Target: 58.2\n  Lags: [58.2, 61.0, 59.4, 61.8, 63.0, ...] -> Target: 57.0\n  Lags: [57.0, 58.2, 61.0, 59.4, 61.8, ...] -> Target: 57.0\n\nAR(10) weights:\n  Lag 1: +0.5891\n  Lag 2: +0.4419\n  Lag 3: +0.2050\n  Lag 4: -0.0772\n  Lag 5: +0.0114\n  Lag 6: -0.0419\n  Lag 7: -0.1818\n  Lag 8: -0.2096\n  Lag 9: +0.0291\n  Lag 10: +0.1243\n  Bias:  +6.6286\n\n============================================================\n  WALK-FORWARD VALIDATION\n============================================================\n\nWalk-forward with 5 splits:\n  Fold      Train       Test        MSE        MAE\n------------------------------------------------\n     1        100         58     9.5800     2.5834\n     2        158         58     9.8588     2.5706\n     3        216         58    10.2753     2.7029\n     4        274         58     7.2818     2.1938\n     5        332         58     8.4643     2.3415\n\nMean MSE: 9.0921\nStd MSE:  1.0860\n\n============================================================\n  RANDOM SPLIT vs WALK-FORWARD\n============================================================\n\nRandom 80/20 split MSE:  5.9230\nWalk-forward mean MSE:   9.4137\nRatio (random/wf):       0.6292\n\nRandom split gives lower MSE -- this is the optimistic bias from future leakage.\nThe walk-forward score is the honest estimate of production performance.\n\n============================================================\n  LAG COUNT COMPARISON\n============================================================\n\n  n_lags     Mean MSE     Mean MAE\n----------------------------------\n       1      12.3759       2.9143\n       3      10.1456       2.5842\n       5       5.8770       1.9593\n       7       5.3206       1.8521\n      10       4.5082       1.7016\n      14       3.9965       1.5973\n      21       3.6773       1.4875\n      30       3.0984       1.4156\n\n============================================================\n  MULTI-STEP FORECASTING\n============================================================\n\nTraining on 250 points, forecasting 20 steps ahead\n\n  Step       True  Predicted      Error\n--------------------------------------\n     1      68.64      71.44      -2.80\n     2      71.82      70.43      +1.38\n     3      72.72      68.46      +4.26\n     4      68.78      66.95      +1.83\n     5      61.74      64.57      -2.83\n     6      61.78      61.66      +0.12\n     7      63.25      58.54      +4.72\n     8      57.37      56.10      +1.27\n     9      57.91      53.54      +4.37\n    10      57.07      51.09      +5.97\n    11      52.49      48.93      +3.56\n    12      53.42      46.89      +6.53\n    13      46.67      45.42      +1.26\n    14      51.16      44.41      +6.75\n    15      53.18      43.81      +9.37\n    16      52.09      43.62      +8.47\n    17      59.13      43.87     +15.27\n    18      54.61      44.54     +10.07\n    19      58.45      45.62     +12.83\n    20      61.63      47.06     +14.58\n\nForecast MSE:  54.5676\nForecast MAE:  5.9113\nForecast MAPE: 10.28%\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "16-anomaly-detection",
+        "file": "16-anomaly-detection/code/anomaly_detection.py",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.341,
+        "stdout": "\n============================================================\n  Z-SCORE ANOMALY DETECTION\n============================================================\n\nDataset: 525 samples, 25 anomalies\n\n Threshold  Precision     Recall         F1    Flagged\n----------------------------------------------------\n       2.0     0.8929     1.0000     0.9434         28\n       2.5     0.9615     1.0000     0.9804         26\n       3.0     1.0000     1.0000     1.0000         25\n       3.5     1.0000     0.7600     0.8636         19\n       4.0     1.0000     0.5200     0.6842         13\n\n============================================================\n  IQR ANOMALY DETECTION\n============================================================\n\nDataset: 525 samples, 25 anomalies\n\n    Factor  Precision     Recall         F1    Flagged\n----------------------------------------------------\n       1.0     0.4167     1.0000     0.5882         60\n       1.5     0.8065     1.0000     0.8929         31\n       2.0     0.9259     1.0000     0.9615         27\n       2.5     1.0000     1.0000     1.0000         25\n       3.0     1.0000     0.9200     0.9583         23\n\n============================================================\n  ISOLATION FOREST (FROM SCRATCH)\n============================================================\n\nDataset: 525 samples, 25 anomalies\n\nScore statistics:\n  Normal points: mean=0.4056, std=0.0419\n  Anomaly points: mean=0.7141, std=0.0382\n\n Threshold  Precision     Recall         F1    Flagged\n----------------------------------------------------\n      0.50     0.5556     1.0000     0.7143         45\n      0.55     0.8621     1.0000     0.9259         29\n      0.60     0.9615     1.0000     0.9804         26\n      0.65     1.0000     0.9600     0.9796         24\n      0.70     1.0000     0.7200     0.8372         18\n\nPrecision@25: 1.0000\n\n============================================================\n  METHOD COMPARISON\n============================================================\n\nDataset: 525 samples, 25 anomalies\n\nPrecision@25 (top-k ranked by anomaly score):\n  Z-score:          1.0000\n  IQR:              1.0000\n  Isolation Forest: 1.0000\n\nMethod                Precision     Recall         F1\n----------------------------------------------------\nZ-score (t=3.0)          1.0000     1.0000     1.0000\nIQR (f=1.5)              0.8065     1.0000     0.8929\nIsoForest (t=0.6)        0.9615     1.0000     0.9804\n\n============================================================\n  MULTIMODAL DATA (WHERE SIMPLE METHODS STRUGGLE)\n============================================================\n\nDataset: 620 samples, 20 anomalies, 3 clusters\n\nMethod                Precision     Recall         F1        P@k\n--------------------------------------------------------------\nZ-score (t=3.0)          1.0000     0.1000     0.1818     0.5000\nIQR (f=1.5)              0.0000     0.0000     0.0000     0.0500\nIsoForest (t=0.6)        0.7778     0.7000     0.7368     0.7500\n\nZ-score struggles with multimodal data (points between clusters\nlook normal per feature but are anomalous in the joint space).\nIsolation Forest handles multiple clusters naturally.\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "18-feature-selection",
+        "file": "18-feature-selection/code/feature_selection.py",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 3.495,
+        "stdout": "============================================================\nFEATURE SELECTION METHODS\n============================================================\n\nDataset: 500 samples, 20 features\nFeature groups: 5 informative, 5 correlated, 10 noise\nTarget: binary classification (y=1: 254, y=0: 246)\n\n------------------------------------------------------------\n1. VARIANCE THRESHOLD\n------------------------------------------------------------\n  Threshold: 0.01, surviving: 20 / 20\n\n  Variances:\n     1. info_2         1.0161 [INFO]\n     2. info_4         0.9812 [INFO]\n     3. info_1         0.9610 [INFO]\n     4. info_3         0.9448 [INFO]\n     5. info_0         0.9199 [INFO]\n     6. corr_0         0.7537 [CORR]\n     7. corr_1         0.6493 [CORR]\n     8. corr_4         0.5589 [CORR]\n     9. corr_2         0.5305 [CORR]\n    10. corr_3         0.4469 [CORR]\n\n------------------------------------------------------------\n2. MUTUAL INFORMATION\n------------------------------------------------------------\n\n  MI scores (top 10):\n     1. info_0         0.2602 [INFO]\n     2. info_3         0.2555 [INFO]\n     3. corr_0         0.2455 [CORR]\n     4. info_1         0.1003 [INFO]\n     5. info_4         0.0988 [INFO]\n     6. corr_1         0.0972 [CORR]\n     7. corr_4         0.0502 [CORR]\n     8. noise_9        0.0299 [NOISE]\n     9. corr_2         0.0239 [CORR]\n    10. noise_5        0.0233 [NOISE]\n\n------------------------------------------------------------\n3. RECURSIVE FEATURE ELIMINATION (RFE)\n------------------------------------------------------------\n  Selected: ['info_0', 'info_1', 'info_2', 'info_3', 'corr_0']\n    Rank  1: info_0       [INFO]\n    Rank  1: info_1       [INFO]\n    Rank  1: info_2       [INFO]\n    Rank  1: info_3       [INFO]\n    Rank  1: corr_0       [CORR]\n    Rank  6: info_4       [INFO]\n    Rank  7: corr_1       [CORR]\n    Rank  8: corr_2       [CORR]\n    Rank  9: noise_9      [NOISE]\n    Rank 10: noise_3      [NOISE]\n    Rank 11: noise_7      [NOISE]\n    Rank 12: noise_5      [NOISE]\n    Rank 13: corr_3       [CORR]\n    Rank 14: noise_2      [NOISE]\n    Rank 15: noise_6      [NOISE]\n    Rank 16: noise_1      [NOISE]\n    Rank 17: corr_4       [CORR]\n    Rank 18: noise_4      [NOISE]\n    Rank 19: noise_8      [NOISE]\n    Rank 20: noise_0      [NOISE]\n\n------------------------------------------------------------\n4. L1 (LASSO) FEATURE SELECTION\n------------------------------------------------------------\n  Nonzero weights: 8\n  Selected: ['info_0', 'info_1', 'info_2', 'info_3', 'info_4', 'corr_0', 'corr_1', 'corr_2']\n\n  |Weights| (top 10):\n     1. info_0         0.5542 [INFO]\n     2. info_3         0.5532 [INFO]\n     3. corr_0         0.5340 [CORR]\n     4. info_1         0.3146 [INFO]\n     5. info_4         0.3012 [INFO]\n     6. corr_1         0.2717 [CORR]\n     7. info_2         0.2578 [INFO]\n     8. corr_2         0.0984 [CORR]\n     9. corr_3         0.0000 [CORR]\n    10. corr_4         0.0000 [CORR]\n\n------------------------------------------------------------\n5. TREE-BASED IMPORTANCE\n------------------------------------------------------------\n\n  Importance (top 10):\n     1. corr_0         0.1616 [CORR]\n     2. info_3         0.1379 [INFO]\n     3. info_0         0.0937 [INFO]\n     4. info_4         0.0833 [INFO]\n     5. info_1         0.0571 [INFO]\n     6. corr_3         0.0479 [CORR]\n     7. corr_1         0.0397 [CORR]\n     8. corr_4         0.0378 [CORR]\n     9. corr_2         0.0367 [CORR]\n    10. noise_9        0.0344 [NOISE]\n\n============================================================\nMETHOD AGREEMENT\n============================================================\n\n  Feature          MI    RFE     L1   Tree  Total\n  ------------ ------ ------ ------ ------ ------\n  info_0          YES    YES    YES    YES      4\n  info_1          YES    YES    YES    YES      4\n  info_2          ---    YES    YES    ---      2\n  info_3          YES    YES    YES    YES      4\n  info_4          YES    ---    YES    YES      3\n  corr_0          YES    YES    YES    YES      4\n  corr_1          ---    ---    YES    ---      1\n  corr_2          ---    ---    YES    ---      1\n  corr_3          ---    ---    ---    ---      0\n  corr_4          ---    ---    ---    ---      0\n  noise_0         ---    ---    ---    ---      0\n  noise_1         ---    ---    ---    ---      0\n  noise_2         ---    ---    ---    ---      0\n  noise_3         ---    ---    ---    ---      0\n  noise_4         ---    ---    ---    ---      0\n  noise_5         ---    ---    ---    ---      0\n  noise_6         ---    ---    ---    ---      0\n  noise_7         ---    ---    ---    ---      0\n  noise_8         ---    ---    ---    ---      0\n  noise_9         ---    ---    ---    ---      0\n\n============================================================\nACCURACY COMPARISON\n============================================================\n\n  Method                 Features   Accuracy\n  -------------------- ---------- ----------\n  All 20 features              20     0.9400\n  Info only (5)                 5     0.9600\n  MI top-5                      5     0.9000\n  RFE top-5                     5     0.9600\n  L1 selected                   8     0.9800\n  Tree top-5                    5     0.9000\n\nDone.\n",
+        "stderr": ""
+      }
+    ],
+    "structure": {
+      "files": 6,
+      "errors": []
+    },
+    "binomial_majority": {
+      "n21_p06": 0.8256221336382272,
+      "n101_p06": 0.9791033089952995,
+      "method": "scipy.stats.binom.sf",
+      "status": "实际运行核对"
+    }
+  },
+  "not_run": [
+    "statsmodels/ADF/ARIMA块只官方核验，本批未安装运行",
+    "XGBoost/LightGBM/CatBoost训练速度或性能未实测",
+    "深度autoencoder、真实信用卡数据、真实流式告警与生产监控未运行",
+    "开放练习提供参考方案但未声称全部现实数据实践完成"
+  ],
+  "completion_boundary": "指定6课有效知识已阅读全文、去重写入、例子运行与结构核对；原脚本5份通过1份旧API失败已纠正；root仍需全批统一复核/更新维护导航/提交",
+  "output_checksums": [
+    {
+      "file": "AI 算法基础/机器学习专题/10-聚类与潜变量建模.md",
+      "sha256": "63abd17b13fe926fd715863e4933f428a00711963a715f872f3c100c186252a1",
+      "lines": 284
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/11-特征工程与选择.md",
+      "sha256": "aee171b971cf554c439fccae3cf5e48c319163e1a003273f6efe04ed77d8bfed",
+      "lines": 270
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/12-集成学习与模型组合.md",
+      "sha256": "0773d147d0aca00aa18243f6f8cbca9ad9ba5a47998cf68ad3d7e940f0b4fe40",
+      "lines": 259
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/13-时间序列与异常检测.md",
+      "sha256": "5858cd5c60285a1515265e57e5910466b77f0a22148d173644901739523332aa",
+      "lines": 395
+    },
+    {
+      "file": "AI 算法基础/05-特征工程-评估与无监督学习.md",
+      "sha256": "b89d34e6f222ff845b2a00890b577ff46d7418d603a50755d0b7a4d89e2e311e",
+      "lines": 63
+    },
+    {
+      "file": "AI 算法基础/17-关联规则与时间序列.md",
+      "sha256": "151d25c8f8c0387edc2cfea2ed85d7eba10d6b0a793bc0f0a1a05f483398a632",
+      "lines": 282
+    }
+  ],
+  "final_status": "已完成独占内容写入及必要验证；冻结等待root统一验收",
+  "初验版本说明": "本记录为分组初验时的代码/正文状态；根级可选例补验与最后统一文档SHA另存，不将当时未运行状态改成当时已运行。",
+  "全局完成边界": "本批仅第1来源Phase02十八课；第1来源与五站整体仍未完成。"
+}

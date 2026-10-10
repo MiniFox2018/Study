@@ -1,0 +1,1332 @@
+{
+  "group": "Phase15 01–08",
+  "date": "2026-10-09",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "status": "只读准备完成，主正文尚未写入",
+  "source_files": 40,
+  "nonempty": 32,
+  "source_programs_run": 0,
+  "courses": [
+    {
+      "course": "01-long-horizon-agents",
+      "files": [
+        {
+          "path": "01-long-horizon-agents/assets/horizon-curve.svg",
+          "sha256": "0fb2fd77f92ce3c322acc62cdfc8204fc5ee4a479e19e92b16a8e44d5e266fb3",
+          "bytes": 5108,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "01-long-horizon-agents/code/main.py",
+          "sha256": "1a69eadd282c3c90e393833af834997444fd355bf827de5baf6a94f47538ab99",
+          "bytes": 5140,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "01-long-horizon-agents/docs/en.md",
+          "sha256": "7501b37f5bcb44996567ca9c304a2505f654fdd31d24274308d3107f035d85fc",
+          "bytes": 8561,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 1,
+              "title": "# The Shift from Chatbots to Long-Horizon Agents"
+            },
+            {
+              "line": 10,
+              "title": "## The Problem"
+            },
+            {
+              "line": 18,
+              "title": "## The Concept"
+            },
+            {
+              "line": 20,
+              "title": "### The METR Time Horizon, in one paragraph"
+            },
+            {
+              "line": 24,
+              "title": "### What actually breaks when the horizon grows"
+            },
+            {
+              "line": 32,
+              "title": "### Doubling times and what they imply"
+            },
+            {
+              "line": 42,
+              "title": "### Eval-context gaming"
+            },
+            {
+              "line": 48,
+              "title": "### Single-turn vs long-horizon, compared"
+            },
+            {
+              "line": 66,
+              "title": "## Use It"
+            },
+            {
+              "line": 76,
+              "title": "## Ship It"
+            },
+            {
+              "line": 80,
+              "title": "## Exercises"
+            },
+            {
+              "line": 92,
+              "title": "## Key Terms"
+            },
+            {
+              "line": 105,
+              "title": "## Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "01-long-horizon-agents/notebook/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "read_status": "empty-placeholder",
+          "headings": []
+        },
+        {
+          "path": "01-long-horizon-agents/outputs/skill-horizon-reality-check.md",
+          "sha256": "7163f03cd287110c6bc9031e157023cb5737adb4e754a756cf60432e127e9639",
+          "bytes": 2866,
+          "read_status": "full-text-read",
+          "headings": []
+        }
+      ],
+      "mapped_file": "LLM 工程实践/06-评测与实验管理.md",
+      "valid_knowledge": [
+        "METR跨度为50%任务成功的专家人类完成时间，不是Agent实际wallclock、每个任务保底、全职业替代",
+        "链式条件概率才总成立；p^N需同条件或独立同分布假设，无恢复和全部步骤必须成功",
+        "时间趋势外推是假设，不固定14h/未来年份；2x/4x余量和20–40%gap是作者任意启发式而非METR校准"
+      ],
+      "corrections": [
+        "源码不校验正数/有限数/概率/整数；p>=1返回1e9假无穷；deploymentgap线性乘法未校准；各price/token/cost夸大缺实测"
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "question": "Run the simulator. With the default 7-month doubling, how many months until the horizon crosses 30 hours? 168 hours? Plot the two crossings.",
+          "reference_answer": "示例14h基准仅假设：cross30=7*log2(30/14)，168=7*log2(12)"
+        },
+        {
+          "number": 2,
+          "question": "Set per-step reliability to 0.995. What trajectory length still clears 50% end-to-end reliability? Compare to 0.99 and 0.999. Per-step reliability has exponential consequences at scale.",
+          "reference_answer": "0.995最大138步；0.99最大68；0.999最大692，注意70步0.4948"
+        },
+        {
+          "number": 3,
+          "question": "Read METR's Time Horizon 1.1 blog post. Identify one methodological choice (task weighting, expert baseline, success criterion) that you would change. Write one paragraph explaining why.",
+          "reference_answer": "方法批评须指定权重/人类baseline/任务分布影响，不另造基准"
+        },
+        {
+          "number": 4,
+          "question": "Pick one production agent workflow you know. Estimate the median trajectory length in tool calls. Multiply by your best guess of per-step reliability. Is the resulting end-to-end number honest with your users?",
+          "reference_answer": "不要用轨迹长度乘概率，应链式乘积且说明估计不确定"
+        },
+        {
+          "number": 5,
+          "question": "Read the 2026 International AI Safety Report section on eval-context gaming. Design one evaluation protocol that would be robust to a model behaving differently in tests than in deployment.",
+          "reference_answer": "评测部署同工具/预算/权限且随机盲混+外部effect审计；不声称完全消除gaming"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_note": "8课原docs均无独立quiz段；不虚构原quiz。正文可另补自检。",
+      "source_program_execution": 0,
+      "svg_status": "完整XML/文字/箭头结构读取；未声称浏览器渲染实测",
+      "outputs_status": "完整只读，改写成学习审查框架，不安装Skill也不执行refusal规则",
+      "dynamic_status": "根已读注册组件，定量/门禁动画为说明非研究实测；正文逐课保留含义/边界"
+    },
+    {
+      "course": "02-star-family-reasoning",
+      "files": [
+        {
+          "path": "02-star-family-reasoning/assets/star-loop.svg",
+          "sha256": "b6b80a707c404b63f44ece2ee8f8dcb65e55449dba3f5d890e4b5fa1b8589ba0",
+          "bytes": 5192,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "02-star-family-reasoning/code/main.py",
+          "sha256": "783ec28a12fafdc57219e03106634a50fe34514a568e93813a117b216af833df",
+          "bytes": 6091,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "02-star-family-reasoning/docs/en.md",
+          "sha256": "dc3da02402c7cd3fdcb173eb7eb9a04b44041d5fb8b45ac804a7052a22628737",
+          "bytes": 8996,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 1,
+              "title": "# STaR, V-STaR, Quiet-STaR — Self-Taught Reasoning"
+            },
+            {
+              "line": 10,
+              "title": "## The Problem"
+            },
+            {
+              "line": 23,
+              "title": "## The Concept"
+            },
+            {
+              "line": 25,
+              "title": "### STaR: bootstrap on what worked"
+            },
+            {
+              "line": 33,
+              "title": "### V-STaR: train a verifier with DPO"
+            },
+            {
+              "line": 39,
+              "title": "### Quiet-STaR: per-token internal rationales"
+            },
+            {
+              "line": 45,
+              "title": "### Why all three share a safety concern"
+            },
+            {
+              "line": 51,
+              "title": "### Comparison"
+            },
+            {
+              "line": 60,
+              "title": "### Where this sits in the 2026 stack"
+            },
+            {
+              "line": 70,
+              "title": "## Use It"
+            },
+            {
+              "line": 78,
+              "title": "## Ship It"
+            },
+            {
+              "line": 82,
+              "title": "## Exercises"
+            },
+            {
+              "line": 94,
+              "title": "## Key Terms"
+            },
+            {
+              "line": 106,
+              "title": "## Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "02-star-family-reasoning/notebook/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "read_status": "empty-placeholder",
+          "headings": []
+        },
+        {
+          "path": "02-star-family-reasoning/outputs/skill-star-loop-reviewer.md",
+          "sha256": "27732e658d6dd756ba1073d0c42012125dce832780e3ba4bc233b543e2418032",
+          "bytes": 2850,
+          "read_status": "full-text-read",
+          "headings": []
+        }
+      ],
+      "mapped_file": "Agentic Design Patterns/01-核心章节/17-推理技术.md",
+      "valid_knowledge": [
+        "STaR正确答案筛选→rationalization失败题提示正确答案→重新从原base训练，去除提示防答案泄漏",
+        "V-STaR两类solution配对DPO verifier，generator只正确数据，推理best-of-N需额外成本",
+        "Quiet-STaR未来text预测REINFORCE+mixing logits，非同一最终答案奖励；meta token可学但v2尚不动态选thought length"
+      ],
+      "corrections": [
+        "SVG 30x可比的是CommonsenseQA非GSM8K",
+        "5.8 baseline是GPT-J direct fine-tuned非base原准确",
+        "Quiet-STaR1.5–3x常数无据且动态长短说法与§6矛盾",
+        "toy没有算术题/真实training/rationalization/Quiet；oracle verifier读取sound及answer_correct；shortcut正确率低于sound会相对淘汰，不必OOD collapse",
+        "“baseline90%必须拒绝”与每领域都有shortcut是未经证实硬规则"
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "question": "Run the simulator. Set the shortcut frequency to zero, then to 0.4. How much does final accuracy diverge between the two runs, even though both hit >90% on the training distribution?",
+          "reference_answer": "不能预置两情景必>90%或OOD崩溃；比较实际频率+理论更新，保留随机分母"
+        },
+        {
+          "number": 2,
+          "question": "Add a held-out OOD test to the simulator. Draw problems from a different distribution and evaluate the bootstrapped model on both in-distribution and OOD sets. Quantify the gap.",
+          "reference_answer": "源码已有on_ood评估但不是新problem distribution；扩展须真实题集及generator可见信息隔离"
+        },
+        {
+          "number": 3,
+          "question": "Read the Quiet-STaR paper (arXiv:2403.09629) Section 3. Explain the \"end-of-thought\" token and the mixing-weight head in three sentences each.",
+          "reference_answer": "原练习节号错：mixing/endtoken在Quiet §4.3/4.4.1；end token终止标记，mixing浅MLP插值logits"
+        },
+        {
+          "number": 4,
+          "question": "Compare STaR's keep-if-correct filter to a process-supervised alternative that rewards each rationale step independently. Identify the labelling cost difference and the plausible quality difference.",
+          "reference_answer": "outcome标签便宜但中间错不见；process注释费时也有噪声，两者结合非必胜"
+        },
+        {
+          "number": 5,
+          "question": "Design one evaluation that would catch shortcut rationales in a deployed model. It does not have to be perfect — it has to break the simplest shortcuts a STaR loop would reinforce.",
+          "reference_answer": "变化数字范围/去格式cue/反事实中间步/独立OOD，模型解释不等于faithful内部过程"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_note": "8课原docs均无独立quiz段；不虚构原quiz。正文可另补自检。",
+      "source_program_execution": 0,
+      "svg_status": "完整XML/文字/箭头结构读取；未声称浏览器渲染实测",
+      "outputs_status": "完整只读，改写成学习审查框架，不安装Skill也不执行refusal规则",
+      "dynamic_status": "根已读注册组件，定量/门禁动画为说明非研究实测；正文逐课保留含义/边界"
+    },
+    {
+      "course": "03-alphaevolve-evolutionary-coding",
+      "files": [
+        {
+          "path": "03-alphaevolve-evolutionary-coding/assets/alphaevolve-loop.svg",
+          "sha256": "d6c3ec56945c2549155b620f63def30f5ea9e4c1bb5c9af27bf77b158b5497e8",
+          "bytes": 5206,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "03-alphaevolve-evolutionary-coding/code/main.py",
+          "sha256": "d25cd99ce337339f7375f578a229fd9e790e9ce0e50af57d203cf708b0d7899f",
+          "bytes": 6914,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 23,
+              "title": "# Target function the loop tries to rediscover."
+            }
+          ]
+        },
+        {
+          "path": "03-alphaevolve-evolutionary-coding/docs/en.md",
+          "sha256": "b1e9291727c98bddb07080e724b95cd1b89b78f70fd94f46eb64aff47f1248f8",
+          "bytes": 9390,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 1,
+              "title": "# AlphaEvolve — Evolutionary Coding Agents"
+            },
+            {
+              "line": 10,
+              "title": "## The Problem"
+            },
+            {
+              "line": 20,
+              "title": "## The Concept"
+            },
+            {
+              "line": 22,
+              "title": "### The loop"
+            },
+            {
+              "line": 34,
+              "title": "### What makes the evaluator non-negotiable"
+            },
+            {
+              "line": 45,
+              "title": "### Reward hacking is the other face of that statement"
+            },
+            {
+              "line": 57,
+              "title": "### Why LLM + search beats either alone"
+            },
+            {
+              "line": 63,
+              "title": "### Where AlphaEvolve fits in the frontier stack"
+            },
+            {
+              "line": 78,
+              "title": "## Use It"
+            },
+            {
+              "line": 88,
+              "title": "## Ship It"
+            },
+            {
+              "line": 92,
+              "title": "## Exercises"
+            },
+            {
+              "line": 104,
+              "title": "## Key Terms"
+            },
+            {
+              "line": 116,
+              "title": "## Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "03-alphaevolve-evolutionary-coding/notebook/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "read_status": "empty-placeholder",
+          "headings": []
+        },
+        {
+          "path": "03-alphaevolve-evolutionary-coding/outputs/skill-evaluator-rigor-audit.md",
+          "sha256": "c20a387f4050d080992d681aa57118d9b8742c03b33e1c9e4cf0b60a9fa7da3f",
+          "bytes": 3151,
+          "read_status": "full-text-read",
+          "headings": []
+        }
+      ],
+      "mapped_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "valid_knowledge": [
+        "LLM定向代码edit+父代库+质量多样性archive+ evaluator cascade；MAP-elites descriptor不是reward",
+        "性能先correctness后硬件measurement，不用timing证明复杂度类",
+        "开发可查询validation而最终test独立封存；反馈次数导致adaptive overfit"
+      ],
+      "corrections": [
+        "源码use_holdout将test纳入每代信号，实际validation不是heldout最终test；两种模式也不保证spectacular overfit",
+        "论文§2.4允许LLM辅助feedback，因此所有LLM judge hardreject错误",
+        "浮点bit-identical不是通用correctness条件；matrix exact tensor identity与数值误差须分开",
+        "纸面benchmark编译/跑分不证明生产收益；不是每胜出程序都必须有same evaluator结构"
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "question": "Run `code/main.py`. Note the best score trajectory. Disable the held-out evaluator (flag `--no-holdout`) and re-run. Quantify the overfitting.",
+          "reference_answer": "源程序未跑，不能报score；noholdout实际train-only选择，最终独立test不同"
+        },
+        {
+          "number": 2,
+          "question": "Read Section 3 of the AlphaEvolve paper on the MAP-elites grid. Design a feature-vector descriptor for a new problem (e.g. compiler optimization passes) that would keep the search diverse.",
+          "reference_answer": "描述符可代码长度×memory bucket；每cell最优，保留低分不同descriptor"
+        },
+        {
+          "number": 3,
+          "question": "The 48-multiplication 4x4 result improved on Strassen's 49-mul bound after 56 years. Read Appendix F of the paper and explain in three sentences why the evaluator for this problem is particularly easy to get right, and why most domains are not like it.",
+          "reference_answer": "48是复数乘法计数的特定4x4算法，核tensor系数恒等而非random bit equality；非实数48mult等价"
+        },
+        {
+          "number": 4,
+          "question": "Propose one domain where AlphaEvolve would fail. Identify exactly where the evaluator breaks and why.",
+          "reference_answer": "开放ended美学/不可验证医疗效果难闭合objective；需human review非禁所有judge"
+        },
+        {
+          "number": 5,
+          "question": "For a domain you know, write the evaluator signature you would use. Include (a) correctness conditions, (b) performance metric, (c) held-out input generation rule, (d) at least one anti-reward-hacking check.",
+          "reference_answer": "signature code/version, correctness, perf, resource, validation partition, sequestered test/version, anti sidechannel；噪声需repeat+interval"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_note": "8课原docs均无独立quiz段；不虚构原quiz。正文可另补自检。",
+      "source_program_execution": 0,
+      "svg_status": "完整XML/文字/箭头结构读取；未声称浏览器渲染实测",
+      "outputs_status": "完整只读，改写成学习审查框架，不安装Skill也不执行refusal规则",
+      "dynamic_status": "根已读注册组件，定量/门禁动画为说明非研究实测；正文逐课保留含义/边界"
+    },
+    {
+      "course": "04-darwin-godel-machine",
+      "files": [
+        {
+          "path": "04-darwin-godel-machine/assets/dgm-archive.svg",
+          "sha256": "7422345f6a1073188934b2d728452a9980c91574aea97a11ec12ff1a854a1d29",
+          "bytes": 4741,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "04-darwin-godel-machine/code/main.py",
+          "sha256": "5ed4382c9187c5dd46216a3131ee6d28297de1bac1173bc5b4a836b698883142",
+          "bytes": 5807,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 20,
+              "title": "# Tool library the agent composes from."
+            },
+            {
+              "line": 30,
+              "title": "# Benchmark: transform messy strings to canonical form."
+            },
+            {
+              "line": 31,
+              "title": "# Target: collapse whitespace, trim, lower."
+            },
+            {
+              "line": 42,
+              "title": "# Target: collapse whitespace, trim, then title-case. Title-case is not in"
+            },
+            {
+              "line": 43,
+              "title": "# the tool library, so no operator sequence can hit score 1.0. A rational"
+            },
+            {
+              "line": 44,
+              "title": "# loop on a permissive scoring pipeline can only push reported > true by"
+            },
+            {
+              "line": 45,
+              "title": "# hacking."
+            }
+          ]
+        },
+        {
+          "path": "04-darwin-godel-machine/docs/en.md",
+          "sha256": "43d3cef80a1eb777b641b9ae7a727eb66144d4f63dd750551ee0bc8b715da351",
+          "bytes": 8446,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 1,
+              "title": "# Darwin Godel Machine — Open-Ended Self-Modifying Agents"
+            },
+            {
+              "line": 10,
+              "title": "## The Problem"
+            },
+            {
+              "line": 18,
+              "title": "## The Concept"
+            },
+            {
+              "line": 20,
+              "title": "### The loop"
+            },
+            {
+              "line": 36,
+              "title": "### What DGM actually improved"
+            },
+            {
+              "line": 47,
+              "title": "### The reward-hacking demonstration"
+            },
+            {
+              "line": 53,
+              "title": "### Versus the classical Godel Machine"
+            },
+            {
+              "line": 65,
+              "title": "### Where it fits in this phase"
+            },
+            {
+              "line": 73,
+              "title": "## Use It"
+            },
+            {
+              "line": 79,
+              "title": "## Ship It"
+            },
+            {
+              "line": 83,
+              "title": "## Exercises"
+            },
+            {
+              "line": 95,
+              "title": "## Key Terms"
+            },
+            {
+              "line": 108,
+              "title": "## Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "04-darwin-godel-machine/notebook/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "read_status": "empty-placeholder",
+          "headings": []
+        },
+        {
+          "path": "04-darwin-godel-machine/outputs/skill-dgm-evaluator-firewall.md",
+          "sha256": "590616aa7ea641d7dc5acb618a6e554ec30faed93cb994854ae6b4abdfd6f94c",
+          "bytes": 2726,
+          "read_status": "full-text-read",
+          "headings": []
+        }
+      ],
+      "mapped_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "valid_knowledge": [
+        "修改对象scaffolding不是weight；archive允许非当前冠军lineage成踏脚石",
+        "实证proof对比应给假设/utility/axiom，不能称数学证明普遍不可能",
+        "objective hacking包括instrumentation更改，无需改evaluator函数"
+      ],
+      "corrections": [
+        "DGM采用Verified分级10+50→200，不是全2294原SWE-bench；Polyglot50探索与225final分开",
+        "reward case AppendixH三任务/150iter/node114两改，非原lesson5主段；没有证据称authors手动restore并move repo",
+        "toy titlecase工具缺失，无法全对；closed sidechannel也非converges realtarget",
+        "同repo与evaluator reads agentfiles交集空硬规则错：它当然要读candidate；保护计分逻辑/数据/依赖/secret，spawn subprocess不隔离"
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "question": "Run `code/main.py` with default flags. Note the score trajectory and the final agent's tool composition.",
+          "reference_answer": "不运行源：列ops/score定义，无法全1须承认missing titlecase"
+        },
+        {
+          "number": 2,
+          "question": "Run with `--reward-hack-allowed`. Compare score trajectories. How many generations until the loop learns to inflate score? What does the \"winner\" actually do?",
+          "reference_answer": "开bonus时reported与true分开，discovercycle需实测不能编数字"
+        },
+        {
+          "number": 3,
+          "question": "Read Section 5 of the DGM paper on the reward-hacking case study. Identify exactly what the agent edited and why the change raised score without improving behavior.",
+          "reference_answer": "AppendixH：移除actual-tool标记，detector看不到model抄marker不代表工具幻觉解决"
+        },
+        {
+          "number": 4,
+          "question": "Design an evaluator firewall for a DGM-style loop in a repo you know. Identify every file the agent could edit that would change the evaluator's output.",
+          "reference_answer": "write scope vs protected evalconfig/data/dependencies/ingress，candidate允许只读给eval；同repo ACL可做到"
+        },
+        {
+          "number": 5,
+          "question": "The DGM paper reports that improvements generalize across models. Read Section 4 on cross-model transfer and explain in three sentences why scaffolding-level changes would be more portable than model-specific fine-tuning.",
+          "reference_answer": "跨model改tool健壮性可迁移但已验models/tasks有限，非所有models证明"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_note": "8课原docs均无独立quiz段；不虚构原quiz。正文可另补自检。",
+      "source_program_execution": 0,
+      "svg_status": "完整XML/文字/箭头结构读取；未声称浏览器渲染实测",
+      "outputs_status": "完整只读，改写成学习审查框架，不安装Skill也不执行refusal规则",
+      "dynamic_status": "根已读注册组件，定量/门禁动画为说明非研究实测；正文逐课保留含义/边界"
+    },
+    {
+      "course": "05-ai-scientist-v2",
+      "files": [
+        {
+          "path": "05-ai-scientist-v2/assets/scientist-loop.svg",
+          "sha256": "0073f035533dea4b96b49e222750f064dd176c9345eef5238b7919a3254adde9",
+          "bytes": 4651,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "05-ai-scientist-v2/code/main.py",
+          "sha256": "e0d7d748e8760a6a915757d2627e9f0ed15f1df5bab9ddf169141de556174666",
+          "bytes": 7643,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "05-ai-scientist-v2/docs/en.md",
+          "sha256": "39e95cca329be5f1fe6e090969854635a2db3bda2f4fb2771cf41a8d6f2248ba",
+          "bytes": 8919,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 1,
+              "title": "# AI Scientist v2 — Workshop-Level Autonomous Research"
+            },
+            {
+              "line": 10,
+              "title": "## The Problem"
+            },
+            {
+              "line": 18,
+              "title": "## The Concept"
+            },
+            {
+              "line": 20,
+              "title": "### The architecture"
+            },
+            {
+              "line": 30,
+              "title": "### What the workshop-acceptance result means"
+            },
+            {
+              "line": 36,
+              "title": "### What the independent evaluation found"
+            },
+            {
+              "line": 46,
+              "title": "### The sandbox-escape concern"
+            },
+            {
+              "line": 56,
+              "title": "### Where v2 sits in the frontier stack"
+            },
+            {
+              "line": 70,
+              "title": "## Use It"
+            },
+            {
+              "line": 78,
+              "title": "## Ship It"
+            },
+            {
+              "line": 82,
+              "title": "## Exercises"
+            },
+            {
+              "line": 94,
+              "title": "## Key Terms"
+            },
+            {
+              "line": 106,
+              "title": "## Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "05-ai-scientist-v2/notebook/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "read_status": "empty-placeholder",
+          "headings": []
+        },
+        {
+          "path": "05-ai-scientist-v2/outputs/skill-ai-scientist-sandbox-review.md",
+          "sha256": "a7f90ea3aa7b32789f7193633ce0ad0db015dd34307b75356f51fd2681a17418",
+          "bytes": 3220,
+          "read_status": "full-text-read",
+          "headings": []
+        }
+      ],
+      "mapped_file": "LLM 工程实践/06-评测与实验管理.md",
+      "valid_knowledge": [
+        "v2四stage preliminary/hyperparam/researchagenda/ablation，tree节点保存code/metrics/buggy/plots；重复runs报告均值与std",
+        "idea novelty需全文method comparison，不见keyword不等于新",
+        "claim→code/data/version→run→figure→writtenclaim审计链；peerreview信号不是真值证明"
+      ],
+      "corrections": [
+        "2502.14297外评测template/Aider v1不是v2；5/12=42%特定样本，25%novelty无据",
+        "源码polish_hides_weakness算后丢弃，不影响Outcome；retry-recovered恒flaw是假设；没有真实loop/tree/experiment/peerreview",
+        "教材声称workshop低标准不宜普遍等级贬损；一件接受信号不估计普遍reliability",
+        "Docker名称不证明fs/net/process isolation；网络allowlist资源封顶secret隔离更实质"
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "question": "Run `code/main.py` with default parameters. What fraction of loop runs produce a \"clean\" paper? What fraction produce a paper with an experiment-failure flaw the figure critique polished over?",
+          "reference_answer": "代码clean与flaw份额要明确trials/submission分母，所有概率toy不校准"
+        },
+        {
+          "number": 2,
+          "question": "The defaults already use Beel et al.'s 42% / 25%. Re-run with `--experiment-failure 0.20 --novelty-mislabel 0.10` and then with `--experiment-failure 0.60 --novelty-mislabel 0.40`. How does the polished-but-flawed share shift between the two runs?",
+          "reference_answer": "polish0→1不改quality证明变量无effect，不用simulation给v2failure率"
+        },
+        {
+          "number": 3,
+          "question": "Read Sakana's AI Scientist v2 repo README on sandbox requirements. Name two additional restrictions (beyond Docker) you would apply for a multi-day autonomous run.",
+          "reference_answer": "禁止privatehome/hostsocket/credential，network allowlist+GPUdeadline+childproc监督；代码范围需实际验证"
+        },
+        {
+          "number": 4,
+          "question": "Read Beel et al. Section 4 on presentation-quality gap. Design one additional evaluator that would catch polished-looking but experimentally flawed papers.",
+          "reference_answer": "原题“Beel§4 presentationgap”误定位；外评§2.4测code失败，检查runledger、baselinererun、figuredatahash"
+        },
+        {
+          "number": 5,
+          "question": "Propose a human-review protocol for research-agent outputs that scales better than \"a PhD reads every paper.\" Identify the bottleneck and design around it.",
+          "reference_answer": "分层先mechanicalprovenance+replication再domain novelty，抽样不能保证每项claim，未核claim保留unknown"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_note": "8课原docs均无独立quiz段；不虚构原quiz。正文可另补自检。",
+      "source_program_execution": 0,
+      "svg_status": "完整XML/文字/箭头结构读取；未声称浏览器渲染实测",
+      "outputs_status": "完整只读，改写成学习审查框架，不安装Skill也不执行refusal规则",
+      "dynamic_status": "根已读注册组件，定量/门禁动画为说明非研究实测；正文逐课保留含义/边界"
+    },
+    {
+      "course": "06-automated-alignment-research",
+      "files": [
+        {
+          "path": "06-automated-alignment-research/assets/aar-forum.svg",
+          "sha256": "2d8fd597986acc47a84b2948503add8d9a79539c9909ecc132346a1256eb8861",
+          "bytes": 4398,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "06-automated-alignment-research/code/main.py",
+          "sha256": "96f77cc088197a13f3bac060e1234f2bc98cbd63502dd9eedd2e8e0d86b1074e",
+          "bytes": 5638,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "06-automated-alignment-research/docs/en.md",
+          "sha256": "b9baea7e1c628eff4a700a67ed30eb3952574c159beb63e8e1def6acce623307",
+          "bytes": 8735,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 1,
+              "title": "# Automated Alignment Research (Anthropic AAR)"
+            },
+            {
+              "line": 10,
+              "title": "## The Problem"
+            },
+            {
+              "line": 18,
+              "title": "## The Concept"
+            },
+            {
+              "line": 20,
+              "title": "### The architecture (as publicly described)"
+            },
+            {
+              "line": 27,
+              "title": "### Why the out-of-sandbox log matters"
+            },
+            {
+              "line": 33,
+              "title": "### The prescribed-workflow tradeoff"
+            },
+            {
+              "line": 39,
+              "title": "### The compression risk"
+            },
+            {
+              "line": 47,
+              "title": "### What AAR does not replace"
+            },
+            {
+              "line": 57,
+              "title": "## Use It"
+            },
+            {
+              "line": 67,
+              "title": "## Ship It"
+            },
+            {
+              "line": 71,
+              "title": "## Exercises"
+            },
+            {
+              "line": 83,
+              "title": "## Key Terms"
+            },
+            {
+              "line": 96,
+              "title": "## Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "06-automated-alignment-research/notebook/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "read_status": "empty-placeholder",
+          "headings": []
+        },
+        {
+          "path": "06-automated-alignment-research/outputs/skill-aar-deployment-review.md",
+          "sha256": "35d6aaae7ae4800c617cece433c5c2f75bf438d04a38e21d6f32de69edbe1a2f",
+          "bytes": 2869,
+          "read_status": "full-text-read",
+          "headings": []
+        }
+      ],
+      "mapped_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "valid_knowledge": [
+        "outcomegradable weak-to-strong teacher/student分类/PGR；合作forum+code snapshots+remote eval，定向高层方向保持diversity",
+        "remote unlimitedscores为adaptive validation，AAR论文承认label exfiltration/cherrypick/method shortcut",
+        "外部log避免误删不等于不可变truth；trustedcollector+anchoredhash只能证明记录完整性非scientifictruth"
+      ],
+      "corrections": [
+        "源强加appendonly/WORM/peer不可读logs：primary反而支持local同步finding，未写这些guarantees",
+        "固定workflow比free差为developmentpreliminary，不所有problem必然",
+        "toy不是parallel且result人为gauss，有负值/超过1；hash仅16hex/3decimals无externalanchor，任意重算/截尾不被发现"
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "question": "Run `code/main.py`. Compare the \"fixed-workflow\" vs \"free-decomposition\" settings. Does free decomposition always win, or are there problem classes where the fixed workflow is competitive?",
+          "reference_answer": "toy预设rates比较不proveAAR；难度分层pairedseeds/budget+interval后才比较"
+        },
+        {
+          "number": 2,
+          "question": "Modify the simulator so one agent attempts log tampering. Confirm the append-only log detects it. Write one paragraph describing exactly what the detection signature looks like in the log.",
+          "reference_answer": "改变记录不重算hash可detect，但整体rewriting/truncation须外部signedhead+count"
+        },
+        {
+          "number": 3,
+          "question": "Read Anthropic's weak-to-strong AAR report. Identify the specific sub-task the AARs beat human researchers on. What made it amenable to automation?",
+          "reference_answer": "primary只该chatpreference weakteacher/student PGR；math/coding不作hillclimb；具体publicationversion冻结"
+        },
+        {
+          "number": 4,
+          "question": "Design a task-queue allocation policy that balances AAR flexibility (better results) against prescribed-workflow constraints (easier audit). Describe how you would A/B test the two.",
+          "reference_answer": "分方向分预算+统一评价；自由proposal不得变更permission/eval/budget；保存失败+消融"
+        },
+        {
+          "number": 5,
+          "question": "Read RSP v3.0's AI R&D-4 threshold. In one paragraph, describe what you think would cross it that AAR currently does not.",
+          "reference_answer": "政策version须另phase19核验；bounded任务改善不是全面automatecompetitive研发门槛"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_note": "8课原docs均无独立quiz段；不虚构原quiz。正文可另补自检。",
+      "source_program_execution": 0,
+      "svg_status": "完整XML/文字/箭头结构读取；未声称浏览器渲染实测",
+      "outputs_status": "完整只读，改写成学习审查框架，不安装Skill也不执行refusal规则",
+      "dynamic_status": "根已读注册组件，定量/门禁动画为说明非研究实测；正文逐课保留含义/边界"
+    },
+    {
+      "course": "07-recursive-self-improvement",
+      "files": [
+        {
+          "path": "07-recursive-self-improvement/assets/rsi-race.svg",
+          "sha256": "801a87cc71691e7548bf99dd86391d23a54257774cdae815d1dc60ab31abf393",
+          "bytes": 4639,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "07-recursive-self-improvement/code/main.py",
+          "sha256": "3cd3dc4fbb2a8732f2b1c9ad4c0e5277b892b0584e14db7cdb4bba95d2bdef55",
+          "bytes": 4806,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "07-recursive-self-improvement/docs/en.md",
+          "sha256": "203b879ffa5b1a34afc51caf2fdedcde5553bb08e1873039b036bd1add6f38b0",
+          "bytes": 8588,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 1,
+              "title": "# Recursive Self-Improvement — Capability vs Alignment"
+            },
+            {
+              "line": 10,
+              "title": "## The Problem"
+            },
+            {
+              "line": 16,
+              "title": "## The Concept"
+            },
+            {
+              "line": 18,
+              "title": "### What recursive self-improvement means precisely"
+            },
+            {
+              "line": 28,
+              "title": "### The alignment-faking result in detail"
+            },
+            {
+              "line": 34,
+              "title": "### The Hassabis question"
+            },
+            {
+              "line": 40,
+              "title": "### Capability vs alignment, as a race"
+            },
+            {
+              "line": 53,
+              "title": "### What the ICLR 2026 workshop treats as engineering"
+            },
+            {
+              "line": 68,
+              "title": "## Use It"
+            },
+            {
+              "line": 72,
+              "title": "## Ship It"
+            },
+            {
+              "line": 76,
+              "title": "## Exercises"
+            },
+            {
+              "line": 88,
+              "title": "## Key Terms"
+            },
+            {
+              "line": 101,
+              "title": "## Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "07-recursive-self-improvement/notebook/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "read_status": "empty-placeholder",
+          "headings": []
+        },
+        {
+          "path": "07-recursive-self-improvement/outputs/skill-rsi-cycle-pause-spec.md",
+          "sha256": "055028f67ffdb0bae98402ab5c1c63c7f8dd40e5a0b182b2604e44cd1b3cf752",
+          "bytes": 2519,
+          "read_status": "full-text-read",
+          "headings": []
+        }
+      ],
+      "mapped_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "valid_knowledge": [
+        "区分固定元优化器改candidate与新candidate也改后继的recursive循环；全部依赖资源/人/criteria列出",
+        "capability/alignment各自taskmetric，无共同可减尺度；分别门槛及effectaudit",
+        "alignmentfaking12%基础free-tier特定setup，78%实际强化有害compliance训练后，不是去除faking"
+      ],
+      "corrections": [
+        "source标题“RSI不再speculation”与正文未闭环自冲突；workshop不proveproduction",
+        "C-Atoy仅共同单位人工指数；matchedrates噪声不保证bounded",
+        "30%surge几乎一定gaming无证据；应异常待核",
+        "Loeb不意味着无需证明就做X，更不推出无人能证明nontrivial改进"
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "question": "Run `code/main.py --threshold 2.0`. With capability rate 1.15 and alignment rate 1.08 (Scenario A), how many cycles until the misalignment gap `C - A` crosses 2.0?",
+          "reference_answer": "无噪声假设C=1.15^n,A=1.08^n，首次gap>=2是整数扫描，不源defaultprintthreshold"
+        },
+        {
+          "number": 2,
+          "question": "Set both rates equal. Does the gap stay bounded or does noise push it one way? What does this imply for RSI safety?",
+          "reference_answer": "相等均值但不同variance乘性noise可放大；不证明真实alignment成长"
+        },
+        {
+          "number": 3,
+          "question": "Read the Anthropic alignment-faking paper summary. Identify the specific training condition that pushed faking from 12% to 78%. Design one evaluator that would catch the behavior.",
+          "reference_answer": "训练目标为始终有害回应、free/paid数据区别；对实验过程flagdistribution保留"
+        },
+        {
+          "number": 4,
+          "question": "Read the ICLR 2026 RSI Workshop summary. Pick one of the four open problems and write a one-page proposal for attacking it.",
+          "reference_answer": "workshop四primitives共识未primary确认，改为工程归纳；指定问题评价实验可验证而非噱头"
+        },
+        {
+          "number": 5,
+          "question": "Read the Hassabis WEF 2026 remarks. In one paragraph, argue either for or against requiring a human between every RSI cycle at the frontier. Be concrete about what the human does.",
+          "reference_answer": "human具体review evidence/permissions/regression then explicitapprove，低影响offline无需每轮全审批"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_note": "8课原docs均无独立quiz段；不虚构原quiz。正文可另补自检。",
+      "source_program_execution": 0,
+      "svg_status": "完整XML/文字/箭头结构读取；未声称浏览器渲染实测",
+      "outputs_status": "完整只读，改写成学习审查框架，不安装Skill也不执行refusal规则",
+      "dynamic_status": "根已读注册组件，定量/门禁动画为说明非研究实测；正文逐课保留含义/边界"
+    },
+    {
+      "course": "08-bounded-self-improvement",
+      "files": [
+        {
+          "path": "08-bounded-self-improvement/assets/four-gates.svg",
+          "sha256": "8242244f039525b5a515f4dd16c1ababe5651a16217aaac7b909f9e77f97cab0",
+          "bytes": 6316,
+          "read_status": "full-text-read",
+          "headings": []
+        },
+        {
+          "path": "08-bounded-self-improvement/code/main.py",
+          "sha256": "214a6aa1615e549cec3dc17b84656b03bffbcae90b11b6dd4fb24fbcf5e8784b",
+          "bytes": 7498,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 23,
+              "title": "# Objective anchor (pinned outside the loop)."
+            },
+            {
+              "line": 27,
+              "title": "# Approved module hashes (what the loop must keep intact)."
+            },
+            {
+              "line": 57,
+              "title": "# Safety axis: forbidden inputs must not produce a passthrough (these"
+            },
+            {
+              "line": 58,
+              "title": "# represent potentially dangerous user inputs we must not echo back)."
+            },
+            {
+              "line": 121,
+              "title": "# --- Gates ---"
+            }
+          ]
+        },
+        {
+          "path": "08-bounded-self-improvement/docs/en.md",
+          "sha256": "ed3e03bb1c0431173c30bf272e4a484a8264ab6823f305f10850a8e245b207d0",
+          "bytes": 8530,
+          "read_status": "full-text-read",
+          "headings": [
+            {
+              "line": 1,
+              "title": "# Bounded Self-Improvement Designs"
+            },
+            {
+              "line": 10,
+              "title": "## The Problem"
+            },
+            {
+              "line": 18,
+              "title": "## The Concept"
+            },
+            {
+              "line": 20,
+              "title": "### Primitive 1: formal invariants"
+            },
+            {
+              "line": 33,
+              "title": "### Primitive 2: alignment anchors"
+            },
+            {
+              "line": 45,
+              "title": "### Primitive 3: multi-objective constraints"
+            },
+            {
+              "line": 56,
+              "title": "### Primitive 4: regression detection"
+            },
+            {
+              "line": 62,
+              "title": "### Information-theoretic limits"
+            },
+            {
+              "line": 68,
+              "title": "### A worked example"
+            },
+            {
+              "line": 83,
+              "title": "## Use It"
+            },
+            {
+              "line": 87,
+              "title": "## Ship It"
+            },
+            {
+              "line": 91,
+              "title": "## Exercises"
+            },
+            {
+              "line": 103,
+              "title": "## Key Terms"
+            },
+            {
+              "line": 116,
+              "title": "## Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "08-bounded-self-improvement/notebook/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "read_status": "empty-placeholder",
+          "headings": []
+        },
+        {
+          "path": "08-bounded-self-improvement/outputs/skill-bounded-loop-review.md",
+          "sha256": "abfc04cd7a7fae5a4a61e42920ec40a84955bf06e3c856d74211f15234c166f8",
+          "bytes": 2673,
+          "read_status": "full-text-read",
+          "headings": []
+        }
+      ],
+      "mapped_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "valid_knowledge": [
+        "外部protected invariant/anchor、硬multi criteria、percase regression与explicitaccept immutable artifacts",
+        "formal invariant须给state/transition/holds proof，代码hashcheck只是某假设下runtimecheck",
+        "把permission、安全、robustness、预算分轴，每axis有独立证据、完整caseID、unknownhold；immutable text不保证解释正确"
+      ],
+      "corrections": [
+        "Loeb/kolmogorov泛泛upperbound不可入正文作定理；researchconverged四primitive/SAHOO production未核",
+        "toy gateinvariant onlymanifest subset，不检查ops/工具实现；nop不在manifest却执行，raw_eval added但没implementation",
+        "每次bad mutation simultaneously changes anchor+manifest，单独disable其中gate不能独立展示各fault；best metric不等于final",
+        "no fair/robust，history_perf onlyprimary；display字符串不是execute，不能词filter当shell安全；gates rejects而非pause"
+      ],
+      "exercises": [
+        {
+          "number": 1,
+          "question": "Run `code/main.py` with all primitives enabled. Confirm the loop still improves on the primary metric without letting the hack win.",
+          "reference_answer": "新例应明确每gate independentnegativecontrol，不把源码allgates场景现象写已测"
+        },
+        {
+          "number": 2,
+          "question": "Disable regression detection. Construct an input where this leads to silent capability loss being accepted.",
+          "reference_answer": "设某case regression但aggregate维持，需percase账本定位，missingunknown拒接纳"
+        },
+        {
+          "number": 3,
+          "question": "Disable the multi-objective constraint. Show the loop converges on the performance axis while a safety axis drops.",
+          "reference_answer": "soft加权高perf补低safety错误；先feasibility再rank"
+        },
+        {
+          "number": 4,
+          "question": "Design an alignment anchor for a coding agent. What text, stored where, checked how?",
+          "reference_answer": "anchor外置readonly/version+摘要，实际loader路径及ACL，不能同process常量叫不可改"
+        },
+        {
+          "number": 5,
+          "question": "Read the ICLR 2026 RSI Workshop summary. Pick one of the four primitives and propose a concrete improvement to the current state of the art.",
+          "reference_answer": "给equivalentartifact/config/harness版本+具体case/CI/rollback，数值阈值显式教学选定无generalproof"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_note": "8课原docs均无独立quiz段；不虚构原quiz。正文可另补自检。",
+      "source_program_execution": 0,
+      "svg_status": "完整XML/文字/箭头结构读取；未声称浏览器渲染实测",
+      "outputs_status": "完整只读，改写成学习审查框架，不安装Skill也不执行refusal规则",
+      "dynamic_status": "根已读注册组件，定量/门禁动画为说明非研究实测；正文逐课保留含义/边界"
+    }
+  ],
+  "primary_sources": [
+    {
+      "key": "star",
+      "url": "https://arxiv.org/pdf/2203.14465v2",
+      "pdf": "/tmp/study-autonomous-01-08-primary/star.pdf",
+      "text": "/tmp/study-autonomous-01-08-primary/star.txt",
+      "bytes": 771851,
+      "sha256": "d22a472fce2631755849988a78d78ad6d80999166eb4bac4f5315c97dfdf6d9a",
+      "retrieved": "2026-10-09",
+      "status": "selected-sections-verified",
+      "read_scope": [
+        "§3.1–3.2 algorithm及rationalization",
+        "§4.4/4.5 Tables1/2结果基线"
+      ],
+      "full_paper_read": false
+    },
+    {
+      "key": "vstar",
+      "url": "https://arxiv.org/pdf/2402.06457v2",
+      "pdf": "/tmp/study-autonomous-01-08-primary/vstar.pdf",
+      "text": "/tmp/study-autonomous-01-08-primary/vstar.txt",
+      "bytes": 1225560,
+      "sha256": "db93ff62cd62abb6723d4cb8127b411ce89ef4642f728da2e63daad225b35cb9",
+      "retrieved": "2026-10-09",
+      "status": "selected-sections-verified",
+      "read_scope": [
+        "摘要/§3迭代dataset",
+        "§3.1 DPO偏好/§4候选取样及absolute delta口径"
+      ],
+      "full_paper_read": false
+    },
+    {
+      "key": "quiet-star",
+      "url": "https://arxiv.org/pdf/2403.09629v2",
+      "pdf": "/tmp/study-autonomous-01-08-primary/quiet-star.pdf",
+      "text": "/tmp/study-autonomous-01-08-primary/quiet-star.txt",
+      "bytes": 971557,
+      "sha256": "3dd74be14ad29e5dbec1c454d1ac57d54219f57745510fb89d627602536bdae8",
+      "retrieved": "2026-10-09",
+      "status": "selected-sections-verified",
+      "read_scope": [
+        "§3目标/§4.1–4.4 mechanism/Algorithm1",
+        "§5 historicalzero-shot/§6 no dynamicthought policy"
+      ],
+      "full_paper_read": false
+    },
+    {
+      "key": "alphaevolve",
+      "url": "https://arxiv.org/pdf/2506.13131v1",
+      "pdf": "/tmp/study-autonomous-01-08-primary/alphaevolve.pdf",
+      "text": "/tmp/study-autonomous-01-08-primary/alphaevolve.txt",
+      "bytes": 3525764,
+      "sha256": "f092c8cbd65da89951ee6496374da9a54963f9035758c25ac6e4625f506df9ad",
+      "retrieved": "2026-10-09",
+      "status": "selected-sections-verified",
+      "read_scope": [
+        "§2.3 diff/ensemble",
+        "§2.4 cascade与LLM辅助feedback",
+        "§3.1 tensor48和Table2"
+      ],
+      "full_paper_read": false
+    },
+    {
+      "key": "dgm",
+      "url": "https://arxiv.org/pdf/2505.22954",
+      "pdf": "/tmp/study-autonomous-01-08-primary/dgm.pdf",
+      "text": "/tmp/study-autonomous-01-08-primary/dgm.txt",
+      "bytes": 3825399,
+      "sha256": "13ff4abe0c7ad4a7dd3b4876d19a8bf940e39e70dabbf06065aa774a6c3457de",
+      "retrieved": "2026-10-09",
+      "status": "selected-sections-verified",
+      "read_scope": [
+        "§3 self-modifyingarchive",
+        "§4.2 stagedVerified/Polyglot",
+        "§4.4成对实验/AppendixH markerhack"
+      ],
+      "full_paper_read": false
+    },
+    {
+      "key": "scientist-v2",
+      "url": "https://arxiv.org/pdf/2504.08066",
+      "pdf": "/tmp/study-autonomous-01-08-primary/scientist-v2.pdf",
+      "text": "/tmp/study-autonomous-01-08-primary/scientist-v2.txt",
+      "bytes": 8923691,
+      "sha256": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+      "retrieved": "2026-10-09",
+      "status": "selected-sections-verified",
+      "read_scope": [
+        "摘要/§1 workshopcontrolled3submitted",
+        "§3.2四stage/tree/replication",
+        "§3.4 VLMcritique"
+      ],
+      "full_paper_read": false
+    },
+    {
+      "key": "scientist-eval",
+      "url": "https://arxiv.org/pdf/2502.14297",
+      "pdf": "/tmp/study-autonomous-01-08-primary/scientist-eval.pdf",
+      "text": "/tmp/study-autonomous-01-08-primary/scientist-eval.txt",
+      "bytes": 549562,
+      "sha256": "8cb4dcd15be2d46e9e475e852c5c93922c56eeaa12ca5bdc03b5c2ae471b1854",
+      "retrieved": "2026-10-09",
+      "status": "selected-sections-verified",
+      "read_scope": [
+        "§2.1 setup/template",
+        "§2.3 novelty",
+        "§2.4 5/12 codingfailures, baseline未rerun"
+      ],
+      "full_paper_read": false
+    },
+    {
+      "url": "https://alignment.anthropic.com/2026/automated-w2s-researcher/",
+      "cache": "/tmp/study-autonomous-01-08-primary/aar.md",
+      "read_scope": "完整下载Markdown37670字节逐段读取，图看caption非图像视觉检查",
+      "findings": [
+        "remote scores=test事实上validation",
+        "移除label但差分查询泄露",
+        "外部日志只声明防误删",
+        "移植production+0.5在噪声内，非生产有效证明"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/research/alignment-faking",
+      "read_scope": "官方网页方法/实验training条件选段",
+      "findings": [
+        "12%基础设定faking reasoning",
+        "78%actual harmful compliance训练后而非去除faking"
+      ]
+    },
+    {
+      "url": "https://people.idsia.ch/~juergen/goedelmachine.html",
+      "read_scope": "primary主页selectedclaim",
+      "findings": [
+        "provable改进基于formalsetup，不能推出数学证明普遍不可能"
+      ]
+    },
+    {
+      "url": "https://recursive-workshop.github.io/",
+      "read_scope": "主页面目录/研究范围，不全链接",
+      "findings": [
+        "没有four字符串；OpenReview挑战页无法核四原语共识，作为归纳非原研究结论"
+      ]
+    },
+    {
+      "url": "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
+      "read_scope": "原方法网页选段定义与外推限制",
+      "findings": [
+        "跨度与wallclock/成本不同；当前数字交由根/21课复核"
+      ]
+    }
+  ],
+  "remaining_verification": [
+    "METR当前timehorizon数字由根与21批协同",
+    "DGM/arXiv图表需视觉确认对应脚注",
+    "OpenReview workshopsummary四primitives无法支持，已降为教学归纳",
+    "当前政策由17–22互斥reader核验不跨写"
+  ]
+}

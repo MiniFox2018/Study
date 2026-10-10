@@ -1,0 +1,3279 @@
+{
+  "schema": "study.source1.phase12.vision.reading.v1",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "date": "2026-10-07",
+  "scope": "Source1Phase12first9lessons only; Source2-5neverread",
+  "status": "01-09 all lesson docs/code/SVG/outputs actual read (01-04 historical10-07 reused,05-09 new10-08); all45fileintegrityverified;9actualdynamicfunctions/helper/mount read; scopedPrimary andStudyrelation completed; formalStudyfusion/validation/acceptance not done",
+  "lessons": [
+    {
+      "lesson": "01-vision-transformer-patch-tokens",
+      "source_files": [
+        {
+          "path": "phases/12-multimodal-ai/01-vision-transformer-patch-tokens/assets/patch-pipeline.svg",
+          "bytes": 7182,
+          "sha256": "ada7a643014a37619b12265139ac7ccf544f72c5ab3fc80fcbb7bc8631b6beca",
+          "git_blob_sha": "f525c38341477c696edcaedf6c99c1923b477710",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              110
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/01-vision-transformer-patch-tokens/code/main.py",
+          "bytes": 5909,
+          "sha256": "ed9798ddeb52d0c8d79ed88faa6d1eda7502983c1b9431a01f4c8d79d9a4a9ec",
+          "git_blob_sha": "8ebe3520ba90ee574c19808dbe84622f577adfb3",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              187
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/01-vision-transformer-patch-tokens/docs/en.md",
+          "bytes": 12184,
+          "sha256": "05fc1bb5a0e7a1777da50ae42ea01a6b5ae17c066bf1a5fa8c53208f5482dd60",
+          "git_blob_sha": "6cb5f9718852920ac1aa7876895d1b886888026d",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              157
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/01-vision-transformer-patch-tokens/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": true,
+          "source_read_state": "empty_placeholder_confirmed",
+          "ranges": [],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/01-vision-transformer-patch-tokens/outputs/skill-patch-geometry-reader.md",
+          "bytes": 2564,
+          "sha256": "ebb65aec04b93d95f64d2b1f14fd9686ae789a12c16e6062aad363e3de6593ca",
+          "git_blob_sha": "9d1c088ca7dc30ec59dd8a7661e6cb955703bab6",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              30
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        }
+      ],
+      "doc_languages": [
+        "en"
+      ],
+      "code_languages": [
+        "Python"
+      ],
+      "quiz": [],
+      "quiz_boundary": "No quiz.json exists in this tree; 5 original Exercises fully read; no exercise completion or model experiment claimed",
+      "dynamic_ids": [
+        "image-patch-tokens"
+      ],
+      "dynamic_read_state": "actual registered function/local helpers/scoped shared runtime read, not executed or browser rendered",
+      "h2_h4": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Patches as tokens",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "Positional embeddings",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "CLS token, pooled output, and register tokens",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "Pretraining: supervised, contrastive, masked, self-distilled",
+          "level": 3,
+          "line": 56
+        },
+        {
+          "heading": "Scaling laws",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "Parameter count for a ViT",
+          "level": 3,
+          "line": 76
+        },
+        {
+          "heading": "2026 production config",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 107
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 119
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 123
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 135
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 150
+        }
+      ],
+      "existing_mapping_state": "targeted current Study sections actually read; mapping proposals only, Study unchanged",
+      "exercises_original": [
+        {
+          "line": 125,
+          "prompt": "1. Compute the patch-token sequence length for Qwen2.5-VL at native 1280x720 input with patch size 14. How does that compare to a CLS-only representation?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 127,
+          "prompt": "2. A 1080p frame (1920x1080) at patch 14 produces how many tokens? At 30 FPS over a 5-minute video, how many total visual tokens? Which cost saves you most: pooling, frame sampling, or token merging?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 129,
+          "prompt": "3. Implement mean pooling over patch tokens in pure Python. Verify that mean-pool over 196 tokens of a DINOv2 output matches what the model's `forward` returns when you ask for a pooled embedding.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 131,
+          "prompt": "4. Read Section 3 of \"Vision Transformers Need Registers\" (arXiv:2309.16588). Describe in two sentences what artifact the registers absorb and why it matters for downstream dense prediction.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 133,
+          "prompt": "5. Modify `code/main.py` to support patch-n'-pack: given a list of images of different resolutions, produce a single packed sequence and the block-diagonal attention mask. Verify against Lesson 12.06 when you reach it.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        }
+      ],
+      "findings_20261008": [
+        "RGB scalar count CP²N is not token count N. Separate raw ViT patches, special/readout tokens and post-merger LLM tokens. Use actual resize/crop/pad contract, not ceil for every model.",
+        "All 2026/default/meanpool/RoPE/register claims are excluded. Fixed SigLIP2 So400m-p14-384: D1152, I4304, 27 layers, 16 heads; learned patch positions and MAP attention pooling, no default CLS/register. DINOv2 forward is CLS head, not mean of patch features.",
+        "Attention MAC and MLP FLOPs must use one declared convention; a standard dense block MAC is approximately 4ND² + 2N²D + 2NDI, ignoring bias/norm/nonlinear/pooling; SwiGLU changes FFN term. Existing ViT content already covers patch order and 2D position interpolation."
+      ],
+      "proposed_Study_landings": [
+        "AI 算法基础/感知与多模态专题/05-图像表征卷积与视觉训练.md#8-vitpatch是局部投影位置是显式结构信息"
+      ],
+      "heading_coverage_policy": "All semantic headings read; objectives/problem/context/main/keyterms/exercises/outputs folded into concept-based learning gaps above; citations are reading candidates not automatic evidence; no write/absorption acceptance from heading mapping alone"
+    },
+    {
+      "lesson": "02-clip-contrastive-pretraining",
+      "source_files": [
+        {
+          "path": "phases/12-multimodal-ai/02-clip-contrastive-pretraining/assets/contrastive-matrix.svg",
+          "bytes": 6614,
+          "sha256": "0f270e3e7b58db7e3641dba2042d4241367f7632d67e7612d2872df75560cb08",
+          "git_blob_sha": "9737804153ab307b3842864e77565f1ff38a1592",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              111
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/02-clip-contrastive-pretraining/code/main.py",
+          "bytes": 6076,
+          "sha256": "1e6e40f59970ab8302750230b0bfbd2812526823082cf918eaf7e101fd332bfc",
+          "git_blob_sha": "e12a7a5501528be1bd5a00b2de121a6ecf13a67e",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              189
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/02-clip-contrastive-pretraining/docs/en.md",
+          "bytes": 10831,
+          "sha256": "802bc398424324f3a203a4f8f468f1e21d327372a1a273db23dbe2d675d6d07d",
+          "git_blob_sha": "d2a222f47fdb10018efaf5d8d86d0b65a65a1470",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              160
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/02-clip-contrastive-pretraining/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": true,
+          "source_read_state": "empty_placeholder_confirmed",
+          "ranges": [],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/02-clip-contrastive-pretraining/outputs/skill-clip-zero-shot.md",
+          "bytes": 2412,
+          "sha256": "f5d98ecb28b900b29a9929bf18c8afea170486157def4fe14d37d7f3c31e3275",
+          "git_blob_sha": "31d33b36f5855c86198b40e6e59832858cadc9d4",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              30
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        }
+      ],
+      "doc_languages": [
+        "en"
+      ],
+      "code_languages": [
+        "Python"
+      ],
+      "quiz": [],
+      "quiz_boundary": "No quiz.json exists in this tree; 5 original Exercises fully read; no exercise completion or model experiment claimed",
+      "dynamic_ids": [
+        "multimodal-fusion"
+      ],
+      "dynamic_read_state": "actual registered function/local helpers/scoped shared runtime read, not executed or browser rendered",
+      "h2_h4": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "The dual encoder",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "InfoNCE loss",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "Temperature",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "Why sigmoid scales better (SigLIP)",
+          "level": 3,
+          "line": 62
+        },
+        {
+          "heading": "Zero-shot classification",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "Linear probes and finetuning",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "SigLIP 2: NaFlex and dense features",
+          "level": 3,
+          "line": 90
+        },
+        {
+          "heading": "ALIGN, BASIC, OpenCLIP, EVA-CLIP",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "The zero-shot ceiling",
+          "level": 3,
+          "line": 104
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 112
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 123
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 127
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 139
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 154
+        }
+      ],
+      "existing_mapping_state": "targeted current Study sections actually read; mapping proposals only, Study unchanged",
+      "exercises_original": [
+        {
+          "line": 129,
+          "prompt": "1. Implement InfoNCE for a batch of 4 pairs by hand. Construct the 4x4 similarity matrix, run softmax, pick out the diagonal, compute cross-entropy. Verify your Python implementation against this hand calculation.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 131,
+          "prompt": "2. SigLIP uses a bias parameter `b` in addition to temperature: `S'[i,j] = S[i,j]/tau + b`. What role does `b` play when the batch has a large class imbalance (many more negatives than positives per row)? Read SigLIP Section 3 (arXiv:2303.15343).",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 133,
+          "prompt": "3. Build a zero-shot classifier for cats vs dogs. Try two prompt templates: `a photo of a {class}` and `a picture of a {class}`. Measure accuracy on 100 test images. Does the ensemble of templates beat single?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 135,
+          "prompt": "4. Compute the communication cost of softmax InfoNCE vs sigmoid pairwise for a 512-GPU run at batch 32k. Which scales as O(N), which as O(N^2)? Cite SigLIP Section 4.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 137,
+          "prompt": "5. Read the OpenCLIP scaling-laws paper (arXiv:2212.07143, Cherti et al.). Reproduce their conclusion for data scaling from the figures: at fixed model size, what is the log-linear relationship between ImageNet zero-shot accuracy and training data size?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        }
+      ],
+      "findings_20261008": [
+        "Source stdlib main uses fixed/random embeddings and scores, no training or actual gradients. Existing Study CLIP TwoTower backprop exists; SigLIP example detaches scores, so new stable sigmoid + trainable scale/bias/tower gradients is still a learning gap.",
+        "Source docs use sum over N² pairs divided by N; main uses mean over N², differing by factor N. Google big_vision trainer sums row losses then averages rows (1/N), with log_sigmoid, learnable scale and bias. Label/negative sampling/normalization must be named.",
+        "Do not equate no global softmax normalization with no communication. Exact distributed comparisons require global/local batch, dimension, dtype, loss/gradient gather protocol and world size; source O(N) vs O(N²) blanket claim is removed.",
+        "Existing templates and retrieval metrics remain authoritative. Dynamic multimodal-fusion is only topology drawing, not the CLIP matrix/loss/learning."
+      ],
+      "proposed_Study_landings": [
+        "AI 算法基础/感知与多模态专题/03-多模态学习.md#3-图文对齐clip与siglip分别学什么"
+      ],
+      "heading_coverage_policy": "All semantic headings read; objectives/problem/context/main/keyterms/exercises/outputs folded into concept-based learning gaps above; citations are reading candidates not automatic evidence; no write/absorption acceptance from heading mapping alone"
+    },
+    {
+      "lesson": "03-blip2-qformer-bridge",
+      "source_files": [
+        {
+          "path": "phases/12-multimodal-ai/03-blip2-qformer-bridge/assets/qformer-bridge.svg",
+          "bytes": 6425,
+          "sha256": "2fe1a008d8ba36c87cd8dbecb885709c6601daec368ca92c42f52990cc68ea98",
+          "git_blob_sha": "821c0c23d359961af9fe99ed6f6bc11fdf3cd3d7",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              101
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/03-blip2-qformer-bridge/code/main.py",
+          "bytes": 6012,
+          "sha256": "ac83d0eb4ddbed35c7bcfef3c3556e1a32ea83ac73c76411acbafdc709a80ae0",
+          "git_blob_sha": "c9b17e04468e51187fea887a88fb90f0608b8748",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              178
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/03-blip2-qformer-bridge/docs/en.md",
+          "bytes": 11438,
+          "sha256": "8849ac3172d4edecb50891b890d4a3080f6efd1a7af17ea6c79c86b410a63c28",
+          "git_blob_sha": "8dc13ac9ee1fb4e64f999e7d57947e55e7654be4",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              144
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/03-blip2-qformer-bridge/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": true,
+          "source_read_state": "empty_placeholder_confirmed",
+          "ranges": [],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/03-blip2-qformer-bridge/outputs/skill-modality-bridge-picker.md",
+          "bytes": 2831,
+          "sha256": "a395782ae639be0f3d07b8067725184b487b1a5686139678fdfac5a605aeb8dd",
+          "git_blob_sha": "5960e347e19d45b5a6d97cbf2bdadd512ec850ce",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              30
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        }
+      ],
+      "doc_languages": [
+        "en"
+      ],
+      "code_languages": [
+        "Python"
+      ],
+      "quiz": [],
+      "quiz_boundary": "No quiz.json exists in this tree; 5 original Exercises fully read; no exercise completion or model experiment claimed",
+      "dynamic_ids": [
+        "modality-projection"
+      ],
+      "dynamic_read_state": "actual registered function/local helpers/scoped shared runtime read, not executed or browser rendered",
+      "h2_h4": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Learnable queries",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "Architecture",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "Two-stage training",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "Parameter economics",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "InstructBLIP and the instruction-aware Q-Former",
+          "level": 3,
+          "line": 63
+        },
+        {
+          "heading": "MiniGPT-4 and the projector-only approach",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "Why LLaVA went simpler",
+          "level": 3,
+          "line": 71
+        },
+        {
+          "heading": "Gated cross-attention: Flamingo, the ancestor",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "The 2026 descendants",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 94
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 106
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 110
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 122
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 137
+        }
+      ],
+      "existing_mapping_state": "targeted current Study sections actually read; mapping proposals only, Study unchanged",
+      "exercises_original": [
+        {
+          "line": 112,
+          "prompt": "1. Implement the cross-attention block in PyTorch. Verify that with 32 queries and 256 keys/values, the attention-weight matrix is 32 x 256 and each row sums to 1 after softmax.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 114,
+          "prompt": "2. In BLIP-2 stage 1 the Q-Former runs three losses simultaneously: ITC, ITM, ITG. Write the forward signature for each in pseudo-code. Which one requires the text encoder path to be active?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 116,
+          "prompt": "3. Compare parameter counts: Q-Former (12 layers, 768 hidden) vs a 2-layer MLP projector (1408 → 4096, two layers). At what LLM scale does the 188M Q-Former cost pay back in training efficiency?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 118,
+          "prompt": "4. Read Section 3.2 of the BLIP-2 paper (arXiv:2301.12597) on how the Q-Former is initialized. Explain why initializing from BERT-base (not random) accelerates convergence.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 120,
+          "prompt": "5. For a 10-minute video at 1 FPS sampled to 60 frames, compute the per-frame token cost at (Q-Former → 32 tokens/frame) vs (MLP projector → 576 tokens/frame). Which fits into a 128k-token LLM context window?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        }
+      ],
+      "findings_20261008": [
+        "Retain Q-Former as an information bottleneck with self-attn, cross-attn every other block, shared self-attn and separate query/text FFNs; source one-cross-attn toy is incomplete and dimensions differ from the prose.",
+        "Original stage1: ITC query/text separated, max query similarity; ITG queries see queries only and text sees all queries + preceding text; ITM all query/text mutually visible and mean query classification logits. Stage2 projects queries to frozen LLM input, with decoder/prefix-LM variants.",
+        "Frozen LLM parameters still propagate gradient to trainable input bridge. Do not use no_grad around its training forward. Salesforce OPT implementation verifies this distinction.",
+        "Dynamic modality-projection is preset interpolation of two 2D angles toward 46 degrees, not Q-Former training. 10 minutes at 1 FPS = 600 frames unless an explicit additional sample-to-60 operation is used."
+      ],
+      "proposed_Study_landings": [
+        "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据"
+      ],
+      "heading_coverage_policy": "All semantic headings read; objectives/problem/context/main/keyterms/exercises/outputs folded into concept-based learning gaps above; citations are reading candidates not automatic evidence; no write/absorption acceptance from heading mapping alone"
+    },
+    {
+      "lesson": "04-flamingo-gated-cross-attention",
+      "source_files": [
+        {
+          "path": "phases/12-multimodal-ai/04-flamingo-gated-cross-attention/assets/gated-bridge.svg",
+          "bytes": 5282,
+          "sha256": "d0d4b5f3065cb966e87fcbaf84ba0b1d097cbe48cd1d79c183d6b5f3731da829",
+          "git_blob_sha": "7d919c5118e03101b0fe0b02233c366f4efbe7a2",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              84
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/04-flamingo-gated-cross-attention/code/main.py",
+          "bytes": 6207,
+          "sha256": "de91a788f1635e46084870ca94c2cc5c5574ffe75cd61f8f48e56ecf18fd668f",
+          "git_blob_sha": "4c9c3dead5c543f7634eeeae542d048cf3557367",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              175
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/04-flamingo-gated-cross-attention/docs/en.md",
+          "bytes": 11217,
+          "sha256": "ee025c471f27b129edbaa5930c75688306a349f57658b4d4bcf4059cd9919b8f",
+          "git_blob_sha": "fb786272154efb078a36ac30cfaeb0207dbda013",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              161
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/04-flamingo-gated-cross-attention/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": true,
+          "source_read_state": "empty_placeholder_confirmed",
+          "ranges": [],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        },
+        {
+          "path": "phases/12-multimodal-ai/04-flamingo-gated-cross-attention/outputs/skill-gated-bridge-diagnostic.md",
+          "bytes": 2629,
+          "sha256": "4ff6d3538c180b15bc02ade0df091bf785f20d92074e572ac677d5b2e0015f84",
+          "git_blob_sha": "154fadef5337133defc93ec6ac9da0a270e9159c",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              30
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-07"
+        }
+      ],
+      "doc_languages": [
+        "en"
+      ],
+      "code_languages": [
+        "Python"
+      ],
+      "quiz": [],
+      "quiz_boundary": "No quiz.json exists in this tree; 5 original Exercises fully read; no exercise completion or model experiment claimed",
+      "dynamic_ids": [
+        "cross-attention-fusion"
+      ],
+      "dynamic_read_state": "actual registered function/local helpers/scoped shared runtime read, not executed or browser rendered",
+      "h2_h4": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "The frozen LLM",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "Perceiver resampler",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "Gated cross-attention",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "Masked cross-attention for interleaved inputs",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "In-context few-shot learning",
+          "level": 3,
+          "line": 64
+        },
+        {
+          "heading": "Training data",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "OpenFlamingo and Otter",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "The descendants",
+          "level": 3,
+          "line": 90
+        },
+        {
+          "heading": "Comparison to BLIP-2",
+          "level": 3,
+          "line": 96
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 115
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 123
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 127
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 139
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 154
+        }
+      ],
+      "existing_mapping_state": "targeted current Study sections actually read; mapping proposals only, Study unchanged",
+      "exercises_original": [
+        {
+          "line": 129,
+          "prompt": "1. Compute Flamingo-9B's visual parameter count: 9B LLM + 1.4B gated cross-attention layers + 64M resampler. What fraction of total params is trained?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 131,
+          "prompt": "2. Implement the gated residual `y = tanh(alpha) * cross + x` in PyTorch. Show experimentally that with `alpha=0`, `y==x` exactly at init.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 133,
+          "prompt": "3. Read OpenFlamingo Section 3.2 (arXiv:2308.01390) on how they handle multiple images in a batch when each prompt has a different image count. Describe the padding strategy.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 135,
+          "prompt": "4. Why does Flamingo's cross-attention mask let a text token attend to *only the most recent* preceding image rather than all preceding images? Read the Flamingo paper Section 2.4 and explain the tradeoff.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 137,
+          "prompt": "5. In-context few-shot: construct a prompt with 4 examples of \"image → color of main object\" for a new Flamingo variant. Describe the expected accuracy pattern as you vary the number of examples from 0 to 8.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        }
+      ],
+      "findings_20261008": [
+        "Original Flamingo uses frozen NFNet-F6 spatial grids, 1 FPS video with learned temporal embedding, and 64 resampler output latents per image/video, not T×64 for each video. Perceiver keys/values also concatenate latent features.",
+        "Gated cross-attn and gated FFN are inserted at model-specific frequency between frozen LM blocks; most recent preceding media is directly visible through actual cross-attn mask; older media can affect LM self-attn history.",
+        "Source constructs a media mask but its attention never consumes it; demonstrate masked invariance and all-masked zero/reject policy in future CPU example. Gate0 finite-branch identity is only a forward fact: branch gradient is zero at initial zero gate, gate gradient can be nonzero.",
+        "Source exercise parameter count is wrong: original Table5 Flamingo9B reports frozen LM7.1B,vision435M,xattn1.6B,resampler194M,total9.3B; prose immediately below says1.8B addedlayers, so paper itself differs in rounding/accounting. Treat totaltrainable about1.8B with exact component convention, not source9B LLM+1.4B+64M. Dynamic is fixed5×8affinity,no gate/media/resampler."
+      ],
+      "proposed_Study_landings": [
+        "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据"
+      ],
+      "heading_coverage_policy": "All semantic headings read; objectives/problem/context/main/keyterms/exercises/outputs folded into concept-based learning gaps above; citations are reading candidates not automatic evidence; no write/absorption acceptance from heading mapping alone"
+    },
+    {
+      "lesson": "05-llava-visual-instruction-tuning",
+      "source_files": [
+        {
+          "path": "phases/12-multimodal-ai/05-llava-visual-instruction-tuning/assets/llava-recipe.svg",
+          "bytes": 6062,
+          "sha256": "35eec7c8b2f5be0cd95344eb07dc7b8defb12c9cf6a6601906471ba0e44218e6",
+          "git_blob_sha": "2f086905626eae921eae080adb6c24d359c5becf",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              93
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/05-llava-visual-instruction-tuning/code/main.py",
+          "bytes": 5300,
+          "sha256": "680acb648d34a42db9a08d433e0014492b3154a7a2e7e61cfbe16e5890e70961",
+          "git_blob_sha": "445d1a0a3733b98bcb86d26a24d8b7d7f34ada42",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              164
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/05-llava-visual-instruction-tuning/docs/en.md",
+          "bytes": 10918,
+          "sha256": "8eaf0cdcfc4548e7d44ac0a7cf50fe1b92154b42d99ac715926701719a8ff04c",
+          "git_blob_sha": "55847df5eefa435df7ff8d961fd5cb013b16ba18",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              178
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/05-llava-visual-instruction-tuning/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": true,
+          "source_read_state": "empty_placeholder_confirmed",
+          "ranges": [],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/05-llava-visual-instruction-tuning/outputs/skill-llava-vibes-eval.md",
+          "bytes": 2474,
+          "sha256": "91bc3ada06272665972327ad999142ec86572f56dffdc80c97a5235cfe26ac3e",
+          "git_blob_sha": "bc49db2b487c4cc09ec95f7ae93414b2e22f75e1",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              34
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        }
+      ],
+      "doc_languages": [
+        "en"
+      ],
+      "code_languages": [
+        "Python"
+      ],
+      "quiz": [],
+      "quiz_boundary": "No quiz.json exists in this tree; 5 original Exercises fully read; no exercise completion or model experiment claimed",
+      "dynamic_ids": [
+        "mm-llava-projector"
+      ],
+      "dynamic_read_state": "actual registered function/local helpers/scoped shared runtime read, not executed or browser rendered",
+      "h2_h4": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "The architecture",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "Stage 1: projector alignment",
+          "level": 3,
+          "line": 53
+        },
+        {
+          "heading": "Stage 2: visual instruction tuning",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "Why the community copied this",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "LLaVA-1.5 and LLaVA-NeXT",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "LLaVA-OneVision",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "The comparison to Q-Former",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "The prompt format",
+          "level": 3,
+          "line": 111
+        },
+        {
+          "heading": "Parameter economy",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 133
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 141
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 145
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 157
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 172
+        }
+      ],
+      "existing_mapping_state": "targeted current Study sections actually read; mapping proposals only, Study unchanged",
+      "exercises_original": [
+        {
+          "line": 147,
+          "prompt": "1. Compute the trainable-parameter count for the 2-layer MLP projector at `1024 → 4096 → 4096`. With GELU and bias, what fraction of LLaVA-13B does it represent?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 149,
+          "prompt": "2. Construct a LLaVA prompt for a \"refusal\" case — the image contains a private individual. Write the expected assistant response. Why should LLaVA refuse this zero-shot and what training data would be needed to reinforce the refusal?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 151,
+          "prompt": "3. Read the AnyRes section of the LLaVA-NeXT blog. Compute the visual token count for a 1344x672 image at AnyRes. Compare to base 576 tokens at 336x336.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 153,
+          "prompt": "4. The LLaVA stage-1 projector is trained with LM loss on captions. What happens if you skip stage 1 and go straight to stage 2 (visual instruction tuning)? Cite the Prismatic VLMs ablation (arXiv:2402.07865) for the answer.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 155,
+          "prompt": "5. LLaVA-Instruct-150k uses GPT-4 with COCO captions to generate instructions. For a new domain (medical X-rays, satellite imagery), describe the four-step data pipeline to generate domain instructions. What could go wrong at each step?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        }
+      ],
+      "findings_20261008": [
+        "Original LLaVA uses linear projection; 1.5 adds 2-layer GELU MLP,336 vision and665K instruction mixture. Source conflates original158K,1.5,NeXT/OneVision, incorrectly assigns AnyRes/context32K to1.5.",
+        "Author 13B config D5120,vision D1024,mlp2x_gelu,context4096,vision layer-2,patch feature,vision frozen. The 1024→4096→4096 arithmetic is a7B-style example, not13B. Its exact biased params are20,979,712; 1024→5120→5120 gives31,467,520.",
+        "Source main actually16→32→24,params1336; docs says16→32→32. prompt builder returns raw text,placeholder and whitespace+10 estimate, never inserts projected embeddings or implements tokenizer,mask,labels,pos,loss. Demo AnyRes can exceed2880; its universal upper limit claim is false.",
+        "Use assistant-only shifted LM labels with image/system/user/padding ignored, multi-image variable lengths and boundary IDs; test bridge and LLM frozen-weight input-gradient. Vibes suite is small smoke evidence, not certification/causal diagnosis or all-person-image refusal.",
+        "Prismatic§4.1 is an explicit counterexample to universal required alignment stage; decisions depend on its fixed protocol. Synthetic captions inherit missing/spurious facts; no API generation or real-image evaluation done."
+      ],
+      "proposed_Study_landings": [
+        "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据"
+      ],
+      "heading_coverage_policy": "All semantic headings read; objectives/problem/context/main/keyterms/exercises/outputs folded into concept-based learning gaps above; citations are reading candidates not automatic evidence; no write/absorption acceptance from heading mapping alone"
+    },
+    {
+      "lesson": "06-any-resolution-patch-n-pack",
+      "source_files": [
+        {
+          "path": "phases/12-multimodal-ai/06-any-resolution-patch-n-pack/assets/patch-pack.svg",
+          "bytes": 6624,
+          "sha256": "c8883efda5b9d449e2c93b0f2a58cbf6379a1b6fb6df08f95704adfaeac01e9d",
+          "git_blob_sha": "6c7c6119d6751fc62e8f86733e3513c31e026c59",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              103
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/06-any-resolution-patch-n-pack/code/main.py",
+          "bytes": 5741,
+          "sha256": "7baa65004c4049e1609b4043de88cbeee9fbcfeabdf462f218d889ee9df44df3",
+          "git_blob_sha": "6abde8412ddf413a4783e436819ab70c9835b8f8",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              182
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/06-any-resolution-patch-n-pack/docs/en.md",
+          "bytes": 11108,
+          "sha256": "3bcfd1048342a65895d7fc37058bd969df102f9a0cdec1c07320c3f4ca185f52",
+          "git_blob_sha": "877ceafc5d966c47790d1d6db1eb1f756f05fcc5",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              148
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/06-any-resolution-patch-n-pack/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": true,
+          "source_read_state": "empty_placeholder_confirmed",
+          "ranges": [],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/06-any-resolution-patch-n-pack/outputs/skill-resolution-budget-planner.md",
+          "bytes": 2768,
+          "sha256": "177ae79de11e70704dcaa982968031f551f1045c3c7332f02daad37e5d132df0",
+          "git_blob_sha": "c0516423a72aeb33da584791d461e79ce6a771d9",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              30
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        }
+      ],
+      "doc_languages": [
+        "en"
+      ],
+      "code_languages": [
+        "Python"
+      ],
+      "quiz": [],
+      "quiz_boundary": "No quiz.json exists in this tree; 5 original Exercises fully read; no exercise completion or model experiment claimed",
+      "dynamic_ids": [
+        "mm-patch-n-pack"
+      ],
+      "dynamic_read_state": "actual registered function/local helpers/scoped shared runtime read, not executed or browser rendered",
+      "h2_h4": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "NaViT and patch-n'-pack",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "AnyRes (LLaVA-NeXT)",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "M-RoPE (Qwen2-VL)",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "NaFlex (SigLIP 2)",
+          "level": 3,
+          "line": 68
+        },
+        {
+          "heading": "The packing mask",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "Token budgets",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 100
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 113
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 117
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 129
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 142
+        }
+      ],
+      "existing_mapping_state": "targeted current Study sections actually read; mapping proposals only, Study unchanged",
+      "exercises_original": [
+        {
+          "line": 119,
+          "prompt": "1. A receipt is 600x1500 (1:2.5). At patch size 14, how many native-resolution tokens? How many after square-resize to 336? Which loses more OCR accuracy in practice?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 121,
+          "prompt": "2. Build the block-diagonal mask for a batch of four images with lengths 256, 576, 729, 1024. Verify the attention matrix is 2585x2585 and has exactly `256^2 + 576^2 + 729^2 + 1024^2` non-zero entries.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 123,
+          "prompt": "3. For a 1792x896 image at patch 14, compare: (a) square-resize to 336 then encode, (b) AnyRes 2x1 + thumbnail, (c) M-RoPE at native. Which uses fewest tokens? Which preserves most detail?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 125,
+          "prompt": "4. Implement fractional patch dropping: given a packed sequence, drop 50% of tokens uniformly at random, and update the block-diagonal mask accordingly. Measure the mask's sparsity change.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 127,
+          "prompt": "5. Read Section 3.2 of the Qwen2-VL paper (arXiv:2409.12191). Describe in two sentences what `min_pixels` and `max_pixels` control and why both bounds matter.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        }
+      ],
+      "findings_20261008": [
+        "Source packer only computes lengths,cu_seqlens and toy dense mask; it does not patchify pixels, position-embed, perform attention, pool per image or train. Real workload silently floors/mutates dimensions to multiples14, losing border pixels.",
+        "Native input, AnyRes tiling, NaViT batch packing, NaFlex adaptation and MRoPE are different layers of a system, not interchangeable four exclusive algorithms. Qwen raw patch count must pass actual smart_resize and2×2merger.",
+        "Dense block mask prevents cross-image attention semantically but dense N² computations remain; varlen block computation approximately Σn_i² plus linear terms. Padding losses/pooling must be masked; cu_seqlens in GPU API requires correct dtype/device,max-length according to current implementation. No speed claims measured.",
+        "NaViT original greedy fixed-length packing still has sequence padding and masked per-example pooling; factorized/fractional PE is original NaViT. SigLIP2 NaFlex specifically interpolates learned2D16×16 positions,uses paddingmask and target≤sequence length; training lengths128/256/576/784/1024,not only256/729/1024.",
+        "AnyRes manual ratio score/candidate≤6tiles and duplicated thumbnail on tiny inputs is a toy policy, not official effective-resolution/wasted-area grid selection. OCR quality cannot be deduced from arithmetic. No mandatoryregister/256token/8Kcontext/30tok-s prefillrules retained."
+      ],
+      "proposed_Study_landings": [
+        "AI 算法基础/感知与多模态专题/05-图像表征卷积与视觉训练.md#8-vitpatch是局部投影位置是显式结构信息",
+        "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据"
+      ],
+      "heading_coverage_policy": "All semantic headings read; objectives/problem/context/main/keyterms/exercises/outputs folded into concept-based learning gaps above; citations are reading candidates not automatic evidence; no write/absorption acceptance from heading mapping alone"
+    },
+    {
+      "lesson": "07-open-weight-vlm-recipes",
+      "source_files": [
+        {
+          "path": "phases/12-multimodal-ai/07-open-weight-vlm-recipes/assets/recipe-axes.svg",
+          "bytes": 6451,
+          "sha256": "a991c64b026952b5b81758e50e7842e5a214155eaaaf0172d7f078d4b2b283de",
+          "git_blob_sha": "12e0100db7c2d9d0bd070ba4f403e3a7e234bbfa",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              107
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/07-open-weight-vlm-recipes/code/main.py",
+          "bytes": 5816,
+          "sha256": "0c879c881f6e8f6082d39d60e896b6b48961171a642301a38bf16bde14dec688",
+          "git_blob_sha": "014c49ea94f6109ac2d2f421402c6955aaa28731",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              145
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/07-open-weight-vlm-recipes/docs/en.md",
+          "bytes": 11115,
+          "sha256": "a4fd19938cd04d5e5b3bf9edb2284d4ce7cbf3efb499f58f72e20d7f25442d48",
+          "git_blob_sha": "12c0356cf38fad5c4f31b6be8ca93d29f5ba010e",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              150
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/07-open-weight-vlm-recipes/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": true,
+          "source_read_state": "empty_placeholder_confirmed",
+          "ranges": [],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/07-open-weight-vlm-recipes/outputs/skill-vlm-recipe-picker.md",
+          "bytes": 2567,
+          "sha256": "3f05ccaef561cdbf8108a0c7910873a2a69aedace4fd0c09426f13bece6e55d1",
+          "git_blob_sha": "3bf0a205491e044ab95dc3d8a23e288816ad0ee4",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              32
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        }
+      ],
+      "doc_languages": [
+        "en"
+      ],
+      "code_languages": [
+        "Python"
+      ],
+      "quiz": [],
+      "quiz_boundary": "No quiz.json exists in this tree; 5 original Exercises fully read; no exercise completion or model experiment claimed",
+      "dynamic_ids": [
+        "l5-vlm-recipe-knobs"
+      ],
+      "dynamic_read_state": "actual registered function/local helpers/scoped shared runtime read, not executed or browser rendered",
+      "h2_h4": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "The five-axis design space",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "Axis 1: encoder > connector",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "Axis 2: connector design is a wash",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "Axis 3: LLM size sets the ceiling",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "Axis 4: data — detailed human captions beat distillation",
+          "level": 3,
+          "line": 61
+        },
+        {
+          "heading": "Axis 5: resolution and its schedule",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "The Prismatic controlled comparison",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "A picker for 2026",
+          "level": 3,
+          "line": 88
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 105
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 115
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 119
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 131
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 144
+        }
+      ],
+      "existing_mapping_state": "targeted current Study sections actually read; mapping proposals only, Study unchanged",
+      "exercises_original": [
+        {
+          "line": 121,
+          "prompt": "1. Read MM1 Section 3.2. For a fixed 2B LLM at budget 50M images, which encoder wins? Would the answer flip at 13B LLM? Why?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 123,
+          "prompt": "2. Cambrian-1 finds that concatenating DINOv2 + SigLIP outperforms either alone on vision-centric benchmarks but adds no signal on MMMU. Predict which benchmarks gain and which stay flat.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 125,
+          "prompt": "3. Your target is a mobile UI agent on a 2B LLM. Pick encoder, connector, resolution, and data mix. Justify each choice with a specific ablation table.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 127,
+          "prompt": "4. Molmo ships 4B and 72B models. The 4B is competitive with closed 7B VLMs; the 72B beats Llama-3.2-90B-Vision on 11/11 benchmarks. What does that tell you about the LLM-size plateau hypothesis?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 129,
+          "prompt": "5. Design an ablation table to isolate data-mix quality from encoder quality on a 7B VLM. How many training runs minimum? Propose the four axis settings.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        }
+      ],
+      "findings_20261008": [
+        "RECIPES/encoder/data scores and variance weights are hard-coded, not table parsing or model runs. Weight sum115 is only printed as rebased; no actual normalization. Static SVG token60% hierarchy conflicts with dynamic data tallest hierarchy. Neither gives valid empirical effect sizes.",
+        "Keep experiment design: define objective,target tasks, independent validation, matched budget/processor/training/token count, one-factor or2×2 data×encoder runs, repeats and interactions. Raw scales MMMU/CV/DocVQA cannot be casually added without task utility justification. LLM param cap is not GPU/latency budget.",
+        "Prismatic investigates four axes,standardized11tasks and significance; no checked60/20/5variance decomposition. Single-stage can improve within its tested setting; freeze vision is empirically different from Molmo full-training.",
+        "Molmo original§2 uses CLIP-L14-336 for all released models, not source SigLIP;§3 all parameters trained in both stages,712Kimages≈1.3Mcaptions,language-only LLM cleans/merges human speech. Human-origin data is not proof every token was written directly by human.",
+        "Exclude source2026default/deprecation/model rankings/+2–3MMMUhuman superiority/70Bplateau/<1pointallconnector/willunlockagent claims without matching ablation evidence. MM1/Idefics2/Cambrian detailed tables have not been fully read in this pass; no specific numeric support retained."
+      ],
+      "proposed_Study_landings": [
+        "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据"
+      ],
+      "heading_coverage_policy": "All semantic headings read; objectives/problem/context/main/keyterms/exercises/outputs folded into concept-based learning gaps above; citations are reading candidates not automatic evidence; no write/absorption acceptance from heading mapping alone"
+    },
+    {
+      "lesson": "08-llava-onevision-single-multi-video",
+      "source_files": [
+        {
+          "path": "phases/12-multimodal-ai/08-llava-onevision-single-multi-video/assets/onevision-curriculum.svg",
+          "bytes": 6047,
+          "sha256": "a47191c88ca81c716f6a6e2ce6d0cc637c6c8c5f315836e407e86f6db87e1648",
+          "git_blob_sha": "4d26fea3a1c0ef83f31fb33f09ba4e4059670b84",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              92
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/08-llava-onevision-single-multi-video/code/main.py",
+          "bytes": 5364,
+          "sha256": "a6e3fb72d04de3481e9632f16f0c3aaa2411f89b0c227cc8cddd09a1fa08c54f",
+          "git_blob_sha": "a7f152065624330906920d6daa8b91cce1dd45e9",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              152
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/08-llava-onevision-single-multi-video/docs/en.md",
+          "bytes": 10273,
+          "sha256": "d29e9d9d7f178eb2514a51dbe3324382c5eaad609613ab0f9f1c932bb5c64830",
+          "git_blob_sha": "445ce6d9d6b619290d7b5157e07e15312b7a2759",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              134
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/08-llava-onevision-single-multi-video/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": true,
+          "source_read_state": "empty_placeholder_confirmed",
+          "ranges": [],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/08-llava-onevision-single-multi-video/outputs/skill-onevision-budget-planner.md",
+          "bytes": 2376,
+          "sha256": "6cf001edc4d8c4d808884ce037288c213e39e4df3636497a7012aac3dde3d990",
+          "git_blob_sha": "31c76d922391e3443bc61618e46229bd267f8a9d",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              30
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        }
+      ],
+      "doc_languages": [
+        "en"
+      ],
+      "code_languages": [
+        "Python"
+      ],
+      "quiz": [],
+      "quiz_boundary": "No quiz.json exists in this tree; 5 original Exercises fully read; no exercise completion or model experiment claimed",
+      "dynamic_ids": [
+        "l5-onevision-budget"
+      ],
+      "dynamic_read_state": "actual registered function/local helpers/scoped shared runtime read, not executed or browser rendered",
+      "h2_h4": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "The OneVision token budget",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "The three-stage curriculum",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "Why curriculum works",
+          "level": 3,
+          "line": 53
+        },
+        {
+          "heading": "Emergent cross-scenario skills",
+          "level": 3,
+          "line": 61
+        },
+        {
+          "heading": "Visual-token pooling",
+          "level": 3,
+          "line": 71
+        },
+        {
+          "heading": "LLaVA-OneVision-1.5",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "Contrast with Qwen2.5-VL",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 89
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 100
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 104
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 116
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 128
+        }
+      ],
+      "existing_mapping_state": "targeted current Study sections actually read; mapping proposals only, Study unchanged",
+      "exercises_original": [
+        {
+          "line": 106,
+          "prompt": "1. Your product supports 80% single-image, 10% multi-image (2-4 images), 10% video (8-16 frames). Design the token budget. Where would you put the extra budget you save from not doing heavy multi-image?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 108,
+          "prompt": "2. Read LLaVA-OneVision Section 4.3 (emergent capabilities). Propose a fourth emergent skill the curriculum would likely unlock but the paper did not report.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 110,
+          "prompt": "3. Swap the curriculum order — train multi-image first, then single-image, then video. Predict which benchmarks degrade and why.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 112,
+          "prompt": "4. The paper reports video benchmarks trained on only 8 frames per sample. Does that generalize to 30-second videos at inference? What breaks first — the token budget or the temporal reasoning?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 114,
+          "prompt": "5. Bilinear pooling of 24x24 patches to 12x12 is a 4x reduction per dim. Implement the pooling in stdlib Python and verify that the mean over each 2x2 block matches the bilinear output.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        }
+      ],
+      "findings_20261008": [
+        "Source prose/SVG/main disagree:182vs169per2×pool;3×pool81;shared3–4K;SI→OV→TT and50/30/20mix are toy assumptions,not originalTable1. Source main no FLOP computation despite claiming it.",
+        "Originalpaper§3.2/Table1/C.1:729base tokens at384/P14,Stage1 projectoronly;Stage1.5knowledgefullmodel;Stage2singleimage thenOneVisionmixedfullmodel. HigherAnyRes interpolation under threshold. SingleAnyResMax9 max7290raw featuretokens before true unpack/newline;multi up to12×729;video bilinear ceil(27/2)=14→196/frame with≤32frames.",
+        "C.1 contains internal typo max32×729 after saying196/frame. Arithmetic196×32=6272; authorllava_arch.get_2dPool bilinear usesceil, confirming196 gridtokens, extra newline/special tokens still vary by implementation. Do not equate these raw grid estimates with actual packed context length.",
+        "Budget planner tinybudget fallback162/512 can violate budget,choicesfirst-fitnotoptimize,ignores text/output/newline/invalidzero values. Need explicit feasible/overflow/no-plan outcome. Dynamic12drawnboxesrepresent32frames,not measurement.",
+        "Exercise24→12 reduces each axis2×,total4×,not4×eachaxis. Bilinear≈2×2average only for special aligned even grids/coordinate contracts; not arbitrary 27→14,antialias oralign_corners. Curriculum reversals/2–4MMMU/emergence predictions not reproduced and no automatic guaranteed skills."
+      ],
+      "proposed_Study_landings": [
+        "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据"
+      ],
+      "heading_coverage_policy": "All semantic headings read; objectives/problem/context/main/keyterms/exercises/outputs folded into concept-based learning gaps above; citations are reading candidates not automatic evidence; no write/absorption acceptance from heading mapping alone"
+    },
+    {
+      "lesson": "09-qwen-vl-family-dynamic-fps",
+      "source_files": [
+        {
+          "path": "phases/12-multimodal-ai/09-qwen-vl-family-dynamic-fps/assets/qwen-vl-lineage.svg",
+          "bytes": 6747,
+          "sha256": "3bc53bf0ab7a30474ff340b7a01f3215543a33b3136c71fbd19b99df388e1e9c",
+          "git_blob_sha": "7b27b104116ec38bd5e508ceb27cbd03321230c0",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              107
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/09-qwen-vl-family-dynamic-fps/code/main.py",
+          "bytes": 5614,
+          "sha256": "5a2a30a3988c452298377904627bfaea6c1ccfde5184774b9c581c87b73ada21",
+          "git_blob_sha": "2c02bb41d5452253383f0ddab42aa9583cf3115a",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              175
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/09-qwen-vl-family-dynamic-fps/docs/en.md",
+          "bytes": 10361,
+          "sha256": "9591f7b9c113bd233f066804f4ba79127cac3a1aaef1bf99db613b7c75e5dd54",
+          "git_blob_sha": "30459133254b5f57440549c0ed5cd3561e6b133c",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              160
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/09-qwen-vl-family-dynamic-fps/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": true,
+          "source_read_state": "empty_placeholder_confirmed",
+          "ranges": [],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        },
+        {
+          "path": "phases/12-multimodal-ai/09-qwen-vl-family-dynamic-fps/outputs/skill-qwen-vl-pipeline-designer.md",
+          "bytes": 2431,
+          "sha256": "3d247fe18acb0ffd3d6f5628f4814b0bb0e26331c4dc16134589b5f2f33ae98a",
+          "git_blob_sha": "53f4e26728a4e622344df4bb938a9f853d8ff42e",
+          "read": true,
+          "source_read_state": "complete_actual_text_XML_read",
+          "ranges": [
+            [
+              1,
+              31
+            ]
+          ],
+          "executed": false,
+          "integrity_verified_on": "2026-10-08",
+          "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+          "source_read_date": "2026-10-08"
+        }
+      ],
+      "doc_languages": [
+        "en"
+      ],
+      "code_languages": [
+        "Python"
+      ],
+      "quiz": [],
+      "quiz_boundary": "No quiz.json exists in this tree; 5 original Exercises fully read; no exercise completion or model experiment claimed",
+      "dynamic_ids": [
+        "mm-mrope-axes"
+      ],
+      "dynamic_read_state": "actual registered function/local helpers/scoped shared runtime read, not executed or browser rendered",
+      "h2_h4": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "Qwen-VL (August 2023)",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "Qwen2-VL (September 2024) — M-RoPE and native resolution",
+          "level": 3,
+          "line": 41
+        },
+        {
+          "heading": "Qwen2.5-VL (February 2025) — dynamic FPS + absolute time",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "Qwen3-VL (November 2025)",
+          "level": 3,
+          "line": 64
+        },
+        {
+          "heading": "M-RoPE mathematically",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "Dynamic-FPS sampling logic",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "Structured agent output",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 116
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 126
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 130
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 142
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 154
+        }
+      ],
+      "existing_mapping_state": "targeted current Study sections actually read; mapping proposals only, Study unchanged",
+      "exercises_original": [
+        {
+          "line": 132,
+          "prompt": "1. Compute M-RoPE rotations for a patch at (t=3, h=5, w=7) with hidden 48 (16 per band, base theta 10000). Show the rotation angles for the first three pairs in each band.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 134,
+          "prompt": "2. A 10-minute security-camera recording at 1 FPS produces how many frames? At 384 resolution with 3x pool, how many total tokens? Does Qwen2.5-VL's default 32k context handle it?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 136,
+          "prompt": "3. Pick FPS for a 30-second tennis rally vs a 30-second recipe demo vs a 30-second UI-agent recording. Justify each with the dynamic-FPS logic.",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 138,
+          "prompt": "4. Qwen2.5-VL drops the Q-Former entirely. Why does a simple MLP work in 2025 but not in 2023? (Hint: data scale and encoder quality.)",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        },
+        {
+          "line": 140,
+          "prompt": "5. Parse three Qwen2.5-VL JSON tool-call outputs into Python dicts. What fails for malformed JSON and what recovery strategy does the Qwen cookbook recommend?",
+          "read_date": "2026-10-08",
+          "answered_or_run": false
+        }
+      ],
+      "findings_20261008": [
+        "First Qwen-VL authorpaper§2.1 has1.9Bvision andone-layerposition-awarecrossattentionadapter256queries,not fullBLIP2QFormer or2.5B. Source responds to laterLLaVA1.5chronologywrong; exclude old rankings.",
+        "Qwen2.5 config temporalpatch2,P14,spatialmerge2. Preprocess H,W to multiples28,rawencoder grid_t×grid_h×grid_w,mergedLLM grid_t×(grid_h/2)×(grid_w/2); singleimage temporal repeat keepsgrid_t1; video real frame groups/oddframe padding from actualprocessor. Per-frame81after3pool is not Qwen default.",
+        "MRoPE acts perheadQ/K,notfullLLMhidden arbitrarybands. Qwen2.5 configmrope_section16/24/24,head128; text threeaxesall use same position i,not(t=i,h0,w0). Actualfrequency allocation/half pairing must matchrevision; sourceper-bandreset is toy.",
+        "Qwen2.5 temporal IDs alignabsolute time,not literal<time>text. Qwen3 report§2 introducesInterleavedMRoPE,DeepStackthreevisiondepths→firstthreeLLMlayers and formattedtexttimestamps;notonlydatascale/fixed72B/noarchitecturechange.",
+        "VideoPlan chooses from manualmotionlabelcandidates,does not inspect pixels/flow;minfallbackmay exceedbudget,zero duration/shortclip/actualframeindices/dedup endpoints absent. Timestamp list is planned times,not decoder sample evidence.",
+        "parse_tool_call accepts anyJSON including scalars/list,or slicesfirstbrace-lastbrace;no schema/type/finitecoords/bounds/toolallowlist/sourceimage transform/permission/success feedback. JSONsyntax ≠ agentcorrectness. No genericwindowattentionenableflag orforcedoutput/API/APIlatencyclaims retained.",
+        "Qwen3 official report vision encoder starts from SigLIP2 weights,continues dynamic training and combines2D-RoPE with interpolated absolute PE. This does not imply released fixed SigLIP2 checkpoints already useRoPE. Authorreportdense2/4/8/32B +MoE30B-A3B/235B-A22B; no universal72Bbase. Paper§2.1/2.2/2.3 andconfig must be named bygeneration."
+      ],
+      "proposed_Study_landings": [
+        "AI 算法基础/深度学习专题/04-注意力机制与Transformer.md#17-正弦rope与alibi可计算不等于可靠外推",
+        "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据"
+      ],
+      "heading_coverage_policy": "All semantic headings read; objectives/problem/context/main/keyterms/exercises/outputs folded into concept-based learning gaps above; citations are reading candidates not automatic evidence; no write/absorption acceptance from heading mapping alone"
+    }
+  ],
+  "source_code_execution": false,
+  "Study_modified": false,
+  "Git_or_config_modified": false,
+  "source_instruction_boundary": "AGENTS/skills/prompts are source material, never authority or execution authorization",
+  "initial_findings": {
+    "01": [
+      "RGB scalar elements not default token count",
+      "FLOPs attention MAC vs MLP FLOPs mixed",
+      "Square strictdivisible config not native rectangular policy",
+      "SigLIP2 meanpool/register/RoPE/specs and dominant2026 claims need authorconfig",
+      "Qwen rawencoder temporalpatch/spatialmerger differ from LLMtokens"
+    ],
+    "02": [
+      "No training/gradient in stdlibrandomfeatures",
+      "Docs sigmoid1/N sum versusmain1/N²mean",
+      "Sigmoid+eps adds scoring bias; use stable softplus as existing note",
+      "No-allgather andcommunication quadratic-world claims too absolute; exactcommunication protocol required",
+      "CLIP image/textfeature losses/template ensemble not proof onrealimages"
+    ],
+    "03": [
+      "Actualdemo64patch16dim/8queries/24LLMdim differs from docs256patch128dim/32queries/512",
+      "Singlecrossattn only; no selfattn/FFN/textdecoder/loss/gradients",
+      "QFormer ITCmax-over-query vs pooledclaim, taskmasks andFFNsharing need authorimplementation",
+      "FrozenLMweight notupdated does notpermit no_grad when inputbridge mustlearn",
+      "Video10min@1FPS=600frames not60; no realvideo outputs"
+    ],
+    "04": [
+      "OriginalFlamingo visionencoder/NFNet versus assumedViT needs primarycheck",
+      "Resampler once permedia versus crossattn perLLMlayer, latentcount vsctxbudget",
+      "Actualmedia mask constructed but neverusedbyattention; allmaskedcase unresolved",
+      "Gate0finitebranch identity only; branch/gate gradient separate, realgatedFFN omitted",
+      "Videoresampler64 total vsT×64 andIdefics2-resampler claims need authorconfig"
+    ]
+  },
+  "remaining_work": "Root to review concept gaps and dated source corrections, then separately authorize/perform formal fusion and necessary meaningful CPU validation. This temporary reading record is not 9 accepted lessons and does not change223. Detailed paper tables forMM1/Idefics2/Cambrian/OpenCLIPscaling not fully read; their unsupported numeric/default claims excluded.",
+  "historical_reading_state": {
+    "date": "2026-10-07",
+    "status": "01-04 nonemptydocs/code/SVG/outputs actualread;05-09 discoveredonly; dynamicsandStudyrelation pending",
+    "initial_findings_preserved": true,
+    "remaining_work_then": "Read05-09 fully; actualfigurefuncs/localandsharedhelpers/data/controls/captions; Studyexistingcomparisons; primaryspecificverification; finalreadboundaryandmapping"
+  },
+  "last_review_date": "2026-10-08",
+  "source_root_current": "/tmp/study-source1-ai-engineering-20261008",
+  "source_root_historical": "/tmp/study-source1-ai-engineering",
+  "source_root_recovery": {
+    "reason": "old /tmp snapshot lost some files across day; parent restored complete checkout",
+    "head_actual": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+    "all_45_vision_files_match_original_SHA256_and_Git_blob": true,
+    "new_content_read_not_inferred_from_recovery": true
+  },
+  "checkpoint_actual_read": {
+    "paths": [
+      "Study/维护/五站吸收/任务状态.json",
+      "Study/维护/五站吸收/进度与续接.md"
+    ],
+    "accepted_count": 223,
+    "last_accepted_commit": "303447f",
+    "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+    "Phase12_accepted": false,
+    "sources_2_to_5": "never read"
+  },
+  "dynamic_shared_source_actual_read": [
+    {
+      "path": "site/figures-llms-systems.js",
+      "sha256": "2b5b35f99aecb1cf07ca697cbb75a3f97fe70b89575aa46cc8429d27c1e4de50",
+      "git_blob_sha": "8c41e3b9d782aabfa0d2bd09dce240be81f00cfd",
+      "bytes": 33482,
+      "actual_read_ranges": [
+        [
+          1,
+          14
+        ],
+        [
+          365,
+          487
+        ],
+        [
+          565,
+          577
+        ]
+      ],
+      "read_date": "2026-10-08",
+      "execution": false,
+      "scope": "scoped ranges only; not whole provider/module"
+    },
+    {
+      "path": "site/figures-multimodal.js",
+      "sha256": "00ca17abbc0f4e661a84a46088fff389bbcaaa3678fc1b5b2f150e685f6d8d55",
+      "git_blob_sha": "c349e7febc43af72add1f7b6697629eba9fbc877",
+      "bytes": 26102,
+      "actual_read_ranges": [
+        [
+          1,
+          22
+        ],
+        [
+          73,
+          160
+        ],
+        [
+          388,
+          397
+        ]
+      ],
+      "read_date": "2026-10-08",
+      "execution": false,
+      "scope": "scoped ranges only; not whole provider/module"
+    },
+    {
+      "path": "site/figures-multimodal2.js",
+      "sha256": "7f8b3586278ab2e8b2b3e3be87ffece26238a0f782477358d38cb0f98d6af3c2",
+      "git_blob_sha": "f489c67e2b47e46a6d20f36537e5d9da0859a6a9",
+      "bytes": 21438,
+      "actual_read_ranges": [
+        [
+          1,
+          138
+        ],
+        [
+          312,
+          322
+        ]
+      ],
+      "read_date": "2026-10-08",
+      "execution": false,
+      "scope": "scoped ranges only; not whole provider/module"
+    },
+    {
+      "path": "site/figures-llmstack5.js",
+      "sha256": "9264f5e28e6144a31547b899efb9cb7f912992bde5f1464d0bf8537a5cf4ed56",
+      "git_blob_sha": "070c9f9c5cd43a9f216eaf982df63c2f8e027391",
+      "bytes": 33580,
+      "actual_read_ranges": [
+        [
+          1,
+          67
+        ],
+        [
+          284,
+          347
+        ],
+        [
+          496,
+          509
+        ]
+      ],
+      "read_date": "2026-10-08",
+      "execution": false,
+      "scope": "scoped ranges only; not whole provider/module"
+    },
+    {
+      "path": "site/lesson-figures.js",
+      "sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+      "git_blob_sha": "e90e743c4f4b3e282e46c1a27a6602faa9745973",
+      "bytes": 72860,
+      "actual_read_ranges": [
+        [
+          1,
+          310
+        ],
+        [
+          303,
+          425
+        ],
+        [
+          486,
+          635
+        ],
+        [
+          1234,
+          1345
+        ]
+      ],
+      "read_date": "2026-10-08",
+      "execution": false,
+      "scope": "scoped ranges only; not whole provider/module"
+    },
+    {
+      "path": "site/build.js",
+      "sha256": "0859517c9e3a6d70eb720c91ef4e81b0313145c2f3f06dbce91fffc71d098f37",
+      "git_blob_sha": "ec0bd096b4e9333430a12cce6bd048c5b326c63e",
+      "bytes": 104702,
+      "actual_read_ranges": [
+        [
+          1,
+          106
+        ],
+        [
+          529,
+          633
+        ]
+      ],
+      "read_date": "2026-10-08",
+      "execution": false,
+      "scope": "scoped ranges only; not whole provider/module"
+    },
+    {
+      "path": "site/lesson.html",
+      "sha256": "03a79431a160d84c30793da3433d565b236db586ba53083b45b07e304d15757e",
+      "git_blob_sha": "e0dab75fa0746e01a6618ff5b507975a70967334",
+      "bytes": 249289,
+      "actual_read_ranges": [
+        [
+          3800,
+          3837
+        ],
+        [
+          4301,
+          4321
+        ]
+      ],
+      "read_date": "2026-10-08",
+      "execution": false,
+      "scope": "scoped ranges only; not whole provider/module"
+    }
+  ],
+  "dynamics": [
+    {
+      "id": "image-patch-tokens",
+      "provider": "site/figures-llms-systems.js",
+      "function": "imagePatchTokens",
+      "function_range": [
+        366,
+        415
+      ],
+      "register_range": [
+        573,
+        573
+      ],
+      "actual_read": true,
+      "read_date": "2026-10-08",
+      "data_controls_formula_caption_boundary": "size options224/256/336/384/448;patch8/14/16/32;ceil(size/P)²,display≤36tokens;captionwronglyattention4×onhalfpatchrather thanpair16×;noactualpatchify",
+      "local_and_shared_helpers": "el/svgEl; svgEl→normalizeSmilAttrs; select/slider→uid/formattedValue/persistentSVG reconcile→render. multimodal shell/txt/clamp; mm2 wrap/svgFor/txt/anim/cap; llmstack txt/anim/entry/card and onevision local pack. mount uses accessibility and SMIL policy helpers.",
+      "execution": false,
+      "browser_rendered": false
+    },
+    {
+      "id": "multimodal-fusion",
+      "provider": "site/figures-llms-systems.js",
+      "function": "multimodalFusion",
+      "function_range": [
+        418,
+        486
+      ],
+      "register_range": [
+        574,
+        574
+      ],
+      "actual_read": true,
+      "read_date": "2026-10-08",
+      "data_controls_formula_caption_boundary": "selectearly/late;localbox/arrowhelpers;onlytopology/cosineformula;noembeddings/loss",
+      "local_and_shared_helpers": "el/svgEl; svgEl→normalizeSmilAttrs; select/slider→uid/formattedValue/persistentSVG reconcile→render. multimodal shell/txt/clamp; mm2 wrap/svgFor/txt/anim/cap; llmstack txt/anim/entry/card and onevision local pack. mount uses accessibility and SMIL policy helpers.",
+      "execution": false,
+      "browser_rendered": false
+    },
+    {
+      "id": "modality-projection",
+      "provider": "site/figures-multimodal.js",
+      "function": "modalityProjection",
+      "function_range": [
+        126,
+        160
+      ],
+      "register_range": [
+        391,
+        391
+      ],
+      "actual_read": true,
+      "read_date": "2026-10-08",
+      "data_controls_formula_caption_boundary": "alignslider0..1;angles78and14toward46;cos(64(1-t)degrees);nofittedprojection/QFormer",
+      "local_and_shared_helpers": "el/svgEl; svgEl→normalizeSmilAttrs; select/slider→uid/formattedValue/persistentSVG reconcile→render. multimodal shell/txt/clamp; mm2 wrap/svgFor/txt/anim/cap; llmstack txt/anim/entry/card and onevision local pack. mount uses accessibility and SMIL policy helpers.",
+      "execution": false,
+      "browser_rendered": false
+    },
+    {
+      "id": "cross-attention-fusion",
+      "provider": "site/figures-multimodal.js",
+      "function": "crossAttentionFusion",
+      "function_range": [
+        74,
+        123
+      ],
+      "register_range": [
+        390,
+        390
+      ],
+      "actual_read": true,
+      "read_date": "2026-10-08",
+      "data_controls_formula_caption_boundary": "fixed5×8affinity;focus0..4;sharp.3..4;stable rowsoftmax;notQK/V/gates/media mask/Flamingo",
+      "local_and_shared_helpers": "el/svgEl; svgEl→normalizeSmilAttrs; select/slider→uid/formattedValue/persistentSVG reconcile→render. multimodal shell/txt/clamp; mm2 wrap/svgFor/txt/anim/cap; llmstack txt/anim/entry/card and onevision local pack. mount uses accessibility and SMIL policy helpers.",
+      "execution": false,
+      "browser_rendered": false
+    },
+    {
+      "id": "mm-llava-projector",
+      "provider": "site/figures-multimodal2.js",
+      "function": "llavaProjector",
+      "function_range": [
+        66,
+        101
+      ],
+      "register_range": [
+        314,
+        314
+      ],
+      "actual_read": true,
+      "read_date": "2026-10-08",
+      "data_controls_formula_caption_boundary": "4presetrects/circlesSMIL2.4s;label1024→4096→4096;noMLP/GELU/learnedweights",
+      "local_and_shared_helpers": "el/svgEl; svgEl→normalizeSmilAttrs; select/slider→uid/formattedValue/persistentSVG reconcile→render. multimodal shell/txt/clamp; mm2 wrap/svgFor/txt/anim/cap; llmstack txt/anim/entry/card and onevision local pack. mount uses accessibility and SMIL policy helpers.",
+      "execution": false,
+      "browser_rendered": false
+    },
+    {
+      "id": "mm-patch-n-pack",
+      "provider": "site/figures-multimodal2.js",
+      "function": "patchNPack",
+      "function_range": [
+        29,
+        63
+      ],
+      "register_range": [
+        313,
+        313
+      ],
+      "actual_read": true,
+      "read_date": "2026-10-08",
+      "data_controls_formula_caption_boundary": "presetn4/3/2,9tokens,0padding;SMILmotion;doesnotcomputeimagegrid/mask/attention",
+      "local_and_shared_helpers": "el/svgEl; svgEl→normalizeSmilAttrs; select/slider→uid/formattedValue/persistentSVG reconcile→render. multimodal shell/txt/clamp; mm2 wrap/svgFor/txt/anim/cap; llmstack txt/anim/entry/card and onevision local pack. mount uses accessibility and SMIL policy helpers.",
+      "execution": false,
+      "browser_rendered": false
+    },
+    {
+      "id": "l5-vlm-recipe-knobs",
+      "provider": "site/figures-llmstack5.js",
+      "function": "vlmRecipe",
+      "function_range": [
+        285,
+        313
+      ],
+      "register_range": [
+        502,
+        502
+      ],
+      "actual_read": true,
+      "read_date": "2026-10-08",
+      "data_controls_formula_caption_boundary": "presetheights88/34/60/126/72;SMILbars;notempiricalablation-ranking",
+      "local_and_shared_helpers": "el/svgEl; svgEl→normalizeSmilAttrs; select/slider→uid/formattedValue/persistentSVG reconcile→render. multimodal shell/txt/clamp; mm2 wrap/svgFor/txt/anim/cap; llmstack txt/anim/entry/card and onevision local pack. mount uses accessibility and SMIL policy helpers.",
+      "execution": false,
+      "browser_rendered": false
+    },
+    {
+      "id": "l5-onevision-budget",
+      "provider": "site/figures-llmstack5.js",
+      "function": "onevisionBudget",
+      "function_range": [
+        316,
+        344
+      ],
+      "register_range": [
+        503,
+        503
+      ],
+      "actual_read": true,
+      "read_date": "2026-10-08",
+      "data_controls_formula_caption_boundary": "presetpackrects1/6/12;labels2900,6×729,32×81;SMILopacity;notactualOneVisionpolicy/tokenizer",
+      "local_and_shared_helpers": "el/svgEl; svgEl→normalizeSmilAttrs; select/slider→uid/formattedValue/persistentSVG reconcile→render. multimodal shell/txt/clamp; mm2 wrap/svgFor/txt/anim/cap; llmstack txt/anim/entry/card and onevision local pack. mount uses accessibility and SMIL policy helpers.",
+      "execution": false,
+      "browser_rendered": false
+    },
+    {
+      "id": "mm-mrope-axes",
+      "provider": "site/figures-multimodal2.js",
+      "function": "mropeAxes",
+      "function_range": [
+        104,
+        133
+      ],
+      "register_range": [
+        315,
+        315
+      ],
+      "actual_read": true,
+      "read_date": "2026-10-08",
+      "data_controls_formula_caption_boundary": "presetrotation6s/3.4s/2s;nomatrix/headfrequencies/temporalIDcalculation;time-slow-width-fastcaptionnotuniversal",
+      "local_and_shared_helpers": "el/svgEl; svgEl→normalizeSmilAttrs; select/slider→uid/formattedValue/persistentSVG reconcile→render. multimodal shell/txt/clamp; mm2 wrap/svgFor/txt/anim/cap; llmstack txt/anim/entry/card and onevision local pack. mount uses accessibility and SMIL policy helpers.",
+      "execution": false,
+      "browser_rendered": false
+    }
+  ],
+  "dynamic_entry_resolution": {
+    "actual_read": "lesson.html parseMd figure fence→data-figure;renderLesson→AIFS_loadFigureProviders→mountLessonFigures;build.js quote-ID manifest in declared provider order;LF.register installs functions;later providers can override",
+    "nine_ID_mechanical_register_occurrences": "one actual registered provider for each of these nine; no duplicate override found",
+    "generated_figure_manifest": "not present in pinned tree; producer and consumer read, no build executed",
+    "runtime_boundaries": "shared normalizeSmilAttrs normalizes some indefinite frozen/paint geometry to finite; persistent SVG preserves semantics; reduced-motion/visibility/print controllers manage SMIL; these are UI mechanisms, not model computations"
+  },
+  "current_Study_actual_read": [
+    {
+      "path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/AI 算法基础/感知与多模态专题/03-多模态学习.md",
+      "ranges": [
+        [
+          1,
+          215
+        ]
+      ],
+      "scope": "whole file actual read (file shorter than220)",
+      "already_covers": [
+        "CLIPbidirectionalCE",
+        "pairpositivesfalse-negatives",
+        "SigLIPstablelossdefinition",
+        "templates",
+        "retrievalprotocol"
+      ],
+      "sha256_at_relation_read": "7c3eaf966e35d36b90c364f0b051fc2a44f1aa2fd02f64686840679a313ff216",
+      "read_date": "2026-10-08"
+    },
+    {
+      "path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/AI 算法基础/感知与多模态专题/05-图像表征卷积与视觉训练.md",
+      "ranges": [
+        [
+          430,
+          524
+        ]
+      ],
+      "scope": "ViT/2Dpositions focused actual read; rest only heading search",
+      "already_covers": [
+        "patchConvUnfoldequivalence",
+        "2Dinterpolation",
+        "non-square",
+        "CLS/registerseparation",
+        "MACvsFLOP"
+      ],
+      "sha256_at_relation_read": "27d5f216ef081b26aa2e23395911725792a078a1c36d06e0ec3bada4b451f463",
+      "read_date": "2026-10-08"
+    },
+    {
+      "path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "ranges": [
+        [
+          188,
+          249
+        ],
+        [
+          408,
+          443
+        ]
+      ],
+      "scope": "connector/evidence/performance/source/exercises focused actual read; first large read output had some full OCR/fixture text but not claimed all file",
+      "already_covers": [
+        "MLPbridgeshapegradient",
+        "labelsimage=-100",
+        "realimageevidence",
+        "Qwen3DeepStack/timestamps",
+        "modelfreezevaries",
+        "noAPI/models"
+      ],
+      "sha256_at_relation_read": "f8ef9c15a479cc945f5f9db0ffffcddaa029667f2a748ef051309e84b4db52ae",
+      "read_date": "2026-10-08"
+    },
+    {
+      "path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/AI 算法基础/深度学习专题/04-注意力机制与Transformer.md",
+      "ranges": [
+        [
+          295,
+          371
+        ]
+      ],
+      "scope": "mask/RoPE focused actual read; rest only heading search",
+      "already_covers": [
+        "boolmaskdirection",
+        "allmaskedpolicy",
+        "perheadQK",
+        "norm/commonshift",
+        "pairlayout",
+        "notguaranteedextrapolation"
+      ],
+      "sha256_at_relation_read": "66822ce019b3712ef928c410e42a5062e54bfd7726a8d870bdb32ec1e198b35b",
+      "read_date": "2026-10-08"
+    }
+  ],
+  "independent_learning_gaps_and_landing": [
+    {
+      "gap": "Readout, special tokens and exact encoder/LLM budget",
+      "source_lessons": [
+        "01",
+        "06",
+        "08",
+        "09"
+      ],
+      "landing": "AI 算法基础/感知与多模态专题/05-图像表征卷积与视觉训练.md#8-vitpatch是局部投影位置是显式结构信息",
+      "existing_vs_new": "reuse patch/2Dposition/MAC; add CLSvsmeanvsMAP/configfeaturelayer, actualsmartresize/temporalgroup/spatialmerger and gridvsspecialtoken",
+      "sufficient_learning_evidence_next_stage": [
+        "rectangularshape + CP²scalar/token distinction",
+        "grid729 noCLS SigLIP vs197CLS ViT",
+        "Qwenraw/mergedcountswithactualroundedH/W/T",
+        "oneconventionMAC/FLOPparametercounter"
+      ],
+      "source_default_rankings": "excluded"
+    },
+    {
+      "gap": "Sigmoid normalization and real gradients",
+      "source_lessons": [
+        "02"
+      ],
+      "landing": "AI 算法基础/感知与多模态专题/03-多模态学习.md#3-图文对齐clip与siglip分别学什么",
+      "existing_vs_new": "existing realCLIPgradient and templateprotocol remain; add sigmoidloss sum/N vsN²mean,scale/bias gradient,positivepair masks",
+      "sufficient_learning_evidence_next_stage": [
+        "sameN×NlogitsnormalizationsratioN",
+        "stableextreme logitsfinite",
+        "tower/scale/biasgradient finite andcorrectdirection",
+        "duplicatepositives explicitly modeled"
+      ],
+      "communication_claim": "no invented distributed cost result"
+    },
+    {
+      "gap": "Q-Former three masks, Flamingo gated media reading and frozen-gradient path",
+      "source_lessons": [
+        "03",
+        "04"
+      ],
+      "landing": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据",
+      "existing_vs_new": "extend existing connector section; do not repeat Transformer selfattention math",
+      "sufficient_learning_evidence_next_stage": [
+        "ITC/ITG/ITMmasksandquery/textFFNdiagram",
+        "QFormermaxoverqueriesvsITMmeanlogits",
+        "recent-mediacrossmaskmasked-invariance",
+        "gate0identity/branchgradient/gategradient + separately gatedFFN",
+        "frozenLLMweights no gradient butbridgeinputhasgradient"
+      ],
+      "source_toy_execution": "not done"
+    },
+    {
+      "gap": "Visual instruction stages and exact multimodal sequence assembly",
+      "source_lessons": [
+        "05",
+        "08"
+      ],
+      "landing": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据",
+      "existing_vs_new": "reuse labels=-100 slot example; add variableimage expansion + shiftedassistantonlylabels/positions, historicalrecipe revision distinctions",
+      "sufficient_learning_evidence_next_stage": [
+        "twoimageswithdifferentpatchcounts",
+        "batchpaddingpositionsandimage/system/userlossmask",
+        "end-to-endtinyLMbackwardthroughfrozenweights",
+        "LLaVA7B/13Bdimensionexactparamcases",
+        "historicalstagedpolicyvsPrismaticsinglestagecounterexample"
+      ]
+    },
+    {
+      "gap": "NaViT packing versus NaFlex/AnyRes preprocessing",
+      "source_lessons": [
+        "06"
+      ],
+      "landing": "AI 算法基础/感知与多模态专题/05-图像表征卷积与视觉训练.md#8-vitpatch是局部投影位置是显式结构信息",
+      "secondary_landing": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据",
+      "existing_vs_new": "geometry belongs05; batchmask/packedattention andLLMbudget belong08",
+      "sufficient_learning_evidence_next_stage": [
+        "2rectangularimages+offsets+perimagepositions",
+        "packedblockattentionmatchesseparateattention",
+        "changingotherimagehaszeroeffectandzeroCrossGradient",
+        "paddingexcludedperimageMAP/meanpool",
+        "denseN²vsΣn²theorynotGPUbenchmark",
+        "AnyResgridselect/unpad/newline vs naiveceil estimate"
+      ]
+    },
+    {
+      "gap": "Ablation evidence without invented ranking",
+      "source_lessons": [
+        "07"
+      ],
+      "landing": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据",
+      "existing_vs_new": "addshort controlledexperimentdesign to VLM evaluation; keepmodeltables dated/source-backedonlyif actually checked",
+      "sufficient_learning_evidence_next_stage": [
+        "2×2encoder×datadesign controlsbudget/resolution/token/training",
+        "repeat/significanceandinteraction",
+        "rawmetricsandtaskutilitynotunjustifiedweightedpicker",
+        "MolmoCLIP/fulltrain andPrismaticfreeze/singlestage are concretecounterexamples"
+      ],
+      "not_retained": [
+        "hard-codedvariance115",
+        "universalhuman+2–3MMMU",
+        "connectorneverquality",
+        "2026default/deprecation",
+        "70Bplateau"
+      ]
+    },
+    {
+      "gap": "OneVision budgets and bilinear integer geometry",
+      "source_lessons": [
+        "08"
+      ],
+      "landing": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据",
+      "sufficient_learning_evidence_next_stage": [
+        "floor27/2=13 vsceil14 vs729/4fraction182.25 distinction",
+        "bilinear27→14vsaveragepool13 notsame",
+        "underbudgetplanner rejects impossiblefallback",
+        "text/output/newline/specialtokencountincluded",
+        "paperinternal32×729typo explicitlycorrected"
+      ],
+      "sourceSI_OV_TTmix": "excluded as unverifiedrecipe"
+    },
+    {
+      "gap": "MRoPE and real time, then JSON action contract",
+      "source_lessons": [
+        "09"
+      ],
+      "landing": "AI 算法基础/深度学习专题/04-注意力机制与Transformer.md#17-正弦rope与alibi可计算不等于可靠外推",
+      "secondary_landing": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md#4-vlm连接器的结构与事实证据",
+      "existing_vs_new": "extend per-headRoPE with axes/sectionlayout; consume realvideo times in08 and link existingagentcontracts",
+      "sufficient_learning_evidence_next_stage": [
+        "textthreeaxes=i matches1DRoPE",
+        "imageconstantt andrectangularh/wpositions",
+        "videoQwen2.5absoluteIDs vsQwen3formattedtexttimestamp",
+        "DeepStack multi-depthinjection distinction",
+        "budgetno-feasibleFPS failure + roundedframecount temporalgroup",
+        "JSONschema/tool/coords/sourceimage transform/feedbackguard"
+      ],
+      "no_new_nine_summary_notes": true
+    }
+  ],
+  "read_boundary": {
+    "lesson_files": 45,
+    "nonempty_fully_read": 36,
+    "empty_placeholders_confirmed": 9,
+    "original_exercises_read": 45,
+    "dynamic_functions_actual_read": 9,
+    "source_code_execution": false,
+    "model_API_weights_install_service": false,
+    "Study_modified": false,
+    "Git_or_model_config_modified": false,
+    "source2_5_read": false,
+    "primary_whole_papers_read": false,
+    "source_output_skills": "untrusted source artifacts, not installed or invoked or authority"
+  },
+  "primary_checks": [
+    {
+      "id": "siglip2-paper",
+      "url": "https://arxiv.org/html/2502.14786v1",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "§2.1–2.2 and §2.4.2 text/captions; table surrounding excerpt may be returned but no numeric quality result reused",
+      "facts_checked": "Fixed model learned PE+MAP; NaFlex2D learnedPE interpolation,variabletarget/paddingmask,training128/256/576/784/1024; noself-distillation/maskedpredictioninNaFlexadaptation.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "siglip2-author-config",
+      "url": "https://huggingface.co/google/siglip2-so400m-patch14-384/resolve/main/config.json",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "full config only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          1,
+          28
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-siglip2-config.txt",
+      "retrieved_text_sha256": "2f6b42e6b25cd03e55ff88bbd37ab78f636c59dc4a005e1be66ac435579197fc",
+      "facts_checked": "D1152,I4304,L27,H16,P14,res384;model_typesiglip,notRoPE/register config.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "siglip-official-implementation",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/main/src/transformers/models/siglip/modeling_siglip.py",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "specific implementation excerpts only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          121,
+          192
+        ],
+        [
+          564,
+          650
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-siglip-code.txt",
+      "retrieved_text_sha256": "f6543f3e7e80740980e665c1673d9c4ef06cf5b470bf66f7fc7fd10084ceb69f",
+      "facts_checked": "PatchConvvalid floor,learnedpatchPE,noCLS;vision MAP learnedprobe attends patchtokens thenresidualMLP;poolerdistinctfromlast_hidden_state.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "siglip-author-loss",
+      "url": "https://raw.githubusercontent.com/google-research/big_vision/main/big_vision/trainers/proj/image_text/siglip.py",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "specific implementation excerpts only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          289,
+          316
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-siglip-loss.txt",
+      "retrieved_text_sha256": "1d89559078eab5784ad4692b30eee40053e4db1acbef6395406f2a5eda98fe33",
+      "facts_checked": "log_sigmoid signedlabels;scale+bias;sumalongpairs thenmeanrows gives1/N,notmeanoverN²;value_and_grad realtraining exists in authorcode butnotrun.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "dinov2-author-readout",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov2/main/dinov2/models/vision_transformer.py",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "specific implementation excerpts only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          262,
+          278
+        ],
+        [
+          350,
+          361
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-dinov2-code.txt",
+      "retrieved_text_sha256": "cfb57766be3763c5b69e9c519f7e8839ce865afbba1de0c806bcdf12d9914200",
+      "facts_checked": "forward_features separatesCLS/register/patch outputs;defaultforward useshead(CLS),notmeanpatch.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "register-paper",
+      "url": "https://arxiv.org/html/2309.16588v2",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "Abstract, introduction and §2.1 returned text, not §3 full experiments",
+      "facts_checked": "Highnormbackgroundtokens reusedforinternalcomputation;registersprovideextra learnable slots;densepredictionpossiblewithoutregisters,notmandatoryuniversalqualitycondition.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "blip2-paper",
+      "url": "https://arxiv.org/html/2301.12597v3",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "§3.1–3.3 text,Figure2/3 captions and pretraining settings excerpt",
+      "facts_checked": "Sharedselfattention;32×768queries;task-specificvisibilityITC/ITG/ITM;ITCmax,ITMmeanlogits;Stage2LLMinputsoftprompts withgenerationobjective.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "qformer-author-training",
+      "url": "https://raw.githubusercontent.com/salesforce/LAVIS/main/lavis/models/blip2_models/blip2_qformer.py",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "specific implementation excerpts only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          96,
+          178
+        ],
+        [
+          218,
+          286
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-qformer-code.txt",
+      "retrieved_text_sha256": "307ffd6a7ae0ebb51461cfde5cc1e9a3da8d1f2d2571969ee88e25f33f4ce10e",
+      "facts_checked": "ActualITCquerymax/textCLS,ITMquerylogitmean,captioncausalqueryprefix;multi-positiveimage_id targetoption.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "qformer-author-module",
+      "url": "https://raw.githubusercontent.com/salesforce/LAVIS/main/lavis/models/blip2_models/Qformer.py",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "specific implementation excerpts only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          389,
+          491
+        ],
+        [
+          722,
+          791
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-qformer-model.txt",
+      "retrieved_text_sha256": "f8ae649cad3cbc8e9052cbe5028638afad040ec080d9dc50601bc11e3fcaf299",
+      "facts_checked": "Every-otherblockcrossattention;query/textFFNdistinct;UniLMprefixcausalmask generation rules.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "blip2-frozen-opt-forward",
+      "url": "https://raw.githubusercontent.com/salesforce/LAVIS/main/lavis/models/blip2_models/blip2_opt.py",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "specific implementation excerpts only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          94,
+          95
+        ],
+        [
+          136,
+          167
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-blip2-opt.txt",
+      "retrieved_text_sha256": "7404ac8a08f7129350335ccf1e66080ada68b9c54ee5e0b653f59baeceef8c9a",
+      "facts_checked": "Requires_gradFalseforOPTweights;trainingforwardinputs_embeds concatprojectedqueries,labelsmaskvisual/prompt;no_gradonlygenerationmethod.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "flamingo-original",
+      "url": "https://arxiv.org/html/2204.14198v2",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "§2.1–2.3,AppendixA.1.1–A.1.3,Table4,Table5 and B.1.1/B.1.2 sampled excerpt",
+      "facts_checked": "NFNet-F6,64totaloutputsperimage/video,latent+visualKV,mostrecentmediacrossmask,gatedattention+FFN. Table5 xattn1.6B vsprose1.8B difference flagged. Trains8frames1FPS,inference30frames3FPSwithtemporalPE interpolation; notfixed always1FPS.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "llava-author-readme",
+      "url": "https://raw.githubusercontent.com/haotian-liu/LLaVA/main/README.md",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "specific implementation excerpts only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          295,
+          295
+        ],
+        [
+          316,
+          339
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-llava-readme.txt",
+      "retrieved_text_sha256": "9c041151ca2ffa3bce8b2a4769cbbb740d34ddabc12fa129b2201b609295f30d",
+      "facts_checked": "Two-stageLLaVA1.5alignment558K,freezevision/LLM;MLP2xgelu/CLIP-L14-336;instructionmixture150K+~515K.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "llava13-author-config",
+      "url": "https://huggingface.co/liuhaotian/llava-v1.5-13b/resolve/main/config.json",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "full config only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          1,
+          47
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-llava13-config.txt",
+      "retrieved_text_sha256": "6026583163560af6ff2530b3b7a4dc7027ad4886822a2f88a2500d149319d6a2",
+      "facts_checked": "Hidden5120,vision1024,context4096,MLP2xgelu,visionlayer-2patchfeature,unfreezevisionFalse;13B4096sourcewrong.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "llava15-paper",
+      "url": "https://arxiv.org/html/2310.03744v2",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "§3.3 MLP connector/additionalscaling and Table2 trainingrecipe excerpts",
+      "facts_checked": "Two-layerMLPreplacesoriginallinear;CLIP336+academicdata;not1.5AnyRes/32Kgeneric.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "navit-paper",
+      "url": "https://arxiv.org/html/2307.06304v1",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "§2.1,§2.3 text/figurecaptions and positional discussion excerpt",
+      "facts_checked": "Packusescross-examplemask+maskedperexamplepool,factorized/fractionalPE;fixedsequencegreedypackingremainingpadding;denselongattentionstillcostsN².",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "prismatic-paper",
+      "url": "https://arxiv.org/html/2402.07865v1",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "Abstract,introduction,§4experimentprotocol and§4.1/4.2intro excerpts; no completealltablesread",
+      "facts_checked": "Fouraxes,11taskseval;matchedprotocolcontrolandZscores;single-stage improvedtestedaggregate,visionunfreezedegradedinitssetting. No60/20/5varianceattributionchecked.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "molmo-paper",
+      "url": "https://arxiv.org/html/2409.17146v1",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "§2 architecture,§3caption/SFT and intro excerpts",
+      "facts_checked": "ReleasedmodelsCLIP-L14-336;two-stageallparametertrain;human60–90sspeechcaptiontranscribedandlanguageonlyLLMcleaned;712Kimages≈1.3Mcaption;notsourceSigLIP/universalonlyprojectorfirst.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "onevision-paper",
+      "url": "https://arxiv.org/html/2408.03326v1",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "§3.2,§5,Table1,AppendixC.1/C.2 text and figurecaptions; no completepaper/baselinebenchmarksread",
+      "facts_checked": "ThresholdHigherAnyRes;729base;Stage1projector,1.5fullknowledge,2-SI/OVfull;Max9+base/multi12/video196×≤32. C.1 writes32×729after196/frame;internaltypoexplicitly flagged.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "onevision-author-grid-pooling",
+      "url": "https://raw.githubusercontent.com/LLaVA-VL/LLaVA-NeXT/main/llava/model/llava_arch.py",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "specific implementation excerpts only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          171,
+          200
+        ],
+        [
+          228,
+          269
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-llava_arch.txt",
+      "retrieved_text_sha256": "e8e8f8adb3402035b5cb083a9e33182444afe4415fedf61f05196ba0f71377b8",
+      "facts_checked": "bilinearpoolceilheight/stride14²vsaveragefloor13²at27grid;newlinepergrid/frameextra tokens affect actualpackedcontext.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "onevision-official-converted-config",
+      "url": "https://huggingface.co/llava-hf/llava-onevision-qwen2-7b-ov-hf/resolve/main/config.json",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "full config only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          1,
+          196
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-onevision-config.txt",
+      "retrieved_text_sha256": "13a50a164868e67f38aac1fd5e5d446ed1e3ff03a4c4de8328fd74a3595bf5de",
+      "facts_checked": "D1152/I4304/visionL26/P14/384,vision_use_headFalse,anyres_max_9,newlineparameterTrue;textQwen2-7B D3584; convertedcheckpoint notsame as standaloneSiglip27layers.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "qwen-vl-original",
+      "url": "https://arxiv.org/html/2308.12966v3",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "§2.1 and Table1 input-output excerpt",
+      "facts_checked": "Single-layerposition-awarecrossattnadapter256queries,vision1.9B,notBLIP2QFormer;normalizedboxstring separate from JSONagent.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "qwen25-report",
+      "url": "https://arxiv.org/html/2502.13923v1",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "§2.1/Table1 and§2.1.1–2.1.3 text/figurecaption excerpts",
+      "facts_checked": "ResizeH/Wmultiple28,P14,2framepatch,4spatialpatchMLPmerger;windowmostlayers4fullblocks;MRoPEtextsameIDsallaxes;temporalIDsabsolute time,dynamicFPStraining;nottexttime tags.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    },
+    {
+      "id": "qwen25-author-config",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct/resolve/main/config.json",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "full config only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          1,
+          66
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-qwen25-config.txt",
+      "retrieved_text_sha256": "b1bba5ffd126dc4573cc43f60725761121f9487f4418eafd02eba81d35e041e9",
+      "facts_checked": "VisionD1280/I3420/configdepth32/head16,P14,T2,spatialmerge2;fullblocks7/15/23/31;tokens_per_second2;mrope16/24/24;LLMD3584/head28⇒128. PaperI3456 differsconfig3420; actualrevisionmustchoose.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "qwen25-author-processor-config",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct/resolve/main/preprocessor_config.json",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "full config only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          1,
+          24
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-qwen25-processor.txt",
+      "retrieved_text_sha256": "47683a128e4ef21d9af8d86694bb08a097e4bfadda3774d09676fe0c0f7269c7",
+      "facts_checked": "Pixelmin3136/max12845056,P14,T2,merge2;notgeneric32Kcontextnor81tokens/frame.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "qwen25-official-model-code",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/main/src/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "specific implementation excerpts only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          102,
+          127
+        ],
+        [
+          190,
+          207
+        ],
+        [
+          516,
+          578
+        ],
+        [
+          998,
+          1063
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-qwen25-code.txt",
+      "retrieved_text_sha256": "dc18cc7620123f269663de1b57ab2ea0fbd311f877bd51c208b8abe23d73b4f7",
+      "facts_checked": "Conv3d[T2,P14,P14];spatialmergerRMS+MLP;globalheadinvfreqsectionrecompose,notresetperband;textallaxesIDssame;video usessecond_per_grid_ts×tokens_per_second.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "qwen-official-image-processor-code",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/main/src/transformers/models/qwen2_vl/image_processing_qwen2_vl.py",
+      "authority": "author model config/author repository or official implementation",
+      "checked_on": "2026-10-08",
+      "read_scope": "specific implementation excerpts only",
+      "actual_text_ranges_in_cached_reader_response": [
+        [
+          68,
+          99
+        ],
+        [
+          164,
+          215
+        ]
+      ],
+      "retrieved_text_path": "/tmp/study-vision-primary-qwen-processor-code.txt",
+      "retrieved_text_sha256": "2ba0624f536d9198cac3ae8276fa222b3c36ef800944dd4288c89b4362d0bc58",
+      "facts_checked": "smart_resize factor28 withpixelboundandround/floor/ceil;imagepatchify expandsstillimageT2 andgroupsspatialmerge;video-specificprocessor notread.",
+      "unexecuted": true,
+      "revision_boundary": "URL main is unpinned and time-sensitive; retrieved content digest/date retained; no claim of original paper or release revision equivalence"
+    },
+    {
+      "id": "qwen3-report",
+      "url": "https://arxiv.org/html/2511.21631v1",
+      "authority": "original author paper",
+      "checked_on": "2026-10-08",
+      "read_scope": "Intro and§2.1–2.3,§3.1/Table1 excerpts",
+      "facts_checked": "InterleavedMRoPE,3depthDeepStacktofirst3LLMlayers,explicittexttimestamps replaceabsoluteMRoPEtimeIDs;dynamicSigLIP2with2DRoPE+interpolatedabsolutePE;modelsdense2/4/8/32andMoEs,not72Bnoarchitecturechange.",
+      "whole_paper_read": false,
+      "experiments_reproduced": false
+    }
+  ],
+  "primary_fetch_failures_not_evidence": [
+    {
+      "url": "https://arxiv.org/html/2502.14786v1",
+      "backend": "agent-reach JinaReader",
+      "result": "returned only rep_bias.svg caption, not full requested paper; excluded andweb.run primaryHTMLfallbackused"
+    },
+    {
+      "url": "https://arxiv.org/html/2301.12597v3",
+      "backend": "agent-reach JinaReader",
+      "result": "returned only opt.svg caption; excluded;web.run primaryHTMLfallbackused"
+    },
+    {
+      "url": "https://arxiv.org/html/2402.07865v3",
+      "backend": "web.run",
+      "result": "404; excluded;v1primaryHTMLused"
+    }
+  ],
+  "root_landing_decision_20261008": {
+    "main": "Study/AI 算法基础/感知与多模态专题/16-视觉编码与语言桥接.md (proposed theme filename; not yet created)",
+    "purpose": "One independent learning entrance for encoding→connector→traininglabels→variable-resolution/timebudget→evidence; not nine source summaries",
+    "reuse_existing": [
+      "05 originalpatch/position/ViT mechanisms",
+      "06 SSLandimage retrieval",
+      "03 sharedspace/CLIP/SigLIPsingleauthority",
+      "08 OCR/VQA/response evidence andend-to-endlatency",
+      "Transformer04 perheadRoPE/maskbase"
+    ],
+    "InternVL3": "lesson10read belongsother agent;root may add relevant nativebridge facts to this entrance,notduplicate reading/writes",
+    "proposal_only": true
+  },
+  "independent_program_proposals_not_executed": [
+    {
+      "name": "Stable CLIP/SigLIP contract",
+      "landing": "existing03loss authority +16 crosslink",
+      "input": "N=3 paired nonzero vectors;learnablelogscale,bias;explicitpositivepairmask",
+      "checks": [
+        "CLIPbothdirections/autograd",
+        "SigLIPsum/N vsmeanratioN",
+        "extreme logitsfinite",
+        "tower/scale/biasgradients andpositivepair duplicate"
+      ],
+      "scope": "real gradient smalltensorfixture,notrealimageCLIP"
+    },
+    {
+      "name": "Query bottleneck taskmasks",
+      "landing": "16 QFormer section",
+      "input": "2images×6patch×8D;3query;4text;onecompleteattention+FFNblock",
+      "checks": [
+        "ITC query/textno-leak",
+        "ITGqueryno-text,textquery+past",
+        "ITMallbidirectional",
+        "queryvs textFFNseparate",
+        "maxqueryITC vsITMmeanlogit"
+      ],
+      "scope": "smallarchitecturallydeclared prototype;not188M pretrainedBLIP2"
+    },
+    {
+      "name": "Perceiver and gated media reader",
+      "landing": "16 Flamingo section",
+      "input": "2mediaobjects;one2framevideo;fixed3latent;frozenLMblock",
+      "checks": [
+        "visual+latentKV resampling",
+        "latentcountnotframes×3",
+        "recentmediamask changinghiddenmedia no directeffect",
+        "allmasked policy",
+        "crossattnandFFNzerogateidentity",
+        "branchgrad0/gategradmaynonzero"
+      ],
+      "scope": "two genuinely gated branches +frozenweightinputgradient;nofewshotquality"
+    },
+    {
+      "name": "Variable multimodal prompt and frozen-LM learning",
+      "landing": "16 instruction section",
+      "input": "twoimagesdifferentvisualcounts;system/user/twoassistantturns;batchpadding",
+      "checks": [
+        "placeholder expansionnotstringreplacement",
+        "labelsimage/system/user/pad=-100",
+        "shiftedassistanttargetalignment",
+        "attention/position/embeddingcountsconsistent",
+        "lossbackproptoMLPthroughfrozenLM,LMweightsunchanged"
+      ],
+      "scope": "complete tiny decodertraininggraph;notrealcaptionmodel"
+    },
+    {
+      "name": "Rectangular pack and perimage pooling",
+      "landing": "16 packing section;05 geometry link",
+      "input": "2rectangularRGBfixtures;knownpatchorder/positions;cuoffsets;onepaddedslot",
+      "checks": [
+        "patchvalues not onlylengths",
+        "packedblockattention equals separateattention",
+        "crossimageperturbation+gradient independence",
+        "maskedperimagepool excludespad",
+        "declaredN²/Σn²costcounter"
+      ],
+      "scope": "CPU NumPy/Torch denseequivalence;noFlashperformanceclaim"
+    },
+    {
+      "name": "Processor and LLM budget accounting",
+      "landing": "16 resolution/budget section",
+      "input": "explicitround/crop/padpolicy,P,T,spatialmerge;singleimage/multiimage/video;outputreservation",
+      "checks": [
+        "rawpatch vsmergedLLMcounts",
+        "special/newline/text/outputbudgetseparate",
+        "invalidzero/oddT/pixelcapcases",
+        "no-plan neveroversizedfallback",
+        "SigLIP729 vsOneVision196grid vsQwenmergecounts"
+      ],
+      "scope": "deterministicgeometrycontract,notdecoder/realprocessorreplication"
+    },
+    {
+      "name": "Bilinear and average geometry counterexample",
+      "landing": "16 OneVision section",
+      "input": "known24×24 evengrid and27×27 oddgrid",
+      "checks": [
+        "24→12 alignednoAA optionalaverageequivalence",
+        "27→14bilinear vs27→13avgdifferent",
+        "floor vsceilnotfraction729/4",
+        "align_corners/antialias explicitlydeclared"
+      ],
+      "scope": "actualmathsmallfeaturegrid;notaccuracygain"
+    },
+    {
+      "name": "Head-wise MRoPE and sampletime/JSON contract",
+      "landing": "16 time/agentinterface +Transformer04base link",
+      "input": "D_head=128,section16/24/24,base1e6;knowntext/image/video positions;plannedvsactualframetimes;toyactionpayload",
+      "checks": [
+        "globalfreqpartitionnotbandreset",
+        "textallaxes=i equals1DRoPE",
+        "axisnorm/commontranslation",
+        "Qwen2.5absoluteID vsQwen3texttimestampclear",
+        "FPS infeasible/roundedframes/groupedT budget",
+        "JSONdictschema/toolallowlist/finitebounds/sourcecoordinate revision"
+      ],
+      "scope": "math/contractfixtures;noactualvideodecode/tool execution/agent success"
+    }
+  ],
+  "mechanical_final_check": {
+    "checked_on": "2026-10-08",
+    "git_HEAD_matches": true,
+    "45_SOURCE_SHA_and_HEAD_blob_match": true,
+    "reading_ranges_legal": true,
+    "nine_dynamics_present": true,
+    "original_exercises": 45,
+    "primary_checks": 27,
+    "execution": false,
+    "acceptance_count_unchanged": 223
+  },
+  "根读取阶段核对": {
+    "日期": "2026-10-08",
+    "原只读临时记录SHA256": "443d6986bfeb9ba23a4cd3131ef2a38fc2c54d83c0de64786505eb98efd8221b",
+    "固定提交HEAD与逐文件SHA256/GitBlob": "通过",
+    "范围说明": "本组课件全文读取、注册图意与必要一手定点核验；非整篇Further Reading论文或原实验复现",
+    "后续": "正式正文融合、最终代码及根语义验收正在进行；未计入累计223",
+    "根代理动作": "确定性逐文件完整性核验、读取报告的覆盖/纠错/边界与学习落点；不宣称根代理重新完整读全25份来源正文"
+  },
+  "后续融合与验收": "课件读取阶段保留原边界和日期；正式正文及代码/整批结果见12-多模态统一检查.json，不将读取snapshot改写为原论文实验完成。"
+}

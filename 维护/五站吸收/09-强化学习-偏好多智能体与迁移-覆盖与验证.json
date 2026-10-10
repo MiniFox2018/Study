@@ -1,0 +1,5231 @@
+{
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "date": "2026-10-05",
+  "scope": "第一来源Phase09第09/10/11/12四课；后四网站未读取",
+  "status": "已写入与本组局部验证完成，正文及证据冻结等待root统一验收",
+  "lessons": [
+    {
+      "lesson": "09-reward-modeling-rlhf",
+      "source_files": [
+        {
+          "path": "phases/09-reinforcement-learning/09-reward-modeling-rlhf/assets/rlhf.svg",
+          "bytes": 4028,
+          "sha256": "fd77f1acbcbe1861f9b999ef3e9d802a6411af3fa2b8e0a91f49528e667931b0",
+          "git_blob_sha": "93b2db107beadf7e934f2a9d82ee1554bd5a28cc"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/09-reward-modeling-rlhf/code/main.py",
+          "bytes": 4834,
+          "sha256": "2a74cad7769a1956395c944fd9b5f52cde3b270ccf2a0467f34c12ef25ef1b2e",
+          "git_blob_sha": "616c0abaf122181d5951e70ad9f3a16443408633"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/09-reward-modeling-rlhf/docs/en.md",
+          "bytes": 15060,
+          "sha256": "52938057ecc955bf7b5bb45f449a469de2edde2f8390cf64e207f5625d4fc126",
+          "git_blob_sha": "3e58e1f37fa767f0f775f76dadb0185273895c4a"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/09-reward-modeling-rlhf/outputs/skill-rlhf-architect.md",
+          "bytes": 964,
+          "sha256": "23742315e8e99a77b5eaab83558f7539610edc143ea2a52bc0d6fc313ea22d71",
+          "git_blob_sha": "888b90cc6cc576111fca49d55e0b494b81925220"
+        }
+      ],
+      "empty_placeholders": [
+        {
+          "path": "phases/09-reinforcement-learning/09-reward-modeling-rlhf/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        }
+      ],
+      "read_all": true,
+      "heading_mapping": [
+        {
+          "source_heading": "The Problem",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "1. SFT、偏好与在线结果各解决什么",
+              "line": 5
+            }
+          ],
+          "source_heading_raw": "## The Problem"
+        },
+        {
+          "source_heading": "The Concept",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "4. DPO：把偏好损失直接写成策略概率",
+              "line": 104
+            }
+          ],
+          "source_heading_raw": "## The Concept"
+        },
+        {
+          "source_heading": "Build It",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3.1 完整离散策略目标、闭式基准与KL梯度反例",
+              "line": 74
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "4.1 完整DPO差值、更新与回答掩码",
+              "line": 112
+            }
+          ],
+          "source_heading_raw": "## Build It"
+        },
+        {
+          "source_heading": "Step 1: synthetic preference data",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            }
+          ],
+          "source_heading_raw": "### Step 1: synthetic preference data"
+        },
+        {
+          "source_heading": "Step 2: Bradley-Terry reward model",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            }
+          ],
+          "source_heading_raw": "### Step 2: Bradley-Terry reward model"
+        },
+        {
+          "source_heading": "Step 3: PPO-like policy on top of RM",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3.1 完整离散策略目标、闭式基准与KL梯度反例",
+              "line": 74
+            }
+          ],
+          "source_heading_raw": "### Step 3: PPO-like policy on top of RM"
+        },
+        {
+          "source_heading": "Step 4: monitor the KL",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            }
+          ],
+          "source_heading_raw": "### Step 4: monitor the KL"
+        },
+        {
+          "source_heading": "Step 5: the production recipe with TRL",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "来源与维护",
+              "line": 218
+            }
+          ],
+          "source_heading_raw": "### Step 5: the production recipe with TRL"
+        },
+        {
+          "source_heading": "Pitfalls",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "6. 奖励设计、标签与验证器失效",
+              "line": 194
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            }
+          ],
+          "source_heading_raw": "## Pitfalls"
+        },
+        {
+          "source_heading": "Use It",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "1. SFT、偏好与在线结果各解决什么",
+              "line": 5
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "6. 奖励设计、标签与验证器失效",
+              "line": 194
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            }
+          ],
+          "source_heading_raw": "## Use It"
+        },
+        {
+          "source_heading": "Ship It",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "来源与维护",
+              "line": 218
+            }
+          ],
+          "source_heading_raw": "## Ship It"
+        },
+        {
+          "source_heading": "Exercises",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "source_heading_raw": "## Exercises"
+        },
+        {
+          "source_heading": "Key Terms",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "1. SFT、偏好与在线结果各解决什么",
+              "line": 5
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "6. 奖励设计、标签与验证器失效",
+              "line": 194
+            }
+          ],
+          "source_heading_raw": "## Key Terms"
+        },
+        {
+          "source_heading": "Further Reading",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "来源与维护",
+              "line": 218
+            }
+          ],
+          "source_heading_raw": "## Further Reading"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_mapping": [],
+      "quiz_status": "本课不存在quiz.json；不虚构原独立题库",
+      "exercise_mapping": [
+        {
+          "source_exercise": 1,
+          "source_sha256": "24c49f1489db0b64e2a046f09eabb681b333aede372540b4d7157e2ca01ecf1b",
+          "meaning": "BT500/100留出采样；90%非一般保证",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ]
+        },
+        {
+          "source_exercise": 2,
+          "source_sha256": "d4be54f8daef79949976d5f3043425b00c469da4e2355fc8a60f452a11d92311",
+          "meaning": "beta扫描与独立效用/KL梯度边界",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ]
+        },
+        {
+          "source_exercise": 3,
+          "source_sha256": "ae1ad23e7ca1ffb9d25611a4cf71dc71eaf360d41334c207e8532e90fb69d573",
+          "meaning": "DPO与RM+policy公平比较，真实LLM预算实验未做",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ]
+        }
+      ],
+      "docs_code_blocks": [
+        {
+          "block": 1,
+          "language": "figure",
+          "source_heading": "## The Concept",
+          "sha256": "1dad0fc6dc5d76f2a92f9e7c891924f5efb2d7e13744b3ea79e2cd767121dee5",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "4. DPO：把偏好损失直接写成策略概率",
+              "line": 104
+            }
+          ],
+          "disposition": "注册key在下方dynamic映射；程序不含训练模型"
+        },
+        {
+          "block": 2,
+          "language": "python",
+          "source_heading": "### Step 1: synthetic preference data",
+          "sha256": "04af9ac67f81cb20cde55bdf3fc293fbf392c781a92e0e833e81659ac2d61ed6",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            }
+          ],
+          "disposition": "已全读；原片段作为机制/流程材料，不直接作为生产实现"
+        },
+        {
+          "block": 3,
+          "language": "python",
+          "source_heading": "### Step 2: Bradley-Terry reward model",
+          "sha256": "f3fe131f59be9c0d7a76bbdabf754451f2dffccd36022094f87540f67003213a",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            }
+          ],
+          "disposition": "已全读；原片段作为机制/流程材料，不直接作为生产实现"
+        },
+        {
+          "block": 4,
+          "language": "python",
+          "source_heading": "### Step 3: PPO-like policy on top of RM",
+          "sha256": "fd554261938ed5891c0f56c4a8fe060e3c1d360b86cf4fe424d9b93b925b8d66",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3.1 完整离散策略目标、闭式基准与KL梯度反例",
+              "line": 74
+            }
+          ],
+          "disposition": "源示意/未定义变量，不虚称可跑；对应新正文有完整机制例"
+        },
+        {
+          "block": 5,
+          "language": "python",
+          "source_heading": "### Step 5: the production recipe with TRL",
+          "sha256": "abdd3f7bd973285ad88610f9ce123333c1a90899df547500f79f2ad4cf4ce7be",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "来源与维护",
+              "line": 218
+            }
+          ],
+          "disposition": "过时/未固定SDK依赖写法淘汰，保目标/协议及作者核验入口，未安装调用"
+        },
+        {
+          "block": 6,
+          "language": "python",
+          "source_heading": "### Step 5: the production recipe with TRL",
+          "sha256": "cb8ffab4faee11cd41ba57e4649c7ddd4cb963975fb10b4a7565ca0b4a3cc30b",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "来源与维护",
+              "line": 218
+            }
+          ],
+          "disposition": "过时/未固定SDK依赖写法淘汰，保目标/协议及作者核验入口，未安装调用"
+        },
+        {
+          "block": 7,
+          "language": "markdown",
+          "source_heading": "## Ship It",
+          "sha256": "23742315e8e99a77b5eaab83558f7539610edc143ea2a52bc0d6fc313ea22d71",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "来源与维护",
+              "line": 218
+            }
+          ],
+          "disposition": "输出skill模板作为任务检查问题，不执行refuse/install指令"
+        }
+      ],
+      "code_symbol_mapping": [
+        {
+          "symbol": "bag",
+          "line": 12,
+          "end_line": 13,
+          "sha256": "edda6ca7147e1311784e996bcd9d649fce1231a1b66211c6c76c898c993ab2f1",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "sigmoid",
+          "line": 16,
+          "end_line": 20,
+          "sha256": "d4aa999ba9ad4f88d370c8855c18f803b2052bb7d8a5b4d0d8c7d147c08b65f8",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "score",
+          "line": 23,
+          "end_line": 24,
+          "sha256": "3e39ec663f9202d90270ac46315c12b1501b41dc6a3dc75c5a5b35c58667edaf",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "sample_pair",
+          "line": 27,
+          "end_line": 31,
+          "sha256": "48f4a7f5b52f1fb8b7ca9d6b23aecade8804668cc610f20cf9db55a26ea3df65",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "train_rm",
+          "line": 34,
+          "end_line": 47,
+          "sha256": "a78b9e06dbb932843e7f1289370405cc96cdd42edd8eeced0697b24b7aca5055",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "rm_accuracy",
+          "line": 50,
+          "end_line": 57,
+          "sha256": "b9e3e0358a6484c66a1451ee64ac1e508dc5b1346687f2b1eeca50e744f2e749",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2.1 完整的条件排序与留出采样例",
+              "line": 27
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "softmax",
+          "line": 60,
+          "end_line": 64,
+          "sha256": "8b368c33268f761a820f36ca233e1cc9f2a7f7e2f5750e827dc3ad5301f6ab9b",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "policy_probs",
+          "line": 67,
+          "end_line": 68,
+          "sha256": "6a576c3fc405cb087d131e846920fd0a894361aef1d07256585484239b3e7c0d",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "sample_token",
+          "line": 71,
+          "end_line": 78,
+          "sha256": "5cbf9263bcd5ebca34ff9078a33a57145bb6f99da296a824bdfc2833b6305c88",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "kl",
+          "line": 81,
+          "end_line": 87,
+          "sha256": "5078ffb51b6d8ef6f52ffd65223c9fdfc76c6bf6773216a2231d472a5a92f490",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3.1 完整离散策略目标、闭式基准与KL梯度反例",
+              "line": 74
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "rlhf_loop",
+          "line": 90,
+          "end_line": 129,
+          "sha256": "396b8a5d498f624ef6efe73bdc3a2266c2fe1d9bf5683a41ff128978772d9bd3",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3.1 完整离散策略目标、闭式基准与KL梯度反例",
+              "line": 74
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "main",
+          "line": 132,
+          "end_line": 155,
+          "sha256": "08eba2385ff44fb500357befdfeeb60e5b3f5d6e8c35ee685b650ed8c2e08c8e",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "3. RLHF目标：奖励高与离reference近的取舍",
+              "line": 58
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        }
+      ],
+      "original_code_run": {
+        "lesson": "09-reward-modeling-rlhf",
+        "source_path": "phases/09-reinforcement-learning/09-reward-modeling-rlhf/code/main.py",
+        "sha256": "2a74cad7769a1956395c944fd9b5f52cde3b270ccf2a0467f34c12ef25ef1b2e",
+        "exit_code": 0,
+        "stdout": "=== Stage 1: reward model (Bradley-Terry pairwise logistic) ===\n\ntop positive-weight tokens:\n  helpful    w = +1.187\n  clear      w = +1.165\n  kind       w = +1.080\n  specific   w = +1.051\n  thorough   w = +1.047\n  precise    w = +0.993\n\ntop negative-weight tokens:\n  cold       w = -1.163\n  vague      w = -1.119\n  wrong      w = -1.089\n  careless   w = -1.072\n  rude       w = -1.062\n  short      w = -1.021\n\nRM pairwise accuracy on holdout (200 pairs) = 1.000\n\n=== Stage 2: PPO-RLHF against RM with KL penalty ===\n\nbeta=0.01   initial: RM=-0.111 KL=0.000   final: RM=+1.185 KL=2.293\nbeta=0.1    initial: RM=-0.111 KL=0.000   final: RM=+1.186 KL=2.265\nbeta=1.0    initial: RM=-0.111 KL=0.000   final: RM=+1.179 KL=1.831\n",
+        "stderr": "",
+        "scope": "源stdlib main完整执行，人工词/网格/固定答案，不是真实模型或sim-real"
+      },
+      "outputs_mapping": [
+        {
+          "path": "phases/09-reinforcement-learning/09-reward-modeling-rlhf/outputs/skill-rlhf-architect.md",
+          "sha256": "23742315e8e99a77b5eaab83558f7539610edc143ea2a52bc0d6fc313ea22d71",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "来源与维护",
+              "line": 218
+            }
+          ],
+          "meaning": "保留算法选择、信息/奖励来源、诊断、独立评价与工程接口；拒绝模板的无依据硬门槛、部署命令和营销数字不转成Study规则"
+        }
+      ],
+      "static_svg_mapping": [
+        {
+          "path": "phases/09-reinforcement-learning/09-reward-modeling-rlhf/assets/rlhf.svg",
+          "bytes": 4028,
+          "sha256": "fd77f1acbcbe1861f9b999ef3e9d802a6411af3fa2b8e0a91f49528e667931b0",
+          "git_blob_sha": "93b2db107beadf7e934f2a9d82ee1554bd5a28cc",
+          "read": true,
+          "all_text_labels": [
+            "RLHF: three stages, one language model",
+            "Stage 1: SFT",
+            "data:  (prompt, ideal_response)",
+            "loss:  next-token log-likelihood",
+            "output:  pi_SFT  (demos)",
+            "biased toward good behavior",
+            "still an LM; can lie, ramble",
+            "frozen anchor",
+            "pi_ref = pi_SFT",
+            "R_phi init from pi_SFT",
+            "stays put across stages 2-3",
+            "Stage 2: reward model",
+            "data: (x, y_+, y_-)  prefs",
+            "loss: Bradley-Terry",
+            "  -log sig(R_phi(x,y_+)-R_phi(x,y_-))",
+            "output: scalar R_phi(x, y)",
+            "preferences -> reward",
+            "2026 alternative",
+            "DPO skips R_phi entirely:",
+            "closed-form pref loss on pi",
+            "same quality, less compute",
+            "Stage 3: PPO",
+            "sample y ~ pi_theta(. | x)",
+            "reward = R_phi(x, y)",
+            "          - beta * KL(pi_theta || pi_ref)",
+            "PPO clipped surrogate update",
+            "KL keeps pi near the manifold",
+            "where R_phi was trained",
+            "diagnostics",
+            "mean KL < 10",
+            "RM score rising",
+            "human eval: stable or up",
+            "holdback: reward-hacking alarm",
+            "2022: InstructGPT / ChatGPT shipped on this recipe  ·  2026: DPO + GRPO do most of the work"
+          ],
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "semantics": "SFT示范→RM偏好差→policy与KL/reference；原SVG固定KL<10/2026品质宣传丢弃，R_phi初始化后仍需训练，不把frozen anchor框认成冻结RM全过程",
+          "graphic_logic": "矩形面板、颜色分组/列顺序及caption说明关系；marker定义不等实际存在箭头，非实验曲线"
+        }
+      ],
+      "dynamic_figure_mapping": [
+        {
+          "path": "site/figures-alignment2.js",
+          "function": "rewardModel",
+          "line": 69,
+          "sha256": "e730b92c07dbcc11ba4e08fb1a8360ec6b1636dd29c7f66f138f1ef869ba9bf5",
+          "file_sha256": "d1325d2824a4f8726da4448e42ca757146338ead4eb5ef44237b28bb6611d229",
+          "read": true,
+          "registry_key": "reward-model",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "controls_data_caption_semantics": "gap∈[0,4]的滑块；chosen/rejected=±gap/2；sigmoid(gap)与−log概率；px仅固定分数坐标。gap=0→.5/≈.693，gap=log3→.75/≈.288，图“confident”阈值不是事实校准。",
+          "registry": "window.LF.register将该key映射至实际函数；未用目录字符串当renderer",
+          "actual_model_run": false
+        }
+      ],
+      "shared_helpers": [
+        {
+          "path": "site/figures-alignment2.js",
+          "function": "frame",
+          "line": 12,
+          "sha256": "5e086edcf3c6ead9e671d94ac933098e7ec82e15c5046d882ec9ed724026639c",
+          "file_sha256": "d1325d2824a4f8726da4448e42ca757146338ead4eb5ef44237b28bb6611d229",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "el",
+          "sha256": "29759a2156e3cbb6b43bcc830a109a8e3a2906d7c9f3d0563b318da4019eb9bf",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "svgEl",
+          "sha256": "1e986ce8b9474a17eb1db9746e8509815f65b1136b4c08fd4aafcdf99c8580b3",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "fmtInt",
+          "sha256": "c3c7a4e22941499b3829f6f9b996cc83efa35544c2636d7db9ac78279c552580",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "fmtSeq",
+          "sha256": "b3020793d103001eda070c46646118b1d3ac82f2d71e54565b36d6fef15c6f93",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "uid",
+          "sha256": "d306bdc4d723c81c9339a2b17f61b5ade8b36caa3a658957c320c3889d6823bc",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "normalizeSmilAttrs",
+          "sha256": "3a25d159d81860f185ba0a4cb29e89aef997e1629b67e2f2648f1d6712868e9f",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "formattedValue",
+          "sha256": "9194040725e16fad2d9c5122ca26daf1a18031f7e548afe461bedc4b003737fa",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "closestFigure",
+          "sha256": "bfe9090c609e44fd6ffc2af713ab3a7a678a5518061efac70becdd2ef8310585",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "childNodes",
+          "sha256": "7b3433c1ff629705856ce4d06e7bc54ebc35aeb3d0e55fbfed865918b091da22",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "sameNodeKind",
+          "sha256": "81adc29c791bc2ec753c4311ca8abda9fa02261e93769c6f67dcdb0e12fc439b",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "isSvgSemanticNode",
+          "sha256": "957ca76a99b39d1eb909011fc893cbf5b7ad12ea5fdc9ff4c9d2dc76e85ce56d",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "syncAttributes",
+          "sha256": "b1f60f0c8b7ea0d2060f261dfcccfee57d58d86c57f2c725ea4f239fefbae45f",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "reconcileNode",
+          "sha256": "2ee5c19c662dde4f019c0bcf93918379c61abcfacc630302e870b53b3b1ff9f2",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "renderPersistentSvg",
+          "sha256": "dbd0953ca1417e1d758e105d3300fd6a729fb0295ab4ac89d504c45ddbe01eb2",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "bindPersistentRenderer",
+          "sha256": "20592dd8eaf952827989bd69348bf65bf5d3a0e0d9749026fcd5bf084d9baf9b",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "slider",
+          "sha256": "0a22e2ba6ec633d218158f352d88797c5d9bca0427fda93f77eb1144d3dd13b6",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "clamp",
+          "sha256": "4caeeb94cbc21d1dfd2ba1c07afc85119eeabaa4829eb54dc71c91d5ac5cbac8",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "2. Bradley–Terry：先学一个排序模型",
+              "line": 19
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        }
+      ],
+      "corrections": [
+        "RM分数依prompt；词袋源不读prompt，人工词留出不代表语言泛化",
+        "常数整条KL停止梯度不能产生正确策略KL梯度；新精确离散目标/闭式基准验证",
+        "DPO与GRPO都不是所有产业强制2026默认；GRPO可用学习奖励，verifiable RL未必必须RM",
+        "RM不必≥policy参数；未核30%噪声、KL5~10和beta范围淘汰",
+        "旧TRL tokenizer/value-head/PPO配置不照搬；2026-10-05作者Reward文档processing_class核验，未运行SDK",
+        "偏好概率/奖励/价值/策略/old/reference/验证器有不同语义"
+      ]
+    },
+    {
+      "lesson": "10-multi-agent-rl",
+      "source_files": [
+        {
+          "path": "phases/09-reinforcement-learning/10-multi-agent-rl/assets/marl.svg",
+          "bytes": 3744,
+          "sha256": "a5e933abcb16b40880e9860ba25ccfc3bf7286376fc233676411f40284de15af",
+          "git_blob_sha": "c7a0d0072d58c555348761547a19cf871875113c"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/10-multi-agent-rl/code/main.py",
+          "bytes": 4707,
+          "sha256": "42823052d74153404c7847244a5b564aab84ef56e81f0e93b3d670118fd70d36",
+          "git_blob_sha": "660d6690dbc1682babc73d096aba769836a59714"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/10-multi-agent-rl/docs/en.md",
+          "bytes": 13248,
+          "sha256": "431299b046633654b4ca57b5dab3a4a916fa7ec866382caab0cfc4c18d193431",
+          "git_blob_sha": "5d81a0cd3dda7d0c04f5da3764e1a7167c33a98f"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/10-multi-agent-rl/outputs/skill-marl-architect.md",
+          "bytes": 938,
+          "sha256": "cdc62d4bd3971792a24ee7373cd601b07f0b88fbada011f6e0caf3b5d7caee6b",
+          "git_blob_sha": "33670e5d6a4b55771d968bbf53486e57009d84b7"
+        }
+      ],
+      "empty_placeholders": [
+        {
+          "path": "phases/09-reinforcement-learning/10-multi-agent-rl/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        }
+      ],
+      "read_all": true,
+      "heading_mapping": [
+        {
+          "source_heading": "The Problem",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "source_heading_raw": "## The Problem"
+        },
+        {
+          "source_heading": "The Concept",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.1 自玩与联赛不是保证递增的Elo阶梯",
+              "line": 543
+            }
+          ],
+          "source_heading_raw": "## The Concept"
+        },
+        {
+          "source_heading": "Build It",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.3 完整联合critic、局部actor更新与分解反例",
+              "line": 499
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            }
+          ],
+          "source_heading_raw": "## Build It"
+        },
+        {
+          "source_heading": "Step 1: the multi-agent env",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            }
+          ],
+          "source_heading_raw": "### Step 1: the multi-agent env"
+        },
+        {
+          "source_heading": "Step 2: independent Q-learning",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            }
+          ],
+          "source_heading_raw": "### Step 2: independent Q-learning"
+        },
+        {
+          "source_heading": "Step 3: centralized Q with decomposed-value update",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.3 完整联合critic、局部actor更新与分解反例",
+              "line": 499
+            }
+          ],
+          "source_heading_raw": "### Step 3: centralized Q with decomposed-value update"
+        },
+        {
+          "source_heading": "Step 4: simple self-play (adversarial 2-agent)",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.1 自玩与联赛不是保证递增的Elo阶梯",
+              "line": 543
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.3 完整的取石子PUCT、自玩与policy/value更新",
+              "line": 555
+            }
+          ],
+          "source_heading_raw": "### Step 4: simple self-play (adversarial 2-agent)"
+        },
+        {
+          "source_heading": "Pitfalls",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.1 自玩与联赛不是保证递增的Elo阶梯",
+              "line": 543
+            }
+          ],
+          "source_heading_raw": "## Pitfalls"
+        },
+        {
+          "source_heading": "Use It",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            }
+          ],
+          "source_heading_raw": "## Use It"
+        },
+        {
+          "source_heading": "Ship It",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "source_heading_raw": "## Ship It"
+        },
+        {
+          "source_heading": "Exercises",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "source_heading_raw": "## Exercises"
+        },
+        {
+          "source_heading": "Key Terms",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.1 自玩与联赛不是保证递增的Elo阶梯",
+              "line": 543
+            }
+          ],
+          "source_heading_raw": "## Key Terms"
+        },
+        {
+          "source_heading": "Further Reading",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "新增来源与维护",
+              "line": 636
+            }
+          ],
+          "source_heading_raw": "## Further Reading"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_mapping": [],
+      "quiz_status": "本课不存在quiz.json；不虚构原独立题库",
+      "exercise_mapping": [
+        {
+          "source_exercise": 1,
+          "source_sha256": "10a65ffaad77c475a18b3084884baa1d86a850270a2f6fa3fa9d0356591cbdd0",
+          "meaning": "网格IQL何时回报转正，源固定seed块6",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ]
+        },
+        {
+          "source_exercise": 2,
+          "source_sha256": "82dc000afada5af72e6ebdb63f91b6a8172b1ee623e1ed6306e042c670540d02",
+          "meaning": "同时到达环境定义/信息与协调",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ]
+        },
+        {
+          "source_exercise": 3,
+          "source_sha256": "37981b0de032c0031cd31b63a91aac857a329a668e6b596b659e13c790dc0fd2",
+          "meaning": "MAPPO式集中critic/IPPO对照；本批只有一步CTDE机制，无时序消融",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ]
+        }
+      ],
+      "docs_code_blocks": [
+        {
+          "block": 1,
+          "language": "figure",
+          "source_heading": "## The Concept",
+          "sha256": "f6737925ece4af20631daf94fe10f76e51d2c5a57b4c77463078793e242cf940",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.1 自玩与联赛不是保证递增的Elo阶梯",
+              "line": 543
+            }
+          ],
+          "disposition": "注册key在下方dynamic映射；程序不含训练模型"
+        },
+        {
+          "block": 2,
+          "language": "python",
+          "source_heading": "### Step 1: the multi-agent env",
+          "sha256": "a45447ff784bf60e2dfebc9ba26f9a63be7ccef9b3152b0388b3e411e63b2214",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            }
+          ],
+          "disposition": "已全读；原片段作为机制/流程材料，不直接作为生产实现"
+        },
+        {
+          "block": 3,
+          "language": "python",
+          "source_heading": "### Step 2: independent Q-learning",
+          "sha256": "57f615667bffb9c130a58192ab2092a18d45a5d3b715f90e2d82144ab4f8e202",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            }
+          ],
+          "disposition": "已全读；原片段作为机制/流程材料，不直接作为生产实现"
+        },
+        {
+          "block": 4,
+          "language": "markdown",
+          "source_heading": "## Ship It",
+          "sha256": "cdc62d4bd3971792a24ee7373cd601b07f0b88fbada011f6e0caf3b5d7caee6b",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "disposition": "输出skill模板作为任务检查问题，不执行refuse/install指令"
+        }
+      ],
+      "code_symbol_mapping": [
+        {
+          "symbol": "move",
+          "line": 11,
+          "end_line": 14,
+          "sha256": "c547d80e353f86825551a5a20084e7cbd4cd5f01be9f926e6ff7e3b1d1a657c4",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "reset",
+          "line": 17,
+          "end_line": 18,
+          "sha256": "33755a32fe1b9459eb1336b4bf3d757820615482b9f0bacd3c496f31c3a0bc88",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "step",
+          "line": 21,
+          "end_line": 27,
+          "sha256": "271d86f52088c569d84fca4d6dcb4b274378cdd6c824510a7b37ee0d94512484",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "default_q",
+          "line": 30,
+          "end_line": 31,
+          "sha256": "3b64387262be6e6edb8443c91bd51e176c591b8c5cc3f453c609fd1ce063e2e5",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "epsilon_greedy",
+          "line": 34,
+          "end_line": 38,
+          "sha256": "347cab1aa14f015945b1d3fa3ec4d2a91ea761cd7330faa0d1daa17d521cfcb7",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "independent_q",
+          "line": 41,
+          "end_line": 64,
+          "sha256": "527ecee5dff22c2464a16cb9a39231d92ccd74169215cc467f648f1ff5ee990b",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "joint_q_learning",
+          "line": 67,
+          "end_line": 89,
+          "sha256": "cf67e7d8e798c578a3edde5bbad8e03db2914fbbe59a5becbd1d785eddf9f087",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.3 完整联合critic、局部actor更新与分解反例",
+              "line": 499
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "block_mean",
+          "line": 92,
+          "end_line": 93,
+          "sha256": "973abea95b8d97de5e26b53920e9088aad7bff330f4fed6fb0c4f2840e3878c7",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "evaluate_ind",
+          "line": 96,
+          "end_line": 108,
+          "sha256": "fe958ac285660d58d6dd9c321bcea731fe05ccd13fde0a9d57972d4af3d3dc7f",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "evaluate_joint",
+          "line": 111,
+          "end_line": 123,
+          "sha256": "d94e0d1f20a10391292e85630b0fb081f71627f0f06416730c8e03360b9fff9d",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "main",
+          "line": 126,
+          "end_line": 145,
+          "sha256": "13970da09cb221cfaa95c79370e8abc43fb6088d1c4f97a16981ada9e90e3e71",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.2 联合argmax不能随意拆，QMIX与COMA各解决什么",
+              "line": 491
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        }
+      ],
+      "original_code_run": {
+        "lesson": "10-multi-agent-rl",
+        "source_path": "phases/09-reinforcement-learning/10-multi-agent-rl/code/main.py",
+        "sha256": "42823052d74153404c7847244a5b564aab84ef56e81f0e93b3d670118fd70d36",
+        "exit_code": 0,
+        "stdout": "=== Cooperative 2-agent GridWorld (5x5, shared reward) ===\nagents start at (0,0) and (4, 0); must both reach (4, 4)\n\nlearning curves (mean return per 150 episodes):\n  block 1: independent-Q =  -55.03   joint-Q =  -98.59\n  block 2: independent-Q =  -27.70   joint-Q =  -53.49\n  block 3: independent-Q =  -13.60   joint-Q =  -21.27\n  block 4: independent-Q =   -6.44   joint-Q =   -6.80\n  block 5: independent-Q =   -1.01   joint-Q =    0.56\n  block 6: independent-Q =    0.10   joint-Q =    0.40\n  block 7: independent-Q =    0.44   joint-Q =    1.01\n  block 8: independent-Q =    0.20   joint-Q =    0.56\n  block 9: independent-Q =    0.55   joint-Q =    1.04\n  block 10: independent-Q =    0.80   joint-Q =    0.85\n\nfinal greedy evaluation (100 eps):\n  independent-Q mean return = 3.00\n  joint-Q       mean return = 3.00\n\nnote: joint-Q factors the global view correctly, but its action space is |A|^2.\nCTDE methods (MAPPO, QMIX) keep decentralized actors but use a centralized critic.\n",
+        "stderr": "",
+        "scope": "源stdlib main完整执行，人工词/网格/固定答案，不是真实模型或sim-real"
+      },
+      "outputs_mapping": [
+        {
+          "path": "phases/09-reinforcement-learning/10-multi-agent-rl/outputs/skill-marl-architect.md",
+          "sha256": "cdc62d4bd3971792a24ee7373cd601b07f0b88fbada011f6e0caf3b5d7caee6b",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.4 协调、通信与实测评价",
+              "line": 535
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "meaning": "保留算法选择、信息/奖励来源、诊断、独立评价与工程接口；拒绝模板的无依据硬门槛、部署命令和营销数字不转成Study规则"
+        }
+      ],
+      "static_svg_mapping": [
+        {
+          "path": "phases/09-reinforcement-learning/10-multi-agent-rl/assets/marl.svg",
+          "bytes": 3744,
+          "sha256": "a5e933abcb16b40880e9860ba25ccfc3bf7286376fc233676411f40284de15af",
+          "git_blob_sha": "c7a0d0072d58c555348761547a19cf871875113c",
+          "read": true,
+          "all_text_labels": [
+            "four MARL regimes, same environment shape",
+            "independent PPO / Q",
+            "each agent has its own",
+            "policy and critic",
+            "treats others as env",
+            "simple, no coord signal",
+            "fails on tight coupling",
+            "CTDE (MAPPO/QMIX)",
+            "decentralized actor:",
+            "  pi_i(a_i | o_i)",
+            "centralized critic:",
+            "  Q(s, a_1, .., a_n)",
+            "2026 cooperative default",
+            "self-play",
+            "single agent, two roles",
+            "opponent = past snapshot",
+            "symmetric gradients",
+            "zero-sum games",
+            "AlphaGo / AlphaZero",
+            "league play",
+            "population of",
+            "past + current",
+            "policies; sample",
+            "opponents",
+            "AlphaStar",
+            "the core difficulty",
+            "from agent i's view, the environment now includes pi_{-i}",
+            "as pi_{-i} learns, the transition P(s' | s, a_i) is non-stationary",
+            "Markov property breaks -> tabular convergence proofs no longer apply",
+            "CTDE fixes this by conditioning the critic on the full joint action; self-play fixes it by structure",
+            "add communication, language, or MCTS and you get StarCraft II / Dota 2 / multi-agent LLM systems"
+          ],
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "semantics": "IQL/CTDE/selfplay/league四框与共享奖励/联合critic/local actor合同；Markov自动破坏及CTDE必修复的caption纠正",
+          "graphic_logic": "矩形面板、颜色分组/列顺序及caption说明关系；marker定义不等实际存在箭头，非实验曲线"
+        }
+      ],
+      "dynamic_figure_mapping": [
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "marlOrbit",
+          "line": 339,
+          "sha256": "7b60f5652818571cd64c1c87e4b81f1217c65711c66bc64811da3b2d686817a0",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "registry_key": "f3-marl-orbit",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "controls_data_caption_semantics": "没有用户控制或实际策略数据；两固定圆轨与预设spiralD、SMIL时长绘制循环/收敛寓意，caption必然收敛纠正，不是数值MARL仿真。",
+          "registry": "window.LF.register将该key映射至实际函数；未用目录字符串当renderer",
+          "actual_model_run": false
+        }
+      ],
+      "shared_helpers": [
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "shell",
+          "line": 16,
+          "sha256": "e1c6c5f079b0aca11bb0b77634606dbdbd1bd338dd39fed89317484145d17805",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "anim",
+          "line": 23,
+          "sha256": "98d35abcc64e4c763380e09aaa6784957d077f5756022268acdd8f61a2b00566",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "txt",
+          "line": 28,
+          "sha256": "3cb04d7827c972a6351aba0d461e1d3571a1e3ceb1b77f2bd1927ce38b5c2b8f",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "grp",
+          "line": 33,
+          "sha256": "e172910ab31745e80f25fe43192889f7be2a4f7c383d1ad63058b049da310847",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "pop",
+          "line": 36,
+          "sha256": "bcf1b843184c88ece53c3bfa1c2374997e1c0210203bdc87f8c08cc293d17dc4",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "enter",
+          "line": 40,
+          "sha256": "5d6b12b060c416b621cc1a8397d258ca10d5d6d7d62218b9b7ed4c1cd803b9c3",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "drawIn",
+          "line": 43,
+          "sha256": "dc0df4c334572dee9f8261c4eab503553003222642858576ba0d0b00cf83c31c",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "el",
+          "sha256": "29759a2156e3cbb6b43bcc830a109a8e3a2906d7c9f3d0563b318da4019eb9bf",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "svgEl",
+          "sha256": "1e986ce8b9474a17eb1db9746e8509815f65b1136b4c08fd4aafcdf99c8580b3",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "fmtInt",
+          "sha256": "c3c7a4e22941499b3829f6f9b996cc83efa35544c2636d7db9ac78279c552580",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "fmtSeq",
+          "sha256": "b3020793d103001eda070c46646118b1d3ac82f2d71e54565b36d6fef15c6f93",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "uid",
+          "sha256": "d306bdc4d723c81c9339a2b17f61b5ade8b36caa3a658957c320c3889d6823bc",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "normalizeSmilAttrs",
+          "sha256": "3a25d159d81860f185ba0a4cb29e89aef997e1629b67e2f2648f1d6712868e9f",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "formattedValue",
+          "sha256": "9194040725e16fad2d9c5122ca26daf1a18031f7e548afe461bedc4b003737fa",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "closestFigure",
+          "sha256": "bfe9090c609e44fd6ffc2af713ab3a7a678a5518061efac70becdd2ef8310585",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "childNodes",
+          "sha256": "7b3433c1ff629705856ce4d06e7bc54ebc35aeb3d0e55fbfed865918b091da22",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "sameNodeKind",
+          "sha256": "81adc29c791bc2ec753c4311ca8abda9fa02261e93769c6f67dcdb0e12fc439b",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "isSvgSemanticNode",
+          "sha256": "957ca76a99b39d1eb909011fc893cbf5b7ad12ea5fdc9ff4c9d2dc76e85ce56d",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "syncAttributes",
+          "sha256": "b1f60f0c8b7ea0d2060f261dfcccfee57d58d86c57f2c725ea4f239fefbae45f",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "reconcileNode",
+          "sha256": "2ee5c19c662dde4f019c0bcf93918379c61abcfacc630302e870b53b3b1ff9f2",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "renderPersistentSvg",
+          "sha256": "dbd0953ca1417e1d758e105d3300fd6a729fb0295ab4ac89d504c45ddbe01eb2",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "bindPersistentRenderer",
+          "sha256": "20592dd8eaf952827989bd69348bf65bf5d3a0e0d9749026fcd5bf084d9baf9b",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "slider",
+          "sha256": "0a22e2ba6ec633d218158f352d88797c5d9bca0427fda93f77eb1144d3dd13b6",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "clamp",
+          "sha256": "4caeeb94cbc21d1dfd2ba1c07afc85119eeabaa4829eb54dc71c91d5ac5cbac8",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "23.1 联合环境可以Markov，单个学习者看到的过程却在变化",
+              "line": 481
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        }
+      ],
+      "corrections": [
+        "联合固定转移Markov game不自动非Markov；单体边缘依变化对手而非平稳，局部观测另有部分可观测性",
+        "源IQL使用联合状态，不能称局部观测CTDE；源joint-Q集中执行不是MAPPO/QMIX",
+        "max-marginal分散argmax可形成不相容动作，反协调矩阵实际验证",
+        "MAPPO集中V和IPPO独立V区分；MADDPG集中Q，QMIX单调限制/COMA固定他人反事实",
+        "集中critic不会保证收敛；固定动画orbit/spiral不是训练轨迹",
+        "main exploiter针对main策略，不是专门针对exploiters；通信/LLM工作流不是自动MARL",
+        "源网格docs6x6/main5x5，以实际程序评价对象为准；100同初态deterministic episodes不证明泛化"
+      ]
+    },
+    {
+      "lesson": "11-sim-to-real-transfer",
+      "source_files": [
+        {
+          "path": "phases/09-reinforcement-learning/11-sim-to-real-transfer/assets/sim-to-real.svg",
+          "bytes": 3529,
+          "sha256": "56748cd036a335660f6efa68d86bc72100c0809ce7f18adeb6c65d49ac80c95e",
+          "git_blob_sha": "cdcaafd58db2301185215281f81cf61d34d6b17b"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/11-sim-to-real-transfer/code/main.py",
+          "bytes": 3636,
+          "sha256": "8b77e2371a43d906f2ce0932e10beb6a8a5bd2b79bda680d825d0e2a39b5a420",
+          "git_blob_sha": "170719f3da6b314c5d48d1879c99bbc691f12d27"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/11-sim-to-real-transfer/docs/en.md",
+          "bytes": 11820,
+          "sha256": "6588758487ca47b17df37c89845e4e6e23d9770205a992c0285ebe9ebfd5a165",
+          "git_blob_sha": "90d85984c57c303585f832651cce34c86f343106"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/11-sim-to-real-transfer/outputs/skill-sim2real-planner.md",
+          "bytes": 929,
+          "sha256": "8f9199519b8cef56234ab9e0b6aec2cd1cb5a132286c028df1c74995c251bcb8",
+          "git_blob_sha": "7f0b0ee722569104e0c5c40279e65d6297c0edfe"
+        }
+      ],
+      "empty_placeholders": [
+        {
+          "path": "phases/09-reinforcement-learning/11-sim-to-real-transfer/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        }
+      ],
+      "read_all": true,
+      "heading_mapping": [
+        {
+          "source_heading": "The Problem",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.1 先列出gap及其单位，不能把失败都称背住sim",
+              "line": 158
+            }
+          ],
+          "source_heading_raw": "## The Problem"
+        },
+        {
+          "source_heading": "The Concept",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.1 先列出gap及其单位，不能把失败都称背住sim",
+              "line": 158
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.4 完整SI、残差动力学与限幅闭环",
+              "line": 209
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.5 特权教师、学生与部署证据",
+              "line": 245
+            }
+          ],
+          "source_heading_raw": "## The Concept"
+        },
+        {
+          "source_heading": "Build It",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.4 完整SI、残差动力学与限幅闭环",
+              "line": 209
+            }
+          ],
+          "source_heading_raw": "## Build It"
+        },
+        {
+          "source_heading": "Step 1: parameterized sim",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            }
+          ],
+          "source_heading_raw": "### Step 1: parameterized sim"
+        },
+        {
+          "source_heading": "Step 2: train with DR",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            }
+          ],
+          "source_heading_raw": "### Step 2: train with DR"
+        },
+        {
+          "source_heading": "Step 3: evaluate zero-shot on \"real\" slips",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.5 特权教师、学生与部署证据",
+              "line": 245
+            }
+          ],
+          "source_heading_raw": "### Step 3: evaluate zero-shot on \"real\" slips"
+        },
+        {
+          "source_heading": "Step 4: compare to narrow training",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            }
+          ],
+          "source_heading_raw": "### Step 4: compare to narrow training"
+        },
+        {
+          "source_heading": "Pitfalls",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.1 先列出gap及其单位，不能把失败都称背住sim",
+              "line": 158
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.5 特权教师、学生与部署证据",
+              "line": 245
+            }
+          ],
+          "source_heading_raw": "## Pitfalls"
+        },
+        {
+          "source_heading": "Use It",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.1 先列出gap及其单位，不能把失败都称背住sim",
+              "line": 158
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.5 特权教师、学生与部署证据",
+              "line": 245
+            }
+          ],
+          "source_heading_raw": "## Use It"
+        },
+        {
+          "source_heading": "Ship It",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.1 先列出gap及其单位，不能把失败都称背住sim",
+              "line": 158
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.5 特权教师、学生与部署证据",
+              "line": 245
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "本次来源与维护",
+              "line": 260
+            }
+          ],
+          "source_heading_raw": "## Ship It"
+        },
+        {
+          "source_heading": "Exercises",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ],
+          "source_heading_raw": "## Exercises"
+        },
+        {
+          "source_heading": "Key Terms",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.1 先列出gap及其单位，不能把失败都称背住sim",
+              "line": 158
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.4 完整SI、残差动力学与限幅闭环",
+              "line": 209
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.5 特权教师、学生与部署证据",
+              "line": 245
+            }
+          ],
+          "source_heading_raw": "## Key Terms"
+        },
+        {
+          "source_heading": "Further Reading",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "本次来源与维护",
+              "line": 260
+            }
+          ],
+          "source_heading_raw": "## Further Reading"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_mapping": [],
+      "quiz_status": "本课不存在quiz.json；不虚构原独立题库",
+      "exercise_mapping": [
+        {
+          "source_exercise": 1,
+          "source_sha256": "76702ae772d51a3f356f8a50279d72f35c7dab566fa87777679b8eff06a7ff8b",
+          "meaning": "固定slip网格sweep实际输出",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ]
+        },
+        {
+          "source_exercise": 2,
+          "source_sha256": "583f1e7255f1848c866b67b146979dbf618bd0cca15f5467043c0ea2b6abc793",
+          "meaning": "Uniform[0,.3] DR支持内外与真实负结果",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ]
+        },
+        {
+          "source_exercise": 3,
+          "source_sha256": "3533c56c39494526566722e11aedde744605573625c38fc75fc6b6d8e99258ea",
+          "meaning": "ADR课程扩范围与环境步预算：未执行该消融",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ]
+        }
+      ],
+      "docs_code_blocks": [
+        {
+          "block": 1,
+          "language": "figure",
+          "source_heading": "## The Concept",
+          "sha256": "ffd2780cecf9dd1ed13d7a341b3cee2a71629b5ce507e99bec3435dcb79e857c",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.1 先列出gap及其单位，不能把失败都称背住sim",
+              "line": 158
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.4 完整SI、残差动力学与限幅闭环",
+              "line": 209
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.5 特权教师、学生与部署证据",
+              "line": 245
+            }
+          ],
+          "disposition": "注册key在下方dynamic映射；程序不含训练模型"
+        },
+        {
+          "block": 2,
+          "language": "python",
+          "source_heading": "### Step 1: parameterized sim",
+          "sha256": "41c28f7f54648456257ac049b52115f65767032d9f4e4b1b14b6a74a2cc871c9",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            }
+          ],
+          "disposition": "源示意/未定义变量，不虚称可跑；对应新正文有完整机制例"
+        },
+        {
+          "block": 3,
+          "language": "markdown",
+          "source_heading": "## Ship It",
+          "sha256": "8f9199519b8cef56234ab9e0b6aec2cd1cb5a132286c028df1c74995c251bcb8",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.1 先列出gap及其单位，不能把失败都称背住sim",
+              "line": 158
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.5 特权教师、学生与部署证据",
+              "line": 245
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "本次来源与维护",
+              "line": 260
+            }
+          ],
+          "disposition": "输出skill模板作为任务检查问题，不执行refuse/install指令"
+        }
+      ],
+      "code_symbol_mapping": [
+        {
+          "symbol": "step",
+          "line": 11,
+          "end_line": 21,
+          "sha256": "225a489e83a050f1d2447ec6d0cc51df7447307a2048afe32980f718e057ce23",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "default_q",
+          "line": 24,
+          "end_line": 25,
+          "sha256": "3b64387262be6e6edb8443c91bd51e176c591b8c5cc3f453c609fd1ce063e2e5",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "epsilon_greedy",
+          "line": 28,
+          "end_line": 32,
+          "sha256": "4a6c24cd8b3e44ac1e43ca768193ba988f54bdd82957574dc245031e2ddc50dc",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "train_fixed",
+          "line": 35,
+          "end_line": 49,
+          "sha256": "e7ec0b53b1fc6414af1f0bb0504118ec2d80c7d890ca54cbf4ec8335590a1820",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "train_dr",
+          "line": 52,
+          "end_line": 67,
+          "sha256": "a66b91fab2c89abb6f28e2589720b5a551ed42b28bf0163a5e92ff77d14b182d",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "evaluate",
+          "line": 70,
+          "end_line": 83,
+          "sha256": "fd75909896e5f081ccc9bf8b0cfc84c7b1b39813b60a45bf8023db3ad178f8b2",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "main",
+          "line": 86,
+          "end_line": 114,
+          "sha256": "216c019aa053229ec9bf727bcb464061edd51aec5c90c65c3466f26102012b65",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.3 完整小型DR训练：平均改善仍可能损害某个支持点",
+              "line": 178
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.6 源练习核对与范围",
+              "line": 253
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        }
+      ],
+      "original_code_run": {
+        "lesson": "11-sim-to-real-transfer",
+        "source_path": "phases/09-reinforcement-learning/11-sim-to-real-transfer/code/main.py",
+        "sha256": "8b77e2371a43d906f2ce0932e10beb6a8a5bd2b79bda680d825d0e2a39b5a420",
+        "exit_code": 0,
+        "stdout": "=== sim-to-real: train in 'sim', evaluate on 'real' ===\nenv: 5x5 GridWorld, slip = probability of perpendicular slip\n\ntraining two policies with same compute budget:\n  policy A: fixed slip = 0.0 (no domain randomization)\n  policy B: slip ~ Uniform[0.0, 0.3] (domain randomization)\n\nevaluation on 'real' slips (each 200 episodes greedy eval):\n  slip      fixed-slip policy     DR-trained policy     \n  0.00      -8.00                 -8.00                 (in-support for DR)\n  0.10      -8.78                 -8.78                 (in-support for DR)\n  0.20      -10.05                -9.78                 (in-support for DR)\n  0.30      -11.35                -11.04                (in-support for DR)\n  0.50      -16.72                -15.78                (OOD for DR)\n  0.70      -28.73                -28.73                (OOD for DR)\n\ntakeaway: DR-trained policy degrades gracefully; fixed-slip policy is brittle out-of-distribution.\n",
+        "stderr": "",
+        "scope": "源stdlib main完整执行，人工词/网格/固定答案，不是真实模型或sim-real"
+      },
+      "outputs_mapping": [
+        {
+          "path": "phases/09-reinforcement-learning/11-sim-to-real-transfer/outputs/skill-sim2real-planner.md",
+          "sha256": "8f9199519b8cef56234ab9e0b6aec2cd1cb5a132286c028df1c74995c251bcb8",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.1 先列出gap及其单位，不能把失败都称背住sim",
+              "line": 158
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.5 特权教师、学生与部署证据",
+              "line": 245
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "本次来源与维护",
+              "line": 260
+            }
+          ],
+          "meaning": "保留算法选择、信息/奖励来源、诊断、独立评价与工程接口；拒绝模板的无依据硬门槛、部署命令和营销数字不转成Study规则"
+        }
+      ],
+      "static_svg_mapping": [
+        {
+          "path": "phases/09-reinforcement-learning/11-sim-to-real-transfer/assets/sim-to-real.svg",
+          "bytes": 3529,
+          "sha256": "56748cd036a335660f6efa68d86bc72100c0809ce7f18adeb6c65d49ac80c95e",
+          "git_blob_sha": "cdcaafd58db2301185215281f81cf61d34d6b17b",
+          "read": true,
+          "all_text_labels": [
+            "three ways to close the reality gap",
+            "the reality gap",
+            "sim physics approx = real physics + epsilon  (friction, delay, lighting, noise, ...)",
+            "domain randomization",
+            "theta_sim ~ P(theta)",
+            "train over many sims",
+            "policy sees random gravity,",
+            "mass, friction, motor gain",
+            "zero real data needed",
+            "OpenAI Dactyl (rubik's cube)",
+            "over-rand. -> cautious",
+            "under-rand. -> brittle",
+            "system identification",
+            "measure real:",
+            "  friction, delays, gains",
+            "plug into sim",
+            "train on matched sim",
+            "low noise, precise",
+            "but residual error invisible",
+            "to the policy",
+            "teacher / student",
+            "teacher: privileged info",
+            "  terrain, ground truth",
+            "student: only sensor obs",
+            "distill teacher -> student",
+            "ANYmal, Boston Dynamics",
+            "robust across physical",
+            "parameters + obs noise",
+            "2026 recipe: GPU-parallel sim + DR + teacher/student + safety shield on real hardware"
+          ],
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "semantics": "gap列表与DR、SI、teacher/student三个面板；域适配正文另保，范围内必成功与无真实测量/型号宣传不进入结论",
+          "graphic_logic": "矩形面板、颜色分组/列顺序及caption说明关系；marker定义不等实际存在箭头，非实验曲线"
+        }
+      ],
+      "dynamic_figure_mapping": [
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "realityGap",
+          "line": 374,
+          "sha256": "5c1d41868d6a7ed5435c646d6c710403e2c40317957bad98da2c4c5e90fcab48",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "registry_key": "f3-reality-gap",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "controls_data_caption_semantics": "没有用户控制；band x130→84/width70→330、real x350由SMIL固定，gap/cover文字预设消失，参数覆盖不能证明learned policy成功。",
+          "registry": "window.LF.register将该key映射至实际函数；未用目录字符串当renderer",
+          "actual_model_run": false
+        }
+      ],
+      "shared_helpers": [
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "shell",
+          "line": 16,
+          "sha256": "e1c6c5f079b0aca11bb0b77634606dbdbd1bd338dd39fed89317484145d17805",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "anim",
+          "line": 23,
+          "sha256": "98d35abcc64e4c763380e09aaa6784957d077f5756022268acdd8f61a2b00566",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "txt",
+          "line": 28,
+          "sha256": "3cb04d7827c972a6351aba0d461e1d3571a1e3ceb1b77f2bd1927ce38b5c2b8f",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "grp",
+          "line": 33,
+          "sha256": "e172910ab31745e80f25fe43192889f7be2a4f7c383d1ad63058b049da310847",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "pop",
+          "line": 36,
+          "sha256": "bcf1b843184c88ece53c3bfa1c2374997e1c0210203bdc87f8c08cc293d17dc4",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "enter",
+          "line": 40,
+          "sha256": "5d6b12b060c416b621cc1a8397d258ca10d5d6d7d62218b9b7ed4c1cd803b9c3",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "drawIn",
+          "line": 43,
+          "sha256": "dc0df4c334572dee9f8261c4eab503553003222642858576ba0d0b00cf83c31c",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "el",
+          "sha256": "29759a2156e3cbb6b43bcc830a109a8e3a2906d7c9f3d0563b318da4019eb9bf",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "svgEl",
+          "sha256": "1e986ce8b9474a17eb1db9746e8509815f65b1136b4c08fd4aafcdf99c8580b3",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "fmtInt",
+          "sha256": "c3c7a4e22941499b3829f6f9b996cc83efa35544c2636d7db9ac78279c552580",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "fmtSeq",
+          "sha256": "b3020793d103001eda070c46646118b1d3ac82f2d71e54565b36d6fef15c6f93",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "uid",
+          "sha256": "d306bdc4d723c81c9339a2b17f61b5ade8b36caa3a658957c320c3889d6823bc",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "normalizeSmilAttrs",
+          "sha256": "3a25d159d81860f185ba0a4cb29e89aef997e1629b67e2f2648f1d6712868e9f",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "formattedValue",
+          "sha256": "9194040725e16fad2d9c5122ca26daf1a18031f7e548afe461bedc4b003737fa",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "closestFigure",
+          "sha256": "bfe9090c609e44fd6ffc2af713ab3a7a678a5518061efac70becdd2ef8310585",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "childNodes",
+          "sha256": "7b3433c1ff629705856ce4d06e7bc54ebc35aeb3d0e55fbfed865918b091da22",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "sameNodeKind",
+          "sha256": "81adc29c791bc2ec753c4311ca8abda9fa02261e93769c6f67dcdb0e12fc439b",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "isSvgSemanticNode",
+          "sha256": "957ca76a99b39d1eb909011fc893cbf5b7ad12ea5fdc9ff4c9d2dc76e85ce56d",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "syncAttributes",
+          "sha256": "b1f60f0c8b7ea0d2060f261dfcccfee57d58d86c57f2c725ea4f239fefbae45f",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "reconcileNode",
+          "sha256": "2ee5c19c662dde4f019c0bcf93918379c61abcfacc630302e870b53b3b1ff9f2",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "renderPersistentSvg",
+          "sha256": "dbd0953ca1417e1d758e105d3300fd6a729fb0295ab4ac89d504c45ddbe01eb2",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "bindPersistentRenderer",
+          "sha256": "20592dd8eaf952827989bd69348bf65bf5d3a0e0d9749026fcd5bf084d9baf9b",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "slider",
+          "sha256": "0a22e2ba6ec633d218158f352d88797c5d9bca0427fda93f77eb1144d3dd13b6",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "clamp",
+          "sha256": "4caeeb94cbc21d1dfd2ba1c07afc85119eeabaa4829eb54dc71c91d5ac5cbac8",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+              "heading": "12.2 Domain randomization优化的是一个分布上的表现",
+              "line": 172
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        }
+      ],
+      "corrections": [
+        "sim-real失败不必是记忆sim；可能单位/时钟/接口/未建模动态",
+        "真实参数在DR范围并不保证每点成功；DR优化平均不是worst-case",
+        "DR策略不一定观察参数；每episode固定隐藏参数可能需要历史",
+        "原‘非零slip马上灾难/DR必优’不符运行：slip0/.1/.7相同",
+        "3000episode不等同环境步数；源标签real仍是sim",
+        "3倍测量随机范围、90%扩展、分钟微调与GPU并行年经验数字不作为知识",
+        "SI需辨识激励/残差；残差sim与残差policy、teacher不可观测别名、限幅不等全局安全"
+      ]
+    },
+    {
+      "lesson": "12-rl-for-games",
+      "source_files": [
+        {
+          "path": "phases/09-reinforcement-learning/12-rl-for-games/assets/rl-games.svg",
+          "bytes": 4134,
+          "sha256": "7294ce575937c9f951af63215f5e672f837c34ed42cf161c4df5884133114c3c",
+          "git_blob_sha": "d694481503659ce6cfad71dee2121acdaa0f7506"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/12-rl-for-games/code/main.py",
+          "bytes": 4233,
+          "sha256": "b2f007324282d71c3653a0fccce0cf5162b1b5285c44b8ea70514eafd7b4eea6",
+          "git_blob_sha": "30f0787692774c87bdf6e213322f71821954c555"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/12-rl-for-games/docs/en.md",
+          "bytes": 15643,
+          "sha256": "fbd5ca23db373b9902bdde62d877b231a4096787a4485183971891812fcf1f35",
+          "git_blob_sha": "445bf18078c2b34b8610faf137611f58f0ca4a57"
+        },
+        {
+          "path": "phases/09-reinforcement-learning/12-rl-for-games/outputs/skill-game-rl-designer.md",
+          "bytes": 1001,
+          "sha256": "f4afdd7c580609c80b095a4f6132696296abf4c59b45d54b9b00619d1cc975fe",
+          "git_blob_sha": "87b0e8c025b87cf7f4bc9d5b3ee597ee52287d77"
+        }
+      ],
+      "empty_placeholders": [
+        {
+          "path": "phases/09-reinforcement-learning/12-rl-for-games/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        }
+      ],
+      "read_all": true,
+      "heading_mapping": [
+        {
+          "source_heading": "The Problem",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            }
+          ],
+          "source_heading_raw": "## The Problem"
+        },
+        {
+          "source_heading": "The Concept",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "6. 奖励设计、标签与验证器失效",
+              "line": 194
+            }
+          ],
+          "source_heading_raw": "## The Concept"
+        },
+        {
+          "source_heading": "Build It",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            }
+          ],
+          "source_heading_raw": "## Build It"
+        },
+        {
+          "source_heading": "Step 1: a tiny verifier environment",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "6. 奖励设计、标签与验证器失效",
+              "line": 194
+            }
+          ],
+          "source_heading_raw": "### Step 1: a tiny verifier environment"
+        },
+        {
+          "source_heading": "Step 2: policy: softmax over K answer tokens per prompt",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "1. SFT、偏好与在线结果各解决什么",
+              "line": 5
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            }
+          ],
+          "source_heading_raw": "### Step 2: policy: softmax over K answer tokens per prompt"
+        },
+        {
+          "source_heading": "Step 3: group sampling and group-relative advantage",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            }
+          ],
+          "source_heading_raw": "### Step 3: group sampling and group-relative advantage"
+        },
+        {
+          "source_heading": "Step 4: compare to REINFORCE baseline (value-free)",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "source_heading_raw": "### Step 4: compare to REINFORCE baseline (value-free)"
+        },
+        {
+          "source_heading": "Step 5: observe entropy and KL",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            }
+          ],
+          "source_heading_raw": "### Step 5: observe entropy and KL"
+        },
+        {
+          "source_heading": "Pitfalls",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "6. 奖励设计、标签与验证器失效",
+              "line": 194
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.1 自玩与联赛不是保证递增的Elo阶梯",
+              "line": 543
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            }
+          ],
+          "source_heading_raw": "## Pitfalls"
+        },
+        {
+          "source_heading": "Use It",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            }
+          ],
+          "source_heading_raw": "## Use It"
+        },
+        {
+          "source_heading": "Ship It",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            }
+          ],
+          "source_heading_raw": "## Ship It"
+        },
+        {
+          "source_heading": "Exercises",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            }
+          ],
+          "source_heading_raw": "## Exercises"
+        },
+        {
+          "source_heading": "Key Terms",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "1. SFT、偏好与在线结果各解决什么",
+              "line": 5
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "source_heading_raw": "## Key Terms"
+        },
+        {
+          "source_heading": "Further Reading",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "新增来源与维护",
+              "line": 636
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "来源与维护",
+              "line": 218
+            }
+          ],
+          "source_heading_raw": "## Further Reading"
+        }
+      ],
+      "quiz_count": 0,
+      "quiz_mapping": [],
+      "quiz_status": "本课不存在quiz.json；不虚构原独立题库",
+      "exercise_mapping": [
+        {
+          "source_exercise": 1,
+          "source_sha256": "e3d21e0c8125235d518164121d5d4a2c6dac1284d84c0fd6c38ba42b972a4afa",
+          "meaning": "人工verifier bandit G=8；收敛步数不保证",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ]
+        },
+        {
+          "source_exercise": 2,
+          "source_sha256": "04f177e07291069b360c248624e2ee615e2703fc641ccd4a46e10c73ebce94b6",
+          "meaning": "PPO/REINFORCE/GRPO等生成预算对照，源预算不等",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ]
+        },
+        {
+          "source_exercise": 3,
+          "source_sha256": "810ac46c8e0689246615c7407e9cb45fd5b2d24dd20e9cb4adab970c18ef8e11",
+          "meaning": "两token完整答案优势广播，实际新程序验证",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ]
+        }
+      ],
+      "docs_code_blocks": [
+        {
+          "block": 1,
+          "language": "",
+          "source_heading": "## The Concept",
+          "sha256": "1c981146acf2da7a56dff65244ab6a1c993342ad4fa9cddf1c5421cd17eb412b",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "6. 奖励设计、标签与验证器失效",
+              "line": 194
+            }
+          ],
+          "disposition": "源示意/未定义变量，不虚称可跑；对应新正文有完整机制例"
+        },
+        {
+          "block": 2,
+          "language": "figure",
+          "source_heading": "## The Concept",
+          "sha256": "1b26f75c8a0bd992692237594bc64d707bbbc6aa170d48939330d07950f76223",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "6. 奖励设计、标签与验证器失效",
+              "line": 194
+            }
+          ],
+          "disposition": "注册key在下方dynamic映射；程序不含训练模型"
+        },
+        {
+          "block": 3,
+          "language": "python",
+          "source_heading": "### Step 1: a tiny verifier environment",
+          "sha256": "4043c369435fc3b6232a24391d4ff7cc60ebc9f24006a9a51b31b8246110f5d7",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "6. 奖励设计、标签与验证器失效",
+              "line": 194
+            }
+          ],
+          "disposition": "已全读；原片段作为机制/流程材料，不直接作为生产实现"
+        },
+        {
+          "block": 4,
+          "language": "python",
+          "source_heading": "### Step 2: policy: softmax over K answer tokens per prompt",
+          "sha256": "1e6ace385ab420ad82e4910e81f23141118ce885ab1c109de699d460cdc45521",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "1. SFT、偏好与在线结果各解决什么",
+              "line": 5
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            }
+          ],
+          "disposition": "已全读；原片段作为机制/流程材料，不直接作为生产实现"
+        },
+        {
+          "block": 5,
+          "language": "python",
+          "source_heading": "### Step 3: group sampling and group-relative advantage",
+          "sha256": "5ee64fc19567433927e7407408059c4df4d7e14d4de8104be245b844d9d4ee25",
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            }
+          ],
+          "disposition": "已全读；原片段作为机制/流程材料，不直接作为生产实现"
+        },
+        {
+          "block": 6,
+          "language": "markdown",
+          "source_heading": "## Ship It",
+          "sha256": "f4afdd7c580609c80b095a4f6132696296abf4c59b45d54b9b00619d1cc975fe",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            }
+          ],
+          "disposition": "输出skill模板作为任务检查问题，不执行refuse/install指令"
+        }
+      ],
+      "code_symbol_mapping": [
+        {
+          "symbol": "softmax",
+          "line": 14,
+          "end_line": 18,
+          "sha256": "8b368c33268f761a820f36ca233e1cc9f2a7f7e2f5750e827dc3ad5301f6ab9b",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "policy_probs",
+          "line": 21,
+          "end_line": 22,
+          "sha256": "38688656166c41a4716d1e72169b8054bae874b1a52fbcb061b014a91fbc5071",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "sample",
+          "line": 25,
+          "end_line": 32,
+          "sha256": "26770229eb6cd3f5c944a0640f6464124a1d2ce564fdbd101111792712c9a78f",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "verify",
+          "line": 35,
+          "end_line": 36,
+          "sha256": "c35727756e6627c750e4f57160c208c8bec4dc4b6297ee414dd40bde340d3f44",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "grpo_step",
+          "line": 39,
+          "end_line": 60,
+          "sha256": "1eca4fb7736c99ca259830758f26c671218ef42f546d8157067db2996e5573c1",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "reinforce_step",
+          "line": 63,
+          "end_line": 71,
+          "sha256": "4226ab5ded590c6e37c03af3dc1e72f992f369772e1780182ee8368d37606472",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "train_grpo",
+          "line": 74,
+          "end_line": 82,
+          "sha256": "42f606b6d20906701696767a660e163ad9255538d5bdc4670fde240a0037bddc",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "train_reinforce",
+          "line": 85,
+          "end_line": 92,
+          "sha256": "59bb76677405732c2ada0552d60adc351b7de0c7e3b09f2cb76444163d571b0e",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "evaluate",
+          "line": 95,
+          "end_line": 103,
+          "sha256": "298f5957ed99f56c7289b243db2cc51ce6dacda0b501dfb7ff984b1dda577316",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "main",
+          "line": 106,
+          "end_line": 136,
+          "sha256": "5edaea49fdfffb1605a49c06d0840c4b71187af1d71767d72f7690ab195edabe",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        },
+        {
+          "symbol": "block_mean",
+          "line": 115,
+          "end_line": 116,
+          "sha256": "85fd92ac7f05dfd92c579398938a3ffdeb801d623ca4bb746a1556d0ee12161a",
+          "read": true,
+          "targets": [
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5.1 完整两token采样、旧概率、裁剪与精确序列KL",
+              "line": 146
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7.1 源练习与自查的核对标准",
+              "line": 210
+            }
+          ],
+          "execution": "源main完整调用的范围看original_code_run；函数读取不等于每参数分支实测"
+        }
+      ],
+      "original_code_run": {
+        "lesson": "12-rl-for-games",
+        "source_path": "phases/09-reinforcement-learning/12-rl-for-games/code/main.py",
+        "sha256": "b2f007324282d71c3653a0fccce0cf5162b1b5285c44b8ea70514eafd7b4eea6",
+        "exit_code": 0,
+        "stdout": "=== GRPO in miniature: tiny verifier bandit ===\nprompts: ['what is 1+2', 'what is 3*3', 'capital of France']\ncorrect answers: [2, 0, 3]\n\nblock   GRPO mean_r     GRPO mean_KL      REINFORCE mean_r  \n1       0.355           0.0305            0.220             \n2       0.590           0.2368            0.360             \n3       0.782           0.5662            0.460             \n4       0.855           0.7708            0.660             \n5       0.890           0.9253            0.700             \n6       0.927           1.0059            0.860             \n7       0.912           1.0625            0.780             \n8       0.953           1.1144            0.880             \n\ngreedy evaluation accuracy:\n  GRPO       = 100.0%\n  REINFORCE  = 100.0%\n\nGRPO uses the group-mean as baseline and group-std for normalization —\nno critic, no reward model. This is the DeepSeek-R1 recipe in one page.\n",
+        "stderr": "",
+        "scope": "源stdlib main完整执行，人工词/网格/固定答案，不是真实模型或sim-real"
+      },
+      "outputs_mapping": [
+        {
+          "path": "phases/09-reinforcement-learning/12-rl-for-games/outputs/skill-game-rl-designer.md",
+          "sha256": "f4afdd7c580609c80b095a4f6132696296abf4c59b45d54b9b00619d1cc975fe",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "25. 本次进阶练习的参考判据",
+              "line": 627
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "7. 方法选择、成本与评价",
+              "line": 204
+            }
+          ],
+          "meaning": "保留算法选择、信息/奖励来源、诊断、独立评价与工程接口；拒绝模板的无依据硬门槛、部署命令和营销数字不转成Study规则"
+        }
+      ],
+      "static_svg_mapping": [
+        {
+          "path": "phases/09-reinforcement-learning/12-rl-for-games/assets/rl-games.svg",
+          "bytes": 4134,
+          "sha256": "7294ce575937c9f951af63215f5e672f837c34ed42cf161c4df5884133114c3c",
+          "git_blob_sha": "d694481503659ce6cfad71dee2121acdaa0f7506",
+          "read": true,
+          "all_text_labels": [
+            "self-play + search + policy improvement — one recipe, three eras",
+            "AlphaZero (2017)",
+            "env: chess / shogi / Go",
+            "rules: known",
+            "policy-value net (p, v)",
+            "MCTS with PUCT",
+            "target:  pi_MCTS, z_outcome",
+            "L = (v-z)^2 - pi * log p",
+            "tabula rasa self-play",
+            "Go, chess, shogi",
+            "requires: perfect sim",
+            "discrete actions",
+            "zero-sum",
+            "MuZero (2019)",
+            "env: anything",
+            "rules: learned (g)",
+            "encoder h, dynamics g",
+            "MCTS in latent space",
+            "target:  pi_MCTS, z, reward",
+            "L = sum over horizon",
+            "no sim required",
+            "Atari, Go, chess, shogi",
+            "same loop, learned model",
+            "higher compute cost",
+            "stochastic extensions exist",
+            "GRPO (2024-2025)",
+            "env: LLM reasoning",
+            "action: next token",
+            "verifier: tests/math check",
+            "group sampling (G rollouts)",
+            "A_i = (r_i - mean_r) / std_r",
+            "L = -A * log pi + beta KL",
+            "no critic, no reward model",
+            "math, code, reasoning",
+            "DeepSeek-R1 recipe",
+            "group-relative baseline",
+            "same spirit as AlphaZero",
+            "pattern: sample many trajectories, rank them, train the policy to increase the good ones' probability"
+          ],
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "semantics": "AlphaZero(p,v/MCTS)、MuZero(h,g,f/latent)与GRPO组采样三个面板；no sim/env:anything与共同同一算法声明纠正",
+          "graphic_logic": "矩形面板、颜色分组/列顺序及caption说明关系；marker定义不等实际存在箭头，非实验曲线"
+        }
+      ],
+      "dynamic_figure_mapping": [
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "selfplayLadder",
+          "line": 406,
+          "sha256": "2419212febf00fda25e0f3634f365372a1232dcba2bf45d914078e1492633315",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "registry_key": "f3-selfplay-ladder",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "controls_data_caption_semantics": "没有控制或训练数据；nodes三角/loopD和阶梯stairs固定路径+SMIL，Elo标签不来自比赛；校正每lap必增强与GRPO同搜索目标。",
+          "registry": "window.LF.register将该key映射至实际函数；未用目录字符串当renderer",
+          "actual_model_run": false
+        }
+      ],
+      "shared_helpers": [
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "shell",
+          "line": 16,
+          "sha256": "e1c6c5f079b0aca11bb0b77634606dbdbd1bd338dd39fed89317484145d17805",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "anim",
+          "line": 23,
+          "sha256": "98d35abcc64e4c763380e09aaa6784957d077f5756022268acdd8f61a2b00566",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "txt",
+          "line": 28,
+          "sha256": "3cb04d7827c972a6351aba0d461e1d3571a1e3ceb1b77f2bd1927ce38b5c2b8f",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "grp",
+          "line": 33,
+          "sha256": "e172910ab31745e80f25fe43192889f7be2a4f7c383d1ad63058b049da310847",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "pop",
+          "line": 36,
+          "sha256": "bcf1b843184c88ece53c3bfa1c2374997e1c0210203bdc87f8c08cc293d17dc4",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "enter",
+          "line": 40,
+          "sha256": "5d6b12b060c416b621cc1a8397d258ca10d5d6d7d62218b9b7ed4c1cd803b9c3",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/figures-foundations3.js",
+          "function": "drawIn",
+          "line": 43,
+          "sha256": "dc0df4c334572dee9f8261c4eab503553003222642858576ba0d0b00cf83c31c",
+          "file_sha256": "b5d8723447275fe07fe420e9e1139ff3b1e36d99d71d577e443a99f1f8102fad",
+          "read": true,
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "semantics": "DOM/SVG布局、文字、预设SMIL动画的辅助，不含agent/动态优化；个别通用helper非该renderer必调用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "el",
+          "sha256": "29759a2156e3cbb6b43bcc830a109a8e3a2906d7c9f3d0563b318da4019eb9bf",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "svgEl",
+          "sha256": "1e986ce8b9474a17eb1db9746e8509815f65b1136b4c08fd4aafcdf99c8580b3",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "fmtInt",
+          "sha256": "c3c7a4e22941499b3829f6f9b996cc83efa35544c2636d7db9ac78279c552580",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "fmtSeq",
+          "sha256": "b3020793d103001eda070c46646118b1d3ac82f2d71e54565b36d6fef15c6f93",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "uid",
+          "sha256": "d306bdc4d723c81c9339a2b17f61b5ade8b36caa3a658957c320c3889d6823bc",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "normalizeSmilAttrs",
+          "sha256": "3a25d159d81860f185ba0a4cb29e89aef997e1629b67e2f2648f1d6712868e9f",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "formattedValue",
+          "sha256": "9194040725e16fad2d9c5122ca26daf1a18031f7e548afe461bedc4b003737fa",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "closestFigure",
+          "sha256": "bfe9090c609e44fd6ffc2af713ab3a7a678a5518061efac70becdd2ef8310585",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "childNodes",
+          "sha256": "7b3433c1ff629705856ce4d06e7bc54ebc35aeb3d0e55fbfed865918b091da22",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "sameNodeKind",
+          "sha256": "81adc29c791bc2ec753c4311ca8abda9fa02261e93769c6f67dcdb0e12fc439b",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "isSvgSemanticNode",
+          "sha256": "957ca76a99b39d1eb909011fc893cbf5b7ad12ea5fdc9ff4c9d2dc76e85ce56d",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "syncAttributes",
+          "sha256": "b1f60f0c8b7ea0d2060f261dfcccfee57d58d86c57f2c725ea4f239fefbae45f",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "reconcileNode",
+          "sha256": "2ee5c19c662dde4f019c0bcf93918379c61abcfacc630302e870b53b3b1ff9f2",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "renderPersistentSvg",
+          "sha256": "dbd0953ca1417e1d758e105d3300fd6a729fb0295ab4ac89d504c45ddbe01eb2",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "bindPersistentRenderer",
+          "sha256": "20592dd8eaf952827989bd69348bf65bf5d3a0e0d9749026fcd5bf084d9baf9b",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "slider",
+          "sha256": "0a22e2ba6ec633d218158f352d88797c5d9bca0427fda93f77eb1144d3dd13b6",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        },
+        {
+          "path": "site/lesson-figures.js",
+          "function": "clamp",
+          "sha256": "4caeeb94cbc21d1dfd2ba1c07afc85119eeabaa4829eb54dc71c91d5ac5cbac8",
+          "file_sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+          "read": true,
+          "semantics": "SVG/DOM创建、SMIL规范化、滑块数值改变触发render、持久DOM对齐、注册/清理；只影响显示不生成RL证据",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.2 AlphaZero的搜索目标与符号",
+              "line": 549
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+              "heading": "24.4 MuZero、model-free与GRPO为何不能统称同一个算法",
+              "line": 617
+            },
+            {
+              "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+              "heading": "5. GRPO：同题相对优势与裁剪更新",
+              "line": 138
+            }
+          ],
+          "evidence_source": "维护/五站吸收/07-Transformer-缓存路由与推理规模-覆盖与验证.json",
+          "evidence_reuse": "同固定source文件SHA；el/svgEl/slider/select/export本批补读，其余runtime按既有完整读取复用"
+        }
+      ],
+      "corrections": [
+        "GRPO不是AlphaZero/MuZero的MCTS目标，也不是无需RM的定理；完整old比例/裁剪/逐token与KL分开",
+        "source源400更新GRPO8候选、REINFORCE1候选，未同采样预算",
+        "source代码p−pref对logits是reverse KL(ref||pi)梯度，不是forward KL(pi||ref)；docs直接logits差是参数惩罚",
+        "固定答案索引不表示数学/自然语言推理；源main3prompt不是docs2prompt",
+        "MuZero需要环境交互和反馈，不是无sim学任意环境；AlphaZero无需棋谱不等无规则先验",
+        "源SVG/动态selfplay阶梯人为画出必然变强不成立；sourceMCTS main未实现，新PUCT完整机制独立补齐",
+        "R1-Zero预训练base并非空白；R1/蒸馏流程保留机制，排名/2024R1时间和绝对产业路线淘汰"
+      ]
+    }
+  ],
+  "target_files": [
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "sha256": "b8aa5e9323d6a4e83f356c7cf6159d0bd2377c9c79da5db38d218aa62063f50c"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+      "sha256": "779f868f160a9b70c9168b996717c3f94bf119e08cd80428fc7cfd73ee8c45a7"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "sha256": "f64ca75d4ff1da4df4ce3b983bcc58c1098f965491d229a8b3661b355ebd9bfd"
+    }
+  ],
+  "formal_code_runs": [
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 1,
+      "sha256": "57dc231ea2e7e893c4ab2d192a4910447ff38fed73a209cac055ed22fbfec93d",
+      "sha256_convention": "fenced Python body including terminal newline",
+      "execution_date": "2026-10-05",
+      "evidence": "本批从当前正式Markdown提取实际执行；基线该文件无Python块",
+      "exit_code": 0,
+      "stdout": "同有限规则的100个留出采样排序准确率 1.0 prompt改变最优动作；奖励平移不变\n",
+      "stderr": "",
+      "scope": "CPU合成概率/表格/树搜索/参数动力学机制，不是真实训练或迁移"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 2,
+      "sha256": "3e8fc3be281af87afaff909cf4fc8efe3a69a22566ed87670ec5b8b84d58564a",
+      "sha256_convention": "fenced Python body including terminal newline",
+      "execution_date": "2026-10-05",
+      "evidence": "本批从当前正式Markdown提取实际执行；基线该文件无Python块",
+      "exit_code": 0,
+      "stdout": "精确KL策略吻合闭式基准 [0.5633 0.3375 0.0991] 整条KL常数扣分缺梯度反例通过\n",
+      "stderr": "",
+      "scope": "CPU合成概率/表格/树搜索/参数动力学机制，不是真实训练或迁移"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 3,
+      "sha256": "95711080a194baad4d27ccaccaa8e81d17fbf19360b982d69a41026c97735ce4",
+      "sha256_convention": "fenced Python body including terminal newline",
+      "execution_date": "2026-10-05",
+      "evidence": "本批从当前正式Markdown提取实际执行；基线该文件无Python块",
+      "exit_code": 0,
+      "stdout": "DPO相对margin提升，response有效token和/EOS掩码通过；有限动作示例\n",
+      "stderr": "",
+      "scope": "CPU合成概率/表格/树搜索/参数动力学机制，不是真实训练或迁移"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 4,
+      "sha256": "1c50cc3d08a9dce5b5d6b874ac2774a09936fd7ade088e79ff141a5bbb86fe5e",
+      "sha256_convention": "fenced Python body including terminal newline",
+      "execution_date": "2026-10-05",
+      "evidence": "本批从当前正式Markdown提取实际执行；基线该文件无Python块",
+      "exit_code": 0,
+      "stdout": "两token完整答案成功概率 [0.997 0.997] 验证器调用 5120 old/ref/裁剪与零优势组通过\n",
+      "stderr": "",
+      "scope": "CPU合成概率/表格/树搜索/参数动力学机制，不是真实训练或迁移"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+      "block": 1,
+      "sha256": "124c7d012ef02d39862c4e461fb0b278c6b17e26b1249d9a7151fc8e3855476b",
+      "sha256_convention": "fenced Python body including terminal newline",
+      "execution_date": "2026-10-05",
+      "evidence": "本批从当前正式Markdown提取实际执行；基线该文件无Python块",
+      "exit_code": 0,
+      "stdout": "联合critic/局部actor动作 (0, 1) max-marginal反例/QMIX单调/COMA零均值通过\n",
+      "stderr": "",
+      "scope": "CPU合成概率/表格/树搜索/参数动力学机制，不是真实训练或迁移"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+      "block": 2,
+      "sha256": "f9dbc2d92a74f1c999c62304758668b81860a21b59c4be7ffae461f63be8a153",
+      "sha256_convention": "fenced Python body including terminal newline",
+      "execution_date": "2026-10-05",
+      "evidence": "本批从当前正式Markdown提取实际执行；基线该文件无Python块",
+      "exit_code": 0,
+      "stdout": "PUCT合法动作/价值反号/访问目标通过；8合成自玩局，搜索模拟 1520 policy/value一次更新\n",
+      "stderr": "",
+      "scope": "CPU合成概率/表格/树搜索/参数动力学机制，不是真实训练或迁移"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "block": 1,
+      "sha256": "dd6372db186eb2c49aca1b87a5111a7d21da6be4d8644dc821dcb2e56a66bdf5",
+      "sha256_convention": "fenced Python body including terminal newline",
+      "execution_date": "2026-10-05",
+      "evidence": "本批从当前正式Markdown提取实际执行；基线该文件无Python块",
+      "exit_code": 0,
+      "stdout": "b 0.5 nominal/DR单步误差 0.25 0.36\nb 1.0 nominal/DR单步误差 0.0 0.04\nb 1.5 nominal/DR单步误差 0.25 0.04\nb 0.2 nominal/DR单步误差 0.64 0.7056\nb 3.0 nominal/DR单步误差 4.0 1.96\nDR参数 0.8 平均改善/支持点损害/OOD/多步失稳边界通过\n",
+      "stderr": "",
+      "scope": "CPU合成概率/表格/树搜索/参数动力学机制，不是真实训练或迁移"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "block": 2,
+      "sha256": "fc7428a7b053264a36c438fc137f2e093099560aa8a215585d39b2e317f96499",
+      "sha256_convention": "fenced Python body including terminal newline",
+      "execution_date": "2026-10-05",
+      "evidence": "本批从当前正式Markdown提取实际执行；基线该文件无Python块",
+      "exit_code": 0,
+      "stdout": "合成SI参数 0.82 0.045 残差预测/秩不足/4N限幅通过；最终速度 1.0 m/s\n",
+      "stderr": "",
+      "scope": "CPU合成概率/表格/树搜索/参数动力学机制，不是真实训练或迁移"
+    }
+  ],
+  "historical_code_runs_reused": [],
+  "historical_reuse_reason": "三个原文件均无Python块；新8块全实际执行，不用旧缺运行证据虚称通过",
+  "old_knowledge_preservation": [
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "baseline_sha256": "473d18b6502a57139bce17ad7b19ee7f39a38954bc87072bcf51270b2c596bce",
+      "baseline_python_block_count": 0,
+      "preservation": "原九节SFT/偏好数据/GRPO/reward反例/成本/选择/评估/全错组和2026-10-02核验，重写融入1～7；保留self-llm来源，不留第二份摘要"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/15-强化学习进阶与世界模型.md",
+      "baseline_sha256": "050f98c5c61717c4702ac5e200c700d8720ccdffad0247887d2f8644de296da1",
+      "baseline_python_block_count": 0,
+      "preservation": "旧全文作为前缀逐字保留，再追加23～25；旧日期/WorldModels/AlphaStar/LS-Imagine及原学习导航保持"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/04-自主系统与机器人学习.md",
+      "baseline_sha256": "025890712cf0cc8b6890bda4e4a6eb2a74cd922225aaddc677ac01c8a5888f35",
+      "baseline_python_block_count": 0,
+      "preservation": "旧内容保留，只在7加12入口再追加12；原位置控制/Compendium/VLA/单位边界未删"
+    }
+  ],
+  "official_verification": [
+    {
+      "url": "https://arxiv.org/html/2305.18290v2",
+      "date": "2026-10-05",
+      "scope": "BT/KL最优策略/implicit reward与DPO概率差"
+    },
+    {
+      "url": "https://arxiv.org/html/2402.03300v3",
+      "date": "2026-10-05",
+      "scope": "GRPO original old ratio/clip/group outcomes/process/reward models/reference"
+    },
+    {
+      "url": "https://huggingface.co/docs/trl/main/en/grpo_trainer",
+      "date": "2026-10-05",
+      "scope": "main开发版多归一化/损失，不当原始定义；Jina403后web官方读取"
+    },
+    {
+      "url": "https://huggingface.co/docs/trl/main/en/reward_trainer",
+      "date": "2026-10-05",
+      "scope": "当前processing_class/tokenizer合同；未安装SDK"
+    },
+    {
+      "url": "https://arxiv.org/html/2501.12948v1",
+      "date": "2026-10-05",
+      "scope": "R1-Zero/R1多阶段与教师轨迹distill，排名数字不保"
+    },
+    {
+      "url": "https://arxiv.org/abs/1706.03741",
+      "date": "2026-10-05",
+      "scope": "轨迹人类偏好学习"
+    },
+    {
+      "url": "https://arxiv.org/abs/1706.02275",
+      "date": "2026-10-05",
+      "scope": "MADDPG集中训练/分散策略"
+    },
+    {
+      "url": "https://arxiv.org/abs/1803.11485",
+      "date": "2026-10-05",
+      "scope": "QMIX monotonic consistency/表达限制"
+    },
+    {
+      "url": "https://arxiv.org/abs/1705.08926",
+      "date": "2026-10-05",
+      "scope": "COMA counterfactual fixed-other baseline"
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.01955",
+      "date": "2026-10-05",
+      "scope": "MAPPO cooperative baseline"
+    },
+    {
+      "url": "https://arxiv.org/abs/1712.01815",
+      "date": "2026-10-05",
+      "scope": "AlphaZero policy/value与自玩搜索"
+    },
+    {
+      "url": "https://arxiv.org/abs/1911.08265",
+      "date": "2026-10-05",
+      "scope": "MuZero learned reward/policy/value/model not-no-environment"
+    },
+    {
+      "url": "https://arxiv.org/abs/1703.06907",
+      "date": "2026-10-05",
+      "scope": "视觉DR方法范围"
+    },
+    {
+      "url": "https://arxiv.org/abs/1710.06537",
+      "date": "2026-10-05",
+      "scope": "动力学DR/transfer条件"
+    },
+    {
+      "url": "https://arxiv.org/abs/1812.03201",
+      "date": "2026-10-05",
+      "scope": "residual control与model residual分工"
+    },
+    {
+      "url": "https://arxiv.org/abs/1910.07113",
+      "date": "2026-10-05",
+      "scope": "ADR与硬件研究案例，不引用固定规模/当前结论"
+    }
+  ],
+  "checks": {
+    "headings": 54,
+    "docs_code_blocks": 20,
+    "source_symbols": 41,
+    "source_exercises": 12,
+    "source_quiz": 0,
+    "static_svg": 4,
+    "dynamic_figures": 4,
+    "source_nonempty_files": 16,
+    "empty_placeholders": 4,
+    "source_mains_executed": 4,
+    "formal_python_blocks_executed": 8,
+    "local_link_issues": [],
+    "anchor_issues": []
+  },
+  "unverified_scope": [
+    "真实LLM/RM/偏好标注/TRL SDK/权重/数据与质量评测未做",
+    "时序MAPPO/IPPO/MADDPG/QMIX网络训练、局部传感器/通信/真实多机器人未做",
+    "真实棋类/AlphaZero/MuZero大模型/神经世界模型训练未做；新PUCT仅取石子8局一次更新",
+    "真实硬件SI/DR迁移/teacher-student/ADR课程/真实残差RL/安全验收未做",
+    "原docs不完整Python/TRL/环境伪代码不标运行通过；原main4完整运行仅证人工环境/函数路径",
+    "未访问后四来源，不称第一来源全站完成或用户掌握"
+  ],
+  "根标题格式归一核对": {
+    "日期": "2026-10-05",
+    "条目": 54,
+    "说明": "仅剥离源实际标题行的Markdown井号；原始行另存，不增加/删除标题，不将格式差异当语义漏读。"
+  },
+  "统一验收日期": "2026-10-05",
+  "整体完成边界": "本批仅第1来源Phase09十二课；第1来源和五站任务尚未完成。"
+}
