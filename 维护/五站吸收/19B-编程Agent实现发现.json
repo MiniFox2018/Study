@@ -1,0 +1,898 @@
+{
+  "date": "2026-10-11",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "study_base": "83689a5d7453bf740fb0bd184d0f94e15d73fc02",
+  "scope": "Phase19/20–29编程Agent实现10课机械发现，未阅读/写作/验收",
+  "counts": {
+    "lessons": 10,
+    "files": 58,
+    "nonempty": 57,
+    "empty": 1,
+    "true_doc_h2_h4": 92,
+    "accepted_unchanged": 455,
+    "source_programs_executed": 0
+  },
+  "lessons": [
+    {
+      "lesson": "20-agent-harness-loop-contract",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/20-agent-harness-loop-contract/code/main.py",
+          "bytes": 11767,
+          "sha256": "c795bf61778d8e9db181e413b846e478c8e1462c783a4429bf1444321a789ea8",
+          "git_blob": "3f006fbc8f610e05cdce6856aa1583f820d56a50",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/20-agent-harness-loop-contract/code/tests/test_loop.py",
+          "bytes": 7505,
+          "sha256": "0038d7403886792a18bf2fd090d115daccc32c74091467aef70df962d46c1b71",
+          "git_blob": "39d4a5afffa44a2af65fa711d7bcc5361095066d",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/20-agent-harness-loop-contract/docs/en.md",
+          "bytes": 6807,
+          "sha256": "72b71caaa57fae3f8a5f0a55c9fb8417f2c8e0b0221dbfa82fa92fd816e258fd",
+          "git_blob": "96ab905e469e94ba0e65493054b49311f99bf9dd",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/20-agent-harness-loop-contract/quiz.json",
+          "bytes": 3829,
+          "sha256": "71ad8b02b311fa500d91a5ac156f62b80d49f78cf29932fc5bf267ec9d0a3a92",
+          "git_blob": "f45287ddfdb0ce00b709722937abcaa6fad07738",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 21,
+          "heading": "## The frame"
+        },
+        {
+          "line": 27,
+          "heading": "## The states"
+        },
+        {
+          "line": 50,
+          "heading": "## The hook topics"
+        },
+        {
+          "line": 66,
+          "heading": "## The pull points"
+        },
+        {
+          "line": 72,
+          "heading": "## The event stream"
+        },
+        {
+          "line": 90,
+          "heading": "## The budget envelope"
+        },
+        {
+          "line": 96,
+          "heading": "## What this lesson does not do"
+        },
+        {
+          "line": 102,
+          "heading": "## How to read the code"
+        },
+        {
+          "line": 108,
+          "heading": "## Going further"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "21-tool-registry-schema-validation",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/21-tool-registry-schema-validation/code/main.py",
+          "bytes": 9404,
+          "sha256": "ef440caecb0d5a507c44623af67b2e03783c848a354a0506c940eef99df726fc",
+          "git_blob": "be83e3e0afdc256a3ff8ce1d0ca4a7df89c05d4f",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/21-tool-registry-schema-validation/code/tests/test_registry.py",
+          "bytes": 6937,
+          "sha256": "63b1ffd11a8e1969f62adb4f0a2d5ac8355876a0088d0109d8e381bf66de8507",
+          "git_blob": "907ac12409c06055884624548feed63381936651",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/21-tool-registry-schema-validation/docs/en.md",
+          "bytes": 6004,
+          "sha256": "6bc45190eed2ae86db09752c2eef75ac6e7cc3705878b9c8597064e80c2874fd",
+          "git_blob": "3af0e1666c404ebe3000d4b46d7dcdf9ab2fd11b",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/21-tool-registry-schema-validation/quiz.json",
+          "bytes": 3059,
+          "sha256": "d633a38e510733538d8dc46ca122c2badf9cadb00dca36124bb5999941b70fe1",
+          "git_blob": "6f0f4f00d5b4e6e5d5b4ff3a81592089a270746f",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 21,
+          "heading": "## Why the registry comes before the tool"
+        },
+        {
+          "line": 27,
+          "heading": "## What a tool record looks like"
+        },
+        {
+          "line": 41,
+          "heading": "## The JSON Schema 2020-12 subset"
+        },
+        {
+          "line": 58,
+          "heading": "## Json pointer error paths"
+        },
+        {
+          "line": 70,
+          "heading": "## Registration and override"
+        },
+        {
+          "line": 76,
+          "heading": "## What the validator is and is not"
+        },
+        {
+          "line": 82,
+          "heading": "## Shape"
+        },
+        {
+          "line": 93,
+          "heading": "## How to read the code"
+        },
+        {
+          "line": 99,
+          "heading": "## Going further"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "22-jsonrpc-stdio-transport",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/22-jsonrpc-stdio-transport/code/main.py",
+          "bytes": 8590,
+          "sha256": "1710deae43d4335d4ba8aef52e31f91eab5849204aac30482ef063a0e70ac6b3",
+          "git_blob": "75d08f19e61452ff93ad4967829587f028f728b7",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/22-jsonrpc-stdio-transport/code/tests/test_transport.py",
+          "bytes": 6443,
+          "sha256": "c3b3d6ea2c35325f7b41cd0b1ddadbfece30ad35a661ad344df730e0ac64e048",
+          "git_blob": "65643c94fc346f03025020c6eed7fdb47c88329c",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/22-jsonrpc-stdio-transport/docs/en.md",
+          "bytes": 6652,
+          "sha256": "de621edbafb169e7f500a1aad44fa9ae0402567a4ace7701778208eb11f79165",
+          "git_blob": "0cf9fde67d8a4ca38ea764e374aa19ea7d3b421b",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/22-jsonrpc-stdio-transport/quiz.json",
+          "bytes": 3599,
+          "sha256": "01a912e8dfae75e07f5a1eb359ac868da5207fc379947aac29340d2fa9a77e79",
+          "git_blob": "f8bbab941f7cc48aa129cac9b6c3f590461d8440",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 21,
+          "heading": "## Why JSON-RPC stays the lingua franca"
+        },
+        {
+          "line": 27,
+          "heading": "## The wire shape"
+        },
+        {
+          "line": 47,
+          "heading": "## The five error codes"
+        },
+        {
+          "line": 61,
+          "heading": "## Newline framing and the BytesIO demo"
+        },
+        {
+          "line": 67,
+          "heading": "## Method dispatch"
+        },
+        {
+          "line": 79,
+          "heading": "## Stream behavior on errors"
+        },
+        {
+          "line": 92,
+          "heading": "## Notifications and asymmetric flows"
+        },
+        {
+          "line": 98,
+          "heading": "## How to read the code"
+        },
+        {
+          "line": 104,
+          "heading": "## Going further"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "23-function-call-dispatcher",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/23-function-call-dispatcher/code/main.py",
+          "bytes": 11590,
+          "sha256": "a40d3065aa4cd10596a6c76e602837abe81cc2b5dd7b60ae06f57e1d42ea075c",
+          "git_blob": "0bda9ca90412fa0f8cbcaa2d65feaadf96d7286c",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/23-function-call-dispatcher/code/tests/test_dispatcher.py",
+          "bytes": 7201,
+          "sha256": "23bc0babeece50aa27b667872ab1db46ac17865154017cac24f6d9028c44ee8f",
+          "git_blob": "2b80d60153b98173e560c81acdd095197b867f2f",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/23-function-call-dispatcher/docs/en.md",
+          "bytes": 7345,
+          "sha256": "22830667cee8263655f9712d7796d4b7610ff2b5ddf52adff6b816207508bafb",
+          "git_blob": "545170c48c10d19e63590e27e6f8963ee10ffacf",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/23-function-call-dispatcher/quiz.json",
+          "bytes": 3582,
+          "sha256": "f093e63b4792bba83001499e314daf8241c8df0502c417dc1bfe675796982b39",
+          "git_blob": "ff4f03c89aff54a019d0c1854ac3ba45b7eb0ae9",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 21,
+          "heading": "## Where the dispatcher sits"
+        },
+        {
+          "line": 43,
+          "heading": "## Timeouts"
+        },
+        {
+          "line": 49,
+          "heading": "## Retries with exponential backoff"
+        },
+        {
+          "line": 63,
+          "heading": "## Idempotency key dedupe"
+        },
+        {
+          "line": 71,
+          "heading": "## Error envelope"
+        },
+        {
+          "line": 85,
+          "heading": "## Concurrency limit on fan-out"
+        },
+        {
+          "line": 91,
+          "heading": "## Flow for one call"
+        },
+        {
+          "line": 127,
+          "heading": "## How to read the code"
+        },
+        {
+          "line": 135,
+          "heading": "## Going further"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "24-plan-execute-control-flow",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/24-plan-execute-control-flow/code/main.py",
+          "bytes": 9240,
+          "sha256": "bedf0bf884fd44b378c9891da3fc98c5cdef763c41d0870429af607c25c58a46",
+          "git_blob": "20c44205a8789550eda6b26fdd1b6df7f763504b",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/24-plan-execute-control-flow/code/tests/test_agent.py",
+          "bytes": 5315,
+          "sha256": "112632bc9044d8721cc42c27ba0f1f4bde736d5dd54fe16fc5a9f895256b3d94",
+          "git_blob": "0a2796da617a0850d0f1b09a5865ef7cef45a9d0",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/24-plan-execute-control-flow/docs/en.md",
+          "bytes": 6735,
+          "sha256": "d19fe6f19f7f19f2c9dafc7c87d866fbc13ce8c45a22eda3627e5d3b26e403bf",
+          "git_blob": "95b9d7104f464360b4056fd29e94fae79c3dd8a4",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/24-plan-execute-control-flow/quiz.json",
+          "bytes": 3579,
+          "sha256": "628fd295a4849e082e0d574177b00812f626cb90f557def7a7ebf39db479dde8",
+          "git_blob": "1ad9cb74b76cbc710edc762d5fe690cbfaa945bd",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 21,
+          "heading": "## Plan and execute, not chain-of-thought"
+        },
+        {
+          "line": 35,
+          "heading": "## The Step shape"
+        },
+        {
+          "line": 49,
+          "heading": "## The planner shape"
+        },
+        {
+          "line": 60,
+          "heading": "## The executor"
+        },
+        {
+          "line": 77,
+          "heading": "## Plan diffs on revision"
+        },
+        {
+          "line": 89,
+          "heading": "## Two budgets, both hard"
+        },
+        {
+          "line": 95,
+          "heading": "## The deterministic planner in this lesson"
+        },
+        {
+          "line": 108,
+          "heading": "## Result shape"
+        },
+        {
+          "line": 121,
+          "heading": "## How to read the code"
+        },
+        {
+          "line": 127,
+          "heading": "## Going further"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "25-verification-gates-observation-budget",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/25-verification-gates-observation-budget/code/main.py",
+          "bytes": 13811,
+          "sha256": "d21636677b0f0918f265f9ec7160596719edc9c4bc1b2aef3f9350cc4dab27c2",
+          "git_blob": "8e76789d3315fe4bc33c441a6a89f8e2857fcafc",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/25-verification-gates-observation-budget/code/tests/test_main.py",
+          "bytes": 8451,
+          "sha256": "b750acf21adc1ffbb2a273d95c0c2562945fa5799da4547e43b0211553e25b0a",
+          "git_blob": "fa91cfb9ef00b7ce342e21a3d7e08c6be06c7faa",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/25-verification-gates-observation-budget/docs/en.md",
+          "bytes": 7196,
+          "sha256": "d1f04d36fc4bb23a2c48fcd2fbfb950cb055555c55eef8f68de2d903e68dd1f1",
+          "git_blob": "2fa79cc7cc3122ec453064a8f1632849436ada43",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/25-verification-gates-observation-budget/quiz.json",
+          "bytes": 4450,
+          "sha256": "123434da98d348cc0cef3f53667e7b3ad73255b46d9a066e4f9ba665cf72bb69",
+          "git_blob": "8ab83666d0c41ba6f8d4ffd91a3551904af85e4c",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 18,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 30,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 57,
+          "heading": "## Architecture"
+        },
+        {
+          "line": 70,
+          "heading": "## What you will build"
+        },
+        {
+          "line": 83,
+          "heading": "## Why the chain order matters"
+        },
+        {
+          "line": 89,
+          "heading": "## How this composes with the rest of Track A"
+        },
+        {
+          "line": 93,
+          "heading": "## Running it"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "26-sandbox-runner-denylist",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/26-sandbox-runner-denylist/code/main.py",
+          "bytes": 15383,
+          "sha256": "afa52fcdf58c555fc1822ee353194c353ec6db11a7c5b39b0c43b7437f19cdbc",
+          "git_blob": "9db587c4a37692ee352b01d09b88c65e2e665e60",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/26-sandbox-runner-denylist/code/tests/test_main.py",
+          "bytes": 7542,
+          "sha256": "6ffb2425cfd6537527eeac46bc8667b3fa5af349aa25263565066b994ac24d8a",
+          "git_blob": "b35d129309bc67371c875719a553714c0e60c418",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/26-sandbox-runner-denylist/docs/en.md",
+          "bytes": 7248,
+          "sha256": "1c895c065759c1d3894d86f10fb5a2390c39f2a846c61dbb7c0692261dc31142",
+          "git_blob": "f60c1ea5469ab7d834d46ad10fcd29b812ee1642",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/26-sandbox-runner-denylist/quiz.json",
+          "bytes": 4313,
+          "sha256": "854ebbc7e26feec28b9b35164b10eaad083823d521190f00a707afbb496351cb",
+          "git_blob": "0b88aca1229f52a86d4f973396d175398fc626e6",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 18,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 32,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 53,
+          "heading": "## Architecture"
+        },
+        {
+          "line": 66,
+          "heading": "## What you will build"
+        },
+        {
+          "line": 79,
+          "heading": "## Why this is not a real sandbox"
+        },
+        {
+          "line": 85,
+          "heading": "## Running it"
+        },
+        {
+          "line": 95,
+          "heading": "## How this composes with the rest of Track A"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "27-eval-harness-fixture-tasks",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/main.py",
+          "bytes": 16464,
+          "sha256": "4b7c5c4618be2c9df956235ce84d447fd51e3501ebaa45c03b826280c6306316",
+          "git_blob": "b2a75d3eaf96483f086129adbd7c1ba85b1b012d",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_001_fizzbuzz_offbyone/buggy/fizzbuzz.py",
+          "bytes": 234,
+          "sha256": "042a381376326049d9cf66b44fe8ba0a0b873b0b99ac7eaeb56086760e8bbd0f",
+          "git_blob": "ec6267fb86246a0192235881e23846116aa6d808",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_001_fizzbuzz_offbyone/expected/fizzbuzz.py",
+          "bytes": 238,
+          "sha256": "f7c039d50dd2c5455cfa2abdf19782fae152c51520686a4ce17b43aed28a3cb4",
+          "git_blob": "cf48247e38fc649f57edb4197eadd8872ff9c627",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_001_fizzbuzz_offbyone/task.json",
+          "bytes": 316,
+          "sha256": "0e9758d195a0d9471271b963b315b0f08ff4c3c099443673f148b326a0d23a39",
+          "git_blob": "c8854e4e2569b75fab297aa761bfe05096a08c6f",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_002_factorial_missing_return/buggy/factorial.py",
+          "bytes": 91,
+          "sha256": "d0f392b11c2a233b01de88cf32ef66e1e700fba27680d58272473e1e27acba74",
+          "git_blob": "4668b477760c86413417c3001f7a7a965eca7375",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_002_factorial_missing_return/expected/factorial.py",
+          "bytes": 109,
+          "sha256": "0806ca53107bbb260ca3ce158a948163633717eaca4540895d4c3ac3de57aa9e",
+          "git_blob": "1f8c280f8f2106c1a471e02460982e0c05c30727",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_002_factorial_missing_return/task.json",
+          "bytes": 339,
+          "sha256": "d6813dd42221f81fd6a70e05b208a82d858d6a2277e625aa003f8b9dbd7feba1",
+          "git_blob": "9248a7e09076d68bb8c1aa0adcbcd94f2a0bb563",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_003_error_message_typo/buggy/errors.py",
+          "bytes": 129,
+          "sha256": "50142d157b0eab7676ebe138a8135733e849687990100def710dbd534dc23d3a",
+          "git_blob": "240351cf8ca0f35e228de3a92e955998d145b910",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_003_error_message_typo/expected/errors.py",
+          "bytes": 129,
+          "sha256": "979cc37c53ddf6d5640a6fdabb4949cf003d9d322f8edeca335e742f06d2708d",
+          "git_blob": "9c876056da7e080085f29b5bfc8b0acc3df64ef7",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_003_error_message_typo/task.json",
+          "bytes": 237,
+          "sha256": "b86b14d502780731216afd834c747a70408f171602d66f8db088bd7e151bc268",
+          "git_blob": "86c703bf8002d19ed82a4f7a72eec8612ffb4668",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_004_empty_reverse/buggy/reverse.py",
+          "bytes": 34,
+          "sha256": "47d8ad7bb146f273221f4df9c8d37f50b3e7d097f51afbf71010dcea28893605",
+          "git_blob": "af26abd3f6112a53ace1f97e8e82eea74f1a724e",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_004_empty_reverse/expected/reverse.py",
+          "bytes": 48,
+          "sha256": "0fd3b8a64c8e3f6dfb9cf1fbe7cca3b772d728af69c67ddc5f86525acb30b289",
+          "git_blob": "a28d1e57f8cf4b6e5e6e2036a1ace252d840d923",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_004_empty_reverse/task.json",
+          "bytes": 424,
+          "sha256": "69f8aa27b6746ddf21b60ae5ef32cf9e85f549ef61eb637e481d667c4aebe944",
+          "git_blob": "55150c73581cfdd9c3a66e51b9696afdc12c1808",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_005_linked_list_traversal/buggy/linked_list.py",
+          "bytes": 302,
+          "sha256": "d3e9ea5f219d883f5d923eee41b5932d52118aa2147d71cf87342a9cf161b54c",
+          "git_blob": "cff0ef1bce02551430555e9d9845e07215107231",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_005_linked_list_traversal/expected/linked_list.py",
+          "bytes": 298,
+          "sha256": "52922f3b9f2349a69817b257b8a45651901893d0ec9b2bd048512b33443440d0",
+          "git_blob": "8cf591f08d6c0cfc3222c62126c258475c6d63b8",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_005_linked_list_traversal/task.json",
+          "bytes": 405,
+          "sha256": "371796ec9cb150cbdecb0f8230b1ce08703f005e01d07c06e5f05b8116b8afcd",
+          "git_blob": "4592b9d1369b314a1324977158a8de34cbf1d918",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tests/test_main.py",
+          "bytes": 7603,
+          "sha256": "a4987b7395781f3f78fc71f3fcf931444dc4c50c8ff7e0b605404f9946f47f40",
+          "git_blob": "99e0379bb7e43e7796fa5ed407ae25fc1a999e62",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/docs/en.md",
+          "bytes": 6978,
+          "sha256": "76f36a6d77fbffa5815676c81dfe7a4ccba00c51ef7bdb169e121ce984052517",
+          "git_blob": "ee201dc87c826eb349458655eb3e38faf6acb934",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/27-eval-harness-fixture-tasks/quiz.json",
+          "bytes": 3892,
+          "sha256": "2fc0fcee34ce1775a6e8b38bb873fa345135f8f6c6122566dfbadb173fd027fa",
+          "git_blob": "5a51aae9877e64ddbe5739cd66f9ee794a323e1d",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 18,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 30,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 56,
+          "heading": "## Architecture"
+        },
+        {
+          "line": 68,
+          "heading": "## What you will build"
+        },
+        {
+          "line": 88,
+          "heading": "## Why pass@k and not just pass@1"
+        },
+        {
+          "line": 94,
+          "heading": "## How this composes with the rest of Track A"
+        },
+        {
+          "line": 98,
+          "heading": "## Running it"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "28-observability-otel-traces",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/28-observability-otel-traces/code/main.py",
+          "bytes": 16457,
+          "sha256": "221a588bb06070a63bb67350635b4b5af914e6d3d5be7890e67af2a49d8a7b61",
+          "git_blob": "09d3aefbe835b1ab295f883d8bed84d99e94743a",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/28-observability-otel-traces/code/tests/test_main.py",
+          "bytes": 7559,
+          "sha256": "0243487e39fb813aa9547f243fd3c723cb297600b41bad4a47d3d82fc4acf524",
+          "git_blob": "7222ff1903831119468011be43b8a28534a07874",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/28-observability-otel-traces/docs/en.md",
+          "bytes": 7372,
+          "sha256": "673aceef7517fdf77a8dd6eaaee4dc59c6e32bfeca2e8926230161bc6caff1e2",
+          "git_blob": "b45d18dfadc654dd816b20fa24f7fe6559a18ad1",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/28-observability-otel-traces/quiz.json",
+          "bytes": 4045,
+          "sha256": "7651b44a8d958bccf11c6a563b8e010b6337e8cf2fc5838290d6466d9516b93f",
+          "git_blob": "f23d0a7794430c05c7b5d23e6ea98f3482d42182",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 18,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 30,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 54,
+          "heading": "## Architecture"
+        },
+        {
+          "line": 68,
+          "heading": "## What you will build"
+        },
+        {
+          "line": 84,
+          "heading": "## Why hand-rolled instead of opentelemetry-sdk"
+        },
+        {
+          "line": 90,
+          "heading": "## How this composes with the rest of Track A"
+        },
+        {
+          "line": 94,
+          "heading": "## Running it"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "29-end-to-end-coding-task-demo",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/29-end-to-end-coding-task-demo/code/fixture_repo/src/fizz.py",
+          "bytes": 70,
+          "sha256": "1f2a6c806d753fe40e1693b58d00c38fd38f5bd35ba0b0a377a5c225813423b2",
+          "git_blob": "64beb7852ff8620cb7417f04873befea3979cf4f",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/29-end-to-end-coding-task-demo/code/fixture_repo/tests/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/29-end-to-end-coding-task-demo/code/fixture_repo/tests/test_fizz.py",
+          "bytes": 572,
+          "sha256": "51ea859996451b237fa96ad0164754a0e77a5466c2ed6cf6bb0e4913642f3a5d",
+          "git_blob": "133534c84fcb9e5667db69189379c340ed2ca929",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/29-end-to-end-coding-task-demo/code/main.py",
+          "bytes": 29491,
+          "sha256": "78a95b86926f4d22b56c7823992c0378a1c7002cf80be188a87a4129660f9659",
+          "git_blob": "cc9816d2552ce31f2be84e76ebe3c8adf595b2fc",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/29-end-to-end-coding-task-demo/code/tests/test_main.py",
+          "bytes": 7270,
+          "sha256": "3bac0e23bc48c078df65362c6dccd7ec1a69d8dbefc3b85efdc1569f3a447e12",
+          "git_blob": "95d9c78c1b180eff6774a8dc477af1ed7643924e",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/29-end-to-end-coding-task-demo/docs/en.md",
+          "bytes": 7152,
+          "sha256": "febbabee70a1c777c773df7161385ebd30c560c6fb3da1cae1722ad82ed9f9a6",
+          "git_blob": "5c4f7ed31bdf5e844f5e6665958874953538ef6b",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/29-end-to-end-coding-task-demo/quiz.json",
+          "bytes": 4218,
+          "sha256": "a05c9b1b8b570cf0f64a91a22ed4eff5aefd234e52dece59d98cb902ab54c504",
+          "git_blob": "b052f6ce3aff72626492c8f601db71ae495e007b",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 18,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 26,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 56,
+          "heading": "## Architecture"
+        },
+        {
+          "line": 74,
+          "heading": "## What you will build"
+        },
+        {
+          "line": 87,
+          "heading": "## Why the policy is not an LLM"
+        },
+        {
+          "line": 93,
+          "heading": "## What the demo asserts"
+        },
+        {
+          "line": 107,
+          "heading": "## How this composes with the rest of Track A"
+        },
+        {
+          "line": 111,
+          "heading": "## Running it"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    }
+  ],
+  "not_read_sites": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "guide": "Phase19 README已经由此前外围20导读处理，本次复核不增加课数/外围完成数"
+}
