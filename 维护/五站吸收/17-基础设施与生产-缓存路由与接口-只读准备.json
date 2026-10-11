@@ -1,0 +1,4073 @@
+{
+  "status": "课内已完整静态读；8课已增量写，13完整草案待根融合；本组不宣布批次验收",
+  "source": "rohitg00/ai-engineering-from-scratch",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "read_date": "2026-10-10",
+  "counts": {
+    "lessons": 9,
+    "files": 59,
+    "nonempty": 50,
+    "empty": 9,
+    "headings_h2_h4": 147,
+    "exercises": 45,
+    "quiz": 54,
+    "python_source": 9,
+    "typescript_source": 5,
+    "static_svg": 9,
+    "dynamic_markers": 9,
+    "source_execution_count": 0
+  },
+  "lessons": [
+    {
+      "lesson": "11-multi-region-kv-locality",
+      "files": [
+        {
+          "path": "phases/17-infrastructure-and-production/11-multi-region-kv-locality/assets/router.svg",
+          "bytes": 5171,
+          "sha256": "3eba4c2d955a1bc4b8dcf56351afe67cc12ffaa493ddd5018ec9a7c488e1ce51",
+          "git_blob": "fd3a89f095c687d297eb091411a16c384b5a0835",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/11-multi-region-kv-locality/assets/router.svg",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/11-multi-region-kv-locality/code/main.py",
+          "bytes": 5073,
+          "sha256": "72481d40dea036afd9109f2b14253d3a9630d0b4971f599f05b610e44f9b4710",
+          "git_blob": "a0decf262d8a9f63b40cf162a2a0c9ee5cd6f9e4",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/11-multi-region-kv-locality/code/main.py",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/11-multi-region-kv-locality/docs/en.md",
+          "bytes": 8509,
+          "sha256": "72bb6b7348dcafd19302c7df926e962813e62f28bd02eda99f2c267e6995c26d",
+          "git_blob": "f26136a2cbbe4fcc86998ec39ad76f58b90cd29d",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/11-multi-region-kv-locality/docs/en.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/11-multi-region-kv-locality/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/11-multi-region-kv-locality/notebook/.gitkeep",
+          "read_status": "空占位无知识内容"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/11-multi-region-kv-locality/outputs/skill-multi-region-router.md",
+          "bytes": 2557,
+          "sha256": "8a075e7a58758d9b8096b640054b749a4fd89252345050276b598312c7ae3e90",
+          "git_blob": "94302bdf8d2d62f32612e01accf739ef2d53d950",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/11-multi-region-kv-locality/outputs/skill-multi-region-router.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/11-multi-region-kv-locality/quiz.json",
+          "bytes": 2731,
+          "sha256": "d9321d92db55334a225c68eaedf1c8e24e8c506394d2eba08447a5e5f10d85b8",
+          "git_blob": "10553705f74a75c30f19efe39734667b0dfd7115",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/11-multi-region-kv-locality/quiz.json",
+          "read_status": "已完整读取非执行"
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 27,
+          "heading": "## The Concept",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 29,
+          "heading": "### Cache-aware routing",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 39,
+          "heading": "### Numbers",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 47,
+          "heading": "### Cross-region has a new constraint — network latency",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 56,
+          "heading": "### Commercial \"cross-region inference\" does not help here",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 62,
+          "heading": "### DR hygiene — the 32% missing-files problem",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 79,
+          "heading": "### Data residency is orthogonal",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 83,
+          "heading": "### Numbers you should remember",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 94,
+          "heading": "## Use It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 98,
+          "heading": "## Ship It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 102,
+          "heading": "## Exercises",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 110,
+          "heading": "## Key Terms",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        },
+        {
+          "line": 124,
+          "heading": "## Further Reading",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "line": 104,
+          "question": "Run `code/main.py`. At what prompt length does cross-region routing beat local-only routing, given 75 ms RTT?",
+          "question_zh": "75ms RTT下多长prompt跨区值得？",
+          "reference_answer_zh": "源程序把cold/hit固定800/80ms且没有prompt_length，不能求长度交叉点。先核地域许可，再比较 local_queue+local_residual_prefill 与 remote_network+remote_queue+remote_residual_prefill。题设都不排队时，80+75=155<800；若新增网路和排队超过720ms才输。RTT本来是往返，不能自动再乘2。"
+        },
+        {
+          "line": 105,
+          "question": "Your cache hit rate drops from 70% to 12%. Diagnose three possible causes and the observables that would confirm each.",
+          "question_zh": "命中率70%降到12%，怎样诊断？",
+          "reference_answer_zh": "查三类：模板/模型/adapter/tokenizer版本变化，用cache key与matched token分布确认；缩容、重启、驱逐或路由变更，用KV事件、miss原因和实例版本确认；输入分布/租户/长度变化，用同scope流量切片确认。请求命中率和token命中率分别算，避免只比较一个平均值。"
+        },
+        {
+          "line": 106,
+          "question": "Design a DR manifest for a 70B AWQ-quantized model served in vLLM with 5 LoRA adapters. List every file and config.",
+          "question_zh": "70B AWQ和5个LoRA的恢复清单？",
+          "reference_answer_zh": "以可恢复的目录和哈希清单记录权重各分片/索引、config、tokenizer与词表、chat template、RoPE/量化参数与必要scales/zeros、5个adapter权重/config及路由映射，另保引擎版本、依赖锁、镜像digest、启动参数、部署/网络/存储/密钥引用。密钥不写进公开manifest，恢复后验证加载、模板、已知输入输出及性能/RTO/RPO。三类清单不是三个固定文件。"
+        },
+        {
+          "line": 107,
+          "question": "Argue whether Bedrock cross-region inference is \"enough\" for a fintech with strict TTFT SLOs. Cite specific behaviors.",
+          "question_zh": "Bedrock跨区推理是否足够满足严格TTFT？",
+          "reference_answer_zh": "官方inference profile定义可路由地域和容量，不提供本课程意义的应用KV事件索引保证。托管用户不能擅自把内部replica router加到服务方内部；按允许的profile、实测端到端TTFT/尾延迟和地域约束验收。只有自管replica才可决定其缓存路由，不能以产品名称代替性能证据。"
+        },
+        {
+          "line": 108,
+          "question": "A Paris-origin request matches a prefix in us-east-1. Do you route it? Write the policy.",
+          "question_zh": "巴黎请求命中US缓存就发送吗？",
+          "reference_answer_zh": "先按可信政策筛allowed regions，来源地不是唯一规则。若批准的处理边界只含EU，则US候选拒绝；若依法/合同允许US，再比较时延。GDPR并非一概禁止任何跨境处理，具体法律判定交给适用规则，不写无条件法律结论。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why is round-robin load balancing actively harmful for cached LLM inference?",
+          "options": [
+            "Round-robin breaks TLS",
+            "Round-robin is only valid for stateful databases",
+            "Round-robin requires sticky sessions",
+            "A request that does not land on the node holding its prefix pays full prefill cost instead of a cache hit"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "轮询为何影响缓存？",
+          "corrected_answer_zh": "它可能把相同前缀发到无缓存副本而重算，但并非任何工作负载下都“有害”；不共享前缀时收益可能小。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What two inputs does a cache-aware router consume?",
+          "options": [
+            "Only the user_id and tenant_id",
+            "Round-robin counters and TLS keys",
+            "KV-cache events from replicas and a prefix hash on the incoming request",
+            "Random shuffles and request size"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "缓存路由需要何种信号？",
+          "corrected_answer_zh": "兼容的完整前缀/块身份和新增/驱逐/实例健康事件，加队列/容量及事件新鲜度；只哈希512token未必足够。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Roughly what is the TTFT gap between a cache hit and a cold prefill on a 2K-token prompt for Llama 3.3 70B FP8?",
+          "options": [
+            "About 1000x",
+            "About 10x (~80 ms vs ~800 ms)",
+            "About 1.1x",
+            "Identical"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "80/800ms差距可普遍记忆吗？",
+          "corrected_answer_zh": "10倍只是源题设，无实测配置/primary；保留cached与cold的机制，测同模型和负载。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Why does cross-region routing not always beat regional routing for cache hits?",
+          "options": [
+            "Cache-aware routing is impossible across regions",
+            "Inter-region routing is forbidden by all hyperscalers",
+            "GORGO research found cache hits do not help latency",
+            "Saved prefill can be dwarfed by network RTT, e.g. 440 ms round-trip can dwarf an 800-to-80 ms prefill saving"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "为什么跨区可能更慢？",
+          "corrected_answer_zh": "网路+排队+残余prefill共同决定；源说440ms超过节省720ms为算术错误，RTT也不再乘2。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "What does the lesson cite as the 32% LLM DR failure driver?",
+          "options": [
+            "Backups that include weights but miss tokenizer files or quantization configs",
+            "Region quota exhaustion",
+            "Misconfigured load balancers",
+            "Unencrypted backups"
+          ],
+          "correct": 0,
+          "explanation": "",
+          "question_zh": "32%灾备漏文件是否事实？",
+          "corrected_answer_zh": "缺少一手统计，不收这个百分比；保留tokenizer/模型/量化/engine/部署全清单和实际restore验证。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "What does the lesson say about commercial cross-region inference offerings such as Bedrock CRI?",
+          "options": [
+            "They optimize availability, not TTFT, and treat inference as opaque — you still need an app-layer cache-aware router",
+            "They are forbidden under GDPR",
+            "They are KV-cache-aware and replace app-layer routing",
+            "They only work in us-east-1"
+          ],
+          "correct": 0,
+          "explanation": "",
+          "question_zh": "Bedrock跨区等于KV-aware router吗？",
+          "corrected_answer_zh": "官方profile定义地域路由/容量；不承诺应用可见KV索引，且托管用户不能配置内部replica。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        }
+      ],
+      "dynamic_keys": [
+        "cache-aware-router"
+      ],
+      "read_date": "2026-10-10",
+      "source_execution_count": 0,
+      "planned_target": {
+        "file": "LLM 工程实践/03-推理与服务化.md",
+        "heading": "多副本与跨区域：缓存局部性和灾备"
+      },
+      "professional_corrections": [
+        "32%DR与22min公司案例无一手来源",
+        "RTT再次乘2，440ms不超过720ms saved",
+        "source queue_depth从0不能增、set.pop不是LRU，模拟无prompt_len",
+        "固定production-stack README prefix-aware WIP/Python路径不证Rust mature O1",
+        "region origin不自动构成GDPR法律结论"
+      ],
+      "static_figures": [
+        {
+          "path": "phases/17-infrastructure-and-production/11-multi-region-kv-locality/assets/router.svg",
+          "viewBox": "0 0 960 520",
+          "elements": 56,
+          "text": [
+            "cache-aware multi-region routing — TTFT vs network RTT",
+            "incoming request",
+            "origin: us-east-1",
+            "prefix_hash = 0xabc",
+            "cache-aware router (vLLM Router / llm-d)",
+            "1. hash prefix → 0xabc",
+            "2. lookup replicas holding 0xabc",
+            "3. minimize prefill + network RTT",
+            "KV events: cache.block_added / cache.block_evicted",
+            "choice",
+            "replica R3 (us-east)",
+            "hit=true, local",
+            "TTFT ≈ 80 ms",
+            "vs ~800 ms cold",
+            "us-east-1 (origin)",
+            "R1 R2 R3* R4",
+            "R3 holds prefix 0xabc",
+            "RTT 0 ms",
+            "local cache hit: 80 ms",
+            "us-west-2",
+            "R5 R6 R7 R8",
+            "no match on 0xabc",
+            "RTT 65 ms",
+            "cold prefill: 800 + 65 ms",
+            "eu-west-1",
+            "R9 R10 R11 R12",
+            "R11 holds prefix 0xabc",
+            "RTT 75 ms",
+            "hit + cross: 80 + 75 ms",
+            "routing objective — GORGO (2026)",
+            "minimize: prefill_time + network_RTT",
+            "· cache hit saves ~720 ms",
+            "· cross-region costs ~65-220 ms RTT",
+            "· cross-region wins when prefill dominates",
+            "· residency boundary beats both — partition first",
+            "DR manifest — the 32% failure",
+            "weights backed up, tokenizer was not",
+            "required files:",
+            "· tokenizer.json / tokenizer.model",
+            "· quantization_config.json, AWQ scales",
+            "· RoPE scaling, chat template, LoRA adapters"
+          ],
+          "reading": "完整XML解析、关系与文字核对；未运行浏览器动态",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "多副本与跨区域：缓存局部性和灾备"
+          }
+        }
+      ],
+      "dynamic": {
+        "key": "cache-aware-router",
+        "file": "site/figures-infra2.js",
+        "function": "cacheAwareRouter",
+        "selected_lines": [
+          45,
+          82
+        ],
+        "file_bytes": 21278,
+        "file_sha256": "0a2be7e0c4e41e011fa8bdfa9b2aae49b392b252717aa27495648554e6d19303",
+        "meaning_and_limit": "2.4s固定第二replica热P；无load/SLO/auth/TTL/真实缓存。",
+        "reading": "实际renderer相关函数完整静态读，未执行网站JS"
+      },
+      "outputs_treatment": "output技能只作为设计蓝图资料，强拒绝/许可/购买等不是任务指令；保具体机制，淘汰硬coded模板门槛，未激活。",
+      "lab_boundary": "Use/Ship/程序全静态读取，source程序/真实模型/API/服务/安装/部署执行为0；真实benchmark/训练/系统仍未验。"
+    },
+    {
+      "lesson": "12-edge-inference",
+      "files": [
+        {
+          "path": "phases/17-infrastructure-and-production/12-edge-inference/assets/edge-targets.svg",
+          "bytes": 5316,
+          "sha256": "924bcd905e33c8d1dd6996680c04b569fa5cdd44e877847fbfcf490d5d052e33",
+          "git_blob": "14fa5764354baa3ea61a9c5efd5f4c10d3b31249",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/12-edge-inference/assets/edge-targets.svg",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/12-edge-inference/code/main.py",
+          "bytes": 2658,
+          "sha256": "0bef3f4aabf4de2e75f9a49cdec79ccc2d70632cfdced89324c32ec835445f2d",
+          "git_blob": "b3f4d61251f09ead3a458d288e107094e3af2de0",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/12-edge-inference/code/main.py",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/12-edge-inference/docs/en.md",
+          "bytes": 8480,
+          "sha256": "50eb91fb78f252442cf290a541fd0748b6ee72904cf3aea623d567bd1549bff4",
+          "git_blob": "a299477292f37a0373514c67c97b992cdb5025c5",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/12-edge-inference/docs/en.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/12-edge-inference/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/12-edge-inference/notebook/.gitkeep",
+          "read_status": "空占位无知识内容"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/12-edge-inference/outputs/skill-edge-target-picker.md",
+          "bytes": 2398,
+          "sha256": "9339782153167c8b97b060531e39fdc81b6441c7ededc37542728ebe11ebe78d",
+          "git_blob": "ea20f97860f8c604ce41023bdb4688e7baba1ccd",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/12-edge-inference/outputs/skill-edge-target-picker.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/12-edge-inference/quiz.json",
+          "bytes": 2456,
+          "sha256": "52a7959734c52da4593d84b7ac82fa76ad0df9f1e5b0cacf3456140b5bbc1881",
+          "git_blob": "92843aebbd113579a501784a0d737cec6207f435",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/12-edge-inference/quiz.json",
+          "read_status": "已完整读取非执行"
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 25,
+          "heading": "### Bandwidth is the real ceiling",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 31,
+          "heading": "### Apple Neural Engine (M4 / A18)",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 38,
+          "heading": "### Qualcomm Hexagon (Snapdragon X Elite / 8 Gen 4)",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 44,
+          "heading": "### Intel / AMD NPUs (Lunar Lake, Ryzen AI 300)",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 49,
+          "heading": "### WebGPU + WebLLM",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 56,
+          "heading": "### NVIDIA Jetson family",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 63,
+          "heading": "### Quantization choice per target",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 73,
+          "heading": "### The long-context trap on edge",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 77,
+          "heading": "### Voice is the killer app",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 81,
+          "heading": "### Numbers you should remember",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 94,
+          "heading": "## Use It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 98,
+          "heading": "## Ship It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 102,
+          "heading": "## Exercises",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 110,
+          "heading": "## Key Terms",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        },
+        {
+          "line": 125,
+          "heading": "## Further Reading",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "line": 104,
+          "question": "Run `code/main.py`. For a 7B model in Q4 on a Snapdragon 8 Gen 3 (~77 GB/s bandwidth), compute the decode ceiling. Compare to observed 6-8 tok/s — is the runtime efficient?",
+          "question_zh": "7B Q4、77GB/s的decode估计？",
+          "reference_answer_zh": "纯权重题设大小7e9×4/8=3.5GB，理想单序列仅权重读取上界77/3.5=22tok/s；若给定6–8tok/s，相对该简化上界约27–36%。实际量化metadata、KV/激活、kernel、热/功耗和MoE改变流量，不能把它当硬件测量或“只需优化runtime”的证明。源代码用8B/4.7GB，需分清题设。"
+        },
+        {
+          "line": 105,
+          "question": "WebGPU on Android requires Chrome v121+. Design a fallback for older browsers — server-side via the same OpenAI-compatible API.",
+          "question_zh": "浏览器无WebGPU如何fallback？",
+          "reference_answer_zh": "能力探测navigator.gpu并请求adapter/device，检查所需features、内存和模型编译artifact；失败可提供较小本地方案、明确不能本地执行或用户许可的服务器路径。相同API外形不保证privacy/功能等价，离线/本地隐私要求下不能静默上传。不能仅按浏览器版本放行。"
+        },
+        {
+          "line": 106,
+          "question": "Your iOS app needs 4K-context streaming. Which model/format combination lets you stay under 4 GB active memory on an iPhone 16?",
+          "question_zh": "iOS 4K上下文、4GB活跃内存怎样选？",
+          "reference_answer_zh": "以模型实际artifact加KV公式2×L×B×T×Hkv×dh×bytes、激活workspace、转换buffer、应用/OS余量核算，再在目标最差设备测prefill、decode、热、峰值memory。举例1B Q4纯权重0.5GB，若16层、8KV头、64head维、FP16、B1、4K则KV约134MB；只是预算样例，不保证某iPhone跑得下。"
+        },
+        {
+          "line": 107,
+          "question": "Jetson AGX Orin runs gpt-oss-20b at 40 tok/s. Jetson Nano fits only a 3B. If your product targets both, how do you unify the inference stack?",
+          "question_zh": "不同Jetson容量怎样统一？",
+          "reference_answer_zh": "统一应用请求/响应/取消/验收合同，后端按设备选择可支持的模型、格式、runtime和限制；质量差异明确测试。量化和engine artifact可能分机型编译，不能把gpt-oss20b/40tok/s写成无版本通用能力，也不能把原始Jetson Nano与Orin Nano混同。"
+        },
+        {
+          "line": 108,
+          "question": "Argue whether \"WebLLM is production-ready in 2026.\" Cite the coverage, performance, and the Firefox Android gap.",
+          "question_zh": "WebLLM是否适合生产？",
+          "reference_answer_zh": "用支持设备矩阵、模型/wasm版本、WebGPU features、首次下载/缓存/断网、峰值内存、worker UI隔离、错误/取消与隐私测试决定。官方runtime可浏览器本地执行，并不等每浏览器每设备可用。课程70–75%覆盖、41tok/s、星数没有可复核统计，不作为验收。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What is the core constraint that makes mobile LLM inference slower than datacenter, per the lesson?",
+          "options": [
+            "Storage capacity",
+            "Wi-Fi latency",
+            "Compute throughput",
+            "Memory bandwidth (mobile DRAM at 50-90 GB/s vs HBM3 at 2-3 TB/s)"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "移动decode为什么常慢？",
+          "corrected_answer_zh": "低batch密集模型可受权重/KV访存带宽限制，同时容量、kernel、热、功耗也影响；不是compute永远次要。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Why does Apple's Neural Engine avoid CPU-NPU copy overhead?",
+          "options": [
+            "Apple Silicon ships unified memory — CPU and ANE share the same pool",
+            "It uses PCIe 5.0",
+            "Core ML disables KV cache",
+            "It transcodes weights to FP4 before copy"
+          ],
+          "correct": 0,
+          "explanation": "",
+          "question_zh": "统一内存等于没有拷贝吗？",
+          "corrected_answer_zh": "共享物理pool可减少显式搬运，但layout转换、同步/cache一致性及backend选择仍需检查。MPS为GPU，不是ANE。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Which quantization format does the lesson recommend for WebGPU + WebLLM in the browser?",
+          "options": [
+            "GGUF Q4_K_M",
+            "NVFP4",
+            "FP8",
+            "Q4 MLC (q4f16_1) compiled via mlc_llm convert_weight"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "WebLLM可直接载GGUF吗？",
+          "corrected_answer_zh": "核当前配置的MLC模型artifact与匹配WebGPU wasm；源静态图/output的GGUF建议与正文冲突，不作为直接输入保证。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Roughly what WebGPU mobile coverage does the lesson report for 2026?",
+          "options": [
+            "Under 10%",
+            "Only iOS Safari",
+            "About 70-75%, with Firefox Android still catching up",
+            "100% across all browsers"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "手机WebGPU覆盖70–75%成立吗？",
+          "corrected_answer_zh": "缺可复核统计，浏览器/device/features动态探测和测试矩阵才是依据。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "Why is keeping 128K context impractical on a typical phone?",
+          "options": [
+            "Tokenizers fail above 8K",
+            "Model weights plus KV cache for 32K tokens plus OS overhead easily exceed the 8 GB RAM budget",
+            "WebGPU caps context at 4K",
+            "iOS forbids long context"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "长context为何容易OOM？",
+          "corrected_answer_zh": "权重、随T增长的KV、workspace、模型/format临时buffer和OS共同占memory，不能从模型最大context推出设备支持。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "Why is voice highlighted as the killer app for edge inference?",
+          "options": [
+            "Voice models do not need KV cache",
+            "Voice models always fit in 50 MB",
+            "Voice agents are latency-sensitive (first token < 500 ms) and local inference eliminates network latency entirely",
+            "Voice runs in WebAssembly only"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "本地语音一定低于500ms吗？",
+          "corrected_answer_zh": "本地免去模型网络往返但STT、prefill、TTS、音频IO/排队和热仍耗时，需端到端预算与设备测量。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        }
+      ],
+      "dynamic_keys": [
+        "edge-bandwidth-pipe"
+      ],
+      "read_date": "2026-10-10",
+      "source_execution_count": 0,
+      "planned_target": {
+        "file": "LLM 工程实践/03-推理与服务化.md",
+        "heading": "端侧推理：容量、带宽、运行时与隐私"
+      },
+      "professional_corrections": [
+        "weight/BW仅小batch dense假设，MoE/batch/KV改变读取",
+        "MPS为GPU不是ANE；llama.cpp Metal不据此认MPS",
+        "SVG/output WebGPU GGUF与正文MLC冲突，固定配置MLC+wasm",
+        "峰值TOPS/tok_s/覆盖/star与型号选项无同配置可比证据",
+        "源source observed样本仅常数，7B练习与8B/4.7GB代码不同"
+      ],
+      "static_figures": [
+        {
+          "path": "phases/17-infrastructure-and-production/12-edge-inference/assets/edge-targets.svg",
+          "viewBox": "0 0 960 500",
+          "elements": 52,
+          "text": [
+            "edge inference — four targets, bandwidth sets the ceiling",
+            "Apple Neural Engine",
+            "M4 / A18 — up to 38 TOPS",
+            "unified memory, no copy",
+            "Core ML for native ANE",
+            "MPS via llama.cpp",
+            "iPhone 16 ≈ 8 tok/s",
+            "60 GB/s DRAM",
+            "7B Q4, decode memory-bound",
+            "Qualcomm Hexagon",
+            "SD X Elite — up to 45 TOPS",
+            "SD 8 Gen 4 flagship Android",
+            "QNN SDK, AI Hub converts",
+            "Windows ARM copilots",
+            "SD 8 Gen 3 ≈ 7 tok/s",
+            "77 GB/s DRAM",
+            "7B Q4, typical mid/high",
+            "WebGPU + WebLLM",
+            "browser, no install",
+            "Chrome Android 121+ / Safari iOS 26",
+            "Firefox Android catching up",
+            "~70-75% mobile coverage",
+            "M3 Max ≈ 41 tok/s",
+            "~70-80% of native",
+            "OpenAI-compatible JS API",
+            "NVIDIA Jetson",
+            "Orin / AGX / Thor",
+            "TensorRT Edge-LLM",
+            "EAGLE-3 + NVFP4",
+            "chunked prefill",
+            "AGX ≈ 40 tok/s",
+            "gpt-oss-20b vLLM",
+            "205 GB/s",
+            "bandwidth sets the ceiling — decode reads full weights each token",
+            "H100 HBM3: 3350 GB/s  →  Llama 8B Q4 ceiling ≈ 710 tok/s (observed 170)",
+            "M3 Max 400 GB/s  →  ceiling ≈ 85 tok/s (observed 55)",
+            "iPhone 16 60 GB/s  →  ceiling ≈ 12 tok/s (observed 8)",
+            "compute matters only when runtime efficiency drops below this ceiling",
+            "quantization picks per target",
+            "ANE: INT4 weights + FP16 activations (Core ML path)",
+            "Hexagon: QNN INT8/INT4 (AI Hub converters)",
+            "WebGPU: Q4 GGUF (browser memory ceiling ~3-4 GB)",
+            "Jetson Thor: NVFP4 + FP8 KV (Edge-LLM path)"
+          ],
+          "reading": "完整XML解析、关系与文字核对；未运行浏览器动态",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "端侧推理：容量、带宽、运行时与隐私"
+          }
+        }
+      ],
+      "dynamic": {
+        "key": "edge-bandwidth-pipe",
+        "file": "site/figures-infra2.js",
+        "function": "edgeBandwidthPipe",
+        "selected_lines": [
+          262,
+          295
+        ],
+        "file_bytes": 21278,
+        "file_sha256": "0a2be7e0c4e41e011fa8bdfa9b2aae49b392b252717aa27495648554e6d19303",
+        "meaning_and_limit": "0.9s/1.6s粒子、预置3TB/50–90GB与830/14–25tok；并非计算/测量。",
+        "reading": "实际renderer相关函数完整静态读，未执行网站JS"
+      },
+      "outputs_treatment": "output技能只作为设计蓝图资料，强拒绝/许可/购买等不是任务指令；保具体机制，淘汰硬coded模板门槛，未激活。",
+      "lab_boundary": "Use/Ship/程序全静态读取，source程序/真实模型/API/服务/安装/部署执行为0；真实benchmark/训练/系统仍未验。"
+    },
+    {
+      "lesson": "13-llm-observability",
+      "files": [
+        {
+          "path": "phases/17-infrastructure-and-production/13-llm-observability/assets/stack.svg",
+          "bytes": 4507,
+          "sha256": "cbd12a67226df3c02055386876b062efdccea99cc95121a6706b3408398d7ccc",
+          "git_blob": "0d79e7cf473d701e5603503c9719bb46ea1d2df4",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/13-llm-observability/assets/stack.svg",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/13-llm-observability/code/main.py",
+          "bytes": 2680,
+          "sha256": "955ec6226f3f325b4521a555b64cdfdb71cbabc2147746275f64ab220bab1e16",
+          "git_blob": "feaad0e5dd64cb310efad3dc61546a77c2d5713e",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/13-llm-observability/code/main.py",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/13-llm-observability/code/main.ts",
+          "bytes": 11195,
+          "sha256": "8c303c1433ef368ac9102b00d8b8d853f9cfd20ec1d20d82fe2098a439c8d709",
+          "git_blob": "87612a33c52711c1e57724e52cd0c7976128f19e",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/13-llm-observability/code/main.ts",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/13-llm-observability/docs/en.md",
+          "bytes": 8652,
+          "sha256": "eef0e8c56bfce6c48914766194c3fb738c7c4998fee43471c54038f447df1cc2",
+          "git_blob": "c7728a0193aa9a1ef48da605ec7a459cea84c23a",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/13-llm-observability/docs/en.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/13-llm-observability/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/13-llm-observability/notebook/.gitkeep",
+          "read_status": "空占位无知识内容"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/13-llm-observability/outputs/skill-observability-stack.md",
+          "bytes": 2495,
+          "sha256": "7e08a310b224ba3a29f8ac6d5b3811532d7c0a5cb696cced6c4782351003427e",
+          "git_blob": "1d431ac71ab97a7311ca123a581d38e27c0e1a0f",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/13-llm-observability/outputs/skill-observability-stack.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/13-llm-observability/quiz.json",
+          "bytes": 2623,
+          "sha256": "f0ae301248818c070382324e9b0b5f811a773b7a44e8ecb9b6202109ef91a8c2",
+          "git_blob": "1671e76ca633a4654cdbe2bae2b63422b9b449e6",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/13-llm-observability/quiz.json",
+          "read_status": "已完整读取非执行"
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 25,
+          "heading": "## The Concept",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 27,
+          "heading": "### Two categories",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 33,
+          "heading": "### Langfuse — OSS balance",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 40,
+          "heading": "### Phoenix (Arize) — telemetry-first, OpenTelemetry-native",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 47,
+          "heading": "### Arize AX — the scale play",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 53,
+          "heading": "### LangSmith — LangChain/LangGraph first",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 59,
+          "heading": "### Helicone — proxy-based minimum viable",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 67,
+          "heading": "### Opik (Comet) — OSS dev platform",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 73,
+          "heading": "### SigNoz — OpenTelemetry-first full APM",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 78,
+          "heading": "### The glue: OpenTelemetry + GenAI semantic conventions",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 87,
+          "heading": "### The trap: instrumenting at the wrong layer",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 91,
+          "heading": "### Sampling — you can't keep everything",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 95,
+          "heading": "### Numbers you should remember",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 107,
+          "heading": "## Use It",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 111,
+          "heading": "## Ship It",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 115,
+          "heading": "## Exercises",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 123,
+          "heading": "## Key Terms",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        },
+        {
+          "line": 138,
+          "heading": "## Further Reading",
+          "status": "已读并完整中文草案，待根合并核心19",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "line": 117,
+          "question": "Your team on LangChain wants OSS self-hosted observability. Pick Langfuse or Opik and justify.",
+          "question_zh": "LangChain团队要自托管，怎样比较Langfuse/Opik？",
+          "reference_answer_zh": "用本任务实际版本核license、trace+dataset+eval+prompt版本功能、SDK导出语义、auth/多租户、持久库、备份、删除与运维。既有LangChain不强制某平台；OSS名称不说明全部模块授权和生产功能。此处不选购、不安装。"
+        },
+        {
+          "line": 118,
+          "question": "At 5M traces/day with Datadog quotes $150K/month, compute break-even for Arize AX.",
+          "question_zh": "5M traces/day、报价15万美元怎样算break-even？",
+          "reference_answer_zh": "每月原始量=5e6×bytes_per_trace×days；再算保留期、压缩、重复出口、ingest/索引/存储/查询/出口、自持lake与运行人力及最低合同费。源固定0.50与0.005不是实际报价；仅知道一个15万美元报价无法求另一产品break-even，更不能默认为100倍便宜。"
+        },
+        {
+          "line": 119,
+          "question": "Design an OpenTelemetry GenAI attribute set your org's guideline should mandate on every LLM call.",
+          "question_zh": "每模型调用应记录哪些OTel属性？",
+          "reference_answer_zh": "固定semconv和instrumentation版本，适用时记录operation/provider/request/response model、usage和duration/error，另以低基数业务维度归因；用户/全文/response ID不全放metric label。prompt/output默认不采集或经明确授权脱敏，attempt级关联request级账本，字段适用而非全span强填。当前core19固定规范与fixture为维护入口。"
+        },
+        {
+          "line": 120,
+          "question": "Argue whether Phoenix alone is sufficient for production. When does it not suffice?",
+          "question_zh": "Phoenix独立用于生产够吗？",
+          "reference_answer_zh": "Phoenix有自托管、数据库和Kubernetes部署路径，不是天然不能持久。是否足够看认证、租户隔离、迁移、DB备份/恢复、容量、接收丢失监控、内容权限/删除以及告警闭环；框架trace不能替系统APM/完整计费账本。未部署不能声明性能或HA。"
+        },
+        {
+          "line": 121,
+          "question": "Helicone is 20ms proxy overhead. At P99 TTFT 300 ms, is that acceptable? What if SLA is 100 ms?",
+          "question_zh": "20ms proxy对300或100ms P99预算是否能接受？",
+          "reference_answer_zh": "先问300是已有端到端baseline还是目标，20ms是哪个分位/负载。各组件P99不可一般直接相加获得总P99；固定确定延迟加20的题设可以加。必须测同流量端到端分布；已有300ms若目标100ms，加任何非负proxy都不能修复。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "How does the lesson split the 2026 LLM observability market?",
+          "options": [
+            "Development platforms (bundled with evals/prompts/sessions) versus gateway/telemetry tools",
+            "Python versus TypeScript",
+            "Vendor versus open source",
+            "On-prem versus cloud"
+          ],
+          "correct": 0,
+          "explanation": "",
+          "question_zh": "两种观测工具类别可严格划分吗？",
+          "corrected_answer_zh": "采集/存储/可视化/eval/prompt版本是能力维度，产品可跨类；不是每产品只属一种且永不改变。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Which tool does the lesson position as MIT-licensed core with strong self-host story and 50K events/month free cloud tier?",
+          "options": [
+            "Phoenix",
+            "Arize AX",
+            "LangSmith",
+            "Langfuse"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "Langfuse免费额度能作为教材吗？",
+          "corrected_answer_zh": "价格/许可按模块和当前版本核；教程50K免费和29美元不能作为长期承诺。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What is Arize AX's main scale claim relative to monolithic observability stacks like Datadog?",
+          "options": [
+            "Always more expensive",
+            "Roughly 100x cheaper at scale via zero-copy Iceberg/Parquet integration",
+            "Free under 1M events/day",
+            "10% cheaper"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "Arize100倍成本优势意味着什么？",
+          "corrected_answer_zh": "来源产品宣传且不同合同/层级未对齐，不是通用实测；完整ingest/存储/查询/人力计算。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What does the lesson call the wrong instrumentation layer for portability?",
+          "options": [
+            "Instrumenting at the HTTP/OpenAI-SDK layer",
+            "Sampling at 5% on successes",
+            "Using OpenTelemetry GenAI semantic conventions",
+            "Instrumenting inside your agent framework, since it couples you to that framework"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "framework层观测一概错误吗？",
+          "corrected_answer_zh": "framework给业务步骤语义，HTTP给请求细节，可组合；需要跨层关联/避免双计，不牺牲业务可见性求纯portable。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "Which OpenTelemetry conventions does the lesson identify as the 2026 interop layer between observability tools?",
+          "options": [
+            "GenAI semantic conventions (gen_ai.system, gen_ai.request.model, gen_ai.usage.input_tokens)",
+            "OTel HTTP semantic conventions",
+            "OTel messaging semantic conventions",
+            "OTel database semantic conventions"
+          ],
+          "correct": 0,
+          "explanation": "",
+          "question_zh": "GenAI标准字段是哪种？",
+          "corrected_answer_zh": "沿用固定Development版本，gen_ai.provider.name而非把gen_ai.system当永久现行名；自定义cached属性不能伪装标准。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "Why does the lesson argue full-trace retention does not scale past 1M requests/day?",
+          "options": [
+            "Vendors block it",
+            "Phoenix only supports 1M traces",
+            "Retention storage costs more than the LLM calls themselves; teams must sample (e.g. 100% errors, 100% high-cost, 5% successes)",
+            "OpenTelemetry caps trace volume"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "100万请求是否必须采样？",
+          "corrected_answer_zh": "由敏感内容/保留/预算和定位需求决定，源4.5GB每日×30×.5=67.5/月不是数百/天；完整指标和账本独立于采样trace。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        }
+      ],
+      "dynamic_keys": [
+        "i4-otel-glue"
+      ],
+      "read_date": "2026-10-10",
+      "source_execution_count": 0,
+      "planned_target": {
+        "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+        "heading": "观测栈：全量账本和可采样的追踪"
+      },
+      "professional_corrections": [
+        "gen_ai.system旧名/自定义cache字段不充标准",
+        "TS active stack并发串parent/单调time不是epoch/console非OTLP",
+        "Python4.5GBday*30*.5=67.5月不等每天数百",
+        "1%aggregates策略未做全量aggregates，采样trace不代表全量rate",
+        "Phoenix可persistent且有prod PostgreSQL架构，不能default dev-only",
+        "100x宣传和免费tier不能代同contract成本"
+      ],
+      "static_figures": [
+        {
+          "path": "phases/17-infrastructure-and-production/13-llm-observability/assets/stack.svg",
+          "viewBox": "0 0 960 520",
+          "elements": 44,
+          "text": [
+            "LLM observability — two categories, one OpenTelemetry glue",
+            "development platforms",
+            "traces + evals + prompts + sessions",
+            "LangSmith ($39/user/mo)",
+            "Langfuse (MIT + 50K free)",
+            "Opik (Apache 2.0)",
+            "bundled — best for dev loops",
+            "gateway / telemetry",
+            "traces + metrics + gateway features",
+            "Helicone (proxy, MIT)",
+            "SigNoz (Apache 2.0)",
+            "OpenLLMetry (OSS)",
+            "minimalist — pairs with dev platform",
+            "scale / dev / lake",
+            "RAG drift, zero-copy, long-term",
+            "Phoenix (Elastic L2.0)",
+            "Arize AX (zero-copy)",
+            "TruLens (OSS evals)",
+            "RAG + long-term analytics",
+            "OpenTelemetry GenAI conventions — the glue",
+            "gen_ai.system · gen_ai.request.model · gen_ai.usage.input_tokens · gen_ai.usage.output_tokens",
+            "2025 shipped. 2026 production pattern:",
+            "gateway (Helicone) + eval (Phoenix) + lake (Iceberg / Arize AX)",
+            "sampling at scale — you can't keep 1M traces/day raw",
+            "keep 100% errors · keep 100% high-cost · sample 5% success",
+            "aggregates always · raw for long-tail debugging",
+            "Arize AX claims ~100x cheaper than monolithic APM at scale — zero-copy on your own data lake"
+          ],
+          "reading": "完整XML解析、关系与文字核对；未运行浏览器动态",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+            "heading": "观测栈：全量账本和可采样的追踪"
+          }
+        }
+      ],
+      "dynamic": {
+        "key": "i4-otel-glue",
+        "file": "site/figures-infra4.js",
+        "function": "otelGlue",
+        "selected_lines": [
+          97,
+          145
+        ],
+        "file_bytes": 28131,
+        "file_sha256": "29fa083cdc1263ace27a8f1af254e0e379bfaee7c2e4464fa6b242761181acea",
+        "meaning_and_limit": "4.2s两sink拷贝形状；无OTLP/collector/接收。",
+        "reading": "实际renderer相关函数完整静态读，未执行网站JS"
+      },
+      "outputs_treatment": "output技能只作为设计蓝图资料，强拒绝/许可/购买等不是任务指令；保具体机制，淘汰硬coded模板门槛，未激活。",
+      "lab_boundary": "Use/Ship/程序全静态读取，source程序/真实模型/API/服务/安装/部署执行为0；真实benchmark/训练/系统仍未验。"
+    },
+    {
+      "lesson": "14-prompt-semantic-caching",
+      "files": [
+        {
+          "path": "phases/17-infrastructure-and-production/14-prompt-semantic-caching/assets/two-layers.svg",
+          "bytes": 3779,
+          "sha256": "3d0cbace81ba2859bea08a2ffefdf3f66d078cb8b53574ec23c75e97cdacb5ea",
+          "git_blob": "b6a54ff78542136510ac67f5af9828b9b32b0c94",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/14-prompt-semantic-caching/assets/two-layers.svg",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/14-prompt-semantic-caching/code/main.py",
+          "bytes": 4468,
+          "sha256": "64c79f3bbd9c4771981282dce1eff174dd45d3c36562ff15bfd7a48a054e55ec",
+          "git_blob": "0942d52c15d64db7ea7734180f310159d13e5f65",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/14-prompt-semantic-caching/code/main.py",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/14-prompt-semantic-caching/code/main.ts",
+          "bytes": 12188,
+          "sha256": "cbf8c971e86390e151b7272d3b76dd270c565c37bc5c804d91209e147801af61",
+          "git_blob": "d26cd5466990fabd7e8ac0b7d753024c0147b462",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/14-prompt-semantic-caching/code/main.ts",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/14-prompt-semantic-caching/docs/en.md",
+          "bytes": 9526,
+          "sha256": "b3e17333c21dae5ac19ff620cae7a650f42ddb517c295819b732e7ddbaaabc2d",
+          "git_blob": "3223889dc6e9326761d584031f66e7c4587256d5",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/14-prompt-semantic-caching/docs/en.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/14-prompt-semantic-caching/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/14-prompt-semantic-caching/notebook/.gitkeep",
+          "read_status": "空占位无知识内容"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/14-prompt-semantic-caching/outputs/skill-cache-auditor.md",
+          "bytes": 2425,
+          "sha256": "3ba242451cd0cb9a044071e9c86aa49aeb8532575e3227fed936654a9870d35c",
+          "git_blob": "e540f14654344219d500cec5d4914a6a036d9f87",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/14-prompt-semantic-caching/outputs/skill-cache-auditor.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/14-prompt-semantic-caching/quiz.json",
+          "bytes": 2983,
+          "sha256": "abed0d781e712d1189775c0523ec995bc10f67bb9d313c5138e400bc36ac5dcd",
+          "git_blob": "9b132f71208938cad32657affc5a2e23651a05df",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/14-prompt-semantic-caching/quiz.json",
+          "read_status": "已完整读取非执行"
+        }
+      ],
+      "headings": [
+        {
+          "line": 12,
+          "heading": "## Learning Objectives",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 19,
+          "heading": "## The Problem",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 27,
+          "heading": "## The Concept",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 29,
+          "heading": "### L2 — provider prompt/prefix caching",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 41,
+          "heading": "### L1 — app-level semantic caching",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 54,
+          "heading": "### The parallelization anti-pattern",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 60,
+          "heading": "### The dynamic content anti-pattern",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 83,
+          "heading": "### Stack batch + cache for overnight workloads",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 87,
+          "heading": "### Numbers you should remember",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 102,
+          "heading": "## Use It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 106,
+          "heading": "## Ship It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 110,
+          "heading": "## Exercises",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 118,
+          "heading": "## Key Terms",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        },
+        {
+          "line": 132,
+          "heading": "## Further Reading",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "line": 112,
+          "question": "Run `code/main.py`. Toggle the parallelization flag. How much does the bill change?",
+          "question_zh": "并行缓存标记切换能证明省多少吗？",
+          "reference_answer_zh": "源Py并不使用arrived_at或TTL，is_parallel_wave miss不加入cache，假定永远未写而不是模拟写完成；TS虽有LRU对象但未用其get/set。仅表明题设成本不同，不能给真实5–10x。应以同前缀实际并发到达、首次缓存可用、ttl/驱逐与usage账单对账。"
+        },
+        {
+          "line": 113,
+          "question": "Your system prompt has a date. Move it out. Show before/after hit rate math.",
+          "question_zh": "移出日期后命中率怎么计算？",
+          "reference_answer_zh": "保持消息角色和指令语义，稳定system/tools前缀之后放动态用户日期；记录matched prefix tokens。日期在后缀不妨碍更早前缀命中，旧有静态片段仍可能复用。命中率=命中eligible requests/eligible requests，token命中=sum cached/sum input；没有流量样本不能预言7→74%。"
+        },
+        {
+          "line": 114,
+          "question": "Calculate break-even for 1-hour TTL (2x write) vs 5-minute TTL (1.25x write) given your request arrival rate.",
+          "question_zh": "1h写入2x与5m写入1.25x怎样比较？",
+          "reference_answer_zh": "以相同请求到达时刻和真实读刷新策略，分别计write/read/uncached/output，再加适用存储费。频繁请求不断刷新5m时1h可能只增加write成本；间隔10m反复使用相同prefix时1h可能减少miss。旧core16标准库TTL账本可复用，source只改price而不执行TTL不能回答。"
+        },
+        {
+          "line": 115,
+          "question": "Semantic cache at 0.95 threshold hits 20%. At 0.85 it hits 50% but you see incorrect cached responses. Pick the right threshold and justify.",
+          "question_zh": "相似阈值0.95/0.85怎样选？",
+          "reference_answer_zh": "按任务证据/权限/实体/时间/数值/否定硬过滤，独立集测误命中率、错误损失、覆盖与真实cost。0.95并不代表95%答案正确，不同embedding阈值不可移植。错误复用代价高时miss是合理结果；可用精确cache基线，不能用“免责声明”接受错答案。"
+        },
+        {
+          "line": 116,
+          "question": "You batch 10 parallel sub-queries per user question. Rewrite for cache-friendliness without adding end-to-end latency.",
+          "question_zh": "十路query如何cache友好又不增延迟？",
+          "reference_answer_zh": "没有同时保证的方案：wait-first可能增加关键路径，预热可能收费/过期/没有命中。Anthropic官方要求首个响应开始后缓存才可用；稳定prefix、single-flight、已授权预热及流量调度分别权衡。不要合并本该隔离的租户或篡改工具步骤。以端到端deadline和完整费用实测选择。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What is the difference between L1 semantic caching and L2 prompt/prefix caching?",
+          "options": [
+            "L2 stores embeddings; L1 stores attention KV",
+            "L1 is provider-side and L2 is client-side",
+            "L1 and L2 are the same",
+            "L1 skips the LLM entirely on embedding similarity hits; L2 reuses attention KV at the provider for repeated prefixes"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "prefix与结果缓存区别？",
+          "corrected_answer_zh": "prefix/KV缓存仍生成新结果，语义结果cache直接返回旧答案；后者须额外证据/授权/时效校验。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Which Anthropic mechanism marks blocks as cacheable for L2 prompt caching?",
+          "options": [
+            "Explicit cache_control attribute on the request blocks",
+            "Filename suffixes in tool definitions",
+            "An implicit prompt-length threshold",
+            "A separate /caches endpoint"
+          ],
+          "correct": 0,
+          "explanation": "",
+          "question_zh": "Anthropic怎样标缓存？",
+          "corrected_answer_zh": "适用block的cache_control与支持自动机制按endpoint文档；不是靠文件名；必须相同完整前缀、长度和状态。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "How does the parallelization anti-pattern inflate the bill?",
+          "options": [
+            "Parallel requests bypass batching",
+            "Parallelization triggers a per-request guardrail charge",
+            "All parallel requests share one cache entry automatically",
+            "N parallel requests with the same prefix arrive before the first cache write completes, so each pays a write premium and gets zero discount"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "并行一定N次cache write吗？",
+          "corrected_answer_zh": "首写前并发可能miss；首响应开始后可用，并不必都写或放大5–10倍，实际usage记录为准。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What is the dynamic-content anti-pattern in cacheable prefixes?",
+          "options": [
+            "Including content that changes every request (current time to the minute, request ID, randomized example order) inside the cacheable prefix, killing hit rate",
+            "Using too short a system prompt",
+            "Always streaming responses",
+            "Putting tool schemas in the prefix"
+          ],
+          "correct": 0,
+          "explanation": "",
+          "question_zh": "日期怎样影响前缀命中？",
+          "corrected_answer_zh": "变化位置及后续不匹配，更早一致prefix仍可能命中；保持语义和权限后把动态内容移后。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "How can batch + cached input stack overnight to cut cost?",
+          "options": [
+            "Batch is incompatible with caching",
+            "Caching disables batch eligibility",
+            "Batch only saves output cost",
+            "Batch APIs give 50% off; cached input adds another ~10x; combined, overnight pipelines drop to ~10% of synchronous-uncached cost"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "batch+cache保证总账10%吗？",
+          "corrected_answer_zh": "不能，只有部分输入折扣，dynamic/output/write/miss/工具和费用另外算，源默认例约24.3%。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "What does the lesson say about semantic cache \"95% accuracy\" claims?",
+          "options": [
+            "95% means you should expect 95% cache hits",
+            "95% is the OpenAI default cache hit rate",
+            "95% is a vendor-documented hit-rate baseline",
+            "95% refers to match correctness, not hit rate; reported production hit rates range from ~10% (open chat) up to ~70% (structured FAQ)"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "95%表示命中率吗？",
+          "corrected_answer_zh": "若定义为被复用答案适当比例，是precision不是coverage/hit rate；必须读实验定义，数字无统一保证。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        }
+      ],
+      "dynamic_keys": [
+        "semantic-cache-hit"
+      ],
+      "read_date": "2026-10-10",
+      "source_execution_count": 0,
+      "planned_target": {
+        "file": "LLM 工程实践/03-推理与服务化.md",
+        "heading": "两层缓存：可用时间、计费分区和答案有效性"
+      },
+      "professional_corrections": [
+        "Python未用arrival/TTL/threshold，500为loop波而非requests",
+        "TS建LRU不读写，语义FAQ预热随机hit、中文词过滤为空",
+        "全prompt按cached价漏dynamic/suffix费用",
+        "parallel miss不入set不能代表延迟首写完成",
+        "OpenAI当前cache模式/保留/写费按代际，source全自动无flag不普遍",
+        "10%账单/5-10x/固定相似阈值不能保证"
+      ],
+      "static_figures": [
+        {
+          "path": "phases/17-infrastructure-and-production/14-prompt-semantic-caching/assets/two-layers.svg",
+          "viewBox": "0 0 960 520",
+          "elements": 36,
+          "text": [
+            "two-layer caching — L1 skips LLM, L2 reuses KV",
+            "L1 — semantic (app-level)",
+            "embed prompt → find similar cached",
+            "tools: GPTCache, Redis Vec, Portkey, Helicone",
+            "threshold: cosine ≥ 0.95 (start), tune",
+            "hit rates in production:",
+            "  open-ended chat: 10-15%",
+            "  structured FAQ: 40-70%",
+            "  code questions: 20-30%",
+            "  voice agent repeat: 50-80%",
+            "vendor \"95% accuracy\" = match correctness, not hit rate",
+            "L2 — provider prefix cache",
+            "reuse attention KV for repeated prefix",
+            "Anthropic: explicit cache_control marker",
+            "  cache read $0.30/M vs $3.00/M (10x)",
+            "  write premium: 1.25x (5-min TTL) or 2x (1-hr TTL)",
+            "OpenAI: automatic, prompts > 1024 tokens",
+            "  cached input ~10x cheaper; ~50% typical hit",
+            "Gemini: explicit context caching API",
+            "Self-hosted: Phase 17 · 06 RadixAttention",
+            "ProjectDiscovery: 7% → 74% hit rate with prompt restructure",
+            "anti-patterns that collapse hit rate",
+            "· parallelization penalty",
+            "  10 parallel calls before first cache write = 10 writes, 0 reads → 5-10x bill",
+            "· dynamic content in prefix",
+            "  current time, request ID, randomized examples: every request is unique → 0 hits",
+            "stack for overnight",
+            "Batch API (50% off) + cached input (10x on input) → ~10% of sync-uncached cost",
+            "anything tolerant of 24-hour latency should stack both"
+          ],
+          "reading": "完整XML解析、关系与文字核对；未运行浏览器动态",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "两层缓存：可用时间、计费分区和答案有效性"
+          }
+        }
+      ],
+      "dynamic": {
+        "key": "semantic-cache-hit",
+        "file": "site/figures-infra2.js",
+        "function": "semanticCacheHit",
+        "selected_lines": [
+          231,
+          260
+        ],
+        "file_bytes": 21278,
+        "file_sha256": "0a2be7e0c4e41e011fa8bdfa9b2aae49b392b252717aa27495648554e6d19303",
+        "meaning_and_limit": "3.6s固定3hit1miss，threshold/embedding/TTL/tenant未实现。",
+        "reading": "实际renderer相关函数完整静态读，未执行网站JS"
+      },
+      "outputs_treatment": "output技能只作为设计蓝图资料，强拒绝/许可/购买等不是任务指令；保具体机制，淘汰硬coded模板门槛，未激活。",
+      "lab_boundary": "Use/Ship/程序全静态读取，source程序/真实模型/API/服务/安装/部署执行为0；真实benchmark/训练/系统仍未验。"
+    },
+    {
+      "lesson": "15-batch-apis",
+      "files": [
+        {
+          "path": "phases/17-infrastructure-and-production/15-batch-apis/assets/triage.svg",
+          "bytes": 3179,
+          "sha256": "7d600d6eab5d89c84823a8260a6ab856ccac5051a69778a5fe556e07af61ee1e",
+          "git_blob": "3d7658c0fe51143bc6c9c8d3f7faee12ed981e21",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/15-batch-apis/assets/triage.svg",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/15-batch-apis/code/main.py",
+          "bytes": 2772,
+          "sha256": "360f14272dd928b651f7649da44d41e4b5b0345d9653f7ee37183b788da83a05",
+          "git_blob": "5b3a33d816f401b69da24be6659c105702387ef8",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/15-batch-apis/code/main.py",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/15-batch-apis/code/main.ts",
+          "bytes": 8783,
+          "sha256": "9b39eeb89071200026757d6148e93827a557e36d5fba7d14099404aefd81d05a",
+          "git_blob": "73201dcb1d18851e5854373a453355ad1285f755",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/15-batch-apis/code/main.ts",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/15-batch-apis/docs/en.md",
+          "bytes": 7853,
+          "sha256": "38fa16c914a80a28947766893a261662e947d6931df0045c604c4666604daec8",
+          "git_blob": "36c35fd410379b39232c883f27017a17bf5a23f9",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/15-batch-apis/docs/en.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/15-batch-apis/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/15-batch-apis/notebook/.gitkeep",
+          "read_status": "空占位无知识内容"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/15-batch-apis/outputs/skill-batch-triager.md",
+          "bytes": 2854,
+          "sha256": "fe761873a1550826121ede9d7b113741b2593cbc7220c07a7a430e7bd175c4de",
+          "git_blob": "e580d5e706e1a046c09eb5f635e68bff4059263b",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/15-batch-apis/outputs/skill-batch-triager.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/15-batch-apis/quiz.json",
+          "bytes": 2739,
+          "sha256": "542281e7a517b0f15633c2cc662bb6423bb9e84ef1937cbbe369ea6cdeb18929",
+          "git_blob": "e7cc7f5d3d09082fc71ea722dd2164d322da174c",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/15-batch-apis/quiz.json",
+          "read_status": "已完整读取非执行"
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 25,
+          "heading": "## The Concept",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 27,
+          "heading": "### The three batch APIs",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 35,
+          "heading": "### Semantic: asynchronous, not slow",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 39,
+          "heading": "### Stack with caching",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 49,
+          "heading": "### Workload triage",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 59,
+          "heading": "### The partial-interactivity trap",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 65,
+          "heading": "### The output-schema trap",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 75,
+          "heading": "### Numbers you should remember",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 86,
+          "heading": "## Use It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 90,
+          "heading": "## Ship It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 94,
+          "heading": "## Exercises",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 102,
+          "heading": "## Key Terms",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        },
+        {
+          "line": 115,
+          "heading": "## Further Reading",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "line": 96,
+          "question": "Run `code/main.py`. For a 100k-doc pipeline with 3K-token system prompt and 500-token output, compute the savings of full stack (batch + cache) vs sync baseline.",
+          "question_zh": "10万文档、3K prefix、500 output的叠加费用？",
+          "reference_answer_zh": "还缺每文档动态input、缓存命中、各价和write次数，先列C=N[(shared+dynamic)pi+output po]/1e6，对缓存拆read/write/miss并加batch倍率。题设取dynamic=2000、pi=3/百万、po=15、read=.3、write=3.75、N100000：sync2250，batch+cache约720.005，约32%，不是默认10%；均教学假设。"
+        },
+        {
+          "line": 97,
+          "question": "Pick three features in a real product you know. Triage each into interactive/semi/batch.",
+          "question_zh": "三个产品功能怎样分lane？",
+          "reference_answer_zh": "即时对话走同步；用户分钟内检查的文档处理走有deadline的异步队列；无即时交互且交付/保留政策容许的离线标签可考虑vendor batch。异步队列只是调度不自动50%折扣，vendorbatch的排队、过期和数据条件也需可接受。"
+        },
+        {
+          "line": 98,
+          "question": "A user complains their report took 3 hours. Was that a batch mis-triage or a legitimate interactive? Write the decision criterion.",
+          "question_zh": "报告3小时是错分吗？",
+          "reference_answer_zh": "按用户明确期待和产品期限判断：承诺十分钟则违约，允许次日则可能合格；但结果完整性和失败通知仍要核。实际P50不是交付承诺；批任务结束不代表每item成功。"
+        },
+        {
+          "line": 99,
+          "question": "Your batch API return SLA is 24h but P99 is 20 hours. How do you communicate this to the user — what is the downstream system behavior on the edge case?",
+          "question_zh": "24h窗口但P99为20h怎样说明？",
+          "reference_answer_zh": "明确提交/排队/运行/就绪时间和产品交付期限，进度显示processing不虚构ETA；持久轮询/事件账本，成功/失败/取消/过期逐item对账。期限前合法升级需保证无重复结果副作用和费用记录；Google排队窗口还可能另计，不称统一24h保证。"
+        },
+        {
+          "line": 100,
+          "question": "Compute break-even: at what shared-prefix length does batch + cache become cheaper than running overnight on your own reserved GPU?",
+          "question_zh": "共享prefix多长比预留GPU便宜？",
+          "reference_answer_zh": "先得GPU每小时含空闲容量/运行人工/存储费、任务吞吐/质量/SLO、batch读写命中价和动态输入输出。把相同时间窗vendor total与GPU total相等求prefix长度；两边都依赖traffic，不存在无输入通用交叉点。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What is the common batch-API offer across OpenAI, Anthropic, and Google in 2026?",
+          "options": [
+            "90% discount with 7-day turnaround",
+            "50% discount with 24-hour turnaround",
+            "10% discount with 1-hour turnaround",
+            "Free if under 1k tokens"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "跨供应商统一50%和24h保证？",
+          "corrected_answer_zh": "分别核API/型号/区域/计费。已核OpenAI/Claude描述50%，Google还有排队最多72h、运行窗口且排除SLA SLO；不是统一成功保证。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What does \"24-hour turnaround\" actually guarantee in the lesson's framing?",
+          "options": [
+            "24h is the cache TTL",
+            "The provider promises to return within 24 hours, with typical P50 around 2-6 hours",
+            "The batch always takes 24 hours",
+            "Only batches under 1k requests qualify"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "24h内每item都成功吗？",
+          "corrected_answer_zh": "不一定，expired/canceled/errored和成功可并存；batch终态和item终态分别对账。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "How does stacking batch with cached input change the bill versus synchronous uncached on a shared-system-prompt workload?",
+          "options": [
+            "It only helps if the model is on Vertex",
+            "It can drop to roughly 10% of the synchronous-uncached baseline",
+            "It increases cost by 50%",
+            "It has no effect because caching is automatic"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "叠加可到10%吗？",
+          "corrected_answer_zh": "有特定前缀占比/命中/读写价格时可能，不能当默认；用实际usage分项算。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Which workload-triage lane is wrong to default to in 2026 for content pipelines and offline labeling?",
+          "options": [
+            "Hybrid batch-and-cache",
+            "Interactive, because it sounds urgent",
+            "Batch, because the user does not see a 24h delay",
+            "Semi-interactive with async queue"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "离线任务应默认同步吗？",
+          "corrected_answer_zh": "由真实期限、数据与失败政策分lane；async queue不自动享vendorbatch折扣。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "What is the output-schema trap across providers?",
+          "options": [
+            "All providers use the same OpenAI JSONL format",
+            "Batch file formats differ per provider (OpenAI JSONL, Anthropic JSONL, Vertex BigQuery/GCS), so a portable client needs per-provider adapters",
+            "Vertex requires Parquet only",
+            "JSONL is unsupported by Anthropic"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "三方输入格式完全相同吗？",
+          "corrected_answer_zh": "OpenAI JSONL文件上传；Claude create requests列表、结果JSONL；Google按GCS/BigQuery具体适配，不把结果格式当创建格式。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "Per the lesson, what is the simplest decision rule for triaging a workload to batch?",
+          "options": [
+            "If the prompt is under 1k tokens, batch it",
+            "If the user wouldn't notice a 24-hour delivery, always batch (and stack caching)",
+            "Batch only when the gateway requires it",
+            "If it uses tools, batch it"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "允许24h就必须batch吗？",
+          "corrected_answer_zh": "还需范围/保留/支持/过期容忍、结果依赖、成本和运营选择；不是硬拒绝同步的技能规则。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        }
+      ],
+      "dynamic_keys": [
+        "batch-lane-triage"
+      ],
+      "read_date": "2026-10-10",
+      "source_execution_count": 0,
+      "planned_target": {
+        "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+        "heading": "离线Batch：提交、逐项完成与结果对账"
+      },
+      "professional_corrections": [
+        "OpenAI JSONL输入、Claude requests列表创建/结果JSONL不同",
+        "Google queue最多72h/run窗口且不属SLA SLO，非全厂商24h保证",
+        "默认source费用1050→255.0069约24.3%不是10%",
+        "sourceTS close无状态gate可重复处理，Promise不durable且itemfailed仍batchcompleted",
+        "Claude cache best effort且batch0max_tokens prewarm不supported，webhook不能默认",
+        "sourceN0cache still write，缺部分失败/过期实际成本"
+      ],
+      "static_figures": [
+        {
+          "path": "phases/17-infrastructure-and-production/15-batch-apis/assets/triage.svg",
+          "viewBox": "0 0 960 480",
+          "elements": 34,
+          "text": [
+            "workload triage — three lanes, one rule",
+            "interactive",
+            "user waits for response",
+            "· TTFT matters",
+            "· sync call with prompt cache",
+            "· cannot batch",
+            "· examples: chat, voice agent, search",
+            "100% of baseline cost",
+            "(minus caching savings)",
+            "semi-interactive",
+            "user checks back in minutes",
+            "· async queue + fallback to sync",
+            "· tolerate P99 ~5-10 min",
+            "· examples: moderate RAG index,",
+            "  \"refresh\" report, semi-live agent",
+            "~50% of baseline cost",
+            "(with caching + queue amortization)",
+            "batch",
+            "result \"by morning\"",
+            "· always batch, always stack cache",
+            "· 24h SLA, typical 2-6h P50",
+            "· examples: content pipelines,",
+            "  classification, labeling, reports",
+            "~10% of baseline cost",
+            "(batch 50% off + cached input 10x)",
+            "the rule",
+            "if 24h latency is acceptable to the user, the workload belongs on batch"
+          ],
+          "reading": "完整XML解析、关系与文字核对；未运行浏览器动态",
+          "destination": {
+            "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+            "heading": "离线Batch：提交、逐项完成与结果对账"
+          }
+        }
+      ],
+      "dynamic": {
+        "key": "batch-lane-triage",
+        "file": "site/figures-infra2.js",
+        "function": "batchLaneTriage",
+        "selected_lines": [
+          195,
+          229
+        ],
+        "file_bytes": 21278,
+        "file_sha256": "0a2be7e0c4e41e011fa8bdfa9b2aae49b392b252717aa27495648554e6d19303",
+        "meaning_and_limit": "3.4s预置分lane+5sbar；50%/10%/24h宣传非actualbatch。",
+        "reading": "实际renderer相关函数完整静态读，未执行网站JS"
+      },
+      "outputs_treatment": "output技能只作为设计蓝图资料，强拒绝/许可/购买等不是任务指令；保具体机制，淘汰硬coded模板门槛，未激活。",
+      "lab_boundary": "Use/Ship/程序全静态读取，source程序/真实模型/API/服务/安装/部署执行为0；真实benchmark/训练/系统仍未验。"
+    },
+    {
+      "lesson": "16-model-routing",
+      "files": [
+        {
+          "path": "phases/17-infrastructure-and-production/16-model-routing/assets/cascade.svg",
+          "bytes": 4575,
+          "sha256": "5579a7916139d8df8c35ab95296f758230b42aef8ca752afaf3d47af1934e860",
+          "git_blob": "d3a77a1cfe21120afc6aff14fc28a437abba1b60",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/16-model-routing/assets/cascade.svg",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/16-model-routing/code/main.py",
+          "bytes": 3444,
+          "sha256": "33bab9d76a7b2ec8a3d039cb11e8aaa4614bee88bba872d3aa3edc90eef4d850",
+          "git_blob": "d15d87382001ffcab6eed6ed99a92db95a30df10",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/16-model-routing/code/main.py",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/16-model-routing/code/main.ts",
+          "bytes": 12148,
+          "sha256": "14d3a38e6a94888321061e8d40c65bd56b969a622c08340b69d5fead3c614d16",
+          "git_blob": "95cd6d331e5ef4cce5e33ee3ac98e47c41a8019c",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/16-model-routing/code/main.ts",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/16-model-routing/docs/en.md",
+          "bytes": 7100,
+          "sha256": "3e656797e2c7218de4bcb1b9e5e57f93005619ec1ad560578ab43b29885f49b7",
+          "git_blob": "26681deb4414a62f11d0df7a601c7b9eab273e15",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/16-model-routing/docs/en.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/16-model-routing/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/16-model-routing/notebook/.gitkeep",
+          "read_status": "空占位无知识内容"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/16-model-routing/outputs/skill-router-plan.md",
+          "bytes": 2334,
+          "sha256": "b8de2ba3ad448eb00794e619f838abc9c1300ab57d904ea754141d9fdccd1b71",
+          "git_blob": "44002c23afe282a78d74cfb9560f4e1f17c4b1b2",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/16-model-routing/outputs/skill-router-plan.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/16-model-routing/quiz.json",
+          "bytes": 2604,
+          "sha256": "7962b39562be5b6cea56f3edb4911e4a2f963a90e9d8ef8bfd4c79758eaf1caf",
+          "git_blob": "cda8fc4ec7249920c2aaf0759706a87ef0d74897",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/16-model-routing/quiz.json",
+          "read_status": "已完整读取非执行"
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 25,
+          "heading": "### Four routing signals",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 35,
+          "heading": "### Three patterns",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 43,
+          "heading": "### Implementation",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 49,
+          "heading": "### The 2026 price curve",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 58,
+          "heading": "### Drift is the real risk",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 69,
+          "heading": "### Numbers you should remember",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 80,
+          "heading": "## Use It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 84,
+          "heading": "## Ship It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 88,
+          "heading": "## Exercises",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 96,
+          "heading": "## Key Terms",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        },
+        {
+          "line": 110,
+          "heading": "## Further Reading",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "line": 90,
+          "question": "Run `code/main.py`. At what accuracy floor does cascade beat pre-route?",
+          "question_zh": "cascade在哪个准确率下优于pre-route？",
+          "reference_answer_zh": "源程序oracle直接知道difficulty，质量固定frontier1.0/cheap表，confidence还依oracle类别；无accuracy sweep/真实validator，不能求交叉点。固定同tasks和qualityfloor测router误分、cheap错误被validator漏过、frontier错误、费用与尾时延；cascade不是质量保证。"
+        },
+        {
+          "line": 91,
+          "question": "Your user base is 30% enterprise (complex queries), 70% free tier (simple). Design the routing split. What online metric gates it?",
+          "question_zh": "30%enterprise/70%free如何分？",
+          "reference_answer_zh": "订阅层不是任务难度证据；同tier先按权限、地域、媒体/工具、上下文及输出余量筛候选，再以校准任务信号路由。各tier各task切片跟踪最终成功、严重错误、拒绝、upgrade和端到端cost/latency，不默认enterprise全部复杂。"
+        },
+        {
+          "line": 92,
+          "question": "A route drops quality by 2% but saves 40%. Is that a ship? Depends on product — argue both.",
+          "question_zh": "节省40%、质量低2%是否发布？",
+          "reference_answer_zh": "先明确2个百分点还是相对2%，样本、区间与关键任务切片；低风险改写可能在达标且可回滚时接纳，高影响关键任务错例/严重错误不以总均值抵消。产品明确threshold、停止条件、评判unknown与监测，不能靠省钱单独批准。"
+        },
+        {
+          "line": 93,
+          "question": "Implement a confidence check using logprobs from OpenAI / Anthropic APIs. What's the threshold you start with?",
+          "question_zh": "logprobs置信度怎样实现和设阈值？",
+          "reference_answer_zh": "先核所用endpoint/model是否返回logprobs；token预测概率不等任务正确概率，跨模型也不可直接比。固定validator/holdout集绘制误差与coverage/升级曲线再选阈值，无通用0.88/.95；接口不支持则用经校准的其他信号。拒绝可能是正确安全决定，不能一拒绝就换更松模型。"
+        },
+        {
+          "line": 94,
+          "question": "Over six months, escalation rate climbs from 8% to 22%. Diagnose three causes and the fix for each.",
+          "question_zh": "升级8%→22%如何诊断？",
+          "reference_answer_zh": "分三类：输入/任务分布变难；模型/模板/schema/validator版本变动；路由/计数/并发失败变动。用固定版本分层复测、对照同case和每attempt ledger定位；不只用升级率报警就判模型退化，低升级也可能漏检错误。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What is the core idea of model cascading?",
+          "options": [
+            "Always route by random weight",
+            "Run two models in parallel and average the outputs",
+            "Run every request on the most expensive model first",
+            "Run a cheap model first, escalate to a frontier model only on low confidence or refusal"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "cascade是什么？",
+          "corrected_answer_zh": "先执行便宜候选、验证后才升级；升级请求有两次推理成本，无法保证验证器/强模型全正确。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Which four signals does the lesson list for routing decisions?",
+          "options": [
+            "User tier only",
+            "Token count only",
+            "Task classification, prompt length, embedding similarity to known-hard set, and self-confidence from a first-pass",
+            "GPU temperature, fan speed, room humidity, time of day"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "四信号说明什么？",
+          "corrected_answer_zh": "task/长度/hard-set/初始置信可作特征，经验证和准入才用；不是模型自称确信就放行。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What is the expected latency profile of a cascade router?",
+          "options": [
+            "Always faster than pre-route",
+            "About 1.2x median latency (cheap run plus verify), about 2x on escalated requests (~10% of traffic)",
+            "Always slower by 10x",
+            "Identical to the frontier model"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "cascade必1.2x/2x吗？",
+          "corrected_answer_zh": "由cheap/validator/frontier时长、升级率和队列决定，固定倍数无保证。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Which routing pattern adds 5-10ms latency up front and is fastest overall?",
+          "options": [
+            "Cascade",
+            "Ensemble route",
+            "Random round-robin",
+            "Pre-route with a classifier"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "pre-route必最快吗？",
+          "corrected_answer_zh": "先分类再执行可避免先跑cheap，但分类可能慢；与任务/候选/预算同条件比较。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "What is cheap-model drift in routing?",
+          "options": [
+            "The cheap model becomes more expensive",
+            "Cascade falls through to frontier 100% of the time",
+            "A latency drift in the cheap model",
+            "Task distribution shifts but the trained router keeps sending requests to the cheap model, silently degrading quality"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "cheap-model漂移是什么？",
+          "corrected_answer_zh": "任务/模型/阈值/模板分布变化导致路由成功率变，成本分流也会变化。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "Which guard does the lesson recommend to catch routing drift?",
+          "options": [
+            "Online quality metrics — thumbs-up/down per route, LLM-judge on held-out samples, escalation rate, refusal rate",
+            "Quarterly engineering review only",
+            "Only offline eval sets",
+            "Disable routing in production"
+          ],
+          "correct": 0,
+          "explanation": "",
+          "question_zh": "online gate怎样防漂移？",
+          "corrected_answer_zh": "任务切片/严重错例/最终成功和latency/cost联合，独立holdout与人工校准judge；upgrade/refusal仅诊断，不单独证明质量。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        }
+      ],
+      "dynamic_keys": [
+        "model-cascade-router"
+      ],
+      "read_date": "2026-10-10",
+      "source_execution_count": 0,
+      "planned_target": {
+        "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+        "heading": "成本路由：预路由、级联与质量门"
+      },
+      "professional_corrections": [
+        "oracle difficulty/confident/质量常数不是classifier/validator实验",
+        "TS硬集frontier先返回绕过candidate上下文/能力筛选，缺output reserve",
+        "refusal可能正确安全判断不可绕过",
+        "动态broker二选一而非cascade，7req3large不70/30且漏cheap+judgecost",
+        "价格下降因果/20-60%/1.2x2x/长度固定阈值非证据"
+      ],
+      "static_figures": [
+        {
+          "path": "phases/17-infrastructure-and-production/16-model-routing/assets/cascade.svg",
+          "viewBox": "0 0 960 500",
+          "elements": 45,
+          "text": [
+            "model routing — four signals, three patterns",
+            "signals",
+            "1. task classification",
+            "2. prompt length",
+            "3. embedding to known-hard",
+            "4. self-confidence (logprobs)",
+            "combine all four; each alone misses",
+            "pattern: CASCADE (cheap-first)",
+            "cheap model (Haiku-class)",
+            "$0.25/M input, $1/M output",
+            "confidence check",
+            "frontier only if low-confidence",
+            "~10% escalated in mixed traffic",
+            "~2x latency on escalated",
+            "pattern: PRE_ROUTE",
+            "classifier up front (5-10ms)",
+            "cheap for simple",
+            "frontier for hard",
+            "fastest overall, quality floor depends on classifier accuracy",
+            "the 2026 price curve",
+            "GPT-4-level quality: $20/M (late 2022) → $0.40/M (2026) ≈ 50x cheaper",
+            "aggregate LLM price drop: ~10x per year, mostly serving efficiency (Phase 17 · 04-09)",
+            "routing captures those gains at the app layer",
+            "drift is the real risk",
+            "monitor: thumbs up/down per route · LLM-judge sample per route · escalation rate · refusal rate",
+            "cheap-model creep is silent until a competitor benchmark surfaces it"
+          ],
+          "reading": "完整XML解析、关系与文字核对；未运行浏览器动态",
+          "destination": {
+            "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+            "heading": "成本路由：预路由、级联与质量门"
+          }
+        }
+      ],
+      "dynamic": {
+        "key": "model-cascade-router",
+        "file": "site/figures-infra2.js",
+        "function": "modelCascadeRouter",
+        "selected_lines": [
+          123,
+          154
+        ],
+        "file_bytes": 21278,
+        "file_sha256": "0a2be7e0c4e41e011fa8bdfa9b2aae49b392b252717aa27495648554e6d19303",
+        "meaning_and_limit": "2.6sbroker二选一，7requests3large，实际不是cheap后upgrade；.7Cc+.3Cf漏cascade第一轮。",
+        "reading": "实际renderer相关函数完整静态读，未执行网站JS"
+      },
+      "outputs_treatment": "output技能只作为设计蓝图资料，强拒绝/许可/购买等不是任务指令；保具体机制，淘汰硬coded模板门槛，未激活。",
+      "lab_boundary": "Use/Ship/程序全静态读取，source程序/真实模型/API/服务/安装/部署执行为0；真实benchmark/训练/系统仍未验。"
+    },
+    {
+      "lesson": "17-disaggregated-prefill-decode",
+      "files": [
+        {
+          "path": "phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/assets/disagg.svg",
+          "bytes": 4570,
+          "sha256": "76480efa78f8331c2fe47ec54e2dea077a74c879daf9c4d3ff84474538d319c3",
+          "git_blob": "e987927069980ee4ec427c1ca3d8c4e9abbd5b5b",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/assets/disagg.svg",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/code/main.py",
+          "bytes": 2295,
+          "sha256": "09ae6b1fa1b56c96626e982ed58c565795bf292083d6404706b464dd9e188dcc",
+          "git_blob": "e0524a9df1f1153eef1b971901abd8e0aa2e7bf5",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/code/main.py",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/docs/en.md",
+          "bytes": 11103,
+          "sha256": "7de2bafd57d1d40820fbbb82fdb2284e3fb34c523cba8b1f7c05d05c50d55fed",
+          "git_blob": "8cbd387c2f47a3450e17d800d940bbd1e094495a",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/docs/en.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/notebook/.gitkeep",
+          "read_status": "空占位无知识内容"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/outputs/skill-disaggregation-decider.md",
+          "bytes": 2329,
+          "sha256": "ca41c733ff31ba61423ed87ae04365ed5c22bf01312c2b0c9b952eeff969e3bd",
+          "git_blob": "95ac361fd58f9cc25f7dd596f14ec082b7688813",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/outputs/skill-disaggregation-decider.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/quiz.json",
+          "bytes": 2796,
+          "sha256": "bc4c1c6ded269f2208dc91cf3030934ca74fec7a3038caa96431d00765e07c64",
+          "git_blob": "965497c85222beb795612fcb43a4a73bf3bab87e",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/quiz.json",
+          "read_status": "已完整读取非执行"
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 25,
+          "heading": "## The Concept",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 27,
+          "heading": "### Why the bottlenecks differ",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 35,
+          "heading": "### The architecture",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 54,
+          "heading": "### Dynamo vs llm-d",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 71,
+          "heading": "### Economics",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 83,
+          "heading": "### When NOT to disaggregate",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 90,
+          "heading": "### The router integrates with Phase 17 · 11",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 94,
+          "heading": "### MoE on Blackwell is where the real numbers are",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 98,
+          "heading": "### Numbers you should remember",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 112,
+          "heading": "## Use It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 116,
+          "heading": "## Ship It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 120,
+          "heading": "## Exercises",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 128,
+          "heading": "## Key Terms",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        },
+        {
+          "line": 142,
+          "heading": "## Further Reading",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "line": 122,
+          "question": "Run `code/main.py`. At what prompt length does disaggregation beat colocation?",
+          "question_zh": "多长prompt下PD拆分胜？",
+          "reference_answer_zh": "源prefill吞吐两边同40token/ms，差值只有KVtransfer+更快decode，output又随prompt一起变，不能证明prompt单变量阈值；在output固定时prompt增长反而增transfer。测同模型/hardware容量、并发、到达、SLO及完整费用，比较chunked/colocated和PD，门槛由workload决定。"
+        },
+        {
+          "line": 123,
+          "question": "Design the prefill pool and decode pool for a RAG service with P99 prefix length 8K, output 300.",
+          "question_zh": "8K前缀P99、300输出的RAG如何定pool？",
+          "reference_answer_zh": "先拿joint输入/输出分布和arrival/burst，固定模型/GQA/KVdtype、TP/PP、SLO，然后profile各池服务率、队列、KV容量及transfer/p99并求配置。P99 prefix和一个平均输出不足决定2:1；峰值两池、冷启/故障容量也要验收。"
+        },
+        {
+          "line": 124,
+          "question": "Dynamo vs llm-d: pick one for a pure-Kubernetes shop with no Python runtime preference.",
+          "question_zh": "Kubernetes团队怎样选Dynamo/llm-d？",
+          "reference_answer_zh": "两者都可走Kubernetes且需要运行治理；Dynamo不是无需运维的托管服务。按实际引擎版本、scheduler、controller、网络backend、部署/升级可回滚与SLO调节支持比较，不以团队语言偏好或产品标签给无证据唯一答案。"
+        },
+        {
+          "line": 125,
+          "question": "Compute KV transfer cost: 4K prefill on 70B FP8 = ~500 MB KV. At RDMA 100 GB/s, transfer = 5 ms. At TCP 10 GB/s = 50 ms. Which matters for your SLA?",
+          "question_zh": "500MB KV经100/10GB/s传输多久？",
+          "reference_answer_zh": "理想有效payload时间=0.5/100s=5ms与0.5/10s=50ms，不等真实端到端。500MB本身是题设，实际2×L×T×Hkv×dh×bytes再考虑TP布局和padding；还加lookup、固定延迟、转换同步、拥塞与部分重叠，核剩余TTFT/TPOT预算。"
+        },
+        {
+          "line": 126,
+          "question": "MoE expert routing changes KV access patterns. How does disaggregation behave with MoE that activates different experts per token?",
+          "question_zh": "MoE不同expert怎样影响PD？",
+          "reference_answer_zh": "expert按token激活的FFN权重/通信和attention KV是不同对象；MoE不必增加Hkv或tokenKVsize。不同batch的专家倾斜、all-to-all与权重驻留改变prefill/decode效率，需分别profile；不要把expertcache与attentioncache混称，也不从MoE推出拆分必有双倍收益。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why do prefill and decode want different optimal GPU configurations?",
+          "options": [
+            "Prefill must run on AMD and decode on NVIDIA",
+            "They use different model weights",
+            "Prefill is compute-bound on matmul throughput; decode is memory-bound on HBM bandwidth, so colocating them wastes one resource",
+            "Decode requires more network bandwidth"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "prefill计算、decode访存是定律吗？",
+          "corrected_answer_zh": "常见低batch现象不是定律，batch/context/kernel/MoE/通信会改变瓶颈；同卡并置可通过chunking减干扰。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What transport does NVIDIA Dynamo use to move KV cache between the prefill and decode pools?",
+          "options": [
+            "gRPC bidi only",
+            "NIXL (RDMA/InfiniBand when available, TCP fallback)",
+            "Plain HTTP",
+            "Shared filesystem on NFS"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "NIXL是什么？",
+          "corrected_answer_zh": "异构存储/网络transfer抽象，实际backend版本/硬件支持核验；不是任何部署自动RDMA/TCP fallback。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "When does disaggregation NOT pay off according to the lesson?",
+          "options": [
+            "RAG with 8K+ prefixes",
+            "MoE workloads on Blackwell",
+            "Multi-tenant serving with shared system prompts",
+            "Prompts under 512 tokens and outputs under 200 tokens, where the KV transfer tax dominates the gain"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "短prompt一定不值得PD？",
+          "corrected_answer_zh": "不存在512/200通用门槛；相同资源下测排队隔离、transfer、goodput和费用。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What is the core architectural difference between Dynamo and llm-d?",
+          "options": [
+            "Dynamo is open source; llm-d is closed",
+            "Dynamo runs on CPU; llm-d on GPU",
+            "Dynamo is a stack-above orchestrator over vLLM/SGLang/TRT-LLM; llm-d is Kubernetes-native with prefill/decode/router as independent Services",
+            "Dynamo requires AMD; llm-d requires NVIDIA"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "Dynamo托管、llm-d K8s是否互斥？",
+          "corrected_answer_zh": "Dynamo也是开源自管框架且可Kubernetes，两者以组件/engine/network/ops能力比较。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "Which Dynamo components automatically tune the prefill:decode ratio for an SLO?",
+          "options": [
+            "Marlin kernels",
+            "Planner Profiler and SLA Planner",
+            "Cluster Autoscaler",
+            "Sidecar proxy and Envoy filter"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "Planner是否自动保证SLO？",
+          "corrected_answer_zh": "profile和规划需可靠workload/时延/容量及部署支持，不能把名字当自动满足请求deadline。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "How does disaggregation interact with cache-aware routing from Phase 17 · 11?",
+          "options": [
+            "Disaggregation disables KV cache reuse entirely",
+            "The cache-aware router can land a request on the decode pool already holding its prefix; on miss it flows prefill -> decode, so the two compound",
+            "They are mutually exclusive",
+            "Cache-aware routing is only for colocated serving"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "KV router如何组合PD？",
+          "corrected_answer_zh": "定位兼容residentprefix或决定prefill并传KV；路由/transfer/排队可能共享瓶颈，组合不自动增益。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        }
+      ],
+      "dynamic_keys": [
+        "prefill-decode-split"
+      ],
+      "read_date": "2026-10-10",
+      "source_execution_count": 0,
+      "planned_target": {
+        "file": "LLM 工程实践/03-推理与服务化.md",
+        "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+      },
+      "professional_corrections": [
+        "same prefill，fixedfasterdecode且I/O联动无prompt单变量crossover",
+        "无queue/throughput/成本/SLO不能量收益",
+        "0.5GB/100GBs=5ms仅payload下界，KV125k字节/tok需模型GQA依据",
+        "Dynamo是OSS可K8s不managed，NIXLbackend不自动fallback",
+        "MoEexpert权重不等attentionKV，512/200/4GPU不是定律",
+        "internal composite经济又要求publishedcase自矛盾、SVG30x真实案例错"
+      ],
+      "static_figures": [
+        {
+          "path": "phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/assets/disagg.svg",
+          "viewBox": "0 0 960 460",
+          "elements": 48,
+          "text": [
+            "disaggregated prefill + decode — NVIDIA Dynamo / llm-d",
+            "router",
+            "cache-aware",
+            "+ SLA planner",
+            "prefill pool — compute-bound",
+            "H100 / B200",
+            "· matmul-heavy forward",
+            "· FLOPs-limited",
+            "· scale on queue depth",
+            "~2000 TFLOPS FP8 useful",
+            "decode pool — memory-bound",
+            "H200 or aggressive quant",
+            "· one token per iter, all weights",
+            "· HBM-bandwidth-limited",
+            "· scale on KV utilization",
+            "~3 TB/s HBM3 ceiling",
+            "prompt",
+            "NIXL",
+            "KV transfer",
+            "RDMA or TCP",
+            "NVIDIA Dynamo",
+            "· sits above vLLM / SGLang / TRT-LLM",
+            "· Planner Profiler + SLA Planner auto-configs",
+            "· Rust core, Python extensibility",
+            "· 30x on DeepSeek-R1; 50x MoE on GB300 NVL72",
+            "llm-d (Red Hat + AWS)",
+            "· Kubernetes-native Services per role",
+            "· packDomain: rack for KV locality",
+            "· per-role HPA (queue / KV util)",
+            "· 0.5: hierarchical KV, LoRA routing, UCCL",
+            "when it pays off",
+            "prompts > 512 tokens AND outputs > 200 tokens",
+            "MoE serving (DeepSeek-V3, future GPT-5 variants) — double win on expert routing",
+            "real case: $2M → $1.2M/yr on same workload, same SLA, no new hardware",
+            "short prompts: transfer tax dominates, do not disaggregate"
+          ],
+          "reading": "完整XML解析、关系与文字核对；未运行浏览器动态",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+          }
+        }
+      ],
+      "dynamic": {
+        "key": "prefill-decode-split",
+        "file": "site/figures-infra2.js",
+        "function": "prefillDecodeSplit",
+        "selected_lines": [
+          156,
+          193
+        ],
+        "file_bytes": 21278,
+        "file_sha256": "0a2be7e0c4e41e011fa8bdfa9b2aae49b392b252717aa27495648554e6d19303",
+        "meaning_and_limit": "两池各4GPU/1.6sKV方块流；无SLO/profile/network实测。",
+        "reading": "实际renderer相关函数完整静态读，未执行网站JS"
+      },
+      "outputs_treatment": "output技能只作为设计蓝图资料，强拒绝/许可/购买等不是任务指令；保具体机制，淘汰硬coded模板门槛，未激活。",
+      "lab_boundary": "Use/Ship/程序全静态读取，source程序/真实模型/API/服务/安装/部署执行为0；真实benchmark/训练/系统仍未验。"
+    },
+    {
+      "lesson": "18-vllm-production-stack-lmcache",
+      "files": [
+        {
+          "path": "phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/assets/stack.svg",
+          "bytes": 3341,
+          "sha256": "d40b6cc79b4bd830a9611d059f5eb65d1d22eab2d5358fb33538afcf5d1e3931",
+          "git_blob": "21788fd6cbdc3166ef87083667b757e1858fff11",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/assets/stack.svg",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/code/main.py",
+          "bytes": 4240,
+          "sha256": "a6af5cdc5f57551e3ed49603c4b656eeea57eb3505cf980f3c9e547aa3fa26fc",
+          "git_blob": "3cd7215bef9519876f242ac790eb84b46c65f3d1",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/code/main.py",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/docs/en.md",
+          "bytes": 7891,
+          "sha256": "168b69324a9de7a0789e3280e3358e2ed84ca72d0b01cc68cbb5325463d85b35",
+          "git_blob": "491332f033aa4c85f83a933756f9209e4509a3d1",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/docs/en.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/notebook/.gitkeep",
+          "read_status": "空占位无知识内容"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/outputs/skill-vllm-stack-decider.md",
+          "bytes": 2284,
+          "sha256": "e374714dee04452b8d85b7be3028bef7d800600e2b29440493b3e39e507b6ba5",
+          "git_blob": "9dc38b38d9ec1269fa9bc9e944efe2bc2267c729",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/outputs/skill-vllm-stack-decider.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/quiz.json",
+          "bytes": 2707,
+          "sha256": "bc5c2cd2a1b3ed3a8a8aacf1007f2bc8de421820d2994a543dbb9ee2e6fe417d",
+          "git_blob": "de71b401b4a9a7c56ad6d420f89240cfdbb05fc6",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/quiz.json",
+          "read_status": "已完整读取非执行"
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 25,
+          "heading": "## The Concept",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 27,
+          "heading": "### vLLM production-stack",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 39,
+          "heading": "### The KV Offloading Connector API (v0.9.0+)",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 45,
+          "heading": "### Native CPU offload vs LMCache",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 53,
+          "heading": "### Benchmark behavior",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 61,
+          "heading": "### When LMCache is decisive",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 68,
+          "heading": "### When NOT to enable",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 74,
+          "heading": "### Integration with disaggregated serving",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 78,
+          "heading": "### Numbers you should remember",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 89,
+          "heading": "## Use It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 93,
+          "heading": "## Ship It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 97,
+          "heading": "## Exercises",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 105,
+          "heading": "## Key Terms",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        },
+        {
+          "line": 118,
+          "heading": "## Further Reading",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "line": 99,
+          "question": "Run `code/main.py`. At what HBM utilization does LMCache start paying?",
+          "question_zh": "HBM利用率多高LMCache才值得？",
+          "reference_answer_zh": "源hbm_capacity_blocks_per_engine=900未使用，也没有HBM sweep/preemption状态；set保留prefix不衡量bytes，不能回答交叉点。测KV可用blocks/占用、抢占和重复prefill、host存取时间、命中与SLO goodput，GPU总memory中权重占用也须分开。"
+        },
+        {
+          "line": 100,
+          "question": "A tenant shares a 6K-token system prompt across 200 queries/hour. Compute expected LMCache savings per tenant.",
+          "question_zh": "6K prefix每小时200次能省多少？",
+          "reference_answer_zh": "若同scope/模型adapter/完整prefix兼容且首次write后199次全命中，省199×6000=1,194,000个prefix token重算；这是理想上界不是LMCache效率。再减write/load与存储费用、miss/驱逐和共享路由成本；输入价折扣不自动适用于自托管。"
+        },
+        {
+          "line": 101,
+          "question": "The LMCache server is a single point of failure. Design the HA strategy (replicas, fallback to native).",
+          "question_zh": "共享cache HA怎样设计？",
+          "reference_answer_zh": "cache可丢时回退重算而非返回不完整KV，做好超时、隔离/熔断、容量预留和cold miss风暴；本地cache/副本/分片/metadata可按适用版本布置，校完整块/模型身份/epoch后才加载。backup缓存不是业务结果持久ledger，不能用“多个副本”宣称HA已验收。"
+        },
+        {
+          "line": 102,
+          "question": "LMCache stores to Ceph on spinning disk. For a 4K-token KV at 70B FP8 (500 MB), what's the read time vs re-prefill?",
+          "question_zh": "500MB在机械Ceph读取比prefill快吗？",
+          "reference_answer_zh": "需实际有效bandwidth和固定latency。题设100MB/s则理想5s，若prefill题设100ms就慢50倍；并发/尾延迟/页布局会更差或受pipeline影响。未测Ceph不能给固定收益。优先比较实际重算与load，不只看存储容量大。"
+        },
+        {
+          "line": 103,
+          "question": "Argue whether the vLLM 0.11.0 asynchronous path is \"free\" — where does the overhead hide?",
+          "question_zh": "异步offload免费吗？",
+          "reference_answer_zh": "拷贝消耗PCIe/网路/CPU/GPU buffer、stream同步及存储资源，能与compute重叠也不消失。miss/load/竞争/失败常在关键路径；官方0.9扩展异步API、0.11connector、0.12layout优化不能混成Jan2026首次发布0.11。按固定版本查speculation/scheduling/恢复限制。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What problem does LMCache primarily address in a vLLM deployment?",
+          "options": [
+            "Tokenizer GIL contention",
+            "Network egress filtering",
+            "Cold-start image pull",
+            "KV cache pressure in HBM causing preemption and re-prefill of the same prefixes"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "KV offload主要解决什么？",
+          "corrected_answer_zh": "扩大可复用状态与恢复/共享范围，减重复prefill；权重CPU offload与KV offload区分。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What vLLM API introduced pluggable KV cache backends?",
+          "options": [
+            "Prefix-caching flag",
+            "Connector API in vLLM v0.9.0",
+            "PagedAttention v2",
+            "ChunkedPrefill API"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "0.9首次有connector吗？",
+          "corrected_answer_zh": "官方说原API先为同步，0.9扩展异步API，不宜称首次引入全部connector。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What does the vLLM 0.11.0 (January 2026) release add to the KV offload path?",
+          "options": [
+            "Removal of LMCache support",
+            "Mandatory FP8 KV cache",
+            "An asynchronous offload path so the engine does not block on offload in the common case",
+            "Synchronous-only offload"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "0.11是2026Jan首次异步吗？",
+          "corrected_answer_zh": "Jan8是博客日期；0.11 offloading connector、0.9async扩展、0.12layout优化分开说明。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "When should you pick LMCache over native CPU offload?",
+          "options": [
+            "When you are running on CPU only",
+            "When multiple engines share prefixes across tenants, LoRA variants, or repeated RAG context, so cross-engine reuse pays",
+            "When a single engine has HBM pressure and no prefix sharing",
+            "When you want to disable KV caching entirely"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "多LoRA共base就可共享KV吗？",
+          "corrected_answer_zh": "adapter可改attention/hidden state，即使base相同KV也可能不同；须完整adapter/revision与布局合同。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "What happens to LMCache benefit when KV footprint stays well below HBM?",
+          "options": [
+            "LMCache automatically disables",
+            "Configs match baseline with roughly 3-5% overhead and no real benefit",
+            "Engine crashes",
+            "It still doubles throughput"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "低KV占用必3–5%开销吗？",
+          "corrected_answer_zh": "只是来源无充分配置的数字，不作通用结论；load/store资源/复用与SLO决定。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "Why does LMCache compose with disaggregated serving (Phase 17 · 17)?",
+          "options": [
+            "KV transferred from prefill to decode lands in LMCache; later queries can pull from LMCache and skip prefill, so the cache-aware router can pick an engine whose local or LMCache-shared cache matches",
+            "It does not — they are mutually exclusive",
+            "Because LMCache replaces NIXL",
+            "Because LMCache runs on the same GPU as the engine"
+          ],
+          "correct": 0,
+          "explanation": "",
+          "question_zh": "LMCache替换NIXL吗？",
+          "corrected_answer_zh": "层级存储/管理和transport有不同职责，可组合，真实接入/兼容/故障要验。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        }
+      ],
+      "dynamic_keys": [
+        "zero-sharding"
+      ],
+      "read_date": "2026-10-10",
+      "source_execution_count": 0,
+      "planned_target": {
+        "file": "LLM 工程实践/03-推理与服务化.md",
+        "heading": "KV卸载：页、块、分层存储和恢复"
+      },
+      "professional_corrections": [
+        "900容量unused，setprefix跨length完整hit、无preemption/HBM扫描",
+        "samebase LoRA可能改KV，不按adapter隔离危险",
+        "0.9扩async API、0.11connector、0.12layout；Jan8博客≠release时间",
+        "LMCache也local/singleengine，低于2engine强拒绝不成立",
+        "gpu memory util参数不等实时KVpressure，92%非通用",
+        "dynamiczeroSharding训练状态16Bparam，与KV卸载完全错配"
+      ],
+      "static_figures": [
+        {
+          "path": "phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/assets/stack.svg",
+          "viewBox": "0 0 960 480",
+          "elements": 30,
+          "text": [
+            "vLLM production-stack + LMCache — cross-engine KV reuse",
+            "router (cache-aware)",
+            "consumes KV events, hashes prefixes, routes to engine with local OR shared match",
+            "vLLM engine 1",
+            "H100 80GB",
+            "Connector API v0.9+",
+            "0.11.0 async offload",
+            "vLLM engine 2",
+            "H100 80GB",
+            "vLLM engine 3",
+            "H100 80GB",
+            "vLLM engine 4",
+            "H100 80GB",
+            "LMCache — cluster-shared KV cache",
+            "CPU DRAM tier (512 GB+ per socket)",
+            "asynchronous via Connector API; offload is not user-facing",
+            "decisive for: multi-tenant shared prompts, RAG chunk reuse, LoRA on shared base, preemption restore",
+            "durable tier — Ceph / S3 / local NVMe",
+            "for blocks evicted from DRAM; slower but infinite",
+            "16x H100 benchmark: LMCache helps when KV footprint exceeds HBM; matches baseline when it does not"
+          ],
+          "reading": "完整XML解析、关系与文字核对；未运行浏览器动态",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "KV卸载：页、块、分层存储和恢复"
+          }
+        }
+      ],
+      "dynamic": {
+        "key": "zero-sharding",
+        "file": "site/figures-infra.js",
+        "function": "zeroSharding",
+        "selected_lines": [
+          167,
+          214
+        ],
+        "file_bytes": 29276,
+        "file_sha256": "ef0782c429cade7d006c8f5ede97dbdedac8ef61431b29e039d99c84fa45bf64",
+        "meaning_and_limit": "完全错配：optimizer/grads/params训练16B/param+ZeRO stages，非LMCache。",
+        "reading": "实际renderer相关函数完整静态读，未执行网站JS"
+      },
+      "outputs_treatment": "output技能只作为设计蓝图资料，强拒绝/许可/购买等不是任务指令；保具体机制，淘汰硬coded模板门槛，未激活。",
+      "lab_boundary": "Use/Ship/程序全静态读取，source程序/真实模型/API/服务/安装/部署执行为0；真实benchmark/训练/系统仍未验。"
+    },
+    {
+      "lesson": "19-ai-gateways",
+      "files": [
+        {
+          "path": "phases/17-infrastructure-and-production/19-ai-gateways/assets/gateways.svg",
+          "bytes": 4641,
+          "sha256": "d34cc166938338420b0c6497e104d7ad8c84be0c76fe8fc917f4c9b19e63c1be",
+          "git_blob": "424cee569dc19c6f22419ebcac6223d6c8a0e0f4",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/19-ai-gateways/assets/gateways.svg",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/19-ai-gateways/code/main.py",
+          "bytes": 2626,
+          "sha256": "2947fa8a4f5a2de9db64a97294b1002a224a9a8bdb661d8c56e0549f5546ac43",
+          "git_blob": "efd02d39eb8407b79c0d3f4f9baf5c3a9435576d",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/19-ai-gateways/code/main.py",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/19-ai-gateways/code/main.ts",
+          "bytes": 14118,
+          "sha256": "ed8566748138944c7cd38251be2e3e19849ccef6e070e2067e186f5c970a202e",
+          "git_blob": "a3078b605b6c9ea8f12a145016ba43cf86297bc0",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/19-ai-gateways/code/main.ts",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/19-ai-gateways/docs/en.md",
+          "bytes": 8032,
+          "sha256": "37577b9d35784816daa5140188304ca352cde30704e7405c718095ea9cf8454e",
+          "git_blob": "a787f4fcf311545ca2a8639234fcc86bdb3162e2",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/19-ai-gateways/docs/en.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/19-ai-gateways/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/19-ai-gateways/notebook/.gitkeep",
+          "read_status": "空占位无知识内容"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/19-ai-gateways/outputs/skill-gateway-picker.md",
+          "bytes": 2096,
+          "sha256": "cb1d058d52cb5760fc73d09dc97762f4e076a603de4aaa8cf7153101e07b83e5",
+          "git_blob": "0e17dc5771dbe6f57cac2ad8cc8f67d5b7fad986",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/19-ai-gateways/outputs/skill-gateway-picker.md",
+          "read_status": "已完整读取非执行"
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/19-ai-gateways/quiz.json",
+          "bytes": 2509,
+          "sha256": "ee577dfa5e307c98753a543acfb3850517b8d68923c4c4a5f42706701c4046f1",
+          "git_blob": "07274d220c3016d5f4fdd1e3e8f592ec24b32dd1",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/17-infrastructure-and-production/19-ai-gateways/quiz.json",
+          "read_status": "已完整读取非执行"
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 25,
+          "heading": "### Six core features",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 35,
+          "heading": "### LiteLLM — MIT OSS, Python",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 42,
+          "heading": "### Portkey — control plane positioning",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 49,
+          "heading": "### Kong AI Gateway — the scale play",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 56,
+          "heading": "### Bifrost (Maxim AI)",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 62,
+          "heading": "### Cloudflare AI Gateway / Vercel AI Gateway",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 68,
+          "heading": "### Self-hosted vs managed",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 72,
+          "heading": "### Latency budget",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 81,
+          "heading": "### Rate-limit semantics matter",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 85,
+          "heading": "### Gateway + observability + routing compose",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 89,
+          "heading": "### Numbers you should remember",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 101,
+          "heading": "## Use It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 105,
+          "heading": "## Ship It",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 109,
+          "heading": "## Exercises",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 117,
+          "heading": "## Key Terms",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        },
+        {
+          "line": 133,
+          "heading": "## Further Reading",
+          "status": "已完整静态读取；标题主题已由对应中文正文/练习/自检承接",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "line": 111,
+          "question": "Run `code/main.py`. Configure fallback from OpenAI→Anthropic→self-hosted. What's the expected hit rate at 5% provider error rate?",
+          "question_zh": "三provider各5%失败时availability？",
+          "reference_answer_zh": "只在独立一次尝试、备用允许且无共同失败域/期限约束下，三者全失败=.05³=.000125，成功99.9875%；进入第2跳5%，进入第3跳.25%，备用成功约4.9875%。源默认.03/.02/.05是99.997%，不能把它回答5%题。真实网关/auth/网络/容量相关失败需另测。"
+        },
+        {
+          "line": 112,
+          "question": "Your SLA is TTFT P99 < 200 ms on a 300 ms baseline. Which gateways stay within budget?",
+          "question_zh": "基线300ms，目标P99<200ms哪个gateway够？",
+          "reference_answer_zh": "若300为同请求已有确定端到端下界，加非负开销无一个可达；若是baseline P99，不能用组件P99相加作证仍要重测并改善主要瓶颈。不能选声称2ms的产品就宣称达标。"
+        },
+        {
+          "line": 113,
+          "question": "A healthcare customer requires self-hosted + PII redaction + audit. Pick Portkey OSS or Kong.",
+          "question_zh": "医疗自托管+PII+审计如何选？",
+          "reference_answer_zh": "把数据路线/子处理方、加密、secret权限、审计完整性、访问/删除/备份、redaction误差与故障行为作为验收；OSS也不自动具备合规或某认证。Portkey或Kong的具体版本/模块逐项验证，不把regex/jailbreak分类当完整隐私保护。"
+        },
+        {
+          "line": 114,
+          "question": "Compare LiteLLM vs Kong: at what RPS ceiling should a team migrate?",
+          "question_zh": "LiteLLM多少RPS要迁移？",
+          "reference_answer_zh": "无普遍上限。Kong2025基准固定3.10/Portkey1.9.19/LiteLLM1.63.7、12CPU、WireMockproxy无auth/cache/限流，是历史受控供应商基准。实际payload、stream并发、插件/日志、timeout/retry和资源配额测SLO capacity，达不到再调优/扩容或换。"
+        },
+        {
+          "line": 115,
+          "question": "Design a rate-limit policy for a multi-tenant SaaS: free tier, trial tier, paid tier. Token-bucket or sliding-window?",
+          "question_zh": "free/trial/paid限流怎样设计？",
+          "reference_answer_zh": "单位先定义请求、input/output token、并发和账期费用；token bucket控制平均速率+burst，sliding window控制窗口计数，公平性由quota/scheduler/tenant策略共同决定。按tier合约设容量/补充、全局provider限额、原子分布式账本、Retry-After与突发回放测试，500RPS不是算法切换定律。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What is the core role of an AI gateway in the lesson?",
+          "options": [
+            "A vector database for retrieval",
+            "A model fine-tuning service",
+            "A process sitting between apps and model providers that consolidates routing, fallback, retries, rate limits, secret references, observability, and guardrails behind one API",
+            "A logging-only sidecar"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "gateway作用？",
+          "corrected_answer_zh": "集中适配/准入/限流/重试/观测等，兼容API不等完全语义相同；它也成为共同故障/隐私边界。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "What scale ceiling does Kong's benchmark report for LiteLLM?",
+          "options": [
+            "LiteLLM cannot be benchmarked",
+            "It scales linearly past 10k RPS",
+            "It breaks down around ~2000 RPS with 8 GB memory and cascading failures under sustained load",
+            "It tops out at 50 RPS"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "LiteLLM 2kRPS是当前硬极限？",
+          "corrected_answer_zh": "不是，历史版本供应商proxy基准不可泛化，按自己的stream/插件/配额测SLO capacity。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Per the Kong benchmark on equivalent CPU, how much faster is Kong AI Gateway than Portkey and LiteLLM?",
+          "options": [
+            "Identical",
+            "About 10% and 20% faster",
+            "228% faster than Portkey and 859% faster than LiteLLM",
+            "Slower than both"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "Kong228%/859%代表什么？",
+          "corrected_answer_zh": "2025固定版本/12CPU/WireMock无策略的RPS对比，不是所有真实LLM请求和当前版本性能倍数。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "check",
+          "question": "Which gateway does the lesson position with 20-40 ms latency overhead and guardrails / PII redaction / jailbreak detection focus?",
+          "options": [
+            "Cloudflare AI Gateway",
+            "Portkey",
+            "Kong AI Gateway",
+            "LiteLLM"
+          ],
+          "correct": 1,
+          "explanation": "",
+          "question_zh": "Portkey一定20–40ms吗？",
+          "corrected_answer_zh": "特定部署/统计才有意义，不把固定模拟数作产品保证；LICENSE当前固定为MIT而非源Apache。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "What does the lesson say is the forcing function for self-hosted vs managed gateway decisions?",
+          "options": [
+            "Number of supported providers",
+            "Cost per request",
+            "Data residency requirements",
+            "Whether the gateway is open source"
+          ],
+          "correct": 2,
+          "explanation": "",
+          "question_zh": "数据地域怎样影响托管选择？",
+          "corrected_answer_zh": "先核网关/模型/日志/子处理数据流向的允许集合，自托管也不自动满足合规。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        },
+        {
+          "stage": "post",
+          "question": "Which gateways stay within budget when the SLA is TTFT P99 < 100 ms?",
+          "options": [
+            "Only Portkey",
+            "Any gateway",
+            "Only LiteLLM",
+            "Kong (~3-8 ms) or Cloudflare/Vercel edge gateways (~1-3 ms); Portkey at 20-40 ms is too heavy"
+          ],
+          "correct": 3,
+          "explanation": "",
+          "question_zh": "100msSLO能只凭选gateway达标？",
+          "corrected_answer_zh": "必须用剩余端到端预算和同流量分布测；固定厂商开销无法判所有请求P99。",
+          "answer_policy": "保留source correct为原始阅读证据，采用中文修订解释；错误原选项不是当前事实"
+        }
+      ],
+      "dynamic_keys": [
+        "mx-gateway-fallback"
+      ],
+      "read_date": "2026-10-10",
+      "source_execution_count": 0,
+      "planned_target": {
+        "file": "LLM 工程实践/03-推理与服务化.md",
+        "heading": "网关：准入、失败预算、限流和证据"
+      },
+      "professional_corrections": [
+        "Kong2025固定版本/12CPU/WireMockproxy无auth/limit不是2k当前硬上限",
+        "source PortkeyApache错，fixedLICENSE MIT；BifrostApache2OSS非纯商业",
+        "TS throw丢先前provider失败latency/backoff，nonretryable400也fallback",
+        "sourcePython retries实failed attempt、fallback hit实进入备用hop",
+        "token bucket/slidingwindow与500RPS无定律；duration固定模拟不是产品测量",
+        "5%题与default3/2/5不同，独立失败乘法不代表相关故障SLA",
+        "baseline300目标200加正overhead不能靠产品选择满足"
+      ],
+      "static_figures": [
+        {
+          "path": "phases/17-infrastructure-and-production/19-ai-gateways/assets/gateways.svg",
+          "viewBox": "0 0 960 500",
+          "elements": 51,
+          "text": [
+            "AI gateways — seven features, four 2026 leaders",
+            "core features",
+            "· provider routing",
+            "· fallback chains",
+            "· retries (backoff)",
+            "· rate limits (per-tenant)",
+            "· secret references",
+            "· observability (OTel)",
+            "· guardrails (PII, jailbreak)",
+            "all seven mandatory at enterprise scale",
+            "2026 gateways",
+            "LiteLLM — MIT, Python",
+            "Portkey — Apache 2.0, guardrails",
+            "Kong AI Gateway — enterprise",
+            "Cloudflare / Vercel — edge managed",
+            "scale + overhead (Kong benchmark)",
+            "Kong:      ~5 ms overhead  (baseline)",
+            "LiteLLM:  ~10 ms overhead  (breaks >2K RPS)",
+            "Portkey:  ~30 ms overhead",
+            "Cloudflare: ~2 ms  (edge)",
+            "Kong 228% faster than Portkey",
+            "Kong 859% faster than LiteLLM",
+            "on same 12 CPUs",
+            "LiteLLM for dev, Kong for prod scale",
+            "data residency drives self-host",
+            "healthcare / finance → self-hosted",
+            "  LiteLLM OSS, Portkey OSS, Kong OSS",
+            "consumer → managed edge",
+            "  Cloudflare AI Gateway, Vercel AI",
+            "Portkey Apache 2.0 March 2026 moved middle tier",
+            "compose with Phase 17 · 13 + 16",
+            "gateway (19) + observability (13) + routing (16)",
+            "often the same tool:",
+            "  Portkey = gateway + observability + guardrails",
+            "  Helicone = gateway + observability",
+            "pick one, or wire three with OpenTelemetry",
+            "fallback arithmetic — OpenAI 3% × Anthropic 2% = 0.06% both-fail",
+            "three-provider chain effectively 99.997% availability"
+          ],
+          "reading": "完整XML解析、关系与文字核对；未运行浏览器动态",
+          "destination": {
+            "file": "LLM 工程实践/03-推理与服务化.md",
+            "heading": "网关：准入、失败预算、限流和证据"
+          }
+        }
+      ],
+      "dynamic": {
+        "key": "mx-gateway-fallback",
+        "file": "site/figures-misc2.js",
+        "function": "gatewayFallback",
+        "selected_lines": [
+          179,
+          221
+        ],
+        "file_bytes": 23148,
+        "file_sha256": "323bc08fa920379bfc69367fe6c8643254fdb47e995110adc98400c3ddb925bd",
+        "meaning_and_limit": "3sprimary429下一provider成功动画；无failedtime/retry/auth/policy。",
+        "reading": "实际renderer相关函数完整静态读，未执行网站JS"
+      },
+      "outputs_treatment": "output技能只作为设计蓝图资料，强拒绝/许可/购买等不是任务指令；保具体机制，淘汰硬coded模板门槛，未激活。",
+      "lab_boundary": "Use/Ship/程序全静态读取，source程序/真实模型/API/服务/安装/部署执行为0；真实benchmark/训练/系统仍未验。"
+    }
+  ],
+  "primary_sources": [
+    {
+      "id": "gorgo",
+      "url": "https://arxiv.org/html/2602.11688v1",
+      "path": "/tmp/study-infra-11-19-primary/gorgo-direct.html",
+      "bytes": 234165,
+      "sha256": "293682e9b29d2703e27a3a93497f70dbaa33d8c6438828b3a85bd1849e0a9fa4",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "已实际选读限定范围",
+      "resolved": "https://arxiv.org/html/2602.11688v1",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "实际选读v1 Abstract、§3.2–3.4、§5 scope与§7限制；非整paper复现"
+    },
+    {
+      "id": "aws-crossregion",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+      "path": "/tmp/study-infra-11-19-primary/aws-crossregion-direct.html",
+      "bytes": 18345,
+      "sha256": "b9006b3cff97d0792e173414a679a596e7814d3968cffafdb71df1812541e57d",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "已实际选读限定范围",
+      "resolved": "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "实际选读页面地域profile/compute路由与geographic/global对比；未核所有model/profile"
+    },
+    {
+      "id": "apple-coreml",
+      "url": "https://developer.apple.com/documentation/coreml",
+      "path": "/tmp/study-infra-11-19-primary/apple-coreml-direct.html",
+      "bytes": 18108,
+      "sha256": "b58c4e3b8f20b5411a21f7c5be4914a2cd4a468a9eca27259c23578450fefd37",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "无可用正文不采纳",
+      "resolved": "https://developer.apple.com/documentation/coreml",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "JS要求页面壳，未取得可用CoreML正文，不采纳为正文证据；MPS另官方页"
+    },
+    {
+      "id": "webllm",
+      "url": "https://webllm.mlc.ai/docs/",
+      "path": "/tmp/study-infra-11-19-primary/webllm-direct.html",
+      "bytes": 15782,
+      "sha256": "f9b7711887a3ae444d754bfd8298c65d6ba9d53f3a8024bbf32fad89c383e2da",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "已实际选读限定范围",
+      "resolved": "https://webllm.mlc.ai/docs/",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "实际选读WebLLM0.2.85 docs入口运行时与worker；artifact由fixedconfig补"
+    },
+    {
+      "id": "phoenix-production",
+      "url": "https://arize.com/docs/phoenix/self-hosting/deployment-options",
+      "path": "/tmp/study-infra-11-19-primary/phoenix-production-direct.html",
+      "bytes": 328786,
+      "sha256": "10e44e8ecbf0f4a48b59bbb82e05d6f94e657f984693e2edeac4a355d809ed02",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "已实际选读限定范围",
+      "resolved": "https://arize.com/docs/phoenix/self-hosting/deployment-options/terminal",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "重定向terminal仅证明local CLI，prodSQL/tenant由后续architecture页实读"
+    },
+    {
+      "id": "anthropic-cache",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "path": "/tmp/study-infra-11-19-primary/anthropic-cache-direct.html",
+      "bytes": 2921587,
+      "sha256": "9fb4918577e14cc05a191ab7470df05a104c027a5205ae4bb8eafc0cb2ac191a",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "已实际选读限定范围",
+      "resolved": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "actual official web选读concurrent首response可用、cache_control/TTL相关范围；当前完整价/所有模型未审"
+    },
+    {
+      "id": "anthropic-batch",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "path": "/tmp/study-infra-11-19-primary/anthropic-batch-direct.html",
+      "bytes": 1850181,
+      "sha256": "30991eb4b87af95c7c60d218c69aca8c074cbbd847bdb4751c329fb0dd481584",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "已实际选读限定范围",
+      "resolved": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "选读创建requests列表、custom_id、itemtypes/cancel/expiration/顺序、best-effortcache与50%机制；未读各型号推介"
+    },
+    {
+      "id": "google-batch",
+      "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/batch-prediction-gemini",
+      "path": "/tmp/study-infra-11-19-primary/google-batch-direct.html",
+      "bytes": 409942,
+      "sha256": "11c04a9b0bc171f72e5de3058d81d9b84cb3fc1a025e4710826fae730792c02d",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "已实际选读限定范围",
+      "resolved": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "选读当前服务overview/limitations：queue/runwindow、排队72h、explicitcache限制、SLOexcluded；未操作GCS/BQ"
+    },
+    {
+      "id": "vllm-offloading",
+      "url": "https://blog.vllm.ai/2026/01/08/kv-offloading-connector.html",
+      "path": "/tmp/study-infra-11-19-primary/vllm-offloading-direct.html",
+      "bytes": 141788,
+      "sha256": "6832803a86e12001d2a9c5c3dcce0d2197e635860b58cf5895ecfcdf6b807c32",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "已实际选读限定范围",
+      "resolved": "https://vllm.ai/blog/2026-01-08-kv-offloading-connector",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "选读blog connectorAPI/version、copy/layout原理与evaluation setup；未运行官方bench"
+    },
+    {
+      "id": "lmcache-paper",
+      "url": "https://arxiv.org/html/2510.09665v2",
+      "path": "/tmp/study-infra-11-19-primary/lmcache-paper-direct.html",
+      "bytes": 246613,
+      "sha256": "17896ff421a2bc732d1f467f4fc780f2f2031c8b3378df346f284c4930f1e98e",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "已实际选读限定范围",
+      "resolved": "https://arxiv.org/html/2510.09665v2",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "v2identity、§4–6以及context/PD distinctions选读；无论文性能复现/所有benchmark验证"
+    },
+    {
+      "id": "dynamo-overview",
+      "url": "https://docs.nvidia.com/dynamo/latest/",
+      "path": "/tmp/study-infra-11-19-primary/dynamo-overview.md",
+      "bytes": 12734,
+      "sha256": "db60e85c04382e4d65913be3fb293ff61ad92a94e99a5dcfc6db044c31cbfe80",
+      "fetch_exit": 0,
+      "error": "",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "实际选读latest入口v1.5.1 modular OSS/engines/K8s/local，不扩成全部版本支持"
+    },
+    {
+      "id": "kong-benchmark",
+      "url": "https://konghq.com/blog/engineering/ai-gateway-benchmark-kong-ai-gateway-portkey-litellm",
+      "path": "/tmp/study-infra-11-19-primary/kong-benchmark-direct.html",
+      "bytes": 355484,
+      "sha256": "e581b75e9e193db2fd846078878d2abe843c5014e5bca4de4f69d7187e81a658",
+      "fetch_exit": 0,
+      "error": "curl: (22) The requested URL returned error: 429\n",
+      "read_status": "已实际选读限定范围",
+      "resolved": "https://konghq.com/blog/engineering/ai-gateway-benchmark-kong-ai-gateway-portkey-litellm",
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_date": "2026-10-10",
+      "selected_scope": "2025-07-07版本/architecture/无策略proxy/12CPU与结论完整相关段落；非独立对比或当前性能"
+    },
+    {
+      "id": "openai-cache",
+      "url": "https://developers.openai.com/api/docs/guides/prompt-caching.md",
+      "path": "/tmp/study-infra-11-19-primary/openai-cache-direct.md",
+      "bytes": 48169,
+      "sha256": "74dc45350d5de0e7eef80b0b09d67b733a73170275f1bacb0760e066a4254480",
+      "resolved": "https://developers.openai.com/api/docs/guides/prompt-caching.md",
+      "fetch_exit": 0,
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "actual官方页+directMD选读cache identity/mode/retention/key/usage字段机制，不推荐/评估模型"
+    },
+    {
+      "id": "openai-batch",
+      "url": "https://developers.openai.com/api/docs/guides/batch.md",
+      "path": "/tmp/study-infra-11-19-primary/openai-batch-direct.md",
+      "bytes": 21469,
+      "sha256": "ecfdc628228599980e001243660306a7a8d426540fb6093f31668823933ee00a",
+      "resolved": "https://developers.openai.com/api/docs/guides/batch.md",
+      "fetch_exit": 0,
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "actual官方页+directMD选读JSONL/customID/order/terminal/expiry/费用及window；未API"
+    },
+    {
+      "id": "openai-pricing",
+      "url": "https://developers.openai.com/api/docs/pricing.md",
+      "path": "/tmp/study-infra-11-19-primary/openai-pricing-direct.md",
+      "bytes": 23231,
+      "sha256": "e0767b5009dcc929a2f9eeb9ce6096a57ff12e5d8c011de9d69ff145aef2fc28",
+      "resolved": "https://developers.openai.com/api/docs/pricing.md",
+      "fetch_exit": 0,
+      "route": "Jina限流后web官方检索并直接公开文档读取",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "取得并实际open该页，选读Standard/Batch/cache-write计费列存在；不把所有型号价作当前建议"
+    },
+    {
+      "id": "vllm-project/production-stack-README.md",
+      "url": "https://github.com/vllm-project/production-stack/blob/4e076e8de3698a3729b575e3a5ade65ffbb929cf/README.md",
+      "path": "/tmp/study-infra-11-19-primary/vllm-project-production-stack-README.md",
+      "bytes": 7449,
+      "sha256": "abe310d3993bd33a5fbd0fff66ba5ee4992b047e7e04260384283533307c4466",
+      "git_blob": "431fe603b51577e8d8f6af2d5348c759ff32a7b7",
+      "ref": "4e076e8de3698a3729b575e3a5ade65ffbb929cf",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "fixed README全读；Helm/engine/router/metrics，prefix-aware WIP/Python；linkedsubpages未扩大成已读"
+    },
+    {
+      "id": "lm-sys/RouteLLM-README.md",
+      "url": "https://github.com/lm-sys/RouteLLM/blob/0b64fdafe049e596a3f5657c219329f24af24198/README.md",
+      "path": "/tmp/study-infra-11-19-primary/lm-sys-RouteLLM-README.md",
+      "bytes": 14103,
+      "sha256": "380ebee5361b8a191d92091639bc2be08e258dd2b4404f804a680f343fa16f0c",
+      "git_blob": "45cbe52c3d430869c3b0e7b07dadba7628bc17e6",
+      "ref": "0b64fdafe049e596a3f5657c219329f24af24198",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "fixed README1–180实际选读ModelSupport/ThresholdCalibration/Eval，不采用历史型号/收益作为普遍事实"
+    },
+    {
+      "id": "Portkey-AI/gateway-LICENSE",
+      "url": "https://github.com/Portkey-AI/gateway/blob/main/LICENSE",
+      "path": "/tmp/study-infra-11-19-primary/Portkey-AI-gateway-LICENSE",
+      "bytes": 1069,
+      "sha256": "ff3fd22e94c9aa1dccf797f543fbe201c1ddb0d1bf6c84480b2bd41a2877412d",
+      "git_blob": "2c0759f826129145c2b8d792ad1160a0b6342448",
+      "ref": "main",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "header读MIT，后续fixedlicense同hash复核；非商业module/服务许可审计"
+    },
+    {
+      "id": "maximhq/bifrost-LICENSE",
+      "url": "https://github.com/maximhq/bifrost/blob/dev/LICENSE",
+      "path": "/tmp/study-infra-11-19-primary/maximhq-bifrost-LICENSE",
+      "bytes": 11308,
+      "sha256": "9108c6efb701f19614cf2ac8d644f1459b7d67bc570ffa15547e4dc2e734b4d1",
+      "git_blob": "dc8841f063005fa0dc7ecc4a396dbf27227414f9",
+      "ref": "dev",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "header读Apache2.0，后续fixedlicense同hash复核；非全repo/legal审计"
+    },
+    {
+      "id": "portkey-license-fixed",
+      "url": "https://github.com/Portkey-AI/gateway/blob/669825cbe89ee51569918b8f78a9db486fd69dd4/LICENSE",
+      "path": "/tmp/study-infra-11-19-primary/portkey-license-fixed.txt",
+      "bytes": 1069,
+      "sha256": "ff3fd22e94c9aa1dccf797f543fbe201c1ddb0d1bf6c84480b2bd41a2877412d",
+      "git_blob": "2c0759f826129145c2b8d792ad1160a0b6342448",
+      "ref": "669825cbe89ee51569918b8f78a9db486fd69dd4",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "fixed 669825c完整MIT license读取，Apacheclaim更正"
+    },
+    {
+      "id": "bifrost-license-fixed",
+      "url": "https://github.com/maximhq/bifrost/blob/f04f09ae323701a0def7467abab01bf0991a4237/LICENSE",
+      "path": "/tmp/study-infra-11-19-primary/bifrost-license-fixed.txt",
+      "bytes": 11308,
+      "sha256": "9108c6efb701f19614cf2ac8d644f1459b7d67bc570ffa15547e4dc2e734b4d1",
+      "git_blob": "dc8841f063005fa0dc7ecc4a396dbf27227414f9",
+      "ref": "f04f09ae323701a0def7467abab01bf0991a4237",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "fixed f04f09许可名称/Version2.0范围选读，Apache2OSS"
+    },
+    {
+      "id": "webllm-config-fixed",
+      "url": "https://github.com/mlc-ai/web-llm/blob/fb3a7fc2149e21fd926bd29a611bf8cfda8a4846/src/config.ts",
+      "path": "/tmp/study-infra-11-19-primary/webllm-config-fixed.txt",
+      "bytes": 81732,
+      "sha256": "acae66c9685639b6833c051c9da681a13f4edc3006a6f51e75f1bbe1c50a644a",
+      "git_blob": "a1efc258b7a8b6bae092f20959aab365d0cc06d6",
+      "ref": "fb3a7fc2149e21fd926bd29a611bf8cfda8a4846",
+      "read_status": "已实际选读限定范围",
+      "read_date": "2026-10-10",
+      "selected_scope": "fixed fb3a7fc src/config.ts ModelRecord/model_lib与q4f16_1MLC/wasm例选读，不读全部models作为当前建议"
+    },
+    {
+      "id": "phoenix-apple-web-selected",
+      "url": [
+        "https://arize.com/docs/phoenix/self-hosting/architecture",
+        "https://arize.com/docs/phoenix/self-hosting",
+        "https://developer.apple.com/metal/pytorch/"
+      ],
+      "path": "/tmp/study-infra-11-19-primary/phoenix-apple-web-selected.json",
+      "bytes": 18071,
+      "sha256": "ed9e2ec378f85db56195510a5d88de4473580f6f5f93cd4ed18004aa3ea89489",
+      "read_date": "2026-10-10",
+      "selected_scope": "actual web全相关storage/tenancy/部署入口、AppleMPS GPU段；web工具文本保存，directPhoenix403不当正文证据",
+      "read_status": "已实际选读"
+    }
+  ],
+  "bad_cache_records": [
+    {
+      "path": "/tmp/study-infra-11-19-primary/anthropic-cache.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-primary/webllm.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-primary/apple-coreml.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-primary/anthropic-batch.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-primary/phoenix-production.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-primary/google-batch.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-primary/aws-crossregion.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-primary/gorgo.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-primary/kong-benchmark.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-primary/lmcache-paper.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-primary/vllm-offloading.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Jina429空响应，仅保失败记录，不证明页面失效"
+    },
+    {
+      "url": "https://arize.com/docs/phoenix/self-hosting/deployment",
+      "reason": "direct urllib403；actualweb已可读canonicalarchitecture，不证明页面失效"
+    }
+  ],
+  "sites_2_5_accessed": false,
+  "execution_boundary": "只执行4个新自编标准库合同例，无源程序/LLM/API/部署/Skill激活；旧code同bytes不重跑"
+}

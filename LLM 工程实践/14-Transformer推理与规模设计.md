@@ -641,6 +641,113 @@ Spec25五题：精确拒绝本篇§7主入口保留，TV容差按样本/词表�
 
 增量来源：固定AI Engineering from Scratch3be078b Phase10/12、15、25及相关source05/19图示，整理2026-10-05。保留原Phase07六个程序的最终代码SHA及当时真实CPU执行证据，本轮只运行新增/变化块；[vLLM当前speculative入口](https://docs.vllm.ai/en/latest/features/speculative_decoding/)用于核验支持与实际版本，未启动服务、下载草稿或模型，不保留“所有服务默认EAGLE3”或未经条件说明的速度排名。
 
+## 15. 把分页与投机机制接到服务调度
+
+### 15.1 token预算、KV预算与先后顺序
+
+§3/8/13已分别维护真实小decoder、KV字节和页面引用，沿用这些已验证程序。服务端每轮还要检查：哪些请求已取消/EOS/到max输出、哪些已有decode工作、还有多少**本轮待计算token预算**，以及是否能提供相应KV块。`max_num_batched_tokens`不是GPU能存的token总数：它约束一轮forward算多少token；cache还为以前的token占空间。因此两预算可独立先耗尽。
+
+连续批处理是在迭代边界接纳/释放请求。V1的chunked-prefill策略会先为decode排工作，再用剩余token预算安排prefill，大prompt不足以一次放入则切块。小token预算可降低decode被长prefill阻塞的ITL，但可能拖长新prompt的TTFT；较大预算可能增prefill吞吐，也可能加重decode尾。default是否启用及数值依引擎版本、模型、任务和并行配置，不能写所有引擎固定512。新请求完整预填充通常能直接产生第一个输出token，状态机必须明确这点，不能将“prefill结束时间”未经真实模型协议就冒称客户端TTFT。
+
+想象预算8，本轮三个decode各耗1，剩5给一个12token新prompt；下一轮decode仍先用3，再给该prompt5，最后一轮给剩2。每轮的KV增长仍需page资源。若队首请求最小资源大于整个池且无其他running请求，应明确拒绝/拆分或转到更大端点，不能无限等待一个永不满足的条件；饥饿还需deadline/等待老化处理。取消时释放所有私有页，但共享页必须按引用计数归还。
+
+源课04的模拟提前为`prompt+max_output`保所有块，并没有按需增长；`waiting and running and not running`分支不可达，超池大请求可反复不进展；prefill结束就记TTFT并非收到first token；未限制总batched tokens。其线性虚拟耗时和static padding也不能代表真实GPU fused batch效果。教学可用其状态名称，但不能用输出证明vLLM的速度排名或“chunk一定吞吐不变”。[vLLM优化文档](https://docs.vllm.ai/en/latest/configuration/optimization/)2026-10-10核验了decode优先、默认条件与token预算调节，未启动服务。
+
+### 15.2 Radix缓存是索引、所有权和排程三件事
+
+Radix树把公共token段压成边，新token串匹配到中途时可拆边，已有KV以paged载荷共享；树的CPU索引不等于GPUattention kernel。完成请求的可复用前缀可保留，LRU从未在用的叶节点递归淘汰，正在执行的路径与祖先必须保护。不是“任意删一个最旧block”而不用修完整路径。§13的旧entry-LRU只是完整前缀entry容量，并未假装复现Radix树。
+
+cache-aware排序利用**当前已经到达**队列的最长可用前缀，帮助相近路径保持驻留，但要兼顾等待上界和租户公平。FCFS仍可作为可预测/公平的基线，不是所有共享场景必错。同batch内命中、跨请求驻留命中、复用token/输入token比例及request-hit比例不能混为一个数。前缀复用主要减少prefill，并不免做新输出decode。缓存边界还要包括模型/adapter/模板/位置与权限namespace，不能跨租户直接复用私密文档。
+
+规范序列化通常将稳定系统约束和工具schema放在前、变化内容放后；但**重排prompt可能改变模型语义与质量**，不应为了hit rate任意移动高优先级指令、历史或检索信息。先固定合法模板，再用同tokenizer/hash与前缀长度分布核查；所谓“文本相似”不等于token前缀相同。失效可能来自早位时间戳/请求ID、模板版本、adapter/dtype/模型变化、冷池/小缓存或路由到另一副本。先分别观测再改。
+
+原SGLang作者2024博客按Llama7B/A10G、旧vLLM0.2.5等配置报告最高5×，这不能支持源课2026H1008B、6.4×或所有prefix-heavy服务固定优胜。当前vLLM的[APC](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching/)也复用公共前缀，源“vLLM全部重复prefill”已不适合作为对照。[SGLang原作者说明](https://lmsys.org/blog/2024-01-17-sglang/)用于核对树操作/LRU与实验条件。
+
+源06玩具池160块，却把SYSTEM125+TOOLS19+DOC32+Q4共180块塞入；插入中可淘汰正构建的祖先，留下无完整路径的节点，甚至超预算。其score对所有带相同SYSTEM的请求可相同，stable-sort仍等于原顺序，不能保证cache-aware收益；它提前知道全部未来请求频率也是离线oracle。生产索引需原子预留/失败回退、pin/refcount、树一致性与边界验证，已有§13所有权程序提供基础检查。
+
+### 15.3 EAGLE接受率：至少保留三个分母
+
+EAGLE-3的feature fusion、去feature回归与training-time test已在§10解释并有CPU小网络，继续维护一个入口。新增服务观察时区分：**位置条件接受概率**（前面的候选已接受时，第j个能否接受）、**总accepted/proposed草稿比例**、**每verification step实际产出长度**（含correction/bonus）。顺序链在首次拒绝后舍弃后续草稿，后两项不能不加条件地代入同一个“每位置独立α”。
+
+若五个位置的条件概率都为0.7，§7/12给期望产出 `1+.7+.7²+...+.7⁵≈2.94117`，不是原课`1+5*.7=4.5`。若每轮成本假设为1.1个plain decode单位，简化speedup≈2.674；这是算式，未测硬件。经验accepted/proposed在每轮固定提议5个时约为`(2.94117−1)/5≈0.388234`，即使位置条件0.7也不是经验比例0.7。同理70%/30%任务的条件接受率.7/.4若每轮5草稿，应先分别算期望产出并按**verification-step占比**加权，而非将request占比直接当step占比；题干给出的blended .61不是wall-time收益证明。
+
+拒绝后的修正抽样使用本轮已算的目标分布与草稿完整分布；算法不要求固定额外一次target forward再“reroll”。修正token的KV待下一轮输入处理，见§3/7，这与同一轮多算一次模型不同。流式响应可能一次发出多个accepted token：均摊批次耗时不是用户真实逐token到达间隔，客户端还可能看到零间隔burst及较长下一块等待。
+
+vLLM当前experimental `metrics.speculative_decoding`把`num_accepted_draft_tokens/num_draft_tokens`记为draft acceptance rate，把`1+accepted/num_spec_steps`记为mean acceptance length；可变draft长度要用实际proposed数。默认不收集，该输出限单sequence，streaming依最终usage chunk，因此“没字段”不等拒绝率0。真实EOS、grammar失效提议和输出截断要明确分母；版本API可能变化。[固定源码说明](https://github.com/vllm-project/vllm/blob/a98247ab4db686ee03c66d5feb3c761e52a2f8ab/docs/features/speculative_decoding/acceptance_metrics.md)
+
+上线对照固定模型/目标分布、模板/温度、输出长与负载，扫K及并发，记录草稿/验证/采样/缓存时间、acceptance histogram、内存、TTFT/ITL/合格请求率与总费用。不能以α≥.55、24h、短输出<50、离线batch或消费卡作为统一批准/拒绝门槛；低QPS低batch恰可能留有空闲算力。原05公式和tail模拟用不同成本模型，固定二次forward与随机均摊不能校准通用阈值。
+
+## 16. 从流式时间线到合格吞吐
+
+### 16.1 first token不是HTTP第一个空chunk
+
+记录请求提交`t0`、第一非空输出token`t1`、后续token或stream chunk时间和最终token`tN`。TTFT=`t1−t0`；N>1时请求平均TPOT=`(tN−t1)/(N−1)`；逐tokenITL是相邻到达间隔的分布。E2E到最后token为`TTFT+(N−1)*TPOT`，末尾DONE/空响应、工具结果或音频播放可有另外终点，必须命名。N=1时无相邻间隔，TPOT记“不适用”，不以0表示“快”。
+
+客户端chunk可能含几个token，而tokenizer估数也可能与服务usage不同。GenAI-Perf当前README按后一个stream response中产出token数分配该chunk间隔；NIM/AIPerf公式排除TTFT，需先确认相同response切分。LLMPerf固定`f1d6bed`的OpenAI client把首TTFT放入间隔总和，并把SSE事件计数当初始output数量；主benchmark采集循环用该数量相除，另一路末尾采集才用重新tokenize数相除。故它不是一套总能等于`E2E/真实N`的协议。名字一样也要对照commit、client、token统计与具体路径。
+
+请求TPOT的P99与所有token间隔的P99也不同：少数请求内部卡住20次，平均后可能平缓；聚合所有token又会让长输出请求权重更大。报告两者时明确单位/分母，按输入/输出长度、租户、冷/暖、缓存命中和错误分层。TTFT含队列、网络、tokenization、prefill及first-output，source三项式只是分解近似，不是所有请求完整时间线。
+
+### 16.2 联合通过率与每秒合格请求分开
+
+设观察窗T秒内提交N个请求，G个同时满足请求级延迟、正确输出/质量及安全要求。联合通过比例是`G/N`，合格吞吐是`G/T req/s`；token-goodput另定义合格请求输出token之和/T。timeouts、失败、缺事件、被取消和队列拒绝需记录各自合同，不能只挑成功请求作分母；取消是否业务主动终止也应单列。
+
+若TTFT/TPOT/E2E每项分别99%合格，联合比例可能只有97%：三组各1%的失败请求互不重叠时正是97%。一请求是否合格按它自己的边界判断，不能问“一请求P99是否合格”；P99是群体统计。也不能仅以三项P99推联合达标。吞吐多与合格率高是互补，优化目标是满足质量/SLO下的容量与成本。
+
+以下程序用**确定性事件**核验边界：第一token已计入TTFT、单token不适用、缺失/超时进入分母、三项分开与联合97%的反例，以及页预算与权重压缩的独立性。时间均为人为输入，未发API请求。
+
+```python
+import math
+
+def trace(submitted, arrivals):
+    values = [submitted, *arrivals]
+    if (not arrivals or any(isinstance(x, bool) or not isinstance(x, (int, float))
+        or not math.isfinite(x) for x in values)
+        or any(b < a for a, b in zip(values, values[1:]))):
+        raise ValueError('非空有限且单调的时间线')
+    ttft, e2e = arrivals[0]-submitted, arrivals[-1]-submitted
+    tpot = (e2e-ttft)/(len(arrivals)-1) if len(arrivals)>1 else None
+    return ttft, tpot, e2e
+assert trace(0., [.5,.6,.7]) == (.5, (.7-.5)/2, .7)
+assert trace(0., [.5])[1] is None
+attempts = [trace(0., [.5,.6,.7]), None, trace(0., [3.,3.1])]
+good = sum(t is not None and t[0]<=1 and t[2]<=2
+           and (t[1] is None or t[1]<=.2) for t in attempts)
+assert good == 1 and good/len(attempts) == 1/3
+fail_sets = [{0}, {1}, {2}]
+assert all((100-len(s))/100 == .99 for s in fail_sets)
+assert (100-len(set.union(*fail_sets)))/100 == .97
+# 源09明确假设L64/Hkv8/D128/B128/S2048；不是实测模型架构。
+kv = 2*128*64*2048*8*128*2
+assert kv == 68_719_476_736 and 35e9+kv+3.5e9 > 80e9
+for bad in ([], [float('nan')], [.5,.4]):
+    try: trace(0., bad)
+    except ValueError: pass
+    else: raise AssertionError('非法事件必须拒绝')
+print('first-token/单token/失败分母正确；边际99%不等联合97%；教学KV68.719GB使80GB不够')
+```
+
+负载测试还要说明开放到达还是固定并发闭环：闭环会在变慢时减少发送，隐藏排队饱和。按实际分布扫描输入/输出长、prefix-hit、并发或arrival rate，报告接受/完成/失败/timeout数、测窗、warmup和样本量。固定30轮×100请求不自动保证可靠P99；当真实超界概率1%、只有100样本，可能完全没见超界，需要不确定性/重采样、持续时间与失败处理。没有业务定义就先写SLO，语音还包含TTS/播放与打断，不能拿文本TTFT固定300ms代替用户等待。
+
+## 17. 服务引擎四课的原练习与测验核对
+
+**引擎04五项练习。** ① 混合长度的static/continuous差异可来自等待/padding/资源回收，原toy虚拟系数不分离真实kernel效率，不能用它给硬件吞吐。② batched-token预算与KV池分开，扫候选值测TTFT/ITL/吞吐/OOM，H100型号与free blocks不足以唯一求值。③ 按实际安装版本完整核对feature/model/backend组合，0.18.0是来源旧快照而非当前版本；本批未安装。④ `Σ(8192−实际有效长度)`是最大预留浪费，分页为`Σ(ceil(n/16)*16−n)`；均值1500和std600不足以求精确余数分布，最末页每请求最多15槽，输入+输出不能漏。若只作可核算例、1000条都长1500，每条ceil(1500/16)=94块、1504槽，末页空4，总空4000槽；最大8192预留则共空6692000槽。两者除各自已分配槽位才是浪费比例，不能混分母。⑤ chunk改任务排程，可平衡compute/memory提高吞吐，也可能增加开销，不能说孤立吞吐必不改。
+
+**04六道测验。** ① static某些实现padding/整批等待会浪费，不能泛称所有static始终一样；② 页与block table减外部碎片，<4%属原论文配置非所有长度；③ 连续调度在迭代边界接纳/释放，而非每请求只调一次；④ 长prefill混合流量优先保护decode ITL，并权衡新prompt TTFT；⑤ 原0.18矩阵允许的组合限其版本/方法/模型，本批不写任意组合必兼容；⑥ chunk会改变计算与访存混合，吞吐影响需测，不接受原“只减jitter所以必不增吞吐”。
+
+**EAGLE05五项练习。** ① K5、条件α恒定，用§7/12几何和除显式成本；教学成本1.1时2×需几何和≥2.2，条件α约≥0.55938；3×需几何和≥3.3，条件α约≥0.75159。只按所设成本数值求根，verify/draft成本变大时要求也变大，不能从1+5α求错误阈值。② .7*.7+.3*.4=.61仅是在同分母/权重条件下的接受概率平均；net-positive还需step/任务权重和成本，见§15.3。③ 当前不止三个模式，查真实引擎列表与feature矩阵，例draft/EAGLE/n-gram不是穷尽。④ mean改善、P99变差先查按深度接受、K/verify成本、batch/队列、chunk发包/时间定义，再降低K、按业务选路或回退，不能断言固定二次forward。⑤ draft参数量×实际dtype字节加scale/feature/cache给容量；需精确checkpoint结构，与1B草稿全参数/缓存比较，题干不足以定值。
+
+**05六道测验。** ① 小batch decode常带宽受限，batch/长KV/模型会改瓶颈，不叫GPU总闲；② α分清条件概率/accepted-proposed比；③ EAGLE3增加多层融合，更关键是去feature回归与自由向量training-time test；④ .55不是通用盈亏点；⑤ 看尾与真实成本、请求质量，不能把拒绝必第二target前向当原因；⑥ 配置是可选加速，实际收益依checkpoint/负载与预算，不是默认所有2026必须开。
+
+**Radix06五项练习。** ① 合法reuse主要省prefill，不免decode，队列排序与cache容量另影响；源score/180入160bug不作速度验证。② 乱序会分成不同token前缀，短公共段仍可复用，所以不是所有命中必归零；先保证语义一致再测。③ HBM按2×layers×Hkv×head_dim×2000×dtype算公共KV；若明确假设L32/Hkv8/D128/BF16，则一份262144000byte≈0.244GiB，16份约3.906GiB。实际8B模型配置仍需核验，page尾/引用/工作区另计，不用参数量猜层。④ 只淘汰无active引用叶子并递归更新祖先，可保持完整路径，任意block删除破坏索引；容量、pin与LRU策略共同决定收益。⑤ 8%命中可查早位动态内容/模板tokenizer、模型adapter/namespace、缓存容量与路由/冷热，分别用prefix分布、key与eviction/路由日志诊断。
+
+**06六道测验。** ① radix token段到KV映射不是fullprompt hash单项缓存；② FCFS可能破坏局部性，但兼有公平/等待优点，不能普遍判错；③ 未用叶子递归LRU并保引用，非固定“最短用分支”；④ 稳定合法模板前置不变段，改序须质量验；⑤ 唯一prefix少可省少，但选引擎看完整kernel/模型功能，不能拒SGLang；⑥ 7%→74%没有本批可核原始部署证据，只保留“动态早位降低可共享prefix”的机制。
+
+**指标08五项练习。** ① 原tail_spike_rate按每token抽不是每request；用相同事件计算request-TPOT与token-ITL、联合分母和新阈值，不预报百分比。② 供应商tok/s至少问同模型/精度/硬件数、输入输出/并发/缓存状态、TTFT/ITL/错误率及测窗。③ chunk可改变mean与tail，保护decode被长prefill占用的间隔，不说只影响P99。④ voice从用户结束说话到可听内容，还要ASR/TTS/播放/取消，按可测流程立约。⑤ 已核工具差异包括首TTFT纳入、chunk/真实token分母和E2E/DONE终点，以及throughput测窗/warmup；先按固定版本源码核对，不凭工具名臆造另外三项差异。
+
+**08六道测验。** ① TTFT通常含排队/网络/预填充，还要tokenize/first输出；② 联合比例与req/s分别报，吞吐不是无用；③ 均值配分位/分层，不笼统拒均值；④ GenAI-Perf/LLMPerf因定义及计数路径不同，见§16；⑤ 长输出常由生成主导但仍需真实长度/延迟；⑥ 800/25/3000ms与99%仅教学SLO，用户需求/输出长/质量定义决定，不能当所有70B标准。原metrics SVG混用“每请求P99”与联合比例已改正。
+
+本节增量来源：固定AI Engineering from Scratch`3be078b`，Phase17第04/05/06/08课，整理2026-10-10。论文方法选读为[投机解码v2](https://arxiv.org/abs/2211.17192v2)§2.3/3.1/Algorithm1、[EAGLE3v3](https://arxiv.org/abs/2503.01840v3)§3.1–3.2及Figure5，图式已目检；LLMPerf固定[f1d6bed client](https://github.com/ray-project/llmperf/blob/f1d6bed47e4501b0e371082b41601b59ab55269f/src/llmperf/ray_clients/openai_chat_completions_client.py)与[benchmark](https://github.com/ray-project/llmperf/blob/f1d6bed47e4501b0e371082b41601b59ab55269f/token_benchmark_ray.py)，[GenAI-Perf README](https://github.com/triton-inference-server/perf_analyzer/blob/main/genai-perf/README.md)及[NIM定义](https://docs.nvidia.com/nim/benchmarking/llm/latest/metrics.html)核对相关段；没有执行模型/服务benchmark。源动态图04列分矩阵不是PagedAttention，06roofline不是Radix索引，08固定饱和曲线不是SLO实验；这里只保留其一般分片/带宽/吞吐尾延迟含义。
+
 ## 来源与维护
 
 [AI Engineering from Scratch](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775)，固定 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，Phase07第11/12/13/15/16课，整理2026-10-05。正文按统一机制组织，不复制源skills的硬门槛、固定榜单/型号容量/吞吐、Flash版本支持清单或未经核验的模型能力。

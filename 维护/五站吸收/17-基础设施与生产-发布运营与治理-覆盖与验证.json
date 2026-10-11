@@ -1,0 +1,291 @@
+{
+  "date": "2026-10-10",
+  "status": "本组读写完成，供根统一复核/验收；不是整批或全来源验收",
+  "reading_report": "/tmp/study-infra-20-28-reading.json",
+  "reading_sha256": "b4cf383fd5f697a620b02276ee44463f5c69489b3dc29c07f2fe6fff61d65169",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "counts": {
+    "lessons": 9,
+    "files": 55,
+    "nonempty": 46,
+    "empty": 9,
+    "headings": 151,
+    "exercises": 45,
+    "quiz": 54,
+    "svg": 9
+  },
+  "documents": [
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "sha256": "5f0b5a377e2814c79e5eedb6a42dcba514e07119a1041b8747cb64b220a6312c",
+      "bytes": 123007,
+      "increment_marker": "## 22. 生产发布：影子流量、金丝雀与回滚各证明什么"
+    },
+    {
+      "path": "计算机科学基础/05-生产级软件工程.md",
+      "sha256": "cb06f52855b3d1cd3b5142be805834b832c4dfdfecfb6306f385f417b2278391",
+      "bytes": 17643,
+      "increment_marker": "## 15. AI辅助值班：证据、假设与修复授权"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/18-安全模式.md",
+      "sha256": "3b8f55d5ec4490952b78319ba6648eda389fff3baac7cfdc7325fabc68303ec6",
+      "bytes": 57664,
+      "increment_marker": "## 生产数据边界：凭据、脱敏、出口与审计"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/16-资源感知优化.md",
+      "sha256": "e1e385c1c553a6741752c2093f01187e89a6a6558b9dc260f637ef7c0f807f38",
+      "bytes": 26528,
+      "increment_marker": "## FinOps归因：调用账本、共享费用与业务结果"
+    },
+    {
+      "path": "LLM 工程实践/02-模型获取与环境管理.md",
+      "sha256": "7475cec03445bf99678ed56b746676e938bb164831c992fe7cea5f4dfd2241b7",
+      "bytes": 9914,
+      "increment_marker": "## 10. 自托管引擎：兼容性筛选，再测完整工作负载"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "sha256": "5b9513d99adb63cc9c18fd97decb6e41c38c6ef25ae9487d7430a1c5b8b1bbca",
+      "bytes": 50162,
+      "increment_marker": "## 生产观察：同一窗口里的分母、版本与缺失"
+    }
+  ],
+  "new_python_runs": [
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "line": 1220,
+      "sha256": "d495bec04a3324328fd31d47fe194b64426457e8ab9ec7e841dfbcd054993943",
+      "bytes": 1904,
+      "program_path": "/tmp/study-infra-20-28-runs/1.py",
+      "stdout": "3%基线相对+5%，每组 207938 总样本 415876\nCUPED教学theta/剩余方差比例 1.4 0.3\n独立20零假设至少一假阳性 0.641514\n",
+      "stderr": "",
+      "exit": 0,
+      "date": "2026-10-10",
+      "environment": "Python 3.12.13",
+      "source_program_run": false
+    },
+    {
+      "path": "计算机科学基础/05-生产级软件工程.md",
+      "line": 250,
+      "sha256": "7e1c6cb425f0e1c8ec452fa6d8fb5b5dee416d1e47684d687a14fbc1a9ea5c2c",
+      "bytes": 1492,
+      "program_path": "/tmp/study-infra-20-28-runs/2-final.py",
+      "stdout": "精确边界与极小cap反例通过；小范围高burn和范围越界独立停止，缺数据不通过\n",
+      "stderr": "",
+      "exit": 0,
+      "date": "2026-10-10",
+      "environment": "Python 3.12.13",
+      "source_program_run": false,
+      "rerun_reason": "根复核发现epsilon可盖过极小cap；改Fraction十进制策略并补反例，只重跑本块"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/16-资源感知优化.md",
+      "line": 250,
+      "sha256": "5ddb07a73bd6ca749af51d166903c03bdb66344b39a887c00895a22417844922",
+      "bytes": 2504,
+      "program_path": "/tmp/study-infra-20-28-runs/3.py",
+      "stdout": "去重+共享分摊 {'A': Decimal('0.12'), 'B': Decimal('0.03')} 每成功任务 {'A': Decimal('0.12'), 'B': None} B没有成功故未定义\n",
+      "stderr": "",
+      "exit": 0,
+      "date": "2026-10-10",
+      "environment": "Python 3.12.13",
+      "source_program_run": false
+    }
+  ],
+  "unchanged_python_blocks": [
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 1,
+      "sha256": "e2f89258edeaeb4606303306397f15554dd3245505a2fe1c734e9cd452e01831",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 2,
+      "sha256": "9f4f8949a3ebe38720f1b3cd346a1935b1aee92ecdb046a5946e0bf0bfcc03d7",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 3,
+      "sha256": "7371892023f57add389d5e2fd6f0f8c8c59f460c4a3060e29f1bcbd86784da0e",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 4,
+      "sha256": "758b1a0f42793d02a0b41f2381e3ad5d7bfca98465235549362aea80d7c75f33",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 5,
+      "sha256": "3d28607b7a7a888b11fb8c491103daaaa255669f97e22e99ee525f3aa81b3ef2",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 6,
+      "sha256": "522922c1fac771f42e8cb07d7e50d2b723852f9520dfb0de5ff910dd3c5f1be8",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 7,
+      "sha256": "9499c3be814f1930d719ec226968e3ff88ab193f6609ecd54711fbed402fff7a",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 8,
+      "sha256": "0cd04367f63738a0a8521be1fd7aa9b21fdd2f2d497a61bc9f765593ec7f2b85",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 9,
+      "sha256": "0b129a31b656b7af29c2d660dde1f042f0ed06b8f226b180d501f00763b21a7b",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 10,
+      "sha256": "7e7f4da4845a06de534ff350819f1642e5ac947fd48d87826a7d18a4bd5d02a2",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 11,
+      "sha256": "d47efb4763948dcad426d13008020de82bef75894dd441cc2172868c1a52866c",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 12,
+      "sha256": "f3781f1d7d6a4c6a61e7fe63b09a7ccfddd3563abb761f1a9cedfcd5f66a24c0",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 13,
+      "sha256": "2edbabb3373e139e83241871144aa63e3b874e594da18735f7967a5865b78de5",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 14,
+      "sha256": "531c55905042c1f5109d978303f83350741bbd87133af1b1342558314d58eb13",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "baseline_block": 15,
+      "sha256": "f080f9c81b0ce10d96454b97b7831b70041463f23ce882f0ca7997ae6d7f1bf0",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/18-安全模式.md",
+      "baseline_block": 1,
+      "sha256": "629fc6d8c86f4801007baa6a0d464201ad2e0072303a455620fe05af1ba73bcf",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/18-安全模式.md",
+      "baseline_block": 2,
+      "sha256": "621a6d4b866332585f6543aea9ba0f218c8c54541b0d747d9d1a7948e1820628",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/16-资源感知优化.md",
+      "baseline_block": 1,
+      "sha256": "e8730d1aa46fe8bbac932c132102f6ae923b56191c8a0168a6640b4bd963bcdc",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/16-资源感知优化.md",
+      "baseline_block": 2,
+      "sha256": "a8a8e44032b0475175b6cf49e6c3e464c975152788ec2faa4a45750e2eae8de9",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/16-资源感知优化.md",
+      "baseline_block": 3,
+      "sha256": "98a443d5b28cbc65aa54fbb89c407ead918d779c7980c0310f9919b9d6d284de",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "baseline_block": 1,
+      "sha256": "ff2f0334566105248ff21849e26fa4339e7457a6e18ba6ba746c21605dfd632e",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "baseline_block": 2,
+      "sha256": "87a99d2f3ede199b4947a874d5bba7626c6a2c0315b331b9037dcd6f435c9a70",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "baseline_block": 3,
+      "sha256": "a9d71b77ff6a52f6ad740e36eb2ee1735b97fee800f2ae73a05292ee2fbffdd6",
+      "status": "旧代码完全同字节；本子代理未重跑，仅交根匹配历史证据"
+    }
+  ],
+  "pandoc": [
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "exit": 0,
+      "stderr": "",
+      "html": "/tmp/study-infra-20-28-pandoc/1.html",
+      "math_elements": 37
+    },
+    {
+      "path": "计算机科学基础/05-生产级软件工程.md",
+      "exit": 0,
+      "stderr": "",
+      "html": "/tmp/study-infra-20-28-pandoc/2.html",
+      "math_elements": 2
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/18-安全模式.md",
+      "exit": 0,
+      "stderr": "",
+      "html": "/tmp/study-infra-20-28-pandoc/3.html",
+      "math_elements": 0
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/16-资源感知优化.md",
+      "exit": 0,
+      "stderr": "",
+      "html": "/tmp/study-infra-20-28-pandoc/4.html",
+      "math_elements": 1
+    },
+    {
+      "path": "LLM 工程实践/02-模型获取与环境管理.md",
+      "exit": 0,
+      "stderr": "",
+      "html": "/tmp/study-infra-20-28-pandoc/5.html",
+      "math_elements": 0
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "exit": 0,
+      "stderr": "",
+      "html": "/tmp/study-infra-20-28-pandoc/6.html",
+      "math_elements": 2
+    }
+  ],
+  "root_review_remaining": "全局跨组融合、源/交叉导航维护、最终代码矩阵和本批验收由根负责",
+  "unverified": [
+    "真实SSE/负载服务",
+    "生产修复与故障演练",
+    "真实轮换/网络/审计不可篡改",
+    "供应商账单/费用结算",
+    "法律合同/完整标准与认证",
+    "模型权重转换/引擎性能"
+  ],
+  "根收尾说明": "组交付快照保原日期/行号/SHA；根观测草案合并和缓存断点补条件后，当前正文与代码以17-基础设施与生产覆盖与代码核对.json最终seal为准。"
+}

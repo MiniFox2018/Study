@@ -1,0 +1,213 @@
+{
+  "body_files": [
+    {
+      "file": "LLM 工程实践/03-推理与服务化.md",
+      "before_sha256": "5bb10126390539e1e6b4203c5abc63ae90870b759d71a66197f89d2e63dc4ddf",
+      "after_sha256": "310efd8598464083182bfe98f04ee517414514b39e032d77b8948239413309a0",
+      "lessons": [
+        11,
+        12,
+        14,
+        17,
+        18,
+        19
+      ],
+      "old_python_hashes_preserved": [
+        "18d208e8b7309f10fcb9d88f86b7bb444cb39b603aa40ba0a370b8572e16c3b4",
+        "5713e19a80bfefc802d899882537e9a3fbe99f58a9c3a8b1d139ff616e1f4dfe",
+        "639bab5f041fd28e484ab21d7c5908603841dbd4179970ab2b09d8cd1faa97f9",
+        "02d11df975345992878d0f563d1476f9881a2bbeb31f4d0b7749394c486b3678"
+      ],
+      "python_blocks": 6,
+      "new_python_hashes": [
+        "61cf3cc43118a4adf064dce00e21fa915cc65947e48e4963834c5ef7de36b9a4",
+        "763e9c4f0e22e301bc203f367482d83d81b02b1f38b69cb4aa98463b592a4973"
+      ],
+      "lesson_sections": [
+        {
+          "lesson": 11,
+          "heading": "多副本与跨区域：缓存局部性和灾备"
+        },
+        {
+          "lesson": 12,
+          "heading": "端侧推理：容量、带宽、运行时与隐私"
+        },
+        {
+          "lesson": 14,
+          "heading": "两层缓存：可用时间、计费分区和答案有效性"
+        },
+        {
+          "lesson": 17,
+          "heading": "Prefill/Decode拆分：干扰隔离和KV传输"
+        },
+        {
+          "lesson": 18,
+          "heading": "KV卸载：页、块、分层存储和恢复"
+        },
+        {
+          "lesson": 19,
+          "heading": "网关：准入、失败预算、限流和证据"
+        }
+      ],
+      "old_python_block_execution": "全部原字节保留，复用根已有原执行/静态证据，无本组重跑；API/环境旧块仍保持未执行边界"
+    },
+    {
+      "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+      "before_sha256": "5d090fae54f0e68219b97f60b3d5589f603ca13f73d747d8b81ec3a0ed27d2cc",
+      "after_sha256": "e5cde9bc5ebda5feccf8e39c85f020f94d6a441b693e74eb395202711da6a2dc",
+      "lessons": [
+        15
+      ],
+      "old_python_hashes_preserved": [
+        "5bb7a61c5ab31ddd1d11c9b63727cdd77fe91df5406c17d65da001092bf51d9a",
+        "d02522c4b83c2a61e1102cdfe8fe0740279c5d996f41d65c643437a84a32bb41",
+        "4d8fc8161c92fe3b5b2d101b2b23c3343951913607102b7c80bcc5ac2823dbc4",
+        "c1c62fa27de4e31909adfc00a789ad9d94f86b0f40c8e41d72bc5eab27da82f0"
+      ],
+      "python_blocks": 5,
+      "new_python_hashes": [
+        "106ac8ab5c2f731d60f7ef117e606ed66abcf254eb8e79aeab9b6748f05d3cf1"
+      ],
+      "lesson_sections": [
+        {
+          "lesson": 15,
+          "heading": "离线Batch：提交、逐项完成与结果对账"
+        }
+      ],
+      "old_python_block_execution": "全部原字节保留，复用根已有原执行/静态证据，无本组重跑；API/环境旧块仍保持未执行边界"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+      "before_sha256": "5eb38230969efc89cab33781c1895c6e77a572dc6cffdc4f0533b859f5a8c70b",
+      "after_sha256": "b3fb201cf7f13741ff654e4cdb5d149c14ebe64f045cb1e693367bdb1eba37cc",
+      "lessons": [
+        16
+      ],
+      "old_python_hashes_preserved": [
+        "1b1c4686ceb49057f292bf14f2807b05917c64aac1bb18977443ac54af41002a",
+        "6908dbac17c766f27a3490b14ea3114c57f771715353a23b902209c9789099af"
+      ],
+      "python_blocks": 3,
+      "new_python_hashes": [
+        "423cd2b502e1cb920df31eeaba96ac233ceef67ddc5bca482a26d42657346fa9"
+      ],
+      "lesson_sections": [
+        {
+          "lesson": 16,
+          "heading": "成本路由：预路由、级联与质量门"
+        }
+      ],
+      "old_python_block_execution": "全部原字节保留，复用根已有原执行/静态证据，无本组重跑；API/环境旧块仍保持未执行边界"
+    }
+  ],
+  "observability_draft": "/tmp/study-infra-13-observability-draft.md",
+  "runs": [
+    {
+      "path": "/tmp/study-infra-11-19-fixtures/batch.py",
+      "sha256": "106ac8ab5c2f731d60f7ef117e606ed66abcf254eb8e79aeab9b6748f05d3cf1",
+      "exit_code": 0,
+      "stdout": "输入/回执非空字符串ID、非dict/未知ID拒绝且状态不变；乱序逐项对账、缺失、重复冲突、输入版本、输出schema与未结费用通过；无API/持久库\n",
+      "stderr": "",
+      "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "executed_at": "2026-10-11",
+      "source_program": false,
+      "rerun_reason": "根复核要求：稳定itemID/严格row与状态不变；准入后才核eligible费用与严格bool偏好"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-fixtures/cascade.py",
+      "sha256": "423cd2b502e1cb920df31eeaba96ac233ceef67ddc5bca482a26d42657346fa9",
+      "exit_code": 0,
+      "stdout": "不合法候选坏费用不干扰合法选择；合法候选费用/偏好类型拒绝；输出余量/地域/撤权先筛；hard偏好不得绕过；cascade4.2与二选一路由3.7区分通过\n",
+      "stderr": "",
+      "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "executed_at": "2026-10-11",
+      "source_program": false,
+      "rerun_reason": "根复核要求：稳定itemID/严格row与状态不变；准入后才核eligible费用与严格bool偏好"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-fixtures/gateway.py",
+      "sha256": "763e9c4f0e22e301bc203f367482d83d81b02b1f38b69cb4aa98463b592a4973",
+      "exit_code": 0,
+      "stdout": "失败provider时长与退避全计；总deadline/attempt cap及非瞬态/unknown停止通过\n",
+      "stderr": "",
+      "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "executed_at": "2026-10-10",
+      "source_program": false,
+      "rerun_reason": "只补输入类型/费用有限性边界与删未用变量"
+    },
+    {
+      "path": "/tmp/study-infra-11-19-fixtures/locality.py",
+      "sha256": "61cf3cc43118a4adf064dce00e21fa915cc65947e48e4963834c5ef7de36b9a4",
+      "exit_code": 0,
+      "stdout": "地域与KV合同先筛；事件过期按miss；网路/队列/残余prefill联合比较通过\n",
+      "stderr": "",
+      "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "executed_at": "2026-10-10",
+      "source_program": false
+    }
+  ],
+  "reading_report": "/tmp/study-infra-11-19-reading.json",
+  "status": "3既有正文冻结、13草案交根；4新例有最终同SHA成功证据，本次只重跑修复后的Batch/Router 2块，10旧块不重跑",
+  "read_date": "2026-10-10",
+  "pandoc": [
+    {
+      "path": "LLM 工程实践/03-推理与服务化.md",
+      "exit_code": 0,
+      "stderr": "",
+      "math_elements": 10,
+      "sha256": "310efd8598464083182bfe98f04ee517414514b39e032d77b8948239413309a0"
+    },
+    {
+      "path": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+      "exit_code": 0,
+      "stderr": "",
+      "math_elements": 0,
+      "sha256": "e5cde9bc5ebda5feccf8e39c85f020f94d6a441b693e74eb395202711da6a2dc",
+      "render_date": "2026-10-11"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/02-路由.md",
+      "exit_code": 0,
+      "stderr": "",
+      "math_elements": 2,
+      "sha256": "b3fb201cf7f13741ff654e4cdb5d149c14ebe64f045cb1e693367bdb1eba37cc",
+      "render_date": "2026-10-11"
+    }
+  ],
+  "observability_draft_sha256": "f4fe6d61077e4017d1a25df750b9821f97f0482e22f3b724995017d2b5f04bbd",
+  "old_python_count": 10,
+  "repair_evidence": [
+    {
+      "file": "LLM 工程实践/02-1-API调用密钥与失败处理.md",
+      "fixture": "/tmp/study-infra-11-19-fixtures/batch.py",
+      "before_document_sha256": "a63fb4ade6605794e2bcb00b6a8ab1f1f1b75a82bc6109deb1033d9bc7fda951",
+      "after_document_sha256": "e5cde9bc5ebda5feccf8e39c85f020f94d6a441b693e74eb395202711da6a2dc",
+      "before_code_sha256": "7beb1a3077b30f1bb5fcc2176841c8d9cca4d7865721f7df6f1c75d3daeb5f41",
+      "after_code_sha256": "106ac8ab5c2f731d60f7ef117e606ed66abcf254eb8e79aeab9b6748f05d3cf1",
+      "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "executed_at": "2026-10-11",
+      "exit_code": 0,
+      "stdout": "输入/回执非空字符串ID、非dict/未知ID拒绝且状态不变；乱序逐项对账、缺失、重复冲突、输入版本、输出schema与未结费用通过；无API/持久库\n",
+      "stderr": "",
+      "reason": "根复核要求：稳定itemID/严格row与状态不变；准入后才核eligible费用与严格bool偏好",
+      "old_and_other_new_blocks_rerun": false
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+      "fixture": "/tmp/study-infra-11-19-fixtures/cascade.py",
+      "before_document_sha256": "40164dd372f814ce285db2a7112f8c5eac878097988976121d3eea9a11e96690",
+      "after_document_sha256": "b3fb201cf7f13741ff654e4cdb5d149c14ebe64f045cb1e693367bdb1eba37cc",
+      "before_code_sha256": "669622200771344b07132530efa1d642304e8f04935a97f5f008f6a382811791",
+      "after_code_sha256": "423cd2b502e1cb920df31eeaba96ac233ceef67ddc5bca482a26d42657346fa9",
+      "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "executed_at": "2026-10-11",
+      "exit_code": 0,
+      "stdout": "不合法候选坏费用不干扰合法选择；合法候选费用/偏好类型拒绝；输出余量/地域/撤权先筛；hard偏好不得绕过；cascade4.2与二选一路由3.7区分通过\n",
+      "stderr": "",
+      "reason": "根复核要求：稳定itemID/严格row与状态不变；准入后才核eligible费用与严格bool偏好",
+      "old_and_other_new_blocks_rerun": false
+    }
+  ],
+  "repair_date": "2026-10-11",
+  "根收尾说明": "组交付快照保原日期/行号/SHA；根观测草案合并和缓存断点补条件后，当前正文与代码以17-基础设施与生产覆盖与代码核对.json最终seal为准。"
+}

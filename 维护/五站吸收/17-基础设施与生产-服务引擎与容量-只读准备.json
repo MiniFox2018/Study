@@ -1,0 +1,2809 @@
+{
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "date": "2026-10-10",
+  "state": "01–10全文只读冻结，4既有正文已增量融合；主验收以最终writing报告为准",
+  "scope": "第1来源Phase17 01–10；来源2–5未读",
+  "source_lessons": [
+    {
+      "lesson": "01-managed-llm-platforms",
+      "source_files": [
+        {
+          "path": "phases/17-infrastructure-and-production/01-managed-llm-platforms/assets/platforms.svg",
+          "bytes": 6465,
+          "sha256": "2dc44b6664522d67f9589642740f0d13dfab920b42db2bb51f58081aaf7a2c48",
+          "git_blob_sha": "4ff448aeecebf006d0e8248f507eccab31775bc9",
+          "read": "全文读取；代码未执行",
+          "line_count": 84
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/01-managed-llm-platforms/code/main.py",
+          "bytes": 5001,
+          "sha256": "ecbde7e4fea0d3506b44f1422847d4fa2048fb915812835348fc941b02cd951c",
+          "git_blob_sha": "5e2353e4d56088c9fd1a662cac59d72aa3b5e2a5",
+          "read": "全文读取；代码未执行",
+          "line_count": 110
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/01-managed-llm-platforms/docs/en.md",
+          "bytes": 10572,
+          "sha256": "b6093433c72206b1ba7c936c1c55965aac147dd5789d9d09a645306bad215f55",
+          "git_blob_sha": "8a8227dcb7b051a1261592e5845a7bbf01b84e9b",
+          "read": "全文读取；代码未执行",
+          "line_count": 122
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/01-managed-llm-platforms/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": "空占位已识别",
+          "line_count": 0
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/01-managed-llm-platforms/outputs/skill-managed-platform-picker.md",
+          "bytes": 3030,
+          "sha256": "0ab173d95b366e1bd035368de178f9f4f95535b6d4a196dc5b220074a4925ad1",
+          "git_blob_sha": "6d646ef1c07b69b9a755ff17894517bb844f795c",
+          "read": "全文读取；代码未执行",
+          "line_count": 31
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/01-managed-llm-platforms/quiz.json",
+          "bytes": 2811,
+          "sha256": "449cfc444f6a9a7daae2d4b0cd33cdeb0fc06964a39ca6af78c1ebc37c929d8d",
+          "git_blob_sha": "467eae4586606c85dc7e92e977e9e02d70c605bb",
+          "read": "全文读取；代码未执行",
+          "line_count": 90
+        }
+      ],
+      "source_headings": [
+        {
+          "level": 1,
+          "line": 1,
+          "text": "Managed LLM Platforms — Bedrock, Vertex AI, Azure OpenAI"
+        },
+        {
+          "level": 2,
+          "line": 10,
+          "text": "Learning Objectives"
+        },
+        {
+          "level": 2,
+          "line": 17,
+          "text": "The Problem"
+        },
+        {
+          "level": 2,
+          "line": 25,
+          "text": "The Concept"
+        },
+        {
+          "level": 3,
+          "line": 27,
+          "text": "Three strategies"
+        },
+        {
+          "level": 3,
+          "line": 35,
+          "text": "Latency gap at scale"
+        },
+        {
+          "level": 3,
+          "line": 41,
+          "text": "Provisioned Throughput economics"
+        },
+        {
+          "level": 3,
+          "line": 49,
+          "text": "FinOps surface — the real differentiator"
+        },
+        {
+          "level": 3,
+          "line": 59,
+          "text": "Lock-in is the 2026 risk"
+        },
+        {
+          "level": 3,
+          "line": 65,
+          "text": "Data residency, BAAs, and regulated industries"
+        },
+        {
+          "level": 3,
+          "line": 73,
+          "text": "Numbers you should remember"
+        },
+        {
+          "level": 2,
+          "line": 85,
+          "text": "Use It"
+        },
+        {
+          "level": 2,
+          "line": 89,
+          "text": "Ship It"
+        },
+        {
+          "level": 2,
+          "line": 93,
+          "text": "Exercises"
+        },
+        {
+          "level": 2,
+          "line": 101,
+          "text": "Key Terms"
+        },
+        {
+          "level": 2,
+          "line": 115,
+          "text": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        {
+          "line": 95,
+          "question": "1. Run `code/main.py`. At what sustained utilization does Azure PTU beat on-demand for a 70B class model? Compute the break-even and compare to the advertised 40-60% band."
+        },
+        {
+          "line": 96,
+          "question": "2. Your product needs Claude 3.7 Sonnet and GPT-4o. Design a two-provider deployment — which goes to which hyperscaler, what gateway sits in front, what is the failover policy?"
+        },
+        {
+          "line": 97,
+          "question": "3. A regulated healthcare customer requires BAAs, US-East data residency, and sub-100ms P99 TTFT. Pick a platform and justify with three specific features."
+        },
+        {
+          "line": 98,
+          "question": "4. You discover your Bedrock bill is up 4x this month with no traffic change. Without Application Inference Profiles, how would you find the culprit? With profiles, how long does it take?"
+        },
+        {
+          "line": 99,
+          "question": "5. Read the Azure OpenAI and Bedrock pricing pages. For a 100M-token/month Claude workload, which is cheaper — direct Anthropic API, Bedrock on-demand, or Bedrock Provisioned Throughput?"
+        }
+      ],
+      "quiz_questions": [
+        {
+          "stage": "pre",
+          "question": "Before this lesson, which platform would you reach for first if a customer needed Claude, Llama, and Cohere behind one API?",
+          "options": [
+            "AWS Bedrock",
+            "Vertex AI",
+            "Direct Anthropic API",
+            "Azure OpenAI Service"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "pre",
+          "question": "Which hyperscaler's bet is described as exclusive partnership rather than marketplace?",
+          "options": [
+            "Vertex AI",
+            "AWS Bedrock",
+            "OCI Generative AI",
+            "Azure OpenAI"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Roughly what is the measured median TTFT gap between Azure OpenAI (with PTUs) and Bedrock on-demand on Llama 3.1 405B equivalents?",
+          "options": [
+            "~250 ms",
+            "~5 ms",
+            "~100 ms",
+            "~25 ms"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Which Bedrock 2025 feature gives the cleanest per-product cost attribution natively in CloudWatch?",
+          "options": [
+            "Bedrock Agents",
+            "Bedrock Knowledge Bases",
+            "Application Inference Profiles",
+            "Bedrock Guardrails"
+          ],
+          "correct": 2,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Azure PTUs typically break even versus on-demand at what sustained utilization band?",
+          "options": [
+            "40-60%",
+            "80-95%",
+            "5-10%",
+            "20-30%"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Why is the lesson's recommended 2026 policy a two-provider minimum for product-critical LLM calls?",
+          "options": [
+            "Hyperscalers refuse to sign BAAs unless you also use a competitor",
+            "Single-vendor pricing is always more expensive",
+            "It is required by SOC 2 Type II",
+            "Frontier model leadership rotates monthly, so single-vendor lock-in shuts you out of two-thirds of the frontier"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Which statement best describes the FinOps surface across the three platforms?",
+          "options": [
+            "All three expose identical per-request attribution",
+            "Bedrock is cleanest native, Vertex is most flexible via BigQuery, Azure is most opaque without instrumentation",
+            "Vertex has no attribution surface at all",
+            "Azure is cleanest native, Bedrock is opaque"
+          ],
+          "correct": 1,
+          "explanation": ""
+        }
+      ],
+      "code_run": false,
+      "svg_status": "XML全部读取；文本与流程关系复核；示意图常数不当实测",
+      "output_status": "全文读取；工作流可取，硬拒绝/固定型号/价格/门槛不作本机指令或普遍规则",
+      "audit_findings": [
+        "Azure OpenAI目录不含Llama与其Llama405B速度比较互相冲突；50/75ms无可比实测依据，不采纳。",
+        "Azure资源不会自动继承resource group/subscription标签，官方tag-resources行36；Bedrock profile区分CloudWatch usage与billing activated tags。",
+        "代码PTU $10/hr、2M/hr、输出$10/M给盈亏util=.5；包含输入须依比例计权；按日总量的容量估计无法证明每秒/峰值SLO。",
+        "两provider是容错选项不是强制；fallback能力/语义/权限/隐私/共享故障重新验证，P50不保证P99。"
+      ]
+    },
+    {
+      "lesson": "02-inference-platform-economics",
+      "source_files": [
+        {
+          "path": "phases/17-infrastructure-and-production/02-inference-platform-economics/assets/platform-map.svg",
+          "bytes": 5837,
+          "sha256": "8fe1fdee563aa4961a24eb28c64542f7454a3e8dcb5bb6cf03eb20c3a322c169",
+          "git_blob_sha": "ea0d9b11017928c9af61ac3291e1c86e26cdf14d",
+          "read": "全文读取；代码未执行",
+          "line_count": 80
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/02-inference-platform-economics/code/main.py",
+          "bytes": 5363,
+          "sha256": "057f487a9203bf4ebcdddd9c56a342e566eedf14aae85357fff90ab5f6a1fa11",
+          "git_blob_sha": "a307715d249577b7e6bc0c95a491a7182375f204",
+          "read": "全文读取；代码未执行",
+          "line_count": 118
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/02-inference-platform-economics/docs/en.md",
+          "bytes": 9566,
+          "sha256": "3a180a0a492dc6dd6a2bfd974ac53dfb5775b645857098b8d9adb36f8c3cd1a0",
+          "git_blob_sha": "e38375c6707e69fb600eff18783a74cda6c2ab54",
+          "read": "全文读取；代码未执行",
+          "line_count": 135
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/02-inference-platform-economics/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": "空占位已识别",
+          "line_count": 0
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/02-inference-platform-economics/outputs/skill-inference-platform-picker.md",
+          "bytes": 2890,
+          "sha256": "216e5a242742f697e8b1fe36d6243543317a5242704c5af31c533e0df9a924d9",
+          "git_blob_sha": "59c8928d445913c5784b26d84399acafdbeda200",
+          "read": "全文读取；代码未执行",
+          "line_count": 30
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/02-inference-platform-economics/quiz.json",
+          "bytes": 2544,
+          "sha256": "18755cc93169ffb58313de925bfa5b2eeab3d0f542aaa20fb1405bc01f72b08d",
+          "git_blob_sha": "7633f028b6bcdc9e6037edaea9aad2c8a605a875",
+          "read": "全文读取；代码未执行",
+          "line_count": 78
+        }
+      ],
+      "source_headings": [
+        {
+          "level": 1,
+          "line": 1,
+          "text": "Inference Platform Economics — Fireworks, Together, Baseten, Modal, Replicate, Anyscale"
+        },
+        {
+          "level": 2,
+          "line": 10,
+          "text": "Learning Objectives"
+        },
+        {
+          "level": 2,
+          "line": 17,
+          "text": "The Problem"
+        },
+        {
+          "level": 2,
+          "line": 25,
+          "text": "The Concept"
+        },
+        {
+          "level": 3,
+          "line": 27,
+          "text": "The three segments"
+        },
+        {
+          "level": 3,
+          "line": 35,
+          "text": "Fireworks — latency-optimized GPU platform"
+        },
+        {
+          "level": 3,
+          "line": 43,
+          "text": "Together — breadth-optimized"
+        },
+        {
+          "level": 3,
+          "line": 49,
+          "text": "Baseten — enterprise-polish-optimized"
+        },
+        {
+          "level": 3,
+          "line": 56,
+          "text": "Modal — Python-native-optimized"
+        },
+        {
+          "level": 3,
+          "line": 62,
+          "text": "Replicate — multimodal breadth"
+        },
+        {
+          "level": 3,
+          "line": 68,
+          "text": "Anyscale — Ray-native"
+        },
+        {
+          "level": 3,
+          "line": 74,
+          "text": "Per-token versus per-minute — when each wins"
+        },
+        {
+          "level": 3,
+          "line": 80,
+          "text": "Custom engine is the real moat"
+        },
+        {
+          "level": 3,
+          "line": 84,
+          "text": "Numbers you should remember"
+        },
+        {
+          "level": 2,
+          "line": 97,
+          "text": "Use It"
+        },
+        {
+          "level": 2,
+          "line": 101,
+          "text": "Ship It"
+        },
+        {
+          "level": 2,
+          "line": 105,
+          "text": "Exercises"
+        },
+        {
+          "level": 2,
+          "line": 113,
+          "text": "Key Terms"
+        },
+        {
+          "level": 2,
+          "line": 127,
+          "text": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        {
+          "line": 107,
+          "question": "1. Run `code/main.py`. At what sustained utilization does Baseten (per-minute) beat Fireworks (per-token) for a 70B model on one H100? Derive the crossover yourself and compare to the rule of thumb."
+        },
+        {
+          "line": 108,
+          "question": "2. Your product serves image generation plus chat plus speech-to-text. Pick platforms for each modality and name the gateway pattern that unifies them."
+        },
+        {
+          "line": 109,
+          "question": "3. Fireworks raises prices by $1/hr on your primary model. Model the blended cost impact if 40% of your traffic moves to batch tier (50% off)."
+        },
+        {
+          "line": 110,
+          "question": "4. A regulated customer requires SOC 2 Type II + HIPAA + dedicated GPUs. Which three platforms are viable and which one wins on FinOps?"
+        },
+        {
+          "line": 111,
+          "question": "5. Compare cost per 1,000 predictions for Llama 3.1 70B on Fireworks serverless, Together on-demand, Baseten dedicated, and Replicate API. Which is cheapest at 10 predictions/day? At 10,000?"
+        }
+      ],
+      "quiz_questions": [
+        {
+          "stage": "pre",
+          "question": "Which three market segments does the lesson use to organize 2026 inference vendors?",
+          "options": [
+            "Single-tenant, multi-tenant, on-prem",
+            "Free, paid, enterprise",
+            "Open-source, commercial, hybrid",
+            "Custom silicon, GPU platforms, API-first marketplaces"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Around what sustained GPU utilization does per-minute billing (Baseten, Modal) start to beat per-token billing (Fireworks, Together)?",
+          "options": [
+            "5%",
+            "90%",
+            "60%",
+            "30%"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Which platform is described as Python-native serverless with per-second billing and 2-4s cold starts after pre-warming?",
+          "options": [
+            "Anyscale",
+            "Baseten",
+            "Fireworks",
+            "Modal"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "What is Fireworks's notable LoRA pricing differentiator?",
+          "options": [
+            "LoRA requests require a separate dedicated GPU contract",
+            "LoRA-served requests are charged at the base model's per-token rate",
+            "LoRA-served requests cost more than base model",
+            "LoRA is not supported at all"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Which platform fits a regulated healthcare customer that needs SOC 2 Type II, HIPAA-ready posture, and dedicated GPUs?",
+          "options": [
+            "Together",
+            "Anyscale",
+            "Baseten",
+            "Replicate"
+          ],
+          "correct": 2,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Why does the lesson argue that custom-engine claims are mostly marketing shade at the platform layer?",
+          "options": [
+            "Custom engines never outperform vLLM",
+            "Per-token pricing is the only real differentiator",
+            "vLLM and SGLang represent roughly 80% of production open-source inference, so platform differentiation comes more from DX, attribution, and SLAs than engine",
+            "All custom engines are forks of TensorRT-LLM"
+          ],
+          "correct": 2,
+          "explanation": ""
+        }
+      ],
+      "code_run": false,
+      "svg_status": "XML全部读取；文本与流程关系复核；示意图常数不当实测",
+      "output_status": "全文读取；工作流可取，硬拒绝/固定型号/价格/门槛不作本机指令或普遍规则",
+      "audit_findings": [
+        "上游正文30%与最终code60–70%自冲突；codeBaseten .55/min/(.9M/min*.9/M)=.679012，不是30%。",
+        "价格常量/融资/80%份额/品牌最快等不作知识事实；Replicate官方private model可能按设置/空闲/活跃全部时间收费，不能一律prediction。",
+        "serverless存在cold/idle/min_floor与peak capacity，不把数量除peak速率当真实GPUbusy时长。"
+      ]
+    },
+    {
+      "lesson": "03-gpu-autoscaling-kubernetes",
+      "source_files": [
+        {
+          "path": "phases/17-infrastructure-and-production/03-gpu-autoscaling-kubernetes/assets/three-layers.svg",
+          "bytes": 6202,
+          "sha256": "e212fc52bee0e0965ca4911acefe3b7eb6d6fc157e701f0f714ac60f03ad7f44",
+          "git_blob_sha": "a4363207d3491cd42f219e91b06a850673504b79",
+          "read": "全文读取；代码未执行",
+          "line_count": 84
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/03-gpu-autoscaling-kubernetes/code/main.py",
+          "bytes": 6587,
+          "sha256": "a1bcc0f501c944ec4415b16a74052fdecac8e9940fb4dcf4490e9cb51f55453b",
+          "git_blob_sha": "2a7647d161c731ef004e5cefb8e07fa297c47ba4",
+          "read": "全文读取；代码未执行",
+          "line_count": 178
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/03-gpu-autoscaling-kubernetes/docs/en.md",
+          "bytes": 10154,
+          "sha256": "6ac8b3437ee96f664c02173f7ebba8d43c61027861e7b27b5cd4e128be466241",
+          "git_blob_sha": "a856af1247c0b893239b91d66b5311b18fb2cf41",
+          "read": "全文读取；代码未执行",
+          "line_count": 139
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/03-gpu-autoscaling-kubernetes/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": "空占位已识别",
+          "line_count": 0
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/03-gpu-autoscaling-kubernetes/outputs/skill-gpu-autoscaler-plan.md",
+          "bytes": 2933,
+          "sha256": "6e788ef7c32fcdc308cbef2f3fb6c28ce7a3cad806956179165bb2bebdd2551b",
+          "git_blob_sha": "042a90bed327ada04724c0269406fc1e4af7a0ea",
+          "read": "全文读取；代码未执行",
+          "line_count": 31
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/03-gpu-autoscaling-kubernetes/quiz.json",
+          "bytes": 2724,
+          "sha256": "c04d02480b74db4023a55ac856c75db6afe8661e87c38e67337768b4281a7b71",
+          "git_blob_sha": "091cc18bcb15aea91ca95c5c1e460aca0b491a44",
+          "read": "全文读取；代码未执行",
+          "line_count": 78
+        }
+      ],
+      "source_headings": [
+        {
+          "level": 1,
+          "line": 1,
+          "text": "GPU Autoscaling on Kubernetes — Karpenter, KAI Scheduler, Gang Scheduling"
+        },
+        {
+          "level": 2,
+          "line": 10,
+          "text": "Learning Objectives"
+        },
+        {
+          "level": 2,
+          "line": 17,
+          "text": "The Problem"
+        },
+        {
+          "level": 2,
+          "line": 27,
+          "text": "The Concept"
+        },
+        {
+          "level": 3,
+          "line": 29,
+          "text": "Layer 1 — node provisioning (Karpenter)"
+        },
+        {
+          "level": 3,
+          "line": 45,
+          "text": "Layer 2 — gang scheduling (KAI Scheduler)"
+        },
+        {
+          "level": 3,
+          "line": 57,
+          "text": "Layer 3 — application-level signals"
+        },
+        {
+          "level": 3,
+          "line": 72,
+          "text": "When to use what"
+        },
+        {
+          "level": 3,
+          "line": 82,
+          "text": "Disaggregated prefill/decode complicates everything"
+        },
+        {
+          "level": 3,
+          "line": 86,
+          "text": "Cold start matters here too"
+        },
+        {
+          "level": 3,
+          "line": 90,
+          "text": "Numbers you should remember"
+        },
+        {
+          "level": 2,
+          "line": 101,
+          "text": "Use It"
+        },
+        {
+          "level": 2,
+          "line": 105,
+          "text": "Ship It"
+        },
+        {
+          "level": 2,
+          "line": 109,
+          "text": "Exercises"
+        },
+        {
+          "level": 2,
+          "line": 117,
+          "text": "Key Terms"
+        },
+        {
+          "level": 2,
+          "line": 132,
+          "text": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        {
+          "line": 111,
+          "question": "1. Run `code/main.py`. Under a bursty workload, how many requests does naive duty-cycle HPA drop that queue-depth HPA catches? Where does the difference come from?"
+        },
+        {
+          "line": 112,
+          "question": "2. Design a Karpenter NodePool for a cluster serving Llama 3.3 70B FP8 on H100 SXM5. Specify `capacity-type`, `disruption.consolidationPolicy`, `consolidateAfter`, and a taint that keeps non-GPU workloads off these nodes."
+        },
+        {
+          "line": 113,
+          "question": "3. Your team reports that deployments are stuck in Pending because \"GPUs available but pod won't schedule.\" Diagnose — is this Karpenter, kube-scheduler, or KAI Scheduler? Which metrics confirm?"
+        },
+        {
+          "line": 114,
+          "question": "4. Pick a signal to autoscale disaggregated prefill pods and a different signal for decode pods. Justify both."
+        },
+        {
+          "line": 115,
+          "question": "5. Compute the cost of the `WhenEmptyOrUnderutilized` consolidation trap on a 24x7 production service that averages 60 request-dropping events/day at P99 TTFT > 10s."
+        }
+      ],
+      "quiz_questions": [
+        {
+          "stage": "pre",
+          "question": "Which signal does HPA typically scale on by default that the lesson calls broken for vLLM-style serving?",
+          "options": [
+            "P99 TTFT",
+            "DCGM_FI_DEV_GPU_UTIL duty cycle",
+            "Queue depth",
+            "KV cache utilization"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Which problem does gang scheduling in KAI Scheduler primarily prevent?",
+          "options": [
+            "Tokenizer GIL contention",
+            "The partial-allocation trap where 7 of 8 GPUs sit idle waiting on the eighth",
+            "Cold-start latency",
+            "GPU memory fragmentation"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Why is Karpenter's default consolidationPolicy WhenEmptyOrUnderutilized dangerous for inference GPU pools?",
+          "options": [
+            "It only consolidates spot instances",
+            "It prevents Karpenter from provisioning new nodes",
+            "It terminates running GPU nodes to migrate pods, which evicts running requests and reloads weights",
+            "It refuses to scale up under burst"
+          ],
+          "correct": 2,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Roughly how much faster is Karpenter at provisioning a GPU node compared to Cluster Autoscaler?",
+          "options": [
+            "About 5% faster",
+            "The same",
+            "Roughly 40% faster (~45-60s vs ~90-120s)",
+            "About 10x slower"
+          ],
+          "correct": 2,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "For disaggregated prefill / decode pods (Phase 17 · 17), which scaling signals does the lesson recommend?",
+          "options": [
+            "Cluster Autoscaler for both",
+            "A single HPA on duty cycle covering both pod classes",
+            "Manual scaling only",
+            "Queue depth for prefill pods and KV cache pressure for decode pods, as separate per-role HPAs"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Which Karpenter disruption setting does the lesson recommend for an inference GPU pool to avoid evicting running jobs?",
+          "options": [
+            "Always run with spot instances and no consolidation",
+            "Disable Karpenter entirely",
+            "consolidationPolicy: WhenEmptyOrUnderutilized with consolidateAfter: 0s",
+            "consolidationPolicy: WhenEmpty with consolidateAfter: 1h"
+          ],
+          "correct": 3,
+          "explanation": ""
+        }
+      ],
+      "code_run": false,
+      "svg_status": "XML全部读取；文本与流程关系复核；示意图常数不当实测",
+      "output_status": "全文读取；工作流可取，硬拒绝/固定型号/价格/门槛不作本机指令或普遍规则",
+      "audit_findings": [
+        "HPA默认通常CPU而非DCGM；GPU duty-cycle并非完全无用而是不唯一负载信号。100%>70%按HPA比例应触发scale，源“满所以不扩”错误。",
+        "WhenEmpty控制consolidation，不取消drift/expiration/interruption/manual delete/repair等；同机单pod多GPU一次分配不等同多podgang。",
+        "source toy有GPU_PER_REPLICA1无真实gang/topology，KAI_GANG仅改阈值；15秒刻度每卡每tick接一个2.4秒请求低估服务能力，futurecompleted_at非真实tick内completed。",
+        "make_workload rates .5/4/1.2最终概率除10，实际平均 .05/.4/.12每秒；空req max()错误；pending注册与删除循环需分ready和pending资源。"
+      ]
+    },
+    {
+      "lesson": "04-vllm-serving-internals",
+      "source_files": [
+        {
+          "path": "phases/17-infrastructure-and-production/04-vllm-serving-internals/assets/scheduler.svg",
+          "bytes": 6733,
+          "sha256": "4a192ab35d4402a025114babc368b45ae469a60f884bb2465c828d8994d5c18a",
+          "git_blob_sha": "32485cfabdfb81864b4da98a3584841fd67f8761",
+          "read": "全文读取；代码未执行",
+          "line_count": 89
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/04-vllm-serving-internals/code/main.py",
+          "bytes": 7196,
+          "sha256": "9ad5ce521122633c54140c49bb3d51b545d91bb2e3e08b3f92c095b7b73dfd22",
+          "git_blob_sha": "c29dbc70a7aa1789b024c7c45e56e99ee43c8099",
+          "read": "全文读取；代码未执行",
+          "line_count": 206
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/04-vllm-serving-internals/docs/en.md",
+          "bytes": 11280,
+          "sha256": "ac55f16811358007b01b6a338df61bb4572f6e8d89a7e2af65387c6504508856",
+          "git_blob_sha": "09e4e761931694f138904ad311505b3fdc7ae993",
+          "read": "全文读取；代码未执行",
+          "line_count": 143
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/04-vllm-serving-internals/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": "空占位已识别",
+          "line_count": 0
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/04-vllm-serving-internals/outputs/skill-vllm-scheduler-reader.md",
+          "bytes": 2983,
+          "sha256": "e7ff7b92d144353c1c1771cadb6f5ccc95449133e7884ea2a23357b99d0db9dd",
+          "git_blob_sha": "36739df6498552acee9be82d04cd020a1bd1a7de",
+          "read": "全文读取；代码未执行",
+          "line_count": 30
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/04-vllm-serving-internals/quiz.json",
+          "bytes": 2930,
+          "sha256": "ff2f5d9dab30bb583fa75d1936186dc807a5f563127096490eb0117c802085ba",
+          "git_blob_sha": "d0ff8f03801082cb662a5491c7ac38149151c3fb",
+          "read": "全文读取；代码未执行",
+          "line_count": 78
+        }
+      ],
+      "source_headings": [
+        {
+          "level": 1,
+          "line": 1,
+          "text": "Serving Engine Internals — PagedAttention, Continuous Batching, Chunked Prefill"
+        },
+        {
+          "level": 2,
+          "line": 10,
+          "text": "Learning Objectives"
+        },
+        {
+          "level": 2,
+          "line": 17,
+          "text": "The Problem"
+        },
+        {
+          "level": 2,
+          "line": 25,
+          "text": "The Concept"
+        },
+        {
+          "level": 3,
+          "line": 27,
+          "text": "PagedAttention as a virtual memory system"
+        },
+        {
+          "level": 3,
+          "line": 35,
+          "text": "Continuous batching at the iteration level"
+        },
+        {
+          "level": 3,
+          "line": 47,
+          "text": "Chunked prefill protects TTFT tail"
+        },
+        {
+          "level": 3,
+          "line": 53,
+          "text": "The three defaults interact"
+        },
+        {
+          "level": 3,
+          "line": 59,
+          "text": "Check the compatibility matrix"
+        },
+        {
+          "level": 3,
+          "line": 63,
+          "text": "Numbers you should remember"
+        },
+        {
+          "level": 3,
+          "line": 71,
+          "text": "What the scheduler looks like"
+        },
+        {
+          "level": 2,
+          "line": 100,
+          "text": "Use It"
+        },
+        {
+          "level": 2,
+          "line": 111,
+          "text": "Ship It"
+        },
+        {
+          "level": 2,
+          "line": 115,
+          "text": "Exercises"
+        },
+        {
+          "level": 2,
+          "line": 123,
+          "text": "Key Terms"
+        },
+        {
+          "level": 2,
+          "line": 137,
+          "text": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        {
+          "line": 117,
+          "question": "1. Run `code/main.py`. Compare `STATIC` to `CONTINUOUS` on a workload with mixed short and long requests. Where does the throughput gap come from — prefill efficiency, decode efficiency, or tail latency?"
+        },
+        {
+          "line": 118,
+          "question": "2. Modify the toy scheduler to add `--max-num-batched-tokens`. What is the right value for an H100 running Llama 3.3 70B FP8? (Hint: it is a function of KV block size and number of free blocks, not raw HBM.)"
+        },
+        {
+          "line": 119,
+          "question": "3. Re-read the vLLM v0.18.0 release notes. Which combinations of flags are mutually exclusive? List them."
+        },
+        {
+          "line": 120,
+          "question": "4. Compute the KV cache fragmentation waste for a trace of 1,000 requests with mean 1,500 output tokens, std 600 tokens, under (a) contiguous per-request allocation at 8192 max, (b) PagedAttention with 16-token blocks."
+        },
+        {
+          "line": 121,
+          "question": "5. Explain in one paragraph why chunked prefill helps P99 ITL but not throughput in isolation. Where does the throughput win come from in practice?"
+        }
+      ],
+      "quiz_questions": [
+        {
+          "stage": "pre",
+          "question": "What is the main problem classic static batching has with mixed-length requests?",
+          "options": [
+            "It only works with FP4",
+            "It cannot use GPUs at all",
+            "Padding to the longest prompt and longest output wastes memory and stalls the whole batch on the slowest sequence",
+            "It requires NVLink between every GPU"
+          ],
+          "correct": 2,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "How does PagedAttention reduce KV cache fragmentation from 60-80% to under 4%?",
+          "options": [
+            "By disabling KV cache entirely",
+            "By holding the full prompt in CPU RAM",
+            "By compressing weights to INT4",
+            "By allocating KV cache in fixed-size blocks (default 16 tokens) referenced through a per-sequence block table"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "What invariant defines continuous batching in vLLM's V1 scheduler?",
+          "options": [
+            "Each request gets its own dedicated GPU stream",
+            "The scheduler waits 10 ms windows to fill a batch before running",
+            "The scheduler runs once per request and the batch never changes",
+            "The scheduler runs once per decode iteration, admitting finished sequences out and waiting ones in"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Which latency metric does chunked prefill primarily protect under mixed load?",
+          "options": [
+            "Mean throughput",
+            "Cold-start time",
+            "Network RTT",
+            "P99 inter-token latency (ITL)"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "What does the vLLM v0.18.0 feature compatibility matrix say about speculative decoding with --enable-chunked-prefill?",
+          "options": [
+            "The matrix marks the combination as compatible",
+            "They cannot be combined in any configuration",
+            "Only EAGLE-1 draft heads work with chunked prefill",
+            "Only draft-model speculation works with chunked prefill"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Why does chunked prefill not in isolation increase mean throughput?",
+          "options": [
+            "It compresses weights more aggressively",
+            "It only reduces decode-time jitter; the throughput win in practice comes from keeping decode sequences alive during long prefills, not from changing the work done",
+            "It runs on a different GPU than decode",
+            "It uses speculative decoding under the hood"
+          ],
+          "correct": 1,
+          "explanation": ""
+        }
+      ],
+      "code_run": false,
+      "svg_status": "XML全部读取；文本与流程关系复核；示意图常数不当实测",
+      "output_status": "全文读取；工作流可取，硬拒绝/固定型号/价格/门槛不作本机指令或普遍规则",
+      "audit_findings": [
+        "已有正文§3.2、§8/13保留，source在§Paged与quant模型使用不一致layer/heads。",
+        "V1 decode先占max_num_batched_tokens，再chunkprefill；该token预算不是KVblock数量换算得到，默认512不可泛化。",
+        "source loop waiting and running and not running不可达；超预算头请求且无running会无限不进展；预留prompt+maxoutput不是真按需Paged；ttft在prefill结束前没有firsttoken；没有总batchedtokens预算；toyforwardcost不真实batch性能。",
+        "分页末页<4%属原论文条件；源码小上下文可以大比例碎片；吞吐2200/2400等无复现实测不收录。"
+      ]
+    },
+    {
+      "lesson": "05-eagle3-speculative-decoding",
+      "source_files": [
+        {
+          "path": "phases/17-infrastructure-and-production/05-eagle3-speculative-decoding/assets/eagle3-flow.svg",
+          "bytes": 5044,
+          "sha256": "a87d2813c6e38065b76a14b18ef598fd0badab495bd68f34138fd9e3879f2dda",
+          "git_blob_sha": "ff352f67321c846bc34aae7cad58d9fd73e35440",
+          "read": "全文读取；代码未执行",
+          "line_count": 70
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/05-eagle3-speculative-decoding/code/main.py",
+          "bytes": 5019,
+          "sha256": "3fc3b143ebd3663305a4e2feca3d83e3ee99f70e5a2a3e99715e503f060e5742",
+          "git_blob_sha": "390eedc4a0a0e866f9fce4313a54d5e2d821094a",
+          "read": "全文读取；代码未执行",
+          "line_count": 133
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/05-eagle3-speculative-decoding/docs/en.md",
+          "bytes": 10170,
+          "sha256": "07f749b5a5c8b7c26f0e401cac986f18d57ed2a67225717987123969bc42aa7c",
+          "git_blob_sha": "31cd91c11fbafac6bf49a910d0fce8faddaf0130",
+          "read": "全文读取；代码未执行",
+          "line_count": 114
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/05-eagle3-speculative-decoding/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": "空占位已识别",
+          "line_count": 0
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/05-eagle3-speculative-decoding/outputs/skill-eagle3-rollout.md",
+          "bytes": 2930,
+          "sha256": "55e6b93d556e7dfb688cfd1972a5b069b6b0d3172b9c8e7c670a5f3950f428bb",
+          "git_blob_sha": "ffd5fc4a196b0f2cb3e658a5badd956dc55e61ae",
+          "read": "全文读取；代码未执行",
+          "line_count": 32
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/05-eagle3-speculative-decoding/quiz.json",
+          "bytes": 2641,
+          "sha256": "d95ff962479bb990ecbf873493c605641c4df61599ee828f0d9813001031bfa6",
+          "git_blob_sha": "a16e6e68d3007129f48e59aa5eaac2365e00067d",
+          "read": "全文读取；代码未执行",
+          "line_count": 78
+        }
+      ],
+      "source_headings": [
+        {
+          "level": 1,
+          "line": 1,
+          "text": "EAGLE-3 Speculative Decoding in Production"
+        },
+        {
+          "level": 2,
+          "line": 10,
+          "text": "Learning Objectives"
+        },
+        {
+          "level": 2,
+          "line": 17,
+          "text": "The Problem"
+        },
+        {
+          "level": 2,
+          "line": 27,
+          "text": "The Concept"
+        },
+        {
+          "level": 3,
+          "line": 29,
+          "text": "What speculative decoding actually buys"
+        },
+        {
+          "level": 3,
+          "line": 33,
+          "text": "Why alpha is the only metric that matters"
+        },
+        {
+          "level": 3,
+          "line": 39,
+          "text": "EAGLE generations at a glance"
+        },
+        {
+          "level": 3,
+          "line": 46,
+          "text": "The 2026 production recipe"
+        },
+        {
+          "level": 3,
+          "line": 54,
+          "text": "The production pitfall: P99 tail"
+        },
+        {
+          "level": 3,
+          "line": 58,
+          "text": "Where EAGLE-3 is already deployed"
+        },
+        {
+          "level": 3,
+          "line": 62,
+          "text": "Break-even math in one line"
+        },
+        {
+          "level": 3,
+          "line": 66,
+          "text": "When not to use speculative decoding"
+        },
+        {
+          "level": 2,
+          "line": 77,
+          "text": "Use It"
+        },
+        {
+          "level": 2,
+          "line": 81,
+          "text": "Ship It"
+        },
+        {
+          "level": 2,
+          "line": 85,
+          "text": "Exercises"
+        },
+        {
+          "level": 2,
+          "line": 93,
+          "text": "Key Terms"
+        },
+        {
+          "level": 2,
+          "line": 107,
+          "text": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        {
+          "line": 87,
+          "question": "1. Run `code/main.py`. At K=5, what alpha do you need for a 2x speedup? For a 3x speedup? How sensitive is that to verify_overhead?"
+        },
+        {
+          "line": 88,
+          "question": "2. Imagine production traffic splits 70% general chat, 30% code. General chat hits alpha 0.7 with EAGLE-3 trained on ShareGPT; code hits alpha 0.4. What is blended alpha and is spec decode net-positive?"
+        },
+        {
+          "line": 89,
+          "question": "3. Read the vLLM `speculative_config` documentation. Name the three modes (draft model, EAGLE, N-gram) and check which features each one composes with in your vLLM version."
+        },
+        {
+          "line": 90,
+          "question": "4. You see mean ITL drop 25% after enabling EAGLE-3 but P99 ITL went up 15%. Diagnose and propose a mitigation."
+        },
+        {
+          "line": 91,
+          "question": "5. Compute the memory cost of the EAGLE-3 draft head for Llama 3.3 70B. How does it compare to running Llama 3.2 1B as a classic draft?"
+        }
+      ],
+      "quiz_questions": [
+        {
+          "stage": "pre",
+          "question": "Why does speculative decoding exploit a gap that exists in plain decode?",
+          "options": [
+            "Decode does not benefit from batching",
+            "Decode is memory-bound, so the GPU is mostly idle waiting on HBM reads of weights",
+            "Decode is compute-bound, so adding more compute is free",
+            "Decode requires more network bandwidth than prefill"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "What does the acceptance rate alpha measure?",
+          "options": [
+            "Latency overhead of the draft model",
+            "Fraction of draft-proposed tokens accepted by the target model",
+            "Cache hit rate of the KV cache",
+            "Fraction of GPU memory used during decode"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "What changes in EAGLE-3 compared to EAGLE-2 that pushes alpha to roughly 0.6-0.8 on general chat?",
+          "options": [
+            "The draft head is trained on multiple target layers rather than just the last layer",
+            "It uses a full-sized draft model of the same family",
+            "It runs on CPU instead of GPU",
+            "It removes the verify step entirely"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Below roughly what alpha does the lesson say speculative decoding becomes net negative at high concurrency on most 2026 hardware?",
+          "options": [
+            "0.85",
+            "0.95",
+            "0.05",
+            "0.55"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Which metric should you watch most closely after flipping EAGLE-3 on, even if mean ITL drops?",
+          "options": [
+            "GPU memory utilization",
+            "Cold-start time",
+            "Mean E2E latency",
+            "P99 ITL, because rejected-draft two-passes can serialize under full batch"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Why is speculative decoding opt-in (not default) in vLLM 2026 per the lesson?",
+          "options": [
+            "It is incompatible with PagedAttention",
+            "It only works on Blackwell GPUs",
+            "It requires a separate license",
+            "Acceptance rate depends on workload, and turning it on without measuring alpha is a production anti-pattern"
+          ],
+          "correct": 3,
+          "explanation": ""
+        }
+      ],
+      "code_run": false,
+      "svg_status": "XML全部读取；文本与流程关系复核；示意图常数不当实测",
+      "output_status": "全文读取；工作流可取，硬拒绝/固定型号/价格/门槛不作本机指令或普遍规则",
+      "audit_findings": [
+        "EAGLE3 v3删feature regression、low/mid/high融合、training-time test，已有§10保留；源省略训练目标变化。",
+        "线性草稿停止首次拒绝，E=1+α+...+α^K而非1+Kα；条件接受率与经验accepted/proposed不能混用。",
+        "拒绝correction来自已算target残差，不必固定额外targetforward；pendingcorrection KV后续处理与同轮重复推理分开。",
+        "source expected formula与tail逐前缀stop仿真不是同一个模型，后者额外固定reroll，并把批次latency均摊给token并非流式ITL；常数.55/nooffline/noconsumer错误硬门槛不继承。"
+      ]
+    },
+    {
+      "lesson": "06-sglang-radixattention",
+      "source_files": [
+        {
+          "path": "phases/17-infrastructure-and-production/06-sglang-radixattention/assets/radix-tree.svg",
+          "bytes": 6488,
+          "sha256": "08c94bb8a00d30ba47d95f864685e61b40ad0e46ba8b6a27ea77afcc868d23fc",
+          "git_blob_sha": "5cea5b15f841843195feb5d8b20fe93b9d8cf724",
+          "read": "全文读取；代码未执行",
+          "line_count": 89
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/06-sglang-radixattention/code/main.py",
+          "bytes": 5523,
+          "sha256": "70966eec5b817509c40600e9ef3bded3527a44961be67827698ada2d79693832",
+          "git_blob_sha": "ad1ba48d36be69b7a0f5f1ff0efe88ceadd2d6b4",
+          "read": "全文读取；代码未执行",
+          "line_count": 174
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/06-sglang-radixattention/docs/en.md",
+          "bytes": 9558,
+          "sha256": "af59a1a2a5e715f773cfb4eae88654c80efa1a8d5b569b8d2c4f885e3114daca",
+          "git_blob_sha": "c80be32cd065384ef3006439009f2cefefb5b688",
+          "read": "全文读取；代码未执行",
+          "line_count": 128
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/06-sglang-radixattention/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": "空占位已识别",
+          "line_count": 0
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/06-sglang-radixattention/outputs/skill-radix-scheduler-advisor.md",
+          "bytes": 2604,
+          "sha256": "05eae966019ebab17a895a69822a0c6f29a6eb6a29ac6db969451b9a72edf219",
+          "git_blob_sha": "570d510686db77641615d0aa975294ff8237d92c",
+          "read": "全文读取；代码未执行",
+          "line_count": 30
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/06-sglang-radixattention/quiz.json",
+          "bytes": 2639,
+          "sha256": "96a9a71652ca49ab7d9e83d6ac60b6b3b700a484a2ce95328638e8c5ab4b5c54",
+          "git_blob_sha": "2365fe3ded5020a564c8f0048cd35cd5f64736ea",
+          "read": "全文读取；代码未执行",
+          "line_count": 78
+        }
+      ],
+      "source_headings": [
+        {
+          "level": 1,
+          "line": 1,
+          "text": "Prefix-Cache Serving — RadixAttention and KV Reuse"
+        },
+        {
+          "level": 2,
+          "line": 10,
+          "text": "Learning Objectives"
+        },
+        {
+          "level": 2,
+          "line": 17,
+          "text": "The Problem"
+        },
+        {
+          "level": 2,
+          "line": 27,
+          "text": "The Concept"
+        },
+        {
+          "level": 3,
+          "line": 29,
+          "text": "The radix tree as a KV index"
+        },
+        {
+          "level": 3,
+          "line": 44,
+          "text": "Cache-aware scheduling"
+        },
+        {
+          "level": 3,
+          "line": 53,
+          "text": "Benchmark numbers you should memorize"
+        },
+        {
+          "level": 3,
+          "line": 61,
+          "text": "The ordering gotcha"
+        },
+        {
+          "level": 3,
+          "line": 69,
+          "text": "Where RadixAttention wins and loses"
+        },
+        {
+          "level": 3,
+          "line": 81,
+          "text": "Why this is a scheduler problem, not just a kernel problem"
+        },
+        {
+          "level": 3,
+          "line": 85,
+          "text": "Interplay with vLLM"
+        },
+        {
+          "level": 2,
+          "line": 93,
+          "text": "Use It"
+        },
+        {
+          "level": 2,
+          "line": 97,
+          "text": "Ship It"
+        },
+        {
+          "level": 2,
+          "line": 101,
+          "text": "Exercises"
+        },
+        {
+          "level": 2,
+          "line": 109,
+          "text": "Key Terms"
+        },
+        {
+          "level": 2,
+          "line": 122,
+          "text": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        {
+          "line": 103,
+          "question": "1. Run `code/main.py`. Compare FCFS and cache-aware on the same workload. Where does the delta come from — prefill savings, decode savings, or queue delay?"
+        },
+        {
+          "line": 104,
+          "question": "2. Modify the workload so prompts randomly permute `[system, tools, context]`. Re-run. What happens to hit rate? Why?"
+        },
+        {
+          "line": 105,
+          "question": "3. Compute the HBM cost of keeping a 2,000-token system prompt resident as one radix branch on Llama 3.1 8B. Compare to the cost of a 16-sequence batch without prefix reuse."
+        },
+        {
+          "line": 106,
+          "question": "4. Read the SGLang RadixAttention paper. Explain in three sentences why tree-shaped LRU eviction beats block-shaped LRU under prefix-heavy load."
+        },
+        {
+          "line": 107,
+          "question": "5. A customer reports only 8% cache hit rate. Name three likely causes and the diagnostic you would run for each."
+        }
+      ],
+      "quiz_questions": [
+        {
+          "stage": "pre",
+          "question": "What core data structure backs SGLang's KV cache reuse?",
+          "options": [
+            "A radix tree where each node owns a token range and its KV blocks",
+            "A skip list keyed by request id",
+            "A hash table keyed by full prompt",
+            "A B-tree of attention scores"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Why is FCFS scheduling wrong for prefix-heavy traffic on SGLang?",
+          "options": [
+            "FCFS is the recommended SGLang policy",
+            "FCFS can evict a hot prefix branch before the next long-prefix request hits, breaking radix-tree reuse",
+            "FCFS only works on AMD GPUs",
+            "FCFS is incompatible with PagedAttention"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "What eviction granularity does SGLang's cache-aware scheduler use to match radix shape?",
+          "options": [
+            "Per-request only",
+            "Random eviction",
+            "Single tokens",
+            "Whole branches, starting from shortest-used leaves"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "What is the most direct engineer's lever for keeping the radix-tree shared prefix discoverable?",
+          "options": [
+            "Always use static batching",
+            "Fix prompt-template ordering so immutable content (system, tools, schemas) is always first",
+            "Lower the GPU memory utilization knob",
+            "Disable continuous batching"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Which workload pattern does the lesson NOT expect RadixAttention to win on?",
+          "options": [
+            "Agents with shared tool schemas",
+            "Single-shot generation with unique prompts and no shared system prompt",
+            "RAG with a shared retrieval preamble",
+            "Voice workloads with repeated preambles"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "ProjectDiscovery's deployment moved from 7% to 74% prefix-cache hit rate by doing what?",
+          "options": [
+            "Increasing GPU count from 8 to 16",
+            "Disabling continuous batching",
+            "Moving dynamic content out of the cacheable prefix",
+            "Switching from vLLM to SGLang without any prompt changes"
+          ],
+          "correct": 2,
+          "explanation": ""
+        }
+      ],
+      "code_run": false,
+      "svg_status": "XML全部读取；文本与流程关系复核；示意图常数不当实测",
+      "output_status": "全文读取；工作流可取，硬拒绝/固定型号/价格/门槛不作本机指令或普遍规则",
+      "audit_findings": [
+        "SGLang原作者2024blog测试Llama7B/A10G/vllm.2.5 up to5x，不支持上游“2026H1008B6.4x/400kGPU”广泛结论。",
+        "vLLM官方APC复用sharedprefix并仅减少prefill，不减少newdecode；不能称vLLM总重算prefix。",
+        "sourcebudget160而SYSTEM125+TOOLS19+DOC32+Q4=180，可不断evict正在constructprefix产生孤儿甚至used>budget；cache-aware score在sameSYSTEM各请求都相同而stable sort保原次序，不能证明算法收益；全请求未来频率为离线oracle，不是在线scheduler。",
+        "radix leaf LRU需refcount/pinned ancestors；cache-aware要arrival/deadline/fairness防starvation；prompt重排语义可能变，需质量eval。"
+      ]
+    },
+    {
+      "lesson": "07-tensorrt-llm-blackwell",
+      "source_files": [
+        {
+          "path": "phases/17-infrastructure-and-production/07-tensorrt-llm-blackwell/assets/blackwell-stack.svg",
+          "bytes": 5823,
+          "sha256": "98150d92b90a26587867b804102393fb80b612ed6bb444f7653259f021084ce9",
+          "git_blob_sha": "99bfee1bb520746ad87d1199d7a5922a1d35b1da",
+          "read": "全文读取；代码未执行",
+          "line_count": 78
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/07-tensorrt-llm-blackwell/code/main.py",
+          "bytes": 4111,
+          "sha256": "8d3bc9c3b3226320670ad29800e63251e051979603d173554d8baeb20d59aa23",
+          "git_blob_sha": "85a6b79bdfbfb80161e79a53304715cd5d94ee05",
+          "read": "全文读取；代码未执行",
+          "line_count": 103
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/07-tensorrt-llm-blackwell/docs/en.md",
+          "bytes": 9273,
+          "sha256": "680c63c00fffe57852cb42cb24d17afdfa66084a5f4427aef99a91f5f3cc9942",
+          "git_blob_sha": "db4cbbdfb8a58de2beab1467661e98f329876946",
+          "read": "全文读取；代码未执行",
+          "line_count": 114
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/07-tensorrt-llm-blackwell/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": "空占位已识别",
+          "line_count": 0
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/07-tensorrt-llm-blackwell/outputs/skill-trtllm-blackwell-advisor.md",
+          "bytes": 2448,
+          "sha256": "18126b9bccbffb629de5ceb0c9c567585de50bc3db641341c31ab7b159f295be",
+          "git_blob_sha": "7f7505589f621d20afff4d1b385c8b797c487efc",
+          "read": "全文读取；代码未执行",
+          "line_count": 31
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/07-tensorrt-llm-blackwell/quiz.json",
+          "bytes": 2777,
+          "sha256": "e9d22306a73815c3e55881a19366691e26f7d923839582232463f39127fce96d",
+          "git_blob_sha": "5362cab07c3f399f0db927faf5d701075fd39f68",
+          "read": "全文读取；代码未执行",
+          "line_count": 78
+        }
+      ],
+      "source_headings": [
+        {
+          "level": 1,
+          "line": 1,
+          "text": "Hardware-Specialized Inference Compilation — FP8 and NVFP4 on Blackwell"
+        },
+        {
+          "level": 2,
+          "line": 10,
+          "text": "Learning Objectives"
+        },
+        {
+          "level": 2,
+          "line": 17,
+          "text": "The Problem"
+        },
+        {
+          "level": 2,
+          "line": 25,
+          "text": "The Concept"
+        },
+        {
+          "level": 3,
+          "line": 27,
+          "text": "Why FP8 is still the floor for KV cache"
+        },
+        {
+          "level": 3,
+          "line": 40,
+          "text": "The Blackwell-specific primitives TRT-LLM uses"
+        },
+        {
+          "level": 3,
+          "line": 48,
+          "text": "The numbers you should memorize"
+        },
+        {
+          "level": 3,
+          "line": 57,
+          "text": "What FP4 actually costs in quality"
+        },
+        {
+          "level": 3,
+          "line": 63,
+          "text": "Why this is an NVIDIA-lock decision"
+        },
+        {
+          "level": 3,
+          "line": 67,
+          "text": "2026 practical recipe"
+        },
+        {
+          "level": 3,
+          "line": 71,
+          "text": "The disaggregation bonus"
+        },
+        {
+          "level": 2,
+          "line": 79,
+          "text": "Use It"
+        },
+        {
+          "level": 2,
+          "line": 83,
+          "text": "Ship It"
+        },
+        {
+          "level": 2,
+          "line": 87,
+          "text": "Exercises"
+        },
+        {
+          "level": 2,
+          "line": 95,
+          "text": "Key Terms"
+        },
+        {
+          "level": 2,
+          "line": 108,
+          "text": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        {
+          "line": 89,
+          "question": "1. Run `code/main.py`. On a 120B MoE with 30% active parameters, compute the memory-bandwidth-limited decode throughput on H100 BF16, H100 FP8, and B200 NVFP4/FP8. Where does the biggest jump come from?"
+        },
+        {
+          "line": 90,
+          "question": "2. A customer spends $2M/year on H100 + vLLM. What is the break-even number of Blackwell GPUs they need to buy to amortize a migration to TRT-LLM in 12 months, given the 7x economic gap?"
+        },
+        {
+          "line": 91,
+          "question": "3. You see accuracy drop 3 points on MATH after NVFP4 weight conversion. Name two recovery paths: one quality-first (keep FP8 weights), one cost-first (calibrate with in-domain data)."
+        },
+        {
+          "line": 92,
+          "question": "4. Read the MLPerf v6.0 inference results. Which task has the smallest Blackwell-over-Hopper gap, and why?"
+        },
+        {
+          "line": 93,
+          "question": "5. Compute the HBM needed for a 405B model at NVFP4 weights + FP8 KV cache at 128k context. Does it fit on a single GB200 NVL72 node?"
+        }
+      ],
+      "quiz_questions": [
+        {
+          "stage": "pre",
+          "question": "Roughly what is the per-million-tokens cost gap the lesson reports between Blackwell + TRT-LLM + Dynamo and H100 + vLLM on a comparable 120B-class workload?",
+          "options": [
+            "About 2x",
+            "About 7x",
+            "About 1.1x",
+            "About 100x"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Why does the lesson recommend keeping KV cache in FP8 rather than NVFP4 on Blackwell?",
+          "options": [
+            "NVFP4 KV cache is not yet supported in any engine",
+            "KV cache spans a wide dynamic range; FP4 quantization causes catastrophic accuracy loss in attention scores",
+            "FP8 uses less memory than FP4",
+            "FP8 is the only precision NVLink 5 supports"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Which Blackwell feature does TRT-LLM exploit so models can be loaded without a post-training conversion step?",
+          "options": [
+            "BF16 KV cache",
+            "FP64 attention",
+            "INT2 weights via bitsandbytes",
+            "Day-0 FP4 weights shipped by model providers"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "What is the dominant tradeoff of choosing the TRT-LLM stack per the lesson?",
+          "options": [
+            "It requires fully autonomous remediation",
+            "It cannot serve MoE models",
+            "It only works at small scale",
+            "It locks you into NVIDIA hardware — no AMD, no Intel, no ARM"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Which precision combination does the lesson describe as the typical Blackwell config?",
+          "options": [
+            "Everything in BF16",
+            "Weights NVFP4, activations NVFP4, KV cache FP8, attention accumulator FP32",
+            "Weights INT8, activations FP32, KV cache INT4",
+            "Weights FP4, KV cache FP4, attention in INT8"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "For reasoning-heavy workloads where NVFP4 weight conversion drops MATH accuracy a few points, what does the lesson advise?",
+          "options": [
+            "Switch to AMD MI300X",
+            "Disable speculative decoding",
+            "Validate task quality on your eval set per model; teams often use FP8 weights + FP4 activations or stay on H200 with FP8 throughout",
+            "Ship NVFP4 anyway because the cost win dominates"
+          ],
+          "correct": 2,
+          "explanation": ""
+        }
+      ],
+      "code_run": false,
+      "svg_status": "XML全部读取；文本与流程关系复核；示意图常数不当实测",
+      "output_status": "全文读取；工作流可取，硬拒绝/固定型号/价格/门槛不作本机指令或普遍规则",
+      "audit_findings": [
+        "TRT官方overview当前PyTorch native/default、LLM API，并非所有模型静态enginecompile；ARM/CPUhost与NVIDIA GPU支持是不同概念。",
+        "TRT当前NVFP4 KV支持明确限定W/A FP8、ModelOptoffline校准、model/hardwarematrix，源“灾难且不可用”错误。",
+        "source layers由activeparams平方根guess无真实架构、MoE120Bactive36非可当GPTOSS配置；全weights存储与activeloads分开；multiGPU容量后成本仍仅1GPU有严重低估。",
+        "bandwidth/weightbytes单序列上界忽略KV、batch/compute/kernel/communication，MTP/disagg乘数人为，不能7x通用；源码07 pointerphase20实是shadowcanary，正确disagg17。"
+      ]
+    },
+    {
+      "lesson": "08-inference-metrics-goodput",
+      "source_files": [
+        {
+          "path": "phases/17-infrastructure-and-production/08-inference-metrics-goodput/assets/metrics.svg",
+          "bytes": 4754,
+          "sha256": "dfa822a9f8cefe275de7fec03699670fb55e5179634ee2b9471c4371f6ee67ef",
+          "git_blob_sha": "c3000cf3e13c3d74f4f3473eb9e7fa6e71f0ef7c",
+          "read": "全文读取；代码未执行",
+          "line_count": 66
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/08-inference-metrics-goodput/code/main.py",
+          "bytes": 4616,
+          "sha256": "bc066d20754bdcf372985cbe4cb63db550c2071bdc15ac7318432ae9a24d45a6",
+          "git_blob_sha": "ab13cf90318efe3678fdb04ca5bb99e7a4115bc8",
+          "read": "全文读取；代码未执行",
+          "line_count": 126
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/08-inference-metrics-goodput/docs/en.md",
+          "bytes": 8528,
+          "sha256": "d53d3c31b91e81969c851c0a9c1cc679e726c10541048c53a34c848c54f6d0c4",
+          "git_blob_sha": "e5bd58c55d6492e7e872367f9feb1c83d99c75e8",
+          "read": "全文读取；代码未执行",
+          "line_count": 144
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/08-inference-metrics-goodput/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": "空占位已识别",
+          "line_count": 0
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/08-inference-metrics-goodput/outputs/skill-slo-goodput-gate.md",
+          "bytes": 2417,
+          "sha256": "c02dc134a05f1d1bc06270e9a5f91d0358e0f808ab0613de00db54fc5bc2098d",
+          "git_blob_sha": "b83c45aa3653a5d008e689be7b2add2849a2122e",
+          "read": "全文读取；代码未执行",
+          "line_count": 32
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/08-inference-metrics-goodput/quiz.json",
+          "bytes": 2570,
+          "sha256": "0e12df338317843484644b68a690af8ba3f9be38505b093a56ce7fe2a32c0ac3",
+          "git_blob_sha": "aacb15062ad9a37be0d4a5043543f0c4ce758302",
+          "read": "全文读取；代码未执行",
+          "line_count": 78
+        }
+      ],
+      "source_headings": [
+        {
+          "level": 1,
+          "line": 1,
+          "text": "Inference Metrics — TTFT, TPOT, ITL, Goodput, P99"
+        },
+        {
+          "level": 2,
+          "line": 10,
+          "text": "Learning Objectives"
+        },
+        {
+          "level": 2,
+          "line": 17,
+          "text": "The Problem"
+        },
+        {
+          "level": 2,
+          "line": 23,
+          "text": "The Concept"
+        },
+        {
+          "level": 3,
+          "line": 25,
+          "text": "TTFT — time to first token"
+        },
+        {
+          "level": 3,
+          "line": 31,
+          "text": "TPOT / ITL — inter-token latency"
+        },
+        {
+          "level": 3,
+          "line": 39,
+          "text": "E2E latency"
+        },
+        {
+          "level": 3,
+          "line": 45,
+          "text": "Throughput"
+        },
+        {
+          "level": 3,
+          "line": 51,
+          "text": "Goodput — the metric you actually care about"
+        },
+        {
+          "level": 3,
+          "line": 59,
+          "text": "Why mean is the wrong statistic"
+        },
+        {
+          "level": 3,
+          "line": 65,
+          "text": "Reference numbers — Llama-3.1-8B-Instruct on TRT-LLM, 2026"
+        },
+        {
+          "level": 3,
+          "line": 74,
+          "text": "The measurement trap"
+        },
+        {
+          "level": 3,
+          "line": 85,
+          "text": "Constructing an SLO"
+        },
+        {
+          "level": 3,
+          "line": 96,
+          "text": "How to measure"
+        },
+        {
+          "level": 2,
+          "line": 107,
+          "text": "Use It"
+        },
+        {
+          "level": 2,
+          "line": 111,
+          "text": "Ship It"
+        },
+        {
+          "level": 2,
+          "line": 115,
+          "text": "Exercises"
+        },
+        {
+          "level": 2,
+          "line": 123,
+          "text": "Key Terms"
+        },
+        {
+          "level": 2,
+          "line": 137,
+          "text": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        {
+          "line": 117,
+          "question": "1. Run `code/main.py`. Generate a distribution with 1% tail spike. How does goodput change when you tighten P99 TPOT from 30 ms to 15 ms?"
+        },
+        {
+          "line": 118,
+          "question": "2. A vendor quotes \"15,000 tok/s on Llama 3.3 70B H100\". Name three questions to ask before trusting it."
+        },
+        {
+          "line": 119,
+          "question": "3. Why does chunked prefill protect P99 TPOT but not mean TPOT?"
+        },
+        {
+          "line": 120,
+          "question": "4. Construct a consumer SLO for a voice assistant (first token is heard, not read). Which metric is most user-visible?"
+        },
+        {
+          "line": 121,
+          "question": "5. Read the LLMPerf README and the GenAI-Perf docs. Identify three other metrics where the tools disagree."
+        }
+      ],
+      "quiz_questions": [
+        {
+          "stage": "pre",
+          "question": "Which components dominate TTFT (time to first token)?",
+          "options": [
+            "Disk I/O for weights",
+            "Queue time, network request time, and prefill time",
+            "Tokenizer GIL overhead",
+            "Decode-only forward time"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Which metric does the lesson call the one that actually matters for product?",
+          "options": [
+            "Goodput — fraction of requests meeting every SLO constraint simultaneously",
+            "Aggregate throughput in tokens per second",
+            "Mean ITL",
+            "GPU duty cycle"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Why is mean the wrong statistic to report for LLM latency?",
+          "options": [
+            "LLM latency distributions are right-skewed; users routinely hit P99 outliers that mean hides",
+            "Mean is never computable on streaming responses",
+            "Mean only works for prefill, not decode",
+            "Mean is not supported by GenAI-Perf"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Why do GenAI-Perf and LLMPerf disagree on TPOT for the same run?",
+          "options": [
+            "They sample different requests",
+            "GenAI-Perf only runs on Blackwell",
+            "LLMPerf uses microseconds and GenAI-Perf uses milliseconds",
+            "GenAI-Perf excludes TTFT from the ITL calculation; LLMPerf includes it, so tool choice changes the number"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "For long-output requests (>500 tokens), which metric dominates end-to-end latency?",
+          "options": [
+            "Network response time",
+            "TPOT times output length",
+            "TTFT",
+            "Cold-start time"
+          ],
+          "correct": 1,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Which set best captures the lesson's reasonable consumer-facing SLO for a 70B chat model in 2026?",
+          "options": [
+            "P50 only, no percentiles above",
+            "TTFT P99 800 ms, TPOT P99 25 ms, E2E P99 3 s for <300-token outputs, goodput >= 99%",
+            "TTFT P99 8s, TPOT P99 200ms, goodput 50%",
+            "Mean TTFT 10 ms, mean TPOT 1 ms"
+          ],
+          "correct": 1,
+          "explanation": ""
+        }
+      ],
+      "code_run": false,
+      "svg_status": "XML全部读取；文本与流程关系复核；示意图常数不当实测",
+      "output_status": "全文读取；工作流可取，硬拒绝/固定型号/价格/门槛不作本机指令或普遍规则",
+      "audit_findings": [
+        "TPOT均值与ITLinterval分布不同；Ntokens有N-1interval，E2E=TTFT+(N-1)TPOT，N1定义NA不能0伪通过。",
+        "joint fraction f与goodreq/sec=f*N/T分开，三项P99各99%不等joint99%。错误/timeout/缺trace进入分母。",
+        "source outputtokens=N但decode_ms listN段，与已含firstTTFT双算；tailchance每token.02而非每request；列表请求平均TPOT掩盖tokenITL尾。",
+        "GenAIPerfREADME定义按streamresponsechunk token数；LLMPerf当前固定commitclient把chunk count当tokens，tokenbenchmark主要采集除原client chunk数，末尾采集另一分支除重新tokenize count，首TTFT包含于intervalsum，不能仅称E2E/N完全相等。",
+        "30轮/100请求的强拒绝无法自动99tail充分，需sample/timeout/censor/window/CI；采样与到达负载要明确。"
+      ]
+    },
+    {
+      "lesson": "09-production-quantization",
+      "source_files": [
+        {
+          "path": "phases/17-infrastructure-and-production/09-production-quantization/assets/format-picker.svg",
+          "bytes": 5193,
+          "sha256": "8bce855cafcc4520ab096d09b3f0bd0102a93b32db7eadbbbe2880ad8861f8d7",
+          "git_blob_sha": "c137656f9277055f23a05571f2709095bf1968e1",
+          "read": "全文读取；代码未执行",
+          "line_count": 70
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/09-production-quantization/code/main.py",
+          "bytes": 3895,
+          "sha256": "66a97e9009e6a1319276d44f25d49e42c4e4b83c27ae999055c3cbf9abce4b3f",
+          "git_blob_sha": "b54d5b4c23e76025870545d0d8fde8a43f50edca",
+          "read": "全文读取；代码未执行",
+          "line_count": 107
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/09-production-quantization/docs/en.md",
+          "bytes": 9034,
+          "sha256": "426f95fbda1dff2cd772a878c671a4ac245e175f3af5fa4b5086d6eb0656ed63",
+          "git_blob_sha": "62d505c5c8b566fb60455e20d44f5050cd32eff9",
+          "read": "全文读取；代码未执行",
+          "line_count": 140
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/09-production-quantization/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": "空占位已识别",
+          "line_count": 0
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/09-production-quantization/outputs/skill-quantization-picker.md",
+          "bytes": 2704,
+          "sha256": "b37e2bedccfdb68ca9f477b82e4205f159f7b4b5c2f9b1022bf476674f3f5aaa",
+          "git_blob_sha": "6d73fa0afcff62ef5f9d47d889044be5a05d9e61",
+          "read": "全文读取；代码未执行",
+          "line_count": 32
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/09-production-quantization/quiz.json",
+          "bytes": 2352,
+          "sha256": "5e8e8f531d44a5f097e92ba3bebb6a1ee4a5cc7d9535cfebd9955c5032296d93",
+          "git_blob_sha": "d890fb9b72fa126edf930e586c56a1949008c09f",
+          "read": "全文读取；代码未执行",
+          "line_count": 78
+        }
+      ],
+      "source_headings": [
+        {
+          "level": 1,
+          "line": 1,
+          "text": "Production Quantization — AWQ, GPTQ, GGUF K-quants, FP8, MXFP4/NVFP4"
+        },
+        {
+          "level": 2,
+          "line": 10,
+          "text": "Learning Objectives"
+        },
+        {
+          "level": 2,
+          "line": 17,
+          "text": "The Problem"
+        },
+        {
+          "level": 2,
+          "line": 23,
+          "text": "The Concept"
+        },
+        {
+          "level": 3,
+          "line": 25,
+          "text": "The six formats"
+        },
+        {
+          "level": 3,
+          "line": 36,
+          "text": "GGUF — the CPU/edge default"
+        },
+        {
+          "level": 3,
+          "line": 42,
+          "text": "GPTQ — multi-LoRA in vLLM"
+        },
+        {
+          "level": 3,
+          "line": 48,
+          "text": "AWQ — the datacenter GPU default"
+        },
+        {
+          "level": 3,
+          "line": 54,
+          "text": "FP8 — the reliable middle"
+        },
+        {
+          "level": 3,
+          "line": 58,
+          "text": "MXFP4 / NVFP4 — Blackwell aggressive"
+        },
+        {
+          "level": 3,
+          "line": 67,
+          "text": "The calibration trap"
+        },
+        {
+          "level": 3,
+          "line": 73,
+          "text": "The KV cache trap"
+        },
+        {
+          "level": 3,
+          "line": 86,
+          "text": "AWQ INT4 is hazardous for reasoning"
+        },
+        {
+          "level": 3,
+          "line": 90,
+          "text": "2026 picking guide"
+        },
+        {
+          "level": 2,
+          "line": 103,
+          "text": "Use It"
+        },
+        {
+          "level": 2,
+          "line": 107,
+          "text": "Ship It"
+        },
+        {
+          "level": 2,
+          "line": 111,
+          "text": "Exercises"
+        },
+        {
+          "level": 2,
+          "line": 119,
+          "text": "Key Terms"
+        },
+        {
+          "level": 2,
+          "line": 133,
+          "text": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        {
+          "line": 113,
+          "question": "1. Run `code/main.py`. For a 70B model at 128 concurrent with 2k context, compute the total HBM for each format. Which format lets you fit on one H100 80GB?"
+        },
+        {
+          "line": 114,
+          "question": "2. You have a 7B coding model. Pick a format and justify. If you were wrong about quality tolerance, what is the recovery path?"
+        },
+        {
+          "line": 115,
+          "question": "3. Compute the calibration-dataset size needed to calibrate AWQ for a medical domain model. Why is more data not always better?"
+        },
+        {
+          "line": 116,
+          "question": "4. Read the Marlin-AWQ kernel paper or release notes. Explain in three sentences why AWQ hits 741 tok/s on 7B while raw GPTQ hits ~712."
+        },
+        {
+          "line": 117,
+          "question": "5. When does it make sense to combine AWQ weights with FP8 KV cache vs keeping KV at BF16?"
+        }
+      ],
+      "quiz_questions": [
+        {
+          "stage": "pre",
+          "question": "Which quantization format does the lesson call the production default for CPU and edge serving?",
+          "options": [
+            "GGUF Q4_K_M / Q5_K_M",
+            "NVFP4",
+            "FP8",
+            "AWQ INT4"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Which format is the lesson's pick for datacenter GPU serving when multi-LoRA is required in vLLM?",
+          "options": [
+            "NVFP4",
+            "GGUF Q4_K_M",
+            "GPTQ with Marlin kernels",
+            "AWQ"
+          ],
+          "correct": 2,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "What is the \"my model is 4 GB now\" trap with AWQ?",
+          "options": [
+            "AWQ does not actually shrink weights",
+            "AWQ is incompatible with vLLM",
+            "AWQ only shrinks weights; KV cache and activations are separate and can add 30-50 GB at production batch sizes",
+            "AWQ requires INT8 KV cache"
+          ],
+          "correct": 2,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Why does calibrating AWQ on generic web text hurt domain models?",
+          "options": [
+            "It increases model size",
+            "It only works on AMD GPUs",
+            "The algorithm makes wrong decisions about which weights to protect, dropping domain accuracy (for example several Pass@1 points on HumanEval)",
+            "It disables Marlin kernels"
+          ],
+          "correct": 2,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "For a reasoning-heavy workload where quality is non-negotiable, which precision does the lesson recommend by default?",
+          "options": [
+            "NVFP4 weights",
+            "GPTQ INT4",
+            "FP8 weights",
+            "INT2 GGUF"
+          ],
+          "correct": 2,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Which 2026 quantization limitation does the lesson call out for NVFP4 in early 2026?",
+          "options": [
+            "Cannot be combined with FP8 KV cache",
+            "Only runs on CPU",
+            "No LoRA support yet",
+            "Not supported on H100"
+          ],
+          "correct": 2,
+          "explanation": ""
+        }
+      ],
+      "code_run": false,
+      "svg_status": "XML全部读取；文本与流程关系复核；示意图常数不当实测",
+      "output_status": "全文读取；工作流可取，硬拒绝/固定型号/价格/门槛不作本机指令或普遍规则",
+      "audit_findings": [
+        "基础GPTQ/AWQ/pack已在15完整CPU证明，不重复。",
+        "GGUF容器≠quant算法，混合type/Q4_K_M不精确4bits；CPU/GPUoffload都可，vLLM当前矩阵支持多个GPU/CPU；不能固定只CPU。",
+        "FP8无损/安全default、AWQbestPass1、GPTQonlyLoRA/noNVFP4lora均要versionmodelkernel检查，不抄榜。",
+        "source64layers Hkv8 d128 B128 S2048 BF16KV=68.719GB并非text20–30GB，AWQ35+KV68.7+act3.5=107.2GB不能80GB。"
+      ]
+    },
+    {
+      "lesson": "10-cold-start-mitigation",
+      "source_files": [
+        {
+          "path": "phases/17-infrastructure-and-production/10-cold-start-mitigation/assets/cold-start-layers.svg",
+          "bytes": 5512,
+          "sha256": "5103a612392f359eecf1103d2ba211b7a142e6a36bac934b353b6b127e541de1",
+          "git_blob_sha": "a21000962fc4aa91cc933d1de5134d0ab334d549",
+          "read": "全文读取；代码未执行",
+          "line_count": 73
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/10-cold-start-mitigation/code/main.py",
+          "bytes": 3734,
+          "sha256": "a987ddeaf6b1d8680a141f10832e29e630ffcc866d1300ae25534104ffbce891",
+          "git_blob_sha": "00851252462c2f44d05a2d38a0ead13c8b9603e0",
+          "read": "全文读取；代码未执行",
+          "line_count": 97
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/10-cold-start-mitigation/docs/en.md",
+          "bytes": 9293,
+          "sha256": "d293a25aa3551eb703e1826e04cff4feb370996bcc769da2448f9e65eb27c2eb",
+          "git_blob_sha": "b3ab5dd6b3a1d68220ac732985ca372501914ad9",
+          "read": "全文读取；代码未执行",
+          "line_count": 130
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/10-cold-start-mitigation/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read": "空占位已识别",
+          "line_count": 0
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/10-cold-start-mitigation/outputs/skill-cold-start-planner.md",
+          "bytes": 2623,
+          "sha256": "2e9017716441b075cb1e6ee7943406e38b979b625c0215ac74ac6afdc0c79f73",
+          "git_blob_sha": "4e176332543600dd0f37c549e1c2d2ee7cf262e3",
+          "read": "全文读取；代码未执行",
+          "line_count": 31
+        },
+        {
+          "path": "phases/17-infrastructure-and-production/10-cold-start-mitigation/quiz.json",
+          "bytes": 2615,
+          "sha256": "45d3463dd3726a826c8a2a296dc7378087524672295159055ddca56caef1256a",
+          "git_blob_sha": "552072243db1940c4e2fb91e8ce4ea86858f9c56",
+          "read": "全文读取；代码未执行",
+          "line_count": 78
+        }
+      ],
+      "source_headings": [
+        {
+          "level": 1,
+          "line": 1,
+          "text": "Cold Start Mitigation for Serverless LLMs"
+        },
+        {
+          "level": 2,
+          "line": 10,
+          "text": "Learning Objectives"
+        },
+        {
+          "level": 2,
+          "line": 17,
+          "text": "The Problem"
+        },
+        {
+          "level": 2,
+          "line": 30,
+          "text": "The Concept"
+        },
+        {
+          "level": 3,
+          "line": 32,
+          "text": "Layer 1 — pre-seeded node images (Bottlerocket)"
+        },
+        {
+          "level": 3,
+          "line": 38,
+          "text": "Layer 2 — model streaming (Run:ai Model Streamer)"
+        },
+        {
+          "level": 3,
+          "line": 42,
+          "text": "Layer 3 — GPU memory snapshots (Modal)"
+        },
+        {
+          "level": 3,
+          "line": 46,
+          "text": "Layer 4 — warm pools (min_workers=1)"
+        },
+        {
+          "level": 3,
+          "line": 50,
+          "text": "Layer 5 — tiered loading (ServerlessLLM)"
+        },
+        {
+          "level": 3,
+          "line": 54,
+          "text": "Layer 6 — live migration (bonus pattern)"
+        },
+        {
+          "level": 3,
+          "line": 58,
+          "text": "The warm-pool math"
+        },
+        {
+          "level": 3,
+          "line": 66,
+          "text": "Measure before optimizing"
+        },
+        {
+          "level": 3,
+          "line": 80,
+          "text": "Numbers you should remember"
+        },
+        {
+          "level": 2,
+          "line": 92,
+          "text": "Use It"
+        },
+        {
+          "level": 2,
+          "line": 96,
+          "text": "Ship It"
+        },
+        {
+          "level": 2,
+          "line": 100,
+          "text": "Exercises"
+        },
+        {
+          "level": 2,
+          "line": 108,
+          "text": "Key Terms"
+        },
+        {
+          "level": 2,
+          "line": 123,
+          "text": "Further Reading"
+        }
+      ],
+      "source_exercises": [
+        {
+          "line": 102,
+          "question": "1. Run `code/main.py`. Compute the break-even request rate above which a warm replica is cheaper than paying the cold-start tax via extra request drops at SLO."
+        },
+        {
+          "line": 103,
+          "question": "2. You deploy a 13B model with P99 TTFT SLA of 3s. Pick the minimum mitigation stack (fewest layers) that achieves it."
+        },
+        {
+          "line": 104,
+          "question": "3. Bottlerocket pre-seeding eliminates image pull but weights still load from snapshot to HBM. Compute wall-clock for a 70B model if the snapshot-backed NVMe reads at 7 GB/s."
+        },
+        {
+          "line": 105,
+          "question": "4. Your serverless provider offers GPU snapshots (Modal) and your team refuses because \"snapshots leak PII.\" Argue both sides — what is the realistic risk, and what is the mitigation (ephemeral snapshots, encryption, namespace isolation)?"
+        },
+        {
+          "line": 106,
+          "question": "5. Design a tiered warm-pool policy: how many warm replicas for paid users, trial users, and batch workloads? Show the math."
+        }
+      ],
+      "quiz_questions": [
+        {
+          "stage": "pre",
+          "question": "Roughly how long does a cold start typically take for a 70B model on a fresh node without mitigations?",
+          "options": [
+            "3-8 minutes",
+            "Over 1 hour",
+            "Under 10 seconds",
+            "30-60 seconds"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Which AWS-side feature does the lesson recommend for pre-seeding container images so step-2 image pull disappears?",
+          "options": [
+            "Bottlerocket dual-volume architecture referenced from EC2NodeClass",
+            "Spot fleet placement",
+            "EBS volume snapshots only",
+            "ECS task definitions"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Which Modal feature provides the closest thing to a \"warm GPU boot in seconds\" by deserializing post-load state directly into HBM?",
+          "options": [
+            "GPU memory snapshots (checkpoints)",
+            "Tiered NVMe-to-DRAM loading",
+            "Run:ai Model Streamer",
+            "Live migration"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "stage": "check",
+          "question": "Why does live migration transfer input tokens rather than KV cache between nodes?",
+          "options": [
+            "KV cache is encrypted and cannot move",
+            "Live migration is required by GDPR",
+            "Input tokens have larger entropy",
+            "Recomputing KV on the destination is cheaper than transferring GB of KV cache over the network"
+          ],
+          "correct": 3,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Which serverless layer trades direct GPU cost for predictable readiness by keeping at least one replica live?",
+          "options": [
+            "Tiered loading",
+            "Live migration",
+            "Warm pool with min_workers >= 1",
+            "Bottlerocket pre-seeding"
+          ],
+          "correct": 2,
+          "explanation": ""
+        },
+        {
+          "stage": "post",
+          "question": "Why does the lesson say cold-start mitigation must be stacked across layers rather than picked as a single tool?",
+          "options": [
+            "Modal owns the entire stack",
+            "All five layers are bundled in vLLM",
+            "It is a regulatory requirement",
+            "No single layer eliminates every step (node provision, image pull, weights load, engine init); stacking layers compresses each step"
+          ],
+          "correct": 3,
+          "explanation": ""
+        }
+      ],
+      "code_run": false,
+      "svg_status": "XML全部读取；文本与流程关系复核；示意图常数不当实测",
+      "output_status": "全文读取；工作流可取，硬拒绝/固定型号/价格/门槛不作本机指令或普遍规则",
+      "audit_findings": [
+        "coldpath按span dependency criticalpath而非重复叠乘；nodeimagecache不取消nodeprovision/HBM/firstforward。",
+        "Modal当前min_containers/buffer_containers/scaledown_window；GPU snapshot通常不加速storage，multiGPU不兼容，临时KV应丢掉再建；重放随机种子/nonce/credential要fresh。",
+        "RunAI官方loader并发read Safetensors/optionaldep，不证明第一layer到位就能完整generation；完整firsttoken依全部所需层权重/服务ready。",
+        "Source snapshot各phase直接替换node .5s/weight0人为，break_even不使用cold_seconds也不以gpu cost与dropmonetization比较，24/rate不是一般coldstarts/day；高arrival burst可能反而新coldcontainers增。",
+        "ServerlessLLM landingabstract10–200x只历史实验范围，paper403未读full；migration recompute-vs-transfer依netBW/context/model/destinationready，不能总便宜。"
+      ]
+    }
+  ],
+  "primary_sources": [
+    {
+      "name": "vllm-prefix",
+      "url": "https://docs.vllm.ai/en/latest/features/automatic_prefix_caching/",
+      "path": "/tmp/study-infra-01-10-primary/vllm-prefix.md",
+      "bytes": 43014,
+      "sha256": "295f302215827cfcfd07db81bbccc3990242cf813821389626f948cae6b8855c",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "vllm-chunk",
+      "url": "https://docs.vllm.ai/en/latest/configuration/optimization/",
+      "path": "/tmp/study-infra-01-10-primary/vllm-chunk.md",
+      "bytes": 28089,
+      "sha256": "3937f7d27630ddefbf4acab76ec526d122fc4c0ac0a15a3be1000c43137d6671",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "vllm-spec",
+      "url": "https://docs.vllm.ai/en/latest/features/spec_decode/",
+      "path": "/tmp/study-infra-01-10-primary/vllm-spec.md",
+      "bytes": 288,
+      "sha256": "967d9f9022d89d81a9904b71d70d3b56045c88a81241a23ed2776bcd89cdd507",
+      "date": "2026-10-10",
+      "adoption": "无效缓存：不是论文正文或旧入口；保留失败识别，不作依据"
+    },
+    {
+      "name": "karpenter-disruption",
+      "url": "https://karpenter.sh/docs/concepts/disruption/",
+      "path": "/tmp/study-infra-01-10-primary/karpenter-disruption.md",
+      "bytes": 49453,
+      "sha256": "bb3085c634c71443313b75f3d337c5caab2fad30ca2f2d2fdc0b9f3621b40dbb",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "modal-cold",
+      "url": "https://modal.com/docs/guide/cold-start",
+      "path": "/tmp/study-infra-01-10-primary/modal-cold.md",
+      "bytes": 10524,
+      "sha256": "ca6ff2c5a85a14fdd18e7a1155235d5e3a5ba43470026913db27caa9437ffa5d",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "modal-snapshot",
+      "url": "https://modal.com/docs/guide/memory-snapshot",
+      "path": "/tmp/study-infra-01-10-primary/modal-snapshot.md",
+      "bytes": 12441,
+      "sha256": "1753bbe666d6f74d32b6f5244d98f62b41e17859fd2512f28f6792531f5dd2dd",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "serverlessllm",
+      "url": "https://www.usenix.org/conference/osdi24/presentation/fu",
+      "path": "/tmp/study-infra-01-10-primary/serverlessllm.md",
+      "bytes": 1885,
+      "sha256": "62043bade6c73c4dc41e70a68250e991dc8de96dfd0a69a59c8a468bc9f7c8ea",
+      "date": "2026-10-10",
+      "adoption": "只读官方摘要；不称全文paper复现"
+    },
+    {
+      "name": "trt-overview",
+      "url": "https://nvidia.github.io/TensorRT-LLM/overview.html",
+      "path": "/tmp/study-infra-01-10-primary/trt-overview.md",
+      "bytes": 48197,
+      "sha256": "521f4bb0ce91712a9845dddf39174c1ac011cf4587bc5ba2d86730d70c360778",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "sglang-blog",
+      "url": "https://lmsys.org/blog/2024-01-17-sglang/",
+      "path": "/tmp/study-infra-01-10-primary/sglang-blog.md",
+      "bytes": 14171,
+      "sha256": "9623408ab1e0969cd67c18d1bc5a47c5b31ee79e39317186ffd04011ce26216a",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "nim-metrics",
+      "url": "https://docs.nvidia.com/nim/benchmarking/llm/latest/metrics.html",
+      "path": "/tmp/study-infra-01-10-primary/nim-metrics.md",
+      "bytes": 5771,
+      "sha256": "52c44e9b7dca2d485783f861a58ff64be91a2f7a1e8a987750d0e600ca325f77",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "bedrock-profiles",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html",
+      "path": "/tmp/study-infra-01-10-primary/bedrock-profiles.md",
+      "bytes": 167464,
+      "sha256": "5ef136c33dcaae285ffaf340ecfe138aaa943c83cc7604d885357abb53ff7554",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "azure-tags",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources",
+      "path": "/tmp/study-infra-01-10-primary/azure-tags.md",
+      "bytes": 8556,
+      "sha256": "ec4203ea483eacb14de13115198895d8a15836eaae8cbc9ec0b9bb67ab5b6564",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "runai-streamer",
+      "url": "https://docs.vllm.ai/en/latest/models/extensions/runai_model_streamer.html",
+      "path": "/tmp/study-infra-01-10-primary/runai-streamer.md",
+      "bytes": 40967,
+      "sha256": "e04f34986d5371742222340c8989a277fbc945cc82733629a69c8472063582c7",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "spec-paper",
+      "url": "https://arxiv.org/html/2211.17192v3",
+      "path": "/tmp/study-infra-01-10-primary/spec-paper.md",
+      "bytes": 1842,
+      "sha256": "17975ea339b1e7dd9597a5e2dc8a8f6bd854ec5e3e1a1e012770e58a7c695a7c",
+      "date": "2026-10-10",
+      "adoption": "无效缓存：不是论文正文或旧入口；保留失败识别，不作依据"
+    },
+    {
+      "name": "eagle3",
+      "url": "https://arxiv.org/html/2503.01840v4",
+      "path": "/tmp/study-infra-01-10-primary/eagle3.md",
+      "bytes": 1842,
+      "sha256": "9849919224b02799cf873703e0aa0a2d7a7329a07581899d6fdc9c940c2c6ab2",
+      "date": "2026-10-10",
+      "adoption": "无效缓存：不是论文正文或旧入口；保留失败识别，不作依据"
+    },
+    {
+      "name": "vllm-spec-current",
+      "url": "https://docs.vllm.ai/en/latest/features/speculative_decoding/",
+      "path": "/tmp/study-infra-01-10-primary/vllm-spec-current.md",
+      "bytes": 16149,
+      "sha256": "fb32e0ea76bc6400f546fc7a228a1f15851fafc8e2e8fb9af1290442caa51783",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "vllm-acceptance",
+      "url": "https://docs.vllm.ai/en/latest/features/speculative_decoding/acceptance_metrics/",
+      "error": "HTTP Error 429: Too Many Requests",
+      "date": "2026-10-10",
+      "adoption": "访问失败，不证明网站失效；未作依据"
+    },
+    {
+      "name": "trt-quant",
+      "url": "https://nvidia.github.io/TensorRT-LLM/features/quantization.html",
+      "path": "/tmp/study-infra-01-10-primary/trt-quant.md",
+      "bytes": 7075,
+      "sha256": "91288833347eea44a35cf96a121638fefafcda1db3a51d14631fad61c1aab13c",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "vllm-quant",
+      "url": "https://docs.vllm.ai/en/latest/features/quantization/",
+      "path": "/tmp/study-infra-01-10-primary/vllm-quant.md",
+      "bytes": 12471,
+      "sha256": "3a9b5101e5c32266fa205c3b1ceffbcce65901bbf411a7bd94a265616594eed6",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "vllm-lora",
+      "url": "https://docs.vllm.ai/en/latest/features/lora/",
+      "path": "/tmp/study-infra-01-10-primary/vllm-lora.md",
+      "bytes": 22694,
+      "sha256": "dc1911944703babd10186f3d88ba9090c4a60a4b02fa38aab27c7af9a6ad61a0",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "llmperf-readme",
+      "url": "https://raw.githubusercontent.com/ray-project/llmperf/main/README.md",
+      "path": "/tmp/study-infra-01-10-primary/llmperf-readme.md",
+      "bytes": 11773,
+      "sha256": "ec510dfb7a34ab33481fac7a27ec503d31acdfe9bc07c5b5a409d01cb247f5c9",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "llmperf-code",
+      "url": "https://raw.githubusercontent.com/ray-project/llmperf/main/llmperf/ray_clients/openai_chat_completions_client.py",
+      "error": "HTTP Error 404: Not Found",
+      "date": "2026-10-10",
+      "adoption": "访问失败，不证明网站失效；未作依据"
+    },
+    {
+      "name": "genai-readme",
+      "url": "https://raw.githubusercontent.com/triton-inference-server/perf_analyzer/main/genai-perf/README.md",
+      "path": "/tmp/study-infra-01-10-primary/genai-readme.md",
+      "bytes": 34830,
+      "sha256": "6845766e81a609e5508ed9d8e2974b491c1de1045fc335f43cbccc7b8293dcae",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "modal-pricing",
+      "url": "https://modal.com/pricing",
+      "error": "HTTP Error 429: Too Many Requests",
+      "date": "2026-10-10",
+      "adoption": "访问失败，不证明网站失效；未作依据"
+    },
+    {
+      "name": "replicate-pricing",
+      "url": "https://replicate.com/pricing",
+      "path": "/tmp/study-infra-01-10-primary/replicate-pricing.md",
+      "bytes": 3528,
+      "sha256": "aea3827399500640b7bbeeeac2181edd914c7cbc9ca28b457bf30a1442da037d",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "azure-ptu",
+      "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/provisioned-throughput",
+      "error": "HTTP Error 429: Too Many Requests",
+      "date": "2026-10-10",
+      "adoption": "访问失败，不证明网站失效；未作依据"
+    },
+    {
+      "name": "llama70-config",
+      "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/raw/main/config.json",
+      "error": "HTTP Error 401: Unauthorized",
+      "date": "2026-10-10",
+      "adoption": "访问失败，不证明网站失效；未作依据"
+    },
+    {
+      "name": "eagle3-pdf",
+      "url": "https://arxiv.org/pdf/2503.01840",
+      "bytes": 946062,
+      "sha256": "8a178337a1b05067907167dd81a43a7184596d71d4b795d6a0c73e6235fe1a27",
+      "pdftext_exit": 0,
+      "date": "2026-10-10",
+      "adoption": "PDF正文方法选读及页面图式目检，不称全文研究复现",
+      "path": "/tmp/study-infra-01-10-primary/eagle3-pdf.pdf",
+      "text_path": "/tmp/study-infra-01-10-primary/eagle3-pdf.txt",
+      "selected_scope": "EAGLE3v3 §3.1–3.2及Figure5页面4；Specv2 §2.3/3.1 Algorithm1/Eq1页面3",
+      "text_sha256": "95b1edfd88cd7e0be2b9f771e2a965054e6fc3588e876e205e734fbc17ac52dd",
+      "pdf_identity_version": "2503.01840v3"
+    },
+    {
+      "name": "spec-pdf",
+      "url": "https://arxiv.org/pdf/2211.17192",
+      "bytes": 574982,
+      "sha256": "8967e2daab74178b8a73a6f0b0780c5cbb40f9f6dcbd5c456b24a89c128c52ed",
+      "pdftext_exit": 0,
+      "date": "2026-10-10",
+      "adoption": "PDF正文方法选读及页面图式目检，不称全文研究复现",
+      "path": "/tmp/study-infra-01-10-primary/spec-pdf.pdf",
+      "text_path": "/tmp/study-infra-01-10-primary/spec-pdf.txt",
+      "selected_scope": "EAGLE3v3 §3.1–3.2及Figure5页面4；Specv2 §2.3/3.1 Algorithm1/Eq1页面3",
+      "text_sha256": "b08ec542258cb31760c1e26cd26b0303e6275ca1ea800b98eaeb80b156fc349e",
+      "pdf_identity_version": "2211.17192v2"
+    },
+    {
+      "name": "serverless-pdf",
+      "url": "https://www.usenix.org/system/files/osdi24-fu.pdf",
+      "error": "HTTP Error 403: Forbidden",
+      "date": "2026-10-10",
+      "adoption": "访问失败，不证明网站失效；未作依据"
+    },
+    {
+      "name": "vllm-acceptance-source",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/a98247ab4db686ee03c66d5feb3c761e52a2f8ab/docs/features/speculative_decoding/acceptance_metrics.md",
+      "bytes": 4450,
+      "sha256": "7cb64046883e47457583ac94be3f0761be14a77701571c5d5760742f9cd49900",
+      "date": "2026-10-10",
+      "adoption": "相关章节选读/源码选读；不称全站阅读"
+    },
+    {
+      "name": "vllm-lora-source",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/a98247ab4db686ee03c66d5feb3c761e52a2f8ab/vllm/model_executor/layers/quantization/awq_marlin.py",
+      "error": "HTTP Error 404: Not Found",
+      "date": "2026-10-10",
+      "adoption": "访问失败，不证明网站失效；未作依据"
+    },
+    {
+      "name": "vllm-gptq-source",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/a98247ab4db686ee03c66d5feb3c761e52a2f8ab/vllm/model_executor/layers/quantization/gptq_marlin.py",
+      "error": "HTTP Error 404: Not Found",
+      "date": "2026-10-10",
+      "adoption": "访问失败，不证明网站失效；未作依据"
+    },
+    {
+      "name": "llmperf-client",
+      "url": "https://github.com/ray-project/llmperf/blob/f1d6bed47e4501b0e371082b41601b59ab55269f/src/llmperf/ray_clients/openai_chat_completions_client.py",
+      "path": "/tmp/study-infra-01-10-primary/llmperf-client.py",
+      "bytes": 4529,
+      "sha256": "7f7d9d227282f4679c9f0d9b8bc93d5c4a7e2a744e1cf9fedfa1cae401a0881f",
+      "adoption": "相关函数选读，未执行APIbenchmark"
+    },
+    {
+      "name": "llmperf-benchmark",
+      "url": "https://github.com/ray-project/llmperf/blob/f1d6bed47e4501b0e371082b41601b59ab55269f/token_benchmark_ray.py",
+      "path": "/tmp/study-infra-01-10-primary/llmperf-benchmark.py",
+      "bytes": 18540,
+      "sha256": "f7fb3c8cbb7018add4b209f047a3925d145c5bc7d8defb8b73e3744a805f722f",
+      "adoption": "相关函数选读，未执行APIbenchmark"
+    }
+  ],
+  "primary_commits": {
+    "vllm": "a98247ab4db686ee03c66d5feb3c761e52a2f8ab",
+    "TRT-LLM": "fcc4432bef2a729ae6de0d29fdd89b7d15c87794",
+    "SGLang": "d8c5eca3ac76456e923e76f55dd74bddc0e67404",
+    "LLMPerf": "f1d6bed47e4501b0e371082b41601b59ab55269f"
+  },
+  "primary_pdf_versions": {
+    "EAGLE3": "2503.01840v3",
+    "spec": "2211.17192v2"
+  },
+  "source_runs": 0,
+  "empty_count": 10,
+  "file_count": 60,
+  "planned_existing_files": [
+    "LLM 工程实践/11-AI推理与ML系统设计.md",
+    "LLM 工程实践/14-Transformer推理与规模设计.md",
+    "LLM 工程实践/15-训练资源与数值量化实现.md",
+    "LLM 工程实践/09-跨硬件部署.md"
+  ],
+  "writing_checkpoint": "/tmp/study-infra-01-10-writing.json"
+}
