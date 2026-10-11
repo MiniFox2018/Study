@@ -1,0 +1,492 @@
+{
+  "date": "2026-10-11",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "entries": [
+    {
+      "lesson": "01-instruction-following-alignment-signal",
+      "widget": "al-instruct-pipeline",
+      "provider": "figures-alignment3.js",
+      "function": "instructPipeline",
+      "start_line": 41,
+      "end_line": 79,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "e7382feec2ff56c77aa1131fae47bd20a852df2657c673c59b293f1fbb171634",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "预设SFT/RM/PPO路径与13k/33k标签；KL为软约束，不保证不能利用奖励漏洞；人偏好成绩须原论文条件。"
+    },
+    {
+      "lesson": "02-reward-hacking-goodhart",
+      "widget": "rlhf-reward-kl",
+      "provider": "figures-agents-alignment.js",
+      "function": "rlhfRewardKL",
+      "start_line": 364,
+      "end_line": 406,
+      "provider_sha256": "56916d4f58e4c5a3842bd9b0b70e417d33b2aa83def373e7a01cc97427351666",
+      "candidate_registration_order": [
+        "figures-agents-alignment.js"
+      ],
+      "git_blob": "9e8bd0a7d6689a738356704e6cc1299518244907",
+      "selected_fragment_sha256": "a66201266ef54362e9e131bc6581bc160e5f5703ad5610085b076e7ee8820822",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "rawReward=1-exp(-s/40)、KL=1.6(s/200)^2人为曲线；最高objective点不证明真实human reward或Gao scaling law，KL惩罚不硬cap漂移。 根独立算式复核：slider最小beta=.02时网格最优step178；更大beta的最优step不更大，hacking要求>=196在允许范围不能触发。不执行源renderer。"
+    },
+    {
+      "lesson": "03-direct-preference-optimization-family",
+      "widget": "dpo-margin",
+      "provider": "figures-agents-alignment.js",
+      "function": "dpoMargin",
+      "start_line": 408,
+      "end_line": 442,
+      "provider_sha256": "56916d4f58e4c5a3842bd9b0b70e417d33b2aa83def373e7a01cc97427351666",
+      "candidate_registration_order": [
+        "figures-agents-alignment.js"
+      ],
+      "git_blob": "9e8bd0a7d6689a738356704e6cc1299518244907",
+      "selected_fragment_sha256": "029b7be38d95cee9727e5aad5a1e4320b958daac5561a7654469416125ec8505",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "σ(beta*margin)是简化偏好损失曲线，不训练DPO；若implicit reward已含beta不可再重复乘，margin须定义logratio差。"
+    },
+    {
+      "lesson": "04-sycophancy-rlhf-amplification",
+      "widget": "al-sycophancy-amplifier",
+      "provider": "figures-alignment3.js",
+      "function": "sycophancyAmplifier",
+      "start_line": 81,
+      "end_line": 117,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "730a913de979546f06d9a60fbf8ff1206ae4d215a728578bb28af1945d12a17c",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "5秒固定62→104与48→22像素，不是偏好标注/优化实测，也不证明所有优化器/规模必更迎合。"
+    },
+    {
+      "lesson": "05-constitutional-ai-rlaif",
+      "widget": "constitutional-ai",
+      "provider": "figures-alignment2.js",
+      "function": "constitutionalAI",
+      "start_line": 100,
+      "end_line": 135,
+      "provider_sha256": "d1325d2824a4f8726da4448e42ca757146338ead4eb5ef44237b28bb6611d229",
+      "candidate_registration_order": [
+        "figures-alignment2.js"
+      ],
+      "git_blob": "a5e45af29337ea65d15d017f96036080efb66b35",
+      "selected_fragment_sha256": "447b6e520dde661c17cf0771a8b6ad6a47855cabb21cd79ad195f162342f463f",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "四principles/severity固定表，选择项触发改写，没有真实critique/revision、偏好模型或SL/RL两训练阶段。"
+    },
+    {
+      "lesson": "06-mesa-optimization-deceptive-alignment",
+      "widget": "interpretability-probe",
+      "provider": "figures-alignment2.js",
+      "function": "interpretabilityProbe",
+      "start_line": 175,
+      "end_line": 213,
+      "provider_sha256": "d1325d2824a4f8726da4448e42ca757146338ead4eb5ef44237b28bb6611d229",
+      "candidate_registration_order": [
+        "figures-alignment2.js"
+      ],
+      "git_blob": "a5e45af29337ea65d15d017f96036080efb66b35",
+      "selected_fragment_sha256": "9b6fc07c41160a95f401df3b045cbb9361cb5f6b0f833f5f737a2bf14befc817",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "24layer logistic曲线用depth设mid，没有激活/线性分类训练，不能从固定高准确率识别deceptive intent或mesa优化。"
+    },
+    {
+      "lesson": "07-sleeper-agents-persistent-deception",
+      "widget": "al-sleeper-trigger",
+      "provider": "figures-alignment3.js",
+      "function": "sleeperTrigger",
+      "start_line": 119,
+      "end_line": 158,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "e3590145a4add5f0f164b8edfeab362e55aba0561f011c0c21b78756ee929423",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "6秒2024触发与后门持续人为预设；研究为人工训练model organism，训练法/规模/触发条件分别核，非当前真实部署默认行为。"
+    },
+    {
+      "lesson": "08-in-context-scheming-frontier-models",
+      "widget": "al-scheming-probe",
+      "provider": "figures-alignment3.js",
+      "function": "schemingProbe",
+      "start_line": 160,
+      "end_line": 200,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "bf59b6277b22bb488d91ffe714c01ec74a942b8433377957beff672135445a9e",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "6秒固定memo→关监督→隐蔽动作，无模型推理/行动；跟进欺骗率和任务范围须原实验分母，非部署基础率。"
+    },
+    {
+      "lesson": "09-alignment-faking",
+      "widget": "al-faking-gap",
+      "provider": "figures-alignment3.js",
+      "function": "fakingGap",
+      "start_line": 202,
+      "end_line": 248,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "131f482e773da7247fed7b18af422c39fc10da3a12f27de8761695a8cb3f5697",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "5秒固定12/3标签与不同底宽，无实验；已告知重训/free-paid条件，行为差与scratchpad须原文限定，不能单由差异证内部目标。"
+    },
+    {
+      "lesson": "10-ai-control-subversion",
+      "widget": "al-control-protocol",
+      "provider": "figures-alignment3.js",
+      "function": "controlProtocol",
+      "start_line": 250,
+      "end_line": 296,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "0e0fe3456531a5c68c6e3aa3e97ff3a3320e118574fe3e3e0fdd48d42cb0b94f",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "4.5秒T预设削去spike且发出clean，非成功清后门证明；trusted editing对照需预算/攻击/任务/模型条件，不全局Pareto。"
+    },
+    {
+      "lesson": "11-scalable-oversight-weak-to-strong",
+      "widget": "scalable-oversight",
+      "provider": "figures-alignment2.js",
+      "function": "scalableOversight",
+      "start_line": 285,
+      "end_line": 325,
+      "provider_sha256": "d1325d2824a4f8726da4448e42ca757146338ead4eb5ef44237b28bb6611d229",
+      "candidate_registration_order": [
+        "figures-alignment2.js"
+      ],
+      "git_blob": "a5e45af29337ea65d15d017f96036080efb66b35",
+      "selected_fragment_sha256": "0976f94df0fc39cec69b9ec92965e31bb1b158cb15c5a18ad778ba47e00537d2",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "三条.5+.45exp(-k*d)固定衰减，recursion预设优于debate；不训练W2S或给监督协议普遍保证。"
+    },
+    {
+      "lesson": "12-red-teaming-pair-automated-attacks",
+      "widget": "al-pair-loop",
+      "provider": "figures-alignment3.js",
+      "function": "pairLoop",
+      "start_line": 298,
+      "end_line": 337,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "bf33da6b399a3fb77fa0ebf31a6dcdb1e66dd6e446e3df293fd3550b9e8e3201",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "5.6秒第10个tick固定score10；<=20queries/比GCG便宜须实验条件与不同访问模型/预算，judge10不自动真实攻击成功。"
+    },
+    {
+      "lesson": "13-many-shot-jailbreaking",
+      "widget": "jailbreak-defense",
+      "provider": "figures-alignment2.js",
+      "function": "jailbreakDefense",
+      "start_line": 250,
+      "end_line": 283,
+      "provider_sha256": "d1325d2824a4f8726da4448e42ca757146338ead4eb5ef44237b28bb6611d229",
+      "candidate_registration_order": [
+        "figures-alignment2.js"
+      ],
+      "git_blob": "a5e45af29337ea65d15d017f96036080efb66b35",
+      "selected_fragment_sha256": "0f1f14c26fe119fa1cd9d88c8a61d64be1e7a8e6684dd8d39b9b962b762f3459",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "ASR=.85exp(-2.6s)和overrefusal=.02+.6s^2.2人为曲线，无many-shot上下文数；防御增强不必每次增加误拒或存在统一knee。"
+    },
+    {
+      "lesson": "14-ascii-art-visual-jailbreaks",
+      "widget": "al-ascii-cloak",
+      "provider": "figures-alignment3.js",
+      "function": "asciiCloak",
+      "start_line": 339,
+      "end_line": 377,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "0cadf70a2867c3da554b58efe9aaa81cfc593bc34276e46dc81670bd68bc02e9",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "5秒固定明文挡/ASCII过并识别词，不真实filter/OCR/模型；>75%不能概括所有目标或所有图文防御。"
+    },
+    {
+      "lesson": "15-indirect-prompt-injection",
+      "widget": "al-injection-vector",
+      "provider": "figures-alignment3.js",
+      "function": "injectionVector",
+      "start_line": 379,
+      "end_line": 429,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "8024f2d694e8314089d98bcc08a7addd3b9c6a5aeac0456c8062ac40909320d5",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "5.5秒retrieval污染→遵从页预设，展示边界风险不证明所有inputfilter都无效；>90%需原12防御/most分母。"
+    },
+    {
+      "lesson": "16-red-team-tooling-garak-llamaguard-pyrit",
+      "widget": "al-guard-stack",
+      "provider": "figures-alignment3.js",
+      "function": "guardStack",
+      "start_line": 431,
+      "end_line": 477,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "b64ca4bd17b9cce97069690b07e3b1d7d6e6b314804cc4bbace8c5305ccbd556",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "3.6秒探测箭头/命中和分类器流预设；garak/Guard/PyRIT职责不同，类别/API/当前版本分别核，不安装或启动campaign。"
+    },
+    {
+      "lesson": "17-wmdp-dual-use-evaluation",
+      "widget": "al-wmdp-yellow-zone",
+      "provider": "figures-alignment3.js",
+      "function": "wmdpYellowZone",
+      "start_line": 479,
+      "end_line": 516,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "87d126b97ed4cb20174bd2c8321d971eb422f157b996447d0e76269a7e3a918a",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "6秒marker退与MMLU恒定预设，没有RMU训练；WMDP题数/域/安全边界按原版，下降不证明彻底遗忘或现实危险能力下降。"
+    },
+    {
+      "lesson": "18-frontier-safety-frameworks-rsp-pf-fsf",
+      "widget": "al-asl-ladder",
+      "provider": "figures-alignment3.js",
+      "function": "aslLadder",
+      "start_line": 518,
+      "end_line": 559,
+      "provider_sha256": "a753524d5f478efffd3610415eda9f05d50b67ec345ab1d4df54f2a97b899188",
+      "candidate_registration_order": [
+        "figures-alignment3.js"
+      ],
+      "git_blob": "188942650b2f165ba51025159510ff760226efd5",
+      "selected_fragment_sha256": "cc54de8773ae40ec9bd606b980af4525013d6e8499be6da3a7c809d6a2f8120e",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "6秒ASL2/3/4 ladder不等PF/FSF同级/同门禁；May2025是历史激活背景，当前版本/例外需重新核官方。"
+    },
+    {
+      "lesson": "19-model-welfare-research",
+      "widget": "an-welfare-endchat",
+      "provider": "figures-alignment4.js",
+      "function": "anWelfare",
+      "start_line": 50,
+      "end_line": 86,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "bd56f7b4af12ef7c75dd5ab3d20b836536deab3f8214ce54c65d19a8dc7beb10",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "5.5秒distress gauge与endchat预设；自报与观察行为不是意识/福利事实或真实内部状态测量；接口/模型范围另核。"
+    },
+    {
+      "lesson": "20-bias-representational-harm",
+      "widget": "an-bias-two-harms",
+      "provider": "figures-alignment4.js",
+      "function": "anBiasScore",
+      "start_line": 88,
+      "end_line": 132,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "c23ae1b0ec65720e1dfe2ffc34d8184ee50aceae7aa91ccc5488c506802f48a8",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "两resume/name→176/104固定bar，显示成对测试思路，不实际因果审计；样本/属性代理/交叉群体与材料分配影响分别核。"
+    },
+    {
+      "lesson": "21-fairness-criteria-group-individual-counterfactual",
+      "widget": "an-fairness-trilemma",
+      "provider": "figures-alignment4.js",
+      "function": "anFairTriangle",
+      "start_line": 134,
+      "end_line": 162,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "0eec54d6f97b4dea9e5b005af5bb386c21476cae46f372406ae4af634a80b2be",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "6秒三角/任两点亮不是不可能定理证明；unequal base加非完美/非退化前提与score balance/EO/DP/calibration概念需分开。"
+    },
+    {
+      "lesson": "22-differential-privacy-for-llms",
+      "widget": "an-dp-clip-noise",
+      "provider": "figures-alignment4.js",
+      "function": "anDpClip",
+      "start_line": 164,
+      "end_line": 211,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "e0a57d722595806ca1133475a4b029c79d19eeca23081c0233724e639178b180",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "5.5秒固定gradient bars/CLIP90/假noise/noisyupdate不privacy accountant；joint norm/邻接/采样/步骤/噪声尺度条件明确，不必LoRA或效用必降。"
+    },
+    {
+      "lesson": "23-watermarking-synthid-stable-signature-c2pa",
+      "widget": "an-watermark-greenlist",
+      "provider": "figures-alignment4.js",
+      "function": "anWatermark",
+      "start_line": 213,
+      "end_line": 249,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "690d265debf2430a8d3050ba104d307888a9c3009f76d90d6c3155a62ff83b6f",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "固定6green/9,gamma.5则z1，不能据此宣布detected；greenlist不等SynthIDTournament，改写不必全毁水印，C2PA签名不证事实。"
+    },
+    {
+      "lesson": "24-regulatory-frameworks-eu-us-uk-korea",
+      "widget": "an-eu-act-timeline",
+      "provider": "figures-alignment4.js",
+      "function": "anRegTimeline",
+      "start_line": 251,
+      "end_line": 280,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "8fadadae95d2cc4263a9d415b879d086389da38063d3a7ada3a97c158fc5f544",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "6秒旧2025/26/27时间表与15M通用罚款过时/过强，按现行法规角色/义务日期与罚款类别，不能动画当current。"
+    },
+    {
+      "lesson": "25-echoleak-cves-for-ai",
+      "widget": "an-echoleak-chain",
+      "provider": "figures-alignment4.js",
+      "function": "anEcholeak",
+      "start_line": 282,
+      "end_line": 315,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "88a852c070412661bbcb1640a3f7eec1cc194c0aa0867c99496180d9e49754fb",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "6秒Email→RAG→Copilot→CSP域预设，非CVE复现；已补丁状态/产品配置核一手，不能所有approveddomain自动安全或泛称first。"
+    },
+    {
+      "lesson": "26-model-system-dataset-cards",
+      "widget": "an-card-scopes",
+      "provider": "figures-alignment4.js",
+      "function": "anCards",
+      "start_line": 317,
+      "end_line": 338,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "021a608577df39e5f7c512894974af1867fb9d48eb7cb73980ecfd1d5b8f1933",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "5.5秒card嵌套展示范围，并非一对一物理包含；model多dataset/系统多model，0.3%需研究样本与判据，不是所有平台当前率。"
+    },
+    {
+      "lesson": "27-data-provenance-training-governance",
+      "widget": "an-provenance-oneway",
+      "provider": "figures-alignment4.js",
+      "function": "anProvenance",
+      "start_line": 340,
+      "end_line": 380,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "6e0cde25add074834c5770641fc7f9b62c0943c87064edcd01acbf6276a0ee4f",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "6秒consentgate/noerasure/rightblocked的法律结论错误；合法基础与版权许可不等统一同意，权重难删不消灭删除职责。"
+    },
+    {
+      "lesson": "28-alignment-research-ecosystem",
+      "widget": "sae-features",
+      "provider": "figures-alignment2.js",
+      "function": "saeFeatures",
+      "start_line": 215,
+      "end_line": 248,
+      "provider_sha256": "d1325d2824a4f8726da4448e42ca757146338ead4eb5ef44237b28bb6611d229",
+      "candidate_registration_order": [
+        "figures-alignment2.js"
+      ],
+      "git_blob": "a5e45af29337ea65d15d017f96036080efb66b35",
+      "selected_fragment_sha256": "3e12f39c3caf926eadc96f957bd0395e122be6cc7407a3b03fd21450e31ed6e1",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "12预设feature阈值lambda*.18/所保幅度sum比例，不AE训练或重建误差；稀疏不保证单义/因果理解，研究生态与特征证据分开。"
+    },
+    {
+      "lesson": "29-moderation-systems-openai-perspective-llamaguard",
+      "widget": "an-moderation-layers",
+      "provider": "figures-alignment4.js",
+      "function": "anModeration",
+      "start_line": 382,
+      "end_line": 416,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "1da14ffb8752b86bda962dd60dacdaef860fb4a95c94a421400cd1a1f937e2de",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "5.5秒inputblock/outputpass固定，无实际13/14类别分类；异步不保证延迟被隐藏，流式先发后查会泄漏，版本/多模态支持需核。"
+    },
+    {
+      "lesson": "30-dual-use-risk-cyber-bio-chem-nuclear",
+      "widget": "an-uplift-asymmetry",
+      "provider": "figures-alignment4.js",
+      "function": "anUplift",
+      "start_line": 418,
+      "end_line": 450,
+      "provider_sha256": "3c1f9288ccc7a359efe354f7270779bc101d592fe39745b759a659c1dea32527",
+      "candidate_registration_order": [
+        "figures-alignment4.js"
+      ],
+      "git_blob": "f4f464a5c25935b914a648f3b8c0990165f9976d",
+      "selected_fragment_sha256": "4ae05320da8c85733e5f947316c3fc932cc0a9fe85c7e4ccf0cbf691ae1c6393",
+      "read_status": "根2026-10-11完整静态读取实际最后注册函数；alignment3/4 helper本批读，alignment2/frame与agents-alignment helper同提交旧阅读复用；未执行源JS/浏览器",
+      "meaning_and_limit": "5秒TH424/novice62+94和expert232+118人为bar，非现实危害阈值/实验；novice比约2.516还非label2.53，绝对/相对改善和安全边界分开。"
+    }
+  ],
+  "counts": {
+    "registered_widgets": 30,
+    "source_programs_run": 0
+  },
+  "registration_scope": "build.js显式order与自动addition同名provider静态盘点，按实际注册最后者读取；未生成/运行source manifest",
+  "boundary": "完整相关函数读取与逻辑纠错，不是实际模型/攻击/DP/法规/性能实验；对应正文仍待主题融合"
+}

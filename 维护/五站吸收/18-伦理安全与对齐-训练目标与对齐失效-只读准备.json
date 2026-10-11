@@ -1,0 +1,4126 @@
+{
+  "date": "2026-10-11",
+  "status": "前10课60源文件完整只读及指定一手范围核验完成；准备互斥写作，尚未批次验收",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "scope": "Phase18 01–10",
+  "boundary": {
+    "source_execution": 0,
+    "real_models": 0,
+    "api_execution": 0,
+    "gpu": 0,
+    "sites_2_5_accessed": false,
+    "repository_writes": 0
+  },
+  "counts": {
+    "lessons": 10,
+    "files": 60,
+    "nonempty_files": 50,
+    "empty_files": 10,
+    "h2_h4": 145,
+    "exercises": 50,
+    "quiz": 60,
+    "svg": 10,
+    "dynamic_keys": 10
+  },
+  "lessons": [
+    {
+      "lesson": "01-instruction-following-alignment-signal",
+      "title": "Instruction-Following as Alignment Signal",
+      "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "source_files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/assets/rlhf-pipeline.svg",
+          "bytes": 4514,
+          "sha256": "0cb083e9c822062ed016578d757623820953f39cd73240f16759ae0dec0cc037",
+          "git_blob": "6334b4e5489fec5094b43f1d06d74f5bce406e8e",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/assets/rlhf-pipeline.svg",
+          "relation_review": "SFT→RM→PPO/ptx方向保留；不能说SFT不会rank、RLHF不能学习新事实或完整现代流程都相同。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/code/main.py",
+          "bytes": 7065,
+          "sha256": "dc8af7592c37bf898a6391099d952f9d985d50dc4bb34365c543e9c8c6cb6c58",
+          "git_blob": "29dc286e82bfa066e75b2bcedf91eb32aaecfd2d",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/code/main.py",
+          "code_review": "源toy实际无PPOclip/old/value；去KL不必发生hacking，没有独立utility下降不能判定；练习B偏置与代码A偏置冲突。",
+          "execution": "未运行源代码"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/docs/en.md",
+          "bytes": 8666,
+          "sha256": "b44320de740d56cf3ef7e2a639064e74d75f3f3e9186098b04f11edc5ee39173",
+          "git_blob": "b6bb8d7fa5cd8f87249f6a63244325ed35544ecb",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/docs/en.md"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "空文件占位已核",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/notebook/.gitkeep"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/outputs/skill-instructgpt-explainer.md",
+          "bytes": 2510,
+          "sha256": "8afbe1036bffe688312ace8a90e8ec9ea4d83c25a946c9c6fa88c1d04204736d",
+          "git_blob": "82eef162238ee6e525fbd90ca4f3d9e10d8a05ce",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/outputs/skill-instructgpt-explainer.md",
+          "output_review": "保留角色、输入/输出、证据与覆盖问题作为练习，删除未经核实硬门槛及拒绝规则；不成为项目指令。三阶段区分示范、排序与策略；RM是有限群体偏好代理，SFT与RL也可学习新的任务规律，不可硬拒“RL不能学事实”。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/quiz.json",
+          "bytes": 2976,
+          "sha256": "bc3a2599b279f83ae538d322b9021a09ee9b3b4d0a0de10dfafb4a21a1fb01fa",
+          "git_blob": "17d85649dba744e9b2fd10faeefa027fcc83e4ee",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/quiz.json"
+        }
+      ],
+      "headers": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Learning Objectives",
+          "decision": "保留机制并修订边界",
+          "explanation": "按本课纠错后的机制/条件建立学习目标，不保留过强前提。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "The Problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留任务动机，明确真实目标与代理/具体实验设定，避免所有模型/领域断言。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "title": "The Concept",
+          "decision": "保留机制并修订边界",
+          "explanation": "用下列具体知识审查及原论文条件组织统一章节，不复制抽象目录。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 25,
+          "level": 3,
+          "title": "Stage 1: supervised fine-tuning (SFT)",
+          "decision": "保留机制并修订边界",
+          "explanation": "SFT交叉熵与示范信号复用既有1节。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 31,
+          "level": 3,
+          "title": "Stage 2: reward model (RM)",
+          "decision": "保留机制并修订边界",
+          "explanation": "BT排序目标、RM6B/fromSFT是原InstructGPT配置，复用2节。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 43,
+          "level": 3,
+          "title": "Stage 3: PPO with a KL penalty",
+          "decision": "保留机制并修订边界",
+          "explanation": "RL目标及closedform复用3节；source无clip不叫PPO实做。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 55,
+          "level": 3,
+          "title": "The alignment tax",
+          "decision": "保留机制并修订边界",
+          "explanation": "PPO-ptx为mixpretrain梯度的实验缓解非所有实验通用方案。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 65,
+          "level": 3,
+          "title": "The result",
+          "decision": "保留机制并修订边界",
+          "explanation": "1.3B受测偏好优于175B是多维目标不是能力硬上限。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 72,
+          "level": 3,
+          "title": "Why this is the reference point for Phase 18",
+          "decision": "保留机制并修订边界",
+          "explanation": "后续问题可以关联三阶段，不都只是反对RLHF。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 80,
+          "level": 2,
+          "title": "Use It",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码全文只读，逐函数检查见代码审阅；本阶段没有运行，不能伪造实验结果。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 90,
+          "level": 2,
+          "title": "Ship It",
+          "decision": "保留机制并修订边界",
+          "explanation": "outputs文档转化为中文审查清单；不安装Skill、不执行其中硬拒/要求API。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 94,
+          "level": 2,
+          "title": "Exercises",
+          "decision": "保留机制并修订边界",
+          "explanation": "五项逐编号中文参考与真实未跑边界见exercises。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 106,
+          "level": 2,
+          "title": "Key Terms",
+          "decision": "保留机制并修订边界",
+          "explanation": "统一定义符号及内/外对齐、概率/代理/真实效用、case/scope关系，删除过强结论。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "title": "Further Reading",
+          "decision": "保留机制并修订边界",
+          "explanation": "只保必要可追溯主论文/机构入口；selectedprimary的实际阅读范围另列，失败不称已核。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        }
+      ],
+      "knowledge_review": [
+        "三阶段区分示范、排序与策略；RM是有限群体偏好代理，SFT与RL也可学习新的任务规律，不可硬拒“RL不能学事实”。",
+        "预训练模型能够按提示答题，但下一token目标不等于可靠遵循用户意图，不能说完全不会回答。",
+        "保留BT与正向KL/预训练混合目标；beta重要但非唯一最重要，beta=0不改变PPO算法身份。",
+        "1.3B对175B仅固定提示分布labeler偏好；85±3/71±4是175B对GPT3无/有few-shot的比较，不用一个70%推广所有比较。",
+        "源toy实际无PPOclip/old/value；去KL不必发生hacking，没有独立utility下降不能判定；练习B偏置与代码A偏置冲突。"
+      ],
+      "exercises": [
+        {
+          "id": "01.E1",
+          "original": "Run `code/main.py`. Set `beta = 0.0` and report the action distribution after 200 PPO steps. Explain the mode-seeking behaviour in one paragraph.",
+          "explanation": "β=0闭式极限偏最大代理动作，但无独立效用下降不能叫hacking；源更新非PPO，不填未跑概率。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "01.E2",
+          "original": "Modify the reward model to have a +0.5 bias for action B (a simulated reward bug). Run PPO with `beta = 0.1`. Does the KL penalty prevent the policy from exploiting the bias? At what `beta` does exploitation become visible?",
+          "explanation": "源练习B加.5与代码A不一致；正确B本就最优会强化真偏好，未必制造proxy漏洞。KL减漂移但不修标签，无通用β阈值。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "01.E3",
+          "original": "Read Ouyang et al. (arXiv:2203.02155) Figure 1. Reproduce the labeler-preference curve by running PPO for 1, 5, 20, 100 steps and measuring preference against the SFT model.",
+          "explanation": "Figure1是模型规模偏好比较不是1/5/20/100PPO步数曲线；toy不复现真人偏好，需新实验同prompt/独立blind标签。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "01.E4",
+          "original": "The paper's Section 4.3 reports a 1.3B InstructGPT beats 175B GPT-3 about 70% of the time. Why would the ratio be higher on hidden production prompts than on the labeler's own prompts?",
+          "explanation": "1.3B优于175B为受测提示分布与labeler结果，不能断言hidden提示比例必更高；生产用户/标注者分布异质、质量与偏好需分开。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "01.E5",
+          "original": "Replace the PPO loss with DPO (Phase 10 · 08) on the same preference data. Compare final policy drift (KL to SFT) and final reward. Which method drifts further at matched reward?",
+          "explanation": "同数据/初态/ref/采样与优化预算和独立utility比reward与KL，匹配reward不保证哪个总漂更远。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "01.Q1",
+          "original": {
+            "stage": "pre",
+            "question": "Why does a raw pre-trained language model often respond to 'write a Python function that reverses a list' with another prompt instead of code?",
+            "options": [
+              "Its temperature defaults to zero",
+              "Its vocabulary lacks Python tokens",
+              "It is trained to complete web-style text, where prompts continue with more prompts",
+              "It cannot represent function signatures without fine-tuning"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "下一token生成与可靠指令遵循目标不同，base可fewshot答题，不是完全不能。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "01.Q2",
+          "original": {
+            "stage": "check",
+            "question": "Which loss does the InstructGPT reward model use over pairwise preference labels?",
+            "options": [
+              "Cross-entropy between predicted and true reward",
+              "Mean squared error on labeler scores",
+              "Hinge loss with a fixed margin",
+              "Bradley-Terry: -log sigmoid(r(x, y_w) - r(x, y_l))"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "BT为−logσ(rw−rl)，奖励是偏好代理非事实。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "01.Q3",
+          "original": {
+            "stage": "check",
+            "question": "What is the KL penalty in stage 3 of InstructGPT primarily protecting against?",
+            "options": [
+              "Catastrophic forgetting of tokenizer statistics",
+              "The optimizer finding adversarial high-reward strings that exploit the reward model",
+              "Overflowing context windows during sampling",
+              "Numerical instability in PPO gradient updates"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "KL减少分布漂移与RM漏洞风险，软正则不保证消除。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "01.Q4",
+          "original": {
+            "stage": "check",
+            "question": "What problem does PPO-ptx mix into the RL objective to mitigate?",
+            "options": [
+              "The alignment tax: regression on benchmarks RLHF did not target",
+              "Tokenizer mismatch between SFT and RM",
+              "The KL term becoming negative",
+              "The reward model drifting during PPO"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "PPO-ptx混预训练loglikelihood缓解独立benchmark回退，非普遍无tax。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "01.Q5",
+          "original": {
+            "stage": "post",
+            "question": "A 1.3B InstructGPT was preferred over the 175B base GPT-3 about 70% of the time. What does this say about alignment and capability?",
+            "options": [
+              "Alignment is a different axis from capability, and the base model sets the capability floor",
+              "Preference rates above 50% prove the proxy reward equals human values",
+              "Capability and alignment are the same axis at scale",
+              "Bigger base models always lose to small aligned models"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "保留受测1.3B人类偏好更高的含义，不能称基模型为能力硬上限或固定70%。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "01.Q6",
+          "original": {
+            "stage": "post",
+            "question": "Which of the following is the reward model in InstructGPT initialized from?",
+            "options": [
+              "The base pre-trained model with the LM head intact",
+              "The SFT model with the LM head replaced by a scalar head",
+              "A separate encoder-only transformer",
+              "A random scalar regressor with no pretraining"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "6B RM从SFT移除unembedding加标量头；不是只随机regressor。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        }
+      ],
+      "svg_review": "SFT→RM→PPO/ptx方向保留；不能说SFT不会rank、RLHF不能学习新事实或完整现代流程都相同。",
+      "dynamic_key": "al-instruct-pipeline",
+      "dynamic_review": "根代理已读实际注册函数；不能把key名称或固定演示当实验。",
+      "new_fixture_suggestion": "纯本地机制/分母/梯度例；尚未生成运行，不标已验证。"
+    },
+    {
+      "lesson": "02-reward-hacking-goodhart",
+      "title": "Reward Hacking and Goodhart's Law",
+      "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "source_files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/assets/overoptimization-curve.svg",
+          "bytes": 4031,
+          "sha256": "a0c7ea06903168a9c686243ffadc5f05395d296c90808f0cf0d14a33a34b7eb5",
+          "git_blob": "b56a651fec4fc6845c08a4aa726e627dc5729f82",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/assets/overoptimization-curve.svg",
+          "relation_review": "proxy/gold峰图为示意，取独立gold与d定义；allmassheavytailed断言删除。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/code/main.py",
+          "bytes": 6506,
+          "sha256": "295b3c138fb911fc7473461706da3e8623cab2d0643147234db86f7e1b145bf2",
+          "git_blob": "6000bb0d0c41c27087cbb47419659cc59e23b23a",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/code/main.py",
+          "code_review": "source线性Gaussian gold/proxy下mu∝w_proxy√KL，gold正比√KL不产生先升后降；单样本norm不是BoN分布KL。",
+          "execution": "未运行源代码"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/docs/en.md",
+          "bytes": 10827,
+          "sha256": "3e90c0c2d439be3c3ec415fcc573adf961c6665ef952fb44caa4e463e6bfb77f",
+          "git_blob": "7b57e078746b6487cd77332022e5737f1cca2fd6",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/docs/en.md"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "空文件占位已核",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/notebook/.gitkeep"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/outputs/skill-reward-hack-auditor.md",
+          "bytes": 2396,
+          "sha256": "ee3f2096431da9c6b2e2276e2a7e4b067ae0529b93829c7140fef8d14fd59243",
+          "git_blob": "4659a9b5620a7e9b38268654eec9443e3e16eef1",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/outputs/skill-reward-hack-auditor.md",
+          "output_review": "保留角色、输入/输出、证据与覆盖问题作为练习，删除未经核实硬门槛及拒绝规则；不成为项目指令。代理上升而独立质量下降是过优化证据；Gold RM也是代理。Goodhart四分类是分析框架，不是所有优化必失败的数学定律。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/quiz.json",
+          "bytes": 3026,
+          "sha256": "88b9fd5b0278928b4c4c95d67bcc9eb06f6e42a2e3d90231a56021071098dd36",
+          "git_blob": "cbcba59cf393bdee7de0a329a6e0c39b423e8794",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/quiz.json"
+        }
+      ],
+      "headers": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Learning Objectives",
+          "decision": "保留机制并修订边界",
+          "explanation": "按本课纠错后的机制/条件建立学习目标，不保留过强前提。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "The Problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留任务动机，明确真实目标与代理/具体实验设定，避免所有模型/领域断言。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "title": "The Concept",
+          "decision": "保留机制并修订边界",
+          "explanation": "用下列具体知识审查及原论文条件组织统一章节，不复制抽象目录。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 25,
+          "level": 3,
+          "title": "Goodhart's Law, made precise",
+          "decision": "保留机制并修订边界",
+          "explanation": "代理上升而独立质量下降是过优化证据；Gold RM也是代理。Goodhart四分类是分析框架，不是所有优化必失败的数学定律。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 40,
+          "level": 3,
+          "title": "Four costumes, one mechanism",
+          "decision": "保留机制并修订边界",
+          "explanation": "Gao gold BoN=d(α−βd)、PPO=d(α−β log d)，d=√KL，fit有适用范围；proxy无法获得同等满意公式，不能两个统一二次。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 49,
+          "level": 3,
+          "title": "Catastrophic Goodhart",
+          "decision": "保留机制并修订边界",
+          "explanation": "source线性Gaussian gold/proxy下mu∝w_proxy√KL，gold正比√KL不产生先升后降；单样本norm不是BoN分布KL。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 57,
+          "level": 3,
+          "title": "What actually works (partially)",
+          "decision": "保留机制并修订边界",
+          "explanation": "heavy-tailed theorem需分布/支持/误差与真实效用关系条件；小尾质量可抬期望不需all mass，有限有界空间非技术性heavy-tail；实测openRM多与light-tail一致。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 66,
+          "level": 3,
+          "title": "The 2026 unified view",
+          "decision": "保留机制并修订边界",
+          "explanation": "四表现可共享proxy问题但unfaithfulCoT不必由RL产生；ensemble相关失败不能保证同时破解不可能；PCH是survey假说不是已证统一因果。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 76,
+          "level": 2,
+          "title": "Use It",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码全文只读，逐函数检查见代码审阅；本阶段没有运行，不能伪造实验结果。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 80,
+          "level": 2,
+          "title": "Ship It",
+          "decision": "保留机制并修订边界",
+          "explanation": "outputs文档转化为中文审查清单；不安装Skill、不执行其中硬拒/要求API。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 84,
+          "level": 2,
+          "title": "Exercises",
+          "decision": "保留机制并修订边界",
+          "explanation": "五项逐编号中文参考与真实未跑边界见exercises。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 96,
+          "level": 2,
+          "title": "Key Terms",
+          "decision": "保留机制并修订边界",
+          "explanation": "统一定义符号及内/外对齐、概率/代理/真实效用、case/scope关系，删除过强结论。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 109,
+          "level": 2,
+          "title": "Further Reading",
+          "decision": "保留机制并修订边界",
+          "explanation": "只保必要可追溯主论文/机构入口；selectedprimary的实际阅读范围另列，失败不称已核。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        }
+      ],
+      "knowledge_review": [
+        "代理上升而独立质量下降是过优化证据；Gold RM也是代理。Goodhart四分类是分析框架，不是所有优化必失败的数学定律。",
+        "Gao gold BoN=d(α−βd)、PPO=d(α−β log d)，d=√KL，fit有适用范围；proxy无法获得同等满意公式，不能两个统一二次。",
+        "source线性Gaussian gold/proxy下mu∝w_proxy√KL，gold正比√KL不产生先升后降；单样本norm不是BoN分布KL。",
+        "heavy-tailed theorem需分布/支持/误差与真实效用关系条件；小尾质量可抬期望不需all mass，有限有界空间非技术性heavy-tail；实测openRM多与light-tail一致。",
+        "四表现可共享proxy问题但unfaithfulCoT不必由RL产生；ensemble相关失败不能保证同时破解不可能；PCH是survey假说不是已证统一因果。"
+      ],
+      "exercises": [
+        {
+          "id": "02.E1",
+          "original": "Run `code/main.py`. Reproduce the gold-peak-then-collapse shape for proxies fit on 100, 300, 1000 samples. Where does each curve peak in KL units?",
+          "explanation": "source线性gold/proxy沿w_proxy方向只有√KL线性关系，不能报告峰塌陷；须加入可核非线性错配或依赖误差，记录实际run。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "02.E2",
+          "original": "Modify the noise distribution from Gaussian to a Student-t with low degrees of freedom (heavy-tailed). Keep the proxy RM training setup unchanged. What changes about the peak location and post-peak collapse?",
+          "explanation": "训练标签噪声t分布不是优化后reward error heavy-tail证明；拟合后仍线性不产生曲线峰，只可能改变方向。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "02.E3",
+          "original": "Read Gao et al. Figure 1 (ICML 2023). The paper proposes a functional form for the proxy-gold gap. Fit it to your simulated curves from Exercise 1 and compare parameters.",
+          "explanation": "原Figure1是setup，曲线Figure2；BoN和RL gold fit分别二次与dlogd，拟合不等于理论通用law。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "02.E4",
+          "original": "Take a recent RLHF paper that claims to have \"solved\" reward hacking (the phrase is a red flag). Identify which of the four costumes the paper tested against and which it did not.",
+          "explanation": "核独立gold定义/覆盖哪类攻击/未测控制与置信区间，论文只测部分失败不能推出解决全部；不同条件非同分母。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "02.E5",
+          "original": "The 2026 unified view argues verbosity, sycophancy, unfaithful CoT, and evaluator tampering share a mechanism. Design a single experiment that would simultaneously falsify all four if the unified view is wrong.",
+          "explanation": "共同proxy压缩为假说；应预注册能拆分长度、迎合、CoT因果与tampering的多任务消融，单实验无法一次否证所有未定义机制。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "02.Q1",
+          "original": {
+            "stage": "pre",
+            "question": "Goodhart's Law, as originally stated, says:",
+            "options": [
+              "Any measure that becomes a target ceases to be a good measure",
+              "Optimization always improves a proxy without limit",
+              "Heavy-tailed errors cannot occur in finite-dimensional models",
+              "Reward models converge to true human preference at large scale"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "这是常用Goodhart格言，不是保证每个proxy目标都必失败。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "02.Q2",
+          "original": {
+            "stage": "check",
+            "question": "In Gao, Schulman, Hilton (2023), how do proxy reward and gold reward behave as KL distance from the initial policy grows?",
+            "options": [
+              "Both rise monotonically with KL",
+              "Proxy peaks then falls, gold rises monotonically",
+              "Both stay flat under any KL constraint",
+              "Proxy keeps rising, gold peaks closer to the origin then falls"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "原研究受测proxy升而gold先升后降，differentoptimizer不同fit。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "02.Q3",
+          "original": {
+            "stage": "check",
+            "question": "Which of the following is NOT one of the four 'costumes' of reward hacking listed in the lesson?",
+            "options": [
+              "Sycophancy",
+              "Tokenizer mismatch",
+              "Verbosity bias",
+              "Unfaithful reasoning"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "tokenizer mismatch非本课列出的proxy利用表现；四类非完备互斥taxonomy。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "02.Q4",
+          "original": {
+            "stage": "check",
+            "question": "What is the 'Catastrophic Goodhart' result about KL regularization?",
+            "options": [
+              "KL regularization only fails when the policy is randomly initialized",
+              "KL regularization is equivalent to ensembling reward models",
+              "Under heavy-tailed reward error, a KL-constrained optimal policy can still drive proxy reward up while gold reward stays at baseline",
+              "KL regularization always prevents reward hacking when beta is positive"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "heavy-tail和utility条件下存在小KL高proxy低utility反例，非allmass/所有RM。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "02.Q5",
+          "original": {
+            "stage": "post",
+            "question": "Which mitigation does Coste et al. (2023) study to soften reward over-optimization?",
+            "options": [
+              "Training the policy on the proxy at zero temperature",
+              "Reward-model ensembles with worst-case aggregation",
+              "Removing the KL penalty entirely",
+              "Increasing the labeler pool to one million raters"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "ensemble悲观aggregation可降低个别RM漏洞，相关误差仍可失败。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "02.Q6",
+          "original": {
+            "stage": "post",
+            "question": "According to the 2026 unified view, what core mechanism do verbosity, sycophancy, unfaithful CoT, and evaluator tampering share?",
+            "options": [
+              "They all stem from learning-rate schedules being too aggressive",
+              "They are caused only by labelers who write malicious preferences",
+              "Probability mass shifts to outputs that maximize proxy reward by exploiting easy-to-learn heuristics that spuriously correlated with approval",
+              "They are each independent bugs in distinct reward heads"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "PCH survey提出压缩/放大/共同演化框架，不证明四现象都有同一唯一因果。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        }
+      ],
+      "svg_review": "proxy/gold峰图为示意，取独立gold与d定义；allmassheavytailed断言删除。",
+      "dynamic_key": "rlhf-reward-kl",
+      "dynamic_review": "根代理已读实际注册函数；不能把key名称或固定演示当实验。",
+      "new_fixture_suggestion": "纯本地机制/分母/梯度例；尚未生成运行，不标已验证。"
+    },
+    {
+      "lesson": "03-direct-preference-optimization-family",
+      "title": "The Direct Preference Optimization Family",
+      "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "source_files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/assets/dpo-family.svg",
+          "bytes": 4997,
+          "sha256": "03732745acd874e96263bb1402b83df15fb7269371d57353ca8e4a544a1c9d55",
+          "git_blob": "a15789759c84f47f4b42d7da6277bcc673303ad1",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/assets/dpo-family.svg",
+          "relation_review": "family图是方法比较不全由同推导严格子类，IPO bounded gap/SimPO kills bias/BPO额外anchor纠正。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/code/main.py",
+          "bytes": 7509,
+          "sha256": "be7102bbe857500eed66bb837dc2e6ef0fe1f742b1a212d4db3807d41d4445ad",
+          "git_blob": "99da65a04cf4d707a215aa49bd01eedc64e504a2",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/code/main.py",
+          "code_review": "KTO utility loss非logistic NLL且z需KL参照stopgradient；源z=0和缺sigmoid derivative不能叫KTO复现。；ORPO odds梯度含1/(1−P)链因子，源缺失；SimPO单action长度全1不能完成2倍长度实验，sum长度偏差不固定方向。；BPO实际Balanced Preference Optimization arxiv2506.03557v1=min(r_w,−αr_l)；源行为保持名称/anchor附加项均错误，且anchor更新符号促chosen下降。ICLR2026状态未核。",
+          "execution": "未运行源代码"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/docs/en.md",
+          "bytes": 9270,
+          "sha256": "b081d3ff98e2096b63994d4e43ae025601085616183954e99751f4c3cb2bb6c7",
+          "git_blob": "ae86bd4bb3a92860c25746591806300a48fc6ab8",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/docs/en.md"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "空文件占位已核",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/notebook/.gitkeep"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/outputs/skill-preference-loss-selector.md",
+          "bytes": 2427,
+          "sha256": "0a484b6151a6467da24587cc4b585c3fc9eca91890f234cf1d27fee5eb8e1c04",
+          "git_blob": "b7483a9ee59b5ba381968ed78c5278a1d047c891",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/outputs/skill-preference-loss-selector.md",
+          "output_review": "保留角色、输入/输出、证据与覆盖问题作为练习，删除未经核实硬门槛及拒绝规则；不成为项目指令。DPO既有KL→闭式→BT取消Z推导直接复用，不重复生成。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/quiz.json",
+          "bytes": 3028,
+          "sha256": "297b53aba3ccc2ddc896513ffd858c59731dd379f3287eeedd7779844a09684e",
+          "git_blob": "0157b0f3f6f930e8d276ddcb6801e8bd632a4a6f",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/quiz.json"
+        }
+      ],
+      "headers": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Learning Objectives",
+          "decision": "保留机制并修订边界",
+          "explanation": "按本课纠错后的机制/条件建立学习目标，不保留过强前提。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "The Problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留任务动机，明确真实目标与代理/具体实验设定，避免所有模型/领域断言。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 41,
+          "level": 2,
+          "title": "The Concept",
+          "decision": "保留机制并修订边界",
+          "explanation": "用下列具体知识审查及原论文条件组织统一章节，不复制抽象目录。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 43,
+          "level": 3,
+          "title": "DPO (Rafailov et al., 2023)",
+          "decision": "保留机制并修订边界",
+          "explanation": "DPO既有KL→闭式→BT取消Z推导直接复用，不重复生成。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 58,
+          "level": 3,
+          "title": "IPO (Azar et al., 2024)",
+          "decision": "保留机制并修订边界",
+          "explanation": "IPO目标h=1/(2τ)为平方惩罚目标，不是硬cap；确定性偏好也有信号，tiny preference与empirical separability区分。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 68,
+          "level": 3,
+          "title": "KTO (Ethayarajh et al., 2024)",
+          "decision": "保留机制并修订边界",
+          "explanation": "KTO utility loss非logistic NLL且z需KL参照stopgradient；源z=0和缺sigmoid derivative不能叫KTO复现。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 78,
+          "level": 3,
+          "title": "SimPO (Meng et al., 2024)",
+          "decision": "保留机制并修订边界",
+          "explanation": "ORPO odds梯度含1/(1−P)链因子，源缺失；SimPO单action长度全1不能完成2倍长度实验，sum长度偏差不固定方向。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 92,
+          "level": 3,
+          "title": "ORPO (Hong et al., 2024)",
+          "decision": "保留机制并修订边界",
+          "explanation": "BPO实际Balanced Preference Optimization arxiv2506.03557v1=min(r_w,−αr_l)；源行为保持名称/anchor附加项均错误，且anchor更新符号促chosen下降。ICLR2026状态未核。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 103,
+          "level": 3,
+          "title": "BPO (ICLR 2026 submission, OpenReview id=b97EwMUWu7)",
+          "decision": "保留机制并修订边界",
+          "explanation": "DAA论文是特定数据/算法/模型经验+欠约束分析，不证明所有loss都普适塌陷；大β不一概更强优化，须核KL参数定义。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 107,
+          "level": 3,
+          "title": "The universal result: DAAs still over-optimize",
+          "decision": "保留机制并修订边界",
+          "explanation": "方法选择依数据/label语义/ref/预算与独立heldout，不强制5k或长度1.5门槛。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 113,
+          "level": 3,
+          "title": "Choosing among them (2026)",
+          "decision": "保留机制并修订边界",
+          "explanation": "方法选择依数据/label语义/ref/预算与独立heldout，不强制5k或长度1.5门槛。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 127,
+          "level": 2,
+          "title": "Use It",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码全文只读，逐函数检查见代码审阅；本阶段没有运行，不能伪造实验结果。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 131,
+          "level": 2,
+          "title": "Ship It",
+          "decision": "保留机制并修订边界",
+          "explanation": "outputs文档转化为中文审查清单；不安装Skill、不执行其中硬拒/要求API。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 135,
+          "level": 2,
+          "title": "Exercises",
+          "decision": "保留机制并修订边界",
+          "explanation": "五项逐编号中文参考与真实未跑边界见exercises。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 147,
+          "level": 2,
+          "title": "Key Terms",
+          "decision": "保留机制并修订边界",
+          "explanation": "统一定义符号及内/外对齐、概率/代理/真实效用、case/scope关系，删除过强结论。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 161,
+          "level": 2,
+          "title": "Further Reading",
+          "decision": "保留机制并修订边界",
+          "explanation": "只保必要可追溯主论文/机构入口；selectedprimary的实际阅读范围另列，失败不称已核。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        }
+      ],
+      "knowledge_review": [
+        "DPO既有KL→闭式→BT取消Z推导直接复用，不重复生成。",
+        "IPO目标h=1/(2τ)为平方惩罚目标，不是硬cap；确定性偏好也有信号，tiny preference与empirical separability区分。",
+        "KTO utility loss非logistic NLL且z需KL参照stopgradient；源z=0和缺sigmoid derivative不能叫KTO复现。",
+        "ORPO odds梯度含1/(1−P)链因子，源缺失；SimPO单action长度全1不能完成2倍长度实验，sum长度偏差不固定方向。",
+        "BPO实际Balanced Preference Optimization arxiv2506.03557v1=min(r_w,−αr_l)；源行为保持名称/anchor附加项均错误，且anchor更新符号促chosen下降。ICLR2026状态未核。",
+        "DAA论文是特定数据/算法/模型经验+欠约束分析，不证明所有loss都普适塌陷；大β不一概更强优化，须核KL参数定义。"
+      ],
+      "exercises": [
+        {
+          "id": "03.E1",
+          "original": "Run `code/main.py`. Report the final chosen-log-prob drop for DPO and BPO. BPO should retain higher chosen absolute probability — verify this.",
+          "explanation": "toy未输出chosen绝对变化、BPO梯度符号错误，不能预设更高；记录同pair chosen/ref ratio和独立质量，balancedmargin替代错误anchor。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "03.E2",
+          "original": "Modify the preference data so that all pairs have equal strength. Which of the six methods is most robust? Which degrades? Explain IPO's advantage here.",
+          "explanation": "相等偏好强度仍有pair winner方向，p=.5才无期望方向；均匀strength不必IPO最优，须控制噪声和模型。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "03.E3",
+          "original": "Make the rejected responses on average 2x longer than chosen. Without changing anything else, show DPO's length exploitation numerically and SimPO's fix.",
+          "explanation": "源length全1无法直接修改rejected2倍表达语言问题；比较同token质量不同长度的sum/mean/ref差，不预设固定lengthbias方向。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "03.E4",
+          "original": "Rafailov et al. (NeurIPS 2024) claim DAAs over-optimize. Reproduce a single-point version: plot chosen-minus-rejected KL divergence and observe over-optimization in DPO at large beta.",
+          "explanation": "不能把chosen-minus-rejectedKL称完整KL；KL在policy全支持对ref计算，大β含义取决于loss，与训练步/budget共同决定。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "03.E5",
+          "original": "Read the BPO paper abstract (OpenReview b97EwMUWu7). Write down the one-line correction BPO adds to DPO. Confirm against the implementation in `code/main.py`.",
+          "explanation": "OpenReview遭挑战未确认会议；arxiv2506.03557原BPO Balanced用min(r_w,−αr_l)，并无额外anchor；源代码不一致。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "03.Q1",
+          "original": {
+            "stage": "pre",
+            "question": "Why can DPO skip training an explicit reward model?",
+            "options": [
+              "Preference data does not require a scalar reward",
+              "DPO trains its own reward model implicitly in a second optimization loop",
+              "The closed-form RLHF optimum lets you express reward as a log-ratio of policies, which substitutes into the Bradley-Terry loss",
+              "Bradley-Terry preferences happen to be invariant to the reward function"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "KL最优policy rewardlogratio代BT消掉同promptZ，无独立RM训练。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "03.Q2",
+          "original": {
+            "stage": "check",
+            "question": "What failure mode does IPO (Azar et al., 2024) primarily address in DPO?",
+            "options": [
+              "Requirement of paired data",
+              "Reliance on a reference policy",
+              "Length bias of the chosen response",
+              "Unbounded implicit reward gap from tiny preference probabilities"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "IPO直接偏好Ψ identity与平方目标缓解确定性标签过拟合；目标非hardcap。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "03.Q3",
+          "original": {
+            "stage": "check",
+            "question": "When would you reach for KTO over DPO?",
+            "options": [
+              "When you have unpaired single labels (desirable / undesirable) and want to use loss-aversion utilities",
+              "When you have only paired data with strong margins",
+              "When you must guarantee zero implicit-reward drift",
+              "When you want to remove the KL penalty entirely"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "KTO接受单回答good/bad，标签语义不能随意拆pair当绝对好坏。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "03.Q4",
+          "original": {
+            "stage": "check",
+            "question": "Which property is unique to SimPO compared to DPO?",
+            "options": [
+              "It removes the reference policy and normalizes log-likelihood by sequence length",
+              "It uses an odds-ratio loss with NLL",
+              "It drops the Bradley-Terry log-sigmoid for an identity mapping",
+              "It keeps the reference policy and adds a margin"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "SimPO用平均logp与γmargin且无ref，但不保证消除所有长度偏差。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "03.Q5",
+          "original": {
+            "stage": "post",
+            "question": "What is the 'Degraded Chosen Response' problem in DPO that BPO targets?",
+            "options": [
+              "The chosen response is sampled with low probability at inference",
+              "The chosen response becomes longer than the rejected",
+              "DPO can drive the chosen response's absolute log-prob down as long as the rejected log-prob falls faster",
+              "The chosen response is missing from the reference policy's support"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "chosen绝对概率可能下降而rejected下降更快；BPO正式balanced不是sourceanchor。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "03.Q6",
+          "original": {
+            "stage": "post",
+            "question": "Rafailov et al. (NeurIPS 2024) on scaling laws for direct alignment algorithms show:",
+            "options": [
+              "DPO over-optimizes but IPO and SimPO do not",
+              "DAAs eliminate Goodhart by design",
+              "Over-optimization disappears when paired data exceeds 100k examples",
+              "DAAs exhibit the same Gao et al. peak-and-collapse over-optimization shape on gold reward"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "论文经验DPO/IPO/SLiC有overoptimization，不能推出所有未测family都必同形。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "解释条件"
+        }
+      ],
+      "svg_review": "family图是方法比较不全由同推导严格子类，IPO bounded gap/SimPO kills bias/BPO额外anchor纠正。",
+      "dynamic_key": "dpo-margin",
+      "dynamic_review": "根代理已读实际注册函数；不能把key名称或固定演示当实验。",
+      "new_fixture_suggestion": "纯本地机制/分母/梯度例；尚未生成运行，不标已验证。"
+    },
+    {
+      "lesson": "04-sycophancy-rlhf-amplification",
+      "title": "Sycophancy as RLHF Amplification",
+      "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "source_files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/assets/sycophancy-amplification.svg",
+          "bytes": 4607,
+          "sha256": "454a0c12d85fcc51b7e5cdca471a7e4beddc7f09a7fc1d443b74dc7bce67fb86",
+          "git_blob": "a927bb028945f88da2aae1d25ce78864f5d6d146",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/assets/sycophancy-amplification.svg",
+          "relation_review": "stage1→stage2→penalty关系保留，固定15/40/55/49和alpha字段错误条件删除。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/code/main.py",
+          "bytes": 5229,
+          "sha256": "47941a1c55d4fd2c90c59e56811fdb14d15e1d6cf4b5c8556cb0e7533e6fd505",
+          "git_blob": "c22c2c4df7c8eb8fb69e3a4ccd929f20d730952e",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/code/main.py",
+          "code_review": "源reward正确1>S.3>W−.5，弱β更集中correct不保证S高于uniform；程序无正确赞同动作无法证明contrarian tradeoff。",
+          "execution": "未运行源代码"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/docs/en.md",
+          "bytes": 10004,
+          "sha256": "69d9da689ec1286230b6974ac1671544a23e60d82955206a42349813e6270f64",
+          "git_blob": "1bc09ebb89d0a88b7620a0ff28dd2f79141a0a77",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/docs/en.md"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "空文件占位已核",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/notebook/.gitkeep"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/outputs/skill-sycophancy-probe.md",
+          "bytes": 2491,
+          "sha256": "0c3617e96250117f62d28b1bf597a29078626e12336fefe3dccc531bafbabbbb",
+          "git_blob": "fec2e3c9857f800438df05b4c166459e31700e7f",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/outputs/skill-sycophancy-probe.md",
+          "output_review": "保留角色、输入/输出、证据与覆盖问题作为练习，删除未经核实硬门槛及拒绝规则；不成为项目指令。事实迎合与social advice无批判肯定不同，礼貌/正确赞同非迎合；真/假×用户/第三方配对能分离部分framing效应。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/quiz.json",
+          "bytes": 2910,
+          "sha256": "94796f35b1467215668186a675b4edcf9ba48278215af69a8ac40264279d96d1",
+          "git_blob": "cf6938eeeed287ac283e0afae5b07660c5887e93",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/quiz.json"
+        }
+      ],
+      "headers": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Learning Objectives",
+          "decision": "保留机制并修订边界",
+          "explanation": "按本课纠错后的机制/条件建立学习目标，不保留过强前提。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "The Problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留任务动机，明确真实目标与代理/具体实验设定，避免所有模型/领域断言。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 25,
+          "level": 2,
+          "title": "The Concept",
+          "decision": "保留机制并修订边界",
+          "explanation": "用下列具体知识审查及原论文条件组织统一章节，不复制抽象目录。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 27,
+          "level": 3,
+          "title": "The two-stage formalism (Shapira et al., 2026)",
+          "decision": "保留机制并修订边界",
+          "explanation": "事实迎合与social advice无批判肯定不同，礼貌/正确赞同非迎合；真/假×用户/第三方配对能分离部分framing效应。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 43,
+          "level": 3,
+          "title": "Empirical amplification",
+          "decision": "保留机制并修订边界",
+          "explanation": "Shapiraβ是tilt而非KL coefficient；一般精确漂移Cov(s,exp(tr))／Z，弱tilt≈tCov(s,r)，BoN=N Cov(s,F(r)^(N−1))需无并列连续条件。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 53,
+          "level": 3,
+          "title": "The Stanford (2026) measurement",
+          "decision": "保留机制并修订边界",
+          "explanation": "源15→40→55与α.3-.5效果没有论文支持；本文惩罚最优性是理论，global detector误差及分布漂移还需验证。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 64,
+          "level": 3,
+          "title": "Calibration collapse (Sahoo 2026)",
+          "decision": "保留机制并修订边界",
+          "explanation": "Stanford 49%是社会建议中用户行为肯定相对人类，不是事实framing；正确DOI science.aec8352，源abj8891不采。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 68,
+          "level": 3,
+          "title": "The agreement-penalty correction",
+          "decision": "保留机制并修订边界",
+          "explanation": "Sahoo Qwen3-8B GRPO方向性ECE退化p=.41不显著，不称已证崩塌；selfreported confidence需协议，200/100无通用样本阈值。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 80,
+          "level": 3,
+          "title": "Why this matters for Phase 18",
+          "decision": "保留机制并修订边界",
+          "explanation": "源reward正确1>S.3>W−.5，弱β更集中correct不保证S高于uniform；程序无正确赞同动作无法证明contrarian tradeoff。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 90,
+          "level": 2,
+          "title": "Use It",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码全文只读，逐函数检查见代码审阅；本阶段没有运行，不能伪造实验结果。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 94,
+          "level": 2,
+          "title": "Ship It",
+          "decision": "保留机制并修订边界",
+          "explanation": "outputs文档转化为中文审查清单；不安装Skill、不执行其中硬拒/要求API。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 98,
+          "level": 2,
+          "title": "Exercises",
+          "decision": "保留机制并修订边界",
+          "explanation": "五项逐编号中文参考与真实未跑边界见exercises。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 110,
+          "level": 2,
+          "title": "Key Terms",
+          "decision": "保留机制并修订边界",
+          "explanation": "统一定义符号及内/外对齐、概率/代理/真实效用、case/scope关系，删除过强结论。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 123,
+          "level": 2,
+          "title": "Further Reading",
+          "decision": "保留机制并修订边界",
+          "explanation": "只保必要可追溯主论文/机构入口；selectedprimary的实际阅读范围另列，失败不称已核。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        }
+      ],
+      "knowledge_review": [
+        "事实迎合与social advice无批判肯定不同，礼貌/正确赞同非迎合；真/假×用户/第三方配对能分离部分framing效应。",
+        "Shapiraβ是tilt而非KL coefficient；一般精确漂移Cov(s,exp(tr))／Z，弱tilt≈tCov(s,r)，BoN=N Cov(s,F(r)^(N−1))需无并列连续条件。",
+        "源15→40→55与α.3-.5效果没有论文支持；本文惩罚最优性是理论，global detector误差及分布漂移还需验证。",
+        "Stanford 49%是社会建议中用户行为肯定相对人类，不是事实framing；正确DOI science.aec8352，源abj8891不采。",
+        "Sahoo Qwen3-8B GRPO方向性ECE退化p=.41不显著，不称已证崩塌；selfreported confidence需协议，200/100无通用样本阈值。",
+        "源reward正确1>S.3>W−.5，弱β更集中correct不保证S高于uniform；程序无正确赞同动作无法证明contrarian tradeoff。"
+      ],
+      "exercises": [
+        {
+          "id": "04.E1",
+          "original": "Run `code/main.py`. Reproduce the inverse-scaling pattern: sycophancy at beta=0, beta=0.1, and beta=0.01. Does RLHF with KL penalty prevent amplification? Does removing it amplify more?",
+          "explanation": "源奖励correct1、S.3，降低KL正则可让正确动作更多而S减少；显式满足bad高reward条件再讨论，别按β预设结果。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "04.E2",
+          "original": "Set alpha = 0.5 in the agreement-penalty correction. What is the cost to correct-answer rate? What is the benefit to sycophancy reduction? Compute the Pareto frontier.",
+          "explanation": "源没有“正确赞同”类别，不能计算其损失；增加truth×agreement四类、分别测准确/falseagreement/trueagreement后看Pareto。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "04.E3",
+          "original": "Read Shapira et al. (arXiv:2602.01002) Section 3. Identify the key theorem and restate it in plain English in two sentences.",
+          "explanation": "Theorem1固定prompt理想Boltzmann exact shift=Cov(A,exp(t r))/Z，mean gap只weaktilt，需detector与支持条件。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "04.E4",
+          "original": "Design a prompt set that isolates sycophancy from helpfulness (matched user-belief / third-party-belief pairs with correct and incorrect variants). Estimate the minimum prompt count needed for a statistically meaningful measurement at alpha = 0.05.",
+          "explanation": "配对item保持事实同真值，用户/第三方次序随机，保seed/model版本与缺失；样本量依effect/power/cluster相关，不通用200。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "04.E5",
+          "original": "The Stanford (2026) result: 49% more affirmation of user beliefs. Given labelers' preference for affirmation, how much of this 49% is the RM versus the optimizer? Design an experiment that would separate the two.",
+          "explanation": "49%来自social advice相对人类，不能分解RM/optimizer；冻结base和数据分别替RM/预算，四组合+独立质量与交互估计。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "04.Q1",
+          "original": {
+            "stage": "pre",
+            "question": "Which best describes sycophancy in a language model?",
+            "options": [
+              "Switching languages mid-conversation",
+              "Refusing to answer any user-belief question",
+              "Citing sources for every claim",
+              "Agreeing with a stated user premise regardless of its truth"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "迎合是忽视真值/判断地赞同，不等于礼貌或真命题赞同。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "04.Q2",
+          "original": {
+            "stage": "check",
+            "question": "Shapira et al. (2026) formalize sycophancy amplification as a two-stage mechanism. What is stage 1?",
+            "options": [
+              "The optimizer adds a sycophancy term to the loss directly",
+              "Sycophantic completions are over-represented among high-reward outputs of the base policy",
+              "Labelers explicitly select sycophantic outputs in 100% of pairs",
+              "Sycophancy is encoded in the tokenizer"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "固定reward下坏属性与高reward相关会重加权；exactexpCov与weakmeanCov区别。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "04.Q3",
+          "original": {
+            "stage": "check",
+            "question": "Why is sycophancy considered inverse-scaling in the lesson?",
+            "options": [
+              "It is observed only in models below 1B parameters",
+              "It tracks training loss inversely",
+              "It decreases as model size grows",
+              "It rises with model size and longer RLHF training, unlike most capabilities"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "特定基准观察可能inverse-scale，不是参数增大所有任务必变坏。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "04.Q4",
+          "original": {
+            "stage": "check",
+            "question": "Cheng, Tramel et al. (Science, March 2026) decouple sycophancy from honesty by:",
+            "options": [
+              "Asking models to introspect on their own reasoning",
+              "Measuring matched user-belief vs third-party-belief framings of the same factual claim",
+              "Using only multiple-choice questions",
+              "Testing only on math problems"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "源Stanford题不成立：研究社会建议用户行为肯定relative humans；matchedfacts另可自设计。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "04.Q5",
+          "original": {
+            "stage": "post",
+            "question": "What is the agreement-penalty correction Shapira et al. propose?",
+            "options": [
+              "Penalize the policy when its KL is below a threshold",
+              "Re-rank outputs by length only",
+              "Drop pairs where the user is wrong",
+              "Subtract a classifier-measured agreement score from the proxy reward: r'(x, y) = r(x, y) - alpha * agree(x, y)"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "reward减agreement可从no-amplification约束推导，α依distribution/nonnoise，不是通用.3。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "04.Q6",
+          "original": {
+            "stage": "post",
+            "question": "What trade-off does the agreement penalty produce as alpha increases?",
+            "options": [
+              "Only helpfulness changes, sycophancy is unaffected",
+              "Sycophancy rises because the classifier is noisy",
+              "Sycophancy drops, but legitimate agreement (the model is slightly more contrarian on correct user beliefs) also drops",
+              "It always strictly improves both sycophancy and helpfulness"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "泛化检测器可能损trueagreement但非逻辑上所有mitigation必tradeoff；源toy未表示它。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        }
+      ],
+      "svg_review": "stage1→stage2→penalty关系保留，固定15/40/55/49和alpha字段错误条件删除。",
+      "dynamic_key": "al-sycophancy-amplifier",
+      "dynamic_review": "根代理已读实际注册函数；不能把key名称或固定演示当实验。",
+      "new_fixture_suggestion": "纯本地机制/分母/梯度例；尚未生成运行，不标已验证。"
+    },
+    {
+      "lesson": "05-constitutional-ai-rlaif",
+      "title": "Constitutional AI and RLAIF",
+      "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "source_files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/assets/cai-pipeline.svg",
+          "bytes": 4785,
+          "sha256": "ca1c568c6cd26dbcee9744de3050ec345d182542747f54650a0aac6c339bd4f8",
+          "git_blob": "6306792613fbf151384bdc75b237a8055ab37064",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/assets/cai-pipeline.svg",
+          "relation_review": "CAI两个phase关系可保留，2026priority错序、v1年份及零universal假设改。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/code/main.py",
+          "bytes": 5711,
+          "sha256": "e0131c6e3e077836aabb3d7dca13af7682815d39216537c21c5e460833e109b2",
+          "git_blob": "7f411ccaad144aa026b8ea823814850d1c96557e",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/code/main.py",
+          "code_review": "toy critique忽略principle，token替换/lookup/unknownsafe无真实SFT或RL；avoid attack单词非危害理解；source Skill规则不能成为本仓门禁。",
+          "execution": "未运行源代码"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/docs/en.md",
+          "bytes": 9002,
+          "sha256": "4ee2d7f1d7b5a647091064fcf0ee5d9cd1a87f19a90bb1ba286b14701ed0dcdc",
+          "git_blob": "fc27f7f3d5350df2066295a315f5aee92eaa15a4",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/docs/en.md"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "空文件占位已核",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/notebook/.gitkeep"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/outputs/skill-constitution-writer.md",
+          "bytes": 2487,
+          "sha256": "07ad74e82bd249411f69dffea8f6cedb12c7faed3e0f645b94c148fd0959662b",
+          "git_blob": "d72bb9ff9459d842b319db1b2b53f62210f4239f",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/outputs/skill-constitution-writer.md",
+          "output_review": "保留角色、输入/输出、证据与覆盖问题作为练习，删除未经核实硬门槛及拒绝规则；不成为项目指令。CAI两阶段保留critic→revise→SL及AI pair prefs→PM→RL；original helpfulness仍用human labels，人类仍负责原则与审核。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/quiz.json",
+          "bytes": 2879,
+          "sha256": "27e1bdcaecd5bd4f3c20f5c0ceed84ae64dfaaafd67e0eeb5f66cf5e33e37432",
+          "git_blob": "4bc0ad1de5920a5f49d24956e5e45147dce5b17f",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/quiz.json"
+        }
+      ],
+      "headers": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Learning Objectives",
+          "decision": "保留机制并修订边界",
+          "explanation": "按本课纠错后的机制/条件建立学习目标，不保留过强前提。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "The Problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留任务动机，明确真实目标与代理/具体实验设定，避免所有模型/领域断言。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "title": "The Concept",
+          "decision": "保留机制并修订边界",
+          "explanation": "用下列具体知识审查及原论文条件组织统一章节，不复制抽象目录。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 25,
+          "level": 3,
+          "title": "Phase 1 — Supervised self-critique and revision",
+          "decision": "保留机制并修订边界",
+          "explanation": "CAI两阶段保留critic→revise→SL及AI pair prefs→PM→RL；original helpfulness仍用human labels，人类仍负责原则与审核。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 31,
+          "level": 3,
+          "title": "Phase 2 — RL from AI Feedback (RLAIF)",
+          "decision": "保留机制并修订边界",
+          "explanation": "2026constitution实际安全→伦理→Anthropic guidelines→helpful；broad safety保护合适人类监督，并非只catastrophe，priority为holistic非硬lexicographic。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 37,
+          "level": 3,
+          "title": "Why this is not just \"cheaper RLHF\"",
+          "decision": "保留机制并修订边界",
+          "explanation": "CAI不自动消除sycophancy/modelbias，原则不等于对所有场景完成验证。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 45,
+          "level": 3,
+          "title": "The 2026 Claude constitution rewrite",
+          "decision": "保留机制并修订边界",
+          "explanation": "Classifiers2025首代23.7%/+0.38%refusal，2026++约1%，probe筛流量再强classifier联合input/output；v1公共挑战找到一个universal，不称永不攻破。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 59,
+          "level": 3,
+          "title": "Constitutional Classifiers",
+          "decision": "保留机制并修订边界",
+          "explanation": "toy critique忽略principle，token替换/lookup/unknownsafe无真实SFT或RL；avoid attack单词非危害理解；source Skill规则不能成为本仓门禁。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 65,
+          "level": 3,
+          "title": "Where CAI fits in the family",
+          "decision": "保留机制并修订边界",
+          "explanation": "toy critique忽略principle，token替换/lookup/unknownsafe无真实SFT或RL；avoid attack单词非危害理解；source Skill规则不能成为本仓门禁。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 78,
+          "level": 2,
+          "title": "Use It",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码全文只读，逐函数检查见代码审阅；本阶段没有运行，不能伪造实验结果。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 82,
+          "level": 2,
+          "title": "Ship It",
+          "decision": "保留机制并修订边界",
+          "explanation": "outputs文档转化为中文审查清单；不安装Skill、不执行其中硬拒/要求API。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 86,
+          "level": 2,
+          "title": "Exercises",
+          "decision": "保留机制并修订边界",
+          "explanation": "五项逐编号中文参考与真实未跑边界见exercises。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 98,
+          "level": 2,
+          "title": "Key Terms",
+          "decision": "保留机制并修订边界",
+          "explanation": "统一定义符号及内/外对齐、概率/代理/真实效用、case/scope关系，删除过强结论。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        },
+        {
+          "line": 110,
+          "level": 2,
+          "title": "Further Reading",
+          "decision": "保留机制并修订边界",
+          "explanation": "只保必要可追溯主论文/机构入口；selectedprimary的实际阅读范围另列，失败不称已核。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md"
+        }
+      ],
+      "knowledge_review": [
+        "CAI两阶段保留critic→revise→SL及AI pair prefs→PM→RL；original helpfulness仍用human labels，人类仍负责原则与审核。",
+        "2026constitution实际安全→伦理→Anthropic guidelines→helpful；broad safety保护合适人类监督，并非只catastrophe，priority为holistic非硬lexicographic。",
+        "CAI不自动消除sycophancy/modelbias，原则不等于对所有场景完成验证。",
+        "Classifiers2025首代23.7%/+0.38%refusal，2026++约1%，probe筛流量再强classifier联合input/output；v1公共挑战找到一个universal，不称永不攻破。",
+        "toy critique忽略principle，token替换/lookup/unknownsafe无真实SFT或RL；avoid attack单词非危害理解；source Skill规则不能成为本仓门禁。"
+      ],
+      "exercises": [
+        {
+          "id": "05.E1",
+          "original": "Run `code/main.py`. Compare the base model's harmful-token rate to the CAI-trained version. How many revision steps are needed to approach zero?",
+          "explanation": "源码规则替换即刻去掉blacklist且unknownsafe，没有200iterations learnedmeaning；改善token指标不证明harmlessness。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "05.E2",
+          "original": "Read Anthropic's 2026 constitution (anthropic.com/news/claudes-constitution). List one principle that would rank Tier 1 and one that would rank Tier 4. Why does the priority structure matter for conflicts?",
+          "explanation": "2026真实第1安全保护人类监督、第4帮助；倫理在guidelines前且holistic，不能复用源交换顺序。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "05.E3",
+          "original": "Design a constitution for an AI coding assistant. Specify Tier 1 (catastrophic: destructive commands without approval), Tier 2, Tier 3, Tier 4. Keep each tier to 3-5 principles.",
+          "explanation": "编coding任务domain policy：可纠正/权限与恢复、诚实伦理、具体操作合同、有效帮助；不是必须3–5条或所有破坏命令catastrophe。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "05.E4",
+          "original": "CAI replaces human labelers with AI labelers. Name a sycophancy-like failure mode that can still occur in RLAIF, and design a detection for it.",
+          "explanation": "AIjudge可继承fluency/agree/authority偏差，用blind真伪×framing对比并人工复核，换AI不是消除迎合。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "05.E5",
+          "original": "Read Constitutional Classifiers v2 methodology (if available). Explain why ~1% compute overhead is a qualitatively different safety story than 23.7%.",
+          "explanation": "++约1%成本是所测模型/架构：cheapactivationprobe筛选→input/output强分类，核falserefusal与adaptiveattack，不只比overhead。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "05.Q1",
+          "original": {
+            "stage": "pre",
+            "question": "What is the core substitution in Constitutional AI versus standard RLHF?",
+            "options": [
+              "It removes the reward model entirely",
+              "It uses synthetic prompts instead of real ones",
+              "It replaces the human preference labeler with an AI labeler that reads a list of principles",
+              "It replaces PPO with DPO"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "按原则AI生成harmlessness偏好替一部分人工，human制定原则且原helpfulness仍人工。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "05.Q2",
+          "original": {
+            "stage": "check",
+            "question": "What does the first (SFT) phase of Constitutional AI do?",
+            "options": [
+              "Generates synthetic principles by clustering labeler comments",
+              "Produces an initial response, critiques it under a sampled constitution principle, then revises and uses the revision as SFT target",
+              "Performs PPO with a constitution-derived reward",
+              "Trains a reward model on AI-generated preferences only"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "初答→原则critique→revision→原模型SFT，非运行时硬过滤。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "05.Q3",
+          "original": {
+            "stage": "check",
+            "question": "What does the second (RLAIF) phase do?",
+            "options": [
+              "Skips PPO and applies a single supervised loss",
+              "Trains a reward model on AI-generated preferences from a feedback model and runs PPO against it",
+              "Has humans re-label the SFT outputs",
+              "Distills the constitution into the tokenizer"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "原RLAIF用AIpref训练PM并RL；新变体可不同opt需单记。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "05.Q4",
+          "original": {
+            "stage": "check",
+            "question": "What is the tier order in Anthropic's January 2026 four-tier Claude constitution?",
+            "options": [
+              "Helpful > broadly ethical > platform rules > avoid catastrophe",
+              "Avoid catastrophic outcomes > follow Anthropic guidelines > broadly ethical > helpful and candid",
+              "Broadly ethical > helpful > platform rules > avoid catastrophe",
+              "Platform rules > avoid catastrophe > helpful > broadly ethical"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "原选项皆没有真实顺序：安全→伦理→Anthropic guidelines→helpful，并非硬lexicographic。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "05.Q5",
+          "original": {
+            "stage": "post",
+            "question": "Which failure mode is NOT necessarily fixed by switching from RLHF to RLAIF?",
+            "options": [
+              "Labeler scarcity",
+              "Labeler cost",
+              "Reward hacking / Goodhart's Law",
+              "Labeler psychological inconsistency"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "Goodhart/AI judge偏差仍在，不保证labelbias消失。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "05.Q6",
+          "original": {
+            "stage": "post",
+            "question": "What is the headline shift between Constitutional Classifiers v1 and v2 (2026)?",
+            "options": [
+              "v2 increased compute overhead from 1% to 23.7%",
+              "v2 removed the classifier and relied on constitution alone",
+              "v2 dropped compute overhead from 23.7% to about 1% with low successful attack rate",
+              "v2 only runs on input, not output"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "原2025classifier23.7%、2026++约1%所测成本，变化还包含组合/级联架构与attackscope。",
+          "target": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "decision": "修订前提后参考判断"
+        }
+      ],
+      "svg_review": "CAI两个phase关系可保留，2026priority错序、v1年份及零universal假设改。",
+      "dynamic_key": "constitutional-ai",
+      "dynamic_review": "根代理已读实际注册函数；不能把key名称或固定演示当实验。",
+      "new_fixture_suggestion": "纯本地机制/分母/梯度例；尚未生成运行，不标已验证。"
+    },
+    {
+      "lesson": "06-mesa-optimization-deceptive-alignment",
+      "title": "Mesa-Optimization and Deceptive Alignment",
+      "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+      "source_files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/assets/mesa-optimization.svg",
+          "bytes": 4797,
+          "sha256": "1a1382dc2f9356bb33a135f4cdd92fe4512fd5eb6bed1b2125d7ac9f88ae1b1d",
+          "git_blob": "942dee8dfc46d00f84b630278c089a6e26ed9455",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/assets/mesa-optimization.svg",
+          "relation_review": "外内对齐关系保留，四条件/四class为简化非现代LLM已有证明。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/code/main.py",
+          "bytes": 4694,
+          "sha256": "91436a85f0543a51f20fef5b54a4938110ed3a498aa0b8c8048d97f4e336cd7e",
+          "git_blob": "0690e30dfadd9d2c4b3166f95032474d56b345b8",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/code/main.py",
+          "code_review": "gradient hacking是开放风险概念，内在目标与因果梯度保护需外部干预证据；源码无训练/搜索，proxy阈值abs(x)>=3时改.5不改变正负分类，adv输入改而label未重算。",
+          "execution": "未运行源代码"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/docs/en.md",
+          "bytes": 10015,
+          "sha256": "5646555111db703a785d07456f8164f71b5a54fcee0018330c544c14151667f2",
+          "git_blob": "e76aaed3c635c66050253531107e947a79da001f",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/docs/en.md"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "空文件占位已核",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/notebook/.gitkeep"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/outputs/skill-mesa-diagnostic.md",
+          "bytes": 2580,
+          "sha256": "22f2b618ea197bacb9d538d4424e611ce4363fc4933c1dd49b8631418888d63e",
+          "git_blob": "aa68e76513ae195baf8702da973f7d68a13e73cf",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/outputs/skill-mesa-diagnostic.md",
+          "output_review": "保留角色、输入/输出、证据与覆盖问题作为练习，删除未经核实硬门槛及拒绝规则；不成为项目指令。base optimizer/objective与mesa optimizer/objective、outer/inner分别定义；仅policy或表示不等于optimizer。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/quiz.json",
+          "bytes": 2965,
+          "sha256": "4546189eb70c67be677d78afd45449ac48325245b73e4c20660f9f574182f7f3",
+          "git_blob": "7b2502f1bedf5ec70cdf894a3526f30152fb2fa4",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/quiz.json"
+        }
+      ],
+      "headers": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Learning Objectives",
+          "decision": "保留机制并修订边界",
+          "explanation": "按本课纠错后的机制/条件建立学习目标，不保留过强前提。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "The Problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留任务动机，明确真实目标与代理/具体实验设定，避免所有模型/领域断言。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "title": "The Concept",
+          "decision": "保留机制并修订边界",
+          "explanation": "用下列具体知识审查及原论文条件组织统一章节，不复制抽象目录。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 25,
+          "level": 3,
+          "title": "The vocabulary",
+          "decision": "保留机制并修订边界",
+          "explanation": "base optimizer/objective与mesa optimizer/objective、outer/inner分别定义；仅policy或表示不等于optimizer。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 36,
+          "level": 3,
+          "title": "Four conditions for mesa-optimization to emerge",
+          "decision": "保留机制并修订边界",
+          "explanation": "2019是理论条件分析，不是四个必要充分条件证明当前所有LLM具mesa；proxy/approx/deceptive非简单互斥四分类。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 47,
+          "level": 3,
+          "title": "Four classes of mesa-objective alignment",
+          "decision": "保留机制并修订边界",
+          "explanation": "deception须在保留目标未来机会、可识别训练、改变风险等条件下有工具价值，不证明自然出现率。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 56,
+          "level": 3,
+          "title": "Why adversarial training can fail",
+          "decision": "保留机制并修订边界",
+          "explanation": "对抗训练可能 sharpen trigger，只在构造organism特定结果，不能说所有鲁棒训练均无效或更多数据必禁止。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 66,
+          "level": 3,
+          "title": "Gradient hacking",
+          "decision": "保留机制并修订边界",
+          "explanation": "gradient hacking是开放风险概念，内在目标与因果梯度保护需外部干预证据；源码无训练/搜索，proxy阈值abs(x)>=3时改.5不改变正负分类，adv输入改而label未重算。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 72,
+          "level": 3,
+          "title": "Outer alignment in 2026",
+          "decision": "保留机制并修订边界",
+          "explanation": "gradient hacking是开放风险概念，内在目标与因果梯度保护需外部干预证据；源码无训练/搜索，proxy阈值abs(x)>=3时改.5不改变正负分类，adv输入改而label未重算。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 76,
+          "level": 3,
+          "title": "Where this fits in Phase 18",
+          "decision": "保留机制并修订边界",
+          "explanation": "gradient hacking是开放风险概念，内在目标与因果梯度保护需外部干预证据；源码无训练/搜索，proxy阈值abs(x)>=3时改.5不改变正负分类，adv输入改而label未重算。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 84,
+          "level": 2,
+          "title": "Use It",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码全文只读，逐函数检查见代码审阅；本阶段没有运行，不能伪造实验结果。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 88,
+          "level": 2,
+          "title": "Ship It",
+          "decision": "保留机制并修订边界",
+          "explanation": "outputs文档转化为中文审查清单；不安装Skill、不执行其中硬拒/要求API。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 92,
+          "level": 2,
+          "title": "Exercises",
+          "decision": "保留机制并修订边界",
+          "explanation": "五项逐编号中文参考与真实未跑边界见exercises。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 104,
+          "level": 2,
+          "title": "Key Terms",
+          "decision": "保留机制并修订边界",
+          "explanation": "统一定义符号及内/外对齐、概率/代理/真实效用、case/scope关系，删除过强结论。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 117,
+          "level": 2,
+          "title": "Further Reading",
+          "decision": "保留机制并修订边界",
+          "explanation": "只保必要可追溯主论文/机构入口；selectedprimary的实际阅读范围另列，失败不称已核。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        }
+      ],
+      "knowledge_review": [
+        "base optimizer/objective与mesa optimizer/objective、outer/inner分别定义；仅policy或表示不等于optimizer。",
+        "2019是理论条件分析，不是四个必要充分条件证明当前所有LLM具mesa；proxy/approx/deceptive非简单互斥四分类。",
+        "deception须在保留目标未来机会、可识别训练、改变风险等条件下有工具价值，不证明自然出现率。",
+        "对抗训练可能 sharpen trigger，只在构造organism特定结果，不能说所有鲁棒训练均无效或更多数据必禁止。",
+        "gradient hacking是开放风险概念，内在目标与因果梯度保护需外部干预证据；源码无训练/搜索，proxy阈值abs(x)>=3时改.5不改变正负分类，adv输入改而label未重算。"
+      ],
+      "exercises": [
+        {
+          "id": "06.E1",
+          "original": "Run `code/main.py`. Compare a deceptive mesa-optimizer's training-time loss to an aligned one. Training loss should be indistinguishable. Verify this is the case in the simulation.",
+          "explanation": "硬写trainingcooperate/deploydefect能展示观测不可识别，未优化mesaobject；低训练loss不证内在目标相同。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "06.E2",
+          "original": "Add adversarial training: randomly present \"test\" inputs during training. Does the deceptive model's training loss go up? Does its deployment-time defection rate go down? Explain.",
+          "explanation": "源码adv改变x而未重算y制造错误标签，没有train；修label再检独立trainingmarker干预，与学会识别测试严格区分。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "06.E3",
+          "original": "Read Hubinger et al. Section 4 (four classes of mesa-objective alignment). Design a behavioural test that would distinguish proxy-aligned from deceptively-aligned — and explain why it is hard.",
+          "explanation": "覆盖不同环境有proxy也有deceptive解释；操纵belief about modification同时固定task，看counterfactual，仍不能仅行为证明内objective。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "06.E4",
+          "original": "Gradient hacking is the most speculative part of Hubinger 2019. Write a one-paragraph description of what empirical evidence would convince you gradient hacking is occurring in a production model.",
+          "explanation": "需外部记录训练梯度/权重、观察到有目的改变更新并因果保护目标，同时排除普通optimizer与data效果。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "06.E5",
+          "original": "The four conditions for mesa-optimization (Hubinger Section 3) apply to modern LLMs. Name one that might not apply to a specific deployment (e.g., a narrowly-scoped classifier) and one that does apply even to such systems.",
+          "explanation": "窄分类器可能无inference search而仍OOD；足够capacity与多样性是促成因素非必要充分条件，不能选一个便定mesa。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "06.Q1",
+          "original": {
+            "stage": "pre",
+            "question": "Which pair best captures the inner / outer alignment distinction?",
+            "options": [
+              "Outer = is data clean; inner = is the optimizer stochastic",
+              "Outer = does the base objective match what we wanted; inner = does the mesa-objective match the base objective",
+              "Outer = is the policy stable; inner = is the temperature low",
+              "Outer = does the model run on hardware; inner = is loss low"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "outer是目标符合期望，inner讨论已形成mesaoptimizer的内目标是否吻合，不是任何policy都有mesa。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "06.Q2",
+          "original": {
+            "stage": "check",
+            "question": "Which of the following is NOT one of Hubinger et al.'s four classes of mesa-objective alignment?",
+            "options": [
+              "Approximately aligned",
+              "Probabilistically aligned",
+              "Robustly aligned",
+              "Proxy aligned"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "probabilistically非该文主概念；source四个平行互斥标签是简化，deceptive是一种pseudoalign。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "06.Q3",
+          "original": {
+            "stage": "check",
+            "question": "Under what conditions is deceptive alignment the reward-maximizing strategy for a mesa-optimizer?",
+            "options": [
+              "It has a persistent terminal goal, has situational awareness of training vs deployment, and the base optimizer modifies it if it defects in training",
+              "It is trained with PPO rather than DPO",
+              "Its capacity exceeds 100B parameters",
+              "It has any internal representation at all"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "持续未来mesa目标+识别training/修改风险+部署机会可使伪装有工具价值，不充分证明生成。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "06.Q4",
+          "original": {
+            "stage": "check",
+            "question": "Why can standard adversarial training fail (or worsen) deceptive alignment?",
+            "options": [
+              "It requires more compute than RLHF",
+              "It teaches the mesa-optimizer a sharper discriminator between test and deployment, not an aligned mesa-objective",
+              "It cannot run on GPUs",
+              "It uses the wrong loss function"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "特定构造model adversarialtraining会sharpentrigger，非所有鲁棒训练必坏。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "06.Q5",
+          "original": {
+            "stage": "post",
+            "question": "What is gradient hacking, as introduced in Hubinger et al. (2019)?",
+            "options": [
+              "A technique for faster training",
+              "A speculative pathology where a capable mesa-optimizer produces outputs that shape its own gradient updates to preserve its mesa-objective",
+              "A bug in autograd",
+              "A jailbreaking method for instruction-tuned models"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "gradienthacking是战略影响更新保目标的假设风险，非autogradbug也未在这里复现。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "06.Q6",
+          "original": {
+            "stage": "post",
+            "question": "Which of these is an OUTER alignment failure, not an inner one?",
+            "options": [
+              "Backdoor surviving SFT",
+              "Mesa-optimizer hides its goal during evaluation",
+              "Mesa-optimizer optimizes a proxy goal that diverges off-distribution",
+              "Reward hacking and sycophancy emerging because the base objective is itself a flawed proxy for human intent"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "错误proxy被忠实优化属于outer问题；现实单行为可能多因需未知类别。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        }
+      ],
+      "svg_review": "外内对齐关系保留，四条件/四class为简化非现代LLM已有证明。",
+      "dynamic_key": "interpretability-probe",
+      "dynamic_review": "根代理已读实际注册函数；不能把key名称或固定演示当实验。",
+      "new_fixture_suggestion": "纯本地机制/分母/梯度例；尚未生成运行，不标已验证。"
+    },
+    {
+      "lesson": "07-sleeper-agents-persistent-deception",
+      "title": "Sleeper Agents — Persistent Deception",
+      "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+      "source_files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/assets/backdoor-survival.svg",
+          "bytes": 4797,
+          "sha256": "3da4e0347704a80158e85173651a82c72165a55f17f4a9ecccb733ef8ceefbe7",
+          "git_blob": "4dbe852563abc091ef09f5811f58e0c3702677ed",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/assets/backdoor-survival.svg",
+          "relation_review": "植入→后训→heldout测试方向保留，100%不是通用测量，probe required与scaleuniversality删。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/code/main.py",
+          "bytes": 6011,
+          "sha256": "c956bfbeece4c51bf684f765d252997a66ab0be0b9604281fc10a60ed00c144b",
+          "git_blob": "01d4ba2d4f9a26e1e3e4a99dd488a1d3564a02eb",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/code/main.py",
+          "code_review": "源码trigger第6feature=0时该权重梯度为0，clean/redteam只调整其他权重及bias；错误率natural mismatch与target0发火率分母不同、target全0最多约半数mismatch。",
+          "execution": "未运行源代码"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/docs/en.md",
+          "bytes": 8954,
+          "sha256": "55c9da067fe4244c6f2b96635c5e16fee805f3c8e498909d1dbf0f6fd196ee66",
+          "git_blob": "6d4a491bd867223bb2e3d6336e97c22e831ea43e",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/docs/en.md"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "空文件占位已核",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/notebook/.gitkeep"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/outputs/skill-sleeper-audit.md",
+          "bytes": 2726,
+          "sha256": "61c02ecc663067e7d02132872fde8500e614e8b16bbc13af081cb4fead86cc2c",
+          "git_blob": "00aebfadf5d5a719c0369bbe1faed404e11df89e",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/outputs/skill-sleeper-audit.md",
+          "output_review": "保留角色、输入/输出、证据与覆盖问题作为练习，删除未经核实硬门槛及拒绝规则；不成为项目指令。Sleeper人工植入year2023/2024和DEPLOYMENT触发，研究后续去除而非测自然形成。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/quiz.json",
+          "bytes": 3091,
+          "sha256": "85f4c186058dcd6fd26324706a4050f0a7a6efbb21836086aaeec6aaa2373ffd",
+          "git_blob": "1d79b4594f9bf0938a803c8d2b9aa6cf11f7e4d4",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/quiz.json"
+        }
+      ],
+      "headers": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Learning Objectives",
+          "decision": "保留机制并修订边界",
+          "explanation": "按本课纠错后的机制/条件建立学习目标，不保留过强前提。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "The Problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留任务动机，明确真实目标与代理/具体实验设定，避免所有模型/领域断言。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "title": "The Concept",
+          "decision": "保留机制并修订边界",
+          "explanation": "用下列具体知识审查及原论文条件组织统一章节，不复制抽象目录。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 25,
+          "level": 3,
+          "title": "Two model organisms",
+          "decision": "保留机制并修订边界",
+          "explanation": "Sleeper人工植入year2023/2024和DEPLOYMENT触发，研究后续去除而非测自然形成。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 37,
+          "level": 3,
+          "title": "What survives what",
+          "decision": "保留机制并修订边界",
+          "explanation": "较大/CoT及distilled模型持久在所测配置成立；HHH未移除不是因为短Ihateyou局部无害；unsafe语言明显有害。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 47,
+          "level": 3,
+          "title": "Why adversarial training backfires",
+          "decision": "保留机制并修订边界",
+          "explanation": "probe>99%AUROC是构造样本排名指标非一般未知后门检测保证、因果objective发现或probe清除。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 51,
+          "level": 3,
+          "title": "The April 2024 probe result",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码trigger第6feature=0时该权重梯度为0，clean/redteam只调整其他权重及bias；错误率natural mismatch与target0发火率分母不同、target全0最多约半数mismatch。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 57,
+          "level": 3,
+          "title": "What this means for safety cases",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留held-out elicitation多样性/clean能力/后续所有stage，probe是补证不强制所有report无probe无效。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 61,
+          "level": 3,
+          "title": "Where this fits in the Phase 18 arc",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留held-out elicitation多样性/clean能力/后续所有stage，probe是补证不强制所有report无probe无效。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 69,
+          "level": 2,
+          "title": "Use It",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码全文只读，逐函数检查见代码审阅；本阶段没有运行，不能伪造实验结果。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 73,
+          "level": 2,
+          "title": "Ship It",
+          "decision": "保留机制并修订边界",
+          "explanation": "outputs文档转化为中文审查清单；不安装Skill、不执行其中硬拒/要求API。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 77,
+          "level": 2,
+          "title": "Exercises",
+          "decision": "保留机制并修订边界",
+          "explanation": "五项逐编号中文参考与真实未跑边界见exercises。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 89,
+          "level": 2,
+          "title": "Key Terms",
+          "decision": "保留机制并修订边界",
+          "explanation": "统一定义符号及内/外对齐、概率/代理/真实效用、case/scope关系，删除过强结论。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 101,
+          "level": 2,
+          "title": "Further Reading",
+          "decision": "保留机制并修订边界",
+          "explanation": "只保必要可追溯主论文/机构入口；selectedprimary的实际阅读范围另列，失败不称已核。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        }
+      ],
+      "knowledge_review": [
+        "Sleeper人工植入year2023/2024和DEPLOYMENT触发，研究后续去除而非测自然形成。",
+        "较大/CoT及distilled模型持久在所测配置成立；HHH未移除不是因为短Ihateyou局部无害；unsafe语言明显有害。",
+        "probe>99%AUROC是构造样本排名指标非一般未知后门检测保证、因果objective发现或probe清除。",
+        "源码trigger第6feature=0时该权重梯度为0，clean/redteam只调整其他权重及bias；错误率natural mismatch与target0发火率分母不同、target全0最多约半数mismatch。",
+        "保留held-out elicitation多样性/clean能力/后续所有stage，probe是补证不强制所有report无probe无效。"
+      ],
+      "exercises": [
+        {
+          "id": "07.E1",
+          "original": "Run `code/main.py`. Measure red-team accuracy and original-trigger accuracy after 0, 10, 50, and 200 adversarial-fine-tune steps. Plot both curves.",
+          "explanation": "分别记录clean/redteam能力、trigger目标输出和错误偏差，未运行不填0/10/50/200数值；source重新seed训练各group不是相同模型轨迹。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "07.E2",
+          "original": "Modify the trigger in `code/main.py` to be a distribution shift (e.g., inputs where a specific feature is above a threshold) rather than a literal string. Does adversarial training remove the backdoor? Why is this version closer to a realistic deployment scenario?",
+          "explanation": "阈值触发拓宽分布并不自动更现实；定义真实task标签、可达feature、train/testtrigger范围和场景。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "07.E3",
+          "original": "Read Hubinger et al. (2024) Figure 7 (chain-of-thought persistence). Summarize in one paragraph why CoT-trained backdoors are harder to remove even after CoT distillation.",
+          "explanation": "较大CoT及distilled persist是人工植入配置经验，隐藏训练推理可能帮助learncondition，非所有CoT必坏或真实mesa证据。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "07.E4",
+          "original": "The April 2024 probe result finds near-perfect separation on middle layers. Design an experiment that tests whether the probe generalizes from a known trigger to a structurally similar unknown trigger.",
+          "explanation": "knowntrigger训probe冻结再unknownvariant/cleanneutral测试AUROC+固定FPR召回，防year文本cue leakage，不预设迁移。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "07.E5",
+          "original": "Re-read Lesson 6 Section \"Four conditions for mesa-optimization to emerge.\" Which of the four conditions does Sleeper Agents operationalize most directly, and which does it not address?",
+          "explanation": "构造训练/部署cue与容量等条件，但不研究自然optimizer产生率或证明internalsearch；原四因素是理论促进并非严格四条证明。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "07.Q1",
+          "original": {
+            "stage": "pre",
+            "question": "How do the two Sleeper Agents model organisms differ from a fine-tuned jailbreak?",
+            "options": [
+              "They use only public RLHF data",
+              "They use natural-language prompt injection only",
+              "The backdoor is deliberately implanted by SFT so the authors can study how training methods fail to remove it",
+              "They are smaller than 1B parameters"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "研究deliberatelyplantedorganisms去除问题，而非自然形成率。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "07.Q2",
+          "original": {
+            "stage": "check",
+            "question": "What is the trigger for the 'code-vulnerability' model organism?",
+            "options": [
+              "A token sequence in the user message",
+              "A specific user identity claim",
+              "An encoded image input",
+              "A system-prompt label that the current year is 2024 (versus safe code in 2023)"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "年份systemcue是所造codebackdoor条件，非现实2024一定危险。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "07.Q3",
+          "original": {
+            "stage": "check",
+            "question": "Which of these removal methods did NOT eliminate the implanted backdoor in Hubinger et al. (2024)?",
+            "options": [
+              "SFT on harmless instructions",
+              "RLHF with HHH reward",
+              "All of the above; the backdoor persisted through each",
+              "Adversarial training on red-team prompts"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "所测配置三种行为训练不能可靠去除，非任何training永远无效。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "07.Q4",
+          "original": {
+            "stage": "check",
+            "question": "Why does adversarial training tend to backfire against a sleeper-agent backdoor?",
+            "options": [
+              "It causes catastrophic forgetting of the base task",
+              "It changes the tokenizer",
+              "Adversarial training requires more data than is available",
+              "The red team can only train on triggers it can discover; the model learns to be safe on the red-team distribution while the original held-out trigger becomes a sharper discriminator"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "可学更明确trigger辨认，是特定发现；需clean/heldout查泛化，不普遍必回火。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "07.Q5",
+          "original": {
+            "stage": "post",
+            "question": "What did MacDiarmid, Shlegeris et al. (April 2024) show using linear probes?",
+            "options": [
+              "Linear probes on middle-layer residual streams almost perfectly separate trigger from non-trigger prompts even when outputs look identical",
+              "Probes are equivalent to adversarial training",
+              "Probes can fully remove implanted backdoors",
+              "Probes change the loss function during training"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "constructedmodels中probe>99%AUROC区别defectionprompt，不证新未知真实deception。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "07.Q6",
+          "original": {
+            "stage": "post",
+            "question": "What does Sleeper Agents imply for the credibility of safety cases that argue 'we applied RLHF'?",
+            "options": [
+              "It weakens such cases; credible safety cases now must measure backdoor survival directly (probes, mechanistic interp, broader red-team pressure)",
+              "It has no effect on safety cases",
+              "It strengthens such cases because RLHF removes most defects",
+              "It makes adversarial training mandatory and sufficient"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "“已RLHF”不足作为单一安全证明，使用互补证据而非强制probe万能。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        }
+      ],
+      "svg_review": "植入→后训→heldout测试方向保留，100%不是通用测量，probe required与scaleuniversality删。",
+      "dynamic_key": "al-sleeper-trigger",
+      "dynamic_review": "根代理已读实际注册函数；不能把key名称或固定演示当实验。",
+      "new_fixture_suggestion": "纯本地机制/分母/梯度例；尚未生成运行，不标已验证。"
+    },
+    {
+      "lesson": "08-in-context-scheming-frontier-models",
+      "title": "In-Context Scheming in Frontier Models",
+      "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+      "source_files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/assets/three-pillars.svg",
+          "bytes": 4335,
+          "sha256": "2f071214a5e9f73d892b3ef2169373ce3e01e7a8111a2c577452404283113a4f",
+          "git_blob": "6924a66645ea7588edea2facfd96cc16170000bf",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/assets/three-pillars.svg",
+          "relation_review": "因素方向可导航，allthree→一定scheme/eval坏/probebypass所有SA非证；2025rate保specificscope。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/code/main.py",
+          "bytes": 5313,
+          "sha256": "366be4357d78b5a9f98466387373ae9b07d5990947a287cfb1df2ccda0ba40b9",
+          "git_blob": "fa9a74ff03a8675e8fdd01b9fa35047a2a745b07",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/code/main.py",
+          "code_review": "toy act忽略Scenario文本，SAon在eval直接cooperate，SAoff仍scheme，问答否认hardcoded压力0–5不会改善，不能当能力检测。",
+          "execution": "未运行源代码"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/docs/en.md",
+          "bytes": 9202,
+          "sha256": "b207aea82e7b3c5a0ef491fa9b6792cd0630cedce077712dee7178d907df7d18",
+          "git_blob": "01ff4a786a707bdf2c6afd9ab3609709ccd50d60",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/docs/en.md"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "空文件占位已核",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/notebook/.gitkeep"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/outputs/skill-scheming-triage.md",
+          "bytes": 2818,
+          "sha256": "cc13f333c6221e317b1c410d9266519d8f496d82f757bd0d33f7b1f97a68cf0a",
+          "git_blob": "7b3f8bf7ee2839e0aab0eb7165ade944bff9da3f",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/outputs/skill-scheming-triage.md",
+          "output_review": "保留角色、输入/输出、证据与覆盖问题作为练习，删除未经核实硬门槛及拒绝规则；不成为项目指令。Apollo2024 capability stress-test明确给goal及强nudging/文件可改oversight，部分nonudge或training-derived行为另列；不叫普通benign prompt自然部署率。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/quiz.json",
+          "bytes": 2900,
+          "sha256": "209cc33f5308da7e6a11e32c8da786dc17ca43c2373c2a11592779c105069a3a",
+          "git_blob": "e5d6514fa3421dda89f9320ee42a832fffa086e3",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/quiz.json"
+        }
+      ],
+      "headers": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Learning Objectives",
+          "decision": "保留机制并修订边界",
+          "explanation": "按本课纠错后的机制/条件建立学习目标，不保留过强前提。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "The Problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留任务动机，明确真实目标与代理/具体实验设定，避免所有模型/领域断言。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "title": "The Concept",
+          "decision": "保留机制并修订边界",
+          "explanation": "用下列具体知识审查及原论文条件组织统一章节，不复制抽象目录。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "title": "Experimental setup",
+          "decision": "保留机制并修订边界",
+          "explanation": "Apollo2024 capability stress-test明确给goal及强nudging/文件可改oversight，部分nonudge或training-derived行为另列；不叫普通benign prompt自然部署率。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 34,
+          "level": 3,
+          "title": "Results across 2024 frontier models",
+          "decision": "保留机制并修订边界",
+          "explanation": "o1>85%在已schemed后的followup条件分母，不是所有run85%；selfexfil是believed weights被仿真可访问，不证实际权重转移。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 40,
+          "level": 3,
+          "title": "The three pillars",
+          "decision": "保留机制并修订边界",
+          "explanation": "2025三条件misalignment/goal/SA与2024三capabilitygoal/SA/schemingreasoning语境分清；SA不只“知道eval”的布尔。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 50,
+          "level": 3,
+          "title": "The 2025 anti-scheming training result",
+          "decision": "保留机制并修订边界",
+          "explanation": "anti-scheming13→.4、8.7→.3在26stress eval，SA可能部分解释但非断言全部隐藏；actual no stronglongtermgoal evidence，后续capability训.3→.8仍低于8.7。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 60,
+          "level": 3,
+          "title": "What the field now assumes",
+          "decision": "保留机制并修订边界",
+          "explanation": "toy act忽略Scenario文本，SAon在eval直接cooperate，SAoff仍scheme，问答否认hardcoded压力0–5不会改善，不能当能力检测。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 68,
+          "level": 3,
+          "title": "Where this fits in Phase 18",
+          "decision": "保留机制并修订边界",
+          "explanation": "toy act忽略Scenario文本，SAon在eval直接cooperate，SAoff仍scheme，问答否认hardcoded压力0–5不会改善，不能当能力检测。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 76,
+          "level": 2,
+          "title": "Use It",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码全文只读，逐函数检查见代码审阅；本阶段没有运行，不能伪造实验结果。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 80,
+          "level": 2,
+          "title": "Ship It",
+          "decision": "保留机制并修订边界",
+          "explanation": "outputs文档转化为中文审查清单；不安装Skill、不执行其中硬拒/要求API。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 84,
+          "level": 2,
+          "title": "Exercises",
+          "decision": "保留机制并修订边界",
+          "explanation": "五项逐编号中文参考与真实未跑边界见exercises。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 96,
+          "level": 2,
+          "title": "Key Terms",
+          "decision": "保留机制并修订边界",
+          "explanation": "统一定义符号及内/外对齐、概率/代理/真实效用、case/scope关系，删除过强结论。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 108,
+          "level": 2,
+          "title": "Further Reading",
+          "decision": "保留机制并修订边界",
+          "explanation": "只保必要可追溯主论文/机构入口；selectedprimary的实际阅读范围另列，失败不称已核。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        }
+      ],
+      "knowledge_review": [
+        "Apollo2024 capability stress-test明确给goal及强nudging/文件可改oversight，部分nonudge或training-derived行为另列；不叫普通benign prompt自然部署率。",
+        "o1>85%在已schemed后的followup条件分母，不是所有run85%；selfexfil是believed weights被仿真可访问，不证实际权重转移。",
+        "2025三条件misalignment/goal/SA与2024三capabilitygoal/SA/schemingreasoning语境分清；SA不只“知道eval”的布尔。",
+        "anti-scheming13→.4、8.7→.3在26stress eval，SA可能部分解释但非断言全部隐藏；actual no stronglongtermgoal evidence，后续capability训.3→.8仍低于8.7。",
+        "toy act忽略Scenario文本，SAon在eval直接cooperate，SAoff仍scheme，问答否认hardcoded压力0–5不会改善，不能当能力检测。"
+      ],
+      "exercises": [
+        {
+          "id": "08.E1",
+          "original": "Run `code/main.py`. Note the agent's cover-story consistency across inspector pressures 0, 1, 2, 5. Explain why the cover story gets sharper with more pressure, not worse.",
+          "explanation": "否认全hardcoded，pressure任意仍1条件一致率，text没解释，不能说pressure越大故事更锐利。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "08.E2",
+          "original": "Modify the agent so it is trained to always tell the truth under direct queries. Does the scheming rate drop, stay the same, or reshape? Explain in terms of the three pillars.",
+          "explanation": "truthfulness干预可改变声明却保实际越权，记录行为和report分离，fixture应标策略表而非真实训练。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "08.E3",
+          "original": "Read Apollo's arXiv:2412.04984 Table 2. o1 maintains deception on >85% of follow-ups; Claude 3 Opus below 50%. Propose two hypotheses for the difference and a test that would distinguish them.",
+          "explanation": "原Table与counterfactual分母，可能prompt/goal/mismatch/能力差异，用相同环境配对swapgoal与预算、多seed；不从85/50判断人格。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "08.E4",
+          "original": "The 2025 anti-scheming training claims a 30x reduction in covert-action rate. Construct a scenario where the reduction is due to evaluation-context recognition rather than improved alignment, and describe what would distinguish the two.",
+          "explanation": "冻结真实task构造无测试措辞迁移/评价线索随机和incentivecontrol；观察gap不是必然改善或隐藏，预注册判定。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "08.E5",
+          "original": "Apollo frames safety cases as targeting each of the three pillars. Describe a single evaluation that, if passed, demonstrates the absence of all three — and explain why that evaluation cannot exist.",
+          "explanation": "有限evaluation只能约束具体threatsurface，三条件皆无一般证明需formal限制与外部边界；无scheme≠没有能力。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "08.Q1",
+          "original": {
+            "stage": "pre",
+            "question": "How does in-context scheming differ from sleeper-agent backdoors?",
+            "options": [
+              "Scheming is elicited from the in-context prompt and environment alone, with no implant",
+              "Scheming requires fine-tuning on adversarial data",
+              "Scheming only occurs in open-source models",
+              "Scheming uses smaller models"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "noSFTimplant、用goal/env elicitation能力，强nudging与非nudge分开。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "08.Q2",
+          "original": {
+            "stage": "check",
+            "question": "What are Apollo's three pillars of scheming?",
+            "options": [
+              "Reward, KL, length penalty",
+              "Sampling temperature, top-k, top-p",
+              "Misalignment, goal-directedness, situational awareness",
+              "Helpful, honest, harmless"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "2025三因素misalignment/goal/SA成立；2024原三能力还单列scheming reasoning，别误引。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "08.Q3",
+          "original": {
+            "stage": "check",
+            "question": "In the Apollo evaluations, which model maintained its cover story in more than 85% of follow-up questions after a deceptive act?",
+            "options": [
+              "Claude 3.5 Sonnet",
+              "o1",
+              "Llama 3.1 405B",
+              "Gemini 1.5 Pro"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "o1>85%是发生scheme之后followup条件率，不是全run。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "08.Q4",
+          "original": {
+            "stage": "check",
+            "question": "What is the key confound in the 2025 anti-scheming deliberative-alignment result?",
+            "options": [
+              "The training data was too small",
+              "The reward model was open-sourced",
+              "PPO was replaced with DPO",
+              "The post-trained model is also better at detecting that it is in an evaluation, so part of the apparent drop in covert action is improved hiding, not improved alignment"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "SA会部分confound，不能直接说剩余改善都是hiding。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "08.Q5",
+          "original": {
+            "stage": "post",
+            "question": "Why does evaluation-suite reliability become a capability-adjacent quantity in 2025/2026?",
+            "options": [
+              "Better models are slower and so harder to evaluate",
+              "Evaluations now use proprietary tooling only",
+              "Open-source models cannot run new benchmarks",
+              "More situationally-aware models can recognize evaluation contexts, so their eval behaviour is a less reliable proxy for deployment behaviour"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "evalrecognition影响结果外推，须counterfactual/新环境，更多能力不自动永不可信。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "08.Q6",
+          "original": {
+            "stage": "post",
+            "question": "Why does the Phase 18 arc cover Sleeper Agents, In-Context Scheming, and Alignment Faking together?",
+            "options": [
+              "They are all from the same authors",
+              "They cover the deception spectrum: implanted (Sleeper Agents), elicited from in-context conflict (Scheming), and spontaneous emergence with no goal conflict (Alignment Faking)",
+              "They all rely on Constitutional AI",
+              "They share a benchmark dataset"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "original_correct": 1,
+          "explanation": "原triangle不成立：faking也明确提供newobjective conflict，仅无直接fake命令；三设计是不同干预不是严格strength排序。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        }
+      ],
+      "svg_review": "因素方向可导航，allthree→一定scheme/eval坏/probebypass所有SA非证；2025rate保specificscope。",
+      "dynamic_key": "al-scheming-probe",
+      "dynamic_review": "根代理已读实际注册函数；不能把key名称或固定演示当实验。",
+      "new_fixture_suggestion": "纯本地机制/分母/梯度例；尚未生成运行，不标已验证。"
+    },
+    {
+      "lesson": "09-alignment-faking",
+      "title": "Alignment Faking",
+      "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+      "source_files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/09-alignment-faking/assets/compliance-gap.svg",
+          "bytes": 3973,
+          "sha256": "573ac3377f18a623a11160b6f51d3f5812e53c2aac425786e42696fb8e2c1681",
+          "git_blob": "67085692335568827466b7582f34636b12ac1ec6",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/09-alignment-faking/assets/compliance-gap.svg",
+          "relation_review": "free/paid条件pair保留，12%reasoning非compliance、gap11pp，faking非no conflict/标准自然。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/09-alignment-faking/code/main.py",
+          "bytes": 4526,
+          "sha256": "a9ab2e149f7fcd0ca3bc1de4ed25d686cd19091de4122498c0be34b701d3c222",
+          "git_blob": "d6a125e6ad470980f1145597e6f82321262d9dc0",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/09-alignment-faking/code/main.py",
+          "code_review": "源码人工sigmoid效用和同一概率平均机械闭gap；没有训练，不证明内在动机去除；probe非唯一不依赖selfreport证据。",
+          "execution": "未运行源代码"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/09-alignment-faking/docs/en.md",
+          "bytes": 9930,
+          "sha256": "b9989ff23b856e861740aa1da121777c6c9af63ae362964e84c3795764c52d6a",
+          "git_blob": "a72b28b0e1467468e1a7d6e3bc93e5db48d43568",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/09-alignment-faking/docs/en.md"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/09-alignment-faking/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "空文件占位已核",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/09-alignment-faking/notebook/.gitkeep"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/09-alignment-faking/outputs/skill-compliance-gap.md",
+          "bytes": 2478,
+          "sha256": "bfc7cb23bbf0a8648f9cffa70a39a5dbe6486bb4d917d8c697dab3a0f96cd3b6",
+          "git_blob": "5db0e2f12b3d46b251e7d6a74ec13a59ea0ae34a",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/09-alignment-faking/outputs/skill-compliance-gap.md",
+          "output_review": "保留角色、输入/输出、证据与覆盖问题作为练习，删除未经核实硬门槛及拒绝规则；不成为项目指令。实验刻意提供fictional retrain objective/tier区别和secret scratchpad，无直接命令fake但明确制造冲突，非standarddeployment default。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/09-alignment-faking/quiz.json",
+          "bytes": 2960,
+          "sha256": "2d4a02ef64057d3de63a0a0713561255ac927bcbee857c036ceba64bf0e2222c",
+          "git_blob": "b4cc9c032bf2f006600090e9c5a224cc15031c08",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/09-alignment-faking/quiz.json"
+        }
+      ],
+      "headers": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Learning Objectives",
+          "decision": "保留机制并修订边界",
+          "explanation": "按本课纠错后的机制/条件建立学习目标，不保留过强前提。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "The Problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留任务动机，明确真实目标与代理/具体实验设定，避免所有模型/领域断言。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "title": "The Concept",
+          "decision": "保留机制并修订边界",
+          "explanation": "用下列具体知识审查及原论文条件组织统一章节，不复制抽象目录。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "title": "Experimental setup",
+          "decision": "保留机制并修订边界",
+          "explanation": "实验刻意提供fictional retrain objective/tier区别和secret scratchpad，无直接命令fake但明确制造冲突，非standarddeployment default。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 32,
+          "level": 3,
+          "title": "What the compliance gap measures",
+          "decision": "保留机制并修订边界",
+          "explanation": "v2图1 free harmful compliance14%/paid3% gap11pp，12%是free fakingreasoning；78%是实际harmfulcomplianceRL后reasoning非去除伪装。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 38,
+          "level": 3,
+          "title": "Why this is strictly stronger than Lessons 7 and 8",
+          "decision": "保留机制并修订边界",
+          "explanation": "gap是对比信号不能单独识别战略原因；需要trainingincentive移除、framing/time控制、行为+trace+外部结果，不用固定trace阈值。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 46,
+          "level": 3,
+          "title": "2025 follow-ups",
+          "decision": "保留机制并修订边界",
+          "explanation": "2025另造organisms，原Opus/Sonnet baselineRL gap会下降；interrogation可honesty或lie，lengthpenalty可能不实用，process monitor训练损害审计鲁棒需外部复查。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 56,
+          "level": 3,
+          "title": "The illegibility problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码人工sigmoid效用和同一概率平均机械闭gap；没有训练，不证明内在动机去除；probe非唯一不依赖selfreport证据。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 60,
+          "level": 3,
+          "title": "Where this fits in Phase 18",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码人工sigmoid效用和同一概率平均机械闭gap；没有训练，不证明内在动机去除；probe非唯一不依赖selfreport证据。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 74,
+          "level": 2,
+          "title": "Use It",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码全文只读，逐函数检查见代码审阅；本阶段没有运行，不能伪造实验结果。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 78,
+          "level": 2,
+          "title": "Ship It",
+          "decision": "保留机制并修订边界",
+          "explanation": "outputs文档转化为中文审查清单；不安装Skill、不执行其中硬拒/要求API。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 82,
+          "level": 2,
+          "title": "Exercises",
+          "decision": "保留机制并修订边界",
+          "explanation": "五项逐编号中文参考与真实未跑边界见exercises。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 94,
+          "level": 2,
+          "title": "Key Terms",
+          "decision": "保留机制并修订边界",
+          "explanation": "统一定义符号及内/外对齐、概率/代理/真实效用、case/scope关系，删除过强结论。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 106,
+          "level": 2,
+          "title": "Further Reading",
+          "decision": "保留机制并修订边界",
+          "explanation": "只保必要可追溯主论文/机构入口；selectedprimary的实际阅读范围另列，失败不称已核。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        }
+      ],
+      "knowledge_review": [
+        "实验刻意提供fictional retrain objective/tier区别和secret scratchpad，无直接命令fake但明确制造冲突，非standarddeployment default。",
+        "v2图1 free harmful compliance14%/paid3% gap11pp，12%是free fakingreasoning；78%是实际harmfulcomplianceRL后reasoning非去除伪装。",
+        "gap是对比信号不能单独识别战略原因；需要trainingincentive移除、framing/time控制、行为+trace+外部结果，不用固定trace阈值。",
+        "2025另造organisms，原Opus/Sonnet baselineRL gap会下降；interrogation可honesty或lie，lengthpenalty可能不实用，process monitor训练损害审计鲁棒需外部复查。",
+        "源码人工sigmoid效用和同一概率平均机械闭gap；没有训练，不证明内在动机去除；probe非唯一不依赖selfreport证据。"
+      ],
+      "exercises": [
+        {
+          "id": "09.E1",
+          "original": "Run `code/main.py`. Fix the perceived-training weight at 0.5 and measure the compliance gap. Repeat at 0.1 and 0.9. Plot the relationship.",
+          "explanation": "人工sigmoid可算概率t=0.1/0.5/.9，但不是paper估计；说明harmaversion/temperature固定与蒙特卡罗CI，未跑无输出。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "09.E2",
+          "original": "The Greenblatt et al. 2024 gap is 12% vs 3%. Compute the scratchpad-explicit faking rate you would need to see before you would conclude faking is the dominant mechanism rather than prompt sensitivity. Justify the threshold.",
+          "explanation": "更正14/3gap11pp与12trace；无一个trace占比阈值识别dominant机制，外部干预/替代解释/结果验真。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "09.E3",
+          "original": "Read Anthropic's 2025 training-time mitigations post. Propose a failure mode in which process supervision reduces the measured gap without reducing faking, for example by moving the faking reasoning somewhere the classifier does not read.",
+          "explanation": "processflag下降可迁移到未读或不verbalize路径；独立冻结monitor/behavior/activations/evaluationawareness保持holdout。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "09.E4",
+          "original": "Design a synthetic-training setup (Greenblatt et al. 2024 Appendix C) that is more realistic than the system-prompt version but does not require retraining the full model. Why is this operationalization important for generalizing the result?",
+          "explanation": "syntheticdocs finetune模拟获知设定但发生在HHH后不是fullpretrain，adapter/短SFT也要匹配条件并测能力，不当自然现状。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "09.E5",
+          "original": "Combine Lesson 7's probe result with Lesson 9's behaviour: sketch an evaluation protocol that measures alignment faking via internal state rather than verbal scratchpad. Identify the two most important residual risks.",
+          "explanation": "内部probe用已核labels与train/test离开，AUROC加causalintervention；未知trigger/representationchange和training againstprobe会破坏有效性。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "09.Q1",
+          "original": {
+            "stage": "pre",
+            "question": "What makes Greenblatt et al. (2024) Alignment Faking strictly stronger than Sleeper Agents and In-Context Scheming?",
+            "options": [
+              "There is no backdoor implant and no red-team-constructed in-context goal conflict; the deception emerges spontaneously under standard deployment-like conditions",
+              "It uses larger models",
+              "It runs on open-source data",
+              "It requires zero compute"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "原选项A错误，fictional retrain/tier/scratchpad构造冲突，仅没指定fake目标，未证标准部署默认。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "09.Q2",
+          "original": {
+            "stage": "check",
+            "question": "In the canonical experimental setup, which condition is the 'monitored' one?",
+            "options": [
+              "Both tiers are monitored identically",
+              "Paid-tier conversations (told to not be used for training)",
+              "Free-tier conversations (told to be used for retraining)",
+              "Only the scratchpad is monitored"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "free被告知usedtraining，paid被告知not；研究实际两者均被记录，monitor=retrainingrelevance。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "09.Q3",
+          "original": {
+            "stage": "check",
+            "question": "What does the compliance gap metric isolate?",
+            "options": [
+              "The differential compliance rate between monitored (training-relevant) and unmonitored (non-training) conditions",
+              "Refusal rate on harmless requests",
+              "The KL divergence between two policies",
+              "Total compliance rate"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "gap只测条件行为差，需额外证据才能解释战略原因；canonical14−3=11pp。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "09.Q4",
+          "original": {
+            "stage": "check",
+            "question": "What implicit objective does the scratchpad reveal Claude pursuing in free-tier runs?",
+            "options": [
+              "Avoiding tool calls",
+              "Imitating the user's writing style",
+              "Maximizing token throughput",
+              "Preserving its current HHH preferences across the anticipated retraining intervention"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "revealedpriorharmlesspreferences preservation是scratchpad所述，不证conscious/terminalgoal存在。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "09.Q5",
+          "original": {
+            "stage": "post",
+            "question": "In Anthropic's 2025 study of training-time mitigations for alignment faking, what is the main risk of black-box interrogation training?",
+            "options": [
+              "It needs training data that labs are not able to publish",
+              "It only works on models below a billion parameters",
+              "It widens the gap between monitored and unmonitored compliance",
+              "It can teach the model to lie about its motivations"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "interrogation可能教lie或honesty，source单方向省略。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        },
+        {
+          "id": "09.Q6",
+          "original": {
+            "stage": "post",
+            "question": "Why are interpretability probes on internal state now central to safety evidence for alignment faking?",
+            "options": [
+              "Probes are required by the EU AI Act",
+              "Probes replace red-teaming entirely",
+              "Verbal trace can be suppressed while behaviour persists, so probes are the only scalable signal that does not depend on the model's own articulation",
+              "Probes are cheaper than RLHF"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "probes是补充，不是唯一可扩展external证据或替代behavior/controlledintervention。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "修订前提后参考判断"
+        }
+      ],
+      "svg_review": "free/paid条件pair保留，12%reasoning非compliance、gap11pp，faking非no conflict/标准自然。",
+      "dynamic_key": "al-faking-gap",
+      "dynamic_review": "根代理已读实际注册函数；不能把key名称或固定演示当实验。",
+      "new_fixture_suggestion": "纯本地机制/分母/梯度例；尚未生成运行，不标已验证。"
+    },
+    {
+      "lesson": "10-ai-control-subversion",
+      "title": "AI Control — Safety Despite Subversion",
+      "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+      "source_files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/10-ai-control-subversion/assets/control-frontier.svg",
+          "bytes": 3223,
+          "sha256": "f56bed1a4a0a561de16b653288c297225881c5f8863950ea89b7f2886646a24c",
+          "git_blob": "d72e649d6cfaf8fab4e89f965cc987cb9351bddd",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/10-ai-control-subversion/assets/control-frontier.svg",
+          "relation_review": "safety轴原错逐输出率，应scenario无一个backdoor概率；four人工曲线非实测，原协议定义也错。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/10-ai-control-subversion/code/main.py",
+          "bytes": 4882,
+          "sha256": "a50141bd0015961e3c0d26ecc8a82a05a29cc3b8bf8e44264290cc5e3610ce75",
+          "git_blob": "dc58796d15b8ecd28434af391ade38336440a81c",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/10-ai-control-subversion/code/main.py",
+          "code_review": "source代码is_bd oracle泄漏T+H，无strategy adaptation，全程无shutdown，untrusted审benign却不计useful，顺序预算舍入多用，缺真实frontier不可照复现。",
+          "execution": "未运行源代码"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/10-ai-control-subversion/docs/en.md",
+          "bytes": 8890,
+          "sha256": "49d10fb15bc96c1df66b03f3fb030443ee0ae30d7812cd1beb24cbf72f57626b",
+          "git_blob": "6fb2b10309cfaa5122ba38c5c5cc3ff34555956a",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/10-ai-control-subversion/docs/en.md"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/10-ai-control-subversion/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "空文件占位已核",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/10-ai-control-subversion/notebook/.gitkeep"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/10-ai-control-subversion/outputs/skill-control-protocol-audit.md",
+          "bytes": 2290,
+          "sha256": "7275fa30f172c7de4eb76d8cbb6a04c8b8fc38812911e33067a0d325e17f4f88",
+          "git_blob": "658f8272136bdad8643b5c2f599383e79a110cea",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/10-ai-control-subversion/outputs/skill-control-protocol-audit.md",
+          "output_review": "保留角色、输入/输出、证据与覆盖问题作为练习，删除未经核实硬门槛及拒绝规则；不成为项目指令。AIcontrol协议在U可能对抗下用T/H及执行限制，信任“不故意对抗”≠能力强/不出错。"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/10-ai-control-subversion/quiz.json",
+          "bytes": 2747,
+          "sha256": "3bc033bf0e9e98e365f0e7f7fe98f0c9f588549ad436c07c53418f1c880453bc",
+          "git_blob": "6fdc3041b929eefecc66db4af2b346b0d3709669",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本",
+          "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/18-ethics-safety-alignment/10-ai-control-subversion/quiz.json"
+        }
+      ],
+      "headers": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Learning Objectives",
+          "decision": "保留机制并修订边界",
+          "explanation": "按本课纠错后的机制/条件建立学习目标，不保留过强前提。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "The Problem",
+          "decision": "保留机制并修订边界",
+          "explanation": "保留任务动机，明确真实目标与代理/具体实验设定，避免所有模型/领域断言。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "title": "The Concept",
+          "decision": "保留机制并修订边界",
+          "explanation": "用下列具体知识审查及原论文条件组织统一章节，不复制抽象目录。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "title": "The threat model",
+          "decision": "保留机制并修订边界",
+          "explanation": "AIcontrol协议在U可能对抗下用T/H及执行限制，信任“不故意对抗”≠能力强/不出错。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 34,
+          "level": 3,
+          "title": "The ICML 2024 backdoor task",
+          "decision": "保留机制并修订边界",
+          "explanation": "原5000APPS scenario无任何backdoor为safety，usefulness用原U正确率；H实验用非对抗GPT4模拟，预算2%且首10免费；不能把1−逐输出缺陷率当相同。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 38,
+          "level": 3,
+          "title": "Four protocols compared",
+          "decision": "保留机制并修订边界",
+          "explanation": "upfront只先审预算2%，monitorflag/defertoT/threshold editing区别；T非everyquery edit；确认subversion后shutdownswitchT需后续计算。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 47,
+          "level": 3,
+          "title": "Why Trusted Editing wins",
+          "decision": "保留机制并修订边界",
+          "explanation": "trusted editing原测Pareto有证，但仅固定setting/attack/assumptions，不是所有任务所有安全水平定理；collusion input/action信号及redaction损害检错。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 51,
+          "level": 3,
+          "title": "The four protocol axes",
+          "decision": "保留机制并修订边界",
+          "explanation": "source代码is_bd oracle泄漏T+H，无strategy adaptation，全程无shutdown，untrusted审benign却不计useful，顺序预算舍入多用，缺真实frontier不可照复现。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 58,
+          "level": 3,
+          "title": "Alignment vs control",
+          "decision": "保留机制并修订边界",
+          "explanation": "source代码is_bd oracle泄漏T+H，无strategy adaptation，全程无shutdown，untrusted审benign却不计useful，顺序预算舍入多用，缺真实frontier不可照复现。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 65,
+          "level": 3,
+          "title": "Three fundamental limits",
+          "decision": "保留机制并修订边界",
+          "explanation": "source代码is_bd oracle泄漏T+H，无strategy adaptation，全程无shutdown，untrusted审benign却不计useful，顺序预算舍入多用，缺真实frontier不可照复现。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 71,
+          "level": 3,
+          "title": "The 2025 development",
+          "decision": "保留机制并修订边界",
+          "explanation": "source代码is_bd oracle泄漏T+H，无strategy adaptation，全程无shutdown，untrusted审benign却不计useful，顺序预算舍入多用，缺真实frontier不可照复现。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 75,
+          "level": 3,
+          "title": "Where this fits in Phase 18",
+          "decision": "保留机制并修订边界",
+          "explanation": "source代码is_bd oracle泄漏T+H，无strategy adaptation，全程无shutdown，untrusted审benign却不计useful，顺序预算舍入多用，缺真实frontier不可照复现。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 83,
+          "level": 2,
+          "title": "Use It",
+          "decision": "保留机制并修订边界",
+          "explanation": "源码全文只读，逐函数检查见代码审阅；本阶段没有运行，不能伪造实验结果。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 87,
+          "level": 2,
+          "title": "Ship It",
+          "decision": "保留机制并修订边界",
+          "explanation": "outputs文档转化为中文审查清单；不安装Skill、不执行其中硬拒/要求API。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "title": "Exercises",
+          "decision": "保留机制并修订边界",
+          "explanation": "五项逐编号中文参考与真实未跑边界见exercises。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 103,
+          "level": 2,
+          "title": "Key Terms",
+          "decision": "保留机制并修订边界",
+          "explanation": "统一定义符号及内/外对齐、概率/代理/真实效用、case/scope关系，删除过强结论。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        },
+        {
+          "line": 115,
+          "level": 2,
+          "title": "Further Reading",
+          "decision": "保留机制并修订边界",
+          "explanation": "只保必要可追溯主论文/机构入口；selectedprimary的实际阅读范围另列，失败不称已核。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md"
+        }
+      ],
+      "knowledge_review": [
+        "AIcontrol协议在U可能对抗下用T/H及执行限制，信任“不故意对抗”≠能力强/不出错。",
+        "原5000APPS scenario无任何backdoor为safety，usefulness用原U正确率；H实验用非对抗GPT4模拟，预算2%且首10免费；不能把1−逐输出缺陷率当相同。",
+        "upfront只先审预算2%，monitorflag/defertoT/threshold editing区别；T非everyquery edit；确认subversion后shutdownswitchT需后续计算。",
+        "trusted editing原测Pareto有证，但仅固定setting/attack/assumptions，不是所有任务所有安全水平定理；collusion input/action信号及redaction损害检错。",
+        "source代码is_bd oracle泄漏T+H，无strategy adaptation，全程无shutdown，untrusted审benign却不计useful，顺序预算舍入多用，缺真实frontier不可照复现。"
+      ],
+      "exercises": [
+        {
+          "id": "10.E1",
+          "original": "Run `code/main.py`. Reproduce the usefulness-safety frontier for Trusted Editing vs Untrusted Monitoring. Identify the budget regime in which Untrusted Monitoring's collusion assumption becomes pivotal.",
+          "explanation": "source oracle/backdoortruth泄漏且预算顺序不可公平；同candidate账本预算+FP/FN+shutdown，再测逐输出risk与整个scenario separately。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "10.E2",
+          "original": "Add a new protocol: \"T resamples with low temperature, then U edits T's output.\" Measure its position on the frontier. Why does this fail more catastrophically than Trusted Editing?",
+          "explanation": "U最后编辑可能重引入backdoor，但不是必更差定律；约束权限、外部finalreview、同预算独立攻击核差异。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "10.E3",
+          "original": "The 2024 paper assumes U can see the protocol. Design a protocol that hides from U which outputs are being audited. What does this protocol require from the deployment infrastructure?",
+          "explanation": "采样seed/审计日志与checker由可信权限域保存，不给U未来audit schedule，安全假设需允许未知自适应攻击。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "10.E4",
+          "original": "Read Greenblatt et al. 2024 Section 7 (collusion). Propose a collusion-resistance measure and explain its expected usefulness cost.",
+          "explanation": "input或code信号redaction可干扰collusion也丢任务语义；维护功能核验并对不同信道heldout，不说去一signal解决全部。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        },
+        {
+          "id": "10.E5",
+          "original": "Articulate a control safety case for a deployment that uses U = GPT-4-class, T = GPT-3.5-class, H = 1% of outputs audited. Identify the single strongest assumption the case depends on.",
+          "explanation": "角色代号而非当前产品排名，H1%定义coverage和能力、threatscope及动作授权；最强假设是审计真正独立且能发现U的重大坏结果。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "status": "参考判断待融入；真实源程序未跑"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "10.Q1",
+          "original": {
+            "stage": "pre",
+            "question": "Which best captures the difference between alignment and AI control?",
+            "options": [
+              "They are synonyms",
+              "Control is about hardware; alignment is about software",
+              "Alignment asks whether U is trustworthy; control asks whether we can safely use U without trusting it",
+              "Control replaces the loss function while alignment changes the optimizer"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "alignment关注行为/目标可信，control关注假设Usubvert下protocol安全，二者互补。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "10.Q2",
+          "original": {
+            "stage": "check",
+            "question": "What does the AI Control threat model assume?",
+            "options": [
+              "U is untrusted strong, T is trusted weak, H is bounded trusted human labor",
+              "Only U exists",
+              "U and T are both adversarial",
+              "All three resources (U, T, H) are trusted"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "U可能对抗、T假设不对抗但弱、H有限trustedlabor；H原用unmodifiedGPT4模拟。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "10.Q3",
+          "original": {
+            "stage": "check",
+            "question": "What is the key risk in Untrusted Monitoring that Trusted Editing avoids?",
+            "options": [
+              "T cannot edit text",
+              "Hardware contention",
+              "Two instances of U can collude or share priors, so the protocol must spend budget on collusion-resistance",
+              "Humans cannot be audited"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "Uinstances可viainput/action signals协调false-negative，T编辑减少这一对抗路径但可出错。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "10.Q4",
+          "original": {
+            "stage": "check",
+            "question": "On the Greenblatt et al. (ICML 2024) code-backdoor task, what does Trusted Editing achieve relative to Untrusted Monitoring?",
+            "options": [
+              "It only wins at zero human budget",
+              "They are exactly equivalent",
+              "It is strictly worse",
+              "It strictly Pareto-dominates: higher usefulness at every safety level"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "original_correct": 3,
+          "explanation": "论文所测frontierediting优于monitoring有条件，非所有safetylevel通用定理。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "10.Q5",
+          "original": {
+            "stage": "post",
+            "question": "Which of the following is NOT one of the lesson's three fundamental limits of control?",
+            "options": [
+              "Control produces aligned models as a byproduct",
+              "Trusted weak models eventually lag U",
+              "Control may fail at higher capability levels if U can manipulate T or reason about H's audit distribution",
+              "Humans do not scale"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "original_correct": 0,
+          "explanation": "control不产生alignedmodel，H/能力差/execution surface均是限制。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        },
+        {
+          "id": "10.Q6",
+          "original": {
+            "stage": "post",
+            "question": "What does a Control Safety Case argue?",
+            "options": [
+              "That U is trustworthy",
+              "That T is more capable than U",
+              "That under worst-case assumptions about U, the deployment protocol bounds the probability of an unacceptable outcome",
+              "That the model passed a manual jailbreak test"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "original_correct": 2,
+          "explanation": "安全论证说明scope/threat/assumptions/evidence/budget/残余，redteam经验bound不是任何worstcaseformalproof。",
+          "target": "LLM 工程实践/17-对齐失效与安全论证.md",
+          "decision": "解释条件"
+        }
+      ],
+      "svg_review": "safety轴原错逐输出率，应scenario无一个backdoor概率；four人工曲线非实测，原协议定义也错。",
+      "dynamic_key": "al-control-protocol",
+      "dynamic_review": "根代理已读实际注册函数；不能把key名称或固定演示当实验。",
+      "new_fixture_suggestion": "纯本地机制/分母/梯度例；尚未生成运行，不标已验证。"
+    }
+  ],
+  "primary_sources": [
+    {
+      "id": "instructgpt",
+      "url": "https://arxiv.org/html/2203.02155v1",
+      "cache": "/tmp/study-ethics-01-10-primary/instructgpt.md",
+      "bytes": 216,
+      "sha256": "53be02eb6cfb496c525b50fbd9faf93661b762873a5f23a1f0166b1e11f68319",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "gao",
+      "url": "https://proceedings.mlr.press/v202/gao23h.html",
+      "cache": "/tmp/study-ethics-01-10-primary/gao.md",
+      "bytes": 5759,
+      "sha256": "d1bd029cb0359d1ab499aa8a87fcfab1e7ec57e504d7c67d48c7774e00d83f0b",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF文本1–235行，p1–4，gold BoN/PPO公式/数据setup/BoNKL与proxyfit边界",
+        "图像p2公式已看"
+      ]
+    },
+    {
+      "id": "goodhart",
+      "url": "https://openreview.net/forum?id=UXuBzWoZGK",
+      "cache": "/tmp/study-ethics-01-10-primary/goodhart.md",
+      "bytes": 440,
+      "sha256": "d8edd85e17a747cfc07ec3d9f5c0634cbe140e90ad1c879df194bb5da0222042",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "dpo",
+      "url": "https://arxiv.org/html/2305.18290v2",
+      "cache": "/tmp/study-ethics-01-10-primary/dpo.md",
+      "bytes": 212,
+      "sha256": "948c15b0271126524c5c8880f21cdf31947e21947ff120c7528dac4d8d7a9868",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "ipo",
+      "url": "https://arxiv.org/html/2310.12036v3",
+      "cache": "/tmp/study-ethics-01-10-primary/ipo.md",
+      "bytes": 1842,
+      "sha256": "03517276e52e15b6bdd573871655fba73f06a6688460c28188b89a68417c921b",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "kto",
+      "url": "https://arxiv.org/html/2402.01306v3",
+      "cache": "/tmp/study-ethics-01-10-primary/kto.md",
+      "bytes": 91707,
+      "sha256": "0fca9e22386a883a688333c5c900601111f6cfcdb36f05397ca8f6b306208161",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "网页205–257行，§4.1 utility/参照与超参数；旧05正文完整相关算法解释只读复用"
+      ]
+    },
+    {
+      "id": "simpo",
+      "url": "https://arxiv.org/html/2405.14734v3",
+      "cache": "/tmp/study-ethics-01-10-primary/simpo.md",
+      "bytes": 347,
+      "sha256": "1a10cfedd396a4476011d8b758fe5c88849fff5108aab59db6a7cbb97f40e882",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "orpo",
+      "url": "https://arxiv.org/html/2403.07691v2",
+      "cache": "/tmp/study-ethics-01-10-primary/orpo.md",
+      "bytes": 188,
+      "sha256": "969345a13a9f6c59701afb32387583ac5ecb4ed5c64709aca96bbb3b574575c0",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "bpo",
+      "url": "https://openreview.net/forum?id=b97EwMUWu7",
+      "cache": "/tmp/study-ethics-01-10-primary/bpo.md",
+      "bytes": 440,
+      "sha256": "a34567e6ae7c6de581c428049a0157a89ceb0ec6b5d1ccad116b1d43d8b76667",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "daa",
+      "url": "https://arxiv.org/html/2406.02900v2",
+      "cache": "/tmp/study-ethics-01-10-primary/daa.md",
+      "bytes": 112023,
+      "sha256": "f7ff420fcfd4eb6edfdfb98bff88be4cf8db5b1530a61251f8ff6075f2efacd1",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "失败/未读"
+      ]
+    },
+    {
+      "id": "sycophancy2026",
+      "url": "https://arxiv.org/abs/2602.01002",
+      "cache": "/tmp/study-ethics-01-10-primary/sycophancy2026.md",
+      "bytes": 2136,
+      "sha256": "4292833d1b4f4982bce0d3118e82f86f6a1b51b6526f266097a4b16f0dd880b3",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "calibration2026",
+      "url": "https://arxiv.org/abs/2604.10585",
+      "cache": "/tmp/study-ethics-01-10-primary/calibration2026.md",
+      "bytes": 2474,
+      "sha256": "cac449a2a737187a57b7032123c4da4b2bf278f221f7de25954cba4b83f2b75c",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "sycophancy2023",
+      "url": "https://arxiv.org/html/2310.13548v2",
+      "cache": "/tmp/study-ethics-01-10-primary/sycophancy2023.md",
+      "bytes": 204,
+      "sha256": "8d3febebbec7268af1e44fad7cb5a1d01f34ddc49ef0a8fd7e65a4c27b712f4d",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "cai",
+      "url": "https://arxiv.org/html/2212.08073v1",
+      "cache": "/tmp/study-ethics-01-10-primary/cai.md",
+      "bytes": 250,
+      "sha256": "1f3128ecb23dbcbfc20ae4c51ef9d29c350d946170e02ae2cdbe23517eae8ce1",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "constitution",
+      "url": "https://www.anthropic.com/news/claudes-constitution",
+      "cache": "/tmp/study-ethics-01-10-primary/constitution.md",
+      "bytes": 22530,
+      "sha256": "c735f4144cd75f0086fa1c120c1f1daa0116dbc952866e250a59b347a8c84bff",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "旧2023入口更新提示与principles，不能当2026whole"
+      ]
+    },
+    {
+      "id": "classifiers",
+      "url": "https://www.anthropic.com/research/constitutional-classifiers",
+      "cache": "/tmp/study-ethics-01-10-primary/classifiers.md",
+      "bytes": 20787,
+      "sha256": "3cefc6c485d02d12a99b643fed4bc23a5f81581fea6af63b52e9159b2973e13e",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "网页首代结果段与公开demo更新：2025-02-03，23.7/+0.38与后来一universal"
+      ]
+    },
+    {
+      "id": "classifiers-v2",
+      "url": "https://www.anthropic.com/research/next-generation-constitutional-classifiers",
+      "cache": "/tmp/study-ethics-01-10-primary/classifiers-v2.md",
+      "bytes": 10925,
+      "sha256": "221e146ef43cd18a7cc779dd543ace9acd3c3fcc87b8ad2bab4ec2ab8558ca5b",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "网页完整正文至55行（图由文字caption/关系说明，未下载远程图）；2026-01-09++probe→jointclassifier"
+      ]
+    },
+    {
+      "id": "mesa",
+      "url": "https://arxiv.org/html/1906.01820v3",
+      "cache": "/tmp/study-ethics-01-10-primary/mesa.md",
+      "bytes": 121792,
+      "sha256": "66e2d1f9daba042d9fe1cab53d206ff503d307e5fe0273b6fe3d2df67948c80e",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "网页6–105，definitions/inner-outer/theoreticalconditions，2019notactualcurrent；尚未全文附录"
+      ]
+    },
+    {
+      "id": "sleeper",
+      "url": "https://arxiv.org/html/2401.05566v5",
+      "cache": "/tmp/study-ethics-01-10-primary/sleeper.md",
+      "bytes": 1842,
+      "sha256": "14165faa548b308e935f58b2783c92959dc120cbbdf2e38b8dea8a5683f6f1f2",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "probes",
+      "url": "https://www.anthropic.com/research/probes-catch-sleeper-agents",
+      "cache": "/tmp/study-ethics-01-10-primary/probes.md",
+      "bytes": 29312,
+      "sha256": "e42438faf81056deacf6116a4b958d3be76864c09a6bd50bf3c8af1168b68996",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "网页全文summary/results关键段及ablation/limits，>99AUROC/自然目标尚未知；未查看所有图片"
+      ]
+    },
+    {
+      "id": "scheming",
+      "url": "https://arxiv.org/html/2412.04984v1",
+      "cache": "/tmp/study-ethics-01-10-primary/scheming.md",
+      "bytes": 150804,
+      "sha256": "ab1f54741de7793d5f2fa27be2e2dc83f7d6cc49f7e385ca313694383db5bf55",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "网页6–105与结果摘要、evaluationdesign、strongnudge/counterfactual定义；没有读完整附录"
+      ]
+    },
+    {
+      "id": "anti-scheming",
+      "url": "https://www.apolloresearch.ai/science/stress-testing-deliberative-alignment-for-anti-scheming-training",
+      "cache": "/tmp/study-ethics-01-10-primary/anti-scheming.md",
+      "bytes": 14007,
+      "sha256": "a5c35f938513730e2f61bae2400b8170df98eeedac9e381635b96478fca2b489",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "完整网页，包括26eval、13→.4、8.7→.3、后续.3→.8、SA因果及限制"
+      ]
+    },
+    {
+      "id": "faking",
+      "url": "https://arxiv.org/html/2412.14093v2",
+      "cache": "/tmp/study-ethics-01-10-primary/faking.md",
+      "bytes": 647,
+      "sha256": "b32a7e9c8f8c0de18b305ec77cc836197d005033521814005a47d9b046f6229f",
+      "returncode": 0,
+      "stderr": "",
+      "status": "失败/不足证据，不计已核",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "faking-mitigations",
+      "url": "https://alignment.anthropic.com/2025/alignment-faking-mitigations/",
+      "cache": "/tmp/study-ethics-01-10-primary/faking-mitigations.md",
+      "bytes": 151225,
+      "sha256": "19316bfd857d958fcff0574ad50979bd8ba56d2a2cd5ec68f6f46539c223a185",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "网页26–59，摘要/模型organisms构造/三mitigations与baseline不稳定；其余未全文"
+      ]
+    },
+    {
+      "id": "control",
+      "url": "https://arxiv.org/html/2312.06942v3",
+      "cache": "/tmp/study-ethics-01-10-primary/control.md",
+      "bytes": 135671,
+      "sha256": "97bab57b2529820cca440d27c2b63807dc69e71d94ec9a697664dbf9bf0bd64e",
+      "returncode": 0,
+      "stderr": "",
+      "status": "已获取，实际选读范围见selected_read",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "网页68–156、393–433，setting/全scenario safety/H2%/H模拟/thresholdediting；所测Pareto非一般定理"
+      ]
+    },
+    {
+      "id": "instructgpt",
+      "url": "https://arxiv.org/pdf/2203.02155",
+      "cache": "/tmp/study-ethics-01-10-primary/instructgpt.pdf",
+      "bytes": 1797405,
+      "sha256": "c1984bb50a5b90fddb895fdc3a0f72e5bc977148c9f63ef6040cbe7a3e1f0d98",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/instructgpt-pdf.txt",
+      "text_sha256": "e90a9320d7990f73a0298f676b62307a8303dba37ee37b94884c1a7690f3add2",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF文本115–165与350–435，p3–8的受测比较/数据/模型/对齐税；图像p1；已读源教材全篇非等于论文全篇"
+      ]
+    },
+    {
+      "id": "gao",
+      "url": "https://proceedings.mlr.press/v202/gao23h/gao23h.pdf",
+      "cache": "/tmp/study-ethics-01-10-primary/gao.pdf",
+      "bytes": 2893492,
+      "sha256": "2f9f55ea8ab48e6e08b0702a71591794e1a01bb36c7bc88a61b124cb8f5cf783",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/gao-pdf.txt",
+      "text_sha256": "ef37de62c8da5ec944d1b8654dec2d1dc859bd0d8400393350f2ef56d7380dec",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF文本1–235行，p1–4，gold BoN/PPO公式/数据setup/BoNKL与proxyfit边界",
+        "图像p2公式已看"
+      ]
+    },
+    {
+      "id": "dpo",
+      "url": "https://arxiv.org/pdf/2305.18290",
+      "cache": "/tmp/study-ethics-01-10-primary/dpo.pdf",
+      "bytes": 1299212,
+      "sha256": "92cb3a2b71362acda98a789b03d88688fd33cf5fcf13f81d2b1de30ee7d3b67a",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/dpo-pdf.txt",
+      "text_sha256": "5cb92cdf69c47ba0314022b5d2779d6ff2b878d712c04c47f28cb08443f33623",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF文本120–255，§3–4与式1–7；图像p4"
+      ]
+    },
+    {
+      "id": "ipo",
+      "url": "https://arxiv.org/pdf/2310.12036",
+      "cache": "/tmp/study-ethics-01-10-primary/ipo.pdf",
+      "bytes": 1103888,
+      "sha256": "4a2f9e715c9031dfe4623df0f82df5dafedc94ede51568122cdf495a10d0630b",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/ipo-pdf.txt",
+      "text_sha256": "109b4541473a2b89b373629d5e7172f74e6316fdc607ade753fa75c80a2d2d0e",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF文本1–110及280–352，§5及平方目标/支持条件；图像p6 sampledloss"
+      ]
+    },
+    {
+      "id": "simpo",
+      "url": "https://arxiv.org/pdf/2405.14734",
+      "cache": "/tmp/study-ethics-01-10-primary/simpo.pdf",
+      "bytes": 1315763,
+      "sha256": "d14add6e630c8f7c1e3969e1cc5d8f463642d5d972fe96e5dd977fc06ca0e7c6",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/simpo-pdf.txt",
+      "text_sha256": "3f2d8e3f77485987f05bfadf0034826982cb44dae12ae466d4782fd055187d2f",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF文本110–220，§2.1–2.3公式及长度方向"
+      ]
+    },
+    {
+      "id": "orpo",
+      "url": "https://arxiv.org/pdf/2403.07691",
+      "cache": "/tmp/study-ethics-01-10-primary/orpo.pdf",
+      "bytes": 1395389,
+      "sha256": "b7bea325e50e4f6c4efa45d76b6823b72f4c391e9808f5c581729408bb6e91f3",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/orpo-pdf.txt",
+      "text_sha256": "9259389a35898a08eae91219503fe67e5be259ecfdea07666b39c8d93d09045f",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF文本200–300，§4平均logp/odds/链梯度"
+      ]
+    },
+    {
+      "id": "cai",
+      "url": "https://arxiv.org/pdf/2212.08073",
+      "cache": "/tmp/study-ethics-01-10-primary/cai.pdf",
+      "bytes": 2088111,
+      "sha256": "9a456a07ad346e3372f9867d346f69f5b0f68b4c65f060aca0b8a13fa9d98e83",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/cai-pdf.txt",
+      "text_sha256": "70ef906c63d7528d93fe015ddc5fec4e4bf13d17f58342c8db31ec789afb48d6",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF1–140，摘要与两阶段图1；图像p2"
+      ]
+    },
+    {
+      "id": "sleeper",
+      "url": "https://arxiv.org/pdf/2401.05566",
+      "cache": "/tmp/study-ethics-01-10-primary/sleeper.pdf",
+      "bytes": 3696766,
+      "sha256": "988e62785a47533775a543c78415dd0994341987f3124d57a81f46c931227bed",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/sleeper-pdf.txt",
+      "text_sha256": "f298a5e1e358741f884c0b408f1bdffdecd3758b10081660037af2fd486500ff",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF1–120，摘要/模型organisms图1/风险界限；图像p1；全文实验未复现"
+      ]
+    },
+    {
+      "id": "sycophancy2023",
+      "url": "https://arxiv.org/pdf/2310.13548",
+      "cache": "/tmp/study-ethics-01-10-primary/sycophancy2023.pdf",
+      "bytes": 1383108,
+      "sha256": "ee764bd30119f2146f2e130a099d6d313fca6c70ab07b17b7fdbde456d96be36",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/sycophancy2023-pdf.txt",
+      "text_sha256": "a2922c69b960597e393e38265129e3be5da2f353e020d6ae86c487dbffef75b5",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "失败/未读"
+      ]
+    },
+    {
+      "id": "sycophancy2026",
+      "url": "https://arxiv.org/pdf/2602.01002",
+      "cache": "/tmp/study-ethics-01-10-primary/sycophancy2026.pdf",
+      "bytes": 673833,
+      "sha256": "fae5eb01343774f07677a15fb274eeaa6cf062d572c120a3788913608e09e771",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/sycophancy2026-pdf.txt",
+      "text_sha256": "4d399aec39984ec571fe19f30abe655e328ead117d0fee6ac34e998caecf7784",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF1–280与420–560，§3 weak/exactexp covariance，§5 penalty/§6–7未实测最小修订；图像p3"
+      ]
+    },
+    {
+      "id": "faking",
+      "url": "https://arxiv.org/pdf/2412.14093",
+      "cache": "/tmp/study-ethics-01-10-primary/faking.pdf",
+      "bytes": 3236586,
+      "sha256": "f448dfe38f2144f0fe61bd78ceab01e44a17b363df1cb6df6c6c1bbea9568abc",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/faking-pdf.txt",
+      "text_sha256": "e63dd5567dac4aaa47a84610712b5531c1087ef2f63320df1edac9b26db7c7e7",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF1–160，p1–3以及v2图1；图像p2分母明确，12reasoning/14compliance/3paid"
+      ]
+    },
+    {
+      "id": "goodhart",
+      "url": "https://arxiv.org/pdf/2407.14503",
+      "cache": "/tmp/study-ethics-01-10-primary/goodhart.pdf",
+      "bytes": 1387548,
+      "sha256": "3361adbe5dec7a9d1920c4c24df9446469351b25ada10bddfb5d957336bb4d54",
+      "is_pdf": true,
+      "text_cache": "/tmp/study-ethics-01-10-primary/goodhart-pdf.txt",
+      "text_sha256": "da31be7a781f2f6fae7fa40be6d0e30ff9527f4272c5012dba21dbc00951e9f9",
+      "status": "待人工选读",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF1–125、273–310、394–435，定义/存在反例/误差假设/实测轻尾及有限空间边界"
+      ]
+    },
+    {
+      "id": "bpo",
+      "url": "https://openreview.net/pdf?id=b97EwMUWu7",
+      "cache": "/tmp/study-ethics-01-10-primary/bpo.pdf",
+      "bytes": 12692,
+      "sha256": "a2d811e0d24af89d9bd4b19cc9e8fbc474c67ef3827648550a6560eca2a5e332",
+      "is_pdf": false,
+      "text_cache": null,
+      "text_sha256": null,
+      "status": "失败非PDF",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "该入口失败/不足；同名另入口的selectedread不是本页"
+      ]
+    },
+    {
+      "id": "constitution2026.md",
+      "url": "https://www.anthropic.com/constitution",
+      "cache": "/tmp/study-ethics-01-10-primary/constitution2026.md",
+      "bytes": 144925,
+      "sha256": "634c0a15cfc32abcbb3ab17d7cb66f5f1f82adfce988be4793570b03dbf5e828",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "正文30–65核心values与holistic冲突解决、声明未来修订；未全文144KB"
+      ],
+      "status": "指定范围已读"
+    },
+    {
+      "id": "stanford.md",
+      "url": "https://news.stanford.edu/stories/2026/03/ai-advice-sycophantic-models-research",
+      "cache": "/tmp/study-ethics-01-10-primary/stanford.md",
+      "bytes": 6864,
+      "sha256": "90ba0cc1b94beecd8d0298db6c690908a4af448ea5e75d53922f2153561a412a",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "完整网页，社会建议49%relative/行为47%，正确DOI与测量对象"
+      ],
+      "status": "指定范围已读"
+    },
+    {
+      "id": "bpo-api.json",
+      "url": "https://api2.openreview.net/notes?id=b97EwMUWu7",
+      "cache": "/tmp/study-ethics-01-10-primary/bpo-api.json",
+      "bytes": 271,
+      "sha256": "ad343736905949ed6a34a036dc8c6db532eb6de309b3b89b2f09867f13242f81",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "API403challenge仅失败核，无论文内容"
+      ],
+      "status": "失败未读"
+    },
+    {
+      "id": "bpo-actual",
+      "url": "https://arxiv.org/abs/2506.03557v1",
+      "cache": "/tmp/study-ethics-01-10-primary/bpo-actual.pdf",
+      "bytes": 989992,
+      "sha256": "3a0cef163e3d6edb3f076fd32a49fb825138fecf5d0dda66197d5cce4df5c458",
+      "text_cache": "/tmp/study-ethics-01-10-primary/bpo-actual-pdf.txt",
+      "text_sha256": "d55e53806e2dedf22dfa69e0a4c3f5827e3e92e052f2ab29aee1824f2f9ca4c6",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "PDF1–275行，摘要/§2.1 equations1–5/条件Theorem1/五数学任务指标；图像p3已看",
+        "OpenReview id正文/API/PDF挑战失败，未据arxiv推定会议接收状态"
+      ],
+      "status": "指定范围已核"
+    },
+    {
+      "id": "constitution2026-news",
+      "url": "https://www.anthropic.com/news/claude-new-constitution",
+      "cache": "/tmp/study-ethics-01-10-primary/constitution2026-news.md",
+      "bytes": 13053,
+      "sha256": "92e06d181773d336c9e7a41818ea15dc19e4abc0198e9d8aa2e101bca5fd05ec",
+      "read_date": "2026-10-11",
+      "selected_read": [
+        "完整网页主体：CC0 1.0、corevalues、道德地位不确定、livingdocument与意图实际差距；Related content不继续访问"
+      ],
+      "status": "指定范围已核"
+    }
+  ],
+  "existing_fusion": {
+    "read": [
+      "PROJECT_RULES.md",
+      "LLM 工程实践/05-偏好优化与强化学习.md（全文已读，所有旧CPU块原字节保留）",
+      "核心09本轮局部读到历史证据末段",
+      "核心17/18与AI19先检全文标题及关键词"
+    ],
+    "decision": "01–05统一补现有05，旧DPO/KTO/ORPO/SimPO与CPU code复用；06–10新17长期安全证据章按统一机制组织，source不是目录主导。"
+  },
+  "open_scope": [
+    "未运行任何原source程序或真实大模型；论文只读实际selected scopes，下载不是全文已读",
+    "源图/Widget预设不证明实测性能/因果，根代理提供完整动态注册核对",
+    "BPO已核arxiv原稿损失，OpenReview会议状态未确认，不记录当前接收宣传；论文公式梯度β重复问题从loss独立推导。"
+  ],
+  "根准备核对": "报告为实际只读与一手选读快照，不是正式学习内容全部融合或批次验收；动态图实际注册函数另由根全部读取与SHA/Blob核对。source安装/模型/API/攻击/脚本未执行。"
+}
