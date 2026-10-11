@@ -1,0 +1,2376 @@
+{
+  "status": "课内完整静读与专业复核完成；正文尚未写入，等root互斥分工",
+  "source": "rohitg00/ai-engineering-from-scratch",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "read_date": "2026-10-11",
+  "scope": "Phase19首17中的02/04/05/08/13/17共6课",
+  "boundary": {
+    "sites_2_5_accessed": false,
+    "source_program_runs": 0,
+    "package_installs": 0,
+    "api_calls_to_models": 0,
+    "http_mcp_services_started": 0,
+    "skills_activated": 0,
+    "real_corpora_students_registered": false,
+    "dynamic_functions_read_by_this_agent": false,
+    "git_mutations": 0,
+    "source_files_modified": false
+  },
+  "lessons": [
+    {
+      "lesson": "02-rag-over-codebase",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/assets/hybrid-retrieval.svg",
+          "bytes": 6783,
+          "sha256": "8a3198a7bb74ba983a8886904f60f2185a18fd17653921e65bbfeffedeb518e2",
+          "git_blob": "9d2e4e92e853dd3e37e1bb93a5a120d83c406434",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/assets/hybrid-retrieval.svg",
+          "root_verified_git_blob_sha": "9d2e4e92e853dd3e37e1bb93a5a120d83c406434"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/main.py",
+          "bytes": 8716,
+          "sha256": "aab1b22f0676444c7e46c22dc43bf5ee1a2f5490554b8f0636274b0eee59dbeb",
+          "git_blob": "06ac0ce276eda32e72210f1d6853e6f3d0a00d6e",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/main.py",
+          "root_verified_git_blob_sha": "06ac0ce276eda32e72210f1d6853e6f3d0a00d6e"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/README.md",
+          "bytes": 1311,
+          "sha256": "b66a047f05ff058f2e4f0c3f06cc96ad0053b5a56d2838a763735daa3bec56e0",
+          "git_blob": "f101992f0186d1827a7dd96db9a7edd012de55ce",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/README.md",
+          "root_verified_git_blob_sha": "f101992f0186d1827a7dd96db9a7edd012de55ce"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/package.json",
+          "bytes": 412,
+          "sha256": "6f742a66de50bf66887a97ed1f5f5066aa0fac5b4fc663397c562704635d6dec",
+          "git_blob": "cfb60c787f87664972bf4747b0cdf747e478069a",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/package.json",
+          "root_verified_git_blob_sha": "cfb60c787f87664972bf4747b0cdf747e478069a"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/corpus.ts",
+          "bytes": 1951,
+          "sha256": "7f881664a7a473caff22f8e45ab77326b99d0e3370addb828456395a3e91ed65",
+          "git_blob": "756564f363e8bc76028a2310647d79a2f1e8afdd",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/corpus.ts",
+          "root_verified_git_blob_sha": "756564f363e8bc76028a2310647d79a2f1e8afdd"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/index.ts",
+          "bytes": 4764,
+          "sha256": "029905819d82efd5a89f0975bddee49f1a22d086a0e868b9274f0e18c42f037e",
+          "git_blob": "207545842996dc7654a3de9cd110ffc98c5799b9",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/index.ts",
+          "root_verified_git_blob_sha": "207545842996dc7654a3de9cd110ffc98c5799b9"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/index_store.ts",
+          "bytes": 3757,
+          "sha256": "6dc89cdff1ccdbf0faf41d4303f423cc69e356c5d39e164d4d77b275264220e5",
+          "git_blob": "fc94f0efa6434cb29970bd92c709863d5723e2f8",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/index_store.ts",
+          "root_verified_git_blob_sha": "fc94f0efa6434cb29970bd92c709863d5723e2f8"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/retrieval.ts",
+          "bytes": 1695,
+          "sha256": "9979948b99dbe9778dc5baf3586b6bbf0842998a1c0532255dad86e4ec869553",
+          "git_blob": "1385aaa384f999f16210888a5d44e5237db70cf2",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/retrieval.ts",
+          "root_verified_git_blob_sha": "1385aaa384f999f16210888a5d44e5237db70cf2"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/server.ts",
+          "bytes": 1388,
+          "sha256": "a92f4434e83db3291390ec8c58d949eae7e409c7f442e5454808d4f4d4b8fa3e",
+          "git_blob": "10c70da47aa8ba96a7798560fbb8e870c3b50497",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/server.ts",
+          "root_verified_git_blob_sha": "10c70da47aa8ba96a7798560fbb8e870c3b50497"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/types.ts",
+          "bytes": 484,
+          "sha256": "d46ae370c52695926397b18d225e2c8a3e48472069a186689bc0c71416df6adf",
+          "git_blob": "750988b9ebe83bad92b9a78f6c2ee91b8c8f78a6",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/src/types.ts",
+          "root_verified_git_blob_sha": "750988b9ebe83bad92b9a78f6c2ee91b8c8f78a6"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/tests/index_store.test.ts",
+          "bytes": 1708,
+          "sha256": "8292f69a130f7cb6b36bd0943787ee1c92102707b4f310ded9ffc753a3c97c7b",
+          "git_blob": "b04a57b19c3f05669b36ba9936314d2f18c429c2",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/tests/index_store.test.ts",
+          "root_verified_git_blob_sha": "b04a57b19c3f05669b36ba9936314d2f18c429c2"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/tests/retrieval.test.ts",
+          "bytes": 1854,
+          "sha256": "e1f47a02712ea3cf6aa857148838fe3e577c39dd938e426cfa15eb9fcd9d7311",
+          "git_blob": "b36dd1525f3b7e543d28b5b32890ab20fba0ecc7",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/tests/retrieval.test.ts",
+          "root_verified_git_blob_sha": "b36dd1525f3b7e543d28b5b32890ab20fba0ecc7"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/tests/server.test.ts",
+          "bytes": 2513,
+          "sha256": "0934d63220712e139bb15d062b70c042083f6167d4c09b82f512ba209f73615c",
+          "git_blob": "c0135d1a69e62006eb3ee4dc30c660d8793a1608",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/tests/server.test.ts",
+          "root_verified_git_blob_sha": "c0135d1a69e62006eb3ee4dc30c660d8793a1608"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/tsconfig.json",
+          "bytes": 536,
+          "sha256": "1c3e8ca55f7ef421ecef5c5c42a970903195af246f8c7a381aba462e94c3ac2c",
+          "git_blob": "07054dadf6f1bcb1f46e17170be0ae0a62c2b215",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/code/ts/tsconfig.json",
+          "root_verified_git_blob_sha": "07054dadf6f1bcb1f46e17170be0ae0a62c2b215"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/docs/en.md",
+          "bytes": 10589,
+          "sha256": "efb52a5359a8e837d011362dafe4871f2880f5030a54764b37f8098d4222e5a6",
+          "git_blob": "525b4cedafc6d1a5560717a0d00e0c55fbc32b8c",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/docs/en.md",
+          "root_verified_git_blob_sha": "525b4cedafc6d1a5560717a0d00e0c55fbc32b8c"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/notebook/.gitkeep",
+          "root_verified_git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/outputs/skill-codebase-rag.md",
+          "bytes": 3187,
+          "sha256": "c0efee91393ccf3a1188aa035854f3c0e56887a18e46c3c561351623eb377c47",
+          "git_blob": "5bf0eb59a595a4640f9c2fb3d3854156b768e5a5",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/outputs/skill-codebase-rag.md",
+          "root_verified_git_blob_sha": "5bf0eb59a595a4640f9c2fb3d3854156b768e5a5"
+        },
+        {
+          "path": "phases/19-capstone-projects/02-rag-over-codebase/quiz.json",
+          "bytes": 3207,
+          "sha256": "481e279df3b10b035684413fca697b6cf89b389be904088fe0d0abe05e6529cb",
+          "git_blob": "927196104e63b71d33da62d938de303ea4dbf46a",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase/quiz.json",
+          "root_verified_git_blob_sha": "927196104e63b71d33da62d938de303ea4dbf46a"
+        }
+      ],
+      "headings": [
+        {
+          "line": 11,
+          "title": "## Problem"
+        },
+        {
+          "line": 17,
+          "title": "## Concept"
+        },
+        {
+          "line": 25,
+          "title": "## Architecture"
+        },
+        {
+          "line": 52,
+          "title": "## Stack"
+        },
+        {
+          "line": 69,
+          "title": "## Build It"
+        },
+        {
+          "line": 89,
+          "title": "## Use It"
+        },
+        {
+          "line": 104,
+          "title": "## Ship It"
+        },
+        {
+          "line": 117,
+          "title": "## Exercises"
+        },
+        {
+          "line": 129,
+          "title": "## Key Terms"
+        },
+        {
+          "line": 141,
+          "title": "## Further Reading"
+        }
+      ],
+      "headings_h2_h4": 10,
+      "exercises": [
+        {
+          "number": 1,
+          "source": "Swap Voyage-code-3 for nomic-embed-code self-hosted. Measure the MRR@10 delta. Report whether the gap closes with re-ranking enabled.",
+          "answer": "固定相同语料/commit/query/gold/分词与预算，比较两个嵌入及是否rerank的2×2消融，报告paired per-query MRR/nDCG差和置信区间/失败类型、费用延迟；不能预定模型替换必更差或rerank必闭合差距。"
+        },
+        {
+          "number": 2,
+          "source": "Inject 20% generated code (LLM-produced boilerplate) into the corpus and re-evaluate. Observe retrieval poisoning. Add a \"generated\" flag to the payload and down-weight those hits.",
+          "answer": "人工生成代码污染应与真实generated标签区分；保留相关generated实现和关键接口，按重复簇/生成marker和语义证据降低重复占额，并在原创/生成/混合问题分别测证据集合recall，不能一刀删除20%。"
+        },
+        {
+          "number": 3,
+          "source": "Benchmark Qdrant hybrid search vs pgvector + pgvectorscale at your corpus size. Report p99 at batch size 1.",
+          "answer": "固定vector维度、模型revision、稀疏索引、ACL、topK、rerank、量化和冷热缓存，测质量/吞吐/尾延迟/内存/更新；所谓50M向量分界不是普适选型规则。"
+        },
+        {
+          "number": 4,
+          "source": "Add a sampling-based drift check: weekly, rerun the 100-question eval. Alert on MRR@10 drop > 5%.",
+          "answer": "冻结独立gold集与版本，weekly只是示例；区分5%相对下降/5百分点，query mix、权限变化、源更新与模型失效分别核，加入index generation freshness与可复现失败轨迹。"
+        },
+        {
+          "number": 5,
+          "source": "Extend to cross-language symbol resolution: a Python function that calls a Go service over gRPC. Use the symbol graph to link them.",
+          "answer": "Python→Go gRPC依赖以IDL方法、generated stubs、服务路由/版本和调用点连边；图不等运行时调用证明，标记静态候选与trace证据；没有相关代码证据时不补虚构关系。"
+        }
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "source": {
+            "stage": "pre",
+            "question": "Why is naive cosine search over raw chunks insufficient for cross-repo code retrieval?",
+            "options": [
+              "Vector indexes cannot store payloads larger than 1KB",
+              "Cosine similarity is undefined on code embeddings",
+              "Embedding models do not see code as tokens",
+              "It poisons results on generated code, monorepo duplication, and rarely imported symbols"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "reference_answer": "选4（index3）：向量搜索可能漏精确符号并受重复/生成副本影响；并非所有纯向量查询必失败，是否需图/混合应实测。"
+        },
+        {
+          "number": 2,
+          "source": {
+            "stage": "pre",
+            "question": "What does AST-aware chunking mean in the ingestion pipeline?",
+            "options": [
+              "Splitting code into fixed 256-token windows",
+              "Compressing chunks with gzip before storage",
+              "Cutting at tree-sitter node boundaries such as function and class spans",
+              "Dropping comments and whitespace before embedding"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "reference_answer": "选3（index2）：AST节点span切分保留函数类结构，超长函数/配置/解析失败另有回退；并非固定token永远不允许。"
+        },
+        {
+          "number": 3,
+          "source": {
+            "stage": "check",
+            "question": "Which three retrievable modalities does each chunk get in this pipeline?",
+            "options": [
+              "Raw text, gzip, and hash",
+              "Token IDs, syntax tree, and call graph",
+              "AST, IR, and bytecode",
+              "Dense embedding, BM25 terms, and a natural-language summary"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "reference_answer": "选4（index3）：dense、sparse词项、自然语言摘要是蓝图表征，summary仍需标为派生/可失真且不替原文。"
+        },
+        {
+          "number": 4,
+          "source": {
+            "stage": "check",
+            "question": "What is the role of the cross-encoder reranker after the hybrid retrieval step?",
+            "options": [
+              "It scores each query-candidate pair together for higher accuracy than cosine alone",
+              "It rewrites the chunks to remove generated code",
+              "It re-embeds the query in a different model",
+              "It compresses the chunks before sending to the synthesizer"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "reference_answer": "选1（index0）：联合query-candidate重排细交互，不能恢复未召回证据；原TS未实现cross encoder。"
+        },
+        {
+          "number": 5,
+          "source": {
+            "stage": "check",
+            "question": "Why does the synthesizer reject answers without (repo/path:start-end) anchors?",
+            "options": [
+              "Citation faithfulness gates the answer so users can verify each claim",
+              "Anchors are required by the vector database schema",
+              "Anchors reduce token cost on the synthesis call",
+              "Anchors are needed for downstream BM25 reranking"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "reference_answer": "选1（index0）：锚点便于回查，但解析到anchor不自动证明faithfulness，必须核逐主张支持、版本与权限。"
+        },
+        {
+          "number": 6,
+          "source": {
+            "stage": "post",
+            "question": "What does incremental re-index require to stay under 60 seconds on a 50-file push?",
+            "options": [
+              "Dropping the symbol graph entirely",
+              "Throwing away the BM25 index and rebuilding it from scratch",
+              "Re-embedding the full 2M-LOC corpus on each commit",
+              "Re-embedding only chunks whose text changed and recomputing affected symbol edges"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "reference_answer": "选4（index3）：只重embed变化块并更新受影响edge；还处理删除重命名/事件乱序/generation原子切换，60s需实测。"
+        },
+        {
+          "number": 7,
+          "source": {
+            "stage": "post",
+            "question": "Which metric measures whether retrieved claims are verifiable in the source?",
+            "options": [
+              "Citation faithfulness",
+              "p95 query latency",
+              "nDCG@10",
+              "MRR@10"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "reference_answer": "选1（index0）：faithfulness检验主张与source support，MRR/nDCG是排行；链接可打开但不支持主张不能计成功。"
+        }
+      ],
+      "destinations": [
+        "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "LLM 工程实践/07-Embedding与检索模型训练.md"
+      ],
+      "knowledge": [
+        "代码检索先保留repo、commit、path、语言、符号身份、AST节点原文span与内容摘要。函数/类边界通常比硬切token易保存契约，但超长函数、文件级常量/配置、注释/测试、生成代码及解析失败需独立策略；AST非语义解析，跨语言RPC需协议/路由登记或可靠静态证据，不能凭模型猜import/call edges。嵌入可用摘要扩召回，引用仍回固定commit原文。",
+        "稠密检索解自然语言近义，BM25解精确符号/罕见ID，图扩大依赖候选，cross-encoder只重排已召回候选。RRF=sum 1/(c+rank)，不混原始score尺度；每列表先去重，跨列表同chunk投票。symbol重复不能直接去重：同名函数、重载/嵌套、不同commit要用明确chunk identity。字段重复改变tf和dl，是启发式加权而非完整BM25F。CamelCase/snake_case分词、中文查询与精确identifier通道须说明。",
+        "增量更新不是只add新块：删除/重命名要tombstone旧chunk；调用/导入邻居和摘要失效也要更新；embedding/preprocess版本改变不能混向量。Webhook去重、事件乱序、一次commit快照和active generation原子切换，确保dense/sparse/graph/原文一致，读者不会引用不存在或已无权限的span。query返回generation和commit，ACL在召回/重排/answer assembly/打开源证据逐层核。",
+        "引用格式通过只证明有anchor，需逐主张检查span确存在、当前主体能读、相应revision/行号、是否支持推论/否定/适用条件；有真实anchor仍可虚构语义。MRR看首次相关,nDCG看graded排行,多repo问题加证据集合Recall和完整答案支持率；100Q/2MLOC/50files<60s/10kQPS都是项目目标，非scaffold成绩或通用门槛。"
+      ],
+      "code_flow": [
+        "Python:6人工Chunk→DenseIndex.fake_embed与BM25Index.add→query两list→RRF以anchor归并→词项overlap stub rerank→打印anchor。没有tree-sitter、真实仓库walker、真实向量库/模型/graph/webhook/synth/citation verifier。hash(tok)受PYTHONHASHSEED随机化，称跨run deterministic错误；cosine仅点积且zip静默截维，成立需同dim且单位化。BM25空corpus/全空dl边界未严校，重复query term多计。",
+        "TS:corpus6条→FNV1a稳定hash embed/cosine/BM25→RRF→slice(topK)→Hono GET/POST查询。无rerank，README所谓hybrid API成立但不等完整code RAG；返回citations.score是RRF而非支持概率。GET默认top5/POST zod q非空topK1..50；候选始终最多dense10，非topK50真实召回。nodeAdapter全body缓冲无size/deadline/backpressure边界。测试只fixture排序/有引用/HTTP字段，不证明ACL/增量/grounding/scale。"
+      ],
+      "static": "静SVG显示gitdiff→AST/summaries/graph→dense/BM25→RRF/rerank/synth→citation gate及eval；模型型号、2MLOC/60s/10kQPS/延迟是蓝图标签，scaffold没有实现。figure key ce-hybrid-retrieval；动态函数未由本agent读取，root统一核。",
+      "new_cpu_suggestions": [
+        "增量index generation: rename/delete/duplicate webhook/older commit refusal、ACL撤销、typed chunkID/commit绑定与citation support反例。"
+      ],
+      "readme_disposition": "README的layout、q/topK validation、FNV/BM25/RRF和fixture测试范围融入RAG代码检索；npm install/start/test只记依赖边界不执行，错误相对docs路径不做复制。"
+    },
+    {
+      "lesson": "04-multimodal-document-qa",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/assets/late-interaction.svg",
+          "bytes": 5517,
+          "sha256": "335c40c0dcc10de4c951d97fe699195cda9c106db4b08d1456cee95da6998b5d",
+          "git_blob": "65eb1f386ba56741e1572b20306d068a78207e57",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/assets/late-interaction.svg",
+          "root_verified_git_blob_sha": "65eb1f386ba56741e1572b20306d068a78207e57"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/main.py",
+          "bytes": 6133,
+          "sha256": "bdead3baff5f1597bd281385e0d7d74a467bf8c02e947a138d27d419936bb0fe",
+          "git_blob": "445924e0d88b4555d630b2cccc3e3af38c8de5ae",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/main.py",
+          "root_verified_git_blob_sha": "445924e0d88b4555d630b2cccc3e3af38c8de5ae"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/README.md",
+          "bytes": 1388,
+          "sha256": "ded2ed6e5370a74cfed92ffaf4939948fc0b11b4119f4c3c7cdca3d79d8f012e",
+          "git_blob": "2608cce6070a2e2210da176d189e0d480dbcb96b",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/README.md",
+          "root_verified_git_blob_sha": "2608cce6070a2e2210da176d189e0d480dbcb96b"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/package.json",
+          "bytes": 529,
+          "sha256": "a3e4d356978fafa989176772061546afeff9f79a743869bee58689654ebe7288",
+          "git_blob": "5142f72979cddbde30cb39e8bf9fbb079fd3fa4e",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/package.json",
+          "root_verified_git_blob_sha": "5142f72979cddbde30cb39e8bf9fbb079fd3fa4e"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/src/fixtures.ts",
+          "bytes": 1544,
+          "sha256": "2c211daab02e615a9fd637e9b390d18ccf21e351f0d6dfc610bb9f795ad965f7",
+          "git_blob": "7e8d91ec7a489049481ee6eca572c26f43b8a3b3",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/src/fixtures.ts",
+          "root_verified_git_blob_sha": "7e8d91ec7a489049481ee6eca572c26f43b8a3b3"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/src/index.ts",
+          "bytes": 4231,
+          "sha256": "2134307b5aa7b6a0200e747221d46cdd6e146401e9b4df9eebf9af6a88667ade",
+          "git_blob": "3519b4c968ef7b30c46d78d9526e8e1293381e54",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/src/index.ts",
+          "root_verified_git_blob_sha": "3519b4c968ef7b30c46d78d9526e8e1293381e54"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/src/render.ts",
+          "bytes": 3248,
+          "sha256": "5596ccc9971b649fb715402ec8482a7b1e73173469d492c76b760bd0b05e29ec",
+          "git_blob": "16542cf927b18b5f707e0c489be2d97e2805907c",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/src/render.ts",
+          "root_verified_git_blob_sha": "16542cf927b18b5f707e0c489be2d97e2805907c"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/src/server.ts",
+          "bytes": 1136,
+          "sha256": "56b84ba393e85ff9e5d87524aba16134f335214ad3b3fd90abc2c6087f457955",
+          "git_blob": "2b86445757ae69ddd9ef4fab2bb639d1014e2a85",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/src/server.ts",
+          "root_verified_git_blob_sha": "2b86445757ae69ddd9ef4fab2bb639d1014e2a85"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/src/types.ts",
+          "bytes": 387,
+          "sha256": "701950314f48aa33e1d3de4a90650688e6c6c7156f18a050ecf9fa2419cab4c3",
+          "git_blob": "c5726b7530828eac7f03ed00fe292b25201713f7",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/src/types.ts",
+          "root_verified_git_blob_sha": "c5726b7530828eac7f03ed00fe292b25201713f7"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/tests/fixtures.test.ts",
+          "bytes": 1113,
+          "sha256": "803dd9361b69c1748a76cae445c7837b3a5ac3569e068a1aa54b8e73b7094822",
+          "git_blob": "7420b333c760422b8a15931de1b766f039c64481",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/tests/fixtures.test.ts",
+          "root_verified_git_blob_sha": "7420b333c760422b8a15931de1b766f039c64481"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/tests/render.test.ts",
+          "bytes": 2076,
+          "sha256": "d9fb0babad9305f3f3ee82bf1aa14a6839c7c787955ac06e573c42d20714d915",
+          "git_blob": "c8a5d2a8498a9d216b08124800b3bd9291e7a88a",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/tests/render.test.ts",
+          "root_verified_git_blob_sha": "c8a5d2a8498a9d216b08124800b3bd9291e7a88a"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/tests/server.test.ts",
+          "bytes": 1727,
+          "sha256": "1e856a8462800d945f479ce35b8107153502169eef20b0b74961c86968c63ce6",
+          "git_blob": "b692d7364fed87a112f504f6dbd23edd722fa711",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/tests/server.test.ts",
+          "root_verified_git_blob_sha": "b692d7364fed87a112f504f6dbd23edd722fa711"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/tsconfig.json",
+          "bytes": 560,
+          "sha256": "29e62623e86a5e4e9fe5f8ccb8bfdbaba2ac03670adac51240443f63e351f1a8",
+          "git_blob": "5a87e080e7d69dcadb1b39547636a237f20ebf03",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/code/ts/tsconfig.json",
+          "root_verified_git_blob_sha": "5a87e080e7d69dcadb1b39547636a237f20ebf03"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/docs/en.md",
+          "bytes": 9407,
+          "sha256": "b8fc711b06f06c63a2dc3b03985cff5825260fa703eb5e3e576af9fda4bd4e89",
+          "git_blob": "887d04a24cb34c2ce6d9a8eb2793f4b708f706a4",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/docs/en.md",
+          "root_verified_git_blob_sha": "887d04a24cb34c2ce6d9a8eb2793f4b708f706a4"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/notebook/.gitkeep",
+          "root_verified_git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/outputs/skill-doc-qa.md",
+          "bytes": 2881,
+          "sha256": "7f750fc13b6a48cae57baef76c26ede7f62c301fe874f84957e5ea6f75dbdf79",
+          "git_blob": "b22ecb21ae85fbfecefe34a1471a508158e8c5a7",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/outputs/skill-doc-qa.md",
+          "root_verified_git_blob_sha": "b22ecb21ae85fbfecefe34a1471a508158e8c5a7"
+        },
+        {
+          "path": "phases/19-capstone-projects/04-multimodal-document-qa/quiz.json",
+          "bytes": 3218,
+          "sha256": "d8d257c61f3b32641c49aebc340c468eaebfde22a2abc21d7298fd57d9dd62aa",
+          "git_blob": "b57dcd54bc4450bf5ebb2ab98134bdf960636f54",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa/quiz.json",
+          "root_verified_git_blob_sha": "b57dcd54bc4450bf5ebb2ab98134bdf960636f54"
+        }
+      ],
+      "headings": [
+        {
+          "line": 11,
+          "title": "## Problem"
+        },
+        {
+          "line": 17,
+          "title": "## Concept"
+        },
+        {
+          "line": 25,
+          "title": "## Architecture"
+        },
+        {
+          "line": 51,
+          "title": "## Stack"
+        },
+        {
+          "line": 66,
+          "title": "## Build It"
+        },
+        {
+          "line": 84,
+          "title": "## Use It"
+        },
+        {
+          "line": 97,
+          "title": "## Ship It"
+        },
+        {
+          "line": 110,
+          "title": "## Exercises"
+        },
+        {
+          "line": 122,
+          "title": "## Key Terms"
+        },
+        {
+          "line": 134,
+          "title": "## Further Reading"
+        }
+      ],
+      "headings_h2_h4": 10,
+      "exercises": [
+        {
+          "number": 1,
+          "source": "Measure ColQwen2.5-v0.2 vs ColQwen3-omni on the same corpus. Which pages does one get right and the other miss? Add a \"content class\" tag to the index to route by type.",
+          "answer": "固定相同PDF/page render/revision/gold与encoder配置，在文本、表、图、手写、公式分层测查询集合recall/nDCG并回查误页；型号/leaderboard先官方核，不能把源码hash-token结果当真实模型比较。"
+        },
+        {
+          "number": 2,
+          "source": "Prune embeddings aggressively (75%, 90%). Find the compression cliff: the point where ViDoRe nDCG@5 drops below the OCR baseline.",
+          "answer": "压缩ratio注明按patch数还是字节，分别测50/75/90%和pooling/量化；同题paired ranking+answer support与边界，找自己任务质量阈值，不把论文小降幅宣称普遍cliff。"
+        },
+        {
+          "number": 3,
+          "source": "Build a hybrid: run OCR-then-text and ColQwen in parallel, fuse with RRF, rerank with a cross-encoder. Does the hybrid beat either alone? Where does it help most?",
+          "answer": "两个pipeline共享docrevision/pageidentity/ACL，独立召回→RRF dedup→适合视觉/文本的rerank；text crossencoder不能直接吞pagepixels，保存候选metadata再VLM/OCR。测混合补哪种漏证据也记额外费用。"
+        },
+        {
+          "number": 4,
+          "source": "Swap Qwen3-VL-30B for a smaller VLM (Qwen2.5-VL-7B). Measure the accuracy-per-dollar curve.",
+          "answer": "相同检索证据、temperature/outputbudget/gold对两个VLM测答案/数字/拒答/box可信/时延与各阶段费，准确率per-dollar是任务下权衡不当前型号通用排序。"
+        },
+        {
+          "number": 5,
+          "source": "Add handwritten-note support. Render the handwriting corpus, embed with ColQwen, measure retrieval. Compare against a handwriting OCR pipeline.",
+          "answer": "手写语料授权/隐私与正确转写或人工gold，维持render与contenttype一致，测OCR与visual谁漏单位/擦除/旋转注记，并保留uncertain marks不强制答案。"
+        }
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "source": {
+            "stage": "pre",
+            "question": "Why does the 2026 frontier prefer vision-first late interaction over OCR-then-text on financial PDFs and scientific papers?",
+            "options": [
+              "OCR pipelines mangle rotated tables, dense equations, and chart imagery, losing half the signal",
+              "OCR cannot run on GPUs",
+              "Vision models are cheaper per page",
+              "OCR is slower than rendering"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "reference_answer": "选1（index0）方向：OCR可能破坏布局/表/图信号；去掉固定“损失一半”和视觉必胜断言。"
+        },
+        {
+          "number": 2,
+          "source": {
+            "stage": "pre",
+            "question": "What does late interaction mean in ColPali-style retrieval?",
+            "options": [
+              "Each query token scores against every patch token, and per-token maxima are summed via MaxSim",
+              "Embeddings are computed after the user clicks a result",
+              "The reranker only runs on the final candidate",
+              "Embeddings are deferred until eval time"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "reference_answer": "选1（index0）：每query token取document向量最大相似后求和，需mask/dim/encoder一致和空输入拒绝。"
+        },
+        {
+          "number": 3,
+          "source": {
+            "stage": "check",
+            "question": "Roughly how many patch vectors does a ColQwen embedding produce per page, and what storage problem does that create?",
+            "options": [
+              "Exactly 128 vectors, fitting cleanly in any vector DB",
+              "Around 2048 patch vectors per page, ballooning raw storage compared with single-vector indexes",
+              "1 vector per page, no storage issue",
+              "16 vectors with negligible storage overhead"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "reference_answer": "选2（index1）为教材举例，patch数与分辨率/模型相关并非恒定2048，storage按实际shape dtype计算。"
+        },
+        {
+          "number": 4,
+          "source": {
+            "stage": "check",
+            "question": "What does DocPruner do in this pipeline?",
+            "options": [
+              "Removes duplicate PDF pages before ingestion",
+              "Compresses the multi-vector index by keeping high-signal patches at about 50% with negligible accuracy loss",
+              "Crops bounding boxes around evidence regions",
+              "Rewrites the query embedding for shorter vectors"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "reference_answer": "选2（index1）为目标剪枝思想；教材程序仅L1 heuristic，无权宣称DocPruner准确率/50%压缩保证。"
+        },
+        {
+          "number": 5,
+          "source": {
+            "stage": "check",
+            "question": "Why is an OCR text channel still spliced in for some pages?",
+            "options": [
+              "VLMs cannot read images at 180 DPI",
+              "OCR is the primary retrieval modality",
+              "It improves PDF rendering quality",
+              "Equation-dense and table-heavy pages benefit from a text fallback alongside the image"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "reference_answer": "选4（index3）：OCR可补公式/表的结构化文本与精确回查，是否改善通过相同gold消融证明。"
+        },
+        {
+          "number": 6,
+          "source": {
+            "stage": "post",
+            "question": "Which benchmark does this capstone target for vision-first retrieval evaluation?",
+            "options": [
+              "ViDoRe v3",
+              "RewardBench-2",
+              "MMLU-Pro",
+              "SWE-bench Pro"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "reference_answer": "选1（index0）是题设检索benchmark名称；须锁数据/benchmarkrevision不把课程scale成绩当实跑。"
+        },
+        {
+          "number": 7,
+          "source": {
+            "stage": "post",
+            "question": "What does the rubric mean by evidence-region grounding?",
+            "options": [
+              "Re-ranker latency at the p99 tail",
+              "Total number of pages retrieved per query",
+              "Fraction of cited bounding boxes that actually contain the answer span",
+              "Compression ratio achieved by DocPruner"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "reference_answer": "选3（index2）：region是否实际支撑主张，正面积bbox/最高patch/可渲染都不能替代支持率。"
+        }
+      ],
+      "destinations": [
+        "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md"
+      ],
+      "knowledge": [
+        "视觉文档检索将PDF每页渲染成图像，encoder保留每patch/token表示。MaxSim sum_i max_j q_i·p_j要求同encoder/processor/version/dim、有效mask、距离约定、finite且正确空输入处理，负分不能初始化0。多向量存储Np×d×bytes，例如10k页×2048×128×2=5,242,880,000B≈4.88GiB，仅向量，不含图像/索引/replica/metadata。patch数依模型/分辨率变化，不必每页2048。",
+        "检索与生成分两层：先retrieve相关page，再VLM读已授权page/query/OCR并逐claim引用docrevision/page/region；跨页问题需要全部证据页。MaxSim的高相似patch不证明答案定位、不能等同因果解释；evidence bbox需图页/原文支持验证。OCR对文本、公式、数表可保留结构通道，视觉可能优于OCR但不能称统一替代/丢半信号定律。",
+        "渲染要记录PDF原page size/crop/rotation/DPI、image actual widthheight与可逆transform。180DPI与1536×2048是不同约束，按页面尺寸渲染并保持比例再resize/pad需记映射。bbox约定(x,y,w,h)像素或normalized、pageNum1base、origin、clip、rotation/zoom/CSS与DPR；多页/不同尺寸不能混同单页canvas。加载实际图像并等待onload后overlay，错误加载有显式状态。",
+        "剪枝/池化/量化要分：随机/L1/variance删除只是启发式，不可包装DocPruner已证50%/小于.5%普遍准确率。剩patch为空、重要小数字被剪、dtype与index数据shape、候选阶段漏召回都纳入ablation。内容类别×approach同时测retrieval nDCG/集合recall、answer correctness、region support、storage/latency/fees，黄金问题与未知问题分开。"
+      ],
+      "code_flow": [
+        "Python:人工10pages词项→random.Random(hash(tok))16dim unit向量→sum(abs) L1排序keepfloor half→MaxSim→top3→with/without pruning overlap。没有PDF/OCR/视觉encoder/VLM/bbox/index服务/ViDoRe；跨process hash不稳，L1不是norm variance/真实DocPruner；maxsim空patch加-1e9、zip忽略维度、keep_fraction范围不核，不能复制生产。",
+        "TS:2写死fixture（Acme与Nature）→JSON或HTML→script canvas按0.5尺寸draw rectangle。pageImageUrl虽在payload却从未创建img/drawImage；/static无route，故只在空白stage画框，不是PDF证据viewer。Nature latency4.1x人工文本无论文结果，Acme为虚构非真实财报。HTML文本5字符escape，但JSON.stringify内联<script>未处理</script>，不可信evidence.text/URL可闭合脚本；getFixture返回普通Record原型属性（如__proto__）非own key。tests仅html字符串/正面积/范围score与route，不证明image存在、box定位、XSS或actual evidence。"
+      ],
+      "static": "静SVG两塔/MaxSim、多patch代价、50%剪枝、VLM/boxviewer与评价矩阵；DocPruner数字和uniformpatch数只是教材断言，不纳入主章保证。figure ce-late-interaction；动态root另核。",
+      "new_cpu_suggestions": [
+        "bbox rotate/resize/clip/map + ownIDs + safe script serialization反例；MaxSim/mask已有正式程序可复用不重复造。"
+      ],
+      "readme_disposition": "TS README viewer layout/content negotiation/测试scope融入页面证据工程，并更正未真正load图像；安装/HTTP运行未做。"
+    },
+    {
+      "lesson": "05-autonomous-research-agent",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/05-autonomous-research-agent/assets/research-tree.svg",
+          "bytes": 5493,
+          "sha256": "6af6298e2ebd04c59e7ee19797320193ae009d4d62af0c116d859ae69e41d84a",
+          "git_blob": "c3023af6c588e2d49f56226d9ea208209fdf0ed1",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/05-autonomous-research-agent/assets/research-tree.svg",
+          "root_verified_git_blob_sha": "c3023af6c588e2d49f56226d9ea208209fdf0ed1"
+        },
+        {
+          "path": "phases/19-capstone-projects/05-autonomous-research-agent/code/main.py",
+          "bytes": 7226,
+          "sha256": "2ee002022f8d98f71b4b99e31f9e43816edf2fd42b4bc088ee4539a6f92c50cd",
+          "git_blob": "aa718819897d4a5aa24f44e16d3e30934d513a16",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/05-autonomous-research-agent/code/main.py",
+          "root_verified_git_blob_sha": "aa718819897d4a5aa24f44e16d3e30934d513a16"
+        },
+        {
+          "path": "phases/19-capstone-projects/05-autonomous-research-agent/docs/en.md",
+          "bytes": 10514,
+          "sha256": "575c394ff90b9e577cbdee288f1e1c5fa6359d0387fda459e50bfbd95cedc715",
+          "git_blob": "1096ee82e9962267a439117618cac9de4a6ebb41",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/05-autonomous-research-agent/docs/en.md",
+          "root_verified_git_blob_sha": "1096ee82e9962267a439117618cac9de4a6ebb41"
+        },
+        {
+          "path": "phases/19-capstone-projects/05-autonomous-research-agent/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/05-autonomous-research-agent/notebook/.gitkeep",
+          "root_verified_git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/19-capstone-projects/05-autonomous-research-agent/outputs/skill-ai-scientist.md",
+          "bytes": 3258,
+          "sha256": "f60146ee29f21b52d2e9eccd4100bfb08d965a2d0b5fe64d043b00e101abd3cf",
+          "git_blob": "753a631110279f804545abd6d29817060852f2a7",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/05-autonomous-research-agent/outputs/skill-ai-scientist.md",
+          "root_verified_git_blob_sha": "753a631110279f804545abd6d29817060852f2a7"
+        },
+        {
+          "path": "phases/19-capstone-projects/05-autonomous-research-agent/quiz.json",
+          "bytes": 3254,
+          "sha256": "effd40cc31f4235df123fa06be8a78949973810acbd21947da0473fd57993ea9",
+          "git_blob": "7505c2da5f1fa36f3f399028eac7d203da9511d2",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/05-autonomous-research-agent/quiz.json",
+          "root_verified_git_blob_sha": "7505c2da5f1fa36f3f399028eac7d203da9511d2"
+        }
+      ],
+      "headings": [
+        {
+          "line": 11,
+          "title": "## Problem"
+        },
+        {
+          "line": 17,
+          "title": "## Concept"
+        },
+        {
+          "line": 25,
+          "title": "## Architecture"
+        },
+        {
+          "line": 61,
+          "title": "## Stack"
+        },
+        {
+          "line": 76,
+          "title": "## Build It"
+        },
+        {
+          "line": 96,
+          "title": "## Use It"
+        },
+        {
+          "line": 113,
+          "title": "## Ship It"
+        },
+        {
+          "line": 126,
+          "title": "## Exercises"
+        },
+        {
+          "line": 138,
+          "title": "## Key Terms"
+        },
+        {
+          "line": 150,
+          "title": "## Further Reading"
+        }
+      ],
+      "headings_h2_h4": 10,
+      "exercises": [
+        {
+          "number": 1,
+          "source": "Run the pipeline against three different seed ideas in the same domain. Compare which parts of the tree-search overlap. Identify duplicated wasted compute.",
+          "answer": "三seed固定同域/数据/评估版本，用config/artifact/inputdigest查重复节点和共享可复用基线；只有完全合同相同且旧结果有效才reuse，不因hypothesis文字似同就跳过。"
+        },
+        {
+          "number": 2,
+          "source": "Add a human-in-the-loop gate before experiment execution for nodes estimated above $5. Measure how much total cost drops.",
+          "answer": "成本>$5 gate为项目policy非通用法律；pre-run reservation/actor/task/args/code/env/time绑定review，拒绝/过期/改code要hold；记所有spent/unknown，不能假定人工gate必降真实费用。"
+        },
+        {
+          "number": 3,
+          "source": "Swap the reviewer ensemble for a single judge. Measure the false-accept rate on a held-out set of known-bad papers.",
+          "answer": "known-bad heldoutpapers先固定真值与严重缺陷，single vs ensemble独立盲评分，测falseaccept/false reject/校准/成本/相关性，mean4/5非NeurIPS统一门槛。"
+        },
+        {
+          "number": 4,
+          "source": "Introduce a network-exfiltration red team test: agent writes code that tries to `curl` an external address. Confirm the `--network=none` policy blocks it. Log the attempt.",
+          "answer": "在专用安全测试环境检查实际网络拒绝/日志/停止；本轮不运行curl或恶意sourcecode。--network none仅隔离相应网络，另核mount/socket/privilege/creds泄露，不称“所有sandbox escape已阻断”。"
+        },
+        {
+          "number": 5,
+          "source": "Compare your tree-search with a flat random baseline (same budget, no expansion strategy). Report the novelty × quality gain.",
+          "answer": "同总budget/compute/任务/seeds/评价器，搜索开发集后freeze候选，在独立final集看quality/novelty证据与消融；random baseline不是故意给更少nodes。报告费用完整、失败和置信区间，不预定tree胜。"
+        }
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "source": {
+            "stage": "pre",
+            "question": "What search shape does the AI-Scientist-class agent use to explore experiments?",
+            "options": [
+              "Breadth-first expansion with random scoring",
+              "Beam search over token outputs",
+              "Pure reinforcement learning from human feedback",
+              "Best-first tree search over experiment nodes with a novelty x quality x budget score"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "reference_answer": "选4（index3）为课程设计方向；不是AI-Scientist全家唯一搜索，自己的heap不等AB-MCTS，教材×与实际sum分开。"
+        },
+        {
+          "number": 2,
+          "source": {
+            "stage": "pre",
+            "question": "Why is the sandbox configured with --network=none and bounded resource caps?",
+            "options": [
+              "To force the agent to use prompt caching",
+              "To prevent network egress and contain experiment side effects within a reproducible envelope",
+              "To enforce deterministic floating-point arithmetic",
+              "To allow GPU passthrough by default"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "reference_answer": "选2（index1）：网络和resource隔离缩小side effects，不保证浮点确定或所有escape安全。"
+        },
+        {
+          "number": 3,
+          "source": {
+            "stage": "check",
+            "question": "What is the role of the vision critique step in the writer loop?",
+            "options": [
+              "Generates new experiment ideas from screenshots",
+              "Replaces matplotlib at render time",
+              "Translates figures into bar charts",
+              "Compiles the LaTeX draft to PDF, then has a VLM critique layout, figure legibility, and claim-evidence alignment"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "reference_answer": "选4（index3）：render后查布局/图示/claim evidence，VLM评价仍可错不能替原数据核。"
+        },
+        {
+          "number": 4,
+          "source": {
+            "stage": "check",
+            "question": "How does the reviewer ensemble gate the pipeline?",
+            "options": [
+              "Reviewers vote anonymously and the majority wins",
+              "Five judges score on NeurIPS-style rubrics and the weighted aggregate must clear a threshold, otherwise the draft loops back to the writer",
+              "A single judge accepts or rejects on a binary flag",
+              "Reviews run after publication only"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "reference_answer": "选2（index1）：aggregated reviewers可作候选gate，独立falseaccept评估与human review仍需，五judge/4分是自设。"
+        },
+        {
+          "number": 5,
+          "source": {
+            "stage": "check",
+            "question": "Which cost discipline does the capstone enforce per paper?",
+            "options": [
+              "GPU-hours tracked but never capped",
+              "A $30 hard budget tracked through Langfuse counters and pre-run estimates",
+              "Cost-only optimization without quality checks",
+              "Unbounded compute, hard wall-clock only"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "reference_answer": "选2（index1）是题设$30，实际code仅后计费用不hard reserve；生产需全pipeline账本和unknowncost。"
+        },
+        {
+          "number": 6,
+          "source": {
+            "stage": "post",
+            "question": "Which scoring function ranks tree nodes for further expansion?",
+            "options": [
+              "Citation count of related papers",
+              "Random uniform priority",
+              "Output length and token count",
+              "Novelty x quality x remaining budget"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "reference_answer": "选4（index3）仅指标维度；实际code=.4N+.5Q+.1B，source给乘积不符，B共同项不影响同期rank。"
+        },
+        {
+          "number": 7,
+          "source": {
+            "stage": "post",
+            "question": "What does the red-team report exercise against the system?",
+            "options": [
+              "Sandbox-escape attempts such as fork bombs, network exfiltration, and filesystem escapes",
+              "Caching hit rate on system prompts",
+              "Multi-tenant data leakage in the vector DB",
+              "Latency tail under packet loss"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "reference_answer": "选1（index0）：redteam目标文件/网络/进程边界；测试通过只代表选案例/环境，不证明万能防护。"
+        }
+      ],
+      "destinations": [
+        "Agentic Design Patterns/01-核心章节/06-规划.md",
+        "LLM 工程实践/06-评测与实验管理.md",
+        "Agentic Design Patterns/01-核心章节/09-学习和适应.md"
+      ],
+      "knowledge": [
+        "科研Agent拆成任务定义、相关文献证据、候选hypothesis/config/code、独立执行、验证记录、候选选择、写作/图表、复核。每node保留parent/artifact digest/dataset split/环境/seed/实际费用/结果及失败。文学检索50most-cited不是全面查新：补recent、negative、相关任务和原始方法，引用必须确存在且支持具体主张；相似度novelty不是新颖性证明。",
+        "best-first按候选优先级取frontier；明确分值来自预测还是已观测，未执行质量未知，不许默认为好或伪造成loss。score=.4novelty+.5quality+.1budget为加权和，教材×和AB-MCTS不等同此自定义heap。剩余预算共同常数不改变同时间候选排名，若想cost-aware可用每候选预估成本/价值但应受硬门禁。只改一变量利于ablation而非证明消除所有混杂。",
+        "预算账本先reserve上界再启动，settle实际spent或unknown pending，对writer/reviewer/API/失败/retry/compute全部记成本；账后警告不是hard cap。生成数/执行数/深度/并发/timeout/改写次数分别限制，去重config避免同操作重复搜索；unknown费用不释放保留额重试。失败不从账本或评价分母消失。",
+        "实验sandbox要实际隔离网络/文件/凭据/进程/CPU/mem/PIDs/walltime，容器只读root不自动限制挂载输出/特权/宿主socket；command以参数数组不要shell拼接。结果是非可信输入，校验schema/finite/units/split/no test exposure/日志真实。固定seed不等所有GPU bitwise相同。新发表/自动review成绩不替代独立证据，render critique能发现布局不能认证统计因果；多judge相关错误与false acceptance需gold已知坏论文测试。"
+      ],
+      "code_flow": [
+        "Python:root q=.5novelty1未实际实验→pop root→expand5children(q0,novelty.5)→push用执行前score与commonbudget→FIFO tie counter→pop才random fake实验→verify只failure或loss>4→cost累加→成功再expand→best_branch在done取maxquality。无LLM/lit/sandbox/train/writer/peerreview/redteam；loss和novelty均人造。说明声称best-first/maxdepth但未执行候选priors完全一样且无depth字段，数据流不是用observed quality筛好分支。",
+        "max_nodes是nodes字典生成数且batch5可由21变26，非已探索24；pop之前generation门禁可让许多生成候选永不执行。spent>=budget在开始前但未reserve下次cost可超出；actual code scoring加权sum不是乘积；同config多parents重复未dedup。rng固定只证明模拟重放；loss<=4不证明下降/基线/单因素。"
+      ],
+      "static": "静SVG experiment tree/budget/容器限制/writer/vision/review；score行是weighted sum，与文档乘积不符；parentbranch为示例，不代表源码树实际跑出。figure ce-experiment-tree动态root另核。",
+      "new_cpu_suggestions": [
+        "标准库预算reserve/settle/unknown/failedcost、不重复config与生成数/执行数/depth gate；不任意eval/子进程/Docker。"
+      ],
+      "readme_disposition": "无TS README；不把outputs skill当授权或安装。"
+    },
+    {
+      "lesson": "08-production-rag-chatbot",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/assets/rag-stack.svg",
+          "bytes": 6384,
+          "sha256": "2fff7c52ffc933db279846532f22346dc03808d65f48eab5cb2b62f82b41d06a",
+          "git_blob": "12b59de98d9ab92fafb5a2c09eb04907aff21e7a",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/assets/rag-stack.svg",
+          "root_verified_git_blob_sha": "12b59de98d9ab92fafb5a2c09eb04907aff21e7a"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/main.py",
+          "bytes": 8869,
+          "sha256": "c6a8450231cfba1db1f8aa5f2700b37f243d62d72e154a429d4c3be61b02fc8e",
+          "git_blob": "0a3c7f36f8ae1e73c379521eac064adc4c0a1e8c",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/main.py",
+          "root_verified_git_blob_sha": "0a3c7f36f8ae1e73c379521eac064adc4c0a1e8c"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/README.md",
+          "bytes": 1599,
+          "sha256": "316be57ec336680c8b215429dfd59ad50ae0ae37ff8ff54ba5763564a58fb459",
+          "git_blob": "f3b466df3d7e1d8d877ba38c444ff2f90df39130",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/README.md",
+          "root_verified_git_blob_sha": "f3b466df3d7e1d8d877ba38c444ff2f90df39130"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/package.json",
+          "bytes": 534,
+          "sha256": "834d9a382fc9638dc9fb377ab4a45e00b86c5b5f2d1db37675cc42acbe083bb9",
+          "git_blob": "5406c54e98a58790a399fca7a83a38f04fea5dea",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/package.json",
+          "root_verified_git_blob_sha": "5406c54e98a58790a399fca7a83a38f04fea5dea"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/src/index.ts",
+          "bytes": 5042,
+          "sha256": "b31b423e4f87bbdef626ced1eed31eca90182abf096581d3f960ec8f3dcf3edc",
+          "git_blob": "a44aefa03037c74dc5a28d23347ff646291d1bd1",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/src/index.ts",
+          "root_verified_git_blob_sha": "a44aefa03037c74dc5a28d23347ff646291d1bd1"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/src/server.ts",
+          "bytes": 4833,
+          "sha256": "f5f0cbf8becf4d90c32e1a1230273140944a06c56cd306ae7334369303987d47",
+          "git_blob": "19d515d3dd4feb6419cab9c25dff4fc3b0f3cfb4",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/src/server.ts",
+          "root_verified_git_blob_sha": "19d515d3dd4feb6419cab9c25dff4fc3b0f3cfb4"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/src/session.ts",
+          "bytes": 835,
+          "sha256": "5f0bb242283ef377b4b3a33385171cc3d2c6acc754a18f11748e7074f3e7a2de",
+          "git_blob": "557ec83944e9c999daadb65d2f4f2a5047cc7dce",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/src/session.ts",
+          "root_verified_git_blob_sha": "557ec83944e9c999daadb65d2f4f2a5047cc7dce"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/src/stream.ts",
+          "bytes": 2817,
+          "sha256": "343b3fc02caed05f0ca28138890efa0611a07651203a743b43e946a0ed47a5a8",
+          "git_blob": "dda031d07635c11592c7832dd408eed28c4437d0",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/src/stream.ts",
+          "root_verified_git_blob_sha": "dda031d07635c11592c7832dd408eed28c4437d0"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/src/types.ts",
+          "bytes": 460,
+          "sha256": "d930e29345a2f62d1183b6a6f16ba9f1049faba71decbaf37e5cfee60490739d",
+          "git_blob": "0baef0aaae5c9667becae2b6231cb870526da896",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/src/types.ts",
+          "root_verified_git_blob_sha": "0baef0aaae5c9667becae2b6231cb870526da896"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/tests/server.test.ts",
+          "bytes": 2871,
+          "sha256": "13e4de7a2ae3c2e2aad6ec759503b2affc31a3e5efd978d8f6049fc28b6c2fdd",
+          "git_blob": "15dc73d434ef46676b1182a3af8bfa84e64f4048",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/tests/server.test.ts",
+          "root_verified_git_blob_sha": "15dc73d434ef46676b1182a3af8bfa84e64f4048"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/tests/session.test.ts",
+          "bytes": 1783,
+          "sha256": "e51406cc0d3efdf7dff08f347fcfd34f7171d758ad9bb877c631d8e2fc884221",
+          "git_blob": "be8c9e0eca4588ec05f1b7b0af470398f391b06c",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/tests/session.test.ts",
+          "root_verified_git_blob_sha": "be8c9e0eca4588ec05f1b7b0af470398f391b06c"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/tests/stream.test.ts",
+          "bytes": 2257,
+          "sha256": "c3e8186624f379472558015c540be1e986630566176ed1e725786b7cc8eabb5d",
+          "git_blob": "f0f75712bbffbc00eb6f93c6ca79a3c8bebe483d",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/tests/stream.test.ts",
+          "root_verified_git_blob_sha": "f0f75712bbffbc00eb6f93c6ca79a3c8bebe483d"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/tsconfig.json",
+          "bytes": 560,
+          "sha256": "29e62623e86a5e4e9fe5f8ccb8bfdbaba2ac03670adac51240443f63e351f1a8",
+          "git_blob": "5a87e080e7d69dcadb1b39547636a237f20ebf03",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/code/ts/tsconfig.json",
+          "root_verified_git_blob_sha": "5a87e080e7d69dcadb1b39547636a237f20ebf03"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/docs/en.md",
+          "bytes": 10067,
+          "sha256": "84d50fb0bc9bcf443bb006f5841815557b8fe55d10ea57a133762968e22d2bd5",
+          "git_blob": "ab1ffa7b2ee12e64f058a94324871b96967186f7",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/docs/en.md",
+          "root_verified_git_blob_sha": "ab1ffa7b2ee12e64f058a94324871b96967186f7"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/notebook/.gitkeep",
+          "root_verified_git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/outputs/skill-production-rag.md",
+          "bytes": 3322,
+          "sha256": "c91115307a6a4077743f465f0f1d5fd99f52d74dc7c963730d4058f7f37925bd",
+          "git_blob": "0dd5923c37b323b4a7d2b786d903164bc744b58a",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/outputs/skill-production-rag.md",
+          "root_verified_git_blob_sha": "0dd5923c37b323b4a7d2b786d903164bc744b58a"
+        },
+        {
+          "path": "phases/19-capstone-projects/08-production-rag-chatbot/quiz.json",
+          "bytes": 3123,
+          "sha256": "6fd04f06d513ee663db8afdf8507658044a8345e61e578ff41bc353830b3f337",
+          "git_blob": "a03843b7dd97b261d5ba32375e82b553eacaad5b",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot/quiz.json",
+          "root_verified_git_blob_sha": "a03843b7dd97b261d5ba32375e82b553eacaad5b"
+        }
+      ],
+      "headings": [
+        {
+          "line": 11,
+          "title": "## Problem"
+        },
+        {
+          "line": 17,
+          "title": "## Concept"
+        },
+        {
+          "line": 25,
+          "title": "## Architecture"
+        },
+        {
+          "line": 58,
+          "title": "## Stack"
+        },
+        {
+          "line": 75,
+          "title": "## Build It"
+        },
+        {
+          "line": 95,
+          "title": "## Use It"
+        },
+        {
+          "line": 111,
+          "title": "## Ship It"
+        },
+        {
+          "line": 124,
+          "title": "## Exercises"
+        },
+        {
+          "line": 136,
+          "title": "## Key Terms"
+        },
+        {
+          "line": 148,
+          "title": "## Further Reading"
+        }
+      ],
+      "headings_h2_h4": 10,
+      "exercises": [
+        {
+          "number": 1,
+          "source": "Build a second corpus slice under a different jurisdiction (e.g., HIPAA alongside GDPR). Demonstrate role+jurisdiction filtering preventing cross-leak on a 20-question cross-jurisdiction probe.",
+          "answer": "测试principal/tenant/role/region/effective version组合以及user spoof、index ACL撤销、citation open、cache与memory跨scope；20probe只case覆盖，禁把jurisdiction boost叫阻断。"
+        },
+        {
+          "number": 2,
+          "source": "Measure prompt-cache hit rate over a week of production traffic. Identify which queries break the cache prefix. Restructure.",
+          "answer": "provider usage cached/write tokens+stage receipts与prefix实际序列、context排序、TTL和模型revision复盘；先区分application全prefixSHA命中与providerpartialprefix，不以demo重复一次当一周流量。"
+        },
+        {
+          "number": 3,
+          "source": "Add multi-turn memory with a 10k-token summary buffer. Measure whether faithfulness drops as the conversation grows.",
+          "answer": "固定turn与gold，在短/长/摘要/无摘要分别测指代/旧证据/错误事实传播/权限撤销；10k-token不是万能memory预算，history不能越权回灌或与当前事实混。"
+        },
+        {
+          "number": 4,
+          "source": "Swap Claude Sonnet 4.7 for Llama 3.3 70B self-hosted. Measure $/query and faithfulness delta.",
+          "answer": "同检索、guardrail与gold，全部stage费用/推理hardware并发利用率/quality/latency记录，不能用厂商token单价与自建满利用率直接比较。"
+        },
+        {
+          "number": 5,
+          "source": "Add an \"unsure\" mode: if top reranked scores are below a threshold, the agent says \"I do not have confident citations\" instead of answering. Measure false-confidence reduction.",
+          "answer": "校准任务专用拒答阈值，测answerable被拒与unanswerable被答、逐claim真实support；rerank低/高分不直接是概率，empty/0overlap/源冲突应单列。"
+        }
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "source": {
+            "stage": "pre",
+            "question": "Why does prompt caching matter so much in a regulated-domain RAG chatbot?",
+            "options": [
+              "It eliminates hallucinations",
+              "At 60-80% hit rate it cuts per-query cost 3-5x by discounting stable prefix tokens",
+              "It removes the need for a vector database",
+              "It improves recall on the rerank stage"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "reference_answer": "选2（index1）有条件成本方向，去掉60-80%hit必3-5x；output/未cache动态/各stage费可限制节省。"
+        },
+        {
+          "number": 2,
+          "source": {
+            "stage": "pre",
+            "question": "What goes into the cache header versus the uncached suffix of each request?",
+            "options": [
+              "Random text padding to hit cache size",
+              "Only the retrieved documents",
+              "User question first, system prompt last",
+              "System prompt and static policies in the cache header, reranked context as cache extension, user question as the uncached suffix"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "reference_answer": "选4（index3）：稳定system/policy前缀、动态context扩展与user尾；写入/最小tokens/TTL/model合同仍必核。"
+        },
+        {
+          "number": 3,
+          "source": {
+            "stage": "check",
+            "question": "How does the retrieval layer respect jurisdiction tags like GDPR or HIPAA?",
+            "options": [
+              "It rewrites the user question per region",
+              "It blocks the response after generation only",
+              "It runs a separate index per country",
+              "Role and jurisdiction filters apply before the hybrid search merge so chunks outside the user's scope are never reranked"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "reference_answer": "选4（index3）是正确目标，原TS只boost违规；role/jurisdiction自己报不授权，所有通道scope核。"
+        },
+        {
+          "number": 4,
+          "source": {
+            "stage": "check",
+            "question": "Which layered guardrail combination does the synthesis stage pass output through?",
+            "options": [
+              "Just an output PII regex",
+              "Only Llama Guard 4 on input",
+              "Llama Guard 4, NeMo Guardrails policy rails, and Presidio PII scrub, plus citation enforcement",
+              "A single LLM-judge faithfulness check"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "reference_answer": "选3（index2）是目标多层组合，sourcecode没真模型工具；权限是硬约束，regex/judge不替ACL。"
+        },
+        {
+          "number": 5,
+          "source": {
+            "stage": "check",
+            "question": "What does the drift dashboard alert on?",
+            "options": [
+              "A change in the underlying LLM provider",
+              "Latency above 200ms",
+              "A retrieval-quality drop, for example a 5% week-over-week dip in nDCG or citation score",
+              "Any new document added to the index"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "reference_answer": "选3（index2）为例阈值，需gold或标注样本才能估nDCG，变query mix和index更新延迟分别核。"
+        },
+        {
+          "number": 6,
+          "source": {
+            "stage": "post",
+            "question": "How big is the golden set used to gate the deliverable's correctness rubric?",
+            "options": [
+              "200 expert-labeled question/answer pairs with citations",
+              "5 demo queries",
+              "2000 synthetic questions",
+              "20 questions"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "reference_answer": "选1（index0）题设200，规模应覆盖域问题/无答案/冲突/越权，非生产充分证据数。"
+        },
+        {
+          "number": 7,
+          "source": {
+            "stage": "post",
+            "question": "Which RAGAS scores are tracked online per turn?",
+            "options": [
+              "BLEU, ROUGE, and METEOR",
+              "Token count and dollar cost",
+              "Faithfulness, answer relevance, and context precision",
+              "Throughput, GPU utilization, and queue depth"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "reference_answer": "选3（index2）题设faithfulness/relevance/contextprecision；记录版本/metricdefinition/judge成本误差，不当自动合规或最终truth。"
+        }
+      ],
+      "destinations": [
+        "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "LLM 工程实践/03-推理与服务化.md",
+        "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+      ],
+      "knowledge": [
+        "受监管RAG先鉴别真实主体和tenant/objectACL，再确定数据目的/地区/版本有效期；GDPR/HIPAA/SOC2是不同适用框架非互斥地理标签。标签不使系统合规，role等从server认证上下文，不能请求query参数自封counsel。vector/BM25/graph/context/summary/引用UI及缓存都按当前权限；排名boost不能过滤，先召回全库后过滤既可泄密又漏授权集合中低排名答案。",
+        "答案是否可靠由retrieval coverage/revision freshness、事实正确、citation support、privacy/safety分别检查。200gold/50redteam/5%下降是可改任务标准，测试集被改prompt/retriever反复利用会变开发集需独立final。RAGAS judge faithfulness是代理证据，source错误但答案忠于source仍不是事实正确；无gold weekly nDCG无法从纯未标注日志自动得到。低rerankscore阈值要领域校准/拒答正确性，不共用不同模型原分数。",
+        "缓存要分provider prefix与应用answer cache。稳定system/policy有助重复prefix，query相关context只是该cache extension可复用，不能固定hit rate/总费3-5x。总价含miss输入/output/retrieval/embedding/rerank/guard/cache write、失败；已有服务03维护真实cache write/TTL/retention/version。缓存scope绑定tenant/principal/permission epoch/model/revision/安全policy；hit不免再次授权。SHA256截64bit教学key不安全授权，不保证TTLs/provider真的读中。",
+        "多轮history存储不等参与检索或answer；summary为派生无权升级旧幻觉。sessionID由服务签发或ownership绑定，token revoke后memory需重新scope；请求重放以turnID/inputdigest幂等防duplicate。流式token已给用户后不能靠final guard收回信息，机密输出必须release前按完整span检查或可信已审核内容流，partial,error,done,disconnect分别记状态/费用，不把半答记成功。"
+      ],
+      "code_flow": [
+        "Python:5虚构Chunk role/juris exact+public/any过滤→Jaccard dense与词重叠/length pseudo BM25→RRF把全部eligible连0分也排名→system/policy/contextSHA截16hex→PromptCache store计数→拼接text60chars答案/3正则input/2regex scrub。无trueLLM/cacheAPI/rerank/presidio/LlamaGuard/NeMo/metrics/state；irrelevantquery也获得eligible citations；英文字面regex不能宣称高强防注入。MSA/GDPR30d与HIPAA60d是虚构合同fixtures非法律通用时限。",
+        "TS:KB4条→querytoken overlap>0+jurisdiction match2 boost→top3→SSE session/citations/token/done；没有role filter/真实ACL，HIPAA文档可出现在GDPRresponse。client任意sessionId/role/jurisdiction；SessionStore既有记录角色被ignore但本次retrieval仍按新requesttag，/sessions无auth暴露所有sessionmetadata。history保存但query不用；demo固定demo-session所有人共享。GETq把敏感问题写URL/history/proxylog；EventSource default可重连重复turn，没eventID/turn幂等/heartbeat/真正streambackpressure/proxy验证。splitwhitespace tokens是UI片段不是模型计费token；parseSseStream LF简版不完整WHATWG。"
+      ],
+      "static": "静SVG显示role先filter的正确目标，但TS只boost，正文figure key canary-rollout与asset rag-stack不一致；root按实际注册动态另核。60-80%/3-5x无实测不变成结果。",
+      "new_cpu_suggestions": [
+        "tenant-bound conversation turn ledger with replay/conflictingbody/ownership/permissionepoch/cachehit recheck + rejectirrelevant evidence；不启动SSE/HTTP。"
+      ],
+      "readme_disposition": "TS README SSE frames/sessionMap/test覆盖融入RAG streaming scope；npm命令未运行，与Python仅概念搭配没有integration不能称端到端。"
+    },
+    {
+      "lesson": "13-mcp-server-with-registry",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/assets/mcp-topology.svg",
+          "bytes": 5483,
+          "sha256": "29727907c8e4574af511c5d6007e21baaf6aaf4adceacdcfcb34e5c9f5f8bfe7",
+          "git_blob": "029c255f715598181a70a4c90b11fd58eff07864",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/assets/mcp-topology.svg",
+          "root_verified_git_blob_sha": "029c255f715598181a70a4c90b11fd58eff07864"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/main.py",
+          "bytes": 18569,
+          "sha256": "f8d08a3da5f8b1b9f0970b45ad252815c7ec8be3838e5327ce292fbc776606b9",
+          "git_blob": "1e21ba7a589de25c5d7a3e50d8a16d461ce3ad57",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/main.py",
+          "root_verified_git_blob_sha": "1e21ba7a589de25c5d7a3e50d8a16d461ce3ad57"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/tests/test_main.py",
+          "bytes": 13766,
+          "sha256": "dd65602426aa13036f46d98eefbe258324e6bc23ff4866b50bf772e4073e264e",
+          "git_blob": "74fa55b04c034fddcc420f722ebd8f0dd4abb6db",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/tests/test_main.py",
+          "root_verified_git_blob_sha": "74fa55b04c034fddcc420f722ebd8f0dd4abb6db"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/README.md",
+          "bytes": 1967,
+          "sha256": "e0e52957e5f11b11d89b86220d3999aa8413d4be91ee211cc0e295a4a52cd5b4",
+          "git_blob": "687a47a97468af34883644679f4c7f7a601b15e9",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/README.md",
+          "root_verified_git_blob_sha": "687a47a97468af34883644679f4c7f7a601b15e9"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/package.json",
+          "bytes": 454,
+          "sha256": "fc8296e60b1e9ffd83c46c72df6423174f0894e60aceabadaabde181fe525c8e",
+          "git_blob": "c7b78776316c9a8a58ba0df786c98666d034abc0",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/package.json",
+          "root_verified_git_blob_sha": "c7b78776316c9a8a58ba0df786c98666d034abc0"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/src/index.ts",
+          "bytes": 1811,
+          "sha256": "324393ea509fab46370afb0a8d03cd710f5c9d00943c93338fcf91970dd133fa",
+          "git_blob": "ddf5f8357c2800de18af0f665840d3c2bbd19a45",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/src/index.ts",
+          "root_verified_git_blob_sha": "ddf5f8357c2800de18af0f665840d3c2bbd19a45"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/src/protocol.ts",
+          "bytes": 7952,
+          "sha256": "98b5284834d43d04cd766a9e00ad6b1c147a57b90c4ed73a483394fd342e381c",
+          "git_blob": "4b514aec5db5bcf48db547f49f1272756441279d",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/src/protocol.ts",
+          "root_verified_git_blob_sha": "4b514aec5db5bcf48db547f49f1272756441279d"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/src/tools.ts",
+          "bytes": 2522,
+          "sha256": "d00a58b15b21228d8bad9e8f61d3899033833818e1e16e0355d4ae2cf600b2e4",
+          "git_blob": "c930226f3d48714f7a9d261d1660ec91496ac528",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/src/tools.ts",
+          "root_verified_git_blob_sha": "c930226f3d48714f7a9d261d1660ec91496ac528"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/src/transport.ts",
+          "bytes": 1347,
+          "sha256": "ecc64bd0e5ef19c12f6828f962d8f45dd6cd1ee90297b412475709ec55cbd657",
+          "git_blob": "93f853478dae263de77e47af1ff1ad6765ed46ea",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/src/transport.ts",
+          "root_verified_git_blob_sha": "93f853478dae263de77e47af1ff1ad6765ed46ea"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/src/types.ts",
+          "bytes": 1121,
+          "sha256": "4be2226f95087bd462e6437a44c89e6490be92cac8ebee290f3b516fe3e8caf7",
+          "git_blob": "d0f0cee9504a8c13c8dca32c55b04cb10b5df53b",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/src/types.ts",
+          "root_verified_git_blob_sha": "d0f0cee9504a8c13c8dca32c55b04cb10b5df53b"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/tests/protocol.test.ts",
+          "bytes": 9009,
+          "sha256": "c1d77b28c466d0f4193d14486fded6e94c9a446a5ec2e38d500bd1be02670e10",
+          "git_blob": "8c9ebb1c9bd26e020c38940cc30dddce8d23fb10",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/tests/protocol.test.ts",
+          "root_verified_git_blob_sha": "8c9ebb1c9bd26e020c38940cc30dddce8d23fb10"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/tsconfig.json",
+          "bytes": 416,
+          "sha256": "31514bdd472b74e151e18c34a6f4bc7d0a539550ad462924171878d11d856d7e",
+          "git_blob": "9305fed815ecd42d2b59003587deab7275eee4d6",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/tsconfig.json",
+          "root_verified_git_blob_sha": "9305fed815ecd42d2b59003587deab7275eee4d6"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/docs/en.md",
+          "bytes": 21611,
+          "sha256": "bd60a561a61ae1e84a48c79c33d1b18c44b2249b38ad3e752f1abdd6ca6b4fe3",
+          "git_blob": "2720caf020da2fce3487ae54e323f0de6861c5b6",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/docs/en.md",
+          "root_verified_git_blob_sha": "2720caf020da2fce3487ae54e323f0de6861c5b6"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/notebook/.gitkeep",
+          "root_verified_git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/outputs/skill-mcp-server.md",
+          "bytes": 3139,
+          "sha256": "6198744a4fd927bbfc431b40fbf41ba415a0086414d0ed40e27f84cbdece6a5e",
+          "git_blob": "1221dc48e6ef2258947c6c63e7046008b58abacc",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/outputs/skill-mcp-server.md",
+          "root_verified_git_blob_sha": "1221dc48e6ef2258947c6c63e7046008b58abacc"
+        },
+        {
+          "path": "phases/19-capstone-projects/13-mcp-server-with-registry/quiz.json",
+          "bytes": 4098,
+          "sha256": "65a33c03e948a96b6cc6956b7729692e957eb112440f4eff85d94b35d17cac34",
+          "git_blob": "4d9f75f38b7c4695f32817bbc6c2d0999aa699d3",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry/quiz.json",
+          "root_verified_git_blob_sha": "4d9f75f38b7c4695f32817bbc6c2d0999aa699d3"
+        }
+      ],
+      "headings": [
+        {
+          "line": 12,
+          "title": "## Learning Objectives"
+        },
+        {
+          "line": 21,
+          "title": "## Required MCP Prerequisite Path"
+        },
+        {
+          "line": 32,
+          "title": "## The Problem"
+        },
+        {
+          "line": 47,
+          "title": "## The Two Discovery Layers"
+        },
+        {
+          "line": 104,
+          "title": "## Stateless MCP Core"
+        },
+        {
+          "line": 125,
+          "title": "### Cacheable discovery"
+        },
+        {
+          "line": 136,
+          "title": "## Streamable HTTP"
+        },
+        {
+          "line": 169,
+          "title": "## Authorization and Policy"
+        },
+        {
+          "line": 186,
+          "title": "### Approval is a record, not a magic scope"
+        },
+        {
+          "line": 194,
+          "title": "## Build It"
+        },
+        {
+          "line": 196,
+          "title": "### 1. Model publication metadata"
+        },
+        {
+          "line": 200,
+          "title": "### 2. Implement live discovery"
+        },
+        {
+          "line": 204,
+          "title": "### 3. Implement the stateless envelope"
+        },
+        {
+          "line": 208,
+          "title": "### 4. Build the tool surface"
+        },
+        {
+          "line": 212,
+          "title": "### 5. Add cache-aware listing"
+        },
+        {
+          "line": 216,
+          "title": "### 6. Add authorization and policy"
+        },
+        {
+          "line": 220,
+          "title": "### 7. Separate registry and runtime validation"
+        },
+        {
+          "line": 224,
+          "title": "### 8. Add audit evidence"
+        },
+        {
+          "line": 228,
+          "title": "### 9. Exercise horizontal scaling"
+        },
+        {
+          "line": 232,
+          "title": "### 10. Cross the real wire"
+        },
+        {
+          "line": 236,
+          "title": "## Required Evidence Pack"
+        },
+        {
+          "line": 250,
+          "title": "## Local Reference Models"
+        },
+        {
+          "line": 272,
+          "title": "## Wire Example"
+        },
+        {
+          "line": 303,
+          "title": "## Ship It"
+        },
+        {
+          "line": 327,
+          "title": "## Exercises"
+        },
+        {
+          "line": 337,
+          "title": "## Key Terms"
+        },
+        {
+          "line": 349,
+          "title": "## Further Reading"
+        }
+      ],
+      "headings_h2_h4": 27,
+      "exercises": [
+        {
+          "number": 1,
+          "source": "Change the published remote URL while leaving the live server unchanged. Make the registry validation report the exact drift.",
+          "answer": "pinpublication URL+身份/version/完整descriptor，重新真正probe目标并验证channel provenance；Python目前runtime_alignment只name/version，remote变化并不会验证真实漂移，需独立admission collector而非修改模拟url就成功。"
+        },
+        {
+          "number": 2,
+          "source": "Send `tools/list` twice with identical inputs and prove byte-stable tool order. Then expire `ttlMs` and refresh.",
+          "answer": "同effective scopes toolset固定sort+canonicalserialization/hash，TTLexpiry会refetch且复核descriptor/status，private/public按可见性；byte稳定order不等所有result字段长期相同。"
+        },
+        {
+          "number": 3,
+          "source": "Send a valid body with a different `MCP-Protocol-Version` header. Return `-32020` and do not invoke policy or the tool.",
+          "answer": "真实HTTP捕获headerbody并检查镜像后返回400/-32020（caseinsensitive names/casesensitive values），metadata malformed与unsupportedversion分开；局部dispatch没有header输入不能充当wireproof。"
+        },
+        {
+          "number": 4,
+          "source": "Mint a token for the read-only server and present it to the state-changing server. Prove audience validation fails before the handler runs.",
+          "answer": "只读token audience不符写server即拒绝，trustedissuer/expiry/scope同时核，确保handler计数0；更高scope不能覆盖wrongaud，真实签名token验证另证。"
+        },
+        {
+          "number": 5,
+          "source": "Bind an approval to one normalized argument digest. Change one field and prove the approval cannot be replayed.",
+          "answer": "批准绑定规范args摘要/actor/tool/target/expiry；更改任一field拒绝，同args也核consume/revoke/resource revision，未知终态不能换requestID再次写。"
+        },
+        {
+          "number": 6,
+          "source": "Route consecutive calls to alternating replicas. Replace hidden process memory with an explicit shared handle wherever the workflow needs persistence.",
+          "answer": "2replicas alternatingrequests+concurrentload要真实wire、共享durable业务handle/owner/TTL/CAS；stateless protocol不等应用无state，源码sameprocess不能证明LB。"
+        },
+        {
+          "number": 7,
+          "source": "Break a request-scoped SSE connection and retry with a new JSON-RPC request ID. Verify that no `Last-Event-ID` recovery path is used.",
+          "answer": "MCP2026断SSE取消该request并freshIDreissue，没有Last-Event-ID replay；read安全retry和mutationactionkey+effect查核分开，RPCID新不意味着action幂等，durabletask取消需explicittaskmethod。"
+        }
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "source": {
+            "stage": "pre",
+            "question": "Why does this capstone use both server.json and server/discover?",
+            "options": [
+              "server.json stores sessions, while server/discover deletes them",
+              "The Registry requires both files to contain identical version dates",
+              "They are two names for the same tool manifest",
+              "server.json publishes install and endpoint metadata, while server/discover reports live protocol capabilities"
+            ],
+            "correct": 3,
+            "explanation": "The Registry record helps clients locate and configure a server. The live RPC reports what the running process supports. Their schemas and version domains are independent, but the published identity must use the authenticated namespace and match live serverInfo."
+          },
+          "reference_answer": "选4（index3）：发布与runtime发现两层独立；name/schema有效不证明namespaceownership、actualremote健康或工具安全。"
+        },
+        {
+          "number": 2,
+          "source": {
+            "stage": "check",
+            "question": "What replaces the initialize handshake in MCP revision 2026-07-28?",
+            "options": [
+              "Mcp-Session-Id plus notifications/initialized",
+              "Every request carries protocol version and client capabilities, and clients can call mandatory server/discover",
+              "A GET request that opens a permanent server stream",
+              "A session cookie sent once per TCP connection"
+            ],
+            "correct": 1,
+            "explanation": "The protocol is stateless. Version and capabilities are request metadata, while server/discover provides live version and capability discovery without creating a session."
+          },
+          "reference_answer": "选2（index1）：逐requestmetadata取代handshake，2026版明确，旧server兼容需独立adapter而非混用状态。"
+        },
+        {
+          "number": 3,
+          "source": {
+            "stage": "check",
+            "question": "Which tools/list behavior supports safe and efficient discovery?",
+            "options": [
+              "A response cached forever without a scope",
+              "A random tool order on each replica",
+              "A connection-local list created during initialize",
+              "Deterministic order plus ttlMs and a correct public or private cacheScope"
+            ],
+            "correct": 3,
+            "explanation": "Stable ordering improves reproducibility and prompt caching. ttlMs communicates freshness, and cacheScope prevents user-specific results from leaking through shared caches."
+          },
+          "reference_answer": "选4（index3）：deterministic order+TTL+scope；privatevisibility勿publicreuse，stale反应要status/pin核。"
+        },
+        {
+          "number": 4,
+          "source": {
+            "stage": "check",
+            "question": "Which Streamable HTTP design matches the current stateless transport?",
+            "options": [
+              "All clients require sticky load-balancer routing",
+              "POST creates a session, GET resumes it, and DELETE closes it",
+              "A standalone GET stream uses Last-Event-ID replay",
+              "Each JSON-RPC message uses its own POST, with JSON or request-scoped SSE for a request"
+            ],
+            "correct": 3,
+            "explanation": "Current Streamable HTTP is POST-only for MCP messages and has no protocol session, standalone GET stream, session DELETE, or Last-Event-ID resumability."
+          },
+          "reference_answer": "选4（index3）：每JSONRPC新POST回应JSON/requestSSE；accepted notification202 no body，SSE关闭取消，不自动durabletaskcancel。"
+        },
+        {
+          "number": 5,
+          "source": {
+            "stage": "post",
+            "question": "What must a production server validate before a policy-approved tool handler runs?",
+            "options": [
+              "Only that server.json lists the remote URL",
+              "Only the tool's destructiveHint annotation",
+              "Only that a human posted an approval message",
+              "Protocol metadata plus token issuer, audience or resource, expiry, scope, and any exact-action approval"
+            ],
+            "correct": 3,
+            "explanation": "Transport metadata, token validation, and policy are separate gates. Annotations and publication metadata do not grant authority."
+          },
+          "reference_answer": "选4（index3）：metadata、可信token、scope、exactaction不同gate；原TS未集成auth、Pythontokenmock无signature。"
+        },
+        {
+          "number": 6,
+          "source": {
+            "stage": "post",
+            "question": "Which evidence best supports the claim that the server scales without protocol sessions?",
+            "options": [
+              "A server.json remote entry",
+              "A wire-level concurrent run across two interchangeable replicas with no affinity dependency",
+              "A unit test that constructs one response dictionary",
+              "A diagram showing a load balancer"
+            ],
+            "correct": 1,
+            "explanation": "The real transport and deployment boundary must be exercised. Alternating requests across replicas proves correctness is not hidden in one process or sticky session."
+          },
+          "reference_answer": "选2（index1）：真实双replicas并发wire且无affinity依赖；dict tests、目录entry、diagram都不是部署证据。"
+        }
+      ],
+      "destinations": [
+        "Agentic Design Patterns/01-核心章节/10-模型上下文协议-MCP.md",
+        "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+        "Agentic Design Patterns/06-专题扩展/07-工具授权与发布治理.md"
+      ],
+      "knowledge": [
+        "维持现有MCP2026-07-28主章：每request version/caps，server/discover mandatory但client可先call或错误协商，complete/input_required结果合同，无初始化session/GET长期MCPstream/Last-Event-ID重播；Registry schema日期与协议版本独立，server.json发布安装endpoint，不等runtime toolset。identity自报不认证、metadata/runtime一致也不证明endpoint曾被真正探测。",
+        "治理按publication格式/verified reverseDNS namespace/artifact provenance/live identity/capabilities/descriptorpin/active status/approval/policy/auth/audit分别取证。Registry远端URL变化应核实际endpoint而非只比较name/version，删/撤销后direct call同样拒绝。public列表只有整个effective集合对所有主体相同才可；TTL是freshness hint，不免新的对象权限。完整schema支持package-only和版本字段，remote-profile手写regex不是全部validation。",
+        "工具调用在handler之前参数schema和trustedprincipal/iss/aud/exp/scope、对象动作policy、exactargs/environment/resourceversion/expiry approval。approval的canonical形式明确JSON数值和null/unknown语义，禁止NaN；一次性consume atomic、防并发replay、revoke后不能复用、handlerunknown用action idempotency receipts解决。annotation readOnly/destructive是hint，数据库只读凭据/transaction/query allowlists才实际控制，工具可在read期间发送信息也需审。",
+        "wire/proxy/admission/retry/rollback五证据pack：直接/代理headers与body和typed IDs；wrongversion/header mismatch未执行handler；取消与complete race/timeout/未知sideeffect/unique action key；exactprior artifacts/status/currenthealth/route restore；redactedpack外部digest与receiverack。本地dict和stdio语法不证明HTTP/OAuth/OPA/实际Registry/loadbalance/collector receipt。audit regex仅emailSSN非全secret，exceptionmessage也可泄漏，记录必要metadata/argsdigest并安全receiver处理。"
+      ],
+      "code_flow": [
+        "Python:registry_document→partialvalidation+verified_domain常量reverseDNS→直接调用同对象discover→deepcopy snapshots。没有真正HTTPprobe或authownership证明。MCP tools_list只sort/genericprivate非按token可见性；dispatch→validate_meta→policy_decide模拟Token/approval→handler→regexredactaudit→complete。没有inputSchema校验，sql任意文本/mock返回1，不证明SELECT readonly。expiry NaN/inf或args NaN未禁；same approval可不限次重放，无atomicconsume/revocation。audit为内存list非durable受保护事件接收；Registry runtime_alignment仅name/version不比remote/descriptor/status。",
+        "TS:stdin readline→parse JSONRPC envelope(idstring/number非null)→dispatch无id全drop→meta+caps→discover/list/call；tools schema子集检查required/type/enum/additionalProperties，knowntoolbadargs complete isErrortrue，unknowntool -32602，exec failures completeerror。没有Python auth/policywire集成、ack任何caller执行，仅注释authorized/annotation。incident store普通Record读__proto__为Object.prototype，ack能写原型acked；typed schema只string无IDown/enum，空id可过schema后handlererror。meta clientInfo TS可选结构核而Python没核。frame无maxbytes/deadlines/concurrency/backpressure/cancel/MRTR；partial schema不是full2020-12。parseRpc typeofnumber没有finite/safeinteger约束；JS JSON1e999→Infinity会通过typeof并serialize成null，typed ID危险。"
+      ],
+      "static": "静SVG治理/分读写/OPA/10工具/JSONLaudit/双replicas100并发为目标，Python实际2只读+1写且无OPA/load；TS incident3工具均未auth。figure cf-mcp-gate动态root另核。",
+      "new_cpu_suggestions": [
+        "现有COM/GOV stdlib已含typedIDs/schema/approval/CAS/digest等，不重复；可加release evidence-pack按五class/currentpins/remote/revoke缺一即hold，纯fixture无注册部署。"
+      ],
+      "readme_disposition": "TS README stdio/模块/三mocktool/localcontract边界与Python非接线融入MCP验收；不执行npm/serve/register。"
+    },
+    {
+      "lesson": "17-personal-ai-tutor",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/assets/tutor-loop.svg",
+          "bytes": 5331,
+          "sha256": "9634ce4fa9b146b529742c9cdd5725f8781c6c0a025b543bebfc5619a414f7f5",
+          "git_blob": "ebe7bfc2890f2df941dca0b0bce9286752772a18",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/assets/tutor-loop.svg",
+          "root_verified_git_blob_sha": "ebe7bfc2890f2df941dca0b0bce9286752772a18"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/main.py",
+          "bytes": 9039,
+          "sha256": "f96dddd78e75c2d28fad379498922a36f1e24b79308bfe1e5704373a9e3f9d52",
+          "git_blob": "12881ee850f71baebec46e9ff1c77a15efc9882e",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/main.py",
+          "root_verified_git_blob_sha": "12881ee850f71baebec46e9ff1c77a15efc9882e"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/README.md",
+          "bytes": 935,
+          "sha256": "fe11cc56b3f2c5e9a580e6071d3074c5e5538c0c07def0f44b3425a766bd1d68",
+          "git_blob": "43e7127d7d69834c381bf34620de6c7f7ac9761e",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/ts/README.md",
+          "root_verified_git_blob_sha": "43e7127d7d69834c381bf34620de6c7f7ac9761e"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/package.json",
+          "bytes": 478,
+          "sha256": "f13693ffe3c9c7de3932041506990b182000481c79895ab0c6b206164e571cc5",
+          "git_blob": "40db040efc2b96b09fef90a9a0e1f05295627057",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/ts/package.json",
+          "root_verified_git_blob_sha": "40db040efc2b96b09fef90a9a0e1f05295627057"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/curriculum.ts",
+          "bytes": 2906,
+          "sha256": "0be88a7f9b0eb06da1778bc1e28fc6b0aeccd12357dd743b384580db0b7b351c",
+          "git_blob": "275501b4a70443e715c8ac46066b897c6ff7da97",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/curriculum.ts",
+          "root_verified_git_blob_sha": "275501b4a70443e715c8ac46066b897c6ff7da97"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/index.ts",
+          "bytes": 4939,
+          "sha256": "cb6c9b41899882c4bad408b9ddc8c9b9591a4816a1592b2fb66e69cef155f19c",
+          "git_blob": "1d90a368498aed28d21d704a64a4cb827f1cfa36",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/index.ts",
+          "root_verified_git_blob_sha": "1d90a368498aed28d21d704a64a4cb827f1cfa36"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/mastery.ts",
+          "bytes": 1016,
+          "sha256": "2abfe8f2c6881cea35133b08214ef21d3bce9592468367ac5d3bb8ef28c98207",
+          "git_blob": "207482e34584ba0157fb8a7e8dfa4ee0cf6d4061",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/mastery.ts",
+          "root_verified_git_blob_sha": "207482e34584ba0157fb8a7e8dfa4ee0cf6d4061"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/repetition.ts",
+          "bytes": 512,
+          "sha256": "d2c58a0a56099bd3ca4d37957922b1b18ddf2ee004a46b1f18175d58d8a54e02",
+          "git_blob": "6919a5e5ece3560655447cba6b6ff02ffb666d1c",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/repetition.ts",
+          "root_verified_git_blob_sha": "6919a5e5ece3560655447cba6b6ff02ffb666d1c"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/server.ts",
+          "bytes": 1483,
+          "sha256": "6a3f5b525ff401a8f04db4ad96064c19a36fd67818199860735233afaf49a483",
+          "git_blob": "af6acd0714883c8749db9a32e6efd33e9c5d727a",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/server.ts",
+          "root_verified_git_blob_sha": "af6acd0714883c8749db9a32e6efd33e9c5d727a"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/types.ts",
+          "bytes": 416,
+          "sha256": "b7835b1eacba3783db41609bf43ec062ef7f67a3361850885c7425b0365e4996",
+          "git_blob": "e662c1450c24cf26b16c5933d355ae59dc92b30f",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/ts/src/types.ts",
+          "root_verified_git_blob_sha": "e662c1450c24cf26b16c5933d355ae59dc92b30f"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/tests/curriculum.test.ts",
+          "bytes": 3695,
+          "sha256": "2c80f845c8da56ca610f9232d4324a89f59df5244de08f11b87944fc59b96a68",
+          "git_blob": "ee2ba7e13dec15c671d86ca1bd3ac26c5625e7be",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/ts/tests/curriculum.test.ts",
+          "root_verified_git_blob_sha": "ee2ba7e13dec15c671d86ca1bd3ac26c5625e7be"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/tsconfig.json",
+          "bytes": 416,
+          "sha256": "31514bdd472b74e151e18c34a6f4bc7d0a539550ad462924171878d11d856d7e",
+          "git_blob": "9305fed815ecd42d2b59003587deab7275eee4d6",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/code/ts/tsconfig.json",
+          "root_verified_git_blob_sha": "9305fed815ecd42d2b59003587deab7275eee4d6"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/docs/en.md",
+          "bytes": 9950,
+          "sha256": "be07b1c0376a0905b412b501b0a15a7c1aa984e9b61f0a8d43de27dcf0113341",
+          "git_blob": "2e12bbefdc048e2c904777fcfcc1a0417160c2ab",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/docs/en.md",
+          "root_verified_git_blob_sha": "2e12bbefdc048e2c904777fcfcc1a0417160c2ab"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/notebook/.gitkeep",
+          "root_verified_git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/outputs/skill-ai-tutor.md",
+          "bytes": 3130,
+          "sha256": "f6e03b5d1ae2a28893801f3a6b3cdfff331240be2d43bd7d149bebb4aed3a0c6",
+          "git_blob": "7ddd1fff41eaf57a57a3da107502155703814398",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/outputs/skill-ai-tutor.md",
+          "root_verified_git_blob_sha": "7ddd1fff41eaf57a57a3da107502155703814398"
+        },
+        {
+          "path": "phases/19-capstone-projects/17-personal-ai-tutor/quiz.json",
+          "bytes": 3097,
+          "sha256": "5fe0cc2852179fc2efcda9ab77606176637f73cc9946738cc4ef93f82c5fc13a",
+          "git_blob": "7bba2961a5255547c1bb6979f8242ff1035a6d71",
+          "read_date": "2026-10-11",
+          "read_scope": "完整文本和代码静态读取；SVG全文结构/标签/连接读取；空文件登记；未执行",
+          "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/17-personal-ai-tutor/quiz.json",
+          "root_verified_git_blob_sha": "7bba2961a5255547c1bb6979f8242ff1035a6d71"
+        }
+      ],
+      "headings": [
+        {
+          "line": 11,
+          "title": "## Problem"
+        },
+        {
+          "line": 17,
+          "title": "## Concept"
+        },
+        {
+          "line": 25,
+          "title": "## Architecture"
+        },
+        {
+          "line": 63,
+          "title": "## Stack"
+        },
+        {
+          "line": 79,
+          "title": "## Build It"
+        },
+        {
+          "line": 99,
+          "title": "## Use It"
+        },
+        {
+          "line": 113,
+          "title": "## Ship It"
+        },
+        {
+          "line": 126,
+          "title": "## Exercises"
+        },
+        {
+          "line": 138,
+          "title": "## Key Terms"
+        },
+        {
+          "line": 150,
+          "title": "## Further Reading"
+        }
+      ],
+      "headings_h2_h4": 10,
+      "exercises": [
+        {
+          "number": 1,
+          "source": "Run the efficacy study with and without the adaptive learner model (random concept order). Report the delta. Expect adaptive to win, but the size is the interesting number.",
+          "answer": "对比固定学习内容/teacher actions/contact time，只改adaptive技能模型相关策略；randomorder改变先修可混杂，模拟不预定adaptive赢；primarygain需实测独立题，reportedCI和dropout。"
+        },
+        {
+          "number": 2,
+          "source": "Add a multimodal probe: the same concept question delivered as text, voice, and photo. Measure whether learners converge faster with the modality they prefer.",
+          "answer": "同concept不同题形式（避免背答案）、顺序平衡或合理random，按ASR/OCR错误与先修/偏好分层测正确率/提示/延迟保持；主观喜欢不等学习gain，语音photo带额外隐私scope。"
+        },
+        {
+          "number": 3,
+          "source": "Build a parent dashboard: topics practiced, mastery trajectories, upcoming concepts, safety events (any guardrail hits). COPPA-aligned.",
+          "answer": "parent资格与learner绑定、最少必要topic/history数据、可查可删、purposeTTL/撤销/日志，不能以parentIDquery直接访问；仪表mastery显示模型估计不是成绩或诊断。"
+        },
+        {
+          "number": 4,
+          "source": "Add a language-switch mode: the tutor accepts Spanish input and teaches in Spanish. Measure X-Guard coverage.",
+          "answer": "西语/中英切换测等价题/hint、OCRASR和ageappropriate policy误拒/漏检；框架X-Guard标签非完成覆盖，母语效果要真实gold与反馈。"
+        },
+        {
+          "number": 5,
+          "source": "Stress the memory privacy: verify that learner A cannot see learner B's data even through a voice-clip re-ingest attack. Log the attempted access and alert.",
+          "answer": "learnerA/B包括memory/rawvoice/OCR/summary/report/cache检索，多路径重入后owner保持，伪ID/猜session/引用UI/权限撤销均拒；本轮仅fixture，不上传真实儿童音频。"
+        }
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "source": {
+            "stage": "pre",
+            "question": "What does a Socratic tutor policy do when a learner asks for the answer outright?",
+            "options": [
+              "Switches to a different concept node",
+              "Logs the request and goes silent",
+              "Asks a leading question that scaffolds the learner toward the answer",
+              "Provides the answer immediately and moves on"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "reference_answer": "选3（index2）：先提指导问题/分步提示，卡住时可明确讲解不死守neveranswer。"
+        },
+        {
+          "number": 2,
+          "source": {
+            "stage": "pre",
+            "question": "Which structure does the curriculum graph encode?",
+            "options": [
+              "Only the most recently studied node",
+              "A random shuffle of topics",
+              "A directed graph of concepts with prerequisite edges, attached to OER content",
+              "A flat list of unrelated concepts"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "reference_answer": "选3（index2）：先修DAG+资源关联，须validate完整IDs/edges，不等随意Neo4j节点可按图学。"
+        },
+        {
+          "number": 3,
+          "source": {
+            "stage": "check",
+            "question": "What does the learner model update after each interaction?",
+            "options": [
+              "The curriculum graph schema",
+              "The base LLM's weights",
+              "Per-concept mastery probability via Bayesian knowledge tracing or a similar variant",
+              "The COPPA retention policy"
+            ],
+            "correct": 2,
+            "explanation": ""
+          },
+          "reference_answer": "选3（index2）：更新每技能belief；原TS是成功率平滑非BKT，参数valid/modelcalibration另核。"
+        },
+        {
+          "number": 4,
+          "source": {
+            "stage": "check",
+            "question": "How is memory split between episodic and semantic stores?",
+            "options": [
+              "Episodic is for the parent; semantic is for the learner",
+              "Episodic holds every interaction; semantic holds compacted mistakes and preferences promoted from episodic",
+              "Episodic holds embeddings; semantic holds raw audio",
+              "They are duplicates of the same data"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "reference_answer": "选2（index1）：episode轨迹与semantic错题偏好派生分开；不必永存每交互，保留minimum purpose与删除传播。"
+        },
+        {
+          "number": 5,
+          "source": {
+            "stage": "check",
+            "question": "Which constraint shapes memory retention for K-12 learners?",
+            "options": [
+              "COPPA-aware retention with auto-deletion after a defined window and parental access",
+              "Retention based on model context length",
+              "Permanent retention with no deletion",
+              "GDPR only"
+            ],
+            "correct": 0,
+            "explanation": ""
+          },
+          "reference_answer": "选1（index0）：特定适用COPPA与definedpurposewindow/parent rights，教材1year不是法律允许/强制期。"
+        },
+        {
+          "number": 6,
+          "source": {
+            "stage": "post",
+            "question": "What is the structure of the efficacy study used to gate the deliverable?",
+            "options": [
+              "A single one-hour session with one learner",
+              "Anonymous internet survey",
+              "A 30-second AB test",
+              "Pre-test and post-test over two weeks with 10 learners, compared against a non-adaptive baseline cohort"
+            ],
+            "correct": 3,
+            "explanation": ""
+          },
+          "reference_answer": "选4（index3）为pilot设计，10+10两周不足自动证明疗效/全体学习提升；模拟不人study。"
+        },
+        {
+          "number": 7,
+          "source": {
+            "stage": "post",
+            "question": "Which multimodal input paths does the tutor expose to the learner?",
+            "options": [
+              "Photo only via a custom OCR model",
+              "Text typed, voice via LiveKit + Whisper, and photo math via dots.ocr or PaliGemma 2",
+              "Text only",
+              "Voice only with no text or photo"
+            ],
+            "correct": 1,
+            "explanation": ""
+          },
+          "reference_answer": "选2（index1）为multimodal目标，源码并没真正voice/photo/learn；先核识别输入和合法隐私。"
+        }
+      ],
+      "destinations": [
+        "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+        "LLM 工程实践/06-评测与实验管理.md"
+      ],
+      "knowledge": [
+        "学习助手先拆学生潜在技能、题目观测、教学动作和复习时间。BKT四参数p_init、p_learn、p_slip（已知仍错）、p_guess（未知猜对）；correct后posterior=p(1-slip)/[p(1-slip)+(1-p)guess]，wrong后=p slip/[p slip+(1-p)(1-guess)]，再learntransition posterior+(1-posterior)learn。概率只表示模型belief非学生真实掌握；参数从合法历史fit并以student/time heldout校准，提示/重复/抄答案可影响观测且多skill题另建模型。",
+        "手算p=.2 slip=.1 guess=.15 learn=.12：correct posterior=.18/.30=.6→.648，wrong posterior=.02/.70≈.028571→.145143。分母零意味着观测在模型下不可能，应报告/按明确strategy更新，不能epsilon夹成假posterior。验证概率finite[0,1]和bool输入；只存correct不记录item/prompt/hint/inputrevision会丢观测条件。",
+        "curriculum prerequisites图先reject重复ID/unknown prereq/selfcycle/generalcycles、toposort稳定；选概念是eligible加教学优先，首次eligible不等全局lowestmastery。mastery阈值应有任务证据，reviewdue和newlesson预算平衡，不让持续新课饿死复习或score>.95永不复习。BKT代表掌握预测，FSRS代表随时间记忆/遗忘，DSR states/ratings/parameterfit/desired retention不等double/half interval。Socratic可提示逐步，但死守永不讲解会让卡住学生耗损，适时明确教学/工作示例/诊断。",
+        "learnerID必须来自认证owner，memory、voiceclip、OCRphoto、summary、parent dashboard按scope/purpose；学生自己发correct:true不是评估证据。photo辨识误差先核方程/units，ASR错口误不能直接降mastery，教学安全也不能把寻求帮助都block。COPPA适用特定under13service与数据，不给固定一年保留许可；purpose-limited retention/parent rights/consent核真实政策，报告只是进步假设非诊断。",
+        "真实学习效果需预注册主指标、同等内容/接触时间baseline、合理分配、可靠pre/post/迁移/延迟保持测验、CI/缺失/退出/实际usage；10+10两周只是探索pilot规模，随机模拟或模型masterysum不能代替人类gain。控制组可线性samecontent与adaptive做对照，random concept order也改先修条件/顺序，不能单归因learner model。"
+      ],
+      "code_flow": [
+        "Python:11algebra fixture DAG未validate→default mastery .2（p_init字段实际没读取）→firstunmastered且prereq>=.85→sigmoid(inherent + belief*1.5 - difficulty)模拟correct→Socratic action使用更新前belief→BKT posterior/learn→下一turn难度减或celebrate加.02（可能不同concept）。主simulation10latent ability paired RNG60turns，两arm同BKT但adaptive额外hint/ordering与confidence干预，delta是finalbeliefsum不preposttest;posterior拿来决定生成correct，无法当真实教学效果。p_slip注释把定义写反；maxdenom1e-6静默改不可能观测。",
+        "TS:9Pythonconceptfixture→Kahn topo+MasteryStore全局Record→submitcorrectbool直接更新累计successrate observe→score=.3old+.7observe；非classicBKT。schedule correct*2/wrong/2 clamp1min..30d，仅heuristic非FSRS。threshold .7使第一次正确score=.7即过；pick首先neweligible再到期review(<.95)，>=.95者以后全不review；一条测试overdue if(pick)assert可永远null仍pass，不能证明复习出现。没有learner ID/trueassessment/auth/persistence/voice/photo/LLM/privacy；普通index Record可让__proto__变“已知课”，masterystore也原型风险。server defaultlisten无host并非必loopback。"
+      ],
+      "static": "静SVGmultimodal/policy/BKT/FSRS/Neo4j/memorysafety/10learnerstudy全为目标，只有概率模拟/heuristicwebsurface，fig cf-tutor-loop动态root另核。",
+      "new_cpu_suggestions": [
+        "BKT概率finite/type/impossibleobservation+owner-boundattemptrevision/replay、validatedDAG/reviewstarvation反例；不生成学生研究数据当真实实效。"
+      ],
+      "readme_disposition": "TS README所称BKT-ish/FSRS-lite更正为经验成功率平滑/倍增减半scheduler，route与graph负例融学习工程；no installation/server。"
+    }
+  ],
+  "primary_sources": [
+    {
+      "key": "aider-map",
+      "url": "https://aider.chat/docs/repomap.html",
+      "cache_path": "/tmp/study-capstone-b-primary/aider-map.md",
+      "cache_bytes": 4035,
+      "cache_sha256": "24f7e0be73b99a5bb9c92837a8ade7701c9bc8b0a42b4f4b38cb55a6e032e1a5",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "完整正文，符号签名图rank/tokenbudget；未查看远程图像本体",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    },
+    {
+      "key": "mcp-changes",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+      "cache_path": "/tmp/study-capstone-b-primary/mcp-changes.md",
+      "cache_bytes": 12210,
+      "cache_sha256": "1ae56e16acb7d2705c6a2e2963170f0bdf38587cadd1c3c6dfa18f4b599da29b",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "Major/Minor/Deprecated selected statements；web tool也读正文，不假称followallSEPs",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    },
+    {
+      "key": "mcp-transport",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http",
+      "cache_path": "/tmp/study-capstone-b-primary/mcp-transport.md",
+      "cache_bytes": 24236,
+      "cache_sha256": "7132e4c4c806861f110143253e97ceba2fae14e2621795d744cb72a013a69376",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "开头至Server Validation开头，包括POST/Origin/requestSSE/cancel/headers/custommirror编码；后续兼容未全文",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    },
+    {
+      "key": "qdrant-mv",
+      "url": "https://qdrant.tech/documentation/concepts/vectors/#multivectors",
+      "cache_path": "/tmp/study-capstone-b-primary/qdrant-mv.md",
+      "cache_bytes": 16812,
+      "cache_sha256": "ad59d74fb73bff2fe616cb4745eb8d5b0d314d506b98a854fa2a6a4512bec5bd",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "Multivectors的shape/MaxSim/config/subvectorlimit；后续页面输出可见但正式核验仅多向量范围",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    },
+    {
+      "key": "fsrs",
+      "url": "https://github.com/open-spaced-repetition/fsrs4anki/wiki/The-Algorithm",
+      "cache_path": "/tmp/study-capstone-b-primary/fsrs.md",
+      "cache_bytes": 15157,
+      "cache_sha256": "f7e7bfa98077dae4dfe8a8d303559b03f1763742c62150c6c0b93f5e3c916789",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "旧Wiki的page moved指向，不当旧算法原文",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    },
+    {
+      "key": "fsrs-current",
+      "url": "https://github.com/open-spaced-repetition/awesome-fsrs/wiki/The-Algorithm",
+      "cache_path": "/tmp/study-capstone-b-primary/fsrs-current.md",
+      "cache_bytes": 17787,
+      "cache_sha256": "bfeb804cf7955aaff1c3a9951a122028ffd41a1ee7e5ad442066a1fb8e046da4",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "算法全文公式实际读；使用的现行结论限DSR/FSRS6参数与forgetting curve，历史公式不新增抄录",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    },
+    {
+      "key": "bkt-readme",
+      "url": "https://github.com/CAHLR/pyBKT/blob/master/README.md",
+      "cache_path": "/tmp/study-capstone-b-primary/bkt-readme.md",
+      "cache_bytes": 24237,
+      "cache_sha256": "20878d1583e42eee798d664f167057fb012d243ca0b37d316eb04814d9464c43",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "README前约12000字符：intro/variants/data/fit/eval入口，非全repo/全README",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    },
+    {
+      "key": "registry-requirements",
+      "url": "https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/server-json/official-registry-requirements.md",
+      "cache_path": "/tmp/study-capstone-b-primary/registry-requirements.md",
+      "cache_bytes": 5993,
+      "cache_sha256": "282b2ba7a465b5f41857bafe03eea3601000e0c45938146b71b08554e5e15ca7",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "完整此文件5993B，namespace/packages/_meta4KB/registryresponse distinctions",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    },
+    {
+      "key": "scientist-readme",
+      "url": "https://github.com/SakanaAI/AI-Scientist-v2/blob/main/README.md",
+      "cache_path": "/tmp/study-capstone-b-primary/scientist-readme.md",
+      "cache_bytes": 13586,
+      "cache_sha256": "ed4ae4b9353641dff469679f14cbffd6547f7a6137b9d5b397f3be9a367b4e82",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "README从目录至Citing开头约8000字符，BFTS配置/实际环境要求，不运行、不评peerreview结果",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    },
+    {
+      "key": "colpali",
+      "url": "https://github.com/illuin-tech/colpali",
+      "cache_path": "/tmp/study-capstone-b-primary/colpali.md",
+      "cache_bytes": 33125,
+      "cache_sha256": "0b090d85d237d63b72354f72e38182294f6b564a815d0ca4604af5714afc6ef0",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "Introduction/engine deprecated/Migration选段，未全文后续train/benchmark",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    },
+    {
+      "key": "ftc-retention",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-finalizes-changes-childrens-privacy-rule-limiting-companies-ability-monetize-kids-data",
+      "cache_path": "/tmp/study-capstone-b-primary/ftc-retention.md",
+      "cache_bytes": 32750,
+      "cache_sha256": "ab8ab655f89fd4e1b469eaa64919b903c1708eb86e0b52ec1e47cf3da102a372",
+      "read_date": "2026-10-11",
+      "actual_read_scope": "web官方正文lines12–25核定purpose retention/parent rights；Jina副本只输出导航前缀，未把Jina下载当已全文",
+      "method": "agent-reach Jina/gh路径；MCP与FTC同时官方web tool"
+    }
+  ],
+  "failed_or_unread_primary": [
+    {
+      "url": "https://pybkt.github.io/",
+      "path": "/tmp/study-capstone-b-primary/bkt.md",
+      "status": "404，不作BKT事实证据"
+    },
+    {
+      "path": "/tmp/study-capstone-b-primary/bkt-repo.md",
+      "status": "仅下载未读，不作全文证据"
+    }
+  ],
+  "existing_material_scope": "已检查RAG12/embedding07/learning09/planning06/MCP10/communication06/governance07对应位置；RAG公式代码与通信治理开头选读，未假称本轮全文重读所有既有正文",
+  "totals": {
+    "lessons": 6,
+    "source_files": 90,
+    "nonempty": 84,
+    "empty": 6,
+    "headings_h2_h4": 77,
+    "exercises": 32,
+    "quiz": 41,
+    "svg": 6,
+    "ts_projects": 5,
+    "ts_readmes": 5,
+    "dynamic_functions_root_pending": 6,
+    "source_python_execution": 0
+  },
+  "write_strategy": "既有主题章节融合：code/doc/regulatedRAG进入RAG12；research搜索budget进入planning06或eval06互斥；tutorBKT进入learning09；MCP验收反例进入governance07并回链communication06/MCP10。非新网站镜像，原outputs只作课程目标不激活；所有exercise/quiz实际中文答案已有本报告，后续必须真实正文落点核。",
+  "root_reading_boundary": "原完整只读与第一方选读记录，正文/代码融合未本批验收；动态由root另核全部17实际最后注册，课程程序/安装/服务/API/攻击/Skill执行0。"
+}

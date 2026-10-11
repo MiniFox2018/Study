@@ -828,3 +828,259 @@ Abootorabi等的v3 §3实际分 retrieval strategy、fusion、augmentation、gen
 对可明确缺哪条证据且可补充的query，多hop可带来进展；已有完整证据或原材料缺失时可能只增成本。新ID的照片若仍只证明已知daylight，不能补quiet；程序明确停滞。按同任务基线比较支持率/任务完成增益与新增检索/模型成本、P95及失败。不存在由题目难度一个阈值决定的通用答案；示例两轮c补quiet成功，重复第一轮则stalled，增加score不算证据增益。
 
 增量来源：第1来源固定3be078b，Phase12/23–24，2026-10-08新增本地证据程序执行。M3DocRAG方法、Ask in Any Modality §3只读指定范围；综述2503.18016作者为Xu Zheng等而非源Zhao，2301.10382是非相关量子物理论文，不作REACT依据。旧文字RAG知识、代码块和日期保留，未运行真实向量库、VLM或外部服务。
+
+
+## 13. 代码检索：符号、提交快照与增量发布
+
+2026-10-11 增量：以下是可复用的知识与教学算例。来源项目的规模、技术栈和评分目标是待验证的设计条件，不能当成已经实现的生产结果。
+
+### 代码的证据单位如何保存
+
+代码检索先保留repo、commit、path、语言、符号身份、AST节点原文span与内容摘要。函数/类边界通常比硬切token易保存契约，但超长函数、文件级常量/配置、注释/测试、生成代码及解析失败需独立策略；AST非语义解析，跨语言RPC需协议/路由登记或可靠静态证据，不能凭模型猜import/call edges。嵌入可用摘要扩召回，引用仍回固定commit原文。
+
+### 召回、重排和图扩展各做什么
+
+稠密检索解自然语言近义，BM25解精确符号/罕见ID，图扩大依赖候选，cross-encoder只重排已召回候选。RRF=sum 1/(c+rank)，不混原始score尺度；每列表先去重，跨列表同chunk投票。symbol重复不能直接去重：同名函数、重载/嵌套、不同commit要用明确chunk identity。字段重复改变tf和dl，是启发式加权而非完整BM25F。CamelCase/snake_case分词、中文查询与精确identifier通道须说明。
+
+### 跨索引更新要作为一个代际发布
+
+增量更新不是只add新块：删除/重命名要tombstone旧chunk；调用/导入邻居和摘要失效也要更新；embedding/preprocess版本改变不能混向量。Webhook去重、事件乱序、一次commit快照和active generation原子切换，确保dense/sparse/graph/原文一致，读者不会引用不存在或已无权限的span。query返回generation和commit，ACL在召回/重排/answer assembly/打开源证据逐层核。
+
+### 出处存在与主张受支持分开验
+
+引用格式通过只证明有anchor，需逐主张检查span确存在、当前主体能读、相应revision/行号、是否支持推论/否定/适用条件；有真实anchor仍可虚构语义。MRR看首次相关,nDCG看graded排行,多repo问题加证据集合Recall和完整答案支持率；100Q/2MLOC/50files<60s/10kQPS都是项目目标，非scaffold成绩或通用门槛。
+
+一个可审查的请求应输出 `query_id、principal_scope、active_generation、repo_commit、chunk_ids、candidate_scores、used_spans、claims`。以“重试最多几次”为例：旧路径 `old/retry.py@A` 写3次，新路径 `new/retry.py@B` 写2次；改名不是保留旧块再添加新块。B代际发布后旧chunk及其图边应不可作为当前答案，旧commit的历史查询仍需明确指定A，不能悄悄混到B。
+
+构建worker先计算commit diff，再解析变更/新增、移除删除/旧名，更新受影响导入与调用关系，批量生成相同编码合同的表示，构建dense/sparse/graph/源映射的待发布快照。全部完成且质量、权限、schema检查通过后原子切换active generation；失败继续保留旧完整快照。并发webhook用仓库身份、commit及顺序证明处理，旧事件不能让active退回。下例只用引用替换说明发布边界，真实多存储系统需事务、CAS或发布manifest及恢复机制。
+
+下例的“逐主张支持”刻意限定为字面子串，不声称解决语言蕴涵。真实回答还要检查条件、数值、否定、跨段推论与事实来源；摘要里的词即使match，也要返回原代码。精确commit字符串在这里是教学值，并没有读取真实Git对象。
+
+### 完整离线例：一致的索引代际与当前证据权限
+
+本程序只用标准库与虚构记录，已实际执行。它验证以下明确合同，不启动模型、服务或真实项目；可信映射在同一进程内，只模拟外部信任，不提供实际隔离。
+
+```python
+from dataclasses import dataclass
+from hashlib import sha256
+import re
+
+@dataclass(frozen=True)
+class Chunk:
+    identity: str
+    repo: str
+    commit: str
+    path: str
+    start: int
+    end: int
+    text: str
+    digest: str
+    scopes: frozenset[str]
+
+def chunk(identity, commit, path, text, scopes):
+    return Chunk(identity, 'sample', commit, path, 1, 1, text,
+                 sha256(text.encode()).hexdigest(), frozenset(scopes))
+
+def build_generation(commit, chunks, dense_ids, sparse_ids, edges, repo='sample'):
+    if type(commit) is not str or re.fullmatch('[0-9a-f]{40}', commit) is None:
+        raise ValueError('规范40位Git十六进制教学commit')
+    if type(repo) is not str or not repo.strip():
+        raise ValueError('显式单仓库身份')
+    by_id = {}
+    for c in chunks:
+        if type(c) is not Chunk or type(c.identity) is not str or not c.identity.strip():
+            raise ValueError('chunk身份必须为非空字符串')
+        if type(c.repo) is not str or c.repo != repo or c.commit != commit:
+            raise ValueError('跨仓库或跨版本chunk')
+        if type(c.path) is not str or not c.path.strip():
+            raise ValueError('明确来源路径')
+        if type(c.start) is not int or type(c.end) is not int:
+            raise ValueError('行号为非bool整数')
+        if type(c.text) is not str or type(c.digest) is not str or re.fullmatch('[0-9a-f]{64}', c.digest) is None:
+            raise ValueError('文本与摘要类型')
+        if type(c.scopes) is not frozenset or not c.scopes or any(type(k) is not str or not k.strip() for k in c.scopes):
+            raise ValueError('不可变合法scope集合')
+        if c.identity in by_id:
+            raise ValueError('跨版本或重复chunk')
+        if c.start < 1 or c.end < c.start or sha256(c.text.encode()).hexdigest() != c.digest:
+            raise ValueError('来源span/摘要错误')
+        by_id[c.identity] = c
+    if any(type(ids) not in (set, frozenset) or any(type(k) is not str or not k.strip() for k in ids)
+           for ids in (dense_ids, sparse_ids)):
+        raise ValueError('索引身份集合类型')
+    if set(dense_ids) != set(by_id) or set(sparse_ids) != set(by_id):
+        raise ValueError('两个索引未准备完整')
+    if type(edges) not in (set, frozenset) or any(type(e) is not tuple or len(e) != 2
+            or any(type(k) is not str for k in e) for e in edges):
+        raise ValueError('图边身份合同')
+    if any(a not in by_id or b not in by_id for a, b in edges):
+        raise ValueError('图边引用已删除chunk')
+    return {'repo': repo, 'commit': commit, 'chunks': by_id, 'edges': frozenset(edges)}
+
+# ACL由服务侧可信映射模拟，不从问题中的role字段生成。
+POLICY = {'alice': frozenset({'team-a'}), 'bob': frozenset({'team-b'})}
+def evidence(generation, identity, principal, expected_commit, literal_claim):
+    if type(principal) is not str or principal not in POLICY:
+        raise PermissionError('主体未认证')
+    if expected_commit != generation['commit']:
+        raise ValueError('旧快照不能冒充新证据')
+    c = generation['chunks'].get(identity)
+    if c is None:
+        raise ValueError('chunk已删或未知')
+    if not c.scopes.intersection(POLICY[principal]):
+        raise PermissionError('当前对象权限不足')
+    if type(literal_claim) is not str or not literal_claim or literal_claim not in c.text:
+        raise ValueError('此教学字面主张没有支持')
+    return f'{c.repo}@{c.commit}/{c.path}:{c.start}-{c.end}'
+
+old_commit, new_commit = 'a' * 40, 'b' * 40
+old = chunk('retry-v1', old_commit, 'old/retry.py', '重试最多3次。', {'team-a'})
+g1 = build_generation(old_commit, [old], {'retry-v1'}, {'retry-v1'}, set())
+new = chunk('retry-v2', new_commit, 'new/retry.py', '重试最多2次。', {'team-a'})
+g2 = build_generation(new_commit, [new], {'retry-v2'}, {'retry-v2'}, set())
+assert 'new/retry.py' in evidence(g2, 'retry-v2', 'alice', new_commit, '重试最多2次')
+
+def rejects(fn, error):
+    try: fn()
+    except error: return
+    raise AssertionError('负例未拒绝')
+
+rejects(lambda: build_generation(new_commit, [new], {'retry-v2'}, set(), set()), ValueError)
+rejects(lambda: build_generation(new_commit, [new], {'retry-v2'}, {'retry-v2'}, {('retry-v1', 'retry-v2')}), ValueError)
+rejects(lambda: evidence(g2, 'retry-v1', 'alice', new_commit, '重试最多3次'), ValueError)
+rejects(lambda: evidence(g2, 'retry-v2', 'alice', old_commit, '重试最多2次'), ValueError)
+rejects(lambda: evidence(g2, 'retry-v2', 'bob', new_commit, '重试最多2次'), PermissionError)
+rejects(lambda: evidence(g2, 'retry-v2', 'alice', new_commit, '重试最多9次'), ValueError)
+# 发布是一次引用替换，失败构建不会提前改active。真实系统要事务/CAS与可信源。
+active = g1
+rejects(lambda: build_generation(new_commit, [new, new], {'retry-v2'}, {'retry-v2'}, set()), ValueError)
+assert active is g1
+active = g2
+assert active['commit'] == new_commit
+print('完整generation后发布；删除/重命名、版本、ACL与字面支持负例通过')
+
+from dataclasses import replace
+for changes in ({'identity': True}, {'identity': 1}, {'identity': ' '},
+                {'start': True}, {'end': False}, {'repo': 'other'},
+                {'scopes': frozenset({True})}, {'scopes': set({'team-a'})},
+                {'text': None}, {'digest': True}):
+    invalid = replace(new, **changes)
+    rejects(lambda: build_generation(new_commit, [invalid], {'retry-v2'}, {'retry-v2'}, set()), ValueError)
+for bad_commit in ('g' * 40, True, 'b' * 39):
+    rejects(lambda: build_generation(bad_commit, [new], {'retry-v2'}, {'retry-v2'}, set()), ValueError)
+assert active is g2
+print('类型化chunk身份/行号/scope/文本摘要、跨仓库与假Git值均拒绝，active不变')
+```
+
+本例在发布之前显式验证身份、文本摘要、非布尔整数行号与不可变scope集合，不依赖dataclass注解自动检查。代际限定单个明确仓库；40位小写十六进制只验证Git ID的格式，不证明真实对象存在或来源可信。构建错误不改变active，真实跨存储原子性与授权仍需外部实现。
+
+### 原项目的数据流与实现边界
+
+Python:6人工Chunk→DenseIndex.fake_embed与BM25Index.add→query两list→RRF以anchor归并→词项overlap stub rerank→打印anchor。没有tree-sitter、真实仓库walker、真实向量库/模型/graph/webhook/synth/citation verifier。hash(tok)受PYTHONHASHSEED随机化，称跨run deterministic错误；cosine仅点积且zip静默截维，成立需同dim且单位化。BM25空corpus/全空dl边界未严校，重复query term多计。
+
+TS:corpus6条→FNV1a稳定hash embed/cosine/BM25→RRF→slice(topK)→Hono GET/POST查询。无rerank，README所谓hybrid API成立但不等完整code RAG；返回citations.score是RRF而非支持概率。GET默认top5/POST zod q非空topK1..50；候选始终最多dense10，非topK50真实召回。nodeAdapter全body缓冲无size/deadline/backpressure边界。测试只fixture排序/有引用/HTTP字段，不证明ACL/增量/grounding/scale。
+
+把 `Build It` 当成待实现的分层流程：先固定数据与身份合同，再实现最小完整路径，再补负例、版本更新和测量；`Use It` 中的日志是场景示意；`Ship It` 与输出蓝图要求证据包，不能由演示返回成功自动满足。原输出 Skill 文件只作学习材料，未安装或激活。
+
+静SVG显示gitdiff→AST/summaries/graph→dense/BM25→RRF/rerank/synth→citation gate及eval；模型型号、2MLOC/60s/10kQPS/延迟是蓝图标签，scaffold没有实现。对应图标识 ce-hybrid-retrieval。 动态示意的实际含义与限制：预定3chunks/score.31/.58/.87和c升首，未算HNSW/BM25/rerank/AST或引用支持；实际TS缺rerank，不因非空citation证明答案有证据。
+
+README的layout、q/topK validation、FNV/BM25/RRF和fixture测试范围融入RAG代码检索；npm install/start/test只记依赖边界不执行，错误相对docs路径不做复制。
+
+### Phase19 02：练习与参考验收
+
+1. **替换代码嵌入模型，怎样判定rerank是否弥补差距？** 固定相同语料/commit/query/gold/分词与预算，比较两个嵌入及是否rerank的2×2消融，报告paired per-query MRR/nDCG差和置信区间/失败类型、费用延迟；不能预定模型替换必更差或rerank必闭合差距。
+
+2. **注入20%生成代码后，怎样处理重复与相关实现？** 人工生成代码污染应与真实generated标签区分；保留相关generated实现和关键接口，按重复簇/生成marker和语义证据降低重复占额，并在原创/生成/混合问题分别测证据集合recall，不能一刀删除20%。
+
+3. **如何公平比较Qdrant与pgvector等索引？** 固定vector维度、模型revision、稀疏索引、ACL、topK、rerank、量化和冷热缓存，测质量/吞吐/尾延迟/内存/更新；所谓50M向量分界不是普适选型规则。
+
+4. **检索质量漂移的5%阈值怎样使用？** 冻结独立gold集与版本，weekly只是示例；区分5%相对下降/5百分点，query mix、权限变化、源更新与模型失效分别核，加入index generation freshness与可复现失败轨迹。
+
+5. **Python调用Go gRPC服务，怎样建立跨语言关系？** Python→Go gRPC依赖以IDL方法、generated stubs、服务路由/版本和调用点连边；图不等运行时调用证明，标记静态候选与trace证据；没有相关代码证据时不补虚构关系。
+
+### Phase19 02：测验与中文解释
+
+1. **纯余弦检索为何可能不足？** 选4（index3）：向量搜索可能漏精确符号并受重复/生成副本影响；并非所有纯向量查询必失败，是否需图/混合应实测。
+
+2. **什么是AST分块？** 选3（index2）：AST节点span切分保留函数类结构，超长函数/配置/解析失败另有回退；并非固定token永远不允许。
+
+3. **蓝图中的三种可检索表征是什么？** 选4（index3）：dense、sparse词项、自然语言摘要是蓝图表征，summary仍需标为派生/可失真且不替原文。
+
+4. **重排解决哪一步？** 选1（index0）：联合query-candidate重排细交互，不能恢复未召回证据；原TS未实现cross encoder。
+
+5. **有引用为何还要回查？** 选1（index0）：锚点便于回查，但解析到anchor不自动证明faithfulness，必须核逐主张支持、版本与权限。
+
+6. **增量索引需要更新什么？** 选4（index3）：只重embed变化块并更新受影响edge；还处理删除重命名/事件乱序/generation原子切换，60s需实测。
+
+7. **哪个指标查主张支持？** 选1（index0）：faithfulness检验主张与source support，MRR/nDCG是排行；链接可打开但不支持主张不能计成功。
+
+本节来源：[02-rag-over-codebase](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/02-rag-over-codebase)，固定提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，课内全部文件、练习、测验、SVG和 TypeScript（如有）于2026-10-11静读。未执行原程序、安装依赖、调用模型、注册MCP或启动服务。新示例只验证标明的离线合同，旧例字节及核验日期保留。动态图由统一维护记录独立核，静图和动画都不当实测。 方法选读：[Aider repo map](https://aider.chat/docs/repomap.html)的符号签名、依赖图排名与token预算，未运行Aider；不把repo map当全部代码或调用证明。
+
+
+## 14. 受控RAG会话：权限、缓存与流式发布
+
+2026-10-11 增量：以下是可复用的知识与教学算例。来源项目的规模、技术栈和评分目标是待验证的设计条件，不能当成已经实现的生产结果。
+
+### 标签必须接到可信对象权限
+
+受监管RAG先鉴别真实主体和tenant/objectACL，再确定数据目的/地区/版本有效期；GDPR/HIPAA/SOC2是不同适用框架非互斥地理标签。标签不使系统合规，role等从server认证上下文，不能请求query参数自封counsel。vector/BM25/graph/context/summary/引用UI及缓存都按当前权限；排名boost不能过滤，先召回全库后过滤既可泄密又漏授权集合中低排名答案。
+
+### 评价需要独立真值与分层故障
+
+答案是否可靠由retrieval coverage/revision freshness、事实正确、citation support、privacy/safety分别检查。200gold/50redteam/5%下降是可改任务标准，测试集被改prompt/retriever反复利用会变开发集需独立final。RAGAS judge faithfulness是代理证据，source错误但答案忠于source仍不是事实正确；无gold weekly nDCG无法从纯未标注日志自动得到。低rerankscore阈值要领域校准/拒答正确性，不共用不同模型原分数。
+
+### 应用缓存与供应商前缀缓存的分工
+
+缓存要分provider prefix与应用answer cache。稳定system/policy有助重复prefix，query相关context只是该cache extension可复用，不能固定hit rate/总费3-5x。总价含miss输入/output/retrieval/embedding/rerank/guard/cache write、失败；已有服务03维护真实cache write/TTL/retention/version。缓存scope绑定tenant/principal/permission epoch/model/revision/安全policy；hit不免再次授权。SHA256截64bit教学key不安全授权，不保证TTLs/provider真的读中。
+
+### 会话归属与流式结果的终态
+
+多轮history存储不等参与检索或answer；summary为派生无权升级旧幻觉。sessionID由服务签发或ownership绑定，token revoke后memory需重新scope；请求重放以turnID/inputdigest幂等防duplicate。流式token已给用户后不能靠final guard收回信息，机密输出必须release前按完整span检查或可信已审核内容流，partial,error,done,disconnect分别记状态/费用，不把半答记成功。
+
+建议把每次会话处理成可回查的事务：认证 `principal` → 核 `tenant/session owner/current policy epoch` → 创建 `turn_id` 与输入摘要 → 按授权语料检索 → 检查候选revision/新鲜度 → 构建主张证据 → 输出安全检查 → 开始流式释放 → 记录完成、部分、取消、错误或未知。用户提供的 `role=counsel` 是请求数据，不能改服务侧身份；同一个sessionID配另一主体或同turnID配另一问题都应拒绝。
+
+SSE只是运输方式。`session/citations/token/done` 可以分别交付归属、证据与文本，但不能因已发一个引用事件就提前释放未经核验的敏感文字。若必须边生成边展示，明确哪些内容可在分块审查后释放、哪些要等完整输出审核，以及断流后如何保留部分结果而不计成功。真实代理须验证不缓冲、背压、断开取消和资源回收；写响应的 `res.write` 返回false时还继续无限读会增加内存。重连以请求与turn幂等合同处理，不能重复新建用户和助手记录。URL查询里放敏感问题会进入访问日志；生产接口选择应结合认证、CSRF、日志与数据最小化，而非照抄demo GET。
+
+缓存计费、断点与当前供应商行为由[服务化中的缓存合同](03-推理与服务化.md)统一维护；RAG排序指标沿用本文第2、7节及[评测与实验管理](06-评测与实验管理.md)。这里补的是这些原理跨权限和多轮状态时必须保持的关系，不另立第二份排行榜或定额定期计划。
+
+### 原项目的数据流与实现边界
+
+Python:5虚构Chunk role/juris exact+public/any过滤→Jaccard dense与词重叠/length pseudo BM25→RRF把全部eligible连0分也排名→system/policy/contextSHA截16hex→PromptCache store计数→拼接text60chars答案/3正则input/2regex scrub。无trueLLM/cacheAPI/rerank/presidio/LlamaGuard/NeMo/metrics/state；irrelevantquery也获得eligible citations；英文字面regex不能宣称高强防注入。MSA/GDPR30d与HIPAA60d是虚构合同fixtures非法律通用时限。
+
+TS:KB4条→querytoken overlap>0+jurisdiction match2 boost→top3→SSE session/citations/token/done；没有role filter/真实ACL，HIPAA文档可出现在GDPRresponse。client任意sessionId/role/jurisdiction；SessionStore既有记录角色被ignore但本次retrieval仍按新requesttag，/sessions无auth暴露所有sessionmetadata。history保存但query不用；demo固定demo-session所有人共享。GETq把敏感问题写URL/history/proxylog；EventSource default可重连重复turn，没eventID/turn幂等/heartbeat/真正streambackpressure/proxy验证。splitwhitespace tokens是UI片段不是模型计费token；parseSseStream LF简版不完整WHATWG。
+
+把 `Build It` 当成待实现的分层流程：先固定数据与身份合同，再实现最小完整路径，再补负例、版本更新和测量；`Use It` 中的日志是场景示意；`Ship It` 与输出蓝图要求证据包，不能由演示返回成功自动满足。原输出 Skill 文件只作学习材料，未安装或激活。
+
+静SVG显示role先filter的正确目标，但TS只boost，正文对应图标识 canary-rollout与asset rag-stack不一致；60-80%/3-5x无实测不变成结果。 动态示意的实际含义与限制：canaryErr2.6/stable.4/SLA1.5全人工常数，所有canary比例含0都rollback，不能无样本宣称真实故障；blend可掩盖候选分层错误，采样不等因果AB。
+
+TS README SSE frames/sessionMap/test覆盖融入RAG streaming scope；npm命令未运行，与Python仅概念搭配没有integration不能称端到端。
+
+### Phase19 08：练习与参考验收
+
+1. **两个适用范围的语料怎样防跨主体泄漏？** 测试principal/tenant/role/region/effective version组合以及user spoof、index ACL撤销、citation open、cache与memory跨scope；20probe只case覆盖，禁把jurisdiction boost叫阻断。
+
+2. **缓存命中率怎样从真实使用量归因？** provider usage cached/write tokens+stage receipts与prefix实际序列、context排序、TTL和模型revision复盘；先区分application全prefixSHA命中与providerpartialprefix，不以demo重复一次当一周流量。
+
+3. **长期会话摘要怎样评估旧事实与错误传播？** 固定turn与gold，在短/长/摘要/无摘要分别测指代/旧证据/错误事实传播/权限撤销；10k-token不是万能memory预算，history不能越权回灌或与当前事实混。
+
+4. **托管和自建模型怎样比较质量与全阶段费用？** 同检索、guardrail与gold，全部stage费用/推理hardware并发利用率/quality/latency记录，不能用厂商token单价与自建满利用率直接比较。
+
+5. **不确定时拒答怎样校准并测误拒？** 校准任务专用拒答阈值，测answerable被拒与unanswerable被答、逐claim真实support；rerank低/高分不直接是概率，empty/0overlap/源冲突应单列。
+
+### Phase19 08：测验与中文解释
+
+1. **缓存为何可能降低成本？** 选2（index1）有条件成本方向，去掉60-80%hit必3-5x；output/未cache动态/各stage费可限制节省。
+
+2. **稳定前缀和动态尾部怎样分？** 选4（index3）：稳定system/policy前缀、动态context扩展与user尾；写入/最小tokens/TTL/model合同仍必核。
+
+3. **范围过滤在哪一步执行？** 选4（index3）是正确目标，原TS只boost违规；role/jurisdiction自己报不授权，所有通道scope核。
+
+4. **多层安全组件是什么边界？** 选3（index2）是目标多层组合，sourcecode没真模型工具；权限是硬约束，regex/judge不替ACL。
+
+5. **漂移告警需要什么证据？** 选3（index2）为例阈值，需gold或标注样本才能估nDCG，变query mix和index更新延迟分别核。
+
+6. **200题代表什么？** 选1（index0）题设200，规模应覆盖域问题/无答案/冲突/越权，非生产充分证据数。
+
+7. **RAG评价跟踪哪些维度？** 选3（index2）题设faithfulness/relevance/contextprecision；记录版本/metricdefinition/judge成本误差，不当自动合规或最终truth。
+
+本节来源：[08-production-rag-chatbot](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot)，固定提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，课内全部文件、练习、测验、SVG和 TypeScript（如有）于2026-10-11静读。未执行原程序、安装依赖、调用模型、注册MCP或启动服务。新示例只验证标明的离线合同，旧例字节及核验日期保留。动态图由统一维护记录独立核，静图和动画都不当实测。

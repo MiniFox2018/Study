@@ -1290,3 +1290,149 @@ print('evidence:fixture拒绝响应证据、cache/task CAP负例、method-specif
 [Tasks详细2026-07-28规范](https://github.com/modelcontextprotocol/ext-tasks/blob/93a4915aadf714f87ece5cd40c317bce24779cf5/specification/2026-07-28/tasks.md)固定`93a4915aadf714f87ece5cd40c317bce24779cf5`；[Apps详细2026-01-26规范](https://github.com/modelcontextprotocol/ext-apps/blob/82221c0c8ce7661efa6771c9d461511b1650495f/specification/2026-01-26/apps.mdx)与[初始化类型](https://github.com/modelcontextprotocol/ext-apps/blob/82221c0c8ce7661efa6771c9d461511b1650495f/src/spec.types.ts)固定`82221c0c8ce7661efa6771c9d461511b1650495f`。扩展旧示意中initialize不能直接套进modern core，适用层与版本先核对。
 
 延伸：[工具使用](../01-核心章节/05-工具使用.md)、[异常处理与恢复](../01-核心章节/12-异常处理和恢复.md)、[人机协同](../01-核心章节/13-人机协同.md)、[安全模式](../01-核心章节/18-安全模式.md)、[评估和监控](../01-核心章节/19-评估和监控.md)、[交互与动作空间](03-交互与动作空间.md)。这些章节由其维护者统一融合，本专题不重复另写其完整骨架。
+
+
+## 15. 将协议、目录与治理接成可验证的交付
+
+2026-10-11 增量：以下是可复用的知识与教学算例。来源项目的规模、技术栈和评分目标是待验证的设计条件，不能当成已经实现的生产结果。
+
+### 发布记录和实时能力维持独立合同
+
+维持现有MCP2026-07-28主章：每request version/caps，server/discover mandatory但client可先call或错误协商，complete/input_required结果合同，无初始化session/GET长期MCPstream/Last-Event-ID重播；Registry schema日期与协议版本独立，server.json发布安装endpoint，不等runtime toolset。identity自报不认证、metadata/runtime一致也不证明endpoint曾被真正探测。
+
+### 工具接纳与实时漂移的证据
+
+治理按publication格式/verified reverseDNS namespace/artifact provenance/live identity/capabilities/descriptorpin/active status/approval/policy/auth/audit分别取证。Registry远端URL变化应核实际endpoint而非只比较name/version，删/撤销后direct call同样拒绝。public列表只有整个effective集合对所有主体相同才可；TTL是freshness hint，不免新的对象权限。完整schema支持package-only和版本字段，remote-profile手写regex不是全部validation。
+
+### 参数、主体、批准与副作用的执行顺序
+
+工具调用在handler之前参数schema和trustedprincipal/iss/aud/exp/scope、对象动作policy、exactargs/environment/resourceversion/expiry approval。approval的canonical形式明确JSON数值和null/unknown语义，禁止NaN；一次性consume atomic、防并发replay、revoke后不能复用、handlerunknown用action idempotency receipts解决。annotation readOnly/destructive是hint，数据库只读凭据/transaction/query allowlists才实际控制，工具可在read期间发送信息也需审。
+
+### 交付需要五类实际证据
+
+wire/proxy/admission/retry/rollback五证据pack：直接/代理headers与body和typed IDs；wrongversion/header mismatch未执行handler；取消与complete race/timeout/未知sideeffect/unique action key；exactprior artifacts/status/currenthealth/route restore；redactedpack外部digest与receiverack。本地dict和stdio语法不证明HTTP/OAuth/OPA/实际Registry/loadbalance/collector receipt。audit regex仅emailSSN非全secret，exceptionmessage也可泄漏，记录必要metadata/argsdigest并安全receiver处理。
+
+协议消息使用本专题第3–9节的已说明合同；部署接纳与凭证隔离由[工具授权与发布治理](07-工具授权与发布治理.md)统一维护。这里的问题是把分开的合同真正接线，而非再用一个演示进程冒充完成平台。教学的 `Token(user, issuer, audience, scopes, expires_at)` 是可信输入假设，真实服务先验证token来源、签名或授权服务器响应；从请求JSON读出同名字段不能生成认证。
+
+从Registry得到URL后，在允许网络范围内解析端点并实际发现；将发布name/version/remote、当前runtime identity/capabilities、完整descriptor与artifact provenance分别绑定接纳记录。既有记录schema允许不等当前仍active，live self-report匹配不等软件安全。手写remote-only校验只能证明列出的子集，正式`server.json`仍需锁定完整schema。官方Registry允许publisher-provided元数据，但不能由发布者覆盖registry-managed状态。
+
+工具输入校验须真的接在handler之前。工具清单广告 `additionalProperties:false`，执行端却把任意args交给lambda，会出现“声称合同严格，实际上没用”的缺口。MCP读只读提示也不能给数据库写能力免责；生产用只读数据库身份、资源范围、query预算与适用约束控制副作用。一次性批准还需atomic consume/revocation和业务resource revision；sorted JSON hash只是明示序列化方法，不自动是所有语言相同的canonical JSON标准。
+
+五类证据不是五个文本标题。wire类要真实字节与typed请求响应ID；proxy类要中间件前后的状态、body摘要及stream不缓冲；admission类绑定目录/provenance/live观察；retry类包含timeout/取消竞态/动作幂等和未知副作用；rollback类绑定确切旧artifact/descriptor、当前status/health与路由恢复。下例用外部回执映射的教学替身查缺类、篡改和当前pin变化，仍不执行发布。旧合同变化就需要重新采集相关证据，不能拿过期pack换一日期充当验收。
+
+JavaScript对象映射应使用`Map`或own-property查找；字符串通过schema不等它是业务已知ID。`incidents_get/ack('__proto__')`在普通对象索引可能碰到原型，必须在执行前查真实所属对象并拒绝；请求ID的JSON类型和值也需精确，`1`和`"1"`不是同一请求，bool、非有限数不能伪装数值ID。序列化/SDK对象测试不替真实wire。
+
+### 完整离线例：五类发布证据与当前合同绑定
+
+本程序只用标准库与虚构记录，已实际执行。它验证以下明确合同，不启动模型、服务或真实项目；可信映射在同一进程内，只模拟外部信任，不提供实际隔离。
+
+```python
+import copy
+from hashlib import sha256
+import json
+
+KINDS = frozenset({'wire', 'proxy', 'admission', 'retry', 'rollback'})
+CURRENT = {'artifact': 'artifact-2', 'descriptor': 'descriptor-2',
+           'remote': 'https://mcp.example.invalid/v2', 'policy': 'policy-3'}
+
+def digest(value):
+    return sha256(json.dumps(value, sort_keys=True, separators=(',', ':'),
+                             allow_nan=False).encode()).hexdigest()
+
+def valid_pins(value):
+    return (type(value) is dict and set(value) == {'artifact', 'descriptor', 'remote', 'policy'}
+            and all(type(v) is str and v.strip() for v in value.values()))
+
+def gate(pack, receipts, current):
+    if not valid_pins(current): return 'hold:当前pin身份合同错误'
+    if type(receipts) is not dict or not receipts or any(type(k) is not str or not k.strip()
+            or type(v) is not str or not v.strip() for k, v in receipts.items()):
+        return 'hold:回执映射合同错误'
+    # receipts模拟外部可信核验记录；同一进程fixture不具备真实隔离。
+    if type(pack) is not dict or set(pack) != KINDS:
+        return 'hold:证据类别缺失'
+    for kind in sorted(KINDS):
+        item = pack[kind]
+        if type(item) is not dict or set(item) != {'receipt', 'pins', 'redacted', 'status'}:
+            return 'hold:证据合同错误'
+        if type(item['redacted']) is not bool or not item['redacted'] or item['status'] != 'observed':
+            return 'hold:未核验或未脱敏'
+        if not valid_pins(item['pins']) or item['pins'] != current:
+            return 'hold:当前产物/目录/远端/政策已变'
+        if receipts.get(kind) != digest(item):
+            return 'hold:无独立回执或证据被改'
+    return 'eligible:仍需具体发布授权'
+
+pack = {kind: {'receipt': 'observed-' + kind, 'pins': copy.deepcopy(CURRENT),
+               'redacted': True, 'status': 'observed'} for kind in KINDS}
+receipts = {kind: digest(item) for kind, item in pack.items()}
+assert gate(pack, receipts, CURRENT).startswith('eligible:')
+for missing in KINDS:
+    bad = copy.deepcopy(pack); del bad[missing]
+    assert gate(bad, receipts, CURRENT).startswith('hold:')
+bad = copy.deepcopy(pack); bad['proxy']['receipt'] = 'in-process-only'
+assert gate(bad, receipts, CURRENT).startswith('hold:')
+for field in CURRENT:
+    changed = dict(CURRENT, **{field: 'changed'})
+    assert gate(pack, receipts, changed).startswith('hold:')
+bad = copy.deepcopy(pack); bad['wire']['redacted'] = 'true'
+assert gate(bad, receipts, CURRENT).startswith('hold:')
+print('五类接收证据、类型、当前pin和篡改门禁通过；没有真实MCP发布')
+
+for invalid_pins in (None, {}, True, dict(CURRENT, artifact=''), dict(CURRENT, descriptor=None),
+                     dict(CURRENT, policy=True), {'artifact': 'x'}):
+    bad = copy.deepcopy(pack)
+    for item in bad.values(): item['pins'] = invalid_pins
+    matching = {kind: digest(item) for kind, item in bad.items()}
+    assert gate(bad, matching, invalid_pins).startswith('hold:')
+    assert gate(bad, matching, CURRENT).startswith('hold:')
+for invalid_receipts in (None, {}, True, [], {'wire': None}, {'wire': True}, {'wire': ''}):
+    assert gate(pack, invalid_receipts, CURRENT).startswith('hold:')
+print('缺失/空/布尔/None pin身份与错误回执映射全部hold；匹配hash不能填补合同缺失')
+```
+
+current和每份证据的pins必须具有完整四种非空字符串身份：artifact、descriptor、remote、policy。空字典、None、布尔值和缺项相等，也不能得到eligible；回执映射有明确类型，哈希匹配不能填补合同缺失。这仍是教学一致性门禁，不证明远端URL已经连接或软件签名已经核定。
+
+### 原项目的数据流与实现边界
+
+Python:registry_document→partialvalidation+verified_domain常量reverseDNS→直接调用同对象discover→deepcopy snapshots。没有真正HTTPprobe或authownership证明。MCP tools_list只sort/genericprivate非按token可见性；dispatch→validate_meta→policy_decide模拟Token/approval→handler→regexredactaudit→complete。没有inputSchema校验，sql任意文本/mock返回1，不证明SELECT readonly。expiry NaN/inf或args NaN未禁；same approval可不限次重放，无atomicconsume/revocation。audit为内存list非durable受保护事件接收；Registry runtime_alignment仅name/version不比remote/descriptor/status。
+
+TS:stdin readline→parse JSONRPC envelope(idstring/number非null)→dispatch无id全drop→meta+caps→discover/list/call；tools schema子集检查required/type/enum/additionalProperties，knowntoolbadargs complete isErrortrue，unknowntool -32602，exec failures completeerror。没有Python auth/policywire集成、ack任何caller执行，仅注释authorized/annotation。incident store普通Record读__proto__为Object.prototype，ack能写原型acked；typed schema只string无IDown/enum，空id可过schema后handlererror。meta clientInfo TS可选结构核而Python没核。frame无maxbytes/deadlines/concurrency/backpressure/cancel/MRTR；partial schema不是full2020-12。parseRpc typeofnumber没有finite/safeinteger约束；JS JSON1e999→Infinity会通过typeof并serialize成null，typed ID危险。
+
+把 `Build It` 当成待实现的分层流程：先固定数据与身份合同，再实现最小完整路径，再补负例、版本更新和测量；`Use It` 中的日志是场景示意；`Ship It` 与输出蓝图要求证据包，不能由演示返回成功自动满足。原输出 Skill 文件只作学习材料，未安装或激活。
+
+静SVG治理/分读写/OPA/10工具/JSONLaudit/双replicas100并发为目标，Python实际2只读+1写且无OPA/load；TS incident3工具均未auth。对应图标识 cf-mcp-gate 动态示意的实际含义与限制：5秒固定gate/actor-tool-args-expiry与registryprobe，无真实鉴别/一次性消费/schema接线；协议元数据/发布/可达性/权限分别核，图不证源Python和TSserver已相接。
+
+TS README stdio/模块/三mocktool/localcontract边界与Python非接线融入MCP验收；不执行npm/serve/register。
+
+### Phase19 13：练习与参考验收
+
+1. **发布URL改变后怎样查真实漂移？** pinpublication URL+身份/version/完整descriptor，重新真正probe目标并验证channel provenance；Python目前runtime_alignment只name/version，remote变化并不会验证真实漂移，需独立admission collector而非修改模拟url就成功。
+
+2. **相同工具集合怎样检查顺序和到期刷新？** 同effective scopes toolset固定sort+canonicalserialization/hash，TTLexpiry会refetch且复核descriptor/status，private/public按可见性；byte稳定order不等所有result字段长期相同。
+
+3. **HTTP镜像版本头不同怎样拒绝？** 真实HTTP捕获headerbody并检查镜像后返回400/-32020（caseinsensitive names/casesensitive values），metadata malformed与unsupportedversion分开；局部dispatch没有header输入不能充当wireproof。
+
+4. **只读受众的token怎样拒绝用于写资源？** 只读token audience不符写server即拒绝，trustedissuer/expiry/scope同时核，确保handler计数0；更高scope不能覆盖wrongaud，真实签名token验证另证。
+
+5. **批准后的参数改变怎样拒绝且处理重复？** 批准绑定规范args摘要/actor/tool/target/expiry；更改任一field拒绝，同args也核consume/revoke/resource revision，未知终态不能换requestID再次写。
+
+6. **两个副本如何显式共享业务状态？** 2replicas alternatingrequests+concurrentload要真实wire、共享durable业务handle/owner/TTL/CAS；stateless protocol不等应用无state，源码sameprocess不能证明LB。
+
+7. **断开请求SSE后如何安全重试？** MCP2026断SSE取消该request并freshIDreissue，没有Last-Event-ID replay；read安全retry和mutationactionkey+effect查核分开，RPCID新不意味着action幂等，durabletask取消需explicittaskmethod。
+
+### Phase19 13：测验与中文解释
+
+1. **为什么有发布和实时两层发现？** 选4（index3）：发布与runtime发现两层独立；name/schema有效不证明namespaceownership、actualremote健康或工具安全。
+
+2. **2026版如何逐请求声明能力？** 选2（index1）：逐requestmetadata取代handshake，2026版明确，旧server兼容需独立adapter而非混用状态。
+
+3. **工具列表如何缓存？** 选4（index3）：deterministic order+TTL+scope；privatevisibility勿publicreuse，stale反应要status/pin核。
+
+4. **当前HTTP消息怎样运输？** 选4（index3）：每JSONRPC新POST回应JSON/requestSSE；accepted notification202 no body，SSE关闭取消，不自动durabletaskcancel。
+
+5. **handler之前需哪些门禁？** 选4（index3）：metadata、可信token、scope、exactaction不同gate；原TS未集成auth、Pythontokenmock无signature。
+
+6. **什么证据支持无亲和部署？** 选2（index1）：真实双replicas并发wire且无affinity依赖；dict tests、目录entry、diagram都不是部署证据。
+
+本节来源：[13-mcp-server-with-registry](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry)，固定提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，课内全部文件、练习、测验、SVG和 TypeScript（如有）于2026-10-11静读。未执行原程序、安装依赖、调用模型、注册MCP或启动服务。新示例只验证标明的离线合同，旧例字节及核验日期保留。动态图由统一维护记录独立核，静图和动画都不当实测。 本轮官方[MCP changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog)与[Streamable HTTP](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http)选读逐请求metadata、发现、结果、POST/头镜像/取消范围；[官方Registry requirements](https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/server-json/official-registry-requirements.md)全文核namespace与元数据4KB约束，没有实际Registry发布或认证。

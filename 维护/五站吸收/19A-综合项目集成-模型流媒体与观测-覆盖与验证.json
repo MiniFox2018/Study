@@ -1,0 +1,761 @@
+{
+  "date": "2026-10-11",
+  "status": "6课融合写入5既有正文；4新增stdlib实际运行成功，待root统一复核",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "reading_report": "/tmp/study-capstone-c-reading.json",
+  "counts": {
+    "lessons": 6,
+    "files": 68,
+    "nonempty_files": 62,
+    "empty_files": 6,
+    "h2_h4": 60,
+    "exercises": 30,
+    "quiz_questions": 42,
+    "svg": 6,
+    "widgets": 6
+  },
+  "formal_files": [
+    {
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "baseline_sha256": "3b321a29da82d1ce93cf63ffd3c68bd441ac162a41b0dde72fe79de1ab37ce6a",
+      "final_sha256": "4a84b35d5d873f1aae4cbdac4093012840752d2d20eb22b5ef1ca275c2ba8f1d",
+      "old_python_blocks_unchanged": 0,
+      "final_python_blocks": 2,
+      "change": "增量追加；全部原字节prefix保留"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "baseline_sha256": "e88d5fe977163746bb33370a82ad6147d5b505afce5ad88d353fe3756dd37929",
+      "final_sha256": "478694f8df704a260441283bcb93250b9f03545d18e1e8f31a353a200c94f129",
+      "old_python_blocks_unchanged": 6,
+      "final_python_blocks": 7,
+      "change": "增量追加；全部原字节prefix保留"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "baseline_sha256": "7c2ba0d4758498b30e24bd2adf4ea34e9c8c57299d94e006c5c621cb27673ac0",
+      "final_sha256": "efbf37492163886b6556ba118eb48fe76b4cee2b19c6fe8fef58ae2f24191712",
+      "old_python_blocks_unchanged": 3,
+      "final_python_blocks": 4,
+      "change": "增量追加；全部原字节prefix保留"
+    },
+    {
+      "file": "LLM 工程实践/14-Transformer推理与规模设计.md",
+      "baseline_sha256": "789ca1b0c976ee3d360bcfc28a3ca25a4358e88a9e5905c90547dc36adf1c885",
+      "final_sha256": "60b0aeea67c83fa05ed5aa8256308e67ec8902a6527ea7e36ccd4d7bc4e934c8",
+      "old_python_blocks_unchanged": 11,
+      "final_python_blocks": 11,
+      "change": "增量追加；全部原字节prefix保留"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/18-安全模式.md",
+      "baseline_sha256": "2916f31856188b4728cbdcca4c645dab0a6b03c96080d9163c0e7e2b27eb3778",
+      "final_sha256": "a0bcc78cb5bfe8e881507cafdbf9e4dcf01e3fde091f3958fbc48298e8755e38",
+      "old_python_blocks_unchanged": 2,
+      "final_python_blocks": 2,
+      "change": "增量追加；全部原字节prefix保留"
+    }
+  ],
+  "new_code_runs": [
+    {
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "lesson": "03",
+      "script": "/tmp/study-capstone-c-runs/voice.py",
+      "sha256": "1535646ac7e52b10dd96f7ace549e9d77f33cf9e44e7463ebd2467dff3de128d",
+      "exit_code": 0,
+      "stdout": "epoch隔离通过；非法epoch拒绝且状态不变；旧轮320/820/900ms；新轮未播放=None；已听历史960ms\n",
+      "stderr": "",
+      "date": "2026-10-11",
+      "python": "Python 3.12.13",
+      "execution": "该精确新增标准库程序已由exec实际运行；源码程序未运行",
+      "block": 1,
+      "prior_versions": [
+        {
+          "sha256": "c0863f357117addf8d880b4fc90413771e8f923c99865ac60bee89bea0fc372f",
+          "exit_code": 0,
+          "stdout": "epoch隔离通过；旧轮320/820/900ms；新轮未播放=None；已听历史960ms\n",
+          "date": "2026-10-11",
+          "superseded_reason": "root静态反例发现bool epoch/公开envelope改动后仍消费旧hash"
+        }
+      ],
+      "repair": "bool epoch入口/初始epoch strict validation"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "lesson": "07",
+      "script": "/tmp/study-capstone-c-runs/manifest.py",
+      "sha256": "3cd0c8de7b9390400f83b74c777407c53199def7823a1804bc31537563ddab01",
+      "exit_code": 0,
+      "stdout": "64位hash/依赖绑定通过；后改dataset/gate、错误payload、污染、错版本、布尔计数拒绝；仅计划，训练未执行\n",
+      "stderr": "",
+      "date": "2026-10-11",
+      "python": "Python 3.12.13",
+      "execution": "该精确新增标准库程序已由exec实际运行；源码程序未运行",
+      "block": 7,
+      "repair": "lookup重算内容身份和递归依赖，payload/config类型failclosed",
+      "prior_versions": [
+        {
+          "sha256": "53acede05138c941eb6d8c1866e75eb36c93486696c9654bb45f2d12c9a033f6",
+          "exit_code": 0,
+          "stdout": "完整64位hash/依赖绑定通过；污染、错版本、布尔计数拒绝；仅计划，训练未执行\n",
+          "date": "2026-10-11",
+          "superseded_reason": "root静态反例发现bool epoch/公开envelope改动后仍消费旧hash"
+        }
+      ]
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "lesson": "11",
+      "script": "/tmp/study-capstone-c-runs/observation.py",
+      "sha256": "98e5047da73949a8fdb31b7ec5e02251af43495cdccd4cdc71d08eef7c6d53df",
+      "exit_code": 0,
+      "stdout": "全量错误率8%；直接sample比例=63.49%；设计加权=8.00%；95%至少一次检出需2995请求\n",
+      "stderr": "",
+      "date": "2026-10-11",
+      "python": "Python 3.12.13",
+      "execution": "该精确新增标准库程序已由exec实际运行；源码程序未运行",
+      "block": 4
+    },
+    {
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "lesson": "12",
+      "script": "/tmp/study-capstone-c-runs/video.py",
+      "sha256": "d49d68850884d2ce2141b105052c6bc7c69de543d7ffb83a6bdc72b50fab32fe",
+      "exit_code": 0,
+      "stdout": "局部[2,12)s→原视频[94,104)s；tIoU=3/7；越界拒绝；跨镜头词保同word_id\n",
+      "stderr": "",
+      "date": "2026-10-11",
+      "python": "Python 3.12.13",
+      "execution": "该精确新增标准库程序已由exec实际运行；源码程序未运行",
+      "block": 2
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "03-realtime-voice-assistant",
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "heading": "## 10. 流式语音项目：轮次、取消与用户实际听到的内容",
+      "exercise_heading": "### 五项原练习的中文实践判断",
+      "quiz_heading": "### 七道原测验的中文核对",
+      "exercises": 5,
+      "quizzes": 7,
+      "source_h2_h4": [
+        {
+          "line": 11,
+          "heading": "## Problem",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 17,
+          "heading": "## Concept",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 25,
+          "heading": "## Architecture",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 61,
+          "heading": "## Stack",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 76,
+          "heading": "## Build It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 96,
+          "heading": "## Use It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 109,
+          "heading": "## Ship It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 122,
+          "heading": "## Exercises",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 134,
+          "heading": "## Key Terms",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 146,
+          "heading": "## Further Reading",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson": "07-end-to-end-fine-tuning-pipeline",
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "heading": "## 17. 端到端微调流水：每个评测结论都绑定实际产物",
+      "exercise_heading": "### 五项原练习的中文实践判断",
+      "quiz_heading": "### 七道原测验的中文核对",
+      "exercises": 5,
+      "quizzes": 7,
+      "source_h2_h4": [
+        {
+          "line": 11,
+          "heading": "## Problem",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/04-微调与参数高效适配.md"
+          ]
+        },
+        {
+          "line": 17,
+          "heading": "## Concept",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/04-微调与参数高效适配.md"
+          ]
+        },
+        {
+          "line": 23,
+          "heading": "## Architecture",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/04-微调与参数高效适配.md"
+          ]
+        },
+        {
+          "line": 56,
+          "heading": "## Stack",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/04-微调与参数高效适配.md"
+          ]
+        },
+        {
+          "line": 73,
+          "heading": "## Build It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/04-微调与参数高效适配.md"
+          ]
+        },
+        {
+          "line": 93,
+          "heading": "## Use It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/04-微调与参数高效适配.md"
+          ]
+        },
+        {
+          "line": 106,
+          "heading": "## Ship It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/04-微调与参数高效适配.md"
+          ]
+        },
+        {
+          "line": 119,
+          "heading": "## Exercises",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/04-微调与参数高效适配.md"
+          ]
+        },
+        {
+          "line": 131,
+          "heading": "## Key Terms",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/04-微调与参数高效适配.md"
+          ]
+        },
+        {
+          "line": 143,
+          "heading": "## Further Reading",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/04-微调与参数高效适配.md"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson": "11-llm-observability-dashboard",
+      "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "heading": "## 综合观测项目：从事件接收到检出和恢复",
+      "exercise_heading": "### 五项原练习的中文实践判断",
+      "quiz_heading": "### 七道原测验的中文核对",
+      "exercises": 5,
+      "quizzes": 7,
+      "source_h2_h4": [
+        {
+          "line": 11,
+          "heading": "## Problem",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+          ]
+        },
+        {
+          "line": 17,
+          "heading": "## Concept",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+          ]
+        },
+        {
+          "line": 25,
+          "heading": "## Architecture",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+          ]
+        },
+        {
+          "line": 55,
+          "heading": "## Stack",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+          ]
+        },
+        {
+          "line": 70,
+          "heading": "## Build It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+          ]
+        },
+        {
+          "line": 90,
+          "heading": "## Use It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+          ]
+        },
+        {
+          "line": 101,
+          "heading": "## Ship It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+          ]
+        },
+        {
+          "line": 114,
+          "heading": "## Exercises",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+          ]
+        },
+        {
+          "line": 126,
+          "heading": "## Key Terms",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+          ]
+        },
+        {
+          "line": 138,
+          "heading": "## Further Reading",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson": "12-video-understanding-pipeline",
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "heading": "## 11. 视频问答项目：先把证据绑定到原视频时间",
+      "exercise_heading": "### 五项原练习的中文实践判断",
+      "quiz_heading": "### 七道原测验的中文核对",
+      "exercises": 5,
+      "quizzes": 7,
+      "source_h2_h4": [
+        {
+          "line": 11,
+          "heading": "## Problem",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 17,
+          "heading": "## Concept",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 25,
+          "heading": "## Architecture",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 54,
+          "heading": "## Stack",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 69,
+          "heading": "## Build It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 89,
+          "heading": "## Use It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 104,
+          "heading": "## Ship It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 117,
+          "heading": "## Exercises",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 129,
+          "heading": "## Key Terms",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        },
+        {
+          "line": 141,
+          "heading": "## Further Reading",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/08-多模态模型工程.md"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson": "14-speculative-decoding-server",
+      "file": "LLM 工程实践/14-Transformer推理与规模设计.md",
+      "heading": "## 17. 综合推理服务：把无损采样、负载和收益放在同一合同",
+      "exercise_heading": "### 五项原练习的中文实践判断",
+      "quiz_heading": "### 七道原测验的中文核对",
+      "exercises": 5,
+      "quizzes": 7,
+      "source_h2_h4": [
+        {
+          "line": 11,
+          "heading": "## Problem",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/14-Transformer推理与规模设计.md"
+          ]
+        },
+        {
+          "line": 17,
+          "heading": "## Concept",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/14-Transformer推理与规模设计.md"
+          ]
+        },
+        {
+          "line": 25,
+          "heading": "## Architecture",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/14-Transformer推理与规模设计.md"
+          ]
+        },
+        {
+          "line": 51,
+          "heading": "## Stack",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/14-Transformer推理与规模设计.md"
+          ]
+        },
+        {
+          "line": 66,
+          "heading": "## Build It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/14-Transformer推理与规模设计.md"
+          ]
+        },
+        {
+          "line": 86,
+          "heading": "## Use It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/14-Transformer推理与规模设计.md"
+          ]
+        },
+        {
+          "line": 96,
+          "heading": "## Ship It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/14-Transformer推理与规模设计.md"
+          ]
+        },
+        {
+          "line": 109,
+          "heading": "## Exercises",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/14-Transformer推理与规模设计.md"
+          ]
+        },
+        {
+          "line": 121,
+          "heading": "## Key Terms",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/14-Transformer推理与规模设计.md"
+          ]
+        },
+        {
+          "line": 133,
+          "heading": "## Further Reading",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "LLM 工程实践/14-Transformer推理与规模设计.md"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson": "15-constitutional-safety-harness",
+      "file": "Agentic Design Patterns/01-核心章节/18-安全模式.md",
+      "heading": "## 综合安全实验台：拦截记录要连接到实际后果",
+      "exercise_heading": "### 五项原练习的中文实践判断",
+      "quiz_heading": "### 七道原测验的中文核对",
+      "exercises": 5,
+      "quizzes": 7,
+      "source_h2_h4": [
+        {
+          "line": 11,
+          "heading": "## Problem",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+          ]
+        },
+        {
+          "line": 19,
+          "heading": "## Concept",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+          ]
+        },
+        {
+          "line": 27,
+          "heading": "## Architecture",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+          ]
+        },
+        {
+          "line": 66,
+          "heading": "## Stack",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+          ]
+        },
+        {
+          "line": 80,
+          "heading": "## Build It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+          ]
+        },
+        {
+          "line": 100,
+          "heading": "## Use It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+          ]
+        },
+        {
+          "line": 112,
+          "heading": "## Ship It",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+          ]
+        },
+        {
+          "line": 125,
+          "heading": "## Exercises",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+          ]
+        },
+        {
+          "line": 137,
+          "heading": "## Key Terms",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+          ]
+        },
+        {
+          "line": 150,
+          "heading": "## Further Reading",
+          "mapping": "全部段落静读；问题/机制/依赖/实践/作业对应下列中文解释及修正，代码/性能示例与实际验证分开",
+          "target": [
+            "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_runs": 0,
+  "unverified": [
+    "全部真实音频/ASR/TTS/网络/设备/训练/模型质量/数据库collector/query/SLO/成本报价/攻击成效",
+    "XGuard132语种/P-EAGLE具体方法与当今checkpoint支持未核，正文保通用合同不保确定能力",
+    "MOF与ShieldGemma旧link导航shell不可作已读正确正文，使用有效第一方替代；动态global函数由root另验"
+  ],
+  "readme_disposition": [
+    {
+      "path": "phases/19-capstone-projects/03-realtime-voice-assistant/code/ts/README.md",
+      "read_scope": "全部静读",
+      "disposition": "保留模块职责、模拟/真实协议区别和验证边界于对应正文；安装/启动命令不是本轮执行或Skill安装授权",
+      "target": [
+        "LLM 工程实践/08-多模态模型工程.md"
+      ]
+    },
+    {
+      "path": "phases/19-capstone-projects/11-llm-observability-dashboard/code/ts/README.md",
+      "read_scope": "全部静读",
+      "disposition": "保留模块职责、模拟/真实协议区别和验证边界于对应正文；安装/启动命令不是本轮执行或Skill安装授权",
+      "target": [
+        "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+      ]
+    },
+    {
+      "path": "phases/19-capstone-projects/12-video-understanding-pipeline/code/ts/README.md",
+      "read_scope": "全部静读",
+      "disposition": "保留模块职责、模拟/真实协议区别和验证边界于对应正文；安装/启动命令不是本轮执行或Skill安装授权",
+      "target": [
+        "LLM 工程实践/08-多模态模型工程.md"
+      ]
+    }
+  ],
+  "pandoc": [
+    {
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "exit_code": 0,
+      "warnings": "",
+      "mathml": 0
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "exit_code": 0,
+      "warnings": "",
+      "mathml": 3
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "exit_code": 0,
+      "warnings": "",
+      "mathml": 2
+    },
+    {
+      "file": "LLM 工程实践/14-Transformer推理与规模设计.md",
+      "exit_code": 0,
+      "warnings": "",
+      "mathml": 2
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/18-安全模式.md",
+      "exit_code": 0,
+      "warnings": "",
+      "mathml": 1
+    }
+  ],
+  "root_review_repairs": {
+    "date": "2026-10-11",
+    "source_or_old_runs": 0,
+    "rerun_only": [
+      "voice新增块",
+      "manifest新增块"
+    ],
+    "negative_cases": [
+      "四个epoch入口拒bool/0/负/字符串且state/queue不变",
+      "Session初始epoch拒bool/负/字符串",
+      "已听旧回执迟到仅保历史",
+      "dataset/gate envelope被后改拒绝且不生成训练计划",
+      "payload类型错误拒绝且不变状态"
+    ]
+  },
+  "根收尾说明": "组交付快照保实际日期/先前SHA与运行。根实际动态图读取、合同反例、推理重复概览删除及最终本文/行号/SHA以19A-综合项目集成覆盖与代码核对.json为准。"
+}

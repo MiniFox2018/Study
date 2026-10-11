@@ -1,0 +1,1406 @@
+{
+  "date": "2026-10-11",
+  "status": "5个既有正文完整融合完成，根统一验收尚待",
+  "reading_report": "/tmp/study-capstone-b-reading.json",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "formal_files": [
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "sha256": "47e216dda9d2bd82196b4c98bbae0e565f273c3d65c8831b04e119c3e6a30dcd",
+      "bytes": 89516,
+      "baseline_sha256": "6da5ab735ee3a44bfe08d1d657c38ef4a1c0cb37a9ecf65f8b6659b53169b719",
+      "old_python_count": 7,
+      "new_python_count": 1
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "sha256": "e83b6f27a977ac36ea59b4d380c23a1d0a474125d2bee842f49b56e68b10cd14",
+      "bytes": 61413,
+      "baseline_sha256": "bee70a7a83d26c0927a3f28097d8e68b63e87d4e812961b9d2836e0a3565e678",
+      "old_python_count": 8,
+      "new_python_count": 1
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+      "sha256": "123e811051451ca2ddf06bb85c2145e608a8f580422f8821703893ff82719838",
+      "bytes": 44812,
+      "baseline_sha256": "ee9df7446bbf85d0f232984207f286ada56bc5306ac34837069ebeeb1bd4344a",
+      "old_python_count": 1,
+      "new_python_count": 1
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "sha256": "769d0c01a37ae96c11a42cda1895af5b1d88b88e00ff8008b0801637b34ab143",
+      "bytes": 133896,
+      "baseline_sha256": "6822989b9364150ae326cf623e25d8ce31ef9dbdf3cf393976ca2d7d7a2f39ea",
+      "old_python_count": 8,
+      "new_python_count": 1
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "sha256": "1f2d47bfbb9fe6ce23325f52121ef1b0f7091de9e15a72fcc4967f29560d4809",
+      "bytes": 54806,
+      "baseline_sha256": "9d485c0982c4f57e2f28ac6b83d2c15b4a786eac4c287d99f9fda5a8ef3f4a0f",
+      "old_python_count": 2,
+      "new_python_count": 1
+    }
+  ],
+  "new_code_runs": [
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "block": 8,
+      "script": "/tmp/study-capstone-b-new/index_generation.py",
+      "sha256": "99437fbe18844ba9dd33a0c863d8566b4788028e5597e9952eb636aeca2a4518",
+      "exit_code": 0,
+      "stdout": "完整generation后发布；删除/重命名、版本、ACL与字面支持负例通过\n类型化chunk身份/行号/scope/文本摘要、跨仓库与假Git值均拒绝，active不变\n",
+      "stderr": "",
+      "date": "2026-10-11",
+      "python": "3.12.13",
+      "previous_sha256": "ed1d23d8a89a9429157058cb8944909b330533d4e84b5958064a9c6ed81afe8b",
+      "rerun_reason": "根复核补参数类型/未知身份/缺失pin负例；仅重跑改变的新块"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "block": 9,
+      "script": "/tmp/study-capstone-b-new/page_boxes.py",
+      "sha256": "9fc56737148a532d23be5824c4b63814c446de3cecb64f7f9fea8b5e2ab2c08a",
+      "exit_code": 0,
+      "stdout": "旋转/缩放/页内坐标与内联JSON关闭标签负例通过；未显示真实PDF\n",
+      "stderr": "",
+      "date": "2026-10-11",
+      "python": "3.12.13"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+      "block": 2,
+      "script": "/tmp/study-capstone-b-new/research_budget.py",
+      "sha256": "46a7983dd1dec1d2b5d9ed4a4553275c4faf968cdf92f555a9e1f901318bfd5e",
+      "exit_code": 0,
+      "stdout": "执行前预留、未知费用、失败成本与写作费用全部入账；没有执行实验\n超预留费用记录原值并停止新动作，不把已发生支出丢弃\n",
+      "stderr": "",
+      "date": "2026-10-11",
+      "python": "3.12.13"
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "block": 9,
+      "script": "/tmp/study-capstone-b-new/release_pack.py",
+      "sha256": "e37bd35af024e62b10e1cd0ce31e35dfe5ef2cd8d27e12cc11963c139442fde7",
+      "exit_code": 0,
+      "stdout": "五类接收证据、类型、当前pin和篡改门禁通过；没有真实MCP发布\n缺失/空/布尔/None pin身份与错误回执映射全部hold；匹配hash不能填补合同缺失\n",
+      "stderr": "",
+      "date": "2026-10-11",
+      "python": "3.12.13",
+      "previous_sha256": "0653cf14f351cce5379f748b6065afc5ea08f33fef87b62457525fcc962ce5f6",
+      "rerun_reason": "根复核补参数类型/未知身份/缺失pin负例；仅重跑改变的新块"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "block": 3,
+      "script": "/tmp/study-capstone-b-new/learner_model.py",
+      "sha256": "f5d6d8b51a0fbfd05c8d3567a2e02aaf79aab539a6a2e4ecf784e25126612c50",
+      "exit_code": 0,
+      "stdout": "BKT贝叶斯算例、评分回执/重复/归属及先修/复习负例通过；不是人类学习效果\nNone/布尔/空主体和未登记学生独立拒绝，评分记录不变\n",
+      "stderr": "",
+      "date": "2026-10-11",
+      "python": "3.12.13",
+      "previous_sha256": "1b9056694cc5477ea127640bd05f3ce7542cd529ac0aea71865dd232b3dad442",
+      "rerun_reason": "根复核补参数类型/未知身份/缺失pin负例；仅重跑改变的新块"
+    }
+  ],
+  "unchanged_old_python_blocks": [
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "block": 1,
+      "sha256": "863ae57d950bf38801e887202e0dae8efc72ab57e014a038d6df1cc87c9fbd0d",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "block": 2,
+      "sha256": "c9663984d1bdb0cd21f406967d3baf8892c9c41f70c7eb445359aa59ffc9cbb3",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "block": 3,
+      "sha256": "376b4ae5a41696a11dbbf42028e7b55c0e29239b1acf919af7b8112515d5c89e",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "block": 4,
+      "sha256": "8a942350d0d6aec93094923a19ebee8419876581fdd466dfb577c7cb6bbbdbac",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "block": 5,
+      "sha256": "1ae1625913fc2601adcee0532d538a2a1e313d666085492c9e6ca46fef80379f",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "block": 6,
+      "sha256": "f9a6894a124a85f9bffe2ed3a06eda2a17ce33e795be0e380c650cf541916969",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "block": 7,
+      "sha256": "7553d7b31c24a36d54873e516c84d170a357bfc9249603c5d175593328b8918d",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "block": 1,
+      "sha256": "b81dde594008f8c89255bb6bde065cd5b3749ce4cd887beb835ecc3cb74f5cee",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "block": 2,
+      "sha256": "346d34808cf7af5cc49b7207bd6e508b9b1eba11b048d46bcb28ae3e3accb083",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "block": 3,
+      "sha256": "c0705672befcda435210df6ac41a5287e4186048ae82e40367a144cfd5df0962",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "block": 4,
+      "sha256": "0f41b1e67932c92522b8b83e995d0e457fde1b7fee950c27b644f2bd8c917359",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "block": 5,
+      "sha256": "511c071d79e1bb8e72b5ab8ababd758ff34d852e8ebc59e93651e1c36223d09f",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "block": 6,
+      "sha256": "39c97ffeb156aaa4d2bbeea062bc98fcc3a143691b1694f02aef87504cff9b67",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "block": 7,
+      "sha256": "b83d01a67ae450032b41dbfe1bea1ef03d3c8c3b3fc2820ccef2af145e78e348",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "block": 8,
+      "sha256": "efb94f48303fab0a218422acaa9275088178f6e60ad8ac709e72bc2d84910cac",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+      "block": 1,
+      "sha256": "00d352fd8826874662c7efb06d1131b54b7a2d6c274a2f37bdc94a087090704d",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "block": 1,
+      "sha256": "f94ad5083167c4c4d69dee731ca98fcbf2f2b5651394e4aa709427ed42963caf",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "block": 2,
+      "sha256": "619b005762f4c512992797ef5cfdf29ff404c64cb6ffcdfe94ded16200432c7b",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "block": 3,
+      "sha256": "aa7c1c6152cdecbb361eced629064c7c6b84405a10337a218a368bcf3f2cfad5",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "block": 4,
+      "sha256": "a5639e98f18b3ab49d49731cffecd674cfe39ff1e01d2e0ad8a51e6fc5053d9c",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "block": 5,
+      "sha256": "98a27d77f81de855db722ea1c1533a7462a627f104cb35b02697f7840b2c5582",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "block": 6,
+      "sha256": "9b2b838546f13654daa4bddde40489980506903a8d8228999ed87e33717cc977",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "block": 7,
+      "sha256": "52466d309b1dc6897dd60a65e6ba6e7736e74f964449668fd63c0f79bdaea4f2",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "block": 8,
+      "sha256": "ec79e2462d9e151e397fbb3bd84464e9dadb7121f03c69ae47b5cfea3bfe86c0",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "block": 1,
+      "sha256": "43d6946015ac4605eb08a4b96cbfdd000b0f9a3eda2bd57c9c1fd9bcdb5ba1bb",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "block": 2,
+      "sha256": "1bd4ab1865ce057dedcfafc73a2bad04a7903aa82e7992959c7b9c0a30ec060e",
+      "status": "原字节保留；未重跑，历史证据由root统一绑定"
+    }
+  ],
+  "pandoc": [
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml_count": 3,
+      "date": "2026-10-11"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml_count": 3,
+      "date": "2026-10-11"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml_count": 0,
+      "date": "2026-10-11"
+    },
+    {
+      "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml_count": 0,
+      "date": "2026-10-11"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml_count": 14,
+      "date": "2026-10-11"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "02-rag-over-codebase",
+      "formal_file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "main_locator": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "heading": "## 13. 代码检索：符号、提交快照与增量发布",
+        "line": 833
+      },
+      "headings": [
+        {
+          "source_line": 11,
+          "source_heading": "## Problem",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "## 13. 代码检索：符号、提交快照与增量发布",
+            "line": 833
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 17,
+          "source_heading": "## Concept",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "## 13. 代码检索：符号、提交快照与增量发布",
+            "line": 833
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 25,
+          "source_heading": "## Architecture",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 977
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 52,
+          "source_heading": "## Stack",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 977
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 69,
+          "source_heading": "## Build It",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "## 13. 代码检索：符号、提交快照与增量发布",
+            "line": 833
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 89,
+          "source_heading": "## Use It",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 977
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 104,
+          "source_heading": "## Ship It",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 977
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 117,
+          "source_heading": "## Exercises",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### Phase19 02：练习与参考验收",
+            "line": 989
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 129,
+          "source_heading": "## Key Terms",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### Phase19 02：测验与中文解释",
+            "line": 1001
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 141,
+          "source_heading": "## Further Reading",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "line": 1017,
+            "heading": "本节来源与实际核验范围"
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        }
+      ],
+      "exercise_count": 5,
+      "exercise_locator": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "heading": "### Phase19 02：练习与参考验收",
+        "line": 989
+      },
+      "quiz_count": 7,
+      "quiz_locator": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "heading": "### Phase19 02：测验与中文解释",
+        "line": 1001
+      },
+      "code_flow_locator": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "heading": "### 原项目的数据流与实现边界",
+        "line": 977
+      },
+      "ts_readme_disposition": {
+        "path": "phases/19-capstone-projects/02-rag-over-codebase/code/ts/README.md",
+        "status": "完整只读；layout/API与真实差异融合，安装/服务命令不执行",
+        "locator": {
+          "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+          "heading": "### 原项目的数据流与实现边界",
+          "line": 977
+        }
+      },
+      "original_code_status": "所有source程序静读未执行；没有安装/模型API/服务/真实语料实验",
+      "illustration_status": "静SVG全文结构实际读；使用root冻结动态图限制，无来源JS执行"
+    },
+    {
+      "lesson": "04-multimodal-document-qa",
+      "formal_file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+      "main_locator": {
+        "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+        "heading": "## 12. 视觉文档问答：页面检索与证据显示的完整链路",
+        "line": 585
+      },
+      "headings": [
+        {
+          "source_line": 11,
+          "source_heading": "## Problem",
+          "formal_locator": {
+            "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+            "heading": "## 12. 视觉文档问答：页面检索与证据显示的完整链路",
+            "line": 585
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 17,
+          "source_heading": "## Concept",
+          "formal_locator": {
+            "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+            "heading": "## 12. 视觉文档问答：页面检索与证据显示的完整链路",
+            "line": 585
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 25,
+          "source_heading": "## Architecture",
+          "formal_locator": {
+            "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 664
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 51,
+          "source_heading": "## Stack",
+          "formal_locator": {
+            "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 664
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 66,
+          "source_heading": "## Build It",
+          "formal_locator": {
+            "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+            "heading": "## 12. 视觉文档问答：页面检索与证据显示的完整链路",
+            "line": 585
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 84,
+          "source_heading": "## Use It",
+          "formal_locator": {
+            "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 664
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 97,
+          "source_heading": "## Ship It",
+          "formal_locator": {
+            "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 664
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 110,
+          "source_heading": "## Exercises",
+          "formal_locator": {
+            "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+            "heading": "### Phase19 04：练习与参考验收",
+            "line": 676
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 122,
+          "source_heading": "## Key Terms",
+          "formal_locator": {
+            "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+            "heading": "### Phase19 04：测验与中文解释",
+            "line": 688
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 134,
+          "source_heading": "## Further Reading",
+          "formal_locator": {
+            "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+            "line": 704,
+            "heading": "本节来源与实际核验范围"
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        }
+      ],
+      "exercise_count": 5,
+      "exercise_locator": {
+        "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+        "heading": "### Phase19 04：练习与参考验收",
+        "line": 676
+      },
+      "quiz_count": 7,
+      "quiz_locator": {
+        "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+        "heading": "### Phase19 04：测验与中文解释",
+        "line": 688
+      },
+      "code_flow_locator": {
+        "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+        "heading": "### 原项目的数据流与实现边界",
+        "line": 664
+      },
+      "ts_readme_disposition": {
+        "path": "phases/19-capstone-projects/04-multimodal-document-qa/code/ts/README.md",
+        "status": "完整只读；layout/API与真实差异融合，安装/服务命令不执行",
+        "locator": {
+          "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+          "heading": "### 原项目的数据流与实现边界",
+          "line": 664
+        }
+      },
+      "original_code_status": "所有source程序静读未执行；没有安装/模型API/服务/真实语料实验",
+      "illustration_status": "静SVG全文结构实际读；使用root冻结动态图限制，无来源JS执行"
+    },
+    {
+      "lesson": "05-autonomous-research-agent",
+      "formal_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+      "main_locator": {
+        "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+        "heading": "## 研究规划：候选树、独立验证与真实费用",
+        "line": 368
+      },
+      "headings": [
+        {
+          "source_line": 11,
+          "source_heading": "## Problem",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+            "heading": "## 研究规划：候选树、独立验证与真实费用",
+            "line": 368
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 17,
+          "source_heading": "## Concept",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+            "heading": "## 研究规划：候选树、独立验证与真实费用",
+            "line": 368
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 25,
+          "source_heading": "## Architecture",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 473
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 61,
+          "source_heading": "## Stack",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 473
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 76,
+          "source_heading": "## Build It",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+            "heading": "## 研究规划：候选树、独立验证与真实费用",
+            "line": 368
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 96,
+          "source_heading": "## Use It",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 473
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 113,
+          "source_heading": "## Ship It",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 473
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 126,
+          "source_heading": "## Exercises",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+            "heading": "### Phase19 05：练习与参考验收",
+            "line": 485
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 138,
+          "source_heading": "## Key Terms",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+            "heading": "### Phase19 05：测验与中文解释",
+            "line": 497
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 150,
+          "source_heading": "## Further Reading",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+            "line": 513,
+            "heading": "本节来源与实际核验范围"
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        }
+      ],
+      "exercise_count": 5,
+      "exercise_locator": {
+        "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+        "heading": "### Phase19 05：练习与参考验收",
+        "line": 485
+      },
+      "quiz_count": 7,
+      "quiz_locator": {
+        "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+        "heading": "### Phase19 05：测验与中文解释",
+        "line": 497
+      },
+      "code_flow_locator": {
+        "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+        "heading": "### 原项目的数据流与实现边界",
+        "line": 473
+      },
+      "ts_readme_disposition": {
+        "path": null,
+        "status": "无TS README",
+        "locator": {
+          "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "heading": "### 原项目的数据流与实现边界",
+          "line": 473
+        }
+      },
+      "original_code_status": "所有source程序静读未执行；没有安装/模型API/服务/真实语料实验",
+      "illustration_status": "静SVG全文结构实际读；使用root冻结动态图限制，无来源JS执行"
+    },
+    {
+      "lesson": "08-production-rag-chatbot",
+      "formal_file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "main_locator": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "heading": "## 14. 受控RAG会话：权限、缓存与流式发布",
+        "line": 1020
+      },
+      "headings": [
+        {
+          "source_line": 11,
+          "source_heading": "## Problem",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "## 14. 受控RAG会话：权限、缓存与流式发布",
+            "line": 1020
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 17,
+          "source_heading": "## Concept",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "## 14. 受控RAG会话：权限、缓存与流式发布",
+            "line": 1020
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 25,
+          "source_heading": "## Architecture",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 1046
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 58,
+          "source_heading": "## Stack",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 1046
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 75,
+          "source_heading": "## Build It",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "## 14. 受控RAG会话：权限、缓存与流式发布",
+            "line": 1020
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 95,
+          "source_heading": "## Use It",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 1046
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 111,
+          "source_heading": "## Ship It",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 1046
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 124,
+          "source_heading": "## Exercises",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### Phase19 08：练习与参考验收",
+            "line": 1058
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 136,
+          "source_heading": "## Key Terms",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "heading": "### Phase19 08：测验与中文解释",
+            "line": 1070
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 148,
+          "source_heading": "## Further Reading",
+          "formal_locator": {
+            "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+            "line": 1086,
+            "heading": "本节来源与实际核验范围"
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        }
+      ],
+      "exercise_count": 5,
+      "exercise_locator": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "heading": "### Phase19 08：练习与参考验收",
+        "line": 1058
+      },
+      "quiz_count": 7,
+      "quiz_locator": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "heading": "### Phase19 08：测验与中文解释",
+        "line": 1070
+      },
+      "code_flow_locator": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "heading": "### 原项目的数据流与实现边界",
+        "line": 1046
+      },
+      "ts_readme_disposition": {
+        "path": "phases/19-capstone-projects/08-production-rag-chatbot/code/ts/README.md",
+        "status": "完整只读；layout/API与真实差异融合，安装/服务命令不执行",
+        "locator": {
+          "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+          "heading": "### 原项目的数据流与实现边界",
+          "line": 1046
+        }
+      },
+      "original_code_status": "所有source程序静读未执行；没有安装/模型API/服务/真实语料实验",
+      "illustration_status": "静SVG全文结构实际读；使用root冻结动态图限制，无来源JS执行"
+    },
+    {
+      "lesson": "13-mcp-server-with-registry",
+      "formal_file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+      "main_locator": {
+        "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+        "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+        "line": 1295
+      },
+      "headings": [
+        {
+          "source_line": 12,
+          "source_heading": "## Learning Objectives",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 21,
+          "source_heading": "## Required MCP Prerequisite Path",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 32,
+          "source_heading": "## The Problem",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 47,
+          "source_heading": "## The Two Discovery Layers",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 104,
+          "source_heading": "## Stateless MCP Core",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 125,
+          "source_heading": "### Cacheable discovery",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 136,
+          "source_heading": "## Streamable HTTP",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 169,
+          "source_heading": "## Authorization and Policy",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 186,
+          "source_heading": "### Approval is a record, not a magic scope",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 194,
+          "source_heading": "## Build It",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 196,
+          "source_heading": "### 1. Model publication metadata",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 200,
+          "source_heading": "### 2. Implement live discovery",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 204,
+          "source_heading": "### 3. Implement the stateless envelope",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 208,
+          "source_heading": "### 4. Build the tool surface",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 212,
+          "source_heading": "### 5. Add cache-aware listing",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 216,
+          "source_heading": "### 6. Add authorization and policy",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 220,
+          "source_heading": "### 7. Separate registry and runtime validation",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 224,
+          "source_heading": "### 8. Add audit evidence",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 228,
+          "source_heading": "### 9. Exercise horizontal scaling",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 232,
+          "source_heading": "### 10. Cross the real wire",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "## 15. 将协议、目录与治理接成可验证的交付",
+            "line": 1295
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 236,
+          "source_heading": "## Required Evidence Pack",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 1396
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 250,
+          "source_heading": "## Local Reference Models",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 1396
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 272,
+          "source_heading": "## Wire Example",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 1396
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 303,
+          "source_heading": "## Ship It",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 1396
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 327,
+          "source_heading": "## Exercises",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "### Phase19 13：练习与参考验收",
+            "line": 1408
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 337,
+          "source_heading": "## Key Terms",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "heading": "### Phase19 13：测验与中文解释",
+            "line": 1424
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 349,
+          "source_heading": "## Further Reading",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+            "line": 1438,
+            "heading": "本节来源与实际核验范围"
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        }
+      ],
+      "exercise_count": 7,
+      "exercise_locator": {
+        "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+        "heading": "### Phase19 13：练习与参考验收",
+        "line": 1408
+      },
+      "quiz_count": 6,
+      "quiz_locator": {
+        "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+        "heading": "### Phase19 13：测验与中文解释",
+        "line": 1424
+      },
+      "code_flow_locator": {
+        "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+        "heading": "### 原项目的数据流与实现边界",
+        "line": 1396
+      },
+      "ts_readme_disposition": {
+        "path": "phases/19-capstone-projects/13-mcp-server-with-registry/code/ts/README.md",
+        "status": "完整只读；layout/API与真实差异融合，安装/服务命令不执行",
+        "locator": {
+          "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+          "heading": "### 原项目的数据流与实现边界",
+          "line": 1396
+        }
+      },
+      "original_code_status": "所有source程序静读未执行；没有安装/模型API/服务/真实语料实验",
+      "illustration_status": "静SVG全文结构实际读；使用root冻结动态图限制，无来源JS执行"
+    },
+    {
+      "lesson": "17-personal-ai-tutor",
+      "formal_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "main_locator": {
+        "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+        "heading": "## 学习助手：掌握估计、复习与可信反馈",
+        "line": 478
+      },
+      "headings": [
+        {
+          "source_line": 11,
+          "source_heading": "## Problem",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+            "heading": "## 学习助手：掌握估计、复习与可信反馈",
+            "line": 478
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 17,
+          "source_heading": "## Concept",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+            "heading": "## 学习助手：掌握估计、复习与可信反馈",
+            "line": 478
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 25,
+          "source_heading": "## Architecture",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 621
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 63,
+          "source_heading": "## Stack",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 621
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 79,
+          "source_heading": "## Build It",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+            "heading": "## 学习助手：掌握估计、复习与可信反馈",
+            "line": 478
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 99,
+          "source_heading": "## Use It",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 621
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 113,
+          "source_heading": "## Ship It",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+            "heading": "### 原项目的数据流与实现边界",
+            "line": 621
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 126,
+          "source_heading": "## Exercises",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+            "heading": "### Phase19 17：练习与参考验收",
+            "line": 633
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 138,
+          "source_heading": "## Key Terms",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+            "heading": "### Phase19 17：测验与中文解释",
+            "line": 645
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        },
+        {
+          "source_line": 150,
+          "source_heading": "## Further Reading",
+          "formal_locator": {
+            "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+            "line": 661,
+            "heading": "本节来源与实际核验范围"
+          },
+          "disposition": "原理/合同与实现差异已融合；旧型号/API/无依据性能或宣传只保留问题与目标，不固化"
+        }
+      ],
+      "exercise_count": 5,
+      "exercise_locator": {
+        "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+        "heading": "### Phase19 17：练习与参考验收",
+        "line": 633
+      },
+      "quiz_count": 7,
+      "quiz_locator": {
+        "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+        "heading": "### Phase19 17：测验与中文解释",
+        "line": 645
+      },
+      "code_flow_locator": {
+        "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+        "heading": "### 原项目的数据流与实现边界",
+        "line": 621
+      },
+      "ts_readme_disposition": {
+        "path": "phases/19-capstone-projects/17-personal-ai-tutor/code/ts/README.md",
+        "status": "完整只读；layout/API与真实差异融合，安装/服务命令不执行",
+        "locator": {
+          "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "heading": "### 原项目的数据流与实现边界",
+          "line": 621
+        }
+      },
+      "original_code_status": "所有source程序静读未执行；没有安装/模型API/服务/真实语料实验",
+      "illustration_status": "静SVG全文结构实际读；使用root冻结动态图限制，无来源JS执行"
+    }
+  ],
+  "totals": {
+    "lessons": 6,
+    "source_files": 90,
+    "headings_h2_h4": 77,
+    "exercises": 32,
+    "quiz": 41,
+    "formal_files": 5,
+    "new_python_actual_run": 5,
+    "old_python_same_bytes": 26,
+    "total_python": 31,
+    "source_python_run": 0,
+    "pandoc_mathml": 20,
+    "pandoc_warnings": 0
+  },
+  "professional_fixes": [
+    "来源02 hash与真embedding区分、AST/增量/ACL/citation真实合同",
+    "来源04未load实际图像与bbox/payload边界、虚构Nature fixture不当结果、DocPruner启发不当保证；当前colpali-engine弃用方向",
+    "来源05预执行分数与FIFO区别、generated/observed/depth、hardreserve及未知/失败/写作费用",
+    "来源08boost不是filter、session归属/角色自报、memory储存不是memory使用、stream发布前核",
+    "来源13partialSchema/tokenmock/approvalreplay、TS与Python不接线、JS原型ID、五证据包",
+    "来源17classicBKT vs empirical success mean、heuristic vs FSRS、评分回执与owner、模拟mastery非真实学习效果、COPPA非固定一年"
+  ],
+  "not_run": [
+    "真实repo/AST或索引服务",
+    "真实PDF/视觉encoder/OCR/VLM/UI",
+    "科研训练/沙箱红队/论文生成",
+    "真实SSE/HTTP/OAuth/MCP/Registry发布或Collector",
+    "BKT/FSRS参数拟合、人类学习效果/儿童数据"
+  ],
+  "root_remaining": [
+    "统一主状态/批次覆盖/来源账本、导航及中文更新",
+    "绑定旧块的历史成功证据或未验证状态",
+    "统一结构检查/批次验收/Commit/PR更新"
+  ],
+  "contract_review_repair": {
+    "date": "2026-10-11",
+    "prior_report": "/tmp/study-capstone-b-writing-before-contract-review.json",
+    "prior_formal_files": [
+      {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "sha256": "cacfbdaf7213964466b9882291cf7d68523d2780b066a301f7b6bb2d6fb12b59",
+        "bytes": 87020,
+        "baseline_sha256": "6da5ab735ee3a44bfe08d1d657c38ef4a1c0cb37a9ecf65f8b6659b53169b719",
+        "old_python_count": 7,
+        "new_python_count": 1
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/08-OCR视觉语言与可靠管道.md",
+        "sha256": "e83b6f27a977ac36ea59b4d380c23a1d0a474125d2bee842f49b56e68b10cd14",
+        "bytes": 61413,
+        "baseline_sha256": "bee70a7a83d26c0927a3f28097d8e68b63e87d4e812961b9d2836e0a3565e678",
+        "old_python_count": 8,
+        "new_python_count": 1
+      },
+      {
+        "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+        "sha256": "123e811051451ca2ddf06bb85c2145e608a8f580422f8821703893ff82719838",
+        "bytes": 44812,
+        "baseline_sha256": "ee9df7446bbf85d0f232984207f286ada56bc5306ac34837069ebeeb1bd4344a",
+        "old_python_count": 1,
+        "new_python_count": 1
+      },
+      {
+        "file": "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+        "sha256": "b0cd8deb5cd1ce0d92593523a6b9b9fd210bf96a80f73d646753d716850ff776",
+        "bytes": 132300,
+        "baseline_sha256": "6822989b9364150ae326cf623e25d8ce31ef9dbdf3cf393976ca2d7d7a2f39ea",
+        "old_python_count": 8,
+        "new_python_count": 1
+      },
+      {
+        "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+        "sha256": "9a55560f4f97fb0491ce9a5bb1acd6fba335c0698b9d710bc4b4f3761cafb79d",
+        "bytes": 53689,
+        "baseline_sha256": "9d485c0982c4f57e2f28ac6b83d2c15b4a786eac4c287d99f9fda5a8ef3f4a0f",
+        "old_python_count": 2,
+        "new_python_count": 1
+      }
+    ],
+    "changed_new_scripts": [
+      "index_generation.py",
+      "learner_model.py",
+      "release_pack.py"
+    ],
+    "actual_changed_new_blocks_rerun": 3,
+    "other_new_blocks_rerun": 0,
+    "old_blocks_rerun": 0,
+    "negative_cases": [
+      "未知/空/布尔主体与未登记学生即使有占位评分回执仍拒绝，rows不变",
+      "current/pins缺四key、空字典/None/bool/空值及错误receipt mapping均hold，即使匹配hash",
+      "strict chunk identity/span/scopes/text/digest、单repo、Git40hex；True/1、跨repo、假Git值拒绝，active不变"
+    ]
+  },
+  "根收尾说明": "组交付快照保实际日期/先前SHA与运行。根实际动态图读取、合同反例、推理重复概览删除及最终本文/行号/SHA以19A-综合项目集成覆盖与代码核对.json为准。"
+}

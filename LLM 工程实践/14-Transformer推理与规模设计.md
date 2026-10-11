@@ -753,3 +753,57 @@ print('first-token/单token/失败分母正确；边际99%不等联合97%；教�
 [AI Engineering from Scratch](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775)，固定 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，Phase07第11/12/13/15/16课，整理2026-10-05。正文按统一机制组织，不复制源skills的硬门槛、固定榜单/型号容量/吞吐、Flash版本支持清单或未经核验的模型能力。
 
 原论文核验入口：[Switch](https://arxiv.org/abs/2101.03961)、[Loss-Free Balancing](https://arxiv.org/abs/2408.15664)、[DeepSeek-V3](https://arxiv.org/abs/2412.19437)、[FlashAttention](https://arxiv.org/abs/2205.14135)、[Chinchilla](https://arxiv.org/abs/2203.15556)、[生命周期规模成本](https://arxiv.org/abs/2401.00448)、[投机采样](https://arxiv.org/abs/2211.17192)、[并行引入的采样方法](https://arxiv.org/abs/2302.01318)。核验理论/实现范围与CPU合成验证分开；未下载权重/外部数据、未使用GPU、未调用服务，CPU浮点结果不作为真实kernel速度或模型质量。注意力拓扑依据：[GQA](https://arxiv.org/abs/2305.13245)、[Sparse Transformer](https://arxiv.org/abs/1904.10509)、[Differential Transformer](https://arxiv.org/abs/2410.05258)、[线性注意力](https://arxiv.org/abs/2006.16236)、[PagedAttention](https://arxiv.org/abs/2309.06180)；这些论文中的条件与架构不外推成所有模型的自动质量/速度保证。
+
+
+## 17. 综合推理服务：把无损采样、负载和收益放在同一合同
+
+本章§7、§10与§15已经有完整投机采样条件、EAGLE机制、树mask、KV回滚和调度，不再复制算法。综合项目要解决的是：所服务的实际target是哪一版，在同一负载与采样协议下，投机是否增加合格请求吞吐并降低总费用。
+
+### 一次接受规则的偏差核对
+
+令两词target `p=(0.8,0.2)`，draft `q=(0.5,0.5)`。按正确拒绝采样，A总是接受，B以0.4接受；拒绝事件的总质量为0.3，残差`normalize(max(p−q,0))=(1,0)`。最终A概率`0.5+0.3=0.8`，B为`0.5×0.4=0.2`。如果像源脚手架只收`p(token)≥0.5·max(p)`的A，然后拒绝处直接重新从p抽，A会变成`0.5+0.5×0.8=0.9`，已不等原target。
+
+真正随机实现保存完整q和已接受prefix条件下的p；greedy则按target argmax判匹配，不能把随机baseline与另一greedy接收混在一起。拒绝suffix后修正采样、全接受bonus、停止/EOS和KV回滚沿用已有程序；量化改变目标模型分布，所谓无损是相对于同一实际target协议，不能恢复未量化权重的质量。
+
+### 用同工作量验收收益
+
+先冻结模型/量化/adapter/tokenizer/template、温度及采样过滤、输入/输出长、prefix命中、实际到达过程和硬件。无投机baseline、多个K/draft、off或ngram回退使用同质量约束和流量；记录draft生成、verify、采样、KV与排队时间，TTFT、ITL、完整响应和合格请求率，并计内存、失败、重试与费用。候选、检查、接受prefix、最终commit和末轮截断各有计数，不能用固定K×calls作所有情形分母。
+
+[当前vLLM投机文档](https://docs.vllm.ai/en/latest/features/speculative_decoding/)选读明确关联memory-bound及中低QPS的延迟优化，也按工作负载区分方法。这里只保留决策方式，不沿用vLLM0.7/SGLang0.4的具体开关或旧模型名称。target call减少忽略了草稿成本，不能当真实speedup；低接受率时ngram未必获益，应包含关闭投机的对照。调度/扩缩容/滚动升级沿§15及[推理与服务化](03-推理与服务化.md)，终态与排队SLO优先于教材固定2.5倍目标。
+容量预算还要包含实际weight、KV、activation、workspace与draft，不用70B×2B约140GB就推断141GB显存能完整服务。
+
+### 原综合项目的实现范围与图示
+
+draft.propose直接target.distribution且ctxseed仅pos，不依真实生成token；target未来分布与实际prefix无关系，无KV。
+
+verify阈值不是p/q，拒绝补原p，baseline随机却docstring称greedy；tokens_verified只是常数统计，无batch forward/真实时间。
+
+metric speedup=targetcalls ratio，未计draft/verify cost与真实硬件；最后一轮full accepted计数可包含未committoken。
+
+固定0.7/0.4与EAGLE3支持绑定年代不作为当前recipe，currentvLLM docs说明workload/支持条件；P-EAGLE/name/speculator下载版本若未核不保保证。
+
+.76acceptance与3.2accepted/step缺K/分母不能互相推出；所有固定2.5x、accept.6–.8、rejection总增p99和MOErouting注入结论需实测。
+
+静态图吸收：draft→target批验→acceptedprefix＋修正/bonus→stream；图直接fromtarget重抽应改残差，不能展示threshold算法为无损；metrics/rolling drain为工程合同。 动态标记`cf-spec-decode`的实际函数由本批统一核对记录；动画不是训练、网络、吞吐或防御实验的证据。
+
+### 五项原练习的中文实践判断
+
+1. **draft/target版本漂移**：真正存在draft/target版本对照，固定采样与任务分布，记录收益和tail，不编不存在Llama3.4案例。
+2. **ngram/off回退**：fallback比较ngram/off/其他draft的实际收益与SLO，带hysteresis/holdout，不仅低α机械切换。
+3. **MoE路由实验**：MoE研究先定义可控扰动/训练路由实现，性能/质量/分布改变分别看；不能把未核routing noise当生产操作指南。
+4. **更大显存容量**：H200容量仍要算runtime/KV/context/concurrency与binarydecimal单位；70B16bit名义140GB不代表141GB显存能跑完整服务。
+5. **推理引擎对照**：同硬件/revision/量化/采样/负载对TRT/vLLM，报joint quality/TTFT/ITL/goodput/wallcost，不预设供应商wins。
+
+这些真实实践均未在本轮执行；上面的标准库验证只覆盖标出的合同。
+
+### 七道原测验的中文核对
+
+1. **草稿与target怎样保持分布？**：草稿候选target批量verify，正确accept/residual维护目标分布，简单acceptprefix不足保证。
+2. **EAGLE3与ngram如何区别？**：EAGLE3多层特征融合训练token prediction参见既有章节，不承诺所有任务高接受率。
+3. **为何分负载报告P99？**：按负载/长度/请求级P99与batch分层才能看回退/大verify成本，不是拒绝每次必更慢。
+4. **接受率为何发生漂移？**：输入分布/版本与采样条件影响q对p匹配，需独立计actual。
+5. **queuewait为何只是信号之一？**：queuewait可用扩缩容信号配容量/冷启动，CPU不是理论禁止。
+6. **parallel/tree方案能随意等同吗？**：parallel/tree候选应按实际论文/实现协议，不能把所有parallel草稿称唯一P-EAGLE树定义。
+7. **2.5倍能当统一门禁吗？**：2.5x仅教材作业门槛，不满足也可能值得上线或停用，按业务goodput和成本门限。
+
+增量来源：[AI Engineering from Scratch，Phase19/14](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/14-speculative-decoding-server)，固定`3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，2026-10-11逐文件静读正文、Python、全部关联TS模块/测试/配置、产物要求、测验及SVG；产物中的Skill/安装/调用/部署要求只作学习材料。旧代码字节保留，无来源程序、模型、API、设备、真实服务、训练或攻击执行。

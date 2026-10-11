@@ -580,3 +580,125 @@ bbox给文本在页面上的空间关系、列/字段邻近及阅读线索，但
 保留OCR与VLM各自版本、原字符串及页区域；对齐后把金额/币种/税率/期间与行项目逐项核对。关键冲突回原图、重解析或人工复核，无法消解就`unresolved`并阻断依赖该字段的动作。普通字段可按事先验证的容差处理，不能事后选较顺眼的答案；一致结果也抽样查漏。验收为定位、分歧原因、复核决定和下游状态可回查，而非声称本练习已完成监管验收。
 
 增量来源：第1来源固定3be078b，Phase12/22，2026-10-08资料复核与新增本地结构程序执行；旧章节及旧程序日期保留。源三流哈希/占位schema/固定token与分数表仅是草图，未当LayoutLMv3/Donut实测。文档页面进入检索后，另见[页面与跨模态RAG](../../LLM%20工程实践/12-文本检索与RAG文档工程.md)。
+
+
+## 12. 视觉文档问答：页面检索与证据显示的完整链路
+
+2026-10-11 增量：以下是可复用的知识与教学算例。来源项目的规模、技术栈和评分目标是待验证的设计条件，不能当成已经实现的生产结果。
+
+### 多向量检索的形状、代价与有效位置
+
+视觉文档检索将PDF每页渲染成图像，encoder保留每patch/token表示。MaxSim sum_i max_j q_i·p_j要求同encoder/processor/version/dim、有效mask、距离约定、finite且正确空输入处理，负分不能初始化0。多向量存储Np×d×bytes，例如10k页×2048×128×2=5,242,880,000B≈4.88GiB，仅向量，不含图像/索引/replica/metadata。patch数依模型/分辨率变化，不必每页2048。
+
+### 召回页、回答主张和区域证据分别验证
+
+检索与生成分两层：先retrieve相关page，再VLM读已授权page/query/OCR并逐claim引用docrevision/page/region；跨页问题需要全部证据页。MaxSim的高相似patch不证明答案定位、不能等同因果解释；evidence bbox需图页/原文支持验证。OCR对文本、公式、数表可保留结构通道，视觉可能优于OCR但不能称统一替代/丢半信号定律。
+
+### 原页、图像与界面的坐标关系
+
+渲染要记录PDF原page size/crop/rotation/DPI、image actual widthheight与可逆transform。180DPI与1536×2048是不同约束，按页面尺寸渲染并保持比例再resize/pad需记映射。bbox约定(x,y,w,h)像素或normalized、pageNum1base、origin、clip、rotation/zoom/CSS与DPR；多页/不同尺寸不能混同单页canvas。加载实际图像并等待onload后overlay，错误加载有显式状态。
+
+### 压缩和混合方法的公平消融
+
+剪枝/池化/量化要分：随机/L1/variance删除只是启发式，不可包装DocPruner已证50%/小于.5%普遍准确率。剩patch为空、重要小数字被剪、dtype与index数据shape、候选阶段漏召回都纳入ablation。内容类别×approach同时测retrieval nDCG/集合recall、answer correctness、region support、storage/latency/fees，黄金问题与未知问题分开。
+
+完整链路是：合法PDF及revision → 渲染并记录几何变换 → 视觉/OCR表示与页索引 → 授权查询召回候选页 → VLM或人工阅读 → 提取带出处的主张 → 核对区域 → 页面显示与定位。页码、页文件与bbox必须绑定同一个document/revision；表格的年份、单位和标题可能在另一区域甚至前页，一框包含数字不等它支持完整问题。
+
+对128维、2048有效向量、FP16的教学页，原向量是524,288字节，即512KiB。1万页约4.88GiB；压掉一半向量仅把这部分变成约2.44GiB，未算图像、索引、元数据、冗余和运行时开销。实际数量记录encoder/processor/resolution/revision后测，不强行给每页2048。已有[页面MaxSim输入合同](../../LLM%20工程实践/07-Embedding与检索模型训练.md#11-页面多向量与maxsim的输入合同)维护mask/负分/编码兼容的算法；下例补几何和显示合同，不重写检索例。
+
+一个viewer应先创建并加载真实页图，显示图像失败时明确报错，再使用相同crop/rotation/resize/letterbox offset/DPR变换叠加bbox。返回的四个数必须约定是像素 `x,y,w,h` 还是标准化坐标，不能猜测。下面程序假设左上原点、顺时针直角旋转、源像素内完整矩形，独立缩放；其他变换另扩合同。它没有读取PDF或渲染浏览器。脚本数据序列化与普通HTML文字转义是不同上下文，不可信数据不得直接拼进脚本或URL。
+
+### 完整离线例：页面坐标映射与脚本数据边界
+
+本程序只用标准库与虚构记录，已实际执行。它验证以下明确合同，不启动模型、服务或真实项目；可信映射在同一进程内，只模拟外部信任，不提供实际隔离。
+
+```python
+import json
+import math
+
+def finite_number(value):
+    if type(value) not in (int, float) or not math.isfinite(value):
+        raise ValueError('坐标必须为有限数，bool不算坐标')
+    return value
+
+def map_box(box, source_size, display_size, rotation):
+    if type(rotation) is not int or rotation not in (0, 90, 180, 270):
+        raise ValueError('本示例只支持顺时针直角旋转')
+    if type(box) is not tuple or len(box) != 4:
+        raise ValueError('bbox为(x,y,w,h)')
+    x, y, w, h = map(finite_number, box)
+    W, H = map(finite_number, source_size)
+    DW, DH = map(finite_number, display_size)
+    if min(W, H, DW, DH, w, h) <= 0 or x < 0 or y < 0 or x + w > W or y + h > H:
+        raise ValueError('页内正面积范围')
+    def rotate(px, py):
+        if rotation == 0: return px, py
+        if rotation == 90: return H - py, px
+        if rotation == 180: return W - px, H - py
+        return py, W - px
+    corners = [rotate(px, py) for px in (x, x + w) for py in (y, y + h)]
+    RW, RH = (H, W) if rotation in (90, 270) else (W, H)
+    sx, sy = DW / RW, DH / RH
+    # 本例允许独立sx/sy；保持纵横比/letterbox需要额外offset，不能暗中假定。
+    xs, ys = [px * sx for px, _ in corners], [py * sy for _, py in corners]
+    return min(xs), min(ys), max(xs) - min(xs), max(ys) - min(ys)
+
+def safe_inline_json(value):
+    # JSON仍为数据；转义<阻止HTML parser把</script>识别为结束标签。
+    return json.dumps(value, ensure_ascii=False, allow_nan=False).replace('<', '\\u003c')
+
+assert map_box((10, 20, 30, 40), (100, 200), (400, 200), 90) == (280, 20, 80, 60)
+assert map_box((10, 20, 30, 40), (100, 200), (50, 100), 0) == (5, 10, 15, 20)
+for bad in ((True, 20, 30, 40), (0, 0, float('nan'), 20), (90, 0, 20, 10)):
+    try: map_box(bad, (100, 200), (50, 100), 0)
+    except ValueError: pass
+    else: raise AssertionError('非法bbox未拒绝')
+payload = {'evidence': '</script><script>untrusted</script>'}
+encoded = safe_inline_json(payload)
+assert '</script>' not in encoded and json.loads(encoded) == payload
+fixtures = {'doc-1': 'synthetic'}
+assert fixtures.get('__proto__') is None  # Python字典无JS Object原型链。
+print('旋转/缩放/页内坐标与内联JSON关闭标签负例通过；未显示真实PDF')
+```
+
+### 原项目的数据流与实现边界
+
+Python:人工10pages词项→random.Random(hash(tok))16dim unit向量→sum(abs) L1排序keepfloor half→MaxSim→top3→with/without pruning overlap。没有PDF/OCR/视觉encoder/VLM/bbox/index服务/ViDoRe；跨process hash不稳，L1不是norm variance/真实DocPruner；maxsim空patch加-1e9、zip忽略维度、keep_fraction范围不核，不能复制生产。
+
+TS:2写死fixture（Acme与Nature）→JSON或HTML→script canvas按0.5尺寸draw rectangle。pageImageUrl虽在payload却从未创建img/drawImage；/static无route，故只在空白stage画框，不是PDF证据viewer。Nature latency4.1x人工文本无论文结果，Acme为虚构非真实财报。HTML文本5字符escape，但JSON.stringify内联<script>未处理</script>，不可信evidence.text/URL可闭合脚本；getFixture返回普通Record原型属性（如__proto__）非own key。tests仅html字符串/正面积/范围score与route，不证明image存在、box定位、XSS或actual evidence。
+
+把 `Build It` 当成待实现的分层流程：先固定数据与身份合同，再实现最小完整路径，再补负例、版本更新和测量；`Use It` 中的日志是场景示意；`Ship It` 与输出蓝图要求证据包，不能由演示返回成功自动满足。原输出 Skill 文件只作学习材料，未安装或激活。
+
+静SVG两塔/MaxSim、多patch代价、50%剪枝、VLM/boxviewer与评价矩阵；DocPruner数字和uniformpatch数只是教材断言，不纳入主章保证。对应图标识 ce-late-interaction。 动态示意的实际含义与限制：固定4x4格及3patch链接/.sum1.68，没有编码器/真正token相似度；MaxSim最多响应不是解释性框，保存真实页面/尺寸变换/引用身份。
+
+TS README viewer layout/content negotiation/测试scope融入页面证据工程，并更正未真正load图像；安装/HTTP运行未做。
+
+### Phase19 04：练习与参考验收
+
+1. **如何比较两种视觉检索模型？** 固定相同PDF/page render/revision/gold与encoder配置，在文本、表、图、手写、公式分层测查询集合recall/nDCG并回查误页；型号/leaderboard先官方核，不能把源码hash-token结果当真实模型比较。
+
+2. **75%或90%剪枝后怎样找到本任务的质量拐点？** 压缩ratio注明按patch数还是字节，分别测50/75/90%和pooling/量化；同题paired ranking+answer support与边界，找自己任务质量阈值，不把论文小降幅宣称普遍cliff。
+
+3. **OCR与视觉融合怎样才是真正的混合检索？** 两个pipeline共享docrevision/pageidentity/ACL，独立召回→RRF dedup→适合视觉/文本的rerank；text crossencoder不能直接吞pagepixels，保存候选metadata再VLM/OCR。测混合补哪种漏证据也记额外费用。
+
+4. **小VLM的准确率和费用怎样公平比较？** 相同检索证据、temperature/outputbudget/gold对两个VLM测答案/数字/拒答/box可信/时延与各阶段费，准确率per-dollar是任务下权衡不当前型号通用排序。
+
+5. **手写资料怎样评估并保留不确定性？** 手写语料授权/隐私与正确转写或人工gold，维持render与contenttype一致，测OCR与visual谁漏单位/擦除/旋转注记，并保留uncertain marks不强制答案。
+
+### Phase19 04：测验与中文解释
+
+1. **为何保留视觉通道？** 选1（index0）方向：OCR可能破坏布局/表/图信号；去掉固定“损失一半”和视觉必胜断言。
+
+2. **MaxSim怎样计算？** 选1（index0）：每query token取document向量最大相似后求和，需mask/dim/encoder一致和空输入拒绝。
+
+3. **每页向量数和存储怎样判断？** 选2（index1）为教材举例，patch数与分辨率/模型相关并非恒定2048，storage按实际shape dtype计算。
+
+4. **剪枝有什么证明边界？** 选2（index1）为目标剪枝思想；教材程序仅L1 heuristic，无权宣称DocPruner准确率/50%压缩保证。
+
+5. **为什么还有OCR？** 选4（index3）：OCR可补公式/表的结构化文本与精确回查，是否改善通过相同gold消融证明。
+
+6. **课程使用哪个检索基准？** 选1（index0）是题设检索benchmark名称；须锁数据/benchmarkrevision不把课程scale成绩当实跑。
+
+7. **证据区域支持率测什么？** 选3（index2）：region是否实际支撑主张，正面积bbox/最高patch/可渲染都不能替代支持率。
+
+本节来源：[04-multimodal-document-qa](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/04-multimodal-document-qa)，固定提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，课内全部文件、练习、测验、SVG和 TypeScript（如有）于2026-10-11静读。未执行原程序、安装依赖、调用模型、注册MCP或启动服务。新示例只验证标明的离线合同，旧例字节及核验日期保留。动态图由统一维护记录独立核，静图和动画都不当实测。 [ColPali作者仓库](https://github.com/illuin-tech/colpali)当前Introduction及迁移段已核：`colpali-engine`已弃用，新项目推荐Sentence Transformers v6的`MultiVectorEncoder`；保留多向量原理，运行前另核具体模型与processor版本。已核[Qdrant多向量](https://qdrant.tech/documentation/concepts/vectors/#multivectors)的shape和MaxSim范围，未启动索引。
