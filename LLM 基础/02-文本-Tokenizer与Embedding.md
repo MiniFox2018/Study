@@ -299,3 +299,65 @@ print('snapshot SHA',hashlib.sha256(snapshot.encode()).hexdigest(),'Embedding行
 7. Llama3特定模板验证应对官方固定revision的rendered text/ID/EOT/generation prompt做快照；本例不冒充其协议，未下载真实Tokenizer或执行网络对照。新自建聊天的span/label检查接[微调实践](../LLM%20工程实践/04-微调与参数高效适配.md)。
 
 本次增量来源：AI Engineering from Scratch Phase10第01、02课，固定commit `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`；2026-10-05完整读源码、原题/产物与注册图。此前2026-10-04的语言专题与原11节保留。中文维护提示：修改Tokenizer先重跑原文/规范化目标、普通与结构字符串、空文本/NUL/emoji/未知ID、snapshot与模型ID上界；不将模拟图、源码未跑的外部资产或成本估算记成实际结果。
+
+
+## 16. 从编码快照到训练窗口
+
+上面的编码合同负责“同一ID表示什么”；[预训练数据与交付](../LLM%20工程实践/16-预训练数据与模型交付实践.md)负责来源、分组拆分、shard、训练与恢复。把两者接线时，先按文档族／来源划train、development与test，再从允许训练数据fit词表，固定Tokenizer摘要后建立窗口；不能把同一原文的重叠窗口随机分到两边。
+
+令一维ID流长度为N、预测长度T、步长S，均为有效非布尔整数。一个样本需T+1个原始ID，起点为0、S、2S……，窗口数为`max(0,1+floor((N-T-1)/S))`。例N=9、T=4、S=4：第一原始窗是ID0～4，第二是4～8，两者共享第4个边界ID；每个窗的输入取前4项、目标取后4项，监督的目标位置1～4与5～8才不重复。stride减半增加重复监督和边界组合，不是独立知识量翻倍。
+
+Dataset输出int64的`x=(B,T)`和`y=(B,T)`，要求label代表nexttoken；如果所用模型的loss内部shift，则输入labels不能再次先shift。丢不完整尾部是一个明确选择；padding方案需同时确定key可见性、loss有效目标和位置ID，三者不能混成一个“PAD都不算”。输出用clone可避免调用者原地改slice污染底层语料，真实磁盘／流式读取另管理所有权与缓存。
+
+DataLoader的参数决定更新步：窗口数M、batch B，`drop_last=True`时每轮是floor(M/B)批；短语料可能M=0，或M<B导致0步。此时应报“无有效批次”，不是loss0或训练完成。第31课以`base_seed+epoch`创建generator，在相同数据／库与迭代状态下可复现顺序；若重用loader，generator状态会继续前进，多worker／分布式sampler及训练随机性还需记录。不同epoch不保证每个微型集合必得到不同首batch。
+
+原代码把MiniBPE内联，API并不完全等于第30课（没有其special允许开关和保存接口）；无version绑定不能仅凭类名宣称兼容。构造器没有完整核int、ID范围与零批次，`torch.tensor(..., dtype=long)`还可能截断浮点或接纳bool。17个源测试定义只核指定窗口、shape、shift与seed fixture，没有证明文档独立性和真实大语料处理。
+
+### 第31课的实践核对与中文自检
+
+本课图示的含义与边界：输入T与右移1的目标T需T+1原窗，stride=T共享边界token；动画discrete仅起终位置，不是完整窗口枚举；overlap不制造独立数据。本组课内没有独立SVG，实际注册的动态示意由统一记录静态核对，未执行网页或来源JS。
+
+原非编号改参练习：把context从16改成32时，保持或明确改变stride，再重算窗口数和drop_last后的批次数。先按文档划分数据、再形成监督窗口；更新步数不能用窗口数直接代替。
+
+1. **窗口输入与标签是什么形状？** x和y都是(B,T)，原窗需T+1；x取前T项、y取后T项，在每位置监督下一个原始token。先核模型loss是否内部shift，防止错两位。
+
+2. **N、T、S怎样决定窗口数？** N至少T+1时，窗口数为1+floor((N-T-1)/S)，否则为0；T和S是非布尔正整数。还要按batch和drop_last求更新批次，0批次不是有效训练。
+
+3. **步长减半增加什么？** 窗口数通常约加倍，但边界使它未必精确翻倍。新增的是重叠监督／边界组合，不能当两倍独立知识；stride=T的T+1原窗仍共享一个边界token。
+
+4. **固定generator能保证什么复现？** 固定generator可在同数据、库和迭代状态下复现采样顺序。worker、分布式sampler、dropout与设备算子另有状态；一个seed不保证整次训练跨环境完全一致。
+
+5. **为什么拆window前后两段？** window[:-1]和window[1:]把logit位置t对齐gold t+1。若API内部已shift，不再给它已shift的labels；把这一约定写在数据和模型边界。
+
+6. **为什么丢不完整尾部？** 丢短尾让样本维持固定长度，简化padding处理，但数据真的被丢，不会下轮自动恢复。文档边界、EOS监督和attention范围仍须分别设置。
+
+## 17. 输入位置表的形状、频率与更新范围
+
+Embedding lookup把(B,T)ID变成(B,T,D)，参数为(V,D)。learned位置表为(L,D)，读取0～T-1后以(1,T,D)广播相加，保持D；不是concat为2D。第32课的TokenEmbedding要求torch.long及rank2，这是其更严格的输入约定，不等于官方Embedding在所有场景只能接受二维long。
+
+固定正弦表对第k对特征用`sin(p/base^(2k/D))`与`cos(p/base^(2k/D))`，公式要求base有限且>0；通常取base>1，本课为10000。此时小k分母小、角频率高、变化细，大k频率低、波长长、变化粗。若base=1，各对频率相同；0<base<1时频率方向反过来，不能沿用上述粗细判断。成对角度相移是二维旋转，便于表达相对偏移，但余弦相似可能振荡，不能由连续性推出随距离全局单调下降。随机learned表与一个短offset范围的cos对照，不证明训练后必出现平滑结构。
+
+本例sinus表虽无可学Parameter，仍预先构造到L并在forward拒绝更长输入；persistent=False意味着不写入state_dict，恢复必须重新用相同base/D/L生成。learned表的构造行数与实际训练过的位置范围也不同：可查到一个row不等有外推能力。RoPE在Q/K内旋转，ALiBi把位置偏置加到attention scores，不是用这两个input表替换就完成现代模型。[完整Transformer及位置实验](../AI%20算法基础/深度学习专题/19-Transformer实现与训练实践.md#5-生成缓存与训练扩展怎样验收)继续维护相关模型合同。
+
+只通过lookup计算时，没用到的row梯度为0；共享输出head可能令它有梯度，AdamW的decay或旧momentum也可能令零梯度row变化。参数计数、梯度路径与实际优化器更新分别核。源21个测试定义包含shape、公式和部分row梯度，但没有训练、checkpoint恢复或超长泛化实测。[官方Embedding参数与buffer相关范围](https://docs.pytorch.org/docs/stable/generated/torch.nn.Embedding.html)于2026-10-12选读。
+
+### 第32课的实践核对与中文自检
+
+本课图示的含义与边界：id是查表索引非大小序；token+可学习绝对位置只是一种方案，RoPE/ALiBi不同；固定颜色非实际embedding向量。本组课内没有独立SVG，实际注册的动态示意由统一记录静态核对，未执行网页或来源JS。
+
+原非编号改参练习：把D从64改成32后，检查每对sin/cos的频率公式、输出shape、参数量以及buffer的设备／dtype。观察短距离相似度只说明该位置表的数值性质，不证明模型学会长度外推。
+
+1. **lookup增加哪一维？** (B,T)ID经(V,D)表得到(B,T,D)，位置表(T,D)沿batch广播。查输入dtype、ID范围、device和空序列，不能只核最后shape。
+
+2. **本例位置表示怎样合成？** 本例逐元素相加，pos.unsqueeze(0)为(1,T,D)，保持D不变。RoPE旋转Q/K、ALiBi加score偏置，不属于这种input相加。
+
+3. **固定正弦表有多少可学参数？** 固定sinus表是buffer，不是可训练Parameter，因此可学参数为0；它仍占存储，恢复需要相同构造配置。
+
+4. **两个位置模块怎样处理超长？** 两模块都受本实现构造的maxctx约束。sinus公式理论可向外计算，但固定表尚未支持；能查某个位置也不证明该位置受过训练或能外推。
+
+5. **同频sin/cos为什么便于表示位移？** 同频sin/cos对可用角度加法表示相移，相当于二维线性旋转。通常base>1时，小k频率高、大k低；相似度可振荡，连续性不推出全局单调下降。
+
+6. **未使用的行是否绝不会更新？** 只有lookup这条路径时，未使用row没有其loss梯度。共享head、weight decay或旧momentum仍可能使它变化；用真实梯度及更新记录区别这几种情况。
+
+
+本次增量整理2026-10-12。来源是AI Engineering from Scratch固定提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，[31 tokenized-dataset-sliding-window](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/31-tokenized-dataset-sliding-window)课内全部文件实际静读2026-10-11；[32 token-positional-embeddings](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/32-token-positional-embeddings)课内全部文件实际静读2026-10-11；原程序和测试未执行，没有安装依赖、下载模型、启动服务或进行真实训练；测试断言、原日志和动画只按其实际范围解释。旧程序字节和旧核验日期保留。

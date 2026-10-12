@@ -31,6 +31,46 @@ stdio的规范帧是UTF-8 JSON-RPC一行一条，`stdout`只写合法协议消�
 
 客户端记录pending IDs和运输健康，响应ID要在JSON类型和值上都对应原请求，bool不等整数ID。有效请求只发一个结果或错误，不能两个都有；通知没有关联响应。服务器现代不会独立反向发请求，elicitation/sampling/roots在MRTR结果内交付。丢失在途RPC后恢复peer、重新发现/列目录/订阅，再按动作安全性决定重试。
 
+#### 3.1.1 通用JSON-RPC分帧：错误隔离不等运输可靠性
+
+2026-10-12补充到既有stdio合同。先区分通用JSON-RPC 2.0、MCP所选profile和本地字节framer。JSON-RPC与运输无关，可通过不同通道承载；stdio的换行帧是本应用/profile选择，HTTP、WebSocket或gRPC各有权衡，不能说其中必定不支持某类stream/batch。JSON-RPC并不自动让server变可信，也不定义MCP全部方法和授权。
+
+通用请求为 `jsonrpc:"2.0"、method、可选params、id`；params可以object或array。success/error响应保相同ID，二者互斥；error为整数code、string message及可选data。缺id的**有效请求**是notification，服务器不返回关联响应；`id:null`仍是请求，规范不推荐它，因为无从识别ID的错误也用null。通用ID可string/number/null但不能boolean，带小数部分的number不推荐；本专题MCP及局部CPU例采用更窄ID合同，不能冒称通用JSON-RPC禁所有浮点或必须接受null。[JSON-RPC2.0 §4–5](https://www.jsonrpc.org/specification)（2026-10-11读规范主要段与例）。
+
+| 标准错误 | 要定位的失败 | 关联和数据边界 |
+|---|---|---|
+| -32700 Parse error | 无法解析JSON | id=null，不能猜半截文本中的ID |
+| -32600 Invalid Request | envelope不合法 | 只反射可安全确定的合法ID，未知时null；不把list/object/bool当ID回传 |
+| -32601 Method not found | RPC方法不可分派 | 与已知method下的未知tool/profile错误区分 |
+| -32602 Invalid params | 具体方法参数不合合同 | 返回安全字段位置与类别，业务权限不是形状校验 |
+| -32603 Internal error | 内部无法完成请求 | 对外固定脱敏reason，异常类/堆栈/secret不自动公开 |
+
+规范完整保留区间是 `-32768..-32000`，其中 `-32099..-32000`供server-defined错误；不能教成“五码与-320xx以外全属应用”。batch为请求/通知数组，响应顺序任意且按ID关联；全notification的有效batch无响应，空batch是Invalid Request。是否允许batch按所选MCP版本/profile另核，通用语义不能直接替换本专题现代协议的逐请求要求。
+
+换行frame必须compact encode，把字符串内真正换行escaped；JSON本身可pretty-print多行，所以serializer与reader要一致。一个坏JSON完整frame可回Parse error再读下一帧，**但只有所有失败都被正确隔离才不毒化流**：非法UTF-8解码、过深递归、非JSON/非有限result序列化、stdout写失败和broken pipe也有独立出口。JSON解析器允许NaN/Inf或duplicate key是常见实现特性；严格有限JSON与重复键拒绝是应用加严，需要说明，不能默许它们改变参数含义。
+
+在handler结果跨wire之前做有界序列化与输出合同检查，失败时形成安全可编码的内部错误；notification仍不返回关联响应，内部保审计。限制单frame、累计buffer、嵌套/请求大小与pending数；无界readline可在还没换行时消耗内存。stdout只写协议消息，stderr诊断也要有限；多writer用串行化/锁与有界队列，处理反压、EOF/半帧、读写超时和进程清理。相同 `.readline/.write`接口不证明相同调度、阻塞、缓冲与生命周期。
+
+`BytesIO` demo证明有限内存数据的framing/dispatch/serialization意图，不是真subprocess pipe测试。真正mid-call progress需要handler执行期间能写通知，而接收cancel还需独立读循环与可取消任务；同步serve忙于handler时不能读取新的取消消息。通用JSON-RPC不定义 `$/cancelRequest`，MCP取消按本专题第9节固定版本/运输处理；trace ID、RPC ID和业务幂等key分别管理。stdio与Streamable HTTP是不同运输合同，不是同socket加content-type handshake就自动替换。
+
+#### 3.1.2 分帧的中文自检与扩展实践
+
+| 原22课题 | 中文问题 | 参考判断与理由 |
+|---|---|---|
+| 1 A | notification如何识别？ | 有效请求缺id且无关联响应；id:null不是notification。 |
+| 2 D | 怎样保持一行一frame？ | compact JSON与字符串escaped newline，pipe写入并非消息原子。 |
+| 3 B | 坏JSON返回哪码/ID？ | -32700、id=null。 |
+| 4 D | handler异常能给什么？ | 来源映-32603；生产不直接回显异常内部细节。 |
+| 5 A | 全通知batch有response吗？ | 通用规范没有，MCP当前profile另核许可。 |
+| 6 B | 坏一帧后还能继续吗？ | JSON parse可继续；源UTF-8/序列化/写失败未完整保护。 |
+| 7 A | transport与dispatcher谁管参数？ | transport管wire，dispatcher连当前registry/政策；stdio非所有工具唯一通道。 |
+
+扩展实践先用合成字节验证非法UTF-8、bad JSON后good frame、invalid ID、过大无换行帧、不可序列化handler结果、finite JSON、通知异常与partial write，再在受控真实pipe核并发写/反压/EOF/取消和退出。既有第3.3完整CPU程序只核明示字节/请求子集，代码保持不变；没有新增真实transport运行。trace传播沿[观测主章](../01-核心章节/19-评估和监控.md)，取消及效果沿本专题第9节，不另造一套弱server。
+
+源22的15个test方法静读覆盖有限五码、通知、batch和坏JSON继续；测试helper能写notification不等demo真的两次mid-call progress，源码demo没有正文宣称的该路径。invalid UTF-8与handler result序列化位于其保护范围外，infinite framing/backpressure未实现，invalidid还可能被原样反射。无课内SVG，正文sequence/stream表解释请求对应；`jsonrpcFrames`固定id7、notification、坏帧后ping的动画不运行真实pipe。
+
+源：[Phase19/22](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/22-jsonrpc-stdio-transport)，2026-10-11源完整静读与JSON-RPC规范核对，2026-10-12融合。原程序/测试未执行，无子进程MCP、HTTP、模型或服务操作；既有modern/legacy/MRTR/Tasks/Apps合同不以通用demo降格。
+
 ### 3.2 HTTP语义与错误顺序
 
 单MCP endpoint每条客户端消息用新POST；客户端Accept包含JSON和SSE，请求是JSON正文，不能POST JSON-RPC response。普通请求回应一个JSON对象，或先有该请求相关通知再有最终响应的SSE；订阅由`subscriptions/listen`的POST响应保持打开。没有现代独立GET流、session DELETE或Last-Event-ID恢复。现代-only端点对旧GET/DELETE返回405是规范推荐响应；收到session/replay headers忽略且不mint/echo。

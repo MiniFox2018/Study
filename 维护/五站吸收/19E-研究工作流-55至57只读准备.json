@@ -1,0 +1,1105 @@
+{
+  "status": "55–57所有课内文件及题完整静读；只读未写正式段落，等root动态最终核对及融合分配",
+  "date": "2026-10-12",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "scope": "Phase19/55–57",
+  "counts": {
+    "courses": 3,
+    "files": 12,
+    "nonempty": 12,
+    "empty": 0,
+    "true_h2_h4": 34,
+    "exercises": 0,
+    "quiz": 18,
+    "source_programs": 3,
+    "source_runs": 0,
+    "tests_static": 33
+  },
+  "lessons": [
+    {
+      "lesson": "55-critic-loop",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/55-critic-loop/code/main.py",
+          "sha256": "1429bd564cbd86543c7b14d03f106d64d08c49fd9f4e7a3c6fa8bfc5c344e94e",
+          "bytes": 12246,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/55-critic-loop/code/main.py",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "c63887f63ed47292768440ca491aafc777f5fdd1"
+        },
+        {
+          "path": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "sha256": "6014a13e4423f17795ebf7610048121257a013b7239209b8028cc89caed4ed75",
+          "bytes": 7179,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "1b18de81d376efd1b2a335ce845019532317813a"
+        },
+        {
+          "path": "phases/19-capstone-projects/55-critic-loop/docs/en.md",
+          "sha256": "59d2590ccd9cd9851c962cc440e0569a41080c4e20dc92bd1955ccd0002c7775",
+          "bytes": 7323,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/55-critic-loop/docs/en.md",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "0a7a11d634cc59113cec57accb849c755099f3b9"
+        },
+        {
+          "path": "phases/19-capstone-projects/55-critic-loop/quiz.json",
+          "sha256": "db5d9c9ab0c74172af6e46184d8a80f901d0f28bd7577f19f9da661ae17e46ee",
+          "bytes": 3642,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/55-critic-loop/quiz.json",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "eefdef5626f7d034ea74e6be59ade620b408b268"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "title": "## Learning Objectives",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 22,
+          "title": "## Why five fixed dimensions",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 42,
+          "title": "## The Critique shape",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 55,
+          "title": "## Convergence rules, in order",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 74,
+          "title": "## Why plateau detection runs over two rounds",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 78,
+          "title": "## The deterministic critic in this lesson",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 92,
+          "title": "## The full loop contract",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 114,
+          "title": "## The Trace output",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 118,
+          "title": "## Budgets that protect against bad critics",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 122,
+          "title": "## How to read the code",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 128,
+          "title": "## Going further",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        }
+      ],
+      "learning_contract": [
+        "结构化critique保存固定维度向量、每条建议的dimension/target/edit、输入paper修订与逐轮diff；维度允许比较不自动提供真实评审正确性，需校准/证据/严重回归门禁。",
+        "目标须五维全部达到约定阈值；plateau仅停止探索的策略，不能当论文已合格。停止原因target/plateau/budget/error需分开，源码把plateau也叫converged应中文明确只是停止。",
+        "源码plateau检查窗口相邻mean差<=epsilon，负向退化也被认plateau；均值可掩盖evidence下降，保每维差与硬条件，不得宣称已自动捕获所有维度回归。",
+        "比较同paper输入的确定性critic无随机噪声；修订改变输入导致分数变化不等统计噪声。两段低增益不能证明真实研究再无进展，window/epsilon需任务标定。",
+        "结果paper、scores与trace须指向同一修订。目标先检查，plateau也在reviser前；budget最后轮则执行reviser后返回此前评分，需重评分或明确scores属于pre-revision。",
+        "建议数不等执行diff数；源码suggestions_applied先等len(suggestions)，no-op/不存在target与plateau未执行都可能误计。Reviser原位修改paper，保不可变历史snapshot或hash，不能把Protocol当纯函数隔离保证。",
+        "deterministic_score按正文长度、figure/cite数量、originality_tag及Method/Related Work非空打分；append x/自称high/添加占位引文能刷高，不能代表清晰、新颖、证据或方法有效。",
+        "维度键恰好五项、score类型有限且0..10、round/target/epsilon/window严格校验；critic suggestions内含未知edit/不存在section要有终态而非静默。可选权重改变目标语义，不能替代证据维度硬约束。"
+      ],
+      "source_code_and_tests_audit": [
+        "Critique.mean平均所有provided keys；target只按DIMENSIONS get缺项0，无严格固定keys/有限/范围，extra keys可影响plateau；targetscore/epsilon bool/NaN/negative缺校验。",
+        "_plateau检查最近window+1的均值差>epsilon才继续，下降或NaN差可被判plateau；没有逐维回归reject。",
+        "run target→plateau→reviser；budget最后轮先reviser再return旧critique，scores与finalpaper错位，target/plateautrace0或planned count不保证真实apply。",
+        "源码critic固定建议threshold8，loop.target_score可选9/10时suggestion可能提前清空导致belowtarget plateau，不能声称配置任意target均收敛。",
+        "reviser返回同一paper对象，unknown edit/坏target silent，无真实diff日志；评分引用/图只数refs未查内容/资源，append x纯合成。"
+      ],
+      "exercises": [],
+      "exercise_boundary": "正文没有独立Exercises或编号练习，不编造5题；Going further扩展建议完整静读并按可行实现合同记录",
+      "going_further": [
+        "维度权重与固定证据硬门禁分开",
+        "二级critic裁决建议需独立校准与预算"
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original": "Why does the critic score across five fixed dimensions instead of returning a freeform paragraph?",
+          "original_options": [
+            "Because models cannot generate paragraphs reliably",
+            "Because the reviser only accepts JSON",
+            "Because LaTeX requires a score field",
+            "Because a fixed vector lets the harness detect per-dimension regressions across rounds"
+          ],
+          "source_marked_answer": "Because a fixed vector lets the harness detect per-dimension regressions across rounds",
+          "source_explanation": "A fixed dimension vector turns critique into structured data the harness can compare across rounds. Freeform criticism is unverifiable; vectors make regressions visible.",
+          "中文解释与必要修正": "固定五维可记录逐维变化，但源码停止仅看mean，并未自动门禁所有回归；评分内容还要证据校准。"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original": "In what order does the loop check stop conditions at the end of a round?",
+          "original_options": [
+            "Plateau, then target, then budget",
+            "Budget, then plateau, then target",
+            "Whichever fires first by random tie-break",
+            "Target, then plateau, then budget"
+          ],
+          "source_marked_answer": "Target, then plateau, then budget",
+          "source_explanation": "Target met wins (the work is done). Then plateau (no more progress is achievable). Then budget (hard cap). The order makes the result deterministic when more than one condition could fire.",
+          "中文解释与必要修正": "源码目标先，平台后，预算最后；target成功、plateau止步与budget耗尽分别解释，不把所有停止叫学术合格。"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original": "Why does plateau detection require two consecutive flat rounds rather than one?",
+          "original_options": [
+            "Because the model returns nondeterministic scores",
+            "Because deterministic scoring still has noise per round; one flat round is not enough signal",
+            "Because the dataclass requires a list",
+            "Because the dashboard expects two points"
+          ],
+          "source_marked_answer": "Because deterministic scoring still has noise per round; one flat round is not enough signal",
+          "source_explanation": "Even a deterministic scorer's output changes round to round depending on which suggestions were applied. Requiring two flat rounds filters that noise.",
+          "中文解释与必要修正": "两段低增益是抗单轮扰动的政策，不是噪声或真实停止进步的证明；固定输入确定性评分无随机噪声，下降也会满足源码plateau。"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original": "What does the reviser receive as input each round?",
+          "original_options": [
+            "The raw LaTeX source",
+            "A model-generated paragraph",
+            "The full Critique object including scores",
+            "The paper and the list of Suggestion records"
+          ],
+          "source_marked_answer": "The paper and the list of Suggestion records",
+          "source_explanation": "Reviser.__call__ takes (paper, suggestions). Each Suggestion carries a dimension, target section, and an edit instruction. The reviser does not see scores. That separation lets either side be swapped without touching the other.",
+          "中文解释与必要修正": "Reviser收paper与Suggestion列表；每条dimension/target/edit是结构合同，但source原位修改且可能no-op，需真实diff与snapshot。"
+        },
+        {
+          "number": 5,
+          "stage": "post",
+          "original": "What does the trace contain for each round?",
+          "original_options": [
+            "Just the final paper draft",
+            "Only the convergence verdict",
+            "The model prompt and completion",
+            "Round number, score vector, mean, suggestions applied, verdict"
+          ],
+          "source_marked_answer": "Round number, score vector, mean, suggestions applied, verdict",
+          "source_explanation": "The trace is the per-round event log. Dashboards render it as a score-over-time chart; the next stage reads it to decide whether the branch is worth keeping.",
+          "中文解释与必要修正": "trace有round/scores/mean/suggestions_applied/verdict；源码applied常只是建议数，plateau未修也计计划数，不能称已应用全部。"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "original": "A critic that keeps emitting suggestions that never improve any score will produce which terminal verdict?",
+          "original_options": [
+            "converged, because suggestions were applied",
+            "target, because the budget hides the bug",
+            "plateau or budget, because the harness will catch the lack of progress",
+            "An exception, because the loop crashes"
+          ],
+          "source_marked_answer": "plateau or budget, because the harness will catch the lack of progress",
+          "source_explanation": "Either plateau (two flat rounds) or budget (hard cap) fires. Both verdicts surface the bug. The loop never silently succeeds.",
+          "中文解释与必要修正": "无增益会触发plateau或budget，但源码plateau状态也叫converged，中文须明示只是停止，非完成质量目标。"
+        }
+      ],
+      "tests_static_read": [
+        {
+          "function": "test_score_keys_match_dimensions",
+          "line": 27,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_score_each_in_zero_ten",
+          "line": 32,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_originality_tag_drives_novelty",
+          "line": 42,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_critic_emits_suggestions_for_below_target",
+          "line": 57,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_monotone_improvement_after_one_round",
+          "line": 67,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_target_convergence",
+          "line": 79,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_budget_exhaustion_when_no_progress",
+          "line": 97,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_plateau_detected_when_mean_stable",
+          "line": 118,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_trace_shape",
+          "line": 147,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_revision_applies_targeted_edit",
+          "line": 165,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_bump_originality_climbs",
+          "line": 176,
+          "file": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "method": "源码完整静读，未运行"
+        }
+      ],
+      "test_purposes": "keys/range/noveltytag、建议belowtarget、同源toy均值提升、target、plateau/budget、trace形状、append与tag变化；无逐维退化/NaN或final revision alignment校验",
+      "diagrams": {
+        "mermaid_count": 4,
+        "meaning_and_boundary": "Mermaid flowchart分别画paper到五维score/suggestions、Critique字段、target→plateau→budget；sequence画critic→reviser→check，但实际代码先target/plateau后reviser。最后注册chCritic固定五组上升4轮分数，第4轮全部>=8却仍动画plateau badge；与target优先合同不一致，非真实评分，向量不自动检查回归。",
+        "course_svg_count": 0
+      },
+      "dynamic_implementation": {
+        "lesson": "55-critic-loop",
+        "widget": "ch-critic-converge",
+        "provider": "figures-capstone-h.js",
+        "function": "chCritic",
+        "start_line": 79,
+        "end_line": 113,
+        "provider_sha256": "667c39e2e389b770e8f0bad3c655edec1ae2f2f6b546f0cd0edea44491793d33",
+        "candidate_registration_order": [
+          "figures-capstone-h.js"
+        ]
+      },
+      "dynamic_full_text_sha256": "5b4ed21647cc6899b1e4fde4eaa4fee9a98fefd71b7f9c4469e0a849a5b6e49d",
+      "dynamic_read_scope": "按root提供实际最后注册extract整函数静读，最终注册核对仍需root；未读source build完整provider",
+      "root_dynamic_final_review_pending": true,
+      "source_programs_executed": 0,
+      "formal_written": false
+    },
+    {
+      "lesson": "56-iteration-scheduler",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/56-iteration-scheduler/code/main.py",
+          "sha256": "9efecbd00dd3c81ea776b3b6599f38b83b3a11dc18a7545374782ab4f5a306f1",
+          "bytes": 12089,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/56-iteration-scheduler/code/main.py",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "64294f8b1930e5ef7955be9c3428862052d3330c"
+        },
+        {
+          "path": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "sha256": "f4ad64c80d8fe9bbc3d349723508fde2dc479f68133bb9683931d884dd15fd67",
+          "bytes": 7872,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "c8839260e3c3f464ab7efe3c79984e6e6bcf7da8"
+        },
+        {
+          "path": "phases/19-capstone-projects/56-iteration-scheduler/docs/en.md",
+          "sha256": "a5397d72c31c163366db46935f5c20beb12efd8130dd59e6d8272461c31a45b4",
+          "bytes": 7115,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/56-iteration-scheduler/docs/en.md",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "de483233629dc25883509afba0ff02b559a008cf"
+        },
+        {
+          "path": "phases/19-capstone-projects/56-iteration-scheduler/quiz.json",
+          "sha256": "6c8737c7f5a498c7dedabbdee60a11e8f8cc52b61d9b139631b5b9ea5a87a4f9",
+          "bytes": 3452,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/56-iteration-scheduler/quiz.json",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "a46d2e23c658428328483e04b93b8d85138cb9b1"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "title": "## Learning Objectives",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 22,
+          "title": "## Why a scheduler, not a worklist",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 28,
+          "title": "## The system shape",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 46,
+          "title": "## The Hypothesis shape",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 60,
+          "title": "## UCB scoring",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 72,
+          "title": "## Parallel slots with asyncio",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 93,
+          "title": "## Fan-out: paper triggers",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 97,
+          "title": "## Fan-out: follow-up hypotheses",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 101,
+          "title": "## Budgets",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 112,
+          "title": "## The Trace and final report",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 116,
+          "title": "## How to read the code",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 122,
+          "title": "## Going further",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        }
+      ],
+      "learning_contract": [
+        "每hypothesis有唯一ID、branch、payload版本，每结果回链调度中的真实ID/branch、attempt与终态。源码Result可伪指别branch且无严格type/range校验，必须在更新stats前核。",
+        "UCB按branch有效反馈mean+c sqrt(ln N/n)，n为该branch已完成的有效反馈数、N为所有有效反馈数；0反馈用探索政策。pending、failed/timeout和valid0reward分开记录，零reward正常增加n，错误不能永远不计attempt且继续+inf。",
+        "来源同时派发时未更新pending；A1,A2,B1且slots2可都选A，因为它们completed runs仍0、同为inf按队序胜出。需每branch的pending/预留策略或明确允许重复，quiz“每branch先试一回再重复”不能普遍保证。",
+        "Picker排序和prune门禁分开：源码prune按completed最低数量后mean低于floor，非UCB上界塌缩。剪枝会终止未来探索，噪声/早期差样本可能误删，阈值及证据依据另定，不能保证科研收益。",
+        "asyncio只为可让出eventloop的runner提供并发，CPU阻塞工作不因async签名变并行。slots限制in-flight task数，不限制runner内部额外资源；task需per-job deadline/cancel/cleanup与资源预算。",
+        "max_experiments实际在dispatch时增加，是派发attempt上限非所有已成功实验数。max_seconds只在派发/结果处理边界检查，asyncio.wait无timeout、drain直接await，可超期任意久甚至永久挂；quiz“hard wall cap”错误。",
+        "所有in-flight终态统一result/error/timeout/cancelled账本，主循环异常有trace但不增branch.runs，drain异常静默且不触发prune/expand，边界终态政策不一致。计数/预算/结果需要覆盖每个dispatch。",
+        "paper.trigger在branch mean跨threshold后每branch一次，是候选写作事件，不是科学结论认证；已触发后mean下降/后续prune须policy，不能以trigger证明最终质量。",
+        "expander按单result reward>=threshold而非branch mean决定调用；需验证followup ID/parent/samebranch/payload、去重与queue大小/预算。prune后仍可被expander塞回同branch，run末无inflight时可能queue仍有不可调度项却标queue_empty。",
+        "seeded共享NumPy RNG与asyncio.done集合遍历顺序不足保证所有trace/派发顺序固定；可固定结果归并顺序和per-ID随机种子，持久化stats/queue/pending/actual budgets与replay状态，不只seed。"
+      ],
+      "source_code_and_tests_audit": [
+        "ucb_score用completed stats，run的experiments_run却按dispatch attempts计；失败不增n/mean、有效reward0才增，语义应各自记录。",
+        "_pick_next无pending，零runinf多并发可重复同branch，slot1交错测试不覆盖。",
+        "max_seconds无wait timeout或cancel，drain无bound；启动deadline已到可仍报告queue_empty但queue非空，负/NaN/Inf参数无validation。",
+        "Result不核task hyp.ID/branch/finite/unitreward，stats可被错误结果改写，rewardNaN可能污染picker/mean。",
+        "main normalresult prune/expand/error，drain onlystats/trigger/result.drain且error静默；账本计数不同，taskcancel不是Exception全兜策略。",
+        "prune后同次highresult仍可expand重新加pruned branch；expander无ID唯一/queuemax/samebranch/预算核。",
+        "asyncdelay只是调度fixture，fixedbase rewards不是真实验收益；sleep测试不证CPU加速。"
+      ],
+      "exercises": [],
+      "exercise_boundary": "正文没有独立Exercises或编号练习，不编造5题；Going further扩展建议完整静读并按可行实现合同记录",
+      "going_further": [
+        "持久branch/queue/pending预算状态",
+        "多目标reward不能简单把UCB换名Pareto",
+        "contextualbandit需特征/反馈/可比协议"
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original": "Why does the scheduler use UCB scoring instead of always picking the current best branch?",
+          "original_options": [
+            "Because the queue cannot be sorted otherwise",
+            "Because asyncio requires UCB",
+            "Because UCB is faster to compute",
+            "Because greedy picks never explore; UCB balances exploitation with exploration"
+          ],
+          "source_marked_answer": "Because greedy picks never explore; UCB balances exploitation with exploration",
+          "source_explanation": "Greedy locks onto the first lead. Uniform never exploits. UCB picks the leader while reserving capacity for less-explored branches via the sqrt(ln N / n) term.",
+          "中文解释与必要修正": "UCB显式加探索bonus，避免只按当前均值的greedy；科研奖励真实/可比与统计条件另核，不保证最有价值成果。"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original": "What score does a branch with zero completed runs receive under UCB1?",
+          "original_options": [
+            "Positive infinity, so untried branches are always picked first",
+            "The mean reward of all other branches",
+            "Zero",
+            "The exploration constant c"
+          ],
+          "source_marked_answer": "Positive infinity, so untried branches are always picked first",
+          "source_explanation": "The lesson assigns +inf for runs=0. This guarantees every branch is tried at least once before any branch is revisited.",
+          "中文解释与必要修正": "源码n=0为inf，但并发无pending保留，同branch多个零完成任务可连续派发；everybranch先一次保证仅相应串行队列条件。"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original": "How does the scheduler keep multiple slots busy?",
+          "original_options": [
+            "It uses asyncio.create_task per dispatched hypothesis and awaits FIRST_COMPLETED on the in-flight set",
+            "It runs the runner in a thread pool",
+            "It blocks the event loop on a sleep",
+            "It uses multiprocessing"
+          ],
+          "source_marked_answer": "It uses asyncio.create_task per dispatched hypothesis and awaits FIRST_COMPLETED on the in-flight set",
+          "source_explanation": "Each dispatched hypothesis becomes a task. The main loop waits on FIRST_COMPLETED so a finished slot is freed immediately and another hypothesis is dispatched.",
+          "中文解释与必要修正": "create_task加FIRST_COMPLETED保持可让出eventloop的任务并发；阻塞CPU工作不自动并行，完成处理及drain须统一终态。"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original": "When does the scheduler emit a paper.trigger for a branch?",
+          "original_options": [
+            "Every time a result lands on that branch",
+            "When the prune floor is hit",
+            "Only at the end of the run",
+            "On the first result whose branch mean meets or exceeds the paper threshold, and only once per branch"
+          ],
+          "source_marked_answer": "On the first result whose branch mean meets or exceeds the paper threshold, and only once per branch",
+          "source_explanation": "The trigger fires once per branch, the first time the branch's mean crosses the threshold. The paper_triggered flag on BranchStats prevents repeats.",
+          "中文解释与必要修正": "branch平均到threshold且flag未置才trigger一次，未给论文真实性/后续质量保证，需记录之后退化或prune。"
+        },
+        {
+          "number": 5,
+          "stage": "post",
+          "original": "What happens to a branch whose mean reward stays below the prune floor after the minimum-runs threshold?",
+          "original_options": [
+            "Nothing; UCB will eventually pick another branch",
+            "The reward floor is lowered automatically",
+            "The branch is marked pruned and remaining hypotheses on that branch are removed from the queue",
+            "The scheduler raises an exception"
+          ],
+          "source_marked_answer": "The branch is marked pruned and remaining hypotheses on that branch are removed from the queue",
+          "source_explanation": "Pruning removes the branch from future scheduling. Pruning is separate from the picker: UCB ranks, pruning culls.",
+          "中文解释与必要修正": "prune按minimum valid完成数与mean floor移除queue中的该branch；不是按UCB上界裁剪，pending仍会完成且expander可重塞。"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "original": "Which two budgets does the scheduler enforce as hard limits?",
+          "original_options": [
+            "Memory and CPU",
+            "paper triggers and prune count",
+            "slots and queue depth",
+            "max_experiments (total runs) and max_seconds (wall clock)"
+          ],
+          "source_marked_answer": "max_experiments (total runs) and max_seconds (wall clock)",
+          "source_explanation": "Both fire as stop reasons. max_experiments caps total work. max_seconds caps wall time. The trace records which one stopped the run.",
+          "中文解释与必要修正": "派发数max_experiments有限，max_seconds仅停新派发的软界、等待/drain未超时不能称hard wall cap；需要逐任务timeout/cancel和终态账本。"
+        }
+      ],
+      "tests_static_read": [
+        {
+          "function": "test_zero_runs_branch_scores_infinity",
+          "line": 31,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_high_mean_dominates_low_mean_with_equal_runs",
+          "line": 35,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_exploration_bonus_helps_less_run_branch",
+          "line": 43,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_untried_branches_are_picked_before_repeating",
+          "line": 53,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_parallel_slots_advance_wall_clock_less_than_serial",
+          "line": 80,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_paper_trigger_fires_when_threshold_crossed",
+          "line": 101,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_paper_trigger_only_fires_once_per_branch",
+          "line": 116,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_expander_adds_followups",
+          "line": 131,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_low_yield_branch_is_pruned_after_threshold_runs",
+          "line": 150,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_max_experiments_caps_total_runs",
+          "line": 170,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_deadline_caps_wall_clock",
+          "line": 186,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_deterministic_runner_rewards_in_unit_interval",
+          "line": 205,
+          "file": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "method": "源码完整静读，未运行"
+        }
+      ],
+      "test_purposes": "UCB0inf/相同run均值/低runbonus，slot1先三branch，sleep并发、一次trigger、followup/prune、派发数预算/宽松1秒deadline、syntheticrange；无并发零run重复/失败/NaN/resultidentity/hang/drainpolicy",
+      "diagrams": {
+        "mermaid_count": 3,
+        "meaning_and_boundary": "Mermaid queue→slots→resultbus→scorer→queue+paper、Hyp字段、create_task/firstcompleted回流均是架构意图；实际Hyp只id/branch/payload，runs/rewards在BranchStats。chScheduler UCB1.9/1.4/.6全固定，pruned依据说boundcollapses而代码按mean floor；图不执行UCB/真实runner/预算。",
+        "course_svg_count": 0
+      },
+      "dynamic_implementation": {
+        "lesson": "56-iteration-scheduler",
+        "widget": "ch-ucb-scheduler",
+        "provider": "figures-capstone-h.js",
+        "function": "chScheduler",
+        "start_line": 115,
+        "end_line": 154,
+        "provider_sha256": "667c39e2e389b770e8f0bad3c655edec1ae2f2f6b546f0cd0edea44491793d33",
+        "candidate_registration_order": [
+          "figures-capstone-h.js"
+        ]
+      },
+      "dynamic_full_text_sha256": "17130de230c2692e115d66aeae418007fe6aa86efff882312a034ca931651621",
+      "dynamic_read_scope": "按root提供实际最后注册extract整函数静读，最终注册核对仍需root；未读source build完整provider",
+      "root_dynamic_final_review_pending": true,
+      "source_programs_executed": 0,
+      "formal_written": false
+    },
+    {
+      "lesson": "57-end-to-end-research-demo",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/57-end-to-end-research-demo/code/main.py",
+          "sha256": "17a5451ad65223d723bddc0b1ace72970a06cb11b3bd96fbbe332c3c3579abcc",
+          "bytes": 9007,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/57-end-to-end-research-demo/code/main.py",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "6f65cebe0f774c5bd06ad057270340ed75f4c19d"
+        },
+        {
+          "path": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "sha256": "bc5f490b9c8cc4de7dfeca1f5dc5c1fb50ca49931cae1cfe5a14c1f2a8550fcb",
+          "bytes": 4726,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "839017afca38b8d54984162f4ace190c67a463c7"
+        },
+        {
+          "path": "phases/19-capstone-projects/57-end-to-end-research-demo/docs/en.md",
+          "sha256": "6b5834a19a77be2247a16b6cdb41bd28e75eb10f4496609d5ca72ac846d48bf8",
+          "bytes": 6348,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/57-end-to-end-research-demo/docs/en.md",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "c9d87cfc9dba91c67eb542a4c8ee29247238d289"
+        },
+        {
+          "path": "phases/19-capstone-projects/57-end-to-end-research-demo/quiz.json",
+          "sha256": "7fc1057c957d824285a0a70b1d28448d391fd7b2fc0ff992b01bad8181f8fccb",
+          "bytes": 3664,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/57-end-to-end-research-demo/quiz.json",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "9f6d555f7fa4079b26ff742153e99e288d628b99"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "title": "## Learning Objectives",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 22,
+          "title": "## What composes here",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 39,
+          "title": "## Why import, not copy",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 53,
+          "title": "## Determinism guarantees",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 59,
+          "title": "## The demo report shape",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 72,
+          "title": "## Failure mode handling",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 86,
+          "title": "## The best-result picker",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 90,
+          "title": "## Wiring the critic loop",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 96,
+          "title": "## Wiring the paper writer",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 100,
+          "title": "## How to read the code",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        },
+        {
+          "line": 106,
+          "title": "## Going further",
+          "disposition": "全部段落/内嵌图静读；方法及必要纠错见learning_contract/source_audit，未写正式正文"
+        }
+      ],
+      "learning_contract": [
+        "代码真实按文件import54 PaperWriter、55 CriticLoop、56 IterationScheduler；50 hypothesis、51 experiment-code、52 metricparser、53 results-store并未调用，seed与runner是本地stub。不能称前七模块全部真实集成。",
+        "loader使用importlib.util.spec_from_file_location和三个独立模块名避免main重名，但代码仍修改sys.path、写sys.modules并执行模块顶层；静读不调用loader，唯一名不等完全不污染命名空间。",
+        "seed三分支，reward是56 NumPy固定base+noise+sleep，未跑任务真实训练/论文实验/LLM；挑最高mean是候选选择，有selection bias且不同样本数需不确定性/独立验证，不能reward越高就科学新颖。",
+        "Picker无trigger抛NoTriggerError，全orphan trigger抛BestResultError；部分orphan被静默过滤、未检duplicate/finite/positive runs/pruned，需严格报告而不是悄悄丢分支。",
+        "MiniPaper original_tag按reward .8/.6划档、正文初始固定，critic占位扩写/引文自动加分；critic返回stopped或plateau也继续mini_to_full与writer，没有必须target、逐维证据/真实实验门禁。",
+        "mini_to_full造Synthesised作者/Source c*引用与figs/branch.pdf路径字符串，无查文献真实存在、无生成该PDF、无建立真实实验结果图。原critic figure_refs被替换成只Results一图；引用存在于bib字段不等出处支持主张。",
+        "writer用MockProseGenerator，报告paper_manifest/tex/bib仅协议产物；full paper与mini及critic分数版本关系需明确，writer若重新生成prose不能沿用原draft评分，须root54行为核验。",
+        "相同seed的test只比较branch、reward六位精度与section IDs，没有比完整manifest、内容SHA、bib/figure有效性或trace。绝对路径及wall秒数本来会不同，不能声称整个report同字节确定。",
+        "各stage并非自动严格shape gate，critic budget/plateau不是异常、scheduler swallowed errors不使流水整体失败；需逐stageschema/版本/hash/终态验收，失败止后续保诊断且不伪装所有情况typederror。",
+        "run_demo默认mkdtemp创建产物未cleanup，重复write同目录幂等/原子/资源界限需另定；持久恢复不只把小JSON放盘，还需实际输入输出与state版本、可信取回/完整性、已发生成本和任务许可。此轮不实际写论文或编译。",
+        "converged必须细读reason：在此合成demo可因五维平均平台提前plateau，而低clarity未达到target；status断言不替逐维验收。完整纠正向量与假设见default_demo_static_convergence_probe。"
+      ],
+      "source_code_and_tests_audit": [
+        "只加载54–56，50–53模块名路径未import，54–56真实接口组合但runtime本轮未执行。",
+        "run_demo无critic_result.reason/score门禁、schedulerpartial failures检查、科学数据/图hash校验。",
+        "mini_to_full bib随机占位标签且未创建Figure.path文件，原figure_refs未保；只保证引用key入list不证明支持/真实性。",
+        "docs声称字段verbatim/no transform但build_mini/full转换实际发生；序列图contractgates是意图而非代码全实现。",
+        "docs“同seed相同report/比较manifest”超tests范围，只比branch/reward6dp/section IDs；trace order、wall、absolutepaths未验。",
+        "文章sourcepaperwriter_mock真正填body行为交root54审读，不能单凭接口声称critic改善后正文仍保持。",
+        "参数seed/defaultoutdir/range/types无总体合同；output目录默认mkdtemp保留无cleanup，无编译可用/图存在测试。",
+        "完整五维mean修正：假设reward>=.8初始high，r1–r5均值4.44/7.662/8.442/8.524/8.606；r3→4与4→5均+.082<=epsilon，r5 converged/plateau但clarity7.03<8。原单维必budget/测试冲突结论已撤回见reading_corrections。未运行source或测试。"
+      ],
+      "exercises": [],
+      "exercise_boundary": "正文没有独立Exercises或编号练习，不编造5题；Going further扩展建议完整静读并按可行实现合同记录",
+      "going_further": [
+        "真实状态及产物持久恢复",
+        "统一timeline需事件身份/因果",
+        "真实模型/critic替换需可信输入/费用/评分校准"
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original": "What is the demo's job in this lesson?",
+          "original_options": [
+            "To benchmark the scheduler against a baseline",
+            "To call a real language model on each branch",
+            "To replace the earlier lessons with a single new framework",
+            "To compose the primitives from the earlier lessons through plain Python imports"
+          ],
+          "source_marked_answer": "To compose the primitives from the earlier lessons through plain Python imports",
+          "source_explanation": "The demo is a composition test. Each stage exists in its own lesson. The demo imports them and wires the report. No new framework, no new abstractions.",
+          "中文解释与必要修正": "该demo真实组合54–56接口，50–53仍inline stub，未实现整套科学实验管线或测LM效果。"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original": "Why does the lesson load earlier lessons via importlib instead of a normal package import?",
+          "original_options": [
+            "Because importlib is faster",
+            "Because each earlier lesson is a standalone code/ folder, not an installed package; importlib loads them by file path",
+            "Because asyncio requires importlib",
+            "Because the lessons share a module name and would collide"
+          ],
+          "source_marked_answer": "Because each earlier lesson is a standalone code/ folder, not an installed package; importlib loads them by file path",
+          "source_explanation": "The lessons are not installed packages. Each ships a main.py inside its own code/ folder. importlib.util.spec_from_file_location loads them by path without polluting the global module namespace.",
+          "中文解释与必要修正": "按路径加载独立code/main.py及独立模块名避重名；仍修改sys.path/sys.modules并执行顶层，不能称全无namespace影响。"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original": "How does the best-result picker decide between branches when more than one triggered a paper?",
+          "original_options": [
+            "It picks the branch with the highest mean reward, breaking ties alphabetically by branch id",
+            "It picks the branch with the most experiments run",
+            "It picks at random for fairness",
+            "It picks the first triggered branch"
+          ],
+          "source_marked_answer": "It picks the branch with the highest mean reward, breaking ties alphabetically by branch id",
+          "source_explanation": "Highest mean wins. Ties break on branch id so the demo is deterministic. Random would defeat the determinism test.",
+          "中文解释与必要修正": "候选trigger里按最高mean、字母branch打破tie；均值必须来自合法同协议反馈并考虑样本数/选择偏差，最高不等已证实。"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original": "What error does the picker raise when the scheduler reports zero paper triggers?",
+          "original_options": [
+            "ValueError",
+            "It returns None",
+            "PaperValidationError",
+            "NoTriggerError, which short-circuits the demo before the writer runs"
+          ],
+          "source_marked_answer": "NoTriggerError, which short-circuits the demo before the writer runs",
+          "source_explanation": "NoTriggerError is the typed failure mode. Returning None would let the writer run on a malformed input and break later with a less actionable error.",
+          "中文解释与必要修正": "空trigger抛NoTriggerError；全orphan为BestResultError，而partialorphan静默略过需纠正，测试没有证明整个pipeline所有故障均短路。"
+        },
+        {
+          "number": 5,
+          "stage": "post",
+          "original": "Why does the demo run twice with the same seed in the determinism test?",
+          "original_options": [
+            "To catch a memory leak",
+            "To assert that the picked branch, reward, and paper section ids are identical across runs",
+            "To exercise asyncio twice",
+            "To prove that the scheduler is fair"
+          ],
+          "source_marked_answer": "To assert that the picked branch, reward, and paper section ids are identical across runs",
+          "source_explanation": "Determinism is part of the contract. Two runs with the same seed must produce the same artifacts. The test pins that.",
+          "中文解释与必要修正": "两次只核branch、reward6dp和section IDs，不能称所有artifact/report byte-identical；时间、路径、trace顺序与真实图/引文另验。"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "original": "What does the demo report contain after a successful run?",
+          "original_options": [
+            "Only the final LaTeX file",
+            "Just the experiment count and a status string",
+            "A model prompt and completion log",
+            "scheduler_report, best_branch, best_reward, critic_result, paper_manifest, and stop_reason"
+          ],
+          "source_marked_answer": "scheduler_report, best_branch, best_reward, critic_result, paper_manifest, and stop_reason",
+          "source_explanation": "Every stage's output is preserved. The report is a composition of upstream outputs, not a transformed summary. Downstream tooling reads the manifest; debuggers read the trace inside scheduler_report.",
+          "中文解释与必要修正": "报告六字段scheduler_report/best_branch/best_reward/critic_result/paper_manifest/stop_reason；这些是协议及synthetic产物，不证明图文件/文献/研究效果真实。"
+        }
+      ],
+      "tests_static_read": [
+        {
+          "function": "test_demo_runs_to_completion",
+          "line": 29,
+          "file": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_paper_files_emitted",
+          "line": 40,
+          "file": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_two_runs_with_same_seed_produce_same_branch",
+          "line": 50,
+          "file": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_no_trigger_raises",
+          "line": 63,
+          "file": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_orphan_trigger_raises_best_result_error",
+          "line": 71,
+          "file": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_ties_break_alphabetically",
+          "line": 79,
+          "file": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_validation_error_propagates",
+          "line": 95,
+          "file": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_seed_has_three_branches",
+          "line": 107,
+          "file": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_demo_stop_reason_is_known",
+          "line": 112,
+          "file": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "method": "源码完整静读，未运行"
+        },
+        {
+          "function": "test_alpha_wins_under_default_seed",
+          "line": 122,
+          "file": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "method": "源码完整静读，未运行"
+        }
+      ],
+      "test_purposes": "Demo字段/texbib存在、同seedsubset、empty/orphantrigger、tie、直接writer空titleerror、三branch/knownstop/alpha默认；不检真实图/引用/完整报告SHA或critic失败短路",
+      "diagrams": {
+        "mermaid_count": 3,
+        "meaning_and_boundary": "Mermaid五stagecompose、Demo到54–56+inline、report字段图；chPipeline画contract gates与无framework五stage，不执行schema验证。50–53stub、不核critic target/真实图引文，因此动画brokeninput停止所有运行的保证过强。",
+        "course_svg_count": 0
+      },
+      "dynamic_implementation": {
+        "lesson": "57-end-to-end-research-demo",
+        "widget": "ch-research-pipeline",
+        "provider": "figures-capstone-h.js",
+        "function": "chPipeline",
+        "start_line": 156,
+        "end_line": 184,
+        "provider_sha256": "667c39e2e389b770e8f0bad3c655edec1ae2f2f6b546f0cd0edea44491793d33",
+        "candidate_registration_order": [
+          "figures-capstone-h.js"
+        ]
+      },
+      "dynamic_full_text_sha256": "6eb653e260eeb65f950959318123a22bbb10d258494f0e68744b4bfe40912376",
+      "dynamic_read_scope": "按root提供实际最后注册extract整函数静读，最终注册核对仍需root；未读source build完整provider",
+      "root_dynamic_final_review_pending": true,
+      "source_programs_executed": 0,
+      "formal_written": false,
+      "default_demo_static_convergence_probe": {
+        "method": "完整五维向量与字面长度独立算术核对；未import/call来源函数、未执行source或测试",
+        "assumptions": {
+          "selected_branch": "alpha或其它被picker选中的合法分支",
+          "selected_reward": "假设最终branch mean>=0.8，因此originality_tag初始high、novelty=9；未运行NumPy reward或claim实际选择值",
+          "critic_config": {
+            "max_rounds": 6,
+            "target_score": 8.0,
+            "plateau_epsilon": 0.1,
+            "plateau_window": 2
+          }
+        },
+        "literal_lengths": {
+          "initial_intro": 20,
+          "first_revision_results": 80,
+          "new_method": 237,
+          "new_related_work": 225,
+          "sum_after_first_revision": 562,
+          "average_after_first_revision": 140.5,
+          "later_expand_growth": 81,
+          "later_average_growth": 20.25
+        },
+        "rounding": "source先round每维到2位，再Critique.mean对五个已舍入分数求mean；独立scalar算术使用相同Python float+round规则，最后.082等差值仅作显示，实际浮点远离.1边界",
+        "rounds": [
+          {
+            "round": 1,
+            "scores_after_source_round_to_2_decimals": {
+              "clarity": 3.2,
+              "novelty": 9.0,
+              "evidence": 2.0,
+              "methodology": 4.0,
+              "related_work": 4.0
+            },
+            "mean_of_rounded_vector": 4.44,
+            "mean_delta": null,
+            "all_dimensions_ge_8": false,
+            "plateau": false,
+            "revision_executed": true,
+            "terminal": "continue"
+          },
+          {
+            "round": 2,
+            "scores_after_source_round_to_2_decimals": {
+              "clarity": 5.81,
+              "novelty": 9.0,
+              "evidence": 5.5,
+              "methodology": 9.0,
+              "related_work": 9.0
+            },
+            "mean_of_rounded_vector": 7.662,
+            "mean_delta": 3.222,
+            "all_dimensions_ge_8": false,
+            "plateau": false,
+            "revision_executed": true,
+            "terminal": "continue"
+          },
+          {
+            "round": 3,
+            "scores_after_source_round_to_2_decimals": {
+              "clarity": 6.21,
+              "novelty": 9.0,
+              "evidence": 9.0,
+              "methodology": 9.0,
+              "related_work": 9.0
+            },
+            "mean_of_rounded_vector": 8.442,
+            "mean_delta": 0.78,
+            "all_dimensions_ge_8": false,
+            "plateau": false,
+            "revision_executed": true,
+            "terminal": "continue"
+          },
+          {
+            "round": 4,
+            "scores_after_source_round_to_2_decimals": {
+              "clarity": 6.62,
+              "novelty": 9.0,
+              "evidence": 9.0,
+              "methodology": 9.0,
+              "related_work": 9.0
+            },
+            "mean_of_rounded_vector": 8.524,
+            "mean_delta": 0.082,
+            "all_dimensions_ge_8": false,
+            "plateau": false,
+            "revision_executed": true,
+            "terminal": "continue"
+          },
+          {
+            "round": 5,
+            "scores_after_source_round_to_2_decimals": {
+              "clarity": 7.03,
+              "novelty": 9.0,
+              "evidence": 9.0,
+              "methodology": 9.0,
+              "related_work": 9.0
+            },
+            "mean_of_rounded_vector": 8.606,
+            "mean_delta": 0.082,
+            "all_dimensions_ge_8": false,
+            "plateau": true,
+            "revision_executed": false,
+            "terminal": "converged/plateau"
+          }
+        ],
+        "plateau_derivation": "r3→r4均值增量.082、r4→r5均值增量.082，均<=.1；r5窗口覆盖r3/r4/r5，所以target未达而plateau先于budget触发",
+        "corrected_outcome": "r5返回status converged/reason plateau，clarity7.03<8；未执行r5 revision，更未到r6。因此converged状态不表示五维目标达标",
+        "test_boundary": "test_demo_runs_to_completion仅断言critic_result.status==converged，该断言与此静态路径相容；未运行整体测试，不据此声称全部测试通过或失败",
+        "variant_boundary": "若reward在[.6,.8)则初始novelty6但首修升high，r2以后相同；其它初态/阈值/输入另核，不能将此条件推导写成实测默认reward保证",
+        "general_budget_bug_separation": "CriticLoop一般budget路径最后修改paper却返回修改前score的静态问题仍成立；本例在r5 plateau停止，不走该budget路径，不能用它描述此默认路径"
+      }
+    }
+  ],
+  "boundaries": {
+    "read_source2_5": false,
+    "source_execution": 0,
+    "install": 0,
+    "network_requests": 0,
+    "candidate_generated_exec": 0,
+    "actual_training": 0,
+    "LLM_API": 0,
+    "real_paper_experiment_effects": false,
+    "formal_main_files_modified_in_this_followup": false,
+    "source50_54_re_read": false
+  },
+  "integration_verdict": "57仅54/55/56实际按路径import+50–53inline stub，合成reward/critic/prose/引文/图path；不声称真实科学成果或前七模块完整接通",
+  "official_verification": "本次仅固定source正文/代码/测试及已提取动态静读，未查新的框架/论文官方文档；UCB理论条件、真实timeout隔离等需融合时官方核验",
+  "reading_corrections": [
+    {
+      "date": "2026-10-12",
+      "status": "撤回错误静态结论；保原稿供审计，未递增验收",
+      "original_probe": {
+        "method": "静读源码后按字面字符串长度手工推导；未调用来源函数/未执行来源程序或测试",
+        "initial": "57 intro初始正文20字符，Results为空；55 expand空Results得到80字符，新增Method正文236、Related Work224字符，合计560/4=140",
+        "trajectory_unrounded_clarity_before_revision": [
+          3.2,
+          5.8,
+          6.205,
+          6.61,
+          7.015,
+          7.42
+        ],
+        "increment": "以后每轮扩已有末section增加空格+80个x共81字符，4节均值增20.25，clarity增.405",
+        "last_budget_revision_unrounded_clarity": 7.825,
+        "expected": "前六次评分clarity均<8且改进>.1，因此没有target或plateau，默认max_rounds6耗尽返回status stopped/reason budget；57仍调用writer",
+        "test_conflict": "57 test_demo_runs_to_completion断言critic_result.status==converged，与此默认路径静态推导冲突；未实际运行，交root再次核对",
+        "final_score_alignment": "最后返回7.42时paper已被第六轮改到约7.825，显示修改前score与finalpaper错位"
+      },
+      "error_reason": "把单维clarity增量误当_plateau的五维mean判据；还误计Method/Related Work字面长度为236/224而实际237/225",
+      "retracted_claims": [
+        "默认六轮必budget/stopped",
+        "test_demo_runs_to_completion的converged断言很可能失败",
+        "默认路径会执行第六轮最后revision并返回旧score"
+      ],
+      "correct_basis": "root及本代理独立标准库字面长度/五维算术核对，不import/call/执行来源程序或测试"
+    }
+  ],
+  "root_additional_static_review": {
+    "date": "2026-10-12",
+    "read_scope": "57完整main；55 _plateau/run、deterministic_score与reviser；57测试converged断言行",
+    "boundary": "不冒称root全文回读其它12文件；独立literal标准库算术不是来源运行",
+    "source_programs_executed": 0
+  },
+  "root_reading_boundary": "55–57由代理全文件静读，root额外57全main/55控制评分改写/57测试converged行；root没有冒称重复逐字读所有12file；原错误静态budget推断已撤回并用全vector/mean改正。"
+}
