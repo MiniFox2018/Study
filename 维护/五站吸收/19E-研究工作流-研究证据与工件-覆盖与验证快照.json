@@ -1,0 +1,1948 @@
+{
+  "date": "2026-10-12",
+  "status": "两个专属正式文件写入、新合同实际运行与局部校验完成；待根代理专业验收",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "source_snapshot": "/tmp/study-source1-ai-engineering-20261008",
+  "source_programs_executed": 0,
+  "source_candidate_experiments": 0,
+  "sites_2_5_read": false,
+  "lessons": [
+    {
+      "lesson": "51-literature-retrieval",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/51-literature-retrieval/code/main.py",
+          "bytes": 14434,
+          "sha256": "b997a2f25d56e4c17199681a492cc26d118853729c311e27de19ca34a50b5725",
+          "git_blob": "cd0e665a378b14ecc812ee53d603b30bba924660",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–416/tests1–158完整静读，未导入/执行",
+          "root_verified_git_blob_sha": "cd0e665a378b14ecc812ee53d603b30bba924660"
+        },
+        {
+          "path": "phases/19-capstone-projects/51-literature-retrieval/code/tests/test_retrieval.py",
+          "bytes": 5851,
+          "sha256": "f0f1791d8046ccdd3bd0d2da0675a4b81fbf40f9c596207f66635853321be608",
+          "git_blob": "ad97c5bc3ca9cd7d8e47459ce66bc6fadb834f2e",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–416/tests1–158完整静读，未导入/执行",
+          "root_verified_git_blob_sha": "ad97c5bc3ca9cd7d8e47459ce66bc6fadb834f2e"
+        },
+        {
+          "path": "phases/19-capstone-projects/51-literature-retrieval/docs/en.md",
+          "bytes": 6978,
+          "sha256": "9485a01ede9c0802ce59ffdff4e728e8a766eda68d1635a3480e4c4fe313e90e",
+          "git_blob": "e1dd46eff1fe42a14881741c2b4d78ae0c370630",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–416/tests1–158完整静读，未导入/执行",
+          "root_verified_git_blob_sha": "e1dd46eff1fe42a14881741c2b4d78ae0c370630"
+        },
+        {
+          "path": "phases/19-capstone-projects/51-literature-retrieval/quiz.json",
+          "bytes": 3301,
+          "sha256": "8a7f9b49780311401f741f6f39721ee313021ac3a463f15dd4d29536a40da9c8",
+          "git_blob": "b259fdebb6230bba8e70019e046dcec2c089b66a",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–416/tests1–158完整静读，未导入/执行",
+          "root_verified_git_blob_sha": "b259fdebb6230bba8e70019e046dcec2c089b66a"
+        }
+      ],
+      "full_source_read_by_prior_agent_reused": true,
+      "source_read_authority": "维护/五站吸收/19E-研究工作流-根读取断点.json",
+      "header_mappings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 988,
+          "formal_excerpt": "2026-10-12补入固定Phase19第51课",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Why two retrieval passes",
+          "source_line": 17,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 992,
+          "formal_excerpt": "词汇检索与图遍历操作两个不同对象",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## The Paper shape",
+          "source_line": 23,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 990,
+          "formal_excerpt": "文献记录至少保留内部实体ID",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Architecture",
+          "source_line": 43,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 992,
+          "formal_excerpt": "词汇检索与图遍历操作两个不同对象",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## BM25 from scratch",
+          "source_line": 65,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 992,
+          "formal_excerpt": "tf饱和避免同词重复无限加分",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Citation graph traversal",
+          "source_line": 77,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 994,
+          "formal_excerpt": "引文遍历则在明确文献实体的图上进行",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Dedup and ranking",
+          "source_line": 83,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 998,
+          "formal_excerpt": "实体ID去重后应保",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Mock corpus",
+          "source_line": 97,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 998,
+          "formal_excerpt": "100篇虚构标题与作者",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## What lessons 52 and 53 read",
+          "source_line": 103,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 998,
+          "formal_excerpt": "其序列化还丢摘要",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 109,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 998,
+          "formal_excerpt": "索引对同一ID更新",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Where this slots in",
+          "source_line": 115,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1000,
+          "formal_excerpt": "检索产物应把候选列表",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        }
+      ],
+      "quiz_mappings": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original_question": "Why does the retrieval client run a BM25 pass and a citation graph pass?",
+          "chinese_question": "为什么做BM25与引文图两遍检索？",
+          "answer_reason": "词汇匹配与文献邻接互补；两者都受语料覆盖限制，图还需有效seed/anchor，不自动找到所有基础论文。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1079,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original_question": "Why is the citation graph traversal capped at two hops?",
+          "chinese_question": "为什么课程将遍历限制为两跳？",
+          "answer_reason": "控制候选规模和主题漂移的配置；不是Python限制或普遍研究上限，应另设节点/边/时间预算并核相关性。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1080,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original_question": "What does idf evaluate to for a term that appears in every document?",
+          "chinese_question": "一个词出现在每篇文档中，idf是多少？",
+          "answer_reason": "正idf为ln(1+.5/(N+.5))，为正且大N趋小；N=1约.28768，不能答恰为0。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1081,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original_question": "Which keys does the merge step use to dedup hits from the two passes?",
+          "chinese_question": "两遍结果用什么去重？",
+          "answer_reason": "稳定文献实体ID，但先核命名空间、DOI/预印本与版本关系；标题/年份不能唯一识别，合成p001不证明跨平台归一。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1082,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 5,
+          "stage": "check",
+          "original_question": "What does graph_score return for a paper that is two hops from the seed set?",
+          "chinese_question": "两跳文献的graph_score是什么？",
+          "answer_reason": "来源默认.3，仅是排序特征；无权BFS取最短hop，不是真实性或30%相关概率。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1083,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 6,
+          "stage": "check",
+          "original_question": "Why is the corpus loaded once into a RetrievalClient instead of refetched per query?",
+          "chinese_question": "为什么语料只加载一次？",
+          "answer_reason": "索引和图可在固定快照上复用降低重建成本；语料/Tokenizer变化需失效，源码并未真实调用双API合并。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1084,
+          "source_quiz_reused_from_full_read": true
+        }
+      ],
+      "practice_mappings": [],
+      "no_independent_numbered_exercises": true,
+      "source_test_definition_count": 18,
+      "source_test_execution": false,
+      "formal_written": true,
+      "root_professional_accepted": false,
+      "math_primary_entry": null
+    },
+    {
+      "lesson": "52-experiment-runner",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/code/experiments/crashing_experiment.py",
+          "bytes": 399,
+          "sha256": "7a9cfc0d8aa1ed13c4f3fc4090200c0c743f726f4e18bd24e36497067fe3c58c",
+          "git_blob": "34cc0741ff616cf347d6c519c404f050ec6f1f15",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "34cc0741ff616cf347d6c519c404f050ec6f1f15"
+        },
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/code/experiments/sparsity_experiment.py",
+          "bytes": 2286,
+          "sha256": "caffad784774b9b497cbaf440125688c12b3ad873d2e4ca5c396f3359fad6e1e",
+          "git_blob": "06bbb35a9ffb0c3de2739bf7f38c997a7afcbbd8",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "06bbb35a9ffb0c3de2739bf7f38c997a7afcbbd8"
+        },
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/code/main.py",
+          "bytes": 10990,
+          "sha256": "cf8443d377cb48199dedfc6587318294e80cd60b2d73796c7eabd8eff8b505b7",
+          "git_blob": "222d282209796833aa167db74744d3000c793439",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "222d282209796833aa167db74744d3000c793439"
+        },
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/code/tests/test_runner.py",
+          "bytes": 5177,
+          "sha256": "9f2bf718ce7a268dbe9f42b7c0c17e07eb10b519761f8f18946956230c5a7feb",
+          "git_blob": "9bae95faea4aa54eca0e5593f08f590f68a20174",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "9bae95faea4aa54eca0e5593f08f590f68a20174"
+        },
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/docs/en.md",
+          "bytes": 7720,
+          "sha256": "9d09f1f011bde76595f9f041f8cfb19e9ec1a4ff6d8dd56ebb3d53caac97c31e",
+          "git_blob": "f3611713e32d35b459b868630ae5279c19bece8b",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "f3611713e32d35b459b868630ae5279c19bece8b"
+        },
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/quiz.json",
+          "bytes": 3888,
+          "sha256": "cec70c2289da9c0af766a659fa022facea805847b1806f4c17e58b9ffb81c5ea",
+          "git_blob": "c7b2ccb0161d932e13f35e0e9f16d85c6777c984",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "c7b2ccb0161d932e13f35e0e9f16d85c6777c984"
+        }
+      ],
+      "full_source_read_by_prior_agent_reused": true,
+      "source_read_authority": "维护/五站吸收/19E-研究工作流-根读取断点.json",
+      "header_mappings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1004,
+          "formal_excerpt": "第52课补充运行层",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Why a subprocess",
+          "source_line": 17,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1013,
+          "formal_excerpt": "子进程有独立地址空间",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## The ExperimentSpec shape",
+          "source_line": 23,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1004,
+          "formal_excerpt": "实验规格不是一串命令",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Architecture",
+          "source_line": 43,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1006,
+          "formal_excerpt": "合同位置",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Why a soft memory cap",
+          "source_line": 62,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1015,
+          "formal_excerpt": "RSS轮询是软限制",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Capturing stdout and stderr",
+          "source_line": 68,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1017,
+          "formal_excerpt": "日志采集也需要预算",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Ablation table",
+          "source_line": 74,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1021,
+          "formal_excerpt": "一次只动一个参数",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Determinism",
+          "source_line": 85,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1023,
+          "formal_excerpt": "每组使用相同预定seed集合",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## The mock experiment script",
+          "source_line": 89,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1023,
+          "formal_excerpt": "sparsity脚本按人工公式",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Result shape",
+          "source_line": 95,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1019,
+          "formal_excerpt": "exit≠0即便已打印部分指标",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 113,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1013,
+          "formal_excerpt": "课程Popen没有受限",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Where this slots in",
+          "source_line": 121,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1004,
+          "formal_excerpt": "标注意图配置和子程序实际读取配置",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        }
+      ],
+      "quiz_mappings": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original_question": "Why does the runner spawn a subprocess instead of importing the experiment script in process?",
+          "chinese_question": "为什么起子进程而非直接import实验？",
+          "answer_reason": "隔地址空间/崩溃并提供终止句柄；文件、网络、凭据和子孙进程权限仍需另限制，不能称安全沙箱。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1085,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original_question": "Why is the memory cap described as soft?",
+          "chinese_question": "为什么RSS上限叫软限制？",
+          "answer_reason": "非内核强限而是间隔轮询，短峰可漏；不支持采集需显式政策，主pid也不覆盖整棵树或显存。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1086,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original_question": "Which terminal label does the runner return when stdout has the metrics but the exit code is non zero?",
+          "chinese_question": "有metrics但exit非零是什么终态？",
+          "answer_reason": "crash并保存部分指标及日志；出现JSON不等成功，timeout/资源终止保具体原因与时间。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1087,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original_question": "How does the runner identify the final metrics blob inside stdout?",
+          "chinese_question": "来源如何找final metrics？",
+          "answer_reason": "最后一行能解析且覆盖required keys的JSON，较早行为中间指标；仍须schema/finite/单位/身份/样本校验。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1088,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 5,
+          "stage": "check",
+          "original_question": "Why does the ablation helper sweep one knob at a time rather than a full factorial?",
+          "chinese_question": "为什么helper一次只扫一参数？",
+          "answer_reason": "条件比较易读且成本较低；不能发现交互，全/部分因子可有明确解释，应按目标和预算选设计。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1089,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 6,
+          "stage": "check",
+          "original_question": "What guarantee does forwarding spec.seed into config['__seed'] give the evaluator?",
+          "chinese_question": "传seed到config保证什么？",
+          "answer_reason": "仅传递约定，需要子程序真正使用与核随机源；不能保证wall time相同或单seed证明真实收益。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1090,
+          "source_quiz_reused_from_full_read": true
+        }
+      ],
+      "practice_mappings": [],
+      "no_independent_numbered_exercises": true,
+      "source_test_definition_count": 11,
+      "source_test_execution": false,
+      "formal_written": true,
+      "root_professional_accepted": false,
+      "math_primary_entry": null
+    },
+    {
+      "lesson": "53-result-evaluator",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/53-result-evaluator/code/main.py",
+          "bytes": 10985,
+          "sha256": "80555b8fd57ed735ad0c698966ef44ded8d96e7874a4cf1f643d20c273a7dc0a",
+          "git_blob": "04fc6b76019637ddc7c263789772d74214760f5b",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–327/tests1–177全文静读，未导入或执行",
+          "root_verified_git_blob_sha": "04fc6b76019637ddc7c263789772d74214760f5b"
+        },
+        {
+          "path": "phases/19-capstone-projects/53-result-evaluator/code/tests/test_evaluator.py",
+          "bytes": 6574,
+          "sha256": "57c0d7649e54afb1f3d151d2c6b7ed78aeeb65a104bb8b2ff9b32e3c161c1f7c",
+          "git_blob": "592156d7c73ca5f8feecb64a5e770e87f9aecfb2",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–327/tests1–177全文静读，未导入或执行",
+          "root_verified_git_blob_sha": "592156d7c73ca5f8feecb64a5e770e87f9aecfb2"
+        },
+        {
+          "path": "phases/19-capstone-projects/53-result-evaluator/docs/en.md",
+          "bytes": 7105,
+          "sha256": "f474a4571273b6ce7c206e8f7aecb0415109c2f0a0d60098bd40ca580eeb36e0",
+          "git_blob": "d859f1549926571f619e9f1e50b1a118b20dea8d",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–327/tests1–177全文静读，未导入或执行",
+          "root_verified_git_blob_sha": "d859f1549926571f619e9f1e50b1a118b20dea8d"
+        },
+        {
+          "path": "phases/19-capstone-projects/53-result-evaluator/quiz.json",
+          "bytes": 3825,
+          "sha256": "2504639d011a7b7eff0a294f6a7bc3c5b8590f38a13ce7622699e5af1c676731",
+          "git_blob": "436999bc83a655fdc360ef8cc46191c843eccf7d",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–327/tests1–177全文静读，未导入或执行",
+          "root_verified_git_blob_sha": "436999bc83a655fdc360ef8cc46191c843eccf7d"
+        }
+      ],
+      "full_source_read_by_prior_agent_reused": true,
+      "source_read_authority": "维护/五站吸收/19E-研究工作流-根读取断点.json",
+      "header_mappings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1027,
+          "formal_excerpt": "第53课把运行账本转成比较判定",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Why a paired test",
+          "source_line": 17,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1027,
+          "formal_excerpt": "种子相同是配对条件之一",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Direction aware improvement",
+          "source_line": 34,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1029,
+          "formal_excerpt": "每条判定保存配对数",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Architecture",
+          "source_line": 53,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1027,
+          "formal_excerpt": "第53课把运行账本转成比较判定",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Log normalisation",
+          "source_line": 69,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1031,
+          "formal_excerpt": "PPL的log变换等于",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Per seed paired test",
+          "source_line": 86,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1029,
+          "formal_excerpt": "常规配对t以独立差值",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## The Verdict shape",
+          "source_line": 92,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1033,
+          "formal_excerpt": "判定要把",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 122,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1029,
+          "formal_excerpt": "来源自写Beta/Lentz",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Where this slots in",
+          "source_line": 128,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1033,
+          "formal_excerpt": "dataclass名字相似",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        }
+      ],
+      "quiz_mappings": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original_question": "Why does the evaluator use a paired t test instead of comparing two single numbers?",
+          "chinese_question": "为什么不只比较两个单一数值？",
+          "answer_reason": "多个独立配对差可估均值/SE，seed控制部分条件；仍需差值假设、完整集合和区间，不保证全部噪声取消。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1091,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original_question": "Why does the evaluator carry a direction field on every metric?",
+          "chinese_question": "指标为何带direction？",
+          "answer_reason": "accuracy越大越好、loss越小越好，统一改善正号；零基线相对率未知，应另报绝对差。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1092,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original_question": "What does the verdict path return when |improvement| is below the threshold even if the p value is significant?",
+          "chinese_question": "显著但小于实际效应阈值怎样处理？",
+          "answer_reason": "来源叫noise，正式记录“效应未达实际门槛”；统计显著不等值得行动，也不等没效应。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1093,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original_question": "Why does the evaluator transform log scaled metrics before computing improvement?",
+          "chinese_question": "为什么PPL转log，是否共享2%阈值？",
+          "answer_reason": "log-PPL对应NLL有解释；原PPL相对差、log绝对差、来源相对log量不同，不能自动共享百分比。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1094,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 5,
+          "stage": "check",
+          "original_question": "When does the paired t test helper return p_value = None?",
+          "chinese_question": "什么情况下p未知？",
+          "answer_reason": "n<2缺方差；零SE也是常规t退化，来源对非零恒差设p=0仅程序约定，不能升级成强证据。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1095,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 6,
+          "stage": "check",
+          "original_question": "What happens if even one candidate result has a terminal label other than ok?",
+          "chinese_question": "一个候选terminal非ok会怎样？",
+          "answer_reason": "来源返回failed，基线非ok也同样拦；不选择性删seed，另报完整失败率与不完整原因。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1096,
+          "source_quiz_reused_from_full_read": true
+        }
+      ],
+      "practice_mappings": [],
+      "no_independent_numbered_exercises": true,
+      "source_test_definition_count": 18,
+      "source_test_execution": false,
+      "formal_written": true,
+      "root_professional_accepted": false,
+      "math_primary_entry": {
+        "file": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+        "line": 155
+      }
+    },
+    {
+      "lesson": "54-paper-writer",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/54-paper-writer/code/main.py",
+          "bytes": 10514,
+          "sha256": "1a1ac26ccc66543439e8f8324ef68f4dff33bd3f446743bdc11eba58ff2f1dc5",
+          "git_blob": "ced61293aca3fad483f387971b02c533be68659c",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–316/tests1–188完整静读；source没有编译或执行",
+          "root_verified_git_blob_sha": "ced61293aca3fad483f387971b02c533be68659c"
+        },
+        {
+          "path": "phases/19-capstone-projects/54-paper-writer/code/tests/test_paper_writer.py",
+          "bytes": 7007,
+          "sha256": "8dbca33ad887426f2017fc3321d489ece960b39c71a97cd0669faa760a226245",
+          "git_blob": "a9839b6d2d119eae01c3572592b171897470915b",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–316/tests1–188完整静读；source没有编译或执行",
+          "root_verified_git_blob_sha": "a9839b6d2d119eae01c3572592b171897470915b"
+        },
+        {
+          "path": "phases/19-capstone-projects/54-paper-writer/docs/en.md",
+          "bytes": 7021,
+          "sha256": "797c7be9dbe6e382bdba6c8015047373c86917194eb2bc6efa5c1035eaea2e9e",
+          "git_blob": "daf88f4c833df1755fae28b30db3b328e8bbed8d",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–316/tests1–188完整静读；source没有编译或执行",
+          "root_verified_git_blob_sha": "daf88f4c833df1755fae28b30db3b328e8bbed8d"
+        },
+        {
+          "path": "phases/19-capstone-projects/54-paper-writer/quiz.json",
+          "bytes": 3745,
+          "sha256": "b476522991afc153bcaada0b7983a9d802d79ac8b60e4a31111646317082cd97",
+          "git_blob": "0478b082da5ef4da71d84ce5e729e0fd89679cb2",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–316/tests1–188完整静读；source没有编译或执行",
+          "root_verified_git_blob_sha": "0478b082da5ef4da71d84ce5e729e0fd89679cb2"
+        }
+      ],
+      "full_source_read_by_prior_agent_reused": true,
+      "source_read_authority": "维护/五站吸收/19E-研究工作流-根读取断点.json",
+      "header_mappings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1037,
+          "formal_excerpt": "第54课在现有证据链的最后增加写作合同",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Why a skeleton first",
+          "source_line": 22,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1037,
+          "formal_excerpt": "再声明标题/摘要",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## The Paper shape",
+          "source_line": 30,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1037,
+          "formal_excerpt": "唯一section ID与正文槽",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## The render contract",
+          "source_line": 48,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1043,
+          "formal_excerpt": "输出时把普通文字",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Figure injection from experiments",
+          "source_line": 54,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1045,
+          "formal_excerpt": "路径要有明确基准",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## The mocked prose generator",
+          "source_line": 69,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1049,
+          "formal_excerpt": "依赖注入让writer",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## The manifest output",
+          "source_line": 75,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1047,
+          "formal_excerpt": "工件清单至少绑定正文SHA",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Validation gates",
+          "source_line": 91,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1039,
+          "formal_excerpt": "正文生成后重新提取",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 102,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1043,
+          "formal_excerpt": "15个来源测试",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Going further",
+          "source_line": 108,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1114,
+          "formal_excerpt": "54原Going further有两项",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        }
+      ],
+      "quiz_mappings": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original_question": "Why does the writer declare sections, figures, and citations as data before any prose is written?",
+          "chinese_question": "为什么先声明section/figure/citation？",
+          "answer_reason": "使结构完整性可校验，但正文支持另核；源码先fill后validate，不能称全部验证在生成前完成。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1097,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original_question": "What does the figure-injection step produce from an experiment manifest?",
+          "chinese_question": "图注入产生什么？",
+          "answer_reason": "Figure记录与路径，不是PDF编译；应按明确manifest基准解析并核文件/数据SHA，源进程cwd不能替代。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1098,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original_question": "Which validation failure raises PaperValidationError before any file is written?",
+          "chinese_question": "哪种错误触发PaperValidationError？",
+          "answer_reason": "声明引用key未在bibliography等会拦render；源不查图文件存在，正文裸cite/ref与重复section仍有缺口。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1099,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original_question": "Why is the prose generator a callable injected into PaperWriter rather than a method on it?",
+          "chinese_question": "为什么generator依赖注入？",
+          "answer_reason": "便于独立测试writer/生成器与替换接口；真实模型接入后重核副作用、证据、费用与输出格式。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1100,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 5,
+          "stage": "post",
+          "original_question": "What three files does PaperWriter.write emit on success?",
+          "chinese_question": "write成功输出哪三件？",
+          "answer_reason": "paper.tex、references.bib、manifest.json，没有PDF；顺序三次write非多工件事务。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1101,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "original_question": "Why is the manifest part of the writer's contract instead of just the LaTeX file?",
+          "chinese_question": "为什么还需要manifest？",
+          "answer_reason": "提供机器可读的工件身份和依赖入口；长度/声明key不能证明正文支持、编译或科学质量。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1102,
+          "source_quiz_reused_from_full_read": true
+        }
+      ],
+      "practice_mappings": [
+        {
+          "type": "原Going further扩展建议，非编号练习",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1116,
+          "status": "原类型完整保留、给验收条件；本轮未实施"
+        },
+        {
+          "type": "原Going further扩展建议，非编号练习",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1117,
+          "status": "原类型完整保留、给验收条件；本轮未实施"
+        }
+      ],
+      "no_independent_numbered_exercises": true,
+      "source_test_definition_count": 15,
+      "source_test_execution": false,
+      "formal_written": true,
+      "root_professional_accepted": false,
+      "math_primary_entry": null
+    },
+    {
+      "lesson": "57-end-to-end-research-demo",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/57-end-to-end-research-demo/code/main.py",
+          "sha256": "17a5451ad65223d723bddc0b1ace72970a06cb11b3bd96fbbe332c3c3579abcc",
+          "bytes": 9007,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/57-end-to-end-research-demo/code/main.py",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "6f65cebe0f774c5bd06ad057270340ed75f4c19d"
+        },
+        {
+          "path": "phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "sha256": "bc5f490b9c8cc4de7dfeca1f5dc5c1fb50ca49931cae1cfe5a14c1f2a8550fcb",
+          "bytes": 4726,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "839017afca38b8d54984162f4ace190c67a463c7"
+        },
+        {
+          "path": "phases/19-capstone-projects/57-end-to-end-research-demo/docs/en.md",
+          "sha256": "6b5834a19a77be2247a16b6cdb41bd28e75eb10f4496609d5ca72ac846d48bf8",
+          "bytes": 6348,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/57-end-to-end-research-demo/docs/en.md",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "c9d87cfc9dba91c67eb542a4c8ee29247238d289"
+        },
+        {
+          "path": "phases/19-capstone-projects/57-end-to-end-research-demo/quiz.json",
+          "sha256": "7fc1057c957d824285a0a70b1d28448d391fd7b2fc0ff992b01bad8181f8fccb",
+          "bytes": 3664,
+          "blob": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/57-end-to-end-research-demo/quiz.json",
+          "date": "2026-10-12",
+          "read_scope": "全部文本完整静读",
+          "executed": false,
+          "root_verified_git_blob_sha": "9f6d555f7fa4079b26ff742153e99e288d628b99"
+        }
+      ],
+      "full_source_read_by_prior_agent_reused": true,
+      "source_read_authority": "维护/五站吸收/19E-研究工作流-55至57只读准备.json",
+      "header_mappings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1053,
+          "formal_excerpt": "第57课的真实组合范围",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## What composes here",
+          "source_line": 22,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1053,
+          "formal_excerpt": "50–53没有真实import/调用",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Why import, not copy",
+          "source_line": 39,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1053,
+          "formal_excerpt": "用import复用已有实现",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Determinism guarantees",
+          "source_line": 53,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1071,
+          "formal_excerpt": "同seed测试只比branch",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## The demo report shape",
+          "source_line": 59,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1071,
+          "formal_excerpt": "最终报告保scheduler_report",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Failure mode handling",
+          "source_line": 72,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1055,
+          "formal_excerpt": "没有trigger会抛NoTriggerError",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## The best-result picker",
+          "source_line": 86,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1055,
+          "formal_excerpt": "按trigger分支选最高mean",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Wiring the critic loop",
+          "source_line": 90,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1057,
+          "formal_excerpt": "critic按tag",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Wiring the paper writer",
+          "source_line": 96,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1069,
+          "formal_excerpt": "正式writer入口应要求",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 100,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1053,
+          "formal_excerpt": "静读本轮没有调用loader",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        },
+        {
+          "source_heading": "## Going further",
+          "source_line": 106,
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1119,
+          "formal_excerpt": "57原Going further有三项",
+          "disposition": "融入既有§19研究证据链，不新建来源副本章节；必要纠错在正文与原题理由中"
+        }
+      ],
+      "quiz_mappings": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original_question": "What is the demo's job in this lesson?",
+          "chinese_question": "demo负责什么？",
+          "answer_reason": "组合接口而非基准测试；实际仅加载54–56，50–53为stub，不能称完整科学管线。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1103,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original_question": "Why does the lesson load earlier lessons via importlib instead of a normal package import?",
+          "chinese_question": "为什么按路径importlib加载？",
+          "answer_reason": "各课是独立code目录而非已安装package；独立模块名避重名，但仍改sys.path/sys.modules且执行顶层。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1104,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original_question": "How does the best-result picker decide between branches when more than one triggered a paper?",
+          "chinese_question": "多个trigger怎样选best？",
+          "answer_reason": "最高mean reward，同分按branch ID字母序；还需合法同协议、样本数/选择偏差及独立确认，最高不等已证实。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1105,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original_question": "What error does the picker raise when the scheduler reports zero paper triggers?",
+          "chinese_question": "无trigger抛什么？",
+          "answer_reason": "NoTriggerError阻止继续；全orphan为BestResultError，部分orphan源码静默过滤，不能称所有故障自动短路。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1106,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 5,
+          "stage": "post",
+          "original_question": "Why does the demo run twice with the same seed in the determinism test?",
+          "chinese_question": "同seed跑两次核什么？",
+          "answer_reason": "原测试仅branch、reward六位精度与section IDs；没有完整工件字节、wall/路径/trace/文献真实性保证。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1107,
+          "source_quiz_reused_from_full_read": true
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "original_question": "What does the demo report contain after a successful run?",
+          "chinese_question": "报告有哪些字段？",
+          "answer_reason": "scheduler_report、best_branch、best_reward、critic_result、paper_manifest、stop_reason；每项仍需stage/证据版本和SHA，生成文件不等科学通过。",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1108,
+          "source_quiz_reused_from_full_read": true
+        }
+      ],
+      "practice_mappings": [
+        {
+          "type": "原Going further扩展建议，非编号练习",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1121,
+          "status": "原类型完整保留、给验收条件；本轮未实施"
+        },
+        {
+          "type": "原Going further扩展建议，非编号练习",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1122,
+          "status": "原类型完整保留、给验收条件；本轮未实施"
+        },
+        {
+          "type": "原Going further扩展建议，非编号练习",
+          "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+          "formal_line": 1123,
+          "status": "原类型完整保留、给验收条件；本轮未实施"
+        }
+      ],
+      "no_independent_numbered_exercises": true,
+      "source_test_definition_count": 10,
+      "source_test_execution": false,
+      "formal_written": true,
+      "root_professional_accepted": false,
+      "math_primary_entry": null
+    }
+  ],
+  "files": [
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "old_sha256": "8f99d8192a2c1b738c701d76a6676fe287fb7e0026be0a9b494b0d2ff5525edc",
+      "formal_sha256": "dda91dc57e9997b3a092f8f4691729c68ac39c98d99f245440bfb3c4a344b426",
+      "old_target_full_text_unchanged_outside_insert": true,
+      "old_python_blocks": 17,
+      "new_python_blocks": 17,
+      "old_new_code_proof": [
+        {
+          "old_block": 1,
+          "old_sha256_without_lf": "d6387bd8a37c07f93655d70a736825115feeaa36abe89441321a2d686ddd0670",
+          "old_sha256_with_lf": "e2f89258edeaeb4606303306397f15554dd3245505a2fe1c734e9cd452e01831",
+          "new_block": 1,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 1,
+            "sha256_with_lf": "e2f89258edeaeb4606303306397f15554dd3245505a2fe1c734e9cd452e01831",
+            "sha256_without_lf": "d6387bd8a37c07f93655d70a736825115feeaa36abe89441321a2d686ddd0670",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 1,
+              "line": 32,
+              "sha256": "e2f89258edeaeb4606303306397f15554dd3245505a2fe1c734e9cd452e01831",
+              "exit_code": 0,
+              "stdout": "标签聚合、覆盖率、排名相关性、否定子串反例均通过\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 2,
+          "old_sha256_without_lf": "6c7b1d3beff6af20453ca1b722889bec7d4276a9b9b33520afee6ba99424fb2c",
+          "old_sha256_with_lf": "9f4f8949a3ebe38720f1b3cd346a1935b1aee92ecdb046a5946e0bf0bfcc03d7",
+          "new_block": 2,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 2,
+            "sha256_with_lf": "9f4f8949a3ebe38720f1b3cd346a1935b1aee92ecdb046a5946e0bf0bfcc03d7",
+            "sha256_without_lf": "6c7b1d3beff6af20453ca1b722889bec7d4276a9b9b33520afee6ba99424fb2c",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 2,
+              "line": 84,
+              "sha256": "9f4f8949a3ebe38720f1b3cd346a1935b1aee92ecdb046a5946e0bf0bfcc03d7",
+              "exit_code": 0,
+              "stdout": "{'mean_all': 0.6, 'coverage': 0.6666666666666666, 'failures': ['c']} ；失败进入分母，门禁拒绝该 fixture\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 3,
+          "old_sha256_without_lf": "7bd89c8189a9046ea59fa4872093f81d13b142531c511142a07d9b70473eaa53",
+          "old_sha256_with_lf": "7371892023f57add389d5e2fd6f0f8c8c59f460c4a3060e29f1bcbd86784da0e",
+          "new_block": 3,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 3,
+            "sha256_with_lf": "7371892023f57add389d5e2fd6f0f8c8c59f460c4a3060e29f1bcbd86784da0e",
+            "sha256_without_lf": "7bd89c8189a9046ea59fa4872093f81d13b142531c511142a07d9b70473eaa53",
+            "proof_file": "维护/五站吸收/11-LLM工程-检索微调与评测-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 3,
+              "line": 131,
+              "sha256": "7bd89c8189a9046ea59fa4872093f81d13b142531c511142a07d9b70473eaa53",
+              "script_sha256": "7371892023f57add389d5e2fd6f0f8c8c59f460c4a3060e29f1bcbd86784da0e",
+              "sha_convention": "fenced body without final newline",
+              "exit_code": 0,
+              "execution_kind": "new",
+              "executed_this_batch": true,
+              "date": "2026-10-07",
+              "execution_date": "2026-10-07",
+              "script": "/tmp/study-source1-llmeng-retrieval-validation/06-3-formal.py",
+              "stdout": "权重.77/.66，Wilson45/50 0.7863950966521162 0.956524876008429 ；缓存字段/权限/重复ID失效通过\n完整失败分母和独立严重错误 {'mean_all': 0.5666666666666668, 'coverage': 0.6666666666666666, 'failures': ['timeout'], 'critical': ['critical'], 'critical_unknown': ['timeout']} 接受 False\n",
+              "stderr": "",
+              "elapsed_seconds": 0.016633542021736503,
+              "boundary": "CPU self-contained synthetic/formula/storage/provenance/control-flow probe; no real language model, API, GPU/ANN service or QLoRA"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 4,
+          "old_sha256_without_lf": "20dcd205131bb468f2297e3522fede943c3c6df03780a6e5efdb4c46121ba063",
+          "old_sha256_with_lf": "758b1a0f42793d02a0b41f2381e3ad5d7bfca98465235549362aea80d7c75f33",
+          "new_block": 4,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 4,
+            "sha256_with_lf": "758b1a0f42793d02a0b41f2381e3ad5d7bfca98465235549362aea80d7c75f33",
+            "sha256_without_lf": "20dcd205131bb468f2297e3522fede943c3c6df03780a6e5efdb4c46121ba063",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 3,
+              "line": 128,
+              "sha256": "758b1a0f42793d02a0b41f2381e3ad5d7bfca98465235549362aea80d7c75f33",
+              "exit_code": 0,
+              "stdout": "配对平均改善 0.05 ；案例 bootstrap 95% 区间 (-0.1, 0.2)\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 5,
+          "old_sha256_without_lf": "1fd15c5d1ede7d5c2cb2dd69c416314131bb3d9f77baa0bccef922e34473245c",
+          "old_sha256_with_lf": "3d28607b7a7a888b11fb8c491103daaaa255669f97e22e99ee525f3aa81b3ef2",
+          "new_block": 5,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 5,
+            "sha256_with_lf": "3d28607b7a7a888b11fb8c491103daaaa255669f97e22e99ee525f3aa81b3ef2",
+            "sha256_without_lf": "1fd15c5d1ede7d5c2cb2dd69c416314131bb3d9f77baa0bccef922e34473245c",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 4,
+              "line": 167,
+              "sha256": "3d28607b7a7a888b11fb8c491103daaaa255669f97e22e99ee525f3aa81b3ef2",
+              "exit_code": 0,
+              "stdout": "9 个长度/位置 fixture 的构造与 oracle 评分通过；不代表模型长文通过\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 6,
+          "old_sha256_without_lf": "5b749512fd75d080d011769221ecb4ff5a634c6a9de40d9d3b5a9c0fd02a51c7",
+          "old_sha256_with_lf": "522922c1fac771f42e8cb07d7e50d2b723852f9520dfb0de5ff910dd3c5f1be8",
+          "new_block": 6,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 6,
+            "sha256_with_lf": "522922c1fac771f42e8cb07d7e50d2b723852f9520dfb0de5ff910dd3c5f1be8",
+            "sha256_without_lf": "5b749512fd75d080d011769221ecb4ff5a634c6a9de40d9d3b5a9c0fd02a51c7",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 5,
+              "line": 221,
+              "sha256": "522922c1fac771f42e8cb07d7e50d2b723852f9520dfb0de5ff910dd3c5f1be8",
+              "exit_code": 0,
+              "stdout": "多 needle： {'item_accuracy': 0.6666666666666666, 'all_correct': False, 'schema_ok': True} ；最终位置已记录，额外 key 不能全题通过\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 7,
+          "old_sha256_without_lf": "abd23b2580e10cb089572edb85c2e47b55a249b4805a0d6c340fe4330a950383",
+          "old_sha256_with_lf": "9499c3be814f1930d719ec226968e3ff88ab193f6609ecd54711fbed402fff7a",
+          "new_block": 7,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 7,
+            "sha256_with_lf": "9499c3be814f1930d719ec226968e3ff88ab193f6609ecd54711fbed402fff7a",
+            "sha256_without_lf": "abd23b2580e10cb089572edb85c2e47b55a249b4805a0d6c340fe4330a950383",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 6,
+              "line": 277,
+              "sha256": "9499c3be814f1930d719ec226968e3ff88ab193f6609ecd54711fbed402fff7a",
+              "exit_code": 0,
+              "stdout": "两跳、顺序更新、未定义引用规则通过\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 8,
+          "old_sha256_without_lf": "dc848331d420d2a618bb34bf7cd468ede4a07becf616a3d8e3d73962919355e9",
+          "old_sha256_with_lf": "0cd04367f63738a0a8521be1fd7aa9b21fdd2f2d497a61bc9f765593ec7f2b85",
+          "new_block": 8,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 8,
+            "sha256_with_lf": "0cd04367f63738a0a8521be1fd7aa9b21fdd2f2d497a61bc9f765593ec7f2b85",
+            "sha256_without_lf": "dc848331d420d2a618bb34bf7cd468ede4a07becf616a3d8e3d73962919355e9",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 7,
+              "line": 325,
+              "sha256": "0cd04367f63738a0a8521be1fd7aa9b21fdd2f2d497a61bc9f765593ec7f2b85",
+              "exit_code": 0,
+              "stdout": "{'ttft': 0.4, 'latency': 1.2, 'tpot': 0.19999999999999998} ；单 token TPOT 不适用\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 9,
+          "old_sha256_without_lf": "791ebd1b2ee25381b4bb5e7ac57cbec193f88e24047aa02b421ec19810623e96",
+          "old_sha256_with_lf": "0b129a31b656b7af29c2d660dde1f042f0ed06b8f226b180d501f00763b21a7b",
+          "new_block": 9,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 9,
+            "sha256_with_lf": "0b129a31b656b7af29c2d660dde1f042f0ed06b8f226b180d501f00763b21a7b",
+            "sha256_without_lf": "791ebd1b2ee25381b4bb5e7ac57cbec193f88e24047aa02b421ec19810623e96",
+            "proof_file": "维护/五站吸收/10-从零LLM-分词数据与模型交付-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 8,
+              "sha256": "791ebd1b2ee25381b4bb5e7ac57cbec193f88e24047aa02b421ec19810623e96",
+              "sha_convention": "fenced body without final newline",
+              "execution_date": "2026-10-06",
+              "exit_code": 0,
+              "stdout": "候选A A {'loglikelihood': -1.1956740015112408, 'mean_logprob': -0.5978370007556204, 'tokens': 2, 'is_greedy': True} 候选B {'loglikelihood': -0.7985076962177716, 'mean_logprob': -0.7985076962177716, 'tokens': 1, 'is_greedy': False} ；sum与长度平均排名不同\n按有效target全局NLL/PPL 1.1 3.0041660239464334\n",
+              "stderr": "",
+              "elapsed_seconds": 0.04544670809991658,
+              "script": "/tmp/study-source1-llm-data-validation/06-block8.py",
+              "execution_kind": "new",
+              "executed_in_original_batch": true,
+              "executed_during_report_recheck": false,
+              "evidence_file": "/tmp/study-source1-llm-data-validation/evaluation.json",
+              "evidence_json_sha256": "4911b9a3cea037c2972cef1575c7c722944b30064461b34b991c82c90e7720e2",
+              "report_recheck_date": "2026-10-07",
+              "script_file_sha256": "0b129a31b656b7af29c2d660dde1f042f0ed06b8f226b180d501f00763b21a7b",
+              "boundary": "既有CPU确定性/合成机制程序；完整模型训练仅16块3的35,968参数人工文法；规格DAG不是服务训练；无下载/API/GPU"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 10,
+          "old_sha256_without_lf": "e7344a25992d9660c9f3eb91b6ea9bd75199f9c196a65baaf4c41341eb703cd6",
+          "old_sha256_with_lf": "7e7f4da4845a06de534ff350819f1642e5ac947fd48d87826a7d18a4bd5d02a2",
+          "new_block": 10,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 10,
+            "sha256_with_lf": "7e7f4da4845a06de534ff350819f1642e5ac947fd48d87826a7d18a4bd5d02a2",
+            "sha256_without_lf": "e7344a25992d9660c9f3eb91b6ea9bd75199f9c196a65baaf4c41341eb703cd6",
+            "proof_file": "维护/五站吸收/10-从零LLM-分词数据与模型交付-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 9,
+              "sha256": "e7344a25992d9660c9f3eb91b6ea9bd75199f9c196a65baaf4c41341eb703cd6",
+              "sha_convention": "fenced body without final newline",
+              "execution_date": "2026-10-06",
+              "exit_code": 0,
+              "stdout": "基线/候选 {'mean_all': 0.8333333333333334, 'scored_coverage': 1.0, 'failed_ids': []} {'mean_all': 0.6666666666666666, 'scored_coverage': 0.8333333333333334, 'failed_ids': ['empty']} case diff {'improved': ['s1'], 'regressed': ['empty', 't1'], 'same': ['amb', 'b1', 'f1']}\n五次同样错误的答案一致性 {'modal_fraction': 1.0, 'pairwise_exact_agreement': 1.0}\n",
+              "stderr": "",
+              "elapsed_seconds": 0.009381209034472704,
+              "script": "/tmp/study-source1-llm-data-validation/06-block9.py",
+              "execution_kind": "new",
+              "executed_in_original_batch": true,
+              "executed_during_report_recheck": false,
+              "evidence_file": "/tmp/study-source1-llm-data-validation/evaluation.json",
+              "evidence_json_sha256": "4911b9a3cea037c2972cef1575c7c722944b30064461b34b991c82c90e7720e2",
+              "report_recheck_date": "2026-10-07",
+              "script_file_sha256": "7e7f4da4845a06de534ff350819f1642e5ac947fd48d87826a7d18a4bd5d02a2",
+              "boundary": "既有CPU确定性/合成机制程序；完整模型训练仅16块3的35,968参数人工文法；规格DAG不是服务训练；无下载/API/GPU"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 11,
+          "old_sha256_without_lf": "037f8c4ee0fc6a941cff947453e26f15b1e8bd08478ff6d74e298f45e6cb15aa",
+          "old_sha256_with_lf": "d47efb4763948dcad426d13008020de82bef75894dd441cc2172868c1a52866c",
+          "new_block": 11,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 11,
+            "sha256_with_lf": "d47efb4763948dcad426d13008020de82bef75894dd441cc2172868c1a52866c",
+            "sha256_without_lf": "037f8c4ee0fc6a941cff947453e26f15b1e8bd08478ff6d74e298f45e6cb15aa",
+            "proof_file": "维护/五站吸收/10-从零LLM-分词数据与模型交付-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 10,
+              "sha256": "037f8c4ee0fc6a941cff947453e26f15b1e8bd08478ff6d74e298f45e6cb15aa",
+              "sha_convention": "fenced body without final newline",
+              "execution_date": "2026-10-06",
+              "exit_code": 0,
+              "stdout": "Elo {'A': 1514.5304984710244, 'B': 1485.4695015289756} ；固定fixture胜负，不代表公开model榜单\n",
+              "stderr": "",
+              "elapsed_seconds": 0.0075185419991612434,
+              "script": "/tmp/study-source1-llm-data-validation/06-block10.py",
+              "execution_kind": "new",
+              "executed_in_original_batch": true,
+              "executed_during_report_recheck": false,
+              "evidence_file": "/tmp/study-source1-llm-data-validation/evaluation.json",
+              "evidence_json_sha256": "4911b9a3cea037c2972cef1575c7c722944b30064461b34b991c82c90e7720e2",
+              "report_recheck_date": "2026-10-07",
+              "script_file_sha256": "d47efb4763948dcad426d13008020de82bef75894dd441cc2172868c1a52866c",
+              "boundary": "既有CPU确定性/合成机制程序；完整模型训练仅16块3的35,968参数人工文法；规格DAG不是服务训练；无下载/API/GPU"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 12,
+          "old_sha256_without_lf": "9799c57d6b5837979669028529ef634824e5ccdb527d814b9157f26340493ee0",
+          "old_sha256_with_lf": "f3781f1d7d6a4c6a61e7fe63b09a7ccfddd3563abb761f1a9cedfcd5f66a24c0",
+          "new_block": 12,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 12,
+            "sha256_with_lf": "f3781f1d7d6a4c6a61e7fe63b09a7ccfddd3563abb761f1a9cedfcd5f66a24c0",
+            "sha256_without_lf": "9799c57d6b5837979669028529ef634824e5ccdb527d814b9157f26340493ee0",
+            "proof_file": "维护/五站吸收/14-Agent工程-框架交互与评测-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 12,
+              "line": 648,
+              "sha256": "f3781f1d7d6a4c6a61e7fe63b09a7ccfddd3563abb761f1a9cedfcd5f66a24c0",
+              "sha256_convention": "fenced body including terminal LF",
+              "script": "/tmp/study-agents1324-root-final/03.py",
+              "argv": [
+                "/Users/wangshuiqing/codex-tools/bin/python3",
+                "-I",
+                "/tmp/study-agents1324-root-final/03.py"
+              ],
+              "cwd": "/tmp/study-agents1324-root-final",
+              "runtime": "Python3.12.13标准库，手动事件/字典/local sink，没有SDK/API/网络/音频/测试框架运行",
+              "execution_date": "2026-10-09",
+              "exit_code": 0,
+              "stdout": "逐ID转换、回归/漏跑/timeout/无效基线通过；5任务账本 {'attempted': 5, 'counts': {'resolved': 1, 'failed': 1, 'timeout': 1, 'invalid_baseline': 1, 'unknown': 1}, 'resolved_rate': 0.2}\n",
+              "stderr": "",
+              "reused": false,
+              "source_executed": false
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 13,
+          "old_sha256_without_lf": "53b50fcafe6558eb855bcae1d2afa6c176d7c2b373d60f774baea9f00c42b537",
+          "old_sha256_with_lf": "2edbabb3373e139e83241871144aa63e3b874e594da18735f7967a5865b78de5",
+          "new_block": 13,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 13,
+            "sha256_with_lf": "2edbabb3373e139e83241871144aa63e3b874e594da18735f7967a5865b78de5",
+            "sha256_without_lf": "53b50fcafe6558eb855bcae1d2afa6c176d7c2b373d60f774baea9f00c42b537",
+            "proof_file": "维护/五站吸收/14-Agent工程-协作风险与运行-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 13,
+              "line": 778,
+              "sha256": "2edbabb3373e139e83241871144aa63e3b874e594da18735f7967a5865b78de5",
+              "sha256_convention": "fenced body including terminal LF",
+              "script": "/tmp/study-agents2530-root-final/03.py",
+              "argv": [
+                "/Users/wangshuiqing/codex-tools/bin/python3",
+                "-I",
+                "/tmp/study-agents2530-root-final/03.py"
+              ],
+              "cwd": "/tmp/study-agents2530-root-final",
+              "runtime": "Python3.12.13标准库，人工效果标签/有理数计数，未CI/模型/真实效果",
+              "execution_date": "2026-10-09",
+              "exit_code": 0,
+              "stdout": "全部attempt保严重/未知效果；5个百分点精确边界；缺case和非法baseline/阈值拒绝\n",
+              "stderr": "",
+              "reused": false
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 14,
+          "old_sha256_without_lf": "ba3d6ceec86e4180a7eeff375016ff4973a4b7a320daebc07eb422f77edd6221",
+          "old_sha256_with_lf": "531c55905042c1f5109d978303f83350741bbd87133af1b1342558314d58eb13",
+          "new_block": 14,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 14,
+            "sha256_with_lf": "531c55905042c1f5109d978303f83350741bbd87133af1b1342558314d58eb13",
+            "sha256_without_lf": "ba3d6ceec86e4180a7eeff375016ff4973a4b7a320daebc07eb422f77edd6221",
+            "proof_file": "维护/五站吸收/15-自主系统覆盖与代码核对.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 14,
+              "sha256": "531c55905042c1f5109d978303f83350741bbd87133af1b1342558314d58eb13",
+              "line": 879,
+              "argv": [
+                "/Users/wangshuiqing/codex-tools/bin/python3",
+                "-I",
+                "/tmp/study-autonomous-root-final-code/06-评测与实验管理-14.py"
+              ],
+              "runtime": "Python 3.12.13 标准库",
+              "execution_date": "2026-10-09",
+              "elapsed_seconds": 0.008314625010825694,
+              "exit_code": 0,
+              "stdout": "50% 步数上限：68 / 138 / 692；70步(.99)： 0.494839\n相同 H50=10h 的4倍余量，示例斜率1/3： 0.8 0.984615\n假设14h、7月翻倍，30h/168h交点： 7.697 25.095\n",
+              "stderr": "",
+              "boundary": "只运行根修正的新围栏，旧26块和源程序未运行"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 15,
+          "old_sha256_without_lf": "0aef20636213876cda2946a0f9bef415fba1d6d01bd0775c586d0f7d6b74325a",
+          "old_sha256_with_lf": "f080f9c81b0ce10d96454b97b7831b70041463f23ce882f0ca7997ae6d7f1bf0",
+          "new_block": 15,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 15,
+            "sha256_with_lf": "f080f9c81b0ce10d96454b97b7831b70041463f23ce882f0ca7997ae6d7f1bf0",
+            "sha256_without_lf": "0aef20636213876cda2946a0f9bef415fba1d6d01bd0775c586d0f7d6b74325a",
+            "proof_file": "维护/五站吸收/16-多Agent与群体-学习运行与评测-覆盖与验证.json",
+            "proof": {
+              "lesson": 24,
+              "document": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/LLM 工程实践/06-评测与实验管理.md",
+              "block": 15,
+              "code_sha256": "f080f9c81b0ce10d96454b97b7831b70041463f23ce882f0ca7997ae6d7f1bf0",
+              "code_file": "/tmp/study-swarms-17-25-final-code/24-block15.py",
+              "runtime": "Python 3.12.13 / 标准库",
+              "date": "2026-10-10",
+              "command": [
+                "/Users/wangshuiqing/codex-tools/bin/python3",
+                "/tmp/study-swarms-17-25-final-code/24-block15.py"
+              ],
+              "exit_code": 0,
+              "stdout": "全部尝试费用/真实完成里程碑： 0.60 / 2 = 0.30\n错误完成率分母为 1.2 ；零成果保留未定义，失败费用不消失\n",
+              "stderr": "",
+              "scope": "合成离线机制例，不是源程序/模型/生产实验"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 16,
+          "old_sha256_without_lf": "676bf4e74b2dcebbceaab2dd4c189651004ad42390e0df9ed40ac3ac1af785eb",
+          "old_sha256_with_lf": "d495bec04a3324328fd31d47fe194b64426457e8ab9ec7e841dfbcd054993943",
+          "new_block": 16,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 16,
+            "sha256_with_lf": "d495bec04a3324328fd31d47fe194b64426457e8ab9ec7e841dfbcd054993943",
+            "sha256_without_lf": "676bf4e74b2dcebbceaab2dd4c189651004ad42390e0df9ed40ac3ac1af785eb",
+            "proof_file": "维护/五站吸收/17-基础设施与生产-发布运营与治理-覆盖与验证.json",
+            "proof": {
+              "path": "LLM 工程实践/06-评测与实验管理.md",
+              "line": 1220,
+              "sha256": "d495bec04a3324328fd31d47fe194b64426457e8ab9ec7e841dfbcd054993943",
+              "bytes": 1904,
+              "program_path": "/tmp/study-infra-20-28-runs/1.py",
+              "stdout": "3%基线相对+5%，每组 207938 总样本 415876\nCUPED教学theta/剩余方差比例 1.4 0.3\n独立20零假设至少一假阳性 0.641514\n",
+              "stderr": "",
+              "exit": 0,
+              "date": "2026-10-10",
+              "environment": "Python 3.12.13",
+              "source_program_run": false
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 17,
+          "old_sha256_without_lf": "a5b30277c6b53b70983ee17c8db753e7cc8b6380f1713fa1b332b23fb819d423",
+          "old_sha256_with_lf": "c3393def72569473eec192931b3d44a07f0447f0307e5dbc4d7a00bf81afe70d",
+          "new_block": 17,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 17,
+            "sha256_with_lf": "c3393def72569473eec192931b3d44a07f0447f0307e5dbc4d7a00bf81afe70d",
+            "sha256_without_lf": "a5b30277c6b53b70983ee17c8db753e7cc8b6380f1713fa1b332b23fb819d423",
+            "proof_file": "维护/五站吸收/18-伦理安全与对齐-监督红队与风险评估-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/06-评测与实验管理.md",
+              "block": 17,
+              "sha256": "c3393def72569473eec192931b3d44a07f0447f0307e5dbc4d7a00bf81afe70d",
+              "sha256_fence_without_final_lf": "a5b30277c6b53b70983ee17c8db753e7cc8b6380f1713fa1b332b23fb819d423",
+              "script": "/tmp/study-ethics-17-ledger.py",
+              "exit_code": 0,
+              "stdout": "评分路径、重复题与schema校验通过；raw答题准确率1/2，guarded为1但覆盖仅1/3；两者全部题正确率1/3，未知1题\n",
+              "stderr": "",
+              "date": "2026-10-11",
+              "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+              "version": "Python 3.12.13",
+              "scope": "只人工标签评分路径/schema/分母/拒绝/缺失/重复校验；未执行WMDP或真实模型"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        }
+      ]
+    },
+    {
+      "path": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+      "old_sha256": "f8974be0a984ba1874bef92a8163d3c9797c0bd3346abc60541cd13b50de0b9e",
+      "formal_sha256": "71bfeaa11e2f8cedbef5404af7c6bc66c98fbb7f2ada8a6c3350eb00559feeeb",
+      "old_target_full_text_unchanged_outside_insert": true,
+      "old_python_blocks": 5,
+      "new_python_blocks": 6,
+      "old_new_code_proof": [
+        {
+          "old_block": 1,
+          "old_sha256_without_lf": "6db3f5ea141bde4150fc3594ca7a87d6d8c40282f00a3e41929d2c135a421f93",
+          "old_sha256_with_lf": "48d5a03fe8face0183c0e4571e49aa9a4d49c9688407c5591293b19d1fe5d9db",
+          "new_block": 1,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 1,
+            "sha256_with_lf": "48d5a03fe8face0183c0e4571e49aa9a4d49c9688407c5591293b19d1fe5d9db",
+            "sha256_without_lf": "6db3f5ea141bde4150fc3594ca7a87d6d8c40282f00a3e41929d2c135a421f93",
+            "proof_file": null,
+            "proof": null,
+            "mode": "旧参考同字节保持，未找到可绑定持久实跑证据；不记通过"
+          }
+        },
+        {
+          "old_block": 2,
+          "old_sha256_without_lf": "845e3d95f2238eb9860ea4f969a3f9b0def18f1832bb2bb4e303a556d7d8bd62",
+          "old_sha256_with_lf": "f0ba5aaaab2bd425be31b7ad11e31caa547c3585009a0d6b1a6513aced418da1",
+          "new_block": 2,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 2,
+            "sha256_with_lf": "f0ba5aaaab2bd425be31b7ad11e31caa547c3585009a0d6b1a6513aced418da1",
+            "sha256_without_lf": "845e3d95f2238eb9860ea4f969a3f9b0def18f1832bb2bb4e303a556d7d8bd62",
+            "proof_file": null,
+            "proof": null,
+            "mode": "旧参考同字节保持，未找到可绑定持久实跑证据；不记通过"
+          }
+        },
+        {
+          "old_block": 3,
+          "old_sha256_without_lf": "ad26b6755f0d8db47d735e9b94f074406d95529bd2159839a7437028fc0a0405",
+          "old_sha256_with_lf": "47d58bba8d7a43948e35e2880344d47dad16a3628a9d20c0c201a5dfe04cc4a3",
+          "new_block": 3,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 3,
+            "sha256_with_lf": "47d58bba8d7a43948e35e2880344d47dad16a3628a9d20c0c201a5dfe04cc4a3",
+            "sha256_without_lf": "ad26b6755f0d8db47d735e9b94f074406d95529bd2159839a7437028fc0a0405",
+            "proof_file": "维护/五站吸收/02-机器学习-评价与实验-覆盖与验证.json",
+            "proof": {
+              "file": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+              "block": 3,
+              "line": 136,
+              "sha256": "ad26b6755f0d8db47d735e9b94f074406d95529bd2159839a7437028fc0a0405",
+              "status": "已运行通过",
+              "returncode": 0,
+              "stdout": "观测/置换均值/p 0.975 0.4894 0.0099\n",
+              "stderr": ""
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        },
+        {
+          "old_block": 4,
+          "old_sha256_without_lf": "8e483740442374a13d6a0f966de3b1d650591ebfa66dcdc5b37755acff49a98b",
+          "old_sha256_with_lf": "612db101e5e1334780c8fadf1bad143da9a9a4486aeda01a343576cf7a1551d2",
+          "new_block": 5,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 4,
+            "sha256_with_lf": "612db101e5e1334780c8fadf1bad143da9a9a4486aeda01a343576cf7a1551d2",
+            "sha256_without_lf": "8e483740442374a13d6a0f966de3b1d650591ebfa66dcdc5b37755acff49a98b",
+            "proof_file": null,
+            "proof": null,
+            "mode": "旧参考同字节保持，未找到可绑定持久实跑证据；不记通过"
+          }
+        },
+        {
+          "old_block": 5,
+          "old_sha256_without_lf": "e65e9045c25e67a1c74ba7d325248e45d54b999f84b69016d232b9eaaf78ed53",
+          "old_sha256_with_lf": "4b647461a7f8d7dadeebb68aa16b6e8b03447b611c55137bcf682ed14e25f118",
+          "new_block": 6,
+          "bytes_unchanged": true,
+          "persisted_proof": {
+            "block": 5,
+            "sha256_with_lf": "4b647461a7f8d7dadeebb68aa16b6e8b03447b611c55137bcf682ed14e25f118",
+            "sha256_without_lf": "e65e9045c25e67a1c74ba7d325248e45d54b999f84b69016d232b9eaaf78ed53",
+            "proof_file": null,
+            "proof": null,
+            "mode": "旧参考同字节保持，未找到可绑定持久实跑证据；不记通过"
+          }
+        }
+      ]
+    }
+  ],
+  "new_code": [
+    {
+      "file": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+      "python_block": 4,
+      "formal_line": 178,
+      "code_sha256_without_lf": "70617504e246c37cb86e96224c18bc45ee513fc05a47e7057e6d8918d5a391e2",
+      "script_sha256_with_lf": "6ce618279aa96174e8e1c824c808f1f759e4909ec754237c05ffe49ab5edd530",
+      "sha_convention": "实际Markdown围栏正文加终止LF与实际脚本逐字节相同",
+      "script": "/tmp/study-capstone-paired-contract.py",
+      "execution_date": "2026-10-12",
+      "argv": [
+        "/Users/wangshuiqing/codex-tools/bin/python3",
+        "-I",
+        "/tmp/study-capstone-paired-contract.py"
+      ],
+      "cwd": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study",
+      "environment": {
+        "python_version": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+        "platform": "macOS-26.4.1-arm64-arm-64bit",
+        "dependencies": "Python standard library only, CPU"
+      },
+      "exit_code": 0,
+      "stdout": "完整种子/失败/类型/finite合同通过；效应/SE/df {'n': 3, 'effect': 2.0, 'se': 0.5773502691896258, 'df': 2, 't': 3.464101615137754, 'relative': 0.16666666666666666, 'status': 'ready_for_t'}\nPPL原相对下降/log绝对差/来源相对log 0.125 0.13353139262452274 0.03852901558847921\n单配对未知、零SE退化、零基线相对率未知均通过；未计算p或运行真实实验\n过大整数、差值/SE/相对率溢出、伪字符串状态拒绝；输入记录保持不变\n",
+      "stderr": "",
+      "stdout_provenance": "实际根复核后最终代码运行记录，逐字复制/tmp/study-capstone-paired-contract-root-review-run.json",
+      "boundary": "只执行改变后的自写新增统计围栏；旧17+5块及source/candidate/真实实验全部未运行",
+      "previous_script_sha256": "7834915bf25e5e4cf53afa34ab737090b2d57c38a5db6d2a0c80a3172dd9c46b",
+      "rerun_reason": "根专业复核补巨大int表示限制、派生统计量有限性、terminal严格字符串和拒绝不改输入反例"
+    }
+  ],
+  "verification": {
+    "git_diff_check": "两个专属文件成功，0输出",
+    "old_blocks_byte_preservation": "17+5全部SHA同字节；旧成功证明仅按root持久证据复用",
+    "new_code_final_sha_executed": true,
+    "headers_mapped": 53,
+    "quiz_mapped": 30,
+    "going_further_mapped": 5,
+    "local_links": [
+      {
+        "from": "LLM 工程实践/06-评测与实验管理.md",
+        "target": "12-文本检索与RAG文档工程.md",
+        "file_exists": true,
+        "anchor_manual_checked": false
+      },
+      {
+        "from": "LLM 工程实践/06-评测与实验管理.md",
+        "target": "../Agentic%20Design%20Patterns/01-核心章节/18-安全模式.md",
+        "file_exists": true,
+        "anchor_manual_checked": false
+      },
+      {
+        "from": "LLM 工程实践/06-评测与实验管理.md",
+        "target": "../AI%20算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md#64-重复训练按种子配对先守身份再计算效应",
+        "file_exists": true,
+        "anchor_manual_checked": true
+      },
+      {
+        "from": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+        "target": "../../LLM%20工程实践/06-评测与实验管理.md#研究判定必须保留效应区间与未知原因",
+        "file_exists": true,
+        "anchor_manual_checked": true
+      }
+    ],
+    "check_knowledge": "由根代理统一运行，未在本子任务重复冒称验收",
+    "no_memory_relevant_hits": true
+  },
+  "not_verified": [
+    "来源51/52/53/54/57源码与测试全部未执行，任何source数量/断言只是静读",
+    "未调用真实文献API/DOI、模型/judge、训练/GPU、真实实验、TeX编译、投稿或发布",
+    "动态只复用根与准备记录静态核对，浏览器0；根最终登记由根统一",
+    "统计11旧5块中4块没有可绑定持久成功SHA；保持原字节/旧叙述但本批不声称已实跑成功",
+    "真实runner资源与权限隔离、整进程树、RSS不支持政策、跨平台确定性尚未部署/核验",
+    "真实引文支持、图文件存在、图dataSHA和generation原子发布为教学验收合同，未实现真实论文产物"
+  ],
+  "primary_sources_reused": [
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm",
+      "date": "2026-10-12",
+      "route": "web open",
+      "scope": "Purpose: paired samples一一对应/差值，与desired practical threshold；未将下面Welch unpaired formula用为paired公式"
+    },
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+      "date": "2026-10-12",
+      "route": "web click/open",
+      "scope": "Definition Confidence Interval和Hypothesis Test，SE=s/sqrt(N)、df=N−1、CI frequentist解释；配对差视单样本为root数学推导，非该页声称源代码正确"
+    },
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri33.htm",
+      "date": "2026-10-12",
+      "route": "web open",
+      "scope": "Objective selection、comparative/screening/response surface/interaction与resources；非全文手册"
+    },
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri333.htm",
+      "date": "2026-10-12",
+      "route": "web click",
+      "scope": "two level fullfactorial定义2^k与table；5因素推荐仅该经典手册情境，不强写所有任务现行阈值"
+    }
+  ],
+  "root_math_evidence_reused": {
+    "date": "2026-10-12",
+    "method": "根独立标准库math计算，并非执行来源函数",
+    "log_32_minus_log_28": 0.13353139262452274,
+    "source_relative_log_mean_case": 0.03852901558847921,
+    "raw_ppl_relative_drop": 0.125,
+    "loss_drop_point1_implies_ppl_relative_drop": 0.09516258196404048,
+    "scope": "仅明确效应口径，不执行Lentz/p值检验或实验，不称统计显著结果"
+  },
+  "default_demo_static_convergence_reused": {
+    "method": "完整五维向量与字面长度独立算术核对；未import/call来源函数、未执行source或测试",
+    "assumptions": {
+      "selected_branch": "alpha或其它被picker选中的合法分支",
+      "selected_reward": "假设最终branch mean>=0.8，因此originality_tag初始high、novelty=9；未运行NumPy reward或claim实际选择值",
+      "critic_config": {
+        "max_rounds": 6,
+        "target_score": 8.0,
+        "plateau_epsilon": 0.1,
+        "plateau_window": 2
+      }
+    },
+    "literal_lengths": {
+      "initial_intro": 20,
+      "first_revision_results": 80,
+      "new_method": 237,
+      "new_related_work": 225,
+      "sum_after_first_revision": 562,
+      "average_after_first_revision": 140.5,
+      "later_expand_growth": 81,
+      "later_average_growth": 20.25
+    },
+    "rounding": "source先round每维到2位，再Critique.mean对五个已舍入分数求mean；独立scalar算术使用相同Python float+round规则，最后.082等差值仅作显示，实际浮点远离.1边界",
+    "rounds": [
+      {
+        "round": 1,
+        "scores_after_source_round_to_2_decimals": {
+          "clarity": 3.2,
+          "novelty": 9.0,
+          "evidence": 2.0,
+          "methodology": 4.0,
+          "related_work": 4.0
+        },
+        "mean_of_rounded_vector": 4.44,
+        "mean_delta": null,
+        "all_dimensions_ge_8": false,
+        "plateau": false,
+        "revision_executed": true,
+        "terminal": "continue"
+      },
+      {
+        "round": 2,
+        "scores_after_source_round_to_2_decimals": {
+          "clarity": 5.81,
+          "novelty": 9.0,
+          "evidence": 5.5,
+          "methodology": 9.0,
+          "related_work": 9.0
+        },
+        "mean_of_rounded_vector": 7.662,
+        "mean_delta": 3.222,
+        "all_dimensions_ge_8": false,
+        "plateau": false,
+        "revision_executed": true,
+        "terminal": "continue"
+      },
+      {
+        "round": 3,
+        "scores_after_source_round_to_2_decimals": {
+          "clarity": 6.21,
+          "novelty": 9.0,
+          "evidence": 9.0,
+          "methodology": 9.0,
+          "related_work": 9.0
+        },
+        "mean_of_rounded_vector": 8.442,
+        "mean_delta": 0.78,
+        "all_dimensions_ge_8": false,
+        "plateau": false,
+        "revision_executed": true,
+        "terminal": "continue"
+      },
+      {
+        "round": 4,
+        "scores_after_source_round_to_2_decimals": {
+          "clarity": 6.62,
+          "novelty": 9.0,
+          "evidence": 9.0,
+          "methodology": 9.0,
+          "related_work": 9.0
+        },
+        "mean_of_rounded_vector": 8.524,
+        "mean_delta": 0.082,
+        "all_dimensions_ge_8": false,
+        "plateau": false,
+        "revision_executed": true,
+        "terminal": "continue"
+      },
+      {
+        "round": 5,
+        "scores_after_source_round_to_2_decimals": {
+          "clarity": 7.03,
+          "novelty": 9.0,
+          "evidence": 9.0,
+          "methodology": 9.0,
+          "related_work": 9.0
+        },
+        "mean_of_rounded_vector": 8.606,
+        "mean_delta": 0.082,
+        "all_dimensions_ge_8": false,
+        "plateau": true,
+        "revision_executed": false,
+        "terminal": "converged/plateau"
+      }
+    ],
+    "plateau_derivation": "r3→r4均值增量.082、r4→r5均值增量.082，均<=.1；r5窗口覆盖r3/r4/r5，所以target未达而plateau先于budget触发",
+    "corrected_outcome": "r5返回status converged/reason plateau，clarity7.03<8；未执行r5 revision，更未到r6。因此converged状态不表示五维目标达标",
+    "test_boundary": "test_demo_runs_to_completion仅断言critic_result.status==converged，该断言与此静态路径相容；未运行整体测试，不据此声称全部测试通过或失败",
+    "variant_boundary": "若reward在[.6,.8)则初始novelty6但首修升high，r2以后相同；其它初态/阈值/输入另核，不能将此条件推导写成实测默认reward保证",
+    "general_budget_bug_separation": "CriticLoop一般budget路径最后修改paper却返回修改前score的静态问题仍成立；本例在r5 plateau停止，不走该budget路径，不能用它描述此默认路径"
+  },
+  "new_code_run_history": [
+    {
+      "file": "AI 算法基础/数学与数值计算专题/11-统计估计检验与实验判断.md",
+      "python_block": 4,
+      "formal_line": 178,
+      "code_sha256_without_lf": "b88c25d6a33bb034a0f34a7e7821b5bff0e132800d2f4178d96091a53ea84b18",
+      "script_sha256_with_lf": "7834915bf25e5e4cf53afa34ab737090b2d57c38a5db6d2a0c80a3172dd9c46b",
+      "script": "/tmp/study-capstone-paired-contract.py",
+      "execution_date": "2026-10-12",
+      "argv": [
+        "python3",
+        "/tmp/study-capstone-paired-contract.py"
+      ],
+      "cwd": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study",
+      "environment": {
+        "python_executable": "/Users/wangshuiqing/codex-tools/bin/python3",
+        "python_version": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+        "platform": "macOS-26.4.1-arm64-arm-64bit",
+        "dependencies": "Python standard library only, CPU"
+      },
+      "exit_code": 0,
+      "stdout": "完整种子/失败/类型/finite合同通过；效应/SE/df {'n': 3, 'effect': 2.0, 'se': 0.5773502691896258, 'df': 2, 't': 3.464101615137754, 'relative': 0.16666666666666666, 'status': 'ready_for_t'}\nPPL原相对下降/log绝对差/来源相对log 0.125 0.13353139262452274 0.03852901558847921\n单配对未知、零SE退化、零基线相对率未知均通过；未计算p或运行真实实验\n",
+      "stderr": "",
+      "stdout_provenance": "实际final代码在本代理第二次exec工具运行输出，原样保存；第一次尚未增加差值溢出反例不作为finalSHA证据",
+      "boundary": "独立自写人工fixture只核合同/SE算术/效应口径，未运行来源、数值t尾概率库、真实实验或模型"
+    }
+  ],
+  "root_review_fixes": {
+    "date": "2026-10-12",
+    "math_input_and_derived_values": "过大int转换OverflowError统一ValueError，差值/effect/SE/t/relative不得非有限，terminal type str严格；拒绝不改输入负例实跑",
+    "experimental_identity": "共同不变量一致；候选/基线code/config/model各自冻结修订且允许变化明确，不要求全部SHA相同",
+    "rerun_scope": "只有改变后的新增统计围栏；17+5旧块不跑",
+    "root_professional_acceptance": "仍交根统一判定"
+  },
+  "root_snapshot_note": "保实际写作/根修改后新程序与历史版本；根另补float64精度说明，不改code/不重跑。最终正式SHA/定位以本覆盖核对为准。"
+}

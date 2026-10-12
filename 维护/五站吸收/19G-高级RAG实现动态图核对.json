@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-12",
+  "scope": "64–69全部6实际最后注册函数静态完整读取，capstone-i新增helper1–47完整；b/d必要helper此前静读",
+  "counts": {
+    "widgets": 6,
+    "browser_runs": 0,
+    "source_programs_executed": 0,
+    "accepted_unchanged": 485
+  },
+  "entries": [
+    {
+      "lesson": "64-chunking-strategies-advanced",
+      "widget": "ci-chunk-boundaries",
+      "provider": "figures-capstone-i.js",
+      "function": "chunkBoundaries",
+      "start_line": 49,
+      "end_line": 82,
+      "provider_sha256": "46fc8d99d5284ae80bc752ee8b060ec5680775758a64b4f7d128125a8d8af651",
+      "candidate_registration_order": [
+        "figures-capstone-i.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "三个切计划/answer区间是固定坐标，不执行512token切分或embedding；split answer可能损完整性，但不保证sentence/markdown永胜或retriever未跑已量出recall。"
+    },
+    {
+      "lesson": "65-hybrid-retrieval-bm25-dense",
+      "widget": "rrf-fusion",
+      "provider": "figures-capstone-b.js",
+      "function": "rrfFusion",
+      "start_line": 64,
+      "end_line": 94,
+      "provider_sha256": "18b62aaa01fe8ef180f2e21b3aa82d7a852733cb5d8e09bb86d071db62a3f0ed",
+      "candidate_registration_order": [
+        "figures-capstone-b.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "RRF图只示意两路与1/(k+rank)，没有实际rank/权重/重复doc处理；并行与跨queryclasses胜出不由动画证明。"
+    },
+    {
+      "lesson": "66-reranker-cross-encoder",
+      "widget": "rerank-funnel",
+      "provider": "figures-capstone-b.js",
+      "function": "rerankFunnel",
+      "start_line": 96,
+      "end_line": 126,
+      "provider_sha256": "18b62aaa01fe8ef180f2e21b3aa82d7a852733cb5d8e09bb86d071db62a3f0ed",
+      "candidate_registration_order": [
+        "figures-capstone-b.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "keep5/1/6与8→3是预设，不实际crossencoder前向；Npairs可批处理，不等N次单forward；N=K仍可重排序改善MRR，无新召回项。"
+    },
+    {
+      "lesson": "67-query-rewriting-hyde",
+      "widget": "cd-hyde-vector",
+      "provider": "figures-capstone-d.js",
+      "function": "cdHyde",
+      "start_line": 36,
+      "end_line": 74,
+      "provider_sha256": "db396c779ea26086a5dc7324f9289d6c46da9ff0d2016b5d3d605c8cc9c5d155",
+      "candidate_registration_order": [
+        "figures-capstone-d.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "向量从wrongpoint转doc与S3假答案均预设，未调用model/embedding；HyDE是检索提示不是证据，不能保证每次落目标或答案为真。"
+    },
+    {
+      "lesson": "68-rag-eval-precision-recall",
+      "widget": "ci-rag-metric-ladder",
+      "provider": "figures-capstone-i.js",
+      "function": "ragMetricLadder",
+      "start_line": 84,
+      "end_line": 116,
+      "provider_sha256": "46fc8d99d5284ae80bc752ee8b060ec5680775758a64b4f7d128125a8d8af651",
+      "candidate_registration_order": [
+        "figures-capstone-i.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "precision2/5、recall2/3需独立总gold3及唯一候选；MRR1首正确rank1；binarygold在rank1/4、3gold理想时nDCG约0.671386072523非图固定.86。Faithfulness/relevance需生成答案与真实证据分别核，未计算。"
+    },
+    {
+      "lesson": "69-end-to-end-rag-system",
+      "widget": "rag-pipeline-flow",
+      "provider": "figures-capstone-b.js",
+      "function": "ragPipeline",
+      "start_line": 128,
+      "end_line": 155,
+      "provider_sha256": "18b62aaa01fe8ef180f2e21b3aa82d7a852733cb5d8e09bb86d071db62a3f0ed",
+      "candidate_registration_order": [
+        "figures-capstone-b.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "四阶段/[chunk42]/lowconfidence全预设，不证明实际六模块集成、reference存在及支持、低confidence校准/拒答或端到端胜过各stage。"
+    }
+  ],
+  "root_math": {
+    "method": "独立stdlib math核binary nDCG，不执行source",
+    "dcg": 1.4306765580733931,
+    "idcg_three_gold": 2.1309297535714578,
+    "ndcg": 0.6713860725233041,
+    "status": "图.86非这组明示binary例；真实gradedgain另需标签"
+  }
+}

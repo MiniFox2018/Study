@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-12",
+  "scope": "全部6最后注册动态图函数及capstone-h必要helper静态完整读取",
+  "counts": {
+    "widgets": 6,
+    "browser_runs": 0,
+    "source_programs_executed": 0,
+    "accepted_unchanged": 485
+  },
+  "registration": "按实际build顺序与额外脚本，最后注册取h相应函数；没有运行源JS/build/browser",
+  "entries": [
+    {
+      "lesson": "58-vision-encoder-patches",
+      "widget": "ch-patch-tokenizer",
+      "provider": "figures-capstone-h.js",
+      "function": "chPatches",
+      "start_line": 186,
+      "end_line": 216,
+      "provider_sha256": "667c39e2e389b770e8f0bad3c655edec1ae2f2f6b546f0cd0edea44491793d33",
+      "candidate_registration_order": [
+        "figures-capstone-h.js"
+      ],
+      "scope_date": "2026-10-12",
+      "actual_function_static_read": true,
+      "function_text_sha256": "7e4266c73764da49b8d127a73dd15e079b5bde9606fae251014b613194f1e69f",
+      "provider_git_blob": "ff45d7e622b94c5ad7ac4b78c2e4d13097628a75",
+      "scope": "实际全文静读该最终注册函数；不把整provider文件计为额外课文件或运行证据",
+      "root_static_full_read": true,
+      "root_notes": "4x4网格/8示意tokens非196张量计算；224²RGBimage分16²共196patch，加CLS总197；150528为通道标量数、pixel按RGBtoken为50176。flatten768与hiddenD不同；2Dsin/learnedpos依配置。"
+    },
+    {
+      "lesson": "59-vit-transformer",
+      "widget": "ch-cls-funnel",
+      "provider": "figures-capstone-h.js",
+      "function": "chVit",
+      "start_line": 218,
+      "end_line": 251,
+      "provider_sha256": "667c39e2e389b770e8f0bad3c655edec1ae2f2f6b546f0cd0edea44491793d33",
+      "candidate_registration_order": [
+        "figures-capstone-h.js"
+      ],
+      "scope_date": "2026-10-12",
+      "actual_function_static_read": true,
+      "function_text_sha256": "ae52c43fc97f92768b1182eb6ffe93ffc2e247e6cdc77a800df3ed4e09344a29",
+      "provider_git_blob": "ff45d7e622b94c5ad7ac4b78c2e4d13097628a75",
+      "scope": "实际全文静读该最终注册函数；不把整provider文件计为额外课文件或运行证据",
+      "root_static_full_read": true,
+      "root_notes": "patch信息汇CLS流/12block12head固定示意，不是训练值；不证明所有CLIP/SigLIP/DINO结构相同或冻结front-endCLS已含图像信息。"
+    },
+    {
+      "lesson": "60-projection-layer-modality-align",
+      "widget": "ch-projection-bridge",
+      "provider": "figures-capstone-h.js",
+      "function": "chProjection",
+      "start_line": 253,
+      "end_line": 290,
+      "provider_sha256": "667c39e2e389b770e8f0bad3c655edec1ae2f2f6b546f0cd0edea44491793d33",
+      "candidate_registration_order": [
+        "figures-capstone-h.js"
+      ],
+      "scope_date": "2026-10-12",
+      "actual_function_static_read": true,
+      "function_text_sha256": "375189f9fb5396ec3d6f563a6c37eb80c44d3e1c8ad4514dcefa863fd242768d",
+      "provider_git_blob": "ff45d7e622b94c5ad7ac4b78c2e4d13097628a75",
+      "scope": "实际全文静读该最终注册函数；不把整provider文件计为额外课文件或运行证据",
+      "root_static_full_read": true,
+      "root_notes": "768→512桥/1.3M/cosine配对预设，需按具体隐藏宽/bias计参数；只freezeParameter不关闭dropout/buffer，接近paired不证明semanticgeneralization。"
+    },
+    {
+      "lesson": "61-cross-attention-fusion",
+      "widget": "ch-crossattn-fan",
+      "provider": "figures-capstone-h.js",
+      "function": "chCross",
+      "start_line": 292,
+      "end_line": 324,
+      "provider_sha256": "667c39e2e389b770e8f0bad3c655edec1ae2f2f6b546f0cd0edea44491793d33",
+      "candidate_registration_order": [
+        "figures-capstone-h.js"
+      ],
+      "scope_date": "2026-10-12",
+      "actual_function_static_read": true,
+      "function_text_sha256": "1c703b1df24639d2f8622019d3a4bc15419b3e712a583b59f78a00906d5366e2",
+      "provider_git_blob": "ff45d7e622b94c5ad7ac4b78c2e4d13097628a75",
+      "scope": "实际全文静读该最终注册函数；不把整provider文件计为额外课文件或运行证据",
+      "root_static_full_read": true,
+      "root_notes": "crossattentiontextQ/imageKV不因果屏image，但invalid/paddingkey仍mask；图onceimage与跨decode reuse需要显式缓存，source每forward重建不同。"
+    },
+    {
+      "lesson": "62-vision-language-pretraining",
+      "widget": "ch-infonce-diagonal",
+      "provider": "figures-capstone-h.js",
+      "function": "chInfoNCE",
+      "start_line": 326,
+      "end_line": 364,
+      "provider_sha256": "667c39e2e389b770e8f0bad3c655edec1ae2f2f6b546f0cd0edea44491793d33",
+      "candidate_registration_order": [
+        "figures-capstone-h.js"
+      ],
+      "scope_date": "2026-10-12",
+      "actual_function_static_read": true,
+      "function_text_sha256": "d5be85129a7141ad3fdab83f5108761a9fcce8f643b58b925525520237fdb139",
+      "provider_git_blob": "ff45d7e622b94c5ad7ac4b78c2e4d13097628a75",
+      "scope": "实际全文静读该最终注册函数；不把整provider文件计为额外课文件或运行证据",
+      "root_static_full_read": true,
+      "root_notes": "4x4明暗和两条下降curve预设，batch对角positive不适合多caption/重复image直接negative；LM实际memory→decoder绕projector，shared only encoder不能推广全部weights。"
+    },
+    {
+      "lesson": "63-multimodal-eval",
+      "widget": "ch-recall-window",
+      "provider": "figures-capstone-h.js",
+      "function": "chEval",
+      "start_line": 366,
+      "end_line": 403,
+      "provider_sha256": "667c39e2e389b770e8f0bad3c655edec1ae2f2f6b546f0cd0edea44491793d33",
+      "candidate_registration_order": [
+        "figures-capstone-h.js"
+      ],
+      "scope_date": "2026-10-12",
+      "actual_function_static_read": true,
+      "function_text_sha256": "7c4b4d235ec6e6784fd13a59429d7f247ab99298be6c7f2a2aadabba6d929cdf",
+      "provider_git_blob": "ff45d7e622b94c5ad7ac4b78c2e4d13097628a75",
+      "scope": "实际全文静读该最终注册函数；不把整provider文件计为额外课文件或运行证据",
+      "root_static_full_read": true,
+      "root_notes": "正确image从rank6到rank2和R@5窗口/EM/BLEU条预设；单positivehit与多positiveRecall分母区分，BLEU锁分词/多ref/smoothing/句级或语料级，不证独立semanticheldout。"
+    }
+  ]
+}
