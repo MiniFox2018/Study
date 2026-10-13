@@ -27,31 +27,4 @@ Phase19/20–49共157文件（152非空/5空）、356真标题、59编号练习/
 
 50–57研究工作流8课将假设/温度/余弦去重/UCB、五维修订与稿件版本，以及文献实体/实验配置/严格配对/论文工件与真实接线融进4旧主题。34非空文件、87真标题、48题与10项Going further有中文落点；29Python=2新标准库实际成功+23旧持久成功SHA复用+4旧参考同字节未实跑。原默认平台状态的错误推断已撤回，按五维均值核r5平台不等质量达标。见[研究工作流验收](../维护/五站吸收/19E-研究工作流批次验收.md)。
 
-固定提交与重新获取入口继续保留。课程、代码、实验/题目和图示被转成可独立学习的中文知识，来源记录负责追溯；不提交原始仓库、模型或下载资料。完整断点见[五站进度](../维护/五站吸收/进度与续接.md)。来源2～5未读取，持续第1来源Phase19剩30篇主课。58–63视觉6课已完整只读冻结、主题融合待验；64–69高级RAG6课读取恢复完成待冻结与融合；70–75按实际partial续接，不能因自报或机械发现先计完成。
-
-## 必要署名与许可
-
-本批中文讲解为融合重构，部分教学构思/代码逻辑取自上述MIT来源，保留归属。源MIT许可文本如下，适用于相应派生部分，不替代其他既有来源的许可：
-
-```text
-MIT License
-Copyright (c) 2026 Rohit Ghumare
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+固定提交与重新获取入口继续保留。课程、代码、实验/题目和图示被转成可独立学习的中文知识，来源记录负责追溯；不提交原始仓库、模型或下载资料。完整断点见[吸收进度](../维护/五站吸收/进度与续接.md)。2026-10-13用户将当前范围收缩为本来源；来源2～5暂不处理，不计入完成条件。剩30篇主课中，58–63视觉与64–69高级RAG共12课已经读取并融合进4既有正文，尚未验收；70–75全部读取报告已恢复，待融合与验收。其余正文及辅助、外围须逐项完成，再对本次知识做最终全局整合。
