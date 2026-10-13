@@ -103,17 +103,19 @@ class DemoServer:
             error={'code':e.code,'message':e.message}
             if e.data is not None:error['data']=e.data
             return {'jsonrpc':'2.0','id':rid if type(rid) in (str,int) else None,'error':error}
+    def tool_error(self,message):
+        return self.complete({'content':[{'type':'text','text':message}],'isError':True})
     def call(self,p,principal,capabilities):
         name=p.get('name');a=p.get('arguments',{})
         if type(a) is not dict:raise ProtocolError(-32602,'arguments')
         if name in ('add','subtract'):
-            if set(a)!={'a','b'} or any(type(v) is not int for v in a.values()):raise ProtocolError(-32602,'闭合整数参数')
+            if set(a)!={'a','b'} or any(type(v) is not int for v in a.values()):return self.tool_error('参数须为闭合a/b整数，bool不是整数')
             out={'value':a['a']+a['b'] if name=='add' else a['a']-a['b']}
         elif name=='create_draft':
-            if set(a)!={'text'} or type(a['text']) is not str:raise ProtocolError(-32602,'create参数')
+            if set(a)!={'text'} or type(a['text']) is not str:return self.tool_error('create_draft需要唯一text字符串')
             did='draft-'+str(len(self.drafts)+1);self.drafts[did]={'owner':principal,'text':a['text'],'revision':0};out={'draftId':did}
         elif name=='update_draft':
-            if set(a)!={'draftId','text'} or any(type(v) is not str for v in a.values()):raise ProtocolError(-32602,'update参数')
+            if set(a)!={'draftId','text'} or any(type(v) is not str for v in a.values()):return self.tool_error('update_draft需要draftId/text字符串')
             draft=self.drafts.get(a['draftId'])
             if not draft or draft['owner']!=principal:return self.complete({'content':[{'type':'text','text':'无访问权限'}],'isError':True})
             bound={'principal':principal,'operation':digest({'method':'tools/call','name':name,'arguments':a})}
@@ -146,7 +148,17 @@ def request(method,params=None,principal='alice'):
 assert request('server/discover')['result']['supportedVersions']==[VERSION]
 assert [t['name'] for t in request('tools/list')['result']['tools']]==['add','create_draft','subtract','update_draft']
 assert request('tools/call',{'name':'subtract','arguments':{'a':5,'b':3}})['result']['structuredContent']['value']==2
-assert request('tools/call',{'name':'add','arguments':{'a':True,'b':1}})['error']['code']==-32602
+bad_schema=request('tools/call',{'name':'add','arguments':{'a':True,'b':1}})
+assert 'error' not in bad_schema and bad_schema['result']['resultType']=='complete' and bad_schema['result']['isError']
+# 合法CallToolRequest中的已知工具输入schema失败，由工具结果反馈；不执行业务状态改变。
+for bad_args in ({'name':'add','arguments':{'a':1}}, {'name':'create_draft','arguments':{'text':1}},
+                 {'name':'update_draft','arguments':{'draftId':True,'text':'x'}}):
+    reply=request('tools/call',bad_args)
+    assert 'error' not in reply and reply['result']['resultType']=='complete' and reply['result']['isError']
+assert server.drafts=={} and server.updates==0
+# arguments本身非object违反CallToolRequest形状；未知工具也是协议错误。
+assert request('tools/call',{'name':'add','arguments':None})['error']['code']==-32602
+assert request('tools/call',{'name':'absent','arguments':{}})['error']['code']==-32602
 assert request('resources/read',{'uri':'config://app'})['result']['contents'][0]['text']
 assert request('prompts/get',{'name':'review','arguments':{'code':'x=1'}})['result']['messages']
 did=request('tools/call',{'name':'create_draft','arguments':{'text':'A'}})['result']['structuredContent']['draftId']
@@ -170,7 +182,7 @@ assert server.receipts[token]['nonce']!=server.receipts[new_token]['nonce']
 assert request('tools/call',args,principal='bob')['result']['isError']
 assert request('tools/list',{'_meta':{}})['error']['code']==-32602
 bad=request('tools/list',{'_meta':{PV:'2025-11-25',CAP:{}}});assert bad['error']['code']==-32022 and bad['error']['data']['requested']=='2025-11-25'
-print('内存wire：逐请求meta/三能力/版本/严格整数/handle授权/MRTR参数/nonce/draft版本绑定与新ID/真实重试receipt通过；未部署SDK或HTTP')
+print('内存wire：协议/工具输入错误分层、拒绝不改状态/逐请求meta/三能力/版本/严格整数/handle授权/MRTR参数/nonce/draft版本绑定与新ID/真实重试receipt通过；未部署SDK或HTTP')
 ```
 
 此例receipt/HMAC密钥仅驻内存、授权输入是fixture，未实现持久事务、并发、真实身份、OAuth、完整schema/dialect、通知/分页/订阅、取消/流式。重复create_draft仍需业务幂等ID，不能因update receipt存在就说所有操作exactly-once。不同server replica须共享必要业务状态或携带可验证handle，协议不会替应用保存它。
@@ -209,6 +221,8 @@ SDK落实：另外只读核对MCP Python SDK固定commit `91941ed4d3985d59def99e
 {"jsonrpc":"2.0","id":41,"result":{"resultType":"complete","content":[{"type":"text","text":"[\"mcp\",\"contracts\"]"}],"structuredContent":["mcp","contracts"],"isError":false,"_meta":{"io.modelcontextprotocol/serverInfo":{"name":"catalog-fixture","version":"1"}}}}
 ```
 
+2026-10-13回融修正：原内存例把已知`add`的bool/缺字段等输入schema失败抛成`-32602`，与本章错误分层说明不一致。按[2026-07-28 Tools错误处理](https://modelcontextprotocol.io/specification/2026-07-28/server/tools)指定段，合法`CallToolRequest`进入已知工具后，输入校验/业务失败以完整工具结果`isError:true`反馈；`arguments`本身不是对象或未知工具仍属协议请求错误。现在`add/create_draft/update_draft`的已知schema拒绝都在执行前返回工具错误，新增负例核失败不创建/修改草稿；只重跑改变的本例，其他不变例子保持旧日期与证据。它仍是明确的内存子集，未做真实SDK/HTTP或完整协议认证。
+
 描述中的输出schema应为`{"type":"array","items":{"type":"string"}}`。客户端若强行要求字典，会拒绝合法数组；若只解析兼容text却不验证`structuredContent`，会绕过真正合同。序列化JSON到text是兼容建议，不能改说标准强制每个结果都有非空text。`content`本身是列表；没有输出schema的合法空列表和“资源不存在却返回空contents”也要区分。
 
 | 决策 | 正确判断 |
@@ -217,8 +231,8 @@ SDK落实：另外只读核对MCP Python SDK固定commit `91941ed4d3985d59def99e
 | 本次缺处理所需可选能力 | `-32021`，data列`requiredCapabilities` |
 | 支持的字符串版本未实现 | `-32022`，data列`requested`与`supported` |
 | HTTP镜像字段与正文不一致 | 先返回`-32020`，不由header替代正文 |
-| 未找到工具、无法按请求schema分派 | JSON-RPC错误；未知工具示例用`-32602` |
-| 已进入工具的业务/输入范围失败 | 完整结果`isError: true`，仍守输出schema |
+| 未知工具、tools/call信封或协议params形状不合法 | JSON-RPC错误；未知工具示例用`-32602` |
+| 协议请求合法、已知工具的输入schema或业务校验失败 | 完整结果`isError: true`，仍守输出schema |
 | 新字段与未知`resultType` | 新字段可保留/有意忽略；未知生命周期判别值必须拒绝 |
 
 不能为业务限流/容量错误随意占用`-32020`至`-32099`：这段归MCP规范，目前这里定义的是三种现代错误。业务错误可在工具结果表达；确需自定义RPC码时，应选择JSON-RPC保留区之外并明确自己的合同。`clientInfo/serverInfo`是自报软件信息，不能代替可信认证主体或稳定peer配置身份。[Base与错误分配](https://modelcontextprotocol.io/specification/2026-07-28/basic)、[Tools与输出schema](https://modelcontextprotocol.io/specification/2026-07-28/server/tools)
