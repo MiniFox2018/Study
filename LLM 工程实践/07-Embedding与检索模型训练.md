@@ -365,3 +365,192 @@ print('大有限向量same/opposite/diagonal',large,large_negative,large_diagona
 word级需可靠文本/OCR及word-position合同，适合精准编号/数字和可抽取文字；patch级可保视觉与布局条件，但resize/crop仍可能丢小字且多向量载荷大。不能说图像路径保留所有信息或文字RAG只存一整页向量。对同页集分别标文本、图表、表格、版式、多页证据，固定预算看Recall/nDCG与最终引用支持；可保双路径互补，不以材料含一张图为理由禁用文本索引。
 
 增量来源：第1来源固定3be078b，Phase12/23，2026-10-08新增本地MaxSim合同程序执行；旧代码块、SHA与2026-10-04/07日期保留。原课随机Gaussian+bias不读页面或真实query；MaxSim/mean总分、固定PQ和速度表未成为检索质量/性能结论。
+
+## 13. 联合编码重排的学习计算与训练目标
+
+2026-10-12 增量。先读本篇第2–5节的编码/标签/负例契约，再看联合编码器。双编码器分别把query与doc编码成向量，可以离线缓存doc表示；cross-encoder则把每个 `(query,doc)` 一起打包，通过同一token序列的self-attention让双方直接交互，再得一个相关性scalar。它不要求另建名为CrossAttention的模块。预存一个doc向量不能替代对新query的联合计算，候选N对可以batch，不能把N对计算写成必然N次独立Python forward。
+
+### 13.1 从输入到scalar的逐步过程
+
+输入为 `query tokens + SEP + doc tokens + padding`，可按模型训练合同加CLS、token type/segment与位置。批张量IDs形状 `[B,L]`；有效mask形状 `[B,L]`，词/位置嵌入得到 `[B,L,d]`。每头生成Q/K/V，注意力logits为 `QKᵀ/√d_head`，形状 `[B,L,L]`，在softmax前把padding key屏蔽为负无穷。query位置可关注doc位置，doc也能关注query；这是和两塔独立编码不同的关键。后接残差、层归一化和FFN，得到联合上下文states。
+
+masked mean pool为 `h=Σ_i m_i H_i / Σ_i m_i`，形状 `[B,d]`；scalar头 `s=wᵀh+b` 得 `[B]`。padding不进入mean，SEP/CLS是否进入pool按明确合同选择。mask全空应拒绝，截断要保两侧输入且记录丢掉的doc部分；长度16/96等只是例子的预算，没有通用最优值。CLS头与mean头不同，训练/验证必须保持配套，不能只换推理池化就复用旧head。相同文本加尾部PAD应不改变scalar（在本例无dropout的eval模式和相同有效位置下）。
+
+### 13.2 标签、损失与多负例
+
+标签先问“当前文档能否满足这个查询及其条件”。同主题但错实体/否定/数值/时期是负例；一个查询有多个正确证据时标多正例，避免把别的有效答案当hard negative。每query可有多个不同困难的负例，训练记录随机/难负例来源、误负例审核、采样比和权重；一个查询复制十个简单负例不是十份独立能力证据。按doc-family/实体/事实与近改写分组切分，避免训练与验证共享答案事实；同query字符串不重复还不够。
+
+MSE回归目标为 `L=(1/B)Σ(s_i−y_i)²`，把连续等级当数值距离；若y是0/1，它仍只是回归，scalar可小于0或大于1，原始分数不是概率。BCEWithLogits为 `L=(1/B)Σ[softplus(s_i)−y_i s_i]`，y∈[0,1]且通常二元，用稳定logit目标，不能先sigmoid再当logit传入。sigmoid(s)在这份训练协议下有二元分类解释，但部署概率还需独立校准，不能自动代表“整库无答案”的概率。pairwise可优化正例比负例高，listwise可对每query候选集合归一化；它们的采样/多正例与规模合同不同，不能把任何一个低损失直接叫检索成功。
+
+训练流程是固定labels/split→打包与mask→联合前向→损失→反传/优化→在独立query-doc-family的候选库验证→选checkpoint→冻结最终测试。训练score margin上升只证明拟合监督，更高epochs也可恶化held-out。候选budget N与保留K一起记录：N=K时能重排、提高MRR/Hit@1，但保留整个集合的Recall@K不变；gold从未进N时纯重排无法恢复。3×K或20–50的“拐点”是待测范围，八篇文档库里N≥8饱和只是候选耗尽。
+
+### 13.3 完整自写CPU例：联合attention、训练与独立分组
+
+以下是完整可运行教学程序，2026-10-12已用既有本地runtime实际执行；没有导入来源程序、下载权重、调用服务或使用GPU。词表固定、随机初始化、单头attention，四个人工doc-family中train_a/train_b仅训练，held_c/held_d仅验证；预定义词表包括验证family名，但没有使用它们的标签训练。每query一个正例、错状态与错实体两个负例，标签是人工任务真值，模型不是预训练语义检索器。BCE训练101步，训练前记录一次两数据集的基线；完成1、11、51、101次更新后，用同一参数快照同时评估训练集与留出集，评估不更新参数。最后的N=K排序是单独手工fixture，与神经模型held-out结果明确分开。
+
+
+```python
+import hashlib, json, math
+import torch
+from torch import nn
+
+torch.set_num_threads(1)
+torch.manual_seed(23)
+FAMILIES = ('train_a', 'train_b', 'held_c', 'held_d')
+VOCAB = {word: i for i, word in enumerate(('[PAD]', '[SEP]', 'allow', 'deny') + FAMILIES)}
+PAD, SEP = VOCAB['[PAD]'], VOCAB['[SEP]']
+
+def encode_pairs(pairs, extra_pad=0):
+    if type(pairs) not in (list, tuple) or not pairs or type(extra_pad) is not int or extra_pad < 0:
+        raise ValueError('nonempty pairs and integer padding')
+    sequences = []
+    for pair in pairs:
+        if type(pair) is not tuple or len(pair) != 2 or any(type(t) is not str for t in pair):
+            raise ValueError('each pair is exactly two text strings')
+        q, d = pair
+        qs, ds = q.split(), d.split()
+        if not qs or not ds or any(w not in VOCAB or w in ('[PAD]', '[SEP]') for w in qs + ds):
+            raise ValueError('nonempty known-token query/document')
+        sequences.append([VOCAB[w] for w in qs] + [SEP] + [VOCAB[w] for w in ds])
+    length = max(map(len, sequences)) + extra_pad
+    if length > 16:
+        raise ValueError('explicit length limit; no silent truncation')
+    ids = torch.tensor([s + [PAD] * (length - len(s)) for s in sequences], dtype=torch.long)
+    return ids, ids.ne(PAD)
+
+class JointScorer(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.word = nn.Embedding(len(VOCAB), 16, padding_idx=PAD)
+        self.pos = nn.Embedding(16, 16)
+        self.qkv = nn.Linear(16, 48)
+        self.norm1 = nn.LayerNorm(16)
+        self.ff = nn.Sequential(nn.Linear(16, 32), nn.GELU(), nn.Linear(32, 16))
+        self.norm2 = nn.LayerNorm(16)
+        self.head = nn.Linear(16, 1)
+
+    def forward(self, ids, valid):
+        if not isinstance(ids, torch.Tensor) or not isinstance(valid, torch.Tensor):
+            raise ValueError('CPU tensor inputs required')
+        if (ids.device.type != 'cpu' or valid.device.type != 'cpu' or ids.dtype != torch.long
+                or ids.ndim != 2 or ids.shape[0] < 1 or not 1 <= ids.shape[1] <= 16
+                or valid.shape != ids.shape or valid.dtype != torch.bool):
+            raise ValueError('CPU Long IDs, bounded batch/length and boolean mask contract')
+        if bool((ids < 0).any()) or bool((ids >= len(VOCAB)).any()):
+            raise ValueError('IDs outside frozen vocabulary')
+        if not torch.equal(valid, ids.ne(PAD)):
+            raise ValueError('this toy mask must exactly mark non-PAD positions')
+        if not valid.any(dim=1).all():
+            raise ValueError('each pair requires valid tokens')
+        x = self.word(ids) + self.pos(torch.arange(ids.shape[1]))[None, :, :]
+        q, k, v = self.qkv(x).chunk(3, dim=-1)
+        logits = (q @ k.transpose(1, 2)) / math.sqrt(16)
+        logits = logits.masked_fill(~valid[:, None, :], float('-inf'))
+        weights = torch.softmax(logits, dim=-1)  # query and doc tokens share one attention matrix
+        x = self.norm1(x + weights @ v)
+        x = self.norm2(x + self.ff(x))
+        pooled = (x * valid[:, :, None]).sum(dim=1) / valid.sum(dim=1, keepdim=True)
+        return self.head(pooled).squeeze(-1)
+
+def examples(families):
+    rows = []
+    for family in families:
+        other = next(x for x in families if x != family)
+        for status in ('allow', 'deny'):
+            opposite = 'deny' if status == 'allow' else 'allow'
+            query = f'{family} {status}'
+            # One positive; wrong status and wrong entity are two distinct negatives.
+            for doc, label in ((f'{family} {status}', 1.),
+                               (f'{family} {opposite}', 0.),
+                               (f'{other} {status}', 0.)):
+                rows.append({'query': query, 'doc': doc, 'label': label, 'family': family})
+    return rows
+
+train = examples(FAMILIES[:2])
+held = examples(FAMILIES[2:])
+assert set(r['family'] for r in train).isdisjoint(r['family'] for r in held)
+assert set(r['query'] for r in train).isdisjoint(r['query'] for r in held)
+train_ids, train_mask = encode_pairs([(r['query'], r['doc']) for r in train])
+held_ids, held_mask = encode_pairs([(r['query'], r['doc']) for r in held])
+y = torch.tensor([r['label'] for r in train])
+y_held = torch.tensor([r['label'] for r in held])
+model = JointScorer().cpu()
+optimizer = torch.optim.Adam(model.parameters(), lr=.01)
+objective = nn.BCEWithLogitsLoss()  # raw scalar logits; no extra sigmoid before stable loss
+curve = []
+def record(update):
+    model.eval()
+    with torch.no_grad():
+        train_loss = objective(model(train_ids, train_mask), y).item()
+        held_loss = objective(model(held_ids, held_mask), y_held).item()
+    curve.append([update, round(train_loss, 6), round(held_loss, 6)])
+
+record(0)  # Same untrained state for both datasets.
+for update in range(1, 102):
+    model.train()
+    optimizer.zero_grad()
+    scores = model(train_ids, train_mask)
+    loss = objective(scores, y)
+    loss.backward()
+    assert model.qkv.weight.grad is not None and torch.isfinite(model.qkv.weight.grad).all()
+    optimizer.step()
+    if update in (1, 11, 51, 101):
+        record(update)  # Both losses use this same post-update snapshot.
+
+model.eval()
+query = 'held_c allow'
+docs = {'c-yes': 'held_c allow', 'c-no': 'held_c deny', 'd-yes': 'held_d allow'}
+pairs = [(query, text) for text in docs.values()]
+ids, mask = encode_pairs(pairs)
+padded, padded_mask = encode_pairs(pairs, extra_pad=3)
+with torch.no_grad():
+    scores = model(ids, mask)
+    assert torch.allclose(scores, model(padded, padded_mask), atol=1e-6)
+by_id = dict(zip(docs, scores.tolist()))
+ranking = sorted(docs, key=lambda identity: (-by_id[identity], identity))
+assert set(ranking) == set(docs)
+# Independent deterministic ranking fixture: K=N can change RR without changing retained Recall.
+original, reranked, gold = ['bad-1', 'bad-2', 'bad-3', 'good'], ['good', 'bad-1', 'bad-2', 'bad-3'], {'good'}
+def rr(items):
+    return next((1 / rank for rank, identity in enumerate(items, 1) if identity in gold), 0.)
+assert set(original) == set(reranked) and rr(original) == .25 and rr(reranked) == 1.
+# Rejected inputs cannot mutate the trained parameters.
+before = {name: value.detach().clone() for name, value in model.state_dict().items()}
+def rejects(call):
+    try:
+        call()
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('invalid input accepted')
+    assert all(torch.equal(before[name], value) for name, value in model.state_dict().items())
+for bad in (None, {}, [], [('held_c allow',)], [(True, 'held_c allow')],
+            [('[PAD]', 'held_c allow')], [('held_c allow', '[SEP]')], [('', 'held_c allow')]):
+    rejects(lambda: encode_pairs(bad))
+rejects(lambda: encode_pairs(pairs, extra_pad=True))
+rejects(lambda: model(ids.float(), mask))
+rejects(lambda: model(ids, mask.long()))
+rejects(lambda: model(ids, ~mask))
+rejects(lambda: model(torch.full_like(ids, len(VOCAB)), mask))
+rejects(lambda: model(torch.zeros((1, 17), dtype=torch.long), torch.zeros((1, 17), dtype=torch.bool)))
+rejects(lambda: model(torch.zeros((1, 2), dtype=torch.long), torch.zeros((1, 2), dtype=torch.bool)))
+recipe = {'families': FAMILIES, 'rows': train + held, 'vocab': VOCAB, 'seed': 23, 'objective': 'BCE', 'steps': 101}
+print('environment', json.dumps({'torch': torch.__version__, 'device': 'cpu', 'threads': 1}, sort_keys=True))
+print('data_sha256', hashlib.sha256(json.dumps(recipe, sort_keys=True).encode()).hexdigest())
+print('curve [completed_updates, same_snapshot_train_BCE, same_snapshot_held_family_BCE]', curve)
+print('held_candidate_scores', json.dumps(by_id, sort_keys=True), 'ranking', ranking)
+print('padding invariance passed; joint qkv gradients finite; disjoint document families')
+print('independent K=N fixture RR 0.25 -> 1.0; retained Recall@4 1.0 -> 1.0')
+print('invalid pair/control token/dtype/ID/mask/length rejected; trained parameters unchanged')
+print('synthetic CPU only; held scores are observations, no pretrained semantic or deployment claim')
+```
+
+实测环境为Python 3.12.13、PyTorch 2.14.1、NumPy 2.4.6，CPU单线程、seed23；NumPy仅核现有runtime版本，本程序不用它。以训练前step0为共同基线，train BCE从0.783081降到完成101次更新后的0.023439，独立family BCE从0.706742升到1.430310。两个值在每个检查点均由同一参数快照测量；完成1、11、51次更新时分别为train/held 0.670288/0.653764、0.629878/0.636993、0.197411/0.862626。可见训练拟合与留出退化；过拟合、未覆盖的family或分布差异都可能参与，单条曲线不能唯一归因，也不能报告为泛化成功。一次held_c allow候选得分c-yes=2.252125、d-yes=2.085031、c-no=−5.995965，首名恰正确仍不能推翻整体验证退化；d-yes为错实体却高分也暴露边界。PAD不变性、qkv梯度finite、分组不重叠、非法pair/控制token/dtype/ID/mask/长度拒绝后参数不变，以及独立N=K fixture断言通过；fixture RR从.25到1，集合Recall@4始终1。
+
+真实66源课具有联合Torch模型（64维、4头、1层、MSE、14人工triples、默认60epochs），不是词重叠算法；demo query复用训练query，所以仅静读可确认计算路径，未运行或取得泛化成绩。69复制另一48维CE、17triples/80epochs，再加词法blend；68的title bonus stand-in没有接66。模型输入、pool/head、data hash、seed、objective、checkpoint、候选身份/revision与pipeline stage都要保存；不以模型文件存在或raw score过阈证明可以发布。
+
+### 13.4 训练练习怎样回到实际检索
+
+更换召回模型先锁相同语料/ID与N，分别评价candidate Recall@N、CE排序MRR/nDCG和最终证据集合覆盖；召回改动不能仅看top1 raw score。比较1/10/40/60等epoch时同时记录train loss/positive-negative margin与held-out排名，源练习说“十轮代替一轮”不符合原默认60。替mean为CLS须同split/seed/参数预算并验证mask；加answerability第二head须标有答案/无答案，分开ranking与拒答损失、权重及校准集。推理阈值与缓存都绑定model/tokenizer/pool/length/doc revision/权限，不同query的raw scalar不能当同一概率阈值。
+
+本节来源是第1来源固定提交3be078b37ffd8f0c04953c0678e48f5c6d0c7775的Phase19/66与69只读冻结记录；六课的练习、原题与stage关系由[12第15节](12-文本检索与RAG文档工程.md#15-分块融合重排与评价的练习和测验)统一维护。原有代码块与2026-10-04/07/08日期保留。未核当前模型卡/部署SDK/厂商参数，也未把来源型号、固定速度、memory估计或score阈值写为当前生产推荐。

@@ -123,6 +123,22 @@ print("BM25 中文/空文档、RRF 去重、多证据指标均通过；nDCG", ro
 
 此例同时检查中文不为空、全空文档分数为零、RRF 单列表去重和多个相关文档的指标。零分结果仍可能出现在排序中；业务需决定它是否进入候选，不应把首名自动当可靠证据。
 
+### 2.2 字段归一化与有身份的加权融合
+
+2026-10-12 增量。BM25 的正文词频、文档长度和平均长度是联动的。把标题重复三次再拼正文，会同时改变三者；例如标题1词、正文9词变成12词，标题词频从1变3，其他正文词也受到新长度分母影响。这是词项重复的启发式，不能称作每字段独立归一化的 BM25F。
+
+一种明确的 BM25F 合同先对字段 f 的词频做长度校正，再聚合：
+
+$$\tilde f(t,d)=\sum_f w_f\frac{f(t,d_f)}{1-b_f+b_f|d_f|/\overline{|d_f|}},\qquad s(q,d)=\sum_{t\in Q}\operatorname{IDF}(t)\frac{(k_1+1)\tilde f(t,d)}{k_1+\tilde f(t,d)}.$$
+
+`w_f` 是非负字段权重，`0≤b_f≤1` 控制该字段长度校正，`k_1>0` 控制聚合词频的饱和，字段均长来自固定索引快照；IDF 的文档统计口径也须固定。缺字段和平均长度为零须单独定义，不能直接除零。此公式先合并归一化词频后饱和，与“每字段各算 BM25 再相加”亦不相同。把同一词置于短标题和长正文，用同文档相关标签比较真字段方案、重复标题和无字段基线，才知道符号匹配是否改善；不用标题倍数猜质量。
+
+2026-10-13补核：作者修正版TREC报告§4.1（PDF第5页）给出“逐字段校长 → 加权合并词频 → 一次饱和”的公式。原论文写的是 `f̃/(k₁+f̃)`；上式采用常见的额外因子 `k₁+1`，固定k₁时这是正的统一缩放，不改变同一查询的候选排序，但raw score阈值、跨组件分数混合及数值对照仍需统一。标题重复是早期字段加权的一种办法；它与此处具有独立字段长度校正的版本要分清，不能只凭“重复”就认为完全没有字段加权意义。核验限该节公式与说明，未复现论文的全部实验或当前检索质量。[Microsoft Cambridge at TREC 2004，作者修正版](https://www.microsoft.com/en-us/research/wp-content/uploads/2004/01/Microsoft-Cambridge-at-TREC-2004-Web-and-HARD-track.pdf)
+
+加权 RRF 的合同为 `score(id)=Σ_j w_j/(c+rank_j(id))`，缺席列表贡献0，rank从1起。`c` 与所有权重必须有限且非负，权重数等于列表数；零权重腿不影响排序。每列表先按稳定的 `(document,revision,chunk/span)` 身份去重再编号，跨列表同一身份可各投一次。`[A,A,B]` 在 c=60 时应是 A=1/61、B=1/62，不能给 A 再加1/62并把B挤到rank3。同名ID若对应不同版本或文本，应拒绝冲突并回查索引，不能让最后一个对象静默覆盖。
+
+现第2.1节已实现去重公式与指标，不另造检索管道。扩成 weighted 版本时只扩参数和身份验证，保留其反例；第7.1/13节继续负责快照和权限。原始向量零分、未知词和不相关内容仍可能得到近邻列表，RRF给正贡献只表示名次投票。无答案判定另用独立标注和支持检查；同文档去重不会自动解决无答案。哈希累加 M 个返回项并排序 U 个唯一候选约需 `O(M+U log U)`，不是与候选规模无关的常量时间。
+
 ## 3. 稠密、稀疏和多向量检索如何组合
 
 稠密双编码器分别编码查询和文档，再用点积或余弦找近邻。文档向量可提前建立 ANN 索引，查询不需要逐篇跑联合编码。但它可能不敏感于罕见编号、精确数字、否定或权限条件。BM25 对精确词有效，却可能错过“费用报销”和“垫付申请”的语义对应。
@@ -192,6 +208,18 @@ Decomposition则把**不同必需事实**拆开：q_window“企业计划的申�
 K=3召回[S,E,P]，联合评分后为[E,P,S]，k=2保留两项必需证据。K=2只召回[S,E]，联合评分至多得到[E,S]，P从未进入候选，重排不能恢复；应改召回/Query/候选预算。两列来自不同评分机制，数值不应直接相加或当正确概率。这只是可手算的排序输入，不是实际神经模型成绩。
 
 7.1程序的identity重排没有联合Q-D模型，词重叠/短语/位置启发式也不是cross-attention；真实模型评分仍须看本地相同任务与失败切片。Query改写、Multi-query、拆解、HyDE与Step-back都只改变查询/证据获取方式，不能改变原问题的成功标准、权限或出处要求。
+
+### 3.2 派生查询的协议、重复信号与真实预算
+
+2026-10-12 增量。改写器的输入保留原问题、已授权历史和硬条件；输出可用 `original_query、strategy、rewrites、facets、hypothesis、preserved_constraints、errors` 表示。原实体、时间、数字、否定、比较关系和权限范围不得因改写消失。Multi-query 的每条改写应回答同一个完整问题；decomposition 的每个子问题应覆盖不同必要事实，并保留它们共同满足原题的关系。仅按英语 `and` 切分无法判断原子问题、否定或比较，查询很长也不自动需要拆解。
+
+第3.1的企业退款题已提供实际手算：Multi-query可融合到 E/P，Step-back也会使S挤掉E。因此策略选择应先检查失败：术语错位可试同意图改写；缺几个明确事实可拆facet；问题/文档表达差异可试HyDE；原则缺失可试Step-back。保持direct基线，验证原子题误拆率、多facet漏拆率、全部必要事实覆盖和代价。所谓 rewrite confidence 要在独立集校准为“保意图/检索收益”等明确事件；模型自报分数不能直接成为概率或授权依据。
+
+HyDE假设和chunk summary都属于派生检索文本。它们可以带来检索线索，也能引入错误实体、数值和答案泄漏；存储时标出 `derived_from`，引用时回真实原文版本/跨度。假文即使词分布接近候选也不保证找到正确证据，2–3句只是待调预算。生成hypothesis并不允许回答直接复制它；上下文只能来自已核真实来源。
+
+融合必须追踪每一路来源而非只留最终rank。某实现把“原BM25+假文dense”融合一次，又把“原BM25+原dense”融合一次，最后再次RRF：原词法腿已经重复影响，两个中间列表不是两份独立原始证据。MQ若无可用同义词而返回多个原Query副本，也会重复强化同一排序。应规范化和去重改写，明确各腿权重/相关性，再在同ID上合并；多样改写须保原条件，不靠重复同Query赚票。每个facet保自己的证据映射，不能以一个doc命中代替全问题支持。
+
+时间预算按实际依赖计算。串行策略耗时是改写/编码/检索各调用之和，再加融合、重排和回答；真正并发的独立腿才可近似取最慢腿耗时，还含排队、失败/重试和后续依赖。多策略并行的端到端延迟不等于“一次LLM调用”。记录原始调用数、唯一改写数、raw/unique候选、候选N、输出K、上下文token/字符和各stage wall time，分别比较相同总候选预算与允许额外计算的效果；源课串行mock没有证明任何真实并行速度。
 
 ## 4. 分块的目标是保留能回答问题的证据单位
 
@@ -341,6 +369,22 @@ print("语义切点 fixture", [round(x, 4) for x in distances], "；所有字符
 装配按重排顺序放证据，但先处理同版本重叠块、父段重复、标题和引用开销。对互相矛盾的块保留区别和时间条件，而不是盲目去重。预算应留出指令、问题、工具结果和预期输出空间。
 
 可以将候选块视为区间，对同一文档版本中相邻或重叠区间合并，再回原文截取。不要仅凭向量近似判断“重复”：两个数值不同的制度段可能词语几乎相同，却必须保留差异。召回块不足以支持答案时返回“依据不足”，低相似分数阈值只能当经过验证的拒答特征，不能当通用真值概率。
+
+### 4.5 结构、token窗口与正确的语义质心
+
+2026-10-12 增量。第4.1节保留原文区间和全部字符，第4.3节已有邻句距离与硬回退，不重新复制五种splitter。新增方法先定义证据不变量：块正文等于指定revision的原文slice；原文无遗漏；标题路径、表头单位和代码作用域可回查；预算是明确的字符或token合同。分块好坏最终看全库未知文档检索、完整证据和成本。
+
+结构分块先扫描原文而非先strip再拼接。保留第一标题前的preamble为独立区域；维护H1–H6标题栈，新标题到来时弹出同级及更深节点，再加入本标题。若把一个H2当父段，遇H3只增加子层，到下个H2或H1才结束父范围。代码fence开启后，里面的 `# config` 不是文档标题；关闭fence应按对应标记/长度规则识别，未闭合fence保留诊断。没有标题时仍保全文。每个输出带 `section_path、parent_id、source_start/end`，空标题可保导航元数据，但不当成有答案的正文块。表格按行拆需重复表头/单位作为派生装配前缀，并保原行跨度；完整代码超过预算时按语法/函数片段拆或显式超限，不能悄悄丢尾。
+
+递归过程从段落→换行→句界→空白选择边界，尝试合并预算内邻段；分隔符耗尽后必须硬切并保证位置前进。超长单句/无空白中文、长URL和YAML键值都会触发最后层。测试应含无分隔长串、空文档、preamble、嵌套标题、fence内伪标题、缩写/小数/中文、跨块条件与整文覆盖。只检查长度≤200不能证明目标80的硬上限；只检几个词出现也不能证明所有原文字符保留。
+
+token窗口须固定tokenizer和revision，保存token→原文字符或字节的offset映射。半开token区间 `[i,j)` 回到该版本原文 `[a,b)`，再验证原slice和实际token数。UTF-8字节、Unicode码点、UTF-16代码单元和模型token不是一种单位；子词可能共享字符范围，独立解码切片也可能破坏边界。标题/summary/引用标签加入装配后重新计量，offset仍指原文。这里没有安装或调用tokenizer，既有代码继续明确是字符程序。
+
+另一种语义算法比较“当前组均值”与下一句。先取得同一编码空间的句向量 `v_i∈R^d`，保存未归一化和 `S=Σv_i` 与真实计数n，用 `centroid=S/n` 的方向计算余弦；收新句后执行 `S←S+v、n←n+1`。不能先增n再把旧mean乘新n，亦不能把每次归一化后的mean当原始向量和。v1=(1,0)、v2=(0,1)的正确方向为(1,1)/√2；错算 `(2v1+v2)/3` 后变成(2,1)/√5。单位向量归一化mean也有零范数，例如相反方向抵消，必须显式定义切块/回退。
+
+相似度阈值规则 `cos(centroid,v)<τ` 时切分；若用距离 `1−cos` 则是 `distance>δ`，方向不能写反，等号行为也须固定。每句先验证finite、维度和非零，再结合硬预算切分；新组从当前句开始，不能把同一向量累加两次。归一化前后、句窗口、模型revision、阈值都会改变边界，更新须协调chunk ID、原文映射和索引。哈希向量只可验证接口；真实边界性能需要独立标注与同预算评测，800/500/.6等不是普适默认。
+
+原64的span评价在已知正确doc内找块，只要和gold相交一个字符就命中。例如gold[100,130)、chunk[90,101)只有1/30字符覆盖，却Hit=1。全库候选Recall、完整span包含、必要条件/上下文支持应另报告；相邻/父段展开可能恢复碎片，因此“任何切坏都永不可恢复”过于绝对。结构/句子也没有未经实验就永胜固定窗口的保证。
 
 ## 5. 抽取式问答：起止头、无答案与原文偏移
 
@@ -622,6 +666,43 @@ print('过期/权限过滤、原文范围、父段去重、必要prompt超限/�
 此例引用是精确原文摘录，因此能确定跨度存在；仍未判断文档是否在现实中真实，或任意生成主张是否被证据蕴含。父段从同一文档版本内构造，修正来源把全部文档连接后分父段的做法。源 simple_generate 的句号切分会拆开小数，prompt 的 Source N 也缺少真实版本/范围，不能直接用于审计。
 
 按故障定位改一项：原文/有效版本未入库→解析与更新；gold 不在大候选池→词表/OOV、筛选、检索或派生Query；在候选池却掉出最后k→重排及候选预算；进了上下文仍错→证据冲突、生成、主张与引用核验。HyDE 是派生检索输入，模板或假设内容不能当作来源证据；“Hybrid应赢3/5”“HyDE一定改善模糊Query”均改成待测假设。词重叠达到0.5会把90天/60天甚至否定混淆，不能当 faithfulness；使用第6篇的 supported/unsupported/unknown 及失败分母。
+
+### 7.2 真值粒度、分母和独立验证
+
+2026-10-12 增量。评价先锁定五个对象：文档相关集合、chunk相关集合、原文span、必需事实证据集合、最终答案。它们可关联但不互相替代。一个doc含答案不意味着召回的chunk含答案；命中span不意味着上下文含全部条件；忠于错误来源不意味着现实事实正确。qrels应固定corpus/revision、唯一ID、等级含义与二元相关阈值，并审查删除/版本/事实变化后标签是否过期。
+
+Precision@K采用固定K分母时，返回不足K仍除K；采用实际返回数分母则要改名并声明。Recall除全部相关唯一ID数，Hit只看是否任一相关，RR看首相关的位置；空gold查询另报拒答/错误作答，不随意和有答案Recall平均。nDCG沿用2.1的gain与完整gold理想排序，先拒绝重复ID、非法K、负/非有限等级以及binary/graded合同不一致。重复相关ID可虚增DCG甚至nDCG>1，不能当改进。
+
+可手算例：五个唯一候选在rank1、4相关，全部二元gold有3个。P@5=2/5，R@5=2/3，RR=1；`DCG=1+1/log2(5)=1.430676558`，`IDCG=1+1/log2(3)+1/log2(4)=2.130929754`，故 `nDCG@5=0.6713860725`。动态图固定.86不是这组明示标签的结果；若要graded .86需另提供等级，而不能只改显示数字。第2.1完整指标程序可以用该输入复核，不添加另一套指标实现。
+
+多chunk也须先定预算：top3为[A:0,A:1,B:0]且doc gold={A,B}。按“前2块后映doc”Recall@2=1/2；按“唯一doc前2”是1。前3块都属于相关doc，chunk级precision可3/3；固定K=3的唯一doc precision却为2/3。不同分母不得并在一个表里叫同指标。映doc保首出现顺序，引用仍保实际chunk/revision/span，不能在评价中换回本地gold全文而假装是实际送给回答器的context。
+
+Faithfulness检查每个主张与实际context的支持；answer relevance检查是否回答原问题；正确性核现实/业务gold；citation核真实定位与对应主张。这四项分开。按句子词重叠≥.4或把参考substring存着却不评分，都不是完整协议：数字、否定、实体、时期可错而词仍重合。分级支持0/1/2须先定义“部分”的边界与标注一致性；关键条件错不该凭大部分词相同得高分。judge用人工标注集校准误判，换一个模型家族也不自动变真值。
+
+调阈值、模型、c/N/K、chunk、rewrite和judge时使用开发/验证集；最终独立测试集冻结。按原始文档族、实体、事实/近改写分组，train和eval问题文字不同仍可能泄漏。每次seed、每query保全stage trace；分literal/paraphrase/multifacet、中文/编号/长文/表格、无答案/版本/权限切片，报告样本数、分母、paired per-query差及跨seed波动。paired bootstrap时两个系统用相同query抽样；同文档题相关时按文档族抽样，不能假独立。训练seed波动和有限query采样不确定性是不同维度。样本20/200/2000、定期复核频率和5%阈值都是治理选择，由覆盖、风险与成本确定。
+
+定位按stage证据：gold不在候选N→解析/筛选/召回/rewrite；在N却不在最终K→排序与装配；已完整进入context却错→生成/支持；高Recall低MRR只是排序线索，先查gold/重复/粒度，再决定重排。无关块过多也会稀释预算或引入冲突；不存在“生成器总能丢弃噪声”的保证。答案长度与支持率相关也不能直接说明长答导致错误，要控制题难、事实数和拒答。
+
+### 7.3 组件接线、真实计算与演示替身
+
+2026-10-12 增量。端到端接线把原文身份、候选和实际context沿stage传递，接口相似并不等于实现接通。现7.1已给完整标准库链，13/14已覆盖可信principal/ACL、代际更新与会话终态；继续复用这些合同。Cross-encoder的联合注意力、训练与最小独立CPU例统一在[07第13节](07-Embedding与检索模型训练.md#13-联合编码重排的学习计算与训练目标)，本节不把identity或词重叠冒称神经重排。
+
+| 来源stage | 固定代码确有的路径（本轮只静读） | 学习/生产边界 |
+|---|---|---|
+| 64 分块 | 五种字符/句/递归/语义mock/标题方法与已知doc内span交集 | 多个方法不保完整slice/硬cap/fence；已有4.1–4.5合同负责修正 |
+| 65 混合召回 | 真BM25公式、哈希向量全库排序、加权RRF，串行 | hash非已训练语义，重复标题非BM25F，单列表重复票与ID冲突须拒绝 |
+| 66 重排 | 真PyTorch联合序列attention、non-PAD mean、scalar、14人工triple/MSE、默认60epoch | 随机小模型；demo查询与训练逐字重复，未证明泛化；非词重叠替身 |
+| 67 改写 | 假文查表、同义词替换、按and拆解，接BM25/hash/RRF | 非真实LLM；假文表含fixture答案、重复词法腿、facet gold不足；无真实并行 |
+| 68 评价 | 四排行指标与两个词重叠judge，baseline/hybrid/rerank用词法启发式 | 未调用64–67；title bonus不是66真CE，context来自本地全文而非实际块 |
+| 69 单文件集成 | recursive字符块→BM25/hash/RRF→启发改写→真Torch CE+词法blend→抽取前句→五代理指标/退出码 | 复制缩减实现，未导入68；没有nDCG/真实judge、ACL/revision/offset/代际 |
+
+69确有小CE的attention学习：48维、17人工triples、80epochs/MSE，之后还以CE分数加.3词重叠排序；不能因其他stage是替身而否认真训练计算，也不能由这一局部推出真语义召回、LLM生成或生产完成。四个eval按现selector全部选MQ；HyDE查表四key在默认选择条件下不触发HyDE，除非改selector。训练/测试query文字不同仍共享gold文档/事实与人工负例；“字面无重复”不等独立验证。
+
+每条请求应保 `query_id、principal、scope/permission_epoch、source_revision、index_generation、original/derived_query、candidateIDs、rerankedIDs/scores、contextSpans、claims/citations、terminal_status`。入库时按文档revision替换/去重，删除传播到所有索引及缓存；`[doc_id:chunk_index]`缺revision和原文offset，重复ingest追加同ID会造成锚冲突、对象覆盖。可信resolver必须核实际chunk和原文hash，再逐claim核支持；锚能打开仍不等答对。全部stage共用同一版本/权限，避免dense/sparse/context混代。
+
+69的generator是复制选中chunk的首句并附anchor，候选相关不保证首句回答原问；零词重叠仍会fallback第一块。raw CE+词法分数阈值.05没有概率含义，需独立answerable/unanswerable校准误拒与错答；empty、预算不足、证据缺facet、冲突、权限不足分别记unknown/错误，不凭分数给“安全阀已生效”结论。复制也会误答、漏条件或引用不支持，不能宣布免幻觉。
+
+CI退出码可反映明确固定smoke阈值，通过只证明该子集的回归合同。组件测试、端到端集成、独立质量测试与生产权限/更新/负载验证各有价值，集成并非唯一合法评价。流式接口保partial/cancel/error/done；最终支持率用最终完整答案，前缀得分不能充最终成绩，断流不能计成功。所有源程序/100测试函数本轮静读未运行；本轮例子运行情况以明确执行记录为准，不能把静图stage亮灯或预设answer当成完成接线的证据。
 
 ## 8. 练习与可核对答案
 
@@ -1084,3 +1165,288 @@ TS README SSE frames/sessionMap/test覆盖融入RAG streaming scope；npm命令�
 7. **RAG评价跟踪哪些维度？** 选3（index2）题设faithfulness/relevance/contextprecision；记录版本/metricdefinition/judge成本误差，不当自动合规或最终truth。
 
 本节来源：[08-production-rag-chatbot](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/08-production-rag-chatbot)，固定提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，课内全部文件、练习、测验、SVG和 TypeScript（如有）于2026-10-11静读。未执行原程序、安装依赖、调用模型、注册MCP或启动服务。新示例只验证标明的离线合同，旧例字节及核验日期保留。动态图由统一维护记录独立核，静图和动画都不当实测。
+
+
+## 15. 分块、融合、重排与评价的练习和测验
+
+2026-10-12 增量。下面完整重述来源64–69的28道实际练习与36道测验；64/65各4练习，其余各5。题号保来源课与stage身份，原correctIndex为0-based；凡题设过宽或原答案错误均当场纠正。所有来源练习未实际执行，方法与验收标准供独立学习，不代表学习者已完成；本篇原有程序与07唯一自写CPU例的已运行事实另记。
+
+### 证据边界与原文定位
+
+#### 练习 64-P01：添加第六种token窗口分块策略，以tiktoken代替字符计数，在相同fixture上比较固定字符窗口。
+
+固定tokenizer/revision和原文offset映射；定义token预算及装配前缀开销，验证切片/解码与全覆盖，以同源gold/预算比较。此任务未安装或调用tiktoken。
+
+#### 练习 64-P02：向散文fixture注入30%的代码块，重做对照并解释各策略的变化，检验“除结构分块外都损失Recall”的假设。
+
+先说明30%按字符、doc还是块数，保完整gold span。fence-aware结构、代码/AST与各基线都须实测，不能预定结构策略胜；伪标题/未闭fence及长代码超限都要测。
+
+#### 练习 64-P03：把确定性mock embedding替换为项目真实provider模型，测语义聚类Recall变化及策略间差距扩大还是缩小。
+
+固定model/编码空间/归一化、数据切分和threshold，以全库candidate Recall、完整span/事实覆盖及cost评价；不能只用已知正确doc内的一个字符交集。真实provider调用未做。
+
+#### 练习 64-P04：每块添加一句summary作为质心描述，附加到块正文重新评价，测召回变化。
+
+summary标derived_from并核原文支持，防答案泄漏；追加改变长度/词频，应同budget消融。引用回原source span，不能引用summary作为原事实。
+
+#### 测验 64-Q01（pre）：为何块边界影响下游可取得的证据上限，而不只是一个超参数？
+
+源正确项2强调边界约束；若独立证据被切散，单块不能提供完整支持。但相邻/父段展开有时能补回，不能断言任何下游永不可恢复。
+
+#### 测验 64-Q02（pre）：完全不了解语料时，可以先采用哪一种单策略基线？
+
+源正确项2为Recursive split，可作为基线候选；没有独立泛化实验支持“最强默认”。递归仍要分隔符耗尽后的硬回退。
+
+#### 测验 64-Q03（check）：本课名为recall@k的指标实际测量什么？
+
+源正确项3：任一top-K块与gold answer span交集即命中。源代码预知gold doc，不等全库Recall，更不等完整证据。
+
+#### 测验 64-Q04（check）：固定窗口对代码或YAML有什么风险？
+
+源正确项0指出切开标识符/键值条件的风险；不意味着每次都变embedding noise。结构/函数/完整键值以及超长回退要保原文范围。
+
+#### 测验 64-Q05（check）：语义分块的质心漂移终止条件是什么？
+
+源正确项0：当前组均值与下一句余弦低于阈值时切，另受硬预算。源centroid计数/归一化有误；4.5给正确sum/count。
+
+#### 测验 64-Q06（post）：更换分块模型会引入哪一种边界与嵌入失效问题？
+
+源正确项1：chunk模型变化可能改变边界，需固定模型/threshold/strategy/corpus revision并协调重建chunk ID、原文映射和索引。
+
+### 字段融合与联合重排
+
+#### 练习 65-P01：把mock_embed换成真实provider模型，重新评价改写查询的dense-only排名。
+
+query/doc用配套encoder/revision，切literal、paraphrase、unknown分别看gold与候选预算。hash近邻不证明同义语义；本任务未调用provider。
+
+#### 练习 65-P02：将chunk summary作为第三条独立索引/排名列表，再融合并测增益。
+
+summary映稳定doc/chunk/revision，同一身份每列表一次贡献；相关视角不能冒充独立证据，比较权重/候选预算，最终引用回原文。
+
+#### 练习 65-P03：扫描RRF常数10、30、60、100、200，使用评价课的Recall曲线找该语料上的验证集最优值。
+
+把RRF常数c与指标Recall@K分开，保持各路depth/输出K不变。验证集调参数后冻结test；记录每query配对差、seed波动/CI，不能在test上挑峰值。
+
+#### 练习 65-P04：实现真正BM25F的每字段长度归一化，与字段重复trick在重视符号匹配的语料上对照。
+
+按2.2先各字段归一化词频再聚合饱和，固定IDF。控制title/body长度、缺字段/零均长与精确符号gold，比较重复词项、BM25F和无权重基线。
+
+#### 测验 65-Q01（pre）：为什么含精确标识符和语义改写的混合查询分布可能需要词法与向量检索两路？
+
+源正确项3讲标识符与paraphrase可能互补；是否两路改善要看数据/模型，不是每个生产端点必须每次两路。
+
+#### 测验 65-Q02（pre）：BM25中的b（来源默认.75）控制什么？
+
+源正确项3为长度归一化；b=0不校长，b=1全比例，.75是例子参数。长度在TF分母中作用，不是线性罚分。
+
+#### 测验 65-Q03（check）：RRF对每个候选如何计算融合分？
+
+源正确项1：跨各出现列表累加1/(c+rank)，weighted版本乘w；rank从1起，同一ID每列表一次，不使用raw score。
+
+#### 测验 65-Q04（check）：为什么不能直接线性混合原BM25与余弦分数，按rank融合解决了什么？
+
+源正确项1：BM25依语料与词频，cosine范围/尺度不同，直接相加无通用解释。RRF免raw标度校准，已校准score融合仍可有效。
+
+#### 测验 65-Q05（check）：RRF常数c变得很小时，头部与深层名次贡献怎样变化？
+
+源正确项1：c小使头部相对优势更强，深层贡献相对小；它们不是严格变0，阈值/权重仍需验证。
+
+#### 测验 65-Q06（post）：通过重复字段token加权，省去了哪一种query-time字段分数聚合步骤？
+
+源正确项0：在建库时重复token省另一步字段score合并；它同时改变TF/dl/avgdl，并非真正BM25F或单纯最终score乘倍数。
+
+#### 练习 66-P01：扫描候选N从5到50，绘制重排输出的Recall@1并找fixture中的拐点。
+
+本fixture只有8docs，N≥8饱和不证明生产质量拐点；报告candidate Recall@N、最终MRR/Hit@1/K及真实batch延迟，独立query更大库再验证。
+
+#### 练习 66-P02：比较十轮与一轮训练，每轮记录正负pair score margin；同时核对源实现默认实际为60轮。
+
+明确epochs实际配置，绘train loss/margin与held-out排名双曲线；字面相同query或相同答案事实不算独立验证。本篇CPU例验证了train下降但held-out损失上升。
+
+#### 练习 66-P03：用CLS-token head替换mean-pooling，比较相同fixture上的收敛。
+
+固定split/seed/候选/预算，检查PAD不变性、梯度与截断，再比较held-out收敛。只换推理pool不重新训练head不公平，不预设两个head相近。
+
+#### 练习 66-P04：增加二元“文档中是否含答案”head，与ranking head一起推理，分别负责排序和阈值。
+
+无答案标签与rank标签分开，定义joint loss权重、共享梯度影响；独立校准风险/覆盖、误拒/错答。raw相关score不是answerability概率。
+
+#### 练习 66-P05：把本课mock bi-encoder替换成65的候选接口并接通两阶段，比较重排与只召回的top-K变化。
+
+65是BM25+hashdense+RRF接口，并非真bi模型。用版本/文本/identity/length合同适配，固定N和gold比较；改候选池与重排效果分开报告。
+
+#### 测验 66-Q01（pre）：双编码器与cross-encoder的架构差别是什么？
+
+源正确项0：bi独立编码；cross把query/doc连接，用同一序列attention跨双方。缓存doc向量不能替代联合计算。
+
+#### 测验 66-Q02（pre）：对一千万篇文档直接用cross-encoder全库检索，为什么通常代价很高？
+
+源正确项1强调一千万query-doc pair的工作；可batch，不能解释为必然一千万次独立forward。实际代价还受长度平方/模型/硬件影响。
+
+#### 测验 66-Q03（check）：两阶段retrieve-then-rerank中的N代表什么？
+
+源正确项3：N是召回给CE评分的候选数，影响覆盖与计算；K是保留数，批次数另由batchsize决定。
+
+#### 测验 66-Q04（check）：N是否必须严格大于K且通常至少三倍，否则不能重排、增益为零？
+
+源正确项3的“不能重排、零增益”错误。N=K仍可把gold rank4改到rank1，RR .25→1、Hit@1上升；全集Recall@K不变。至少3×K不是必要条件。
+
+#### 测验 66-Q05（check）：本课cross-encoder的mean-pooling head做什么？
+
+源正确项2：最后层有效non-PAD states均值再linear出scalar；CLS/SEP按本课合同也有效。MSE scalar不自动为概率。
+
+#### 测验 66-Q06（post）：记录rank1的cross-encoder score，可为哪些域外/无答案问题提供线索？
+
+源正确项0只能当线索。低raw score可能来自域迁移、截断/短文本、模型错判；需独立unknown标签校准，不能证明整库无答案。
+
+### 派生查询与事实保持
+
+#### 练习 67-P01：实现来源称为RAG-Fusion的多样Multi-query，再用66的重排选最终列表。
+
+保实体、否定、时间、权限硬条件；同ID每list一次票，唯一union再重排。与original比同总候选预算，也记录额外计算，不用重复Query副本赚票。
+
+#### 练习 67-P02：添加第四种Step-back策略：先取更一般问题的证据，再收回原具体问题，对同fixture比较。
+
+一般机制证据与original具体证据各保腿及facet映射；可增加概念覆盖亦可使错误泛化挤掉必要证据，第3.1已有S/E/P反例。
+
+#### 练习 67-P03：为decomposer增加“问题是否原子”head，测训练前后过拆率。
+
+用独立分组真实query的atomic/multifacet标签，报误拆、漏拆和全facet支持率，不能以and是否出现作唯一标签。
+
+#### 练习 67-P04：用真实模型调用替换mock LLM，测当前stack中每种策略的延迟。
+
+按rewrite/编码/retrieval/rerank/queue分别记录wall time与P50/P95、schema/失败/重试；串行求和与真并行最长腿区分。本任务没有真实LLM调用。
+
+#### 练习 67-P05：为每条rewrite增加置信分，按阈值丢弃低分改写，测Recall影响。
+
+confidence事件必须定义为保意图/收益并以标注校准；valid调阈值，held-out测coverage/Recall/误丢与cost，LLM自报不当概率。
+
+#### 测验 67-Q01（pre）：HyDE（假设文档嵌入）的核心机制是什么？
+
+源正确项3：先生成假文，编码其向量查真实docs。源实现还保原hybrid腿，非纯替换query向量；假文不能最终引用。
+
+#### 测验 67-Q02（pre）：HyDE假文可以未经事实核验，是否等于假文错误不会伤害检索？
+
+源正确项2的“只看词分布、必落真实段附近”过宽。假文不是真值，错误实体/条件可把检索引向错文档；只用回读真实证据回答。
+
+#### 测验 67-Q03（check）：Multi-query与query decomposition的区别是什么？
+
+源正确项0：MQ是同题多表述，decomposition是不同子问共同覆盖原题；一个facet命中不等完整问题成功。
+
+#### 测验 67-Q04（check）：什么时候decomposition可能过度拆解并损害检索？
+
+源正确项2：原子题被强拆可引入虚假子问、稀释/漂移或重复结果；不是每次必降低rank，用误拆/漏拆和完整coverage验证。
+
+#### 测验 67-Q05（check）：为什么多个改写的结果可以用RRF融合，而不能未经校准就混原分数？
+
+源正确项0：RRF按rank减轻跨分数标度问题；c/权重/候选depth仍需选择，校准score interpolation并非不能用。
+
+#### 测验 67-Q06（post）：同时并行运行三种改写器时，“一次LLM调用”是否等于端到端延迟下限？
+
+源正确项2仅对应理想并发的LLM阶段最大调用耗时。后续依赖retrieval/merge/rerank仍要时间，源码串行mock未证明真实LLM并行下限。
+
+### 指标、支持与独立验证
+
+#### 练习 68-P01：添加第五种检索指标Hit-rate@K，与Recall@K比较并解释何时不同。
+
+gold3只取到1时Hit=1而Recall=1/3；单gold才相等。定义唯一ID、K、空gold及返回不足K分母，再与第2.1同协议核对。
+
+#### 练习 68-P02：实现分级faithfulness：0不支持、1部分支持、2完全支持，更新汇总指标。
+
+先定义每claim“部分支持”，记录标注一致性/关键否定数字规则；若取0/1/2均分除2，必须说明分母和unknown，不能按词重叠掩盖关键条件错误。
+
+#### 练习 68-P03：用真实模型调用替换mock judge，测fixture上两judge的分歧。
+
+人工gold先核正确支持，再比较mock/真实judge的precision/recall、分歧及误判类型/成本；真实judge也会错。本任务未调用模型。
+
+#### 练习 68-P04：为查询标literal/paraphrased/multi-topic切片，逐切片报告指标。
+
+切片定义、样本数、分母和CI固定，每query保trace。multi-topic按全部facet证据覆盖评价，不能只单doc命中。
+
+#### 练习 68-P05：增加答案长度指标并与faithfulness做相关分析，绘制曲线。
+
+长度按token/字符或claim数定义，控制题难/证据数量等混淆，空答/拒答独列。相关不能推因果；曲线不证明长答一定更不忠实。
+
+#### 测验 68-Q01（pre）：为什么Recall@K通常是RAG候选召回的重要指标？
+
+源正确项3：候选漏掉必要证据，纯重排不能恢复；但无关/冲突块也会占预算、污染回答，不能说生成必能丢弃噪声。
+
+#### 测验 68-Q02（pre）：MRR计算什么？
+
+源正确项3：逐query首相关rank倒数均值，没找到为0；若截K须报告MRR@K。它不检查全部facet。
+
+#### 测验 68-Q03（check）：有分级相关标签时，nDCG相对二元Recall能补充什么？
+
+源正确项3：分级gain与位置折扣保留相关程度，IDCG由完整gold理想排序；可与binary Recall并报，不需二选一。
+
+#### 测验 68-Q04（check）：Faithfulness与answer relevance有什么区别？
+
+源正确项3：faithfulness查实际context支持，relevance查是否回答原题；二者独立，忠于错来源仍可能事实不真。
+
+#### 测验 68-Q05（check）：Recall@5尚可但MRR低，应先检查什么环节？
+
+源正确项3建议查rerank/排序，因为gold在前K但未靠前；先核gold粒度、候选/duplicate和装配预算，不能只由汇总指标确定因果。
+
+#### 测验 68-Q06（post）：冻结qrels随时间推移会遭遇什么生产风险？
+
+源正确项3：语料/版本/事实变化使旧gold不再适用。以revision和变化事件触发重标，quarterly只是治理例。
+
+### 组件接线与最终状态
+
+#### 练习 69-P01：在rewriter内按问题长度、连接词、术语比例选择HyDE/Multi-query/decomposition；先核已有selector覆盖了什么。
+
+现代码已有and→decomposition、jargon→HyDE、default→MQ，但不完整实现length/jargon ratio。验证集比较选择收益/成本/意图漂移，四eval实际全MQ，不能宣称测过HyDE。
+
+#### 练习 69-P02：在env flag后接真实LLM generator，默认mock，比较延迟变化。
+
+替换后核逐claim支持、真实anchor resolver、emptycontext unknown与文档注入；假文仍不得作为证据。费用和每stage延迟另记。本任务没有服务调用。
+
+#### 练习 69-P03：增加--corpus path加载真实语料，再跑eval和阈值检查。
+
+新语料先保许可/ACL/revision、doc/chunk/offset身份、duplicate/update删除与新qrels，不能直接沿用toy阈值。需独立测试，fixture成绩不代表真实资料。
+
+#### 练习 69-P04：给chunker增加--strategy，比较各策略对端到端召回的贡献。
+
+保持同原文覆盖、gold span映射、硬cap/位置/revision/citation合同，同candidate与context预算看完整事实支持；doc级命中不能代替可回答coverage。
+
+#### 练习 69-P05：增加流式generator并接eval，确认faithfulness计算最终完整string而非前缀。
+
+区分partial/error/cancel/done与最终答案；终态完整字符串再评分，前缀只是独立观测，不能提前宣告最终faithful或把断流计成功。
+
+#### 测验 69-Q01（pre）：为什么六组件RAG需要端到端集成测试，它是否是唯一合法评价？
+
+源正确项3强调组件交互的集成必要性；“only honest grade”过度。stage测试、独立质量/权限/更新测试同样有效，同toy qrels非生产充分证据。
+
+#### 测验 69-Q02（pre）：生成器按低重排分拒答有什么作用与限制？
+
+源正确项1：低score可触发unknown；MSE+词法raw score非confidence概率，没有独立校准不能声称防止所有幻觉，须统计误拒/错答。
+
+#### 测验 69-Q03（check）：为什么reranker训练triples应与eval查询/文档事实分组隔离？
+
+源正确项0原则正确；原17triples与4eval文字不同仍共享doc/facts和近改写，不能当独立场景泛化。按family/事实/实体分组。
+
+#### 测验 69-Q04（check）：自动结束demo的退出码是什么用途？
+
+源正确项3：明确阈值gate的0/非0可供CI判pass/fail。源demo未在本轮运行，不能报告exit0或通过。
+
+#### 测验 69-Q05（check）：这条pipeline的citation anchor是什么格式，能证明什么？
+
+源正确项1格式[doc_id:chunk_index]。缺revision/offset与可信resolver，重复ingest可锚冲突；存在/可打开不等逐claim受支持。
+
+#### 测验 69-Q06（post）：真实LLM上线前需要额外测试什么，即使mock只复制检索文本？
+
+源正确项1强调真实LLM可能无证据生成；mock复制首句仍可无关/漏facet/错来源或引用不支持，复制不免答错，真实延迟/支持还须独立测。
+
+### 怎样理解来源的100个测试函数
+
+源测试已完整静读但未运行。64的16项检查参数/若干词覆盖/长度与预设hash/局部命中，不能证明完整slice、token硬上限、中文fence结构或独立全库证据；65的15项检查词法、已知排序、权重及列表形状，未覆盖重复票、ID冲突、非法finite参数或unknown拒答。66的12项确包含训练loss下降和已知query正例得分，但名为pipeline reorders的断言只要求d1在top3，没有要求实际顺序变化或独立MRR；截断允许丢doc也没有gold-span保留检查。
+
+67的13项有表命中、策略字段、某HyDE结果列表不同等检查；best-rank先取baseline再取各策略min，最后断best≤baseline恒成立，并不证明任一改写改善或指定赢家，更未验多facet全覆盖。68的24项检查理想/反序/局部/空输入等指标和预设词法variant关系，未覆盖重复ID使nDCG超过1、非法等级、否定数值和实际context身份。69的20项包括anchor格式、heuristic分支、低分/空拒答、部分指标和阈值/exit0期望；名为answer carries citations的检查允许引用或拒答，不能证明真实支持，更没有ACL、重复ingest/锚冲突、版本/代际或完整事实。测试名称、函数数量、源码期望断言和实际运行成功是不同证据，不能合并为生产验收。
+
+### 来源与图示核对边界
+
+来源为AI Engineering from Scratch固定提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，Phase19/64–69，2026-10-12按只读冻结报告融合。24源文件、91个真实H2–H4、28实际练习、36测验与100测试函数全部已静读，正式正文按知识主题吸收；未执行或导入这些源程序/测试，未安装其output skills。原题与全部选择项由固定quiz JSON存证，正式题意/正确项含义及中文纠错已保留。
+
+动态图六项已由统一维护记录核最后实际注册函数，均是预定坐标/路径/常数/成员或颜色变化：64的切点不是512-token实际分块，65的圆packet不是BM25或真实并发，66的keep集合不是CE推理，67的假文向量不是模型计算，68的.86不是所画二元gold的nDCG，69的[chunk:42]/拒答文字不是真实anchor resolver或confidence验证。静SVG亦为设计意图，不作为实测性能/全部接线证据。源码具体速度、规模、厂商默认与论文性能未新增primary核验，故未保为当前推荐/成绩。
+
+获取入口：[六课上游目录](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects)。此链接作为来源记录，不能表示本轮新增浏览或论文全文阅读；本轮用已完整静读并核Blob/SHA的冻结记录。

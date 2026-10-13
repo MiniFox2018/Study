@@ -1,0 +1,3197 @@
+{
+  "date": "2026-10-12",
+  "status": "两正式目标写作与限定验证完成；根代理专业回读、统一验收未替代",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "authority": "维护/五站吸收/19F-视觉语言构建-只读准备.json",
+  "source_files_count": 24,
+  "source_programs_executed": 0,
+  "source_tests_executed": 0,
+  "sites2_5_read": false,
+  "formal_files": [
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "baseline_sha256": "a52ecf22ad9cb6f6bf95280b8941f54e9eb623d972046e5fed4fb4b8ed3b2b9d",
+      "final_sha256": "bb16f922681ce12de9b915217ec48de36d12828eb1cc61f16ed8edc487a44ee6",
+      "bytes": 89702,
+      "write_date": "2026-10-12",
+      "new_sections": [
+        "### 1.4 分块投影的两种写法与二维位置合同",
+        "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "### 3.1 查询数、视觉数与语言长度应分别记录",
+        "### 4.1 文本cross-attention的形状、空媒体与缓存身份",
+        "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "### 9.1 检索与生成的双目标：沿实际边追踪梯度",
+        "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "### 10.13 单向量桥接的实践与测验（增量60）",
+        "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "### 10.15 双目标训练的实践与测验（增量62）"
+      ]
+    },
+    {
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "baseline_sha256": "4a84b35d5d873f1aae4cbdac4093012840752d2d20eb22b5ef1ca275c2ba8f1d",
+      "final_sha256": "1e54649f4602602e3495c270d5e02ba6fa18a7dd589c09d45f82ffec6947a088",
+      "bytes": 47339,
+      "write_date": "2026-10-12",
+      "new_sections": [
+        "### 7.1 先使评价集合真正独立",
+        "### 7.2 检索：先说正例集合，再解释R@K和MRR",
+        "### 7.3 VQA：ID exact match与人类答案评分是两种合同",
+        "### 7.4 BLEU：分词、截断计数、短句和平滑要共同固定",
+        "### 7.5 完整可运行的标准库指标合同探针",
+        "### 7.6 五项原指标实践的实施方法与判据（增量63）",
+        "### 7.7 六道原评测测验的参考理由（增量63）",
+        "### 7.8 图示、来源测试与验证边界"
+      ]
+    }
+  ],
+  "coverage_counts": {
+    "true_source_headings": 81,
+    "practice": 30,
+    "quiz": 36,
+    "source_tests_static_read": 52
+  },
+  "source_heading_mapping": [
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "## Learning Objectives",
+      "source_line": 10,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.4 分块投影的两种写法与二维位置合同",
+        "line": 86,
+        "end_line": 97
+      },
+      "absorbed_knowledge": "把RGB网格转为固定长度patch序列，学习卷积/展开等价、二维位置和数值合同；先修trackB基础。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "## The Problem",
+      "source_line": 17,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.4 分块投影的两种写法与二维位置合同",
+        "line": 86,
+        "end_line": 97
+      },
+      "absorbed_knowledge": "224²×3=150528是标量数；逐RGB像素token应为50176，不能把标量/像素/patch混用。16patch得到14²=196，CLS后197。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "## The Concept",
+      "source_line": 23,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.4 分块投影的两种写法与二维位置合同",
+        "line": 86,
+        "end_line": 97
+      },
+      "absorbed_knowledge": "流程是分块→展平→共享线性→位置，前端只局部投影不含跨patch交互。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "### Why patches, not pixels",
+      "source_line": 36,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.4 分块投影的两种写法与二维位置合同",
+        "line": 86,
+        "end_line": 97
+      },
+      "absorbed_knowledge": "注意力score的N²项下降；源590000倍按错误标量token基线算出。patch会牺牲块内细节，不能保证任务精度。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "### Why a linear projection is enough",
+      "source_line": 40,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.4 分块投影的两种写法与二维位置合同",
+        "line": 86,
+        "end_line": 97
+      },
+      "absorbed_knowledge": "每块CP²向量用同W投影，能学习线性滤波但未经训练不能认定已有边缘检测能力。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "### The `Conv2d` trick",
+      "source_line": 44,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.4 分块投影的两种写法与二维位置合同",
+        "line": 86,
+        "end_line": 97
+      },
+      "absorbed_knowledge": "kernel=stride=P、无padding、同权重bias和展平顺序时Conv2d与unfold linear等价。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "### Position embeddings",
+      "source_line": 48,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.4 分块投影的两种写法与二维位置合同",
+        "line": 86,
+        "end_line": 97
+      },
+      "absorbed_knowledge": "dim须4整除；一半row一半col各sin/cos，固定table无参数。可以按坐标重算不等于实际代码支持动态分辨率或保证泛化。CLS位全零pos。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "### Equivalence as a sanity check",
+      "source_line": 60,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.4 分块投影的两种写法与二维位置合同",
+        "line": 86,
+        "end_line": 97
+      },
+      "absorbed_knowledge": "两种实现逐元素allclose检查，不能证明训练语义，也不等于quiz中无projection round-trip。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "## Build It",
+      "source_line": 68,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.4 分块投影的两种写法与二维位置合同",
+        "line": 86,
+        "end_line": 97
+      },
+      "absorbed_knowledge": "代码实现cfg整除检查、patch、CLS、buffer位置和确定性fixture；默认形状(1,197,768)是预期而非本次运行。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "## Use It",
+      "source_line": 86,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.4 分块投影的两种写法与二维位置合同",
+        "line": 86,
+        "end_line": 97
+      },
+      "absorbed_knowledge": "现代视觉模型patch、pooling和位置各变体须看具体权重合同；源概括全部使用此精确结构过宽。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "## Tests",
+      "source_line": 90,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "absorbed_knowledge": "9个unit test静读：数量/形状/等价/确定性/非法维度/CLS广播/拒尺寸/fixture。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "## Exercises",
+      "source_line": 106,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793
+      },
+      "absorbed_knowledge": "5练习须分别检查位置泛化、算子等价、矩形合同、profile和特征可学习性，均未执行。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "## Key Terms",
+      "source_line": 118,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.1 patch、读出和LLM上下文分别是什么",
+        "line": 13,
+        "end_line": 26
+      },
+      "absorbed_knowledge": "patch区域、projection、sequence length、sinusoidal、CLS读出可区分；仅前端CLS尚不读图。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "lesson": 58,
+      "source_file": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+      "source_heading": "## Further Reading",
+      "source_line": 128,
+      "source_sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "## 11. 图示、来源与运行边界",
+        "line": 866,
+        "end_line": 874
+      },
+      "absorbed_knowledge": "ViT/Transformer/register是来源索引；未以导航或引用标题算论文已读。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "reading_boundary": "引用入口与一手选读范围保留；引用标题未计全文阅读或已复现。"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "## Learning Objectives",
+      "source_line": 10,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "用preLN attention/FFN将局部patch变上下文，CLS读出及梯度是接口目标。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "## The Problem",
+      "source_line": 17,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "patch不互见，encoder做全序列交互；源所有现代VLM均12层12头/完全相同过宽，不能保。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "## The Concept",
+      "source_line": 23,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "12block后finalLN；每block是x+Attn(LN(x))再x+FFN(LN(x))，sequence形状保持。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "### Pre-LN vs post-LN",
+      "source_line": 46,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "preLN保留残差梯度通路，通常有稳定性益处；不用warmup和postLN六层必发散不是定理。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "### Multi-head self-attention",
+      "source_line": 50,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "QKV [B,N,3,H,dh]→[3,B,H,N,dh]，scores按1/sqrt(dh)，softmax key维，合并heads后out；head未保证独立语义。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "### Why the 4x feed-forward expansion",
+      "source_line": 54,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "hidden→int(hidden×ratio)→hidden，GELU引入非线性；4为配置而非最优定理，参数表是粗计且bias另算。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "### Causal mask or not?",
+      "source_line": 70,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "视觉encoder双向无需causal；decoder文本self-attn需因果，视觉cross-attn本身不套文本三角mask。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "### What the CLS token learns",
+      "source_line": 74,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "CLS初为参数，经attention才读图；随机encoder能依赖图像，不代表语义已训练好。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "## Build It",
+      "source_line": 82,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "实现配置、MHA、FFN、残差块、ViT及动态导入58前端；本次未import。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "## Use It",
+      "source_line": 101,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "族间宽深、pooling、位置/register有差异；SigLIP average表述应核pooler，已有16注明MAP。不能称只加一行就完整register实现。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "### 1.1 patch、读出和LLM上下文分别是什么",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "## Tests",
+      "source_line": 112,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "absorbed_knowledge": "8测试检查形状、softmax行和、FFN维度、残差delta、4层形状、patch梯度、head整除。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "## Exercises",
+      "source_line": 128,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793
+      },
+      "absorbed_knowledge": "5练习需训练和负对照，不把profile或语义头命名当结论。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "## Key Terms",
+      "source_line": 140,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 1.5 从局部前端到全局编码：CLS何时才包含图像信息",
+        "line": 98,
+        "end_line": 107
+      },
+      "absorbed_knowledge": "preLN、自注意力、多头、扩张、CLS分别是布置/交互/维度/容量/读出。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 59,
+      "source_file": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+      "source_heading": "## Further Reading",
+      "source_line": 150,
+      "source_sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "## 11. 图示、来源与运行边界",
+        "line": 866,
+        "end_line": 874
+      },
+      "absorbed_knowledge": "论文是引用入口，未全文核查；DINOv2/register与SigLIP pooler需一手精确区分。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "reading_boundary": "引用入口与一手选读范围保留；引用标题未计全文阅读或已复现。"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "## Learning Objectives",
+      "source_line": 10,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "line": 469,
+        "end_line": 480
+      },
+      "absorbed_knowledge": "冻结视觉/随机文本表，仅学习两层MLP将单图向量对齐caption平均向量，无真实语言模型。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "## The Problem",
+      "source_line": 17,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "line": 469,
+        "end_line": 480
+      },
+      "absorbed_knowledge": "维度和表示basis不同，bridge可调整但小mock训练只演示损失；768→1024→512带bias共1312256参数。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "## The Concept",
+      "source_line": 23,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "line": 469,
+        "end_line": 480
+      },
+      "absorbed_knowledge": "图像→冻结encoder→CLS→MLP，与captionID→冻结table→mean共享cos loss；pool一个向量不能等同VLM逐patch语言接入。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "### Pooling before projection",
+      "source_line": 38,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "line": 469,
+        "end_line": 480
+      },
+      "absorbed_knowledge": "本码CLS；mean若只196patch须排CLS。源SigLIP平均全部197说法与真实MAP不符。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "### Why two layers and not one",
+      "source_line": 42,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "line": 469,
+        "end_line": 480
+      },
+      "absorbed_knowledge": "Linear只能仿射，GELU提供非线性；够不够取决数据/表示，BLIP2最终head结构和LLaVA实际任务不能按此mock统一。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "### Cosine alignment loss",
+      "source_line": 54,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "line": 469,
+        "end_line": 480
+      },
+      "absorbed_knowledge": "L=mean(1−归一化点积)，非零反向向量为2，同向0；零向量eps有例外。只有正对，无负对/检索约束。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "### Frozen encoder is the trick",
+      "source_line": 58,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "line": 469,
+        "end_line": 480
+      },
+      "absorbed_knowledge": "requires_grad=False并eval、no_grad减少图；eval不等freeze。合成小loss下降不证真实对齐或全模型永远冻结。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "## Build It",
+      "source_line": 66,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "line": 469,
+        "end_line": 480
+      },
+      "absorbed_knowledge": "make_pair随机noise图和随机ID没有共享语义；train实际4层8头ratio2随机encoder而非源称86M预训ViT。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "## Use It",
+      "source_line": 84,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "line": 469,
+        "end_line": 480
+      },
+      "absorbed_knowledge": "LLaVA/BLIP2/MiniGPT4/Qwen分别有token、query与训练目标；不都是先单向量pool+cosine训练。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "## 3. Q-Former：先用可学习查询提取信息，再让语言模型使用",
+          "line": 170
+        },
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "## 5. 变长视觉指令序列与冻结模型的反向传播",
+          "line": 357
+        }
+      ]
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "## Tests",
+      "source_line": 95,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "absorbed_knowledge": "8测试含projector shape/gradient、freeze、padding、cos端点、小训练和fixture；小训练替代了生产train。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "## Exercises",
+      "source_line": 111,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827
+      },
+      "absorbed_knowledge": "5练习需修正temperature目标与deploy依赖，不能照输出结论。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "## Key Terms",
+      "source_line": 123,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 5.1 单向量对齐能说明什么：随机冻结与预训练不能混称",
+        "line": 469,
+        "end_line": 480
+      },
+      "absorbed_knowledge": "模态对齐、桥、cos、冻结和mock是不同合同；mock对应不是自然图文。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 60,
+      "source_file": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+      "source_heading": "## Further Reading",
+      "source_line": 133,
+      "source_sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "## 11. 图示、来源与运行边界",
+        "line": 866,
+        "end_line": 874
+      },
+      "absorbed_knowledge": "仅引用索引；模型历史实现需一手核，不算已查官方。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "reading_boundary": "引用入口与一手选读范围保留；引用标题未计全文阅读或已复现。"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "## Learning Objectives",
+      "source_line": 10,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 4.1 文本cross-attention的形状、空媒体与缓存身份",
+        "line": 345,
+        "end_line": 356
+      },
+      "absorbed_knowledge": "文本作Q，视觉memory作K/V；组合因果文本self、cross、FFN与shape合同。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "## The Problem",
+      "source_line": 17,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 4.1 文本cross-attention的形状、空媒体与缓存身份",
+        "line": 345,
+        "end_line": 356
+      },
+      "absorbed_knowledge": "early统一序列/late分离memory都是可选设计；cross不自动保text-only能力、便宜生成或grounding正确性。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "## The Concept",
+      "source_line": 23,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 4.1 文本cross-attention的形状、空媒体与缓存身份",
+        "line": 345,
+        "end_line": 356
+      },
+      "absorbed_knowledge": "数据流图memory→cross、text→embedding→self→cross→FFN→logits；QKᵀ尺寸[B,H,Nt,Nv] softmax Nv，output跟query长度。图Image名已是tokens再encoder表述混。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "### Mask shapes",
+      "source_line": 46,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 4.1 文本cross-attention的形状、空媒体与缓存身份",
+        "line": 345,
+        "end_line": 356
+      },
+      "absorbed_knowledge": "本bool True=允许，self[Nt,Nt]下三角；cross单有效图全开放。padding或多媒体仍需有效性/归属mask。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "### Why no mask on cross-attention",
+      "source_line": 57,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 4.1 文本cross-attention的形状、空媒体与缓存身份",
+        "line": 345,
+        "end_line": 356
+      },
+      "absorbed_knowledge": "整图先观测不需要空间causal；空白pad、未知有效区和interleaved媒体并非无mask。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "### Key/value caching",
+      "source_line": 61,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 4.1 文本cross-attention的形状、空媒体与缓存身份",
+        "line": 345,
+        "end_line": 356
+      },
+      "absorbed_knowledge": "CrossAttention允许外部(K,V)复用；VisionLanguageDecoder每forward use_cache内部重新build，未跨decode保存；没有selfKV增量缓存。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "### Block composition",
+      "source_line": 65,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "## 4. Flamingo：外部视觉记忆、最近媒体mask与双门控",
+        "line": 264,
+        "end_line": 356
+      },
+      "absorbed_knowledge": "三preLN三残差，cross原版无gate；Flamingo是特定gate/频率，QFormer query不是这里的causal text。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "## Build It",
+      "source_line": 85,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 4.1 文本cross-attention的形状、空媒体与缓存身份",
+        "line": 345,
+        "end_line": 356
+      },
+      "absorbed_knowledge": "代码cfg、causal mask、twoattention、block、decoder、synthetic generators；预测logits不代表真实caption生成。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "## Use It",
+      "source_line": 104,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "## 4. Flamingo：外部视觉记忆、最近媒体mask与双门控",
+        "line": 264,
+        "end_line": 356
+      },
+      "absorbed_knowledge": "Flamingo/BLIP2抽象QKV相近但mask/query/task与语言连接不同，不直接复现。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "## 3. Q-Former：先用可学习查询提取信息，再让语言模型使用",
+          "line": 170
+        },
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "### 4.1 文本cross-attention的形状、空媒体与缓存身份",
+          "line": 345
+        }
+      ]
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "## Tests",
+      "source_line": 113,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "absorbed_knowledge": "9测试仅mask形状三角、cross shapes、数值cache等价、batch/错mask、decoder形状/cache/超长。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "## Exercises",
+      "source_line": 129,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846
+      },
+      "absorbed_knowledge": "5实践包括gate、多图mask、成本、dropout和query；均未执行，需负对照。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "## Key Terms",
+      "source_line": 141,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 4.1 文本cross-attention的形状、空媒体与缓存身份",
+        "line": 345,
+        "end_line": 356
+      },
+      "absorbed_knowledge": "latefusion/QKV/causal/cache/memory不同；cache不可称每token免费，QKAV与text运算仍付成本。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 61,
+      "source_file": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+      "source_heading": "## Further Reading",
+      "source_line": 151,
+      "source_sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "## 11. 图示、来源与运行边界",
+        "line": 866,
+        "end_line": 874
+      },
+      "absorbed_knowledge": "引用入口未论文全文阅读，不借图称实现Flamingo/BLIP2。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "reading_boundary": "引用入口与一手选读范围保留；引用标题未计全文阅读或已复现。"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "## Learning Objectives",
+      "source_line": 10,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.1 检索与生成的双目标：沿实际边追踪梯度",
+        "line": 665,
+        "end_line": 684
+      },
+      "absorbed_knowledge": "双向InfoNCE训ranking、shifted CE训image-conditioned token prediction；合成demo只验局部优化意图，下降不单独证明全部梯度。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "## The Problem",
+      "source_line": 17,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.1 检索与生成的双目标：沿实际边追踪梯度",
+        "line": 665,
+        "end_line": 684
+      },
+      "absorbed_knowledge": "N配对对角正/N(N−1)负是单正配对协议；不同loss有不同参数路径，所有系统都需同时两个能力不是定律。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "## The Concept",
+      "source_line": 23,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.1 检索与生成的双目标：沿实际边追踪梯度",
+        "line": 665,
+        "end_line": 684
+      },
+      "absorbed_knowledge": "图像CLS→projector对比textmean；同encoder全tokens→decoder LM。图已无projector到decoder边，正文却称LM影响projector，与码矛盾。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "### InfoNCE in one paragraph",
+      "source_line": 43,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.1 检索与生成的双目标：沿实际边追踪梯度",
+        "line": 665,
+        "end_line": 684
+      },
+      "absorbed_knowledge": "I/T各L2 normalize，S=exp(log_scale)ITᵀ，两方向CE平均；不是matrix值对称，只换modalities转置时loss对称。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "### Temperature matters",
+      "source_line": 47,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.1 检索与生成的双目标：沿实际边追踪梯度",
+        "line": 665,
+        "end_line": 684
+      },
+      "absorbed_knowledge": "cfg init_log_tau=log(1/.07)，实际是log逆温度/scale；exp=14.2857不是tau=.07。clamp[.001,100]是scale，边界外参数梯度被截。normalize后norm不影响scores，不能解释为norm长大。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "### Language modeling loss",
+      "source_line": 51,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.1 检索与生成的双目标：沿实际边追踪梯度",
+        "line": 665,
+        "end_line": 684
+      },
+      "absorbed_knowledge": "inputs=text[:,:-1] targets=text[:,1:]，CE ignorepad；无BOS/EOS，第一token未预测，allpadding meanCE可NaN。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "### Combining the losses",
+      "source_line": 55,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.1 检索与生成的双目标：沿实际边追踪梯度",
+        "line": 665,
+        "end_line": 684
+      },
+      "absorbed_knowledge": "真实路径contrast→encoder/projector/text_encoder/log_scale；LM→encoder/decoder，projector和text_encoder无LM路径。Total权重改变多任务平衡，不保证ranking不退化；SigLIP对比目标不自动有LM。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "### Why 50 steps is enough for a demo",
+      "source_line": 65,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "absorbed_knowledge": "50步随机noise/由i定ID、bias合成任务，不证明真caption、稳定训练或长期泛化；换batch首尾loss不能直接证同评估集改善。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "## Build It",
+      "source_line": 73,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "absorbed_knowledge": "小ViT32px2层，MLP，独立textmean与decoder，Adam全params；no model downloads/no real tokenizer。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "## Use It",
+      "source_line": 91,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.1 检索与生成的双目标：沿实际边追踪梯度",
+        "line": 665,
+        "end_line": 684
+      },
+      "absorbed_knowledge": "CoCa多任务理念可借，CLIP本身非caption系统，SigLIP非必共享LM，LLaVAstage1非pair cosine；这些精确实现未本轮一手核，不能称同recipe复现。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "## 2. 图文对齐：Sigmoid目标也要有真实梯度",
+          "line": 108
+        },
+        {
+          "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+          "heading": "## 5. 变长视觉指令序列与冻结模型的反向传播",
+          "line": 357
+        }
+      ]
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "## Tests",
+      "source_line": 101,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "absorbed_knowledge": "7tests静读：对角大scale、lossmodal对称、shape异常、padCE、finiteforward、小训练、corpus shapes；没有子损失梯度归属。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "## Exercises",
+      "source_line": 117,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865
+      },
+      "absorbed_knowledge": "5练习含Sigmoid/难负/ITM/受控caption/权重消融；要评估多正、signal与冲突。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "## Key Terms",
+      "source_line": 129,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.1 检索与生成的双目标：沿实际边追踪梯度",
+        "line": 665,
+        "end_line": 684
+      },
+      "absorbed_knowledge": "InfoNCE、temperature、hardnegative、LM、jointspace分别是目标/scale/采样/生成监督/表示，不等于每model都完整实现。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 62,
+      "source_file": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+      "source_heading": "## Further Reading",
+      "source_line": 139,
+      "source_sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "## 11. 图示、来源与运行边界",
+        "line": 866,
+        "end_line": 874
+      },
+      "absorbed_knowledge": "CLIP/CoCa/SigLIP仅来源入口未完整阅读，不从标题或动画当实测。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "reading_boundary": "引用入口与一手选读范围保留；引用标题未计全文阅读或已复现。"
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "## Learning Objectives",
+      "source_line": 10,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.1 先使评价集合真正独立",
+        "line": 95,
+        "end_line": 104
+      },
+      "absorbed_knowledge": "独立检索、单答EM与caption ngram分别评输出，不能仅loss报能力；先修58–62具体路径。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "## 7. 评测",
+          "line": 91
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.2 检索：先说正例集合，再解释R@K和MRR",
+          "line": 105
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.3 VQA：ID exact match与人类答案评分是两种合同",
+          "line": 115
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.4 BLEU：分词、截断计数、短句和平滑要共同固定",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "## The Problem",
+      "source_line": 17,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.1 先使评价集合真正独立",
+        "line": 95,
+        "end_line": 104
+      },
+      "absorbed_knowledge": "三个任务评价真值/候选/输出不同；COCO/Flickr检索与ImageNet分类不能称同R@K协议。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "## 7. 评测",
+          "line": 91
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.2 检索：先说正例集合，再解释R@K和MRR",
+          "line": 105
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.3 VQA：ID exact match与人类答案评分是两种合同",
+          "line": 115
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.4 BLEU：分词、截断计数、短句和平滑要共同固定",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "## The Concept",
+      "source_line": 27,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.1 先使评价集合真正独立",
+        "line": 95,
+        "end_line": 104
+      },
+      "absorbed_knowledge": "embed→sim→两个方向R@K；decoderQA→EM与caption→BLEU；三评分不自动证明grounding/自然语言正确。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "## 7. 评测",
+          "line": 91
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.2 检索：先说正例集合，再解释R@K和MRR",
+          "line": 105
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.3 VQA：ID exact match与人类答案评分是两种合同",
+          "line": 115
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.4 BLEU：分词、截断计数、短句和平滑要共同固定",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "### Recall@K from a similarity matrix",
+      "source_line": 42,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.2 检索：先说正例集合，再解释R@K和MRR",
+        "line": 105,
+        "end_line": 114
+      },
+      "absorbed_knowledge": "单正squareN×N约定，i2t每image行/t2i转置每caption行，以query个数为分母命中平均。多正时需集合且说明hit-any或相关项recall。N100 .6示例描述caption对应t2i。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "### VQA exact match",
+      "source_line": 46,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.3 VQA：ID exact match与人类答案评分是两种合同",
+        "line": 115,
+        "end_line": 124
+      },
+      "absorbed_knowledge": "源码只predID==referenceID平均；真实VQA作者脚本做answer规范化、leave-one-annotator-out min(match/3,1)再平均，不等直接min总count/3。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "### BLEU-4",
+      "source_line": 50,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.4 BLEU：分词、截断计数、短句和平滑要共同固定",
+        "line": 125,
+        "end_line": 134
+      },
+      "absorbed_knowledge": "clipped ngram precision用各ref最大counts、BP最近长度tie取短、1–4log平均；源码零clipped变1/(total+1)是自定平滑，不是ChenCherry method1，短于4无ngram返回0。evaluate平均sentenceBLEU不是corpusBLEU。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "### Synthetic eval suite",
+      "source_line": 65,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.1 先使评价集合真正独立",
+        "line": 95,
+        "end_line": 104
+      },
+      "absorbed_knowledge": "seed仅改变图像noise，i决定bias/caption且eval0..49caption和train前50相同；不是语义独立heldout。随机baseline K/N仅均匀单正rank假设，QA1/vocab需均匀输出/答案协议，BLEU平滑本来可使无关词非零。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "## Build It",
+      "source_line": 89,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.5 完整可运行的标准库指标合同探针",
+        "line": 135,
+        "end_line": 228
+      },
+      "absorbed_knowledge": "metrics函数、suite和evaluate；demo只是打印before/after/deltas没有断言指标增益或above random。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.1 先使评价集合真正独立",
+          "line": 95
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.8 图示、来源测试与验证边界",
+          "line": 296
+        }
+      ]
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "## Use It",
+      "source_line": 108,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.1 先使评价集合真正独立",
+        "line": 95,
+        "end_line": 104
+      },
+      "absorbed_knowledge": "benchmark需对应split/多正/规范化/语料BLEU与官方scorer；不是替换loader就可原样公平比较，ImageNetzero-shot是class候选分类。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "## 7. 评测",
+          "line": 91
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.2 检索：先说正例集合，再解释R@K和MRR",
+          "line": 105
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.3 VQA：ID exact match与人类答案评分是两种合同",
+          "line": 115
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.4 BLEU：分词、截断计数、短句和平滑要共同固定",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "## Tests",
+      "source_line": 118,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.8 图示、来源测试与验证边界",
+        "line": 296,
+        "end_line": 301
+      },
+      "absorbed_knowledge": "11测试检identity/非diag反例/k bounds，EM与异常，BLEU端点/无smooth/smooth小/BP，suite counts；无evaluate/model/heldout。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "## Exercises",
+      "source_line": 135,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.6 五项原指标实践的实施方法与判据（增量63）",
+        "line": 277,
+        "end_line": 286
+      },
+      "absorbed_knowledge": "5练习需CIDEr DF、正式VQA、empty/finite、MRRrank和冻结套件checkpoint曲线，均未执行。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像"
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "## Key Terms",
+      "source_line": 147,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.2 检索：先说正例集合，再解释R@K和MRR",
+        "line": 105,
+        "end_line": 114
+      },
+      "absorbed_knowledge": "R@K在本单正为命中率，EM为ID比较，BLEU词序代理；heldout不以seed不同定义，须实体/模板/语义split。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "supporting_formal_destinations": [
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "## 7. 评测",
+          "line": 91
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.2 检索：先说正例集合，再解释R@K和MRR",
+          "line": 105
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.3 VQA：ID exact match与人类答案评分是两种合同",
+          "line": 115
+        },
+        {
+          "file": "LLM 工程实践/08-多模态模型工程.md",
+          "heading": "### 7.4 BLEU：分词、截断计数、短句和平滑要共同固定",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "lesson": 63,
+      "source_file": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+      "source_heading": "## Further Reading",
+      "source_line": 157,
+      "source_sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.8 图示、来源测试与验证边界",
+        "line": 296,
+        "end_line": 301
+      },
+      "absorbed_knowledge": "论文/COCO脚本为入口；本轮只实际选读NLTK平滑/语料聚合及VQA作者评分代码，不把引用标题算全文。",
+      "mode": "融入知识主干；纠错、边界及未验证项保留；非来源目录镜像",
+      "reading_boundary": "引用入口与一手选读范围保留；引用标题未计全文阅读或已复现。"
+    }
+  ],
+  "practice_mapping": [
+    {
+      "lesson": 58,
+      "kind": "practice",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793,
+        "item_number": 1,
+        "item_line": 783
+      },
+      "source_question": "Replace the sinusoidal position with a learned `nn.Parameter` and compare the first-epoch loss on a tiny synthetic classification task. Learned positions win at fixed resolution; sinusoidal wins when you change resolution after training.",
+      "reference_reason": "固定相同数据切分/初始化/训练预算对照learned与sin位置，并用改变分辨率测试；源断言learned固定必胜/sin变分辨率必胜无实验。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 58,
+      "kind": "practice",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793,
+        "item_number": 2,
+        "item_line": 784
+      },
+      "source_question": "Swap the `Conv2d` for an explicit `nn.Unfold` plus `nn.Linear` and assert the outputs match to within float tolerance. Same math, two ways to spell it.",
+      "reference_reason": "复制Conv2d weight展平为Linear，保持C/P行列顺序与bias；同float tolerance检查，不能比较独立随机参数。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 58,
+      "kind": "practice",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793,
+        "item_number": 3,
+        "item_line": 785
+      },
+      "source_question": "Add support for non-square patch sizes (e.g. 32x16 for wide-aspect inputs) and verify the position table handles non-square grids.",
+      "reference_reason": "需要patch_h/patch_w、grid_h/grid_w和spatial合同同步改，先明确resize/crop/pad/valid；现cfg只支持方形。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 58,
+      "kind": "practice",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793,
+        "item_number": 4,
+        "item_line": 786
+      },
+      "source_question": "Profile the patch step at batch sizes 1, 8, 64. The patch projection is rarely the bottleneck; the attention layers downstream dominate.",
+      "reference_reason": "真实设备warmup、同步、重复计时并报告batch/pixel/hidden；不能从动画或理论直接断定patch不是瓶颈。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 58,
+      "kind": "practice",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793,
+        "item_number": 5,
+        "item_line": 787
+      },
+      "source_question": "Train the front end as a frozen feature extractor on a 4-class synthetic shape dataset (circles, squares, triangles, stars). The CLS token output should linearly separate.",
+      "reference_reason": "冻结随机前端的CLS输出只由cls_token决定，完全不依赖图像，四类不可据它线性分离；应加可训练attention encoder后读CLS或用patch池化基线，并设独立test。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "practice",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793,
+        "item_number": 6,
+        "item_line": 788
+      },
+      "source_question": "Add register tokens (4 learned vectors prepended after CLS) and rerun. Compare attention map smoothness via the entropy of the softmax distribution on the last layer.",
+      "reference_reason": "register要同步特殊token、position和patch提取索引；相同训练/数据观察dense feature与attention entropy，熵改变不自动代表更好。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "practice",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793,
+        "item_number": 7,
+        "item_line": 789
+      },
+      "source_question": "Swap pre-LN for post-LN and train for one epoch on a synthetic shape classifier. Observe which one trains stably without LR warm-up.",
+      "reference_reason": "同初始化数据budget/优化器对照pre/postLN，加warmup作为消融；不能预定一epoch后post必发散。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "practice",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793,
+        "item_number": 8,
+        "item_line": 790
+      },
+      "source_question": "Implement causal masking as an `attn_mask` argument so the same block can be reused as a decoder block. The mask shape is `(seq, seq)`, lower-triangular.",
+      "reference_reason": "新增[B/head可broadcast,N,N]mask并明确True允许/禁止；未来非均匀扰动应不改过去输出，取消mask应改，encoder双向仍保。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "practice",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793,
+        "item_number": 9,
+        "item_line": 791
+      },
+      "source_question": "Profile a forward pass at batch sizes 1, 8, 64 with `torch.profiler`. The MLP layer dominates wall time, not attention.",
+      "reference_reason": "真实设备同步warmup多次profile；N²attention与ND²FFN比例随N/D变化，不接受MLP必占墙钟。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "practice",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.11 分块与全局编码的实践判据（增量58–59，共十项）",
+        "line": 779,
+        "end_line": 793,
+        "item_number": 10,
+        "item_line": 792
+      },
+      "source_question": "Replace one attention head's q-k-v projections with a low-rank LoRA adapter, freeze the rest, and verify the gradient only flows where you expect.",
+      "reference_reason": "合并qkv线性中一个head的切片加低秩更新，冻结base并确认可训练param集合和真实非零梯度，dropout/eval和optimizer覆盖检查。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "practice",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 1,
+        "item_line": 813
+      },
+      "source_question": "Replace CLS pooling with mean pooling over the 196 patch tokens and compare final loss after 200 steps. Mean pooling usually trains faster on synthetic data; CLS is more sample-efficient on natural images.",
+      "reference_reason": "mean 196patch排CLS，统一相同pairs/预算/heldout比较cos与检索；不能预设synthetic更快或natural CLS样本效率。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "practice",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 2,
+        "item_line": 814
+      },
+      "source_question": "Add a learned scalar temperature to the cosine loss (`cos / tau`) and observe what happens when `tau` is too small (gradient noise) or too large (loss plateaus high).",
+      "reference_reason": "若用1−cos/tau且tau可学，正cos下tau趋0可令loss负无界，改变了[0,2]边界；temperature应配有界/正则或对比softmax协议，不只是观察noise。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "practice",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 3,
+        "item_line": 815
+      },
+      "source_question": "Swap the two-layer MLP for a single linear layer and quantify the loss gap. The non-linearity matters more on natural image features and less on synthetic ones.",
+      "reference_reason": "同预算比较Linear/MLP train和heldout，随机mock不代表自然特征曲率；参数量差异要报。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "practice",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 4,
+        "item_line": 816
+      },
+      "source_question": "Add a small L2 penalty on the projector weights and watch how it interacts with cosine alignment (cosine is scale-invariant, so the penalty mostly shrinks unused directions).",
+      "reference_reason": "cos对非零正尺度不变，但eps/近零norm和L2可相互作用；同时看norm/loss/梯度，不能只说缩unused方向。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "practice",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 5,
+        "item_line": 817
+      },
+      "source_question": "Persist projector weights, then reload and run inference without the vision encoder backward pass to verify that only the projector is needed at deploy time.",
+      "reference_reason": "持久化projector还需视觉encoder权重/config、预处理、维度/feature layer、文本/LM部署合同；只是不做backward，不能称部署只需要projector。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "practice",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 1,
+        "item_line": 832
+      },
+      "source_question": "Add a learned tanh gate to the cross-attention residual (the Flamingo trick) and verify training converges from a near-zero initial gate. The gate starts at 0; the model recovers text-only behavior before mixing the image stream in.",
+      "reference_reason": "x+tanh(alpha)cross，alpha0使该branch有限值forward为identity；branch参数初grad0而gate可非0。要测随后gate打开梯度；整个block另有self/FFN不能因此与预训text LM完全等同。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "practice",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 2,
+        "item_line": 833
+      },
+      "source_question": "Implement interleaved attention where the same decoder consumes multiple images plus multiple text segments. Build the per-sample cross-attention mask that prevents text segment 2 from attending to image 1.",
+      "reference_reason": "构造每sample文本位置→最近前置image映射，首图前无视觉；segment2只直接读image2，不读image1。旧图可经过去文本self间接影响；改未来image应不改旧segment，解除mask作负对照。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "practice",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 3,
+        "item_line": 834
+      },
+      "source_question": "Profile the cross-attention vs the self-attention layer at `Nt=64, Nv=576` (a 24x24 grid at higher resolution). The cross-attention cost is `Nt * Nv` and dominates at high image resolution.",
+      "reference_reason": "cross score乘法NtNv vs self Nt²是相互作用项，尚含Q/K/V/out和FFN；Nv576/Nt64的score项9倍非墙钟必占。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "practice",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 4,
+        "item_line": 835
+      },
+      "source_question": "Add a query-side dropout on the cross-attention map and measure caption diversity on the demo (caption sample variance increases with dropout in the cross map).",
+      "reference_reason": "query-side dropout/map dropout含义先定；现码dropout只out非map。train概率dropout改变权重和行和，eval关闭；caption diversity需真正训练/解码/采样而本demo无caption。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "practice",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 5,
+        "item_line": 836
+      },
+      "source_question": "Swap the cross-attention layer for a Q-Former-style attention block where a fixed 32-token query pool attends to image features once per layer.",
+      "reference_reason": "32learned queries要含query self/cross、位置/FFN/实际梯度，固定长度压缩与语言head连接另定；不是把Nt改32就完整QFormer。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "practice",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 1,
+        "item_line": 851
+      },
+      "source_question": "Replace InfoNCE with SigLIP-style sigmoid pair loss and compare convergence on the mock corpus.",
+      "reference_reason": "Sigmoid对每pair签名y±1、softplus稳定实现，sum/N与mean N²归一化差N倍；多正图ID表达正确labels。统一数据budget与梯度尺度，不只对比rawloss。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "practice",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 2,
+        "item_line": 852
+      },
+      "source_question": "Add a hard-negative mining step: every other batch, select the hardest off-diagonal pair from the previous batch and append it. Train and inspect whether contrastive loss drops faster.",
+      "reference_reason": "根据当前模型score选择确认真负的hard pair；不把重复ID/同语义caption当negative；旧batchembedding若detach不能给encoder梯度，需重新编码/版本标记与对照随机负。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "practice",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 3,
+        "item_line": 853
+      },
+      "source_question": "Add an image-text matching binary head on top of the joint embedding (true/false: do these match?) for a third loss, replicating BLIP's three-head setup.",
+      "reference_reason": "ITM二分类需要明确融合head/正负采样，不只是joint两向量函数就BLIP完整三任务；独立检查每loss参数梯度和信息可见性。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "practice",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 4,
+        "item_line": 854
+      },
+      "source_question": "Replace the mock corpus with caption-id sequences drawn from a Markov chain whose transition matrix is conditioned on image hash. The captioning loss should drop further because there is actual learnable signal.",
+      "reference_reason": "用共享隐变量生成可学图/caption Markov信号，不以hash任意映射断言可从noise泛化；按latent或模板独立切heldout，report per tokenCE。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "practice",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 5,
+        "item_line": 855
+      },
+      "source_question": "Train the same model with `lm_weight = 0` and again with `lm_weight = 1`. Compare contrastive loss; the LM loss should not regress the ranking objective.",
+      "reference_reason": "固定初始权重/批序和独立检索eval比较LM0/1、多seed及两梯度夹角；可能负迁移，不能预定LM不伤ranking。本码LM不更新projector直接，但共享encoder会相互影响。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "practice",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.6 五项原指标实践的实施方法与判据（增量63）",
+        "line": 277,
+        "end_line": 286,
+        "item_number": 1,
+        "item_line": 281
+      },
+      "source_question": "Add CIDEr to the captioning metrics. CIDEr uses TF-IDF weighting on n-grams, which rewards informative tokens.",
+      "reference_reason": "CIDEr以跨图reference语料DF计算tf-idf多阶向量相似；tokenizer、DF来源、CIDEr/CIDEr-D clipping与length惩罚需官方版本，不能在每句临时拟IDF。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "practice",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.6 五项原指标实践的实施方法与判据（增量63）",
+        "line": 277,
+        "end_line": 286,
+        "item_number": 2,
+        "item_line": 282
+      },
+      "source_question": "Implement soft-accuracy VQA: multiple human answers per question, accuracy is `min(human_count / 3, 1)` if any matches. Replicates VQA v2.",
+      "reference_reason": "作者脚本对10annotators每次去一项再min(restmatches/3,1)平均；若匹配数1/2/3/≥4，得到.3/.6/.9/1而不是1/3,2/3,1；先规范大小写数字冠词标点，非简单IDEM。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "practice",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.6 五项原指标实践的实施方法与判据（增量63）",
+        "line": 277,
+        "end_line": 286,
+        "item_number": 3,
+        "item_line": 283
+      },
+      "source_question": "Add a NaN-safe variant of `bleu4` that handles empty generated sequences without crashing.",
+      "reference_reason": "现bleu4空generated已返回0，练习不是未实现；需补emptyrefs拒、全部空refs、短于4/smoothing、非法/非finite token合同，不把0称NaN修复完成。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "practice",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.6 五项原指标实践的实施方法与判据（增量63）",
+        "line": 277,
+        "end_line": 286,
+        "item_number": 4,
+        "item_line": 284
+      },
+      "source_question": "Compute mean reciprocal rank (MRR) alongside R@K. MRR is sensitive to where the correct item lands beyond the top K; R@K is sensitive to whether it lands in the top K.",
+      "reference_reason": "singlepositive rank从1起，MRR=mean1/rank；候选ties有明确tie策略，多个positive取首正确rank与AP/recall区分，分母是query数。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "practice",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.6 五项原指标实践的实施方法与判据（增量63）",
+        "line": 277,
+        "end_line": 286,
+        "item_number": 5,
+        "item_line": 285
+      },
+      "source_question": "Run the eval on the model at five checkpoints during training (step 0, 10, 20, 30, 40, 50) and plot the learning curve. Confirm the metric trajectories track the loss trajectory.",
+      "reference_reason": "题称five但列0/10/20/30/40/50六checkpoints；冻结真实独立suite和预处理，记录指标/CI与loss，允许不单调/负迁移，不预定tracks。",
+      "execution": "未执行原真实实践；中文方法与判据已写"
+    }
+  ],
+  "quiz_mapping": [
+    {
+      "lesson": 58,
+      "kind": "quiz",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 1,
+        "item_line": 796
+      },
+      "source_question": "Why does a Vision Transformer use patches instead of feeding one pixel per token?",
+      "reference_reason": "源正确1；patch降低N²。校正逐像素为224²token，150528为RGB标量，仍不改变patch动机。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 58,
+      "kind": "quiz",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 2,
+        "item_line": 797
+      },
+      "source_question": "What is the relationship between Conv2d with kernel = stride = patch_size and flatten-then-linear?",
+      "reference_reason": "源正确2；同kernel stride权重和顺序时是相同线性运算，无新增非线性。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 58,
+      "kind": "quiz",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 3,
+        "item_line": 798
+      },
+      "source_question": "Why is the 2D sinusoidal position embedding deterministic instead of learned?",
+      "reference_reason": "源正确0；位置表可重算，但本VisionFrontEnd固定image_size拒新尺寸；无泛化保证。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 58,
+      "kind": "quiz",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 4,
+        "item_line": 799
+      },
+      "source_question": "What is the output sequence length of a 224x224 image with patch_size=16 and one CLS token?",
+      "reference_reason": "源正确3；14×14+1=197。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 58,
+      "kind": "quiz",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 5,
+        "item_line": 800
+      },
+      "source_question": "Why is reconstruction (unfold then unflatten) a useful sanity check on the patch front end?",
+      "reference_reason": "源正确1；无projection完整patch拆装应回原图；有降维线性投影一般不可逆。该roundtrip没有源测试实现。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 58,
+      "kind": "quiz",
+      "source_item_index": 6,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 6,
+        "item_line": 801
+      },
+      "source_question": "What changes when you swap a learned position embedding for the 2D sinusoidal one in this lesson?",
+      "reference_reason": "源正确2；learned位置带参数，sin固定无参数；性能/迁移需对照，不接受绝对胜负。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "quiz",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 7,
+        "item_line": 802
+      },
+      "source_question": "Why does the standard ViT block use pre-LayerNorm placement instead of post-LayerNorm?",
+      "reference_reason": "源正确2包含错误绝对断言：preLN改善梯度条件，但postLN六层发散/无需warmup不一般成立。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "quiz",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 8,
+        "item_line": 803
+      },
+      "source_question": "At hidden=768 with heads=12, what is the per-head dimension and why does it matter?",
+      "reference_reason": "源正确3；768/12=64，attention map空间形状是N×N不是64×64，64是每head表示维。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "quiz",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 9,
+        "item_line": 804
+      },
+      "source_question": "Does the ViT encoder need a causal attention mask?",
+      "reference_reason": "源正确1；encoder双向；decoder因果是在text self-attn，不是视觉cross-attn。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "quiz",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 10,
+        "item_line": 805
+      },
+      "source_question": "What does the CLS token's final hidden state represent after all 12 blocks?",
+      "reference_reason": "源正确0；经训练可用的全局向量，无训练不证明猫眼/背景语义。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "quiz",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 11,
+        "item_line": 806
+      },
+      "source_question": "Why is the feed-forward layer expanded to 4x the hidden dim?",
+      "reference_reason": "源正确2仅可保经验配置4，容量最优/2欠拟合8过拟合需实验。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 59,
+      "kind": "quiz",
+      "source_item_index": 6,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.12 分块与编码测验的参考理由（增量58–59，共十二题）",
+        "line": 794,
+        "end_line": 808,
+        "item_number": 12,
+        "item_line": 807
+      },
+      "source_question": "Which family extension keeps the block math unchanged but adds prepended learned tokens?",
+      "reference_reason": "源正确2；register为专用可学习计算槽，改善是研究特定条件，不保证所有attention更平滑。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "quiz",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 1,
+        "item_line": 821
+      },
+      "source_question": "Why does the vision encoder produce tokens that the text decoder cannot consume directly?",
+      "reference_reason": "源正确3；维度和basis不同需桥/联合训练，不是文件格式问题。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "quiz",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 2,
+        "item_line": 822
+      },
+      "source_question": "Why is the two-layer MLP enough for modality alignment in practice?",
+      "reference_reason": "源正确2；MLP是可用baseline，不能证明每数据两层充分或每变体相同。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "quiz",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 3,
+        "item_line": 823
+      },
+      "source_question": "Why is the vision encoder frozen during this alignment stage?",
+      "reference_reason": "源正确1；小资料冻结降训练范围/成本，86M和minutes非当前码和实测，random encoder不同于预训练。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "quiz",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 4,
+        "item_line": 824
+      },
+      "source_question": "What does cosine_alignment_loss(image_emb, text_emb) return when the two vectors point in opposite directions?",
+      "reference_reason": "源正确3；非零向量cos=-1，则1−(-1)=2。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "quiz",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 5,
+        "item_line": 825
+      },
+      "source_question": "Why does CLS pooling get used to produce a single image-level vector from 197 tokens?",
+      "reference_reason": "源正确3；该pair目标需单向量，因此选择CLS；不否定dense tokens，也不代表所有VLM必须pool一向量。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 60,
+      "kind": "quiz",
+      "source_item_index": 6,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.13 单向量桥接的实践与测验（增量60）",
+        "line": 809,
+        "end_line": 827,
+        "item_number": 6,
+        "item_line": 826
+      },
+      "source_question": "Which production system maps most directly to the lesson 60 pattern?",
+      "reference_reason": "源正确0是族近似；LLaVA stage1训练桥的模式类似，实际图条件语言损失、逐patch视觉token并非本cos mock完全相同。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "quiz",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 1,
+        "item_line": 840
+      },
+      "source_question": "What is the operational difference between early fusion and late fusion in vision-language modeling?",
+      "reference_reason": "源正确2；共同序列 vs 分离cross抽象可保，BLIP2 QFormer再接LM不是每语言block视觉cross。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "quiz",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 2,
+        "item_line": 841
+      },
+      "source_question": "In a decoder block with both self-attention and cross-attention, which one uses a causal mask?",
+      "reference_reason": "源正确3；单有效图条件下text self因果，cross全可见；多图/pad需另mask。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "quiz",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 3,
+        "item_line": 842
+      },
+      "source_question": "Why is the cross-attention KV cache built once per image?",
+      "reference_reason": "源正确0；视觉和权重固定时可复用各层K/V，但本decoder没有跨调用cache接口。投影省掉仍QKAV付成本，非free。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "quiz",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 4,
+        "item_line": 843
+      },
+      "source_question": "What is the output shape of cross-attention when text length is Nt=10 and image length is Nv=197 with hidden=256?",
+      "reference_reason": "源正确0；每query生成hidden向量，[B,10,256]。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "quiz",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 5,
+        "item_line": 844
+      },
+      "source_question": "Why is no mask used on cross-attention?",
+      "reference_reason": "源正确2仅适用单有效整图，空pad/交错图仍限制可见性。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 61,
+      "kind": "quiz",
+      "source_item_index": 6,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.14 外部视觉读取的实践与测验（增量61）",
+        "line": 828,
+        "end_line": 846,
+        "item_number": 6,
+        "item_line": 845
+      },
+      "source_question": "Which extension would you add to recover Flamingo-style stability during training?",
+      "reference_reason": "源正确1；tanh0gate可保持该残差初identity，收敛/不遗忘需测，已有16完整双门控可融合。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "quiz",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 1,
+        "item_line": 859
+      },
+      "source_question": "What two distinct capabilities does combining InfoNCE and LM loss train into one model?",
+      "reference_reason": "源正确0；ranking与生成是目标，mock优化不证明自然图文能力。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "quiz",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 2,
+        "item_line": 860
+      },
+      "source_question": "In InfoNCE for a batch of N pairs, how many positive pairs and negative pairs are formed?",
+      "reference_reason": "源正确0只适用每i唯一配对；多caption/重复图有offdiag正需multi-positive目标，不能强假负。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "quiz",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 3,
+        "item_line": 861
+      },
+      "source_question": "Why is the contrastive temperature usually a learned parameter?",
+      "reference_reason": "源正确3需纠正参数名：学的是log inverse-temp，经normalize无法用embeddingnorm增长解释。scale变大sharp、tau变小sharp。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "quiz",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 4,
+        "item_line": 862
+      },
+      "source_question": "Which sub-modules receive gradient from the LM loss but not from the contrastive loss?",
+      "reference_reason": "源正确3；decoder只LM，text_encoder/projector只contrast，encoder二者；源码与正文projectorLM表矛盾。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "quiz",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 5,
+        "item_line": 863
+      },
+      "source_question": "What does ignore_index=PAD_ID accomplish in the LM cross-entropy?",
+      "reference_reason": "源正确2；ignoretargetpad不等attentionpadding mask或正确EOS训练，allignore需另处理。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 62,
+      "kind": "quiz",
+      "source_item_index": 6,
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 10.15 双目标训练的实践与测验（增量62）",
+        "line": 847,
+        "end_line": 865,
+        "item_number": 6,
+        "item_line": 864
+      },
+      "source_question": "Why is a 50-step demo on synthetic data enough to call the lesson complete?",
+      "reference_reason": "源正确2过度：50step只教学demo有限检查；无逐分支grad、heldout、真实训练，不能证明大规模plumbing/dynamics相同或课已吸收验收。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "quiz",
+      "source_item_index": 1,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.7 六道原评测测验的参考理由（增量63）",
+        "line": 287,
+        "end_line": 295,
+        "item_number": 1,
+        "item_line": 289
+      },
+      "source_question": "Why is training loss alone an insufficient measure of a multimodal model's quality?",
+      "reference_reason": "源正确2；trainfit不代表heldout能力，本suitecaption/bias泄漏使其泛化证据弱。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "quiz",
+      "source_item_index": 2,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.7 六道原评测测验的参考理由（增量63）",
+        "line": 287,
+        "end_line": 295,
+        "item_number": 2,
+        "item_line": 290
+      },
+      "source_question": "What is R@5 measuring in a 100-sample retrieval eval?",
+      "reference_reason": "源正确0；100queries平均每query正确项是否top5，不是分母5也非百分之五。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "quiz",
+      "source_item_index": 3,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.7 六道原评测测验的参考理由（增量63）",
+        "line": 287,
+        "end_line": 295,
+        "item_number": 3,
+        "item_line": 291
+      },
+      "source_question": "Why does BLEU-4 take the geometric mean of 1- to 4-gram precisions instead of the arithmetic mean?",
+      "reference_reason": "源正确3；无smooth任何pn0几何积0，源码自定义smooth改变此性，短gen<4仍直接0。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "quiz",
+      "source_item_index": 4,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.7 六道原评测测验的参考理由（增量63）",
+        "line": 287,
+        "end_line": 295,
+        "item_number": 4,
+        "item_line": 292
+      },
+      "source_question": "What does the brevity penalty in BLEU-4 protect against?",
+      "reference_reason": "源正确2；g<r时BP<1，防只输出短safe片段；一词BLEU4还没有高阶ngram，不能源称无BP一定1。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "quiz",
+      "source_item_index": 5,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.7 六道原评测测验的参考理由（增量63）",
+        "line": 287,
+        "end_line": 295,
+        "item_number": 5,
+        "item_line": 293
+      },
+      "source_question": "Why does multi-reference BLEU usually score higher than single-reference BLEU on the same generation?",
+      "reference_reason": "源正确0；加入refs每gram最大counts非减，BP可能变因最近长度，故总分不保证非减；不是把refs counts加起来。",
+      "execution": "中文参考理由与错误前提修正已写"
+    },
+    {
+      "lesson": 63,
+      "kind": "quiz",
+      "source_item_index": 6,
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.7 六道原评测测验的参考理由（增量63）",
+        "line": 287,
+        "end_line": 295,
+        "item_number": 6,
+        "item_line": 294
+      },
+      "source_question": "Which eval surface uses no model embeddings and only id-level matching?",
+      "reference_reason": "源正确2针对EM scorer确为ID比较；BLEU本身也只用ID/ngram计数无embedding，因此题称唯一noembedding含歧义。",
+      "execution": "中文参考理由与错误前提修正已写"
+    }
+  ],
+  "source_test_mapping": [
+    {
+      "lesson": 58,
+      "count": 9,
+      "source_test_names": [
+        "test_patch_count_matches_grid",
+        "test_output_shape_includes_cls",
+        "test_conv2d_matches_unfold_reference",
+        "test_sinusoidal_deterministic",
+        "test_sinusoidal_shape",
+        "test_sinusoidal_requires_div_by_four",
+        "test_cls_token_broadcasts_without_leakage",
+        "test_rejects_wrong_spatial_size",
+        "test_synthesize_image_is_deterministic"
+      ],
+      "purpose": "patch数量/CLS形状、conv-unfold同权重等价、sin确定性形状与dim4整除、CLS广播与拒错尺寸、fixture确定性。",
+      "not_covered": "无非方形/非整除PatchEmbed边界、dtype/device、重算位置动态分辨率、unpatch roundtrip、CLS语义分类、训练与泛化。未运行。",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "executed": false
+    },
+    {
+      "lesson": 59,
+      "count": 8,
+      "source_test_names": [
+        "test_attention_preserves_shape",
+        "test_attention_rows_sum_to_one",
+        "test_feed_forward_expansion",
+        "test_block_residual_wired",
+        "test_full_stack_shape",
+        "test_gradient_reaches_patch_projection",
+        "test_head_dim_divides",
+        "test_invalid_head_dim_rejected"
+      ],
+      "purpose": "shape/softmax rows/FFN expansion/residual nonzero/4stack/patch gradient/head config。",
+      "not_covered": "test residual只是out-x>0不能证明identity残差正确，梯度norm>0不证语义或稳定；无未来mask、dropout train/eval、图像扰动CLS敏感性、注册token、学习/泛化；未运行。",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "executed": false
+    },
+    {
+      "lesson": 60,
+      "count": 8,
+      "source_test_names": [
+        "test_output_shape",
+        "test_gradient_flows",
+        "test_table_is_frozen",
+        "test_pooling_ignores_padding",
+        "test_zero_loss_on_identical_vectors",
+        "test_max_loss_on_antiparallel_vectors",
+        "test_loss_drops_over_steps",
+        "test_make_pair_shapes"
+      ],
+      "purpose": "MLPshape/梯度、table冻结/pad忽略、cos端点、小fixture训练drop和ID范围。",
+      "not_covered": "_train_small用32px2层4head替代train，所以不验正式train的输入验证/4层/40或200全目标；首末pair不同未证明平均改善。无heldout、负对、encoder optimizer误入、全padding/零向量、invalid vocab、checkpoint reload、真实语义；未运行。",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "executed": false
+    },
+    {
+      "lesson": 61,
+      "count": 9,
+      "source_test_names": [
+        "test_shape",
+        "test_lower_triangular",
+        "test_output_shape_independent_of_key_length",
+        "test_kv_cache_matches_uncached",
+        "test_batch_mismatch_raises",
+        "test_rejects_wrong_mask_shape",
+        "test_forward_shape",
+        "test_cache_path_matches",
+        "test_rejects_too_long_input"
+      ],
+      "purpose": "mask bool/三角、query输出独立Nv、cacheallclose、batch异常、self错mask、decoder shape/cache与超长。",
+      "not_covered": "没有未来token扰动、媒体跨段mask、pad/allmasked、dropout train/eval、cache失效或跨步projection计数、增量positions、真实生成、梯度/训练；cache测试只数值不是速度。未运行。",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "executed": false
+    },
+    {
+      "lesson": 62,
+      "count": 7,
+      "source_test_names": [
+        "test_zero_loss_on_perfect_diagonal",
+        "test_symmetric_across_directions",
+        "test_shape_mismatch_raises",
+        "test_pad_positions_excluded",
+        "test_forward_returns_two_losses",
+        "test_training_reduces_total_loss",
+        "test_make_mock_corpus_shapes"
+      ],
+      "purpose": "perfect eye scale100 CE<.001，modal交换同loss、shape异常、pad CE等价、forward finite/has tau、10步total首尾允许+1e-3、8pairsshapeIDs。",
+      "not_covered": "不是5步测试，而10步；只要求total last<first+.001不要求两个loss各降；未独立检验encoder/projector/decoder梯度，未tempgrad/clamp/allpad/multipos/heldout/collapse/above-random。未运行。",
+      "formal_destination": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "heading": "### 9.2 合成优化、独立泛化与演示图分开判断",
+        "line": 685,
+        "end_line": 694
+      },
+      "executed": false
+    },
+    {
+      "lesson": 63,
+      "count": 11,
+      "source_test_names": [
+        "test_perfect_identity_matrix",
+        "test_flipped_matrix_below_top",
+        "test_rejects_invalid_k",
+        "test_all_correct",
+        "test_half_correct",
+        "test_length_mismatch_raises",
+        "test_exact_match_returns_one",
+        "test_disjoint_vocab_returns_zero_without_smoothing",
+        "test_disjoint_vocab_smoothed_is_below_match",
+        "test_brevity_penalty_applies_when_generated_short",
+        "test_build_shapes"
+      ],
+      "purpose": "R1identity/非对角高分0及k非法、EM1/.5/错长、BLEU精确> .99/无smooth disjoint0/smooth小于exact/BP<1、suite8项shape。",
+      "not_covered": "没有k=N、square/finite/bool k、ties/multipos、emptyEM/gen/refs/短句、custom平滑实际值、corpus聚合、decodeBOS/EOS、QA模型、evaluate与device、checkpoint、高于随机/独立split。未运行。",
+      "formal_destination": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "heading": "### 7.8 图示、来源测试与验证边界",
+        "line": 296,
+        "end_line": 301
+      },
+      "executed": false
+    }
+  ],
+  "old_code_sha_proofs": [
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 1,
+      "sha256": "5f92daa2a8deb03bf364a3bb4af8be21ae8d98cd99819ed7e2f6cc6f30184375",
+      "old_block": 1,
+      "proof": {
+        "program_key": "0",
+        "sha256": "5f92daa2a8deb03bf364a3bb4af8be21ae8d98cd99819ed7e2f6cc6f30184375",
+        "exit_code": 0,
+        "stdout": "ViT标准dense参数(不含head) 85798656\nMAC {'attention': 524391936, 'mlp': 929562624} 乘加各算一次时FLOPs {'attention': 1048783872, 'mlp': 1859125248}\n1024→H→H带bias MLP 4096 20979712\n1024→H→H带bias MLP 5120 31467520\n有效patch/填充patch须分开；像素标量不是序列长度\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 1,
+        "block_index_1_based": 1,
+        "final_block_line": 40,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 1
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 2,
+      "sha256": "877b734c2bf5b4c885b56317a187b0a8a41c8834f9b365a887d86b6682bbe805",
+      "old_block": 2,
+      "proof": {
+        "program_key": "1",
+        "sha256": "877b734c2bf5b4c885b56317a187b0a8a41c8834f9b365a887d86b6682bbe805",
+        "exit_code": 0,
+        "stdout": "CLIP/SigLIP 0.975186 2.007381 两种归一化比 3.0\n双塔/scale/bias真实梯度通过；多正对数 5\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 2,
+        "block_index_1_based": 2,
+        "final_block_line": 103,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 2
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 3,
+      "sha256": "e849e7f86129a5443cacf1047b94176c7e6832ab6bb083cee65182400699608a",
+      "old_block": 3,
+      "proof": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 3,
+        "sha256": "e849e7f86129a5443cacf1047b94176c7e6832ab6bb083cee65182400699608a",
+        "exit_code": 0,
+        "stdout": "ITC/ITG/ITM可见性与未来扰动通过；query形状 (2, 3, 8)\nITC max相似度/ITM mean-logits (2, 2) (2, 2)\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "device": "CPU",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime"
+        },
+        "prior_sha256": "25cb59168a493f830f2df3da9cfc55dcd074aa41e1a6eee824ba71800ec941fd",
+        "修订依据": "同站独立复查发现全通道平移可被LayerNorm抵消；改非均匀扰动并增加关闭mask的检测力对照",
+        "block_index_1_based": 3,
+        "final_block_line": 164,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/tmp/study-visual-visibility-final-runs.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": "25cb59168a493f830f2df3da9cfc55dcd074aa41e1a6eee824ba71800ec941fd",
+        "old_visibility_evidence_not_reused_for_new_SHA": true,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 3
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 4,
+      "sha256": "cdccee6bee5834af6a97876531c2a514bf9aa410994d79f0fafcbeb7d35afa78",
+      "old_block": 4,
+      "proof": {
+        "program_key": "3",
+        "sha256": "cdccee6bee5834af6a97876531c2a514bf9aa410994d79f0fafcbeb7d35afa78",
+        "exit_code": 0,
+        "stdout": "resampler固定latent (2, 3, 8) 双gate零初始化/梯度/最近媒体隔离通过\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 4,
+        "block_index_1_based": 4,
+        "final_block_line": 255,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 4
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 5,
+      "sha256": "8f7dde3215229b59844d8393e597af1170bb7de7a50f57f1db42ff33fc3190e2",
+      "old_block": 5,
+      "proof": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 5,
+        "sha256": "8f7dde3215229b59844d8393e597af1170bb7de7a50f57f1db42ff33fc3190e2",
+        "exit_code": 0,
+        "stdout": "变长序列/有效长度 (2, 14, 8) [14, 6] 冻结LM下桥接loss 3.416888\nassistant右移labels、冻结权重/桥接更新、未来图/padding隔离、联合视觉梯度通过\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "device": "CPU",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime"
+        },
+        "prior_sha256": "063c579a4dd7542e7e23481a060210dabd1127038db0d69867f6f79b2a378fb2",
+        "修订依据": "同站独立复查发现全通道平移可被LayerNorm抵消；改非均匀扰动并增加关闭mask的检测力对照",
+        "block_index_1_based": 5,
+        "final_block_line": 333,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/tmp/study-visual-visibility-final-runs.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": "063c579a4dd7542e7e23481a060210dabd1127038db0d69867f6f79b2a378fb2",
+        "old_visibility_evidence_not_reused_for_new_SHA": true,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 5
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 6,
+      "sha256": "93443404700e713896166491539b5e60518d994ceaa87997f022d418858149a8",
+      "old_block": 6,
+      "proof": {
+        "program_key": "5",
+        "sha256": "93443404700e713896166491539b5e60518d994ceaa87997f022d418858149a8",
+        "exit_code": 0,
+        "stdout": "实际patch与offset [6, 8] [0, 6, 14] attention合法项 100\ndenseN²/各图n²和 196 100 逐图等价/跨图梯度为零/paddingpool通过\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 6,
+        "block_index_1_based": 6,
+        "final_block_line": 446,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 6
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 7,
+      "sha256": "0a28c026b4e67ec4068058dff3f9ccf8baa53299b0e290e4e1570110fd0c92cf",
+      "old_block": 7,
+      "proof": {
+        "program_key": "6",
+        "sha256": "0a28c026b4e67ec4068058dff3f9ccf8baa53299b0e290e4e1570110fd0c92cf",
+        "exit_code": 0,
+        "stdout": "输入grid/bilinear/average 24 (12, 12) (12, 12)\n输入grid/bilinear/average 27 (14, 14) (13, 13)\n含文本/输出/newline的教学预算 {'status': 'ok', 'frames': 16, 'total': 3928} 不是processor实测token\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 7,
+        "block_index_1_based": 7,
+        "final_block_line": 504,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 7
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 8,
+      "sha256": "b12a34cf9770bf02571ced74d38c953e1b1387c17949b7b0457070b43c91ecfb",
+      "old_block": 8,
+      "proof": {
+        "program_key": "7",
+        "sha256": "b12a34cf9770bf02571ced74d38c953e1b1387c17949b7b0457070b43c91ecfb",
+        "exit_code": 0,
+        "stdout": "每head三轴/1D退化/范数通过；真实采样秒与教学timeIDs [0.0, 1.2, 3.7] [0.0, 12.0, 37.0]\nV2PE视觉δ=.25累计位置增量 6.25 实际token数仍 13\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 8,
+        "修订复跑理由": "将末端游标/累计增量与max−min跨度区分；最终打印字段改变后复核",
+        "block_index_1_based": 8,
+        "final_block_line": 556,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 8
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "final_block": 2,
+      "sha256": "1535646ac7e52b10dd96f7ace549e9d77f33cf9e44e7463ebd2467dff3de128d",
+      "old_block": 1,
+      "proof": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "lesson": "03",
+        "script": "/tmp/study-capstone-c-runs/voice.py",
+        "sha256": "1535646ac7e52b10dd96f7ace549e9d77f33cf9e44e7463ebd2467dff3de128d",
+        "exit_code": 0,
+        "stdout": "epoch隔离通过；非法epoch拒绝且状态不变；旧轮320/820/900ms；新轮未播放=None；已听历史960ms\n",
+        "stderr": "",
+        "date": "2026-10-11",
+        "python": "Python 3.12.13",
+        "execution": "该精确新增标准库程序已由exec实际运行；源码程序未运行",
+        "block": 1,
+        "prior_versions": [
+          {
+            "sha256": "c0863f357117addf8d880b4fc90413771e8f923c99865ac60bee89bea0fc372f",
+            "exit_code": 0,
+            "stdout": "epoch隔离通过；旧轮320/820/900ms；新轮未播放=None；已听历史960ms\n",
+            "date": "2026-10-11",
+            "superseded_reason": "root静态反例发现bool epoch/公开envelope改动后仍消费旧hash"
+          }
+        ],
+        "repair": "bool epoch入口/初始epoch strict validation"
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "final_block": 3,
+      "sha256": "d49d68850884d2ce2141b105052c6bc7c69de543d7ffb83a6bdc72b50fab32fe",
+      "old_block": 2,
+      "proof": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "lesson": "12",
+        "script": "/tmp/study-capstone-c-runs/video.py",
+        "sha256": "d49d68850884d2ce2141b105052c6bc7c69de543d7ffb83a6bdc72b50fab32fe",
+        "exit_code": 0,
+        "stdout": "局部[2,12)s→原视频[94,104)s；tIoU=3/7；越界拒绝；跨镜头词保同word_id\n",
+        "stderr": "",
+        "date": "2026-10-11",
+        "python": "Python 3.12.13",
+        "execution": "该精确新增标准库程序已由exec实际运行；源码程序未运行",
+        "block": 2
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    }
+  ],
+  "new_code_run": {
+    "file": "LLM 工程实践/08-多模态模型工程.md",
+    "final_block": 1,
+    "sha256": "ba65691c5c77c377672fd71becf84c7b3f505781305e75df078c251a083fb75b",
+    "script": "/tmp/study-vl-metric-contract.py",
+    "exit_code": 0,
+    "stdout": "单正R2=1/2、MRR=25/48；多正Hit2=1、Recall2=1/3；固定tie与K=N通过\nVQA十人留一分0/.3/.6/.9/1；strict ID、空集合、重复ID、非有限值负例通过\nNone/字典/score行/维度失配拒绝且输入不变；10**400有限整数精确排序通过\n",
+    "stderr": "",
+    "date": "2026-10-12",
+    "environment": {
+      "Python": "3.12.13",
+      "executable": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "machine": "arm64",
+      "system": "Darwin",
+      "device": "CPU",
+      "dependencies": "Python标准库"
+    },
+    "execution": "仅实际执行修订后的新增标准库精确代码块；来源模块/测试、旧10块均未执行",
+    "prior_versions": [
+      {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "final_block": 1,
+        "sha256": "45242039c230b68b2ca58f7b6d02569d52dee2dec7a450955a12d591a2500129",
+        "script": "/tmp/study-vl-metric-contract-45242039.py",
+        "exit_code": 0,
+        "stdout": "单正R2=1/2、MRR=25/48；多正Hit2=1、Recall2=1/3；固定tie与K=N通过\nVQA十人留一分0/.3/.6/.9/1；strict ID、空集合、重复ID、非有限值负例通过\n",
+        "stderr": "",
+        "date": "2026-10-12",
+        "environment": {
+          "Python": "3.12.13",
+          "executable": "/Users/wangshuiqing/codex-tools/bin/python3",
+          "machine": "arm64",
+          "device": "CPU",
+          "dependencies": "Python标准库"
+        },
+        "execution": "只执行该精确新增代码块；来源模块与测试、旧10代码未执行",
+        "superseded_reason": "根静读发现消费型容器入口与巨大整数有限值处理不足；追加拒绝输入不变反例"
+      }
+    ]
+  },
+  "static_verification": {
+    "fences_balanced": true,
+    "local_link_targets_exist": true,
+    "links": [
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "05-图像表征卷积与视觉训练.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "03-多模态学习.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "../深度学习专题/04-注意力机制与Transformer.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "08-OCR视觉语言与可靠管道.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "06-自监督视觉与检索学习.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "03-多模态学习.md#3-图文对齐clip与siglip分别学什么",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "17-统一多模态生成与码流实践.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "09-视觉生成与视频时序.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "../../Agentic%20Design%20Patterns/01-核心章节/05-工具使用.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "08-OCR视觉语言与可靠管道.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "../../LLM%20工程实践/08-多模态模型工程.md#7-评测",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "../../来源保全/AI-Engineering-From-Scratch.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "17-统一多模态生成与码流实践.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "../../维护/五站吸收/12-多模态批次验收.md",
+        "exists": true
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "target": "../../LLM%20工程实践/08-多模态模型工程.md#7-评测",
+        "exists": true
+      },
+      {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "target": "../AI%20算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md#9-训练配方怎样形成可复用证据",
+        "exists": true
+      },
+      {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "target": "../AI%20算法基础/感知与多模态专题/17-统一多模态生成与码流实践.md",
+        "exists": true
+      },
+      {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "target": "../AI%20算法基础/感知与多模态专题/13-语音识别与流式交互.md",
+        "exists": true
+      },
+      {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "target": "../AI%20算法基础/感知与多模态专题/14-语音合成生成与音频语言模型.md",
+        "exists": true
+      },
+      {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "target": "../AI%20算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "exists": true
+      }
+    ],
+    "old_ten_code_blocks_byte_identical": true,
+    "git_diff_check_two_targets": "exit0，未报告空白错误"
+  },
+  "primary_verification_scope": [
+    {
+      "url": "https://www.nltk.org/_modules/nltk/translate/bleu_score.html",
+      "retrieval": "agent-reach Jina网页读取",
+      "date": "2026-10-12",
+      "local_evidence": "/tmp/study-vl-bleu-official.txt",
+      "bytes": 28072,
+      "sha256": "1d8ce8deee8ffd27578ce6d1426797700dc95e1f667e193907af047774f80c39",
+      "scope": "选读method1/method2，epsilon默认，corpus与sentence聚合，modified_precision/BP/closest_ref_length；并非整个NLTK包阅读",
+      "content_nonempty": true,
+      "navigation_only": false,
+      "executed": false
+    },
+    {
+      "url": "https://github.com/GT-Vision-Lab/VQA/blob/master/PythonEvaluationTools/vqaEvaluation/vqaEval.py",
+      "retrieval": "agent-reach Jina网页读取",
+      "date": "2026-10-12",
+      "local_evidence": "/tmp/study-vl-vqa-official.txt",
+      "bytes": 18445,
+      "sha256": "7a531d9d7f838be863cd1bca7ba4b009bcde84aab945364ebb87bb591659f3c9",
+      "scope": "选读evaluate的answer normalize、otherGTAns/matchingAns/min3/avgGTAcc及其周围上下文；未读VQA所有仓库",
+      "content_nonempty": true,
+      "navigation_only": false,
+      "executed": false
+    }
+  ],
+  "not_verified": [
+    "来源58–63程序、测试未执行或导入",
+    "无模型权重、数据集、API、GPU、训练、真实benchmark",
+    "NLTK与VQA仅指定函数上下文选读，未全文复现整个包或仓库",
+    "CIDEr完整官方版本、其他引用论文全文及生产性能未本轮核验",
+    "真实练习未执行；合成指标成功不能代表自然图文能力",
+    "根统一check_knowledge、专业全文复审、批次验收与验收数维护由root负责"
+  ],
+  "scope_boundary": "只修改16与08两正式文件，不写E4/G2、master/navigation/ledger/Git；未改变统一验收数字",
+  "probe_repair": "scores/positives/每score行只收list或tuple；exact int有限无需float转换，float须有限；None/字典/维度拒绝与输入不变负例已实跑，原45242039证据保留为prior_versions"
+}

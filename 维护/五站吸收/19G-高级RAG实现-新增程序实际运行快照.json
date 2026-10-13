@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-12",
+  "script": "/tmp/study-capstone-joint-ce.py",
+  "sha256": "667fe2a9e806cd56e7cf83e2cb7f61c4568d617d8c5995900a820acc9090ddea",
+  "argv": [
+    "/Users/wangshuiqing/codex-tools/bin/python3",
+    "-I",
+    "-c",
+    "import sys,runpy;sys.path.insert(0,'/tmp/study-source1-multimodal-runtime');runpy.run_path('/tmp/study-capstone-joint-ce.py',run_name='__main__')"
+  ],
+  "exit_code": 0,
+  "stdout": "environment {\"device\": \"cpu\", \"threads\": 1, \"torch\": \"2.14.1\"}\ndata_sha256 b7990d0a5cf7195dd38b155810c926397843d4933ddeb6b255ce792c33e64014\ncurve [completed_updates, same_snapshot_train_BCE, same_snapshot_held_family_BCE] [[0, 0.783081, 0.706742], [1, 0.670288, 0.653764], [11, 0.629878, 0.636993], [51, 0.197411, 0.862626], [101, 0.023439, 1.43031]]\nheld_candidate_scores {\"c-no\": -5.995965480804443, \"c-yes\": 2.2521252632141113, \"d-yes\": 2.085031032562256} ranking ['c-yes', 'd-yes', 'c-no']\npadding invariance passed; joint qkv gradients finite; disjoint document families\nindependent K=N fixture RR 0.25 -> 1.0; retained Recall@4 1.0 -> 1.0\ninvalid pair/control token/dtype/ID/mask/length rejected; trained parameters unchanged\nsynthetic CPU only; held scores are observations, no pretrained semantic or deployment claim\n",
+  "stderr": "",
+  "elapsed_seconds": 1.7159094999078661,
+  "scope": "仅完整自写CPU joint-attention例；已有runtime；未source/import/安装/网络/GPU",
+  "root_change": "same-snapshot pretrain baseline and post-update logs; typed pair/controltoken/CPU ids/mask/length with no parameter mutation"
+}

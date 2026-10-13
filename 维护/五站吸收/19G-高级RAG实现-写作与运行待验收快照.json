@@ -1,0 +1,2972 @@
+{
+  "date": "2026-10-12",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "status": "两目标正文写入与自检完成，待root整体专业审阅及仓库验收；未自行正式计数",
+  "counts": {
+    "headings": 91,
+    "practice": 28,
+    "quiz": 36,
+    "old_code_blocks": 14,
+    "new_code_blocks": 1,
+    "source_tests_static_read": 100,
+    "source_runs": 0
+  },
+  "files": [
+    {
+      "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "baseline_sha256": "47e216dda9d2bd82196b4c98bbae0e565f273c3d65c8831b04e119c3e6a30dcd",
+      "final_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc",
+      "old_code_blocks_preserved": 8,
+      "old_execution_proof_reused": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "baseline_sha256": "47e216dda9d2bd82196b4c98bbae0e565f273c3d65c8831b04e119c3e6a30dcd",
+        "old_blocks": [
+          {
+            "block": 1,
+            "sha256_with_lf": "863ae57d950bf38801e887202e0dae8efc72ab57e014a038d6df1cc87c9fbd0d",
+            "sha256_without_lf": "2e3a6dcc2cda47c7ba49190fd8eeeb8a2e8e448c345ea394ed2ef66c2edeac31",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+              "block": 1,
+              "line": 45,
+              "sha256": "863ae57d950bf38801e887202e0dae8efc72ab57e014a038d6df1cc87c9fbd0d",
+              "exit_code": 0,
+              "stdout": "BM25 中文/空文档、RRF 去重、多证据指标均通过；nDCG 0.521296\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 2,
+            "sha256_with_lf": "c9663984d1bdb0cd21f406967d3baf8892c9c41f70c7eb445359aa59ffc9cbb3",
+            "sha256_without_lf": "241b136750a560068d1bf2fcd9e82aea914015df2e955153a2ed22ec26c7c00e",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+              "block": 2,
+              "line": 150,
+              "sha256": "c9663984d1bdb0cd21f406967d3baf8892c9c41f70c7eb445359aa59ffc9cbb3",
+              "exit_code": 0,
+              "stdout": "固定块和递归块：长度、出处、覆盖、无分隔回退均通过\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 3,
+            "sha256_with_lf": "376b4ae5a41696a11dbbf42028e7b55c0e29239b1acf919af7b8112515d5c89e",
+            "sha256_without_lf": "d1ec3f16a954f5ec255affe705d6d27fe81924ef9c40496226ed8fda6dfd9417",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+              "block": 3,
+              "line": 245,
+              "sha256": "376b4ae5a41696a11dbbf42028e7b55c0e29239b1acf919af7b8112515d5c89e",
+              "exit_code": 0,
+              "stdout": "语义切点 fixture [0.0001, 0.9899, 0.0] ；所有字符和长度边界通过\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 4,
+            "sha256_with_lf": "8a942350d0d6aec93094923a19ebee8419876581fdd466dfb577c7cb6bbbdbac",
+            "sha256_without_lf": "59a13452d7f6a3acc7527d62ec9a0ef68f61b2a26e38d52b33a8d87de93dc907",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+              "block": 4,
+              "line": 293,
+              "sha256": "8a942350d0d6aec93094923a19ebee8419876581fdd466dfb577c7cb6bbbdbac",
+              "exit_code": 0,
+              "stdout": "30天 7 10 ；拒答、跨 mask、倒序、重复区间和整数边界通过\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture",
+              "validation_note": "span contract修正后仅重跑此块，其余20块复用相同SHA的既有实测"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 5,
+            "sha256_with_lf": "1ae1625913fc2601adcee0532d538a2a1e313d666085492c9e6ca46fef80379f",
+            "sha256_without_lf": "1ab99c5754c6ac20c874ee72e9f618466e98aa335556a9f260393ef5f1e27372",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+              "block": 5,
+              "line": 366,
+              "sha256": "1ae1625913fc2601adcee0532d538a2a1e313d666085492c9e6ca46fef80379f",
+              "exit_code": 0,
+              "stdout": "EM/F1：英文跨度、中文差异、数字差异、空答案协议通过\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 6,
+            "sha256_with_lf": "f9a6894a124a85f9bffe2ed3a06eda2a17ce33e795be0e380c650cf541916969",
+            "sha256_without_lf": "7d0862a2d4467eb14bd4110ed01079ff322bb179062ccdd23805cdc7d176b9db",
+            "proof_file": "维护/五站吸收/11-LLM工程-检索微调与评测-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+              "block": 6,
+              "line": 469,
+              "sha256": "7d0862a2d4467eb14bd4110ed01079ff322bb179062ccdd23805cdc7d176b9db",
+              "script_sha256": "f9a6894a124a85f9bffe2ed3a06eda2a17ce33e795be0e380c650cf541916969",
+              "sha_convention": "fenced body without final newline",
+              "exit_code": 0,
+              "execution_kind": "new",
+              "executed_this_batch": true,
+              "date": "2026-10-07",
+              "execution_date": "2026-10-07",
+              "script": "/tmp/study-source1-llmeng-retrieval-validation/12-6-literal-prompt-final.py",
+              "stdout": "离线答案 企业客户可在60天内申请按比例退款 引用 [{'parent': 'policy@4adcb64363d0:0-33', 'document': 'policy', 'revision': '4adcb64363d0e3e390da392646b3e767d1892788d67a8b9f12a99a612c89cb0c', 'start': 15, 'end': 32, 'quote': '企业客户可在60天内申请按比例退款'}]\n过期/权限过滤、原文范围、父段去重、必要prompt超限/证据预算/Query字面分隔符、OOV、无答案、多轮、多事实及更新快照通过\n",
+              "stderr": "",
+              "elapsed_seconds": 0.02622733300086111,
+              "review_patch": "Final literal prefix+context+query suffix, exactfinal length; only this amended RAGblock rerun",
+              "boundary": "CPU mechanism only; noQLoRA/modeledranking/API/GPU/pagedoptimizer"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 7,
+            "sha256_with_lf": "7553d7b31c24a36d54873e516c84d170a357bfc9249603c5d175593328b8918d",
+            "sha256_without_lf": "1d8007ddf802f6a6346df878f8ccd54c041340dc62d495144d70e721d396b0b6",
+            "proof_file": "维护/五站吸收/12-多模态-文档跨模态检索与交互-覆盖与验证.json",
+            "proof": {
+              "file": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/LLM 工程实践/12-文本检索与RAG文档工程.md",
+              "python_block_index_1_based": 7,
+              "code_sha256": "1d8007ddf802f6a6346df878f8ccd54c041340dc62d495144d70e721d396b0b6",
+              "executed_path": "/tmp/study-source1-multimodal-app4-final-code/12-文本检索与RAG文档工程-7.py",
+              "exit_code": 0,
+              "stdout": "不同sourceID同已有事实 [(1, 'new_hard_facts', 7), (2, 'stalled', 'no_new_hard_fact')] 不算语义进展\n按实体融合后 ['b', 'a', 'c'] a缺quiet未知，b硬条件冲突，c补充音频后有完整人工证据\n答案结构fixture {'entity': 'c', 'claims': {'vegan': True, 'quiet': True, 'daylight': True}, 'citations': {'vegan': 'c-menu', 'quiet': 'c-audio', 'daylight': 'c-photo'}} trace [(1, 'new_hard_facts', 7), (2, 'new_hard_facts', 1)] 重复检索 [(1, 'new_hard_facts', 7), (2, 'stalled', 'no_new_hard_fact')]\n检索list/事实为人工fixture；未运行CLIP/CLAP、LLM或真实餐厅推荐\n",
+              "stderr": "",
+              "date": "2026-10-08",
+              "python_executable": "/Users/wangshuiqing/codex-tools/bin/python3",
+              "python_version": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+              "env": {
+                "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+                "PYTHONHASHSEED": "0"
+              },
+              "scope": "only new complete CPU/stdlib synthetic contract block; no source model/browser/API",
+              "revision_origin": "root independent review",
+              "hash_convention": "fenced Python body, exact bytes without extra trailing LF",
+              "validation_timestamp": "2026-10-08T08:51:20.528993+08:00",
+              "previous_validation_date": "2026-10-08",
+              "根核对SHA定义": "围栏正文",
+              "根最终文件": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+              "根最终块": 7
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 8,
+            "sha256_with_lf": "99437fbe18844ba9dd33a0c863d8566b4788028e5597e9952eb636aeca2a4518",
+            "sha256_without_lf": "4074347d93e2c918e6e1de3a49d7d5cc1656663fe674114f3906ac943b8a6634",
+            "proof_file": "维护/五站吸收/19A-综合项目集成-知识检索与学习-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+              "block": 8,
+              "script": "/tmp/study-capstone-b-new/index_generation.py",
+              "sha256": "99437fbe18844ba9dd33a0c863d8566b4788028e5597e9952eb636aeca2a4518",
+              "exit_code": 0,
+              "stdout": "完整generation后发布；删除/重命名、版本、ACL与字面支持负例通过\n类型化chunk身份/行号/scope/文本摘要、跨仓库与假Git值均拒绝，active不变\n",
+              "stderr": "",
+              "date": "2026-10-11",
+              "python": "3.12.13",
+              "previous_sha256": "ed1d23d8a89a9429157058cb8944909b330533d4e84b5958064a9c6ed81afe8b",
+              "rerun_reason": "根复核补参数类型/未知身份/缺失pin负例；仅重跑改变的新块"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        ]
+      },
+      "new_code_blocks": 0,
+      "old_dates_preserved": true,
+      "python_blocks_ast_parse": true
+    },
+    {
+      "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+      "baseline_sha256": "257a2b422f45e928a53643b4fbbce4f6e765f259aac1a8ad5b5f19cff3518f94",
+      "final_sha256": "b0d72726a919c5827ba6f37552440a8622af9cc65aef9deb577b93bb29c43cab",
+      "old_code_blocks_preserved": 6,
+      "old_execution_proof_reused": {
+        "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "baseline_sha256": "257a2b422f45e928a53643b4fbbce4f6e765f259aac1a8ad5b5f19cff3518f94",
+        "old_blocks": [
+          {
+            "block": 1,
+            "sha256_with_lf": "b176fffc89423b8af4099d6651b14d479d01f3d9b718d72b8a7499a7c387e86f",
+            "sha256_without_lf": "d49fe515d3ffecbd517cbfe9423fe9ff1a681674b5e77535e3520b0ba08002bb",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+              "block": 1,
+              "line": 19,
+              "sha256": "b176fffc89423b8af4099d6651b14d479d01f3d9b718d72b8a7499a7c387e86f",
+              "exit_code": 0,
+              "stdout": "余弦：同方向、正交、零向量、维度及有限值检查通过\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 2,
+            "sha256_with_lf": "6f73fb751650020010a6ac8e0d2949c8c7b732ce648d70ec593a49745bc6cf4d",
+            "sha256_without_lf": "f6de6a846a2874a692d185d8d3277973dff661c815d69f99fccadc87642bb374",
+            "proof_file": "维护/五站吸收/11-LLM工程-检索微调与评测-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+              "block": 2,
+              "line": 52,
+              "sha256": "f6de6a846a2874a692d185d8d3277973dff661c815d69f99fccadc87642bb374",
+              "script_sha256": "6f73fb751650020010a6ac8e0d2949c8c7b732ce648d70ec593a49745bc6cf4d",
+              "sha_convention": "fenced body without final newline",
+              "exit_code": 0,
+              "execution_kind": "new",
+              "executed_this_batch": true,
+              "date": "2026-10-07",
+              "execution_date": "2026-10-07",
+              "script": "/tmp/study-source1-llmeng-retrieval-validation/07-2-formal.py",
+              "stdout": "单位向量cos/dot/L2排名 [0.6, 1.0, -1.0, 0.0] [0.8000000000000002, 0.0, 4.0, 2.0] ；未归一化点积可换名次\n",
+              "stderr": "",
+              "elapsed_seconds": 0.008240583934821188,
+              "boundary": "CPU self-contained synthetic/formula/storage/provenance/control-flow probe; no real language model, API, GPU/ANN service or QLoRA"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 3,
+            "sha256_with_lf": "b9d5cda20d338ce4f2e8038f42c4581fa80c3a7df6577dda2e0f67737c94eb94",
+            "sha256_without_lf": "7578e3046edcb46f472d22fbfc8a37de8742e5ea13fe28613366572cf5c7aa8c",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+              "block": 2,
+              "line": 70,
+              "sha256": "b9d5cda20d338ce4f2e8038f42c4581fa80c3a7df6577dda2e0f67737c94eb94",
+              "exit_code": 0,
+              "stdout": "对比损失 0.126928 ；解析梯度、多正例、平移稳定性通过\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 4,
+            "sha256_with_lf": "bc3d51824c409174da21c456e3eca41752b69d5cc416c8de4b81d206957ef8ed",
+            "sha256_without_lf": "f0bc024118744bf093d02d8fdec00636cf0df74dd4a061e658a8c6844b0acc58",
+            "proof_file": "维护/五站吸收/05-自然语言处理-检索对话与评价工程-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+              "block": 3,
+              "line": 124,
+              "sha256": "bc3d51824c409174da21c456e3eca41752b69d5cc416c8de4b81d206957ef8ed",
+              "exit_code": 0,
+              "stdout": "完整首名 1 ；短前缀得分 [0.9999999999999998, 0.9999999999999998] ；截断并不无损\n",
+              "stderr": "",
+              "runtime": "python3 CPU synthetic fixture"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 5,
+            "sha256_with_lf": "d8682f1f374c244209324c8b902897bbcd4cc19407054a1843e10489be754650",
+            "sha256_without_lf": "3c0140a8366f8da97318a353aadce6cef306dbbbf7d16f3b354d74e04ac5bbc3",
+            "proof_file": "维护/五站吸收/11-LLM工程-检索微调与评测-覆盖与验证.json",
+            "proof": {
+              "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+              "block": 5,
+              "line": 186,
+              "sha256": "3c0140a8366f8da97318a353aadce6cef306dbbbf7d16f3b354d74e04ac5bbc3",
+              "script_sha256": "d8682f1f374c244209324c8b902897bbcd4cc19407054a1843e10489be754650",
+              "sha_convention": "fenced body without final newline",
+              "exit_code": 0,
+              "execution_kind": "new",
+              "executed_this_batch": true,
+              "date": "2026-10-07",
+              "execution_date": "2026-10-07",
+              "script": "/tmp/study-source1-llmeng-retrieval-validation/07-5-formal.py",
+              "stdout": "实际打包载荷 2901 字节 2 对照float32字节 36\n精确余弦首名 1 二值候选/重评首名 0 0 ；漏召回无法恢复\n",
+              "stderr": "",
+              "elapsed_seconds": 0.00847608398180455,
+              "boundary": "CPU self-contained synthetic/formula/storage/provenance/control-flow probe; no real language model, API, GPU/ANN service or QLoRA"
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          },
+          {
+            "block": 6,
+            "sha256_with_lf": "69dbd562b0e6d21446db33a4c1cddfa219f1f8800cc026529b41c57367aaacac",
+            "sha256_without_lf": "4279e13d9834d3d7170f1bcb2b9088d15fe361952d5cf184e88805dd52e62ffc",
+            "proof_file": "维护/五站吸收/12-多模态-文档跨模态检索与交互-覆盖与验证.json",
+            "proof": {
+              "file": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/LLM 工程实践/07-Embedding与检索模型训练.md",
+              "python_block_index_1_based": 6,
+              "code_sha256": "4279e13d9834d3d7170f1bcb2b9088d15fe361952d5cf184e88805dd52e62ffc",
+              "executed_path": "/tmp/study-source1-multimodal-app4-final-code/07-Embedding与检索模型训练-6.py",
+              "exit_code": 0,
+              "stdout": "MaxSim 2.0 pairmatrix [[1.0, 0.0], [0.0, 1.0]] padding负分反例 -1.0 vs faulty 0\n200页float32载荷B/MiB 74649600 71.1914 假设8x载荷 9331200.0\n百万页原始向量B/GiB 373248000000 347.6143 未含ANN/metadata/副本\n大有限向量same/opposite/diagonal 1.0 -1.0 0.9999999999999998 近零/非finite norm拒绝\n",
+              "stderr": "",
+              "date": "2026-10-08",
+              "python_executable": "/Users/wangshuiqing/codex-tools/bin/python3",
+              "python_version": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+              "env": {
+                "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+                "PYTHONHASHSEED": "0"
+              },
+              "scope": "only new complete CPU/stdlib synthetic contract block; no source model/browser/API",
+              "revision_origin": "root independent review",
+              "hash_convention": "fenced Python body, exact bytes without extra trailing LF",
+              "validation_timestamp": "2026-10-08T08:51:20.510007+08:00",
+              "previous_validation_date": "2026-10-08",
+              "根核对SHA定义": "围栏正文",
+              "根最终文件": "LLM 工程实践/07-Embedding与检索模型训练.md",
+              "根最终块": 6
+            },
+            "mode": "同字节持久成功SHA证明可复用"
+          }
+        ]
+      },
+      "new_code_blocks": 1,
+      "old_dates_preserved": true,
+      "python_blocks_ast_parse": true
+    }
+  ],
+  "source_headings": [
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 10,
+      "source_heading": "## Learning Objectives",
+      "effective_information": "五策略比较与spanfixture，但目标是独立证据保留非固定胜者；本次读所有source后分析。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 16,
+      "source_heading": "## The Problem",
+      "effective_information": "块边界影响候选证据，父块/邻接扩展有时可修复，不是anycut绝对无法修复；LongRAG35个百分点未查来源，不保性能。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 24,
+      "source_heading": "## The Concept",
+      "effective_information": "五chunker→统一hashindex→spanhit，实际eval先知道正确doc，各策略未统一token/candidate成本。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 46,
+      "source_heading": "### Fixed-window",
+      "effective_information": "字符size与overlap严格参数，unicodecodepoint非bytes/token；overlap可保跨界但仍需完整span/语境。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 50,
+      "source_heading": "### Sentence",
+      "effective_information": "regex .!?后空白且下个大写/数字分句，中文/缩写/小写/代码不可靠；长句可超budget。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 54,
+      "source_heading": "### Recursive split",
+      "effective_information": "按paragraph/newline/.space/space递归，separators耗尽仍整串返回，无最终char切；正文说直到fit不符合。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 58,
+      "source_heading": "### Semantic clustering",
+      "effective_information": "逐句mockhash向量cos阈值或maxchars切，centroid计数先+1再加权多1且normalizedmovingavg非真mean。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 62,
+      "source_heading": "### Structural markdown headers",
+      "effective_information": "每一个H1–H6都切，不是到same/higher；首header前丢失，fencedcode假header会切，headeronly没过滤。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 66,
+      "source_heading": "### How recall@k measures the boundary choice",
+      "effective_information": "source任何1字符overlap即hit均query，是spanHit@K不是完整答案coverage；只正确doc内部检索。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 74,
+      "source_heading": "## Build It",
+      "effective_information": "Chunk doc/strategy/start/end/text，5alg、hashdense、9queryeval打印；没有实际学习dense/embedding模型。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 96,
+      "source_heading": "## Failure modes the table will not hide",
+      "effective_information": "orphan/code/headeronly/drift/embeddingrevision是有效风险，本实现多个未防；语义cap对单longsentence/空白计数不硬。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 108,
+      "source_heading": "## Choosing a default without running the benchmark",
+      "effective_information": "800/500/.6与recursive最强只是经验候选，独立valid/证据长度/预算评后定，不是当前普适default。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 122,
+      "source_heading": "## Use It",
+      "effective_information": "重测模型或corpusmix、保存strategy/config/revision、原文offset与transform范围，使用失效触发不是改date即核。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 130,
+      "source_heading": "## Ship It",
+      "effective_information": "69只复制recursive子集，68不同docretrievalqrels，不能称完全同metric shape可比。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 134,
+      "source_heading": "## Exercises",
+      "effective_information": "实际4练习而非5：token窗口/code注入/真embedding/summary；全部未执行。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1174,
+        "locator": "#### 练习 64-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 141,
+      "source_heading": "## Key Terms",
+      "effective_information": "源Recall是任一span交集命中率，overlap与structural/semantic/centroid用途分别明示。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 371,
+        "locator": "### 4.5 结构、token窗口与正确的语义质心",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 64,
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "source_line": 151,
+      "source_heading": "## Further Reading",
+      "effective_information": "论文和网站只是获取入口，35个百分点/current生产recommendations未核，真实接口不用旧源名代替。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1444,
+        "locator": "### 来源与图示核对边界",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 10,
+      "source_heading": "## Learning Objectives",
+      "effective_information": "BM25、hash-vector与weightedRRF机械可学；源fieldweight重复非BM25F，RRF胜所有queryclass不成立。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 16,
+      "source_heading": "## The Problem",
+      "effective_information": "literal/改写分布可能不同，真实语义encoder需验证；本hash由字符相似非语义同义词训练，microseconds非实测。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 24,
+      "source_heading": "## The Concept",
+      "effective_information": "两ranklist→rankfusion→topK，按稳定identity合并，不直接线性混rawscores。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 37,
+      "source_heading": "### BM25 in one paragraph",
+      "effective_information": "idf log(1+(N−df+.5)/(df+.5))、TF饱和f(k1+1)/(f+k1(1−b+b dl/avgdl))；title重复同时变tf/dl/avgdl，不是单纯乘最终score/真每fieldnorm。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 45,
+      "source_heading": "### Dense retrieval in one paragraph",
+      "effective_information": "normalized96hash+tokenbigram mockembed，每query全量cos排序；跟64无bigram版本不同，不能称字节同模型。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 51,
+      "source_heading": "### Reciprocal rank fusion, the published formula",
+      "effective_information": "RRF sum_list w/(c+rank1based)，缺list贡献0，c60是一候选，same-list duplicate必须先去。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 59,
+      "source_heading": "### Why fusion beats score-weighted interpolation",
+      "effective_information": "RRF减少原score标度问题但参数/weights仍须评；已校准scorefusion可有效，allTRECsince2010/universalbeats未经核不保。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 69,
+      "source_heading": "## Build It",
+      "effective_information": "Doc、BM25add/search(positiveonly)、Denseflat、weightedRRF、Hybrid三listtrace及7docdemo，串行非并行。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 88,
+      "source_heading": "## Tuning the knobs",
+      "effective_information": "k1/b/c/weights在独立valid调，同候选K与输出K；不以literal/dense标签决定无证据最优。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 100,
+      "source_heading": "## Failure modes the demo will hide",
+      "effective_information": "unknown BM25空但dense仍forcedneighbors且RRF仍给分，dedupdoc不会自动解决unknown；stopword/duplicatecontent/zeroembedding需合同。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 108,
+      "source_heading": "## Use It",
+      "effective_information": "no ANN此码全量sort，HNSW不是一概强制；两路parallel只是建议，RRFhash累加+sort O(M+UlogU)非constanttime。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 117,
+      "source_heading": "## Ship It",
+      "effective_information": "66消费fusedcandidate但课间代码复制形状，68pseudo不可称full真实pipelinereuse；69实际静读接线。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 121,
+      "source_heading": "## Exercises",
+      "effective_information": "实际4练习：真embedding、summary第三路、c sweep、BM25F；不模板补第五。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1216,
+        "locator": "#### 练习 65-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 128,
+      "source_heading": "## Key Terms",
+      "effective_information": "k1TF、b长度、rankc与retrievalK不混；title重复是实现trick非BM25F。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 126,
+        "locator": "### 2.2 字段归一化与有身份的加权融合",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 65,
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "source_line": 139,
+      "source_heading": "## Further Reading",
+      "effective_information": "RRF/BM25论文引用待核；Vespa/Weaviate具体默认和API不能借旧源概括当当前规范。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1444,
+        "locator": "### 来源与图示核对边界",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 10,
+      "source_heading": "## Learning Objectives",
+      "effective_information": "两tower独立 vs query+doc联attention，真实小TorchCE仅教学相关score；候选预算N与输出K都测。",
+      "destination": {
+        "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "line": 369,
+        "locator": "## 13. 联合编码重排的学习计算与训练目标",
+        "file_sha256": "b0d72726a919c5827ba6f37552440a8622af9cc65aef9deb577b93bb29c43cab"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 16,
+      "source_heading": "## The Problem",
+      "effective_information": "pair联合计算无doc预缓存全部交互，长库直接全pair贵；bi不是唯一可行corpusretriever，lateinteraction/lexical存在。",
+      "destination": {
+        "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "line": 369,
+        "locator": "## 13. 联合编码重排的学习计算与训练目标",
+        "file_sha256": "b0d72726a919c5827ba6f37552440a8622af9cc65aef9deb577b93bb29c43cab"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 28,
+      "source_heading": "## The Concept",
+      "effective_information": "retrieverN→query-conditionedCEscore→topK，候选之外gold无法由纯rerank恢复。",
+      "destination": {
+        "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "line": 369,
+        "locator": "## 13. 联合编码重排的学习计算与训练目标",
+        "file_sha256": "b0d72726a919c5827ba6f37552440a8622af9cc65aef9deb577b93bb29c43cab"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 40,
+      "source_heading": "### The cross-encoder's input shape",
+      "effective_information": "CLS/SEP/typeids/pos打包；本码非CLS而maskedmean。22M/568M和典型deployment建议未当前核，不保固定推荐。",
+      "destination": {
+        "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "line": 369,
+        "locator": "## 13. 联合编码重排的学习计算与训练目标",
+        "file_sha256": "b0d72726a919c5827ba6f37552440a8622af9cc65aef9deb577b93bb29c43cab"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 46,
+      "source_heading": "### Why this lesson trains a tiny one",
+      "effective_information": "1个postLNattention+FFN、4heads和MSE回归，随机词hash，无预训checkpoint；具实际学习计算但本次未运行。",
+      "destination": {
+        "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "line": 369,
+        "locator": "## 13. 联合编码重排的学习计算与训练目标",
+        "file_sha256": "b0d72726a919c5827ba6f37552440a8622af9cc65aef9deb577b93bb29c43cab"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 52,
+      "source_heading": "### Latency vs quality",
+      "effective_information": "N增加包含机会与pairwork，toy表明确illustrative；always20–50knee不成立，8docfixture超8N没有新candidate。",
+      "destination": {
+        "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "line": 369,
+        "locator": "## 13. 联合编码重排的学习计算与训练目标",
+        "file_sha256": "b0d72726a919c5827ba6f37552440a8622af9cc65aef9deb577b93bb29c43cab"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 71,
+      "source_heading": "## Build It",
+      "effective_information": "tokenizer、train60epoch(非oneepoch)、rerankbatch、mockBi、pipeline timer；所有demoquery复用train文字。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 90,
+      "source_heading": "## Failure modes the demo will hide",
+      "effective_information": "N=K仍可重排改变MRR/Hit@1，保留集合Recall@K不变；至少3K不是硬条件。训练泄漏真实存在，float32memory只weights不含runtime。",
+      "destination": {
+        "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "line": 369,
+        "locator": "## 13. 联合编码重排的学习计算与训练目标",
+        "file_sha256": "b0d72726a919c5827ba6f37552440a8622af9cc65aef9deb577b93bb29c43cab"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 102,
+      "source_heading": "## Use It",
+      "effective_information": "缓存须含docrevision/modelrevision/tokenizer/maxlen/preprocessing/tenant权限，rawCE阈值需unknowncalibration；日志不是概率/无答案证明。",
+      "destination": {
+        "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "line": 369,
+        "locator": "## 13. 联合编码重排的学习计算与训练目标",
+        "file_sha256": "b0d72726a919c5827ba6f37552440a8622af9cc65aef9deb577b93bb29c43cab"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 110,
+      "source_heading": "## Ship It",
+      "effective_information": "68用了titlebooststandin，69复制CE48维+lexicalblend，不是直接import本CE64维；保持实际来源边界。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 114,
+      "source_heading": "## Exercises",
+      "effective_information": "5练习都未执行；sourceepoch建议与train默认60矛盾须按实际。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1256,
+        "locator": "#### 练习 66-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 122,
+      "source_heading": "## Key Terms",
+      "effective_information": "Ncandidatecount、Kretainedcount、bi/cross路径与maskedmean分别定，不以模型名猜param数和精度。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 195,
+        "locator": "#### 3.1.4 双编码器召回与联合编码重排的排序例",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 66,
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "source_line": 132,
+      "source_heading": "## Further Reading",
+      "effective_information": "官方modelcards/SDK参数未当前核；paper入口未全文读，不传播fixedmemory或部署建议。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1444,
+        "locator": "### 来源与图示核对边界",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 10,
+      "source_heading": "## Learning Objectives",
+      "effective_information": "三种rewrite接口：hypdoc、同意图paraphrases、多facet subqueries，以同fixture比较，mock offline。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 17,
+      "source_heading": "## The Problem",
+      "effective_information": "改写可救candidate recall，不保证总优；真实HyDE不是语义事实证据，source巧设fixture不能推广赢率。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 27,
+      "source_heading": "## The Concept",
+      "effective_information": "图三策略→embedding→hybrid→RRF，实际代码lexical和hash向量混合且重复fusion，未并行。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 44,
+      "source_heading": "### HyDE in detail",
+      "effective_information": "hypothetical只供检索，不可当最终事实/引用；错误ID会偏移表示。长度2–3句是候选budget非普适最佳。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 62,
+      "source_heading": "### Multi-query expansion in detail",
+      "effective_information": "保原意同义多个query，source原query另加入；近重复结果会重复票，需去重/权重，速度取决真正fanout。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 75,
+      "source_heading": "### Decomposition in detail",
+      "effective_information": "子问题需覆盖全部facet及逻辑关系，source按and切不能解析not/比较/限定；原子问不强拆。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 89,
+      "source_heading": "### Why all three exist",
+      "effective_information": "策略互补但按任务验证，不必须所有一起跑；成本/intent漂移/coverage一起评。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 93,
+      "source_heading": "## The Mock LLM",
+      "effective_information": "MockLLM表内直接含fixture答案，fallback synonyms/and split，不是LLM生成或真实zero-shot。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 106,
+      "source_heading": "## Build It",
+      "effective_information": "HyDERewriter保存hyp及原query；retrieve先hypvector+originalBM25 hybrid，再originalhybrid，最后RRF。MQ原+Nparaphrase；DC不保original。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 127,
+      "source_heading": "## Failure modes the demo will hide",
+      "effective_information": "hyp错ID、多query坍同、atomic过拆/latency是实际风险，但源码无diversity/confidence/cache/async。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 137,
+      "source_heading": "## Use It",
+      "effective_information": "按querylength选择/三路并行只建议；未知/多facet约束更强，不能以长度判唯一最佳。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 145,
+      "source_heading": "## Ship It",
+      "effective_information": "67单文件重写65兼容retriever并非直接import；69接线必须核identity与实际执行。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 149,
+      "source_heading": "## Exercises",
+      "effective_information": "5练习应独立data/budget、意图一致/coverage、duplicates、真实服务授权边界，未执行。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1302,
+        "locator": "#### 练习 67-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 157,
+      "source_heading": "## Key Terms",
+      "effective_information": "HyDE假文embedding、MQparaphrase、decompositionfacet、atomic、stepback分别任务；假文不是可信语料。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 210,
+        "locator": "### 3.2 派生查询的协议、重复信号与真实预算",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 67,
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "source_line": 167,
+      "source_heading": "## Further Reading",
+      "effective_information": "仅来源索引；HyDE可核原论文，Microsoft/DSPy文献题名归因未本次核，不保已核事实。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1444,
+        "locator": "### 来源与图示核对边界",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 10,
+      "source_heading": "## Learning Objectives",
+      "effective_information": "四retrieval与两answer表面分开，以qrels和stage trace定位问题，不把代理judge当真实支持。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 16,
+      "source_heading": "## The Problem",
+      "effective_information": "错误可来自边界/候选/排序/生成，合适指标先定；线上用户错误需对应数据身份，而非纯答案猜因。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 29,
+      "source_heading": "## The Concept",
+      "effective_information": "qrels给gold docs/grades/reference，pipeline返回docs和answer，retrieval分数和answer评分分别算。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 45,
+      "source_heading": "### Precision@k",
+      "effective_information": "本precision=sum相关出现/k，少于k仍除k；duplicateID会重复hit，应先唯一doc/chunk身份。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 49,
+      "source_heading": "### Recall@k",
+      "effective_information": "recall=set(topk)∩gold/gold数，空gold返回0的约定；不是至少一个gold命中。负k缺验证，source建议多无关一般无害过度。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 55,
+      "source_heading": "### MRR (Mean Reciprocal Rank)",
+      "effective_information": "RR首相关位置1基倒数，MRR均query，缺相关0；不代表所有facet覆盖。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 61,
+      "source_heading": "### nDCG@k",
+      "effective_information": "gain2^rel−1/log2(rank+1)，按完整gradedgold理想排序IDCG@k，重复ID可超1；二元/分级gold集合不一致须声明。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 67,
+      "source_heading": "### Faithfulness",
+      "effective_information": "sentence split后的claim同context token overlap≥.4即support，非语义蕴含；negation/entity/数值/引用不能靠词重叠。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 75,
+      "source_heading": "### Answer relevance",
+      "effective_information": "query内容词被answer覆盖≥.4返回binary，是topic词代理不是用户问题真正满足。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 81,
+      "source_heading": "## The fixture qrels",
+      "effective_information": "Qrel对象含qid/query/binarydocs/substring/graded；q1graded d2=1却binary只d3/d1，q2d5grade2非binary；须明示相关等级阈值。substring保存但不用评分。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 105,
+      "source_heading": "## Build It",
+      "effective_information": "24tests与纯python metric/judge/orchestrator；baseline/hybrid/rerank实为BoW/synonyms/titlebonus，非64chunker/65dense/66trainedCE接线。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 128,
+      "source_heading": "## Reading the metrics to diagnose failures",
+      "effective_information": "goodrecall lowMRR可能排序问题，highscores不能排eval污染/题错/引用不支持；diagnostic是线索非确定因果。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 138,
+      "source_heading": "## Failure modes the demo will hide",
+      "effective_information": "judge偏置、qrels变化、macroclaims与slice是合理风险；换judge家族不自动校准，quarterly是政策例。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 148,
+      "source_heading": "## Use It",
+      "effective_information": "每改复核同versionqrels和每querytrace；20/200/2000只是规模示例，按覆盖/成本与置信区间。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 156,
+      "source_heading": "## Ship It",
+      "effective_information": "69应实际导入/接线核验，不能从本PipelineFn同shape声称完整真实实现。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 160,
+      "source_heading": "## Exercises",
+      "effective_information": "5练习有hit/gradejudge/realjudge/slice/length，全部未执行。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1348,
+        "locator": "#### 练习 68-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 168,
+      "source_heading": "## Key Terms",
+      "effective_information": "precision/recall/RR/nDCG/support/relevance/qrels各分母与任务不同；术语hit不能混。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 668,
+        "locator": "### 7.2 真值粒度、分母和独立验证",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 68,
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "source_line": 180,
+      "source_heading": "## Further Reading",
+      "effective_information": "引用仅入口，不算全文；无需将Ragas默认judge与本阈值代理同一规范。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1444,
+        "locator": "### 来源与图示核对边界",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 10,
+      "source_heading": "## Learning Objectives",
+      "effective_information": "组合各stage及引用/拒答/固定eval/退出码；只有实际检查到的局部mock可成立，不能从fixture满足阈值说systemship。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 16,
+      "source_heading": "## The Problem",
+      "effective_information": "组件交互确需integration，但stage tests仍有意义；同toyqrels端到端不是唯一/充分productiongrade。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 22,
+      "source_heading": "## The Concept",
+      "effective_information": "Source→recursivechunks→hybridindex；queryheuristicrewrite→retrieve→trueCE+lexical→extractivegen→5proxycriteria→exit。不直接import64–68而复制缩减实现。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 39,
+      "source_heading": "### Wiring choices",
+      "effective_information": "Chunk只有doc_id,index,text；Pipeline5默认对象可替同接口而generator是全局函数无inject参数。无ACL/revision/offset身份，只query stage timer。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 53,
+      "source_heading": "### Answer generator with citations",
+      "effective_information": "rankedtop1 blended rawscore阈值.05；top3按querycontent重叠选2或fallback第一，复制首句加anchor。score过阈但零重叠仍答，不是nooverlap拒答。引用存在不证满足问/当前有效事实。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 79,
+      "source_heading": "### The self-terminating demo",
+      "effective_information": "4evalquery五指标THRESHOLDSgate，run_demo返0/1再sys.exit，属程序真实行为意图；无本次运行，不报告实际pass。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 89,
+      "source_heading": "## Build It",
+      "effective_information": "Chunker只recursive，hash dense/bm25/RRF、heuristicrewriter、真实torchCE、extractivegenerator、Resulttrace及小eval；不完整复现6课全部variant/metric。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 110,
+      "source_heading": "## Failure modes the demo will hide",
+      "effective_information": "训练query字面不同但相同doc/facts/人工hardneg；改写table逐字含eval答案；selector却四eval都multiquery不触发HyDE。复制文本仍可错相关/宏观答义/错误source，nohallucination绝对说法过宽。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 122,
+      "source_heading": "## Use It",
+      "effective_information": "CIgate需独立切分/锁版本/失败trace；20query30s/nightly示例不是SLA保证。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 131,
+      "source_heading": "## Ship It",
+      "effective_information": "实现缺ingest发布/身份/ACL/update/serving/streaming/tokenbudget；retrieverhash不是真实dense，eval支持只是tokenproxy，不能称 productioncomplete。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 135,
+      "source_heading": "## Exercises",
+      "effective_information": "5练习如selector现已实现heuristics，应强化保语义/测selection，不重复说缺功能。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1394,
+        "locator": "#### 练习 69-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 143,
+      "source_heading": "## Key Terms",
+      "effective_information": "pipeline/anchor/refusal/smoke/interface是组合、定位、决策、子集和类型；anchor没有revision无法长期唯一定位。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 684,
+        "locator": "### 7.3 组件接线、真实计算与演示替身",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    },
+    {
+      "lesson": 69,
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "source_line": 153,
+      "source_heading": "## Further Reading",
+      "effective_information": "URLs为入口未本轮核，无实际服务/部署或LLM调用。",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1444,
+        "locator": "### 来源与图示核对边界",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      }
+    }
+  ],
+  "practices": [
+    {
+      "lesson": 64,
+      "id": "64-P01",
+      "source_text": "Add a sixth strategy: token-window using `tiktoken` instead of character counts. Compare against fixed-window on the same fixture.",
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_exercises_heading_line": 134,
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1174,
+        "locator": "#### 练习 64-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 64,
+      "id": "64-P02",
+      "source_text": "Inject a 30 percent fraction of code blocks into the prose fixture. Re-run the table. Explain why every strategy except structural markdown loses recall.",
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_exercises_heading_line": 134,
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1178,
+        "locator": "#### 练习 64-P02：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 64,
+      "id": "64-P03",
+      "source_text": "Replace the deterministic embedding with the one from your project's real provider. Measure the semantic-clustering recall delta. Report whether the spread between strategies widens or narrows.",
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_exercises_heading_line": 134,
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1182,
+        "locator": "#### 练习 64-P03：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 64,
+      "id": "64-P04",
+      "source_text": "Add a `summary` field per chunk: a one-sentence centroid description. Re-run the eval with the summary appended to the chunk body. Measure the recall lift.",
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+      "source_exercises_heading_line": 134,
+      "source_doc_sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1186,
+        "locator": "#### 练习 64-P04：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 65,
+      "id": "65-P01",
+      "source_text": "Replace `mock_embed` with a real model from your provider. Re-run the demo and report how the dense-only ranking changes on the paraphrased query.",
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_exercises_heading_line": 121,
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1216,
+        "locator": "#### 练习 65-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 65,
+      "id": "65-P02",
+      "source_text": "Add a third modality: chunk summaries indexed separately and fused as a third ranked list. Measure the gain.",
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_exercises_heading_line": 121,
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1220,
+        "locator": "#### 练习 65-P02：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 65,
+      "id": "65-P03",
+      "source_text": "Sweep RRF k across 10, 30, 60, 100, 200. Plot the recall@k curve from lesson 68. Report the value of k where the curve peaks on your corpus.",
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_exercises_heading_line": 121,
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1224,
+        "locator": "#### 练习 65-P03：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 65,
+      "id": "65-P04",
+      "source_text": "Implement BM25F properly (per-field length normalization rather than the multiplier trick) and compare on a corpus where symbol matches matter most.",
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+      "source_exercises_heading_line": 121,
+      "source_doc_sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1228,
+        "locator": "#### 练习 65-P04：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 66,
+      "id": "66-P01",
+      "source_text": "Sweep N from 5 to 50 and plot recall@1 of the reranked output. Find the knee on this fixture.",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_exercises_heading_line": 114,
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1256,
+        "locator": "#### 练习 66-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 66,
+      "id": "66-P02",
+      "source_text": "Train the cross-encoder for ten epochs instead of one. Measure the score-margin between positive and negative pairs at each epoch.",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_exercises_heading_line": 114,
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1260,
+        "locator": "#### 练习 66-P02：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 66,
+      "id": "66-P03",
+      "source_text": "Replace mean-pooling with a CLS-token head. Compare convergence on this fixture.",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_exercises_heading_line": 114,
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1264,
+        "locator": "#### 练习 66-P03：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 66,
+      "id": "66-P04",
+      "source_text": "Add a second cross-encoder head that predicts a binary \"is this answer in the document\" label. Use both heads at inference; one to rank, one to threshold.",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_exercises_heading_line": 114,
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1268,
+        "locator": "#### 练习 66-P04：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 66,
+      "id": "66-P05",
+      "source_text": "Replace the deterministic mock bi-encoder with the one from lesson 65 and chain the two stages. Measure the change in top-K versus bi-encoder alone.",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+      "source_exercises_heading_line": 114,
+      "source_doc_sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1272,
+        "locator": "#### 练习 66-P05：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 67,
+      "id": "67-P01",
+      "source_text": "Implement RAG-Fusion (a 2024 variant of multi-query) where the rewriter's paraphrases are intentionally diverse, then the rerank step (lesson 66) picks the final list.",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_exercises_heading_line": 149,
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1302,
+        "locator": "#### 练习 67-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 67,
+      "id": "67-P02",
+      "source_text": "Add a fourth strategy: step-back prompting (ask the LLM for the more general question, retrieve on that, then narrow). Compare on the fixture.",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_exercises_heading_line": 149,
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1306,
+        "locator": "#### 练习 67-P02：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 67,
+      "id": "67-P03",
+      "source_text": "Train the decomposer to recognize atomic queries by adding a \"is the question atomic\" head. Measure the over-split rate before and after.",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_exercises_heading_line": 149,
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1310,
+        "locator": "#### 练习 67-P03：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 67,
+      "id": "67-P04",
+      "source_text": "Replace the mock LLM with a real model call. Measure the latency-per-strategy on your stack.",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_exercises_heading_line": 149,
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1314,
+        "locator": "#### 练习 67-P04：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 67,
+      "id": "67-P05",
+      "source_text": "Add a confidence score per rewrite. Drop rewrites below the threshold. Measure the impact on recall.",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+      "source_exercises_heading_line": 149,
+      "source_doc_sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1318,
+        "locator": "#### 练习 67-P05：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 68,
+      "id": "68-P01",
+      "source_text": "Add a fifth retrieval metric: hit-rate@k. Compare it against recall@k. Explain when they differ.",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_exercises_heading_line": 160,
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1348,
+        "locator": "#### 练习 68-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 68,
+      "id": "68-P02",
+      "source_text": "Implement a graded faithfulness: 0 (unsupported), 1 (partially supported), 2 (fully supported). Update the metric accordingly.",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_exercises_heading_line": 160,
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1352,
+        "locator": "#### 练习 68-P02：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 68,
+      "id": "68-P03",
+      "source_text": "Replace the mock judge with a real model call. Measure the disagreement between the mock and the real judge on the fixture.",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_exercises_heading_line": 160,
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1356,
+        "locator": "#### 练习 68-P03：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 68,
+      "id": "68-P04",
+      "source_text": "Add a query-class slice (\"literal\", \"paraphrased\", \"multi-topic\"). Report per-slice metrics.",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_exercises_heading_line": 160,
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1360,
+        "locator": "#### 练习 68-P04：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 68,
+      "id": "68-P05",
+      "source_text": "Add an \"answer length\" metric and correlate it with faithfulness. Plot the curve.",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+      "source_exercises_heading_line": 160,
+      "source_doc_sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1364,
+        "locator": "#### 练习 68-P05：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 69,
+      "id": "69-P01",
+      "source_text": "Add a per-query strategy selector inside the rewriter: heuristics from lesson 67 (length, conjunctions, jargon ratio) pick HyDE, multi-query, or decomposition.",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_exercises_heading_line": 135,
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1394,
+        "locator": "#### 练习 69-P01：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 69,
+      "id": "69-P02",
+      "source_text": "Add a real LLM call for the generator behind an env flag. Default to the mock. Measure the latency delta.",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_exercises_heading_line": 135,
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1398,
+        "locator": "#### 练习 69-P02：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 69,
+      "id": "69-P03",
+      "source_text": "Extend the demo to take a `--corpus path` flag that loads a real corpus. Re-run the eval and the threshold check.",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_exercises_heading_line": 135,
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1402,
+        "locator": "#### 练习 69-P03：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 69,
+      "id": "69-P04",
+      "source_text": "Add a `--strategy` flag to the chunker. Measure each strategy's contribution to end-to-end recall.",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_exercises_heading_line": 135,
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1406,
+        "locator": "#### 练习 69-P04：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    },
+    {
+      "lesson": 69,
+      "id": "69-P05",
+      "source_text": "Add a streaming generator interface and feed it into the eval. Confirm that faithfulness is computed on the final string and not on the streamed prefix.",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+      "source_exercises_heading_line": 135,
+      "source_doc_sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1410,
+        "locator": "#### 练习 69-P05：",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "source_practice_executed": false
+    }
+  ],
+  "quizzes": [
+    {
+      "lesson": 64,
+      "id": "64-Q01",
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/quiz.json",
+      "source_quiz_sha256": "24063cb0ac1eb772372c2ecf27c2f2d2e51647ca6f05cca1ea4ed0f1bd61b913",
+      "stage": "pre",
+      "source_question": "Why is the chunking choice an upper bound on retrieval quality and not just a hyperparameter?",
+      "source_options": [
+        "Because the LLM never reads chunks",
+        "Because BM25 has no role in modern RAG",
+        "Because no embedding, reranker, or LLM downstream can recover an answer span that was cut into incoherent pieces",
+        "Because the embedding model is fixed at training time"
+      ],
+      "source_correct_index": 2,
+      "source_explanation": "If the chunk that holds the answer span is incoherent the embedding moves to the wrong cluster and downstream components cannot repair the damage.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1190,
+        "locator": "#### 测验 64-Q01（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确2边界过度；保完整独立证据重要，但邻接/parentexpand可挽回碎片，并非任何切块不可修。"
+    },
+    {
+      "lesson": 64,
+      "id": "64-Q02",
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/quiz.json",
+      "source_quiz_sha256": "24063cb0ac1eb772372c2ecf27c2f2d2e51647ca6f05cca1ea4ed0f1bd61b913",
+      "stage": "pre",
+      "source_question": "Which strategy is the strongest single-strategy default when you have no prior knowledge of the corpus?",
+      "source_options": [
+        "Sentence packer",
+        "Fixed-window",
+        "Recursive split",
+        "Structural markdown"
+      ],
+      "source_correct_index": 2,
+      "source_explanation": "Recursive split adapts per region by trying the strongest separator first and falling back, so it survives inconsistent structure.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1194,
+        "locator": "#### 测验 64-Q02（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确2作为baseline候选，source无独立泛化实验支撑strongestdefault。"
+    },
+    {
+      "lesson": 64,
+      "id": "64-Q03",
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/quiz.json",
+      "source_quiz_sha256": "24063cb0ac1eb772372c2ecf27c2f2d2e51647ca6f05cca1ea4ed0f1bd61b913",
+      "stage": "check",
+      "source_question": "What does recall@k measure in this lesson?",
+      "source_options": [
+        "Whether the top-k chunks contain the literal query string",
+        "The cosine similarity between the query and the top-k chunks",
+        "The number of unique documents in the top-k",
+        "Whether any of the top-k chunks overlaps the gold answer span"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "Each query carries gold offsets; recall@k is 1 if any top-k chunk overlaps the gold span, else 0; averaged across queries.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1198,
+        "locator": "#### 测验 64-Q03（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；本代码hit任何overlap且知道golddoc，不是全库检索Recall或完整可回答证据。"
+    },
+    {
+      "lesson": 64,
+      "id": "64-Q04",
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/quiz.json",
+      "source_quiz_sha256": "24063cb0ac1eb772372c2ecf27c2f2d2e51647ca6f05cca1ea4ed0f1bd61b913",
+      "stage": "check",
+      "source_question": "Why does fixed-window chunking fail badly on code or YAML corpora?",
+      "source_options": [
+        "It cuts identifiers and key-value pairs in half, producing chunks that embed to noise",
+        "It loses Unicode characters",
+        "It cannot be parallelized",
+        "It produces chunks larger than the embedding model's context window"
+      ],
+      "source_correct_index": 0,
+      "source_explanation": "Character-level cuts inside a symbol destroy the meaning the embedding model is supposed to capture.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1202,
+        "locator": "#### 测验 64-Q04（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确0；mididentifier断裂风险不是必定hashnoise，AST/完整键值/代码块范围更适用。"
+    },
+    {
+      "lesson": 64,
+      "id": "64-Q05",
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/quiz.json",
+      "source_quiz_sha256": "24063cb0ac1eb772372c2ecf27c2f2d2e51647ca6f05cca1ea4ed0f1bd61b913",
+      "stage": "check",
+      "source_question": "What is the centroid drift termination criterion in semantic chunking?",
+      "source_options": [
+        "Cosine similarity between the running mean vector and the next sentence drops below a threshold",
+        "Character count exceeds the max",
+        "Sentence count exceeds a hardcoded limit",
+        "The chunker has consumed the entire embedding budget"
+      ],
+      "source_correct_index": 0,
+      "source_explanation": "Semantic chunking cuts when the running centroid no longer matches the next sentence by a configured similarity threshold.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1206,
+        "locator": "#### 测验 64-Q05（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确0；还受maxchars切，具体sourcecentroidweight有bug，无真语义模型。"
+    },
+    {
+      "lesson": 64,
+      "id": "64-Q06",
+      "source_path": "phases/19-capstone-projects/64-chunking-strategies-advanced/quiz.json",
+      "source_quiz_sha256": "24063cb0ac1eb772372c2ecf27c2f2d2e51647ca6f05cca1ea4ed0f1bd61b913",
+      "stage": "post",
+      "source_question": "What stale-embedding failure mode does semantic chunking introduce that the other four strategies do not?",
+      "source_options": [
+        "Chunks too small for the embedding context",
+        "Chunk boundaries change whenever you change the chunk-model, requiring a coordinated rebuild",
+        "Chunks are no longer indexable by BM25",
+        "Chunks lose their start and end offsets"
+      ],
+      "source_correct_index": 1,
+      "source_explanation": "Semantic clustering depends on an embedding model; swapping the model changes the boundaries, so the chunk-model must be pinned separately or rebuilt together with the retrieval model.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1210,
+        "locator": "#### 测验 64-Q06（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确1；pin chunkmodel/threshold/strategy和corpusrevision，协调重建chunkIDs/source mapping/index；无需自动迁移已有原文。"
+    },
+    {
+      "lesson": 65,
+      "id": "65-Q01",
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/quiz.json",
+      "source_quiz_sha256": "4b33ce707097c6bf37e53e46ad9c504e14eb4b2a402889be81416c0c2768e424",
+      "stage": "pre",
+      "source_question": "Why does a production RAG endpoint need both lexical and semantic retrieval at once?",
+      "source_options": [
+        "Lexical search is required by law for compliance",
+        "Semantic retrieval is always more accurate",
+        "It halves the index size",
+        "The query distribution mixes literal-identifier and paraphrased queries; one modality fails on each class"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "BM25 dominates on literal symbols; dense dominates on paraphrases. A real endpoint receives both classes from the same users.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1232,
+        "locator": "#### 测验 65-Q01（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3是常见动机，二者实际是否互补取决data/model，端点非必须每次两路。"
+    },
+    {
+      "lesson": 65,
+      "id": "65-Q02",
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/quiz.json",
+      "source_quiz_sha256": "4b33ce707097c6bf37e53e46ad9c504e14eb4b2a402889be81416c0c2768e424",
+      "stage": "pre",
+      "source_question": "What is the BM25 parameter b at the default 0.75?",
+      "source_options": [
+        "The number of fields in the document",
+        "A query-time exponent on cosine similarity",
+        "A multiplier on the IDF term",
+        "A length-normalization knob: longer documents are penalized but not linearly"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "b interpolates between no length normalization (0) and full normalization (1); 0.75 is the published recommendation.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1236,
+        "locator": "#### 测验 65-Q02（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；b0无lengthnorm，b1full；doclength影响TF分母，.75是源默认非唯一published最优。"
+    },
+    {
+      "lesson": 65,
+      "id": "65-Q03",
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/quiz.json",
+      "source_quiz_sha256": "4b33ce707097c6bf37e53e46ad9c504e14eb4b2a402889be81416c0c2768e424",
+      "stage": "check",
+      "source_question": "What does Reciprocal Rank Fusion compute for each candidate?",
+      "source_options": [
+        "Average of the BM25 and dense scores after min-max normalization",
+        "Sum of 1 / (k + rank) across each ranked list that contains the candidate",
+        "Product of cosine similarities across modalities",
+        "The median rank across modalities"
+      ],
+      "source_correct_index": 1,
+      "source_explanation": "RRF sums 1 / (k + rank) contributions per ranked list; k = 60 is the published default.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1240,
+        "locator": "#### 测验 65-Q03（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确1；rank从1起用c+rank，不用rawscore；weighted版乘w，candidate每list一次。"
+    },
+    {
+      "lesson": 65,
+      "id": "65-Q04",
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/quiz.json",
+      "source_quiz_sha256": "4b33ce707097c6bf37e53e46ad9c504e14eb4b2a402889be81416c0c2768e424",
+      "stage": "check",
+      "source_question": "Why is rank-based fusion preferred over a linear interpolation of BM25 and cosine scores?",
+      "source_options": [
+        "Cosine scores are unbounded",
+        "BM25 scores are unbounded and corpus-dependent; cosine is bounded in -1 to 1; the score scales are not comparable across corpora",
+        "BM25 scores cannot be sorted",
+        "Linear interpolation requires GPU support"
+      ],
+      "source_correct_index": 1,
+      "source_explanation": "Score interpolation breaks every reindex because the score distributions shift; ranks are comparable across modalities by construction.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1244,
+        "locator": "#### 测验 65-Q04（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确1；标度不兼容需校准，RRF非无条件优于scoreinterpolation。"
+    },
+    {
+      "lesson": 65,
+      "id": "65-Q05",
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/quiz.json",
+      "source_quiz_sha256": "4b33ce707097c6bf37e53e46ad9c504e14eb4b2a402889be81416c0c2768e424",
+      "stage": "check",
+      "source_question": "What happens to RRF when you make the constant k very small?",
+      "source_options": [
+        "The fusion becomes equivalent to a linear score sum",
+        "The top-1 contribution dominates the fusion; deep ranks contribute almost nothing",
+        "Out-of-corpus terms get a positive score",
+        "The fusion ignores the second modality"
+      ],
+      "source_correct_index": 1,
+      "source_explanation": "Small k concentrates the rank-1 contribution; large k flattens the contribution curve and lets deep candidates vote.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1248,
+        "locator": "#### 测验 65-Q05（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确1；c变小rank比更陡，deep贡献相对更小不是严格全为0。"
+    },
+    {
+      "lesson": 65,
+      "id": "65-Q06",
+      "source_path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/quiz.json",
+      "source_quiz_sha256": "4b33ce707097c6bf37e53e46ad9c504e14eb4b2a402889be81416c0c2768e424",
+      "stage": "post",
+      "source_question": "Which failure mode does field weighting through token repetition specifically avoid?",
+      "source_options": [
+        "Adding a second score-aggregation step at query time; the math stays identical and per-field-score combination logic is not needed",
+        "Out-of-vocabulary embeddings",
+        "BM25 IDF collapsing to zero",
+        "Cosine similarity going negative"
+      ],
+      "source_correct_index": 0,
+      "source_explanation": "Repeating tokens at index time multiplies term frequency, which lets the BM25 scoring math stay one summation rather than a separate field-score combinator.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1252,
+        "locator": "#### 测验 65-Q06（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确0；重复fieldtoken免另scoreaggregation但变tf与doclength，非真正BM25F，titleboost效果需正确反例。"
+    },
+    {
+      "lesson": 66,
+      "id": "66-Q01",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/quiz.json",
+      "source_quiz_sha256": "75a9c585f2ac977e647a057876c30024e305273a9063d3670bba09cebc0fd804",
+      "stage": "pre",
+      "source_question": "What is the architectural difference between a bi-encoder and a cross-encoder?",
+      "source_options": [
+        "A bi-encoder embeds query and document independently; a cross-encoder reads the concatenated (query, document) sequence with full attention across both",
+        "Bi-encoders are trained; cross-encoders are not",
+        "Bi-encoders use cosine; cross-encoders use dot product",
+        "Cross-encoders run only on GPUs"
+      ],
+      "source_correct_index": 0,
+      "source_explanation": "Cross attention across the join is what gives the cross-encoder its precision; the bi-encoder never sees the query and document together.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1276,
+        "locator": "#### 测验 66-Q01（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确0；联合token序列的self-attention跨query/doc，不是必用另一CrossAttentionmodule。"
+    },
+    {
+      "lesson": 66,
+      "id": "66-Q02",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/quiz.json",
+      "source_quiz_sha256": "75a9c585f2ac977e647a057876c30024e305273a9063d3670bba09cebc0fd804",
+      "stage": "pre",
+      "source_question": "Why can a cross-encoder not be used as the primary retriever on a 10M-document corpus?",
+      "source_options": [
+        "It cannot embed text",
+        "It requires one forward pass per (query, document) pair, which is 10M passes per query",
+        "It does not support negative scores",
+        "It requires the CLS token at the end of the sequence"
+      ],
+      "source_correct_index": 1,
+      "source_explanation": "Throughput collapses at corpus scale; the cross-encoder runs once per pair instead of once per document at index time.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1280,
+        "locator": "#### 测验 66-Q02（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确1；需10M pairwork，但可batch所以并非必须10M独立forward调用，代价随paircount/L²与模型。"
+    },
+    {
+      "lesson": 66,
+      "id": "66-Q03",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/quiz.json",
+      "source_quiz_sha256": "75a9c585f2ac977e647a057876c30024e305273a9063d3670bba09cebc0fd804",
+      "stage": "check",
+      "source_question": "What is the role of the N parameter in a two-stage retrieve-then-rerank pipeline?",
+      "source_options": [
+        "It is the size of the vocabulary",
+        "It is the cross-encoder hidden dimension",
+        "It is the number of layers in the cross-encoder",
+        "It is the number of candidates returned by the bi-encoder for the cross-encoder to rescore"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "N is the rerank pool; it caps quality (cross-encoder cannot exceed bi-encoder recall at N) and latency (cross-encoder runs N forward passes).",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1284,
+        "locator": "#### 测验 66-Q03（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；N候选上限影响覆盖与成本，批数受batchsize；rerank后的集合可选K，不超原candidatecoverage。"
+    },
+    {
+      "lesson": 66,
+      "id": "66-Q04",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/quiz.json",
+      "source_quiz_sha256": "75a9c585f2ac977e647a057876c30024e305273a9063d3670bba09cebc0fd804",
+      "stage": "check",
+      "source_question": "Why must you pick N strictly larger than K (typically 3x or more)?",
+      "source_options": [
+        "BM25 requires it for the IDF computation",
+        "Smaller N reduces the embedding dimensionality",
+        "The cross-encoder requires N to be a multiple of K",
+        "If N equals K the cross-encoder cannot reorder, only reweight; rerank lift collapses to zero"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "With N = K there is nothing to reorder; the cross-encoder's only job is to pick the right K out of N, which needs N > K.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1288,
+        "locator": "#### 测验 66-Q04（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3错误：N=K仍按新score重排，goldrank4→1可提高RR/Hit1；onlysetRecall@K保持。3×K是预算候选不是必要条件。"
+    },
+    {
+      "lesson": 66,
+      "id": "66-Q05",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/quiz.json",
+      "source_quiz_sha256": "75a9c585f2ac977e647a057876c30024e305273a9063d3670bba09cebc0fd804",
+      "stage": "check",
+      "source_question": "What does the cross-encoder's mean-pooling head do in this lesson?",
+      "source_options": [
+        "Pools over the vocabulary distribution",
+        "Computes the softmax over the document positions",
+        "Averages the last-layer outputs over non-pad positions and feeds a single linear head to produce one relevance scalar",
+        "Sums the embedding indices"
+      ],
+      "source_correct_index": 2,
+      "source_explanation": "Mean-pool over non-pad positions, then a single linear layer outputs the relevance score; CLS-pooling is an alternative with similar quality.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1292,
+        "locator": "#### 测验 66-Q05（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确2；nonPAD最后states平均再linear标量，CLS/SEP也属于非PAD，MSEscore不是概率。"
+    },
+    {
+      "lesson": 66,
+      "id": "66-Q06",
+      "source_path": "phases/19-capstone-projects/66-reranker-cross-encoder/quiz.json",
+      "source_quiz_sha256": "75a9c585f2ac977e647a057876c30024e305273a9063d3670bba09cebc0fd804",
+      "stage": "post",
+      "source_question": "Which production failure mode does logging the rank-1 cross-encoder score help detect?",
+      "source_options": [
+        "Out-of-domain queries: when the top-1 reranker score is below a corpus-specific threshold, the model is signalling that nothing in the corpus actually answers the query",
+        "Network outages",
+        "Vocabulary drift in the tokenizer",
+        "Index corruption in the bi-encoder"
+      ],
+      "source_correct_index": 0,
+      "source_explanation": "A consistently low rank-1 score is the cross-encoder telling you the retrieved pool does not contain the answer; surface that to the LLM as low-confidence.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1296,
+        "locator": "#### 测验 66-Q06（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确0需校正为线索：rawscore低不证无answer；有independentunknownlabels校准后才拒答，domainshift/shorttext/trunc可低score。"
+    },
+    {
+      "lesson": 67,
+      "id": "67-Q01",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/quiz.json",
+      "source_quiz_sha256": "fc6370c83daeed43f7edb70e50106f0f70e92cd7ea616d4da12234d08d48c4ec",
+      "stage": "pre",
+      "source_question": "What is the core mechanism of HyDE (Hypothetical Document Embeddings)?",
+      "source_options": [
+        "Embed the user query through a larger model",
+        "Hash the query and look it up in a cache",
+        "Run the query through multiple retrievers and pick the best one",
+        "Generate a fake answer with an LLM, embed that hypothetical document, and retrieve against its vector instead of the query vector"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "HyDE writes a document-shaped passage in the corpus voice and retrieves on that embedding; the query vector is replaced.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1322,
+        "locator": "#### 测验 67-Q01（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；原HyDE对hyp embedding查真实docs，本实现另保originalhybrid并融合，不是纯替换。"
+    },
+    {
+      "lesson": 67,
+      "id": "67-Q02",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/quiz.json",
+      "source_quiz_sha256": "fc6370c83daeed43f7edb70e50106f0f70e92cd7ea616d4da12234d08d48c4ec",
+      "stage": "pre",
+      "source_question": "Why is it acceptable for the LLM-generated hypothetical document in HyDE to be factually wrong?",
+      "source_options": [
+        "The reranker repairs factual errors",
+        "The LLM call is rolled back when wrong",
+        "The retriever cares about the token distribution, not factual correctness; the hypothetical's vector lands near the real passage",
+        "The user never sees the hypothetical"
+      ],
+      "source_correct_index": 2,
+      "source_explanation": "Retrieval is similarity in embedding space; if the hypothetical's vocabulary matches the corpus, the vector lands in the right region.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1326,
+        "locator": "#### 测验 67-Q02（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确2不等错误无害：hyp不是真值，但错entity/事实可拉向错doc；必须只以检索真实docs作回答证据，不保证近正确区域。"
+    },
+    {
+      "lesson": 67,
+      "id": "67-Q03",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/quiz.json",
+      "source_quiz_sha256": "fc6370c83daeed43f7edb70e50106f0f70e92cd7ea616d4da12234d08d48c4ec",
+      "stage": "check",
+      "source_question": "What is the difference between multi-query expansion and query decomposition?",
+      "source_options": [
+        "Multi-query produces N paraphrases of the same question; decomposition produces sub-questions that together cover a multi-topic question",
+        "Decomposition runs locally; multi-query requires a remote model",
+        "They are identical",
+        "Multi-query uses cosine; decomposition uses BM25"
+      ],
+      "source_correct_index": 0,
+      "source_explanation": "Paraphrases preserve intent; sub-questions split a multi-topic query into independently answerable pieces.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1330,
+        "locator": "#### 测验 67-Q03（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确0；MQ同意图，DC不同facet共同满足问题，不能把每facet任一doc hit算整体覆盖。"
+    },
+    {
+      "lesson": 67,
+      "id": "67-Q04",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/quiz.json",
+      "source_quiz_sha256": "fc6370c83daeed43f7edb70e50106f0f70e92cd7ea616d4da12234d08d48c4ec",
+      "stage": "check",
+      "source_question": "When does query decomposition over-split and hurt retrieval?",
+      "source_options": [
+        "When BM25 is disabled",
+        "When the corpus is too small",
+        "When the query is atomic (single-topic), the decomposer invents fake sub-questions and the retrievals all return the same document with reduced rank",
+        "When the query is too long for the LLM"
+      ],
+      "source_correct_index": 2,
+      "source_explanation": "Decomposing an atomic query splits it into fake sub-questions; their retrievals dilute the merge so the right document ranks lower.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1334,
+        "locator": "#### 测验 67-Q04（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确2；atomic误拆可能漂移/稀释，不是必然每次降低；需保约束与负对照。"
+    },
+    {
+      "lesson": 67,
+      "id": "67-Q05",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/quiz.json",
+      "source_quiz_sha256": "fc6370c83daeed43f7edb70e50106f0f70e92cd7ea616d4da12234d08d48c4ec",
+      "stage": "check",
+      "source_question": "Why do the three rewriting strategies fuse with RRF rather than score interpolation?",
+      "source_options": [
+        "Score interpolation requires per-corpus calibration; RRF combines rank-based contributions without calibration, which is required when fusing N retrievals from different rewrites",
+        "Score interpolation cannot handle more than two lists",
+        "RRF runs on GPUs and score interpolation does not",
+        "RRF is the only operation supported by Python"
+      ],
+      "source_correct_index": 0,
+      "source_explanation": "Same argument as lesson 65; rank-based fusion does not need per-corpus alpha tuning and stays stable across rewriter outputs.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1338,
+        "locator": "#### 测验 67-Q05（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确0；RRF免scores同标度需求，但k/weights/candidatebudget仍需选择，校准scorefusion并非非法。"
+    },
+    {
+      "lesson": 67,
+      "id": "67-Q06",
+      "source_path": "phases/19-capstone-projects/67-query-rewriting-hyde/quiz.json",
+      "source_quiz_sha256": "fc6370c83daeed43f7edb70e50106f0f70e92cd7ea616d4da12234d08d48c4ec",
+      "stage": "post",
+      "source_question": "What is the latency floor when running all three rewriters in parallel?",
+      "source_options": [
+        "Three LLM calls in series",
+        "The slowest single retrieval",
+        "One LLM call (the rewriters and retrievals run in parallel; the LLM call is the floor)",
+        "Zero, because the rewriters cache everything"
+      ],
+      "source_correct_index": 2,
+      "source_explanation": "All three rewriters fan out to a model call; if they run in parallel the floor is one model call latency, then the retrievals run in parallel after.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1342,
+        "locator": "#### 测验 67-Q06（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确2只是理想并行下LLM阶段约最大call延迟，端到端还要后依赖retrieval+merge；源码串行mock无LLM latency实证。"
+    },
+    {
+      "lesson": 68,
+      "id": "68-Q01",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/quiz.json",
+      "source_quiz_sha256": "2a73baa400f819b19d63dcc807d1735c1da033454f02292f50e083ba05330a6c",
+      "stage": "pre",
+      "source_question": "Why is recall@k usually the headline retrieval metric in production RAG?",
+      "source_options": [
+        "Recall ignores ranking",
+        "Recall is required by the OpenAPI spec",
+        "Recall is the same as precision in RAG",
+        "Generation can drop irrelevant chunks but cannot invent an answer from a chunk it never saw, so missing the right chunk is the more expensive failure"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "A retriever that misses the right chunk cannot be repaired downstream; surplus chunks waste tokens but rarely poison the answer.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1368,
+        "locator": "#### 测验 68-Q01（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；candidate miss不能靠rerank恢复，但过多无关有毒/分散/上下文budget风险，非rarelypoison保证。"
+    },
+    {
+      "lesson": 68,
+      "id": "68-Q02",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/quiz.json",
+      "source_quiz_sha256": "2a73baa400f819b19d63dcc807d1735c1da033454f02292f50e083ba05330a6c",
+      "stage": "pre",
+      "source_question": "What does MRR compute?",
+      "source_options": [
+        "Token count of the answer",
+        "The geometric mean of cosine similarity",
+        "Median rank of the second relevant document",
+        "The mean of 1 / position-of-first-relevant-document across queries"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "MRR is dominated by the top of the list: rank 1 contributes 1.0, rank 2 contributes 0.5, rank 10 contributes 0.1.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1372,
+        "locator": "#### 测验 68-Q02（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；rank1→1/rank2→.5/没找到0，query平均；topK截断则报告MRR@K。"
+    },
+    {
+      "lesson": 68,
+      "id": "68-Q03",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/quiz.json",
+      "source_quiz_sha256": "2a73baa400f819b19d63dcc807d1735c1da033454f02292f50e083ba05330a6c",
+      "stage": "check",
+      "source_question": "When should you reach for nDCG instead of recall@k?",
+      "source_options": [
+        "When the retriever does not return scores",
+        "When the corpus is small",
+        "Never",
+        "When the gold labels carry graded relevance (e.g. doc A is 3, doc B is 2, doc C is 1) and binary metrics lose information"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "nDCG uses graded gains and a position discount; recall flattens everything to binary.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1376,
+        "locator": "#### 测验 68-Q03（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；gradedgain/positiondiscount，不取代binary相关coverage，均可同报。"
+    },
+    {
+      "lesson": 68,
+      "id": "68-Q04",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/quiz.json",
+      "source_quiz_sha256": "2a73baa400f819b19d63dcc807d1735c1da033454f02292f50e083ba05330a6c",
+      "stage": "check",
+      "source_question": "What is the difference between faithfulness and answer relevance?",
+      "source_options": [
+        "Faithfulness is a retrieval metric and relevance is a chunker metric",
+        "They are the same metric with two names",
+        "Faithfulness measures precision; relevance measures recall",
+        "Faithfulness asks 'is the answer grounded in the retrieved context'; answer relevance asks 'does the answer address the question'"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "A faithful but off-topic answer scores high on faithfulness, low on relevance; a relevant but ungrounded answer scores high on relevance, low on faithfulness.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1380,
+        "locator": "#### 测验 68-Q04（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；contextsupport与回答question是独立轴，支持不等来源真值。"
+    },
+    {
+      "lesson": 68,
+      "id": "68-Q05",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/quiz.json",
+      "source_quiz_sha256": "2a73baa400f819b19d63dcc807d1735c1da033454f02292f50e083ba05330a6c",
+      "stage": "check",
+      "source_question": "A pipeline shows decent recall@5 but low MRR. Which stage should you investigate first?",
+      "source_options": [
+        "The generator",
+        "The chunker",
+        "The corpus ingestor",
+        "The reranker, because the right chunk is in the top-k but not at the top"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "Recall@5 means the gold is in top-5; low MRR means it is not at the top of the list. That is the rerank stage's job.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1384,
+        "locator": "#### 测验 68-Q05（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；先检查排序/候选含gold与budget，但还需gold标签/多facet和duplicateID，不必然只reranker。"
+    },
+    {
+      "lesson": 68,
+      "id": "68-Q06",
+      "source_path": "phases/19-capstone-projects/68-rag-eval-precision-recall/quiz.json",
+      "source_quiz_sha256": "2a73baa400f819b19d63dcc807d1735c1da033454f02292f50e083ba05330a6c",
+      "stage": "post",
+      "source_question": "What production hazard makes a frozen qrels file dangerous over time?",
+      "source_options": [
+        "The eval suite uses up disk space",
+        "Embedding vectors expire",
+        "The retriever stops working after six months",
+        "Qrels rot: the corpus changes and a doc that was the gold answer last quarter is no longer the right answer; metrics get reported against stale labels"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "Schedule a quarterly qrels review or your metrics will be measuring the wrong thing as the corpus evolves.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1388,
+        "locator": "#### 测验 68-Q06（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；corpusrevision/删除/事实变化触发qrels重标，quarterly只是治理选择非通用期限。"
+    },
+    {
+      "lesson": 69,
+      "id": "69-Q01",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/quiz.json",
+      "source_quiz_sha256": "c2ac745683090dabaebeef03b12eb515ed6f79ed2f93c69019d9a5fecd9b49aa",
+      "stage": "pre",
+      "source_question": "Why is the integration test the only honest grade of a six-component RAG pipeline?",
+      "source_options": [
+        "The components run on different machines",
+        "The chunker is the only component that matters",
+        "Production servers cannot run individual stage tests",
+        "Each stage's isolated metric does not predict the system's metric because each stage interacts with the next; the only valid grade is the whole pipeline run end to end against the same qrels"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "Isolated wins do not compose; the pipeline is graded on the joint output.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1414,
+        "locator": "#### 测验 69-Q01（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3过度称only：integration看组合必要，局部stage也合法；生产能力需独立真实test/ACL/sourcecorrectness等。"
+    },
+    {
+      "lesson": 69,
+      "id": "69-Q02",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/quiz.json",
+      "source_quiz_sha256": "c2ac745683090dabaebeef03b12eb515ed6f79ed2f93c69019d9a5fecd9b49aa",
+      "stage": "pre",
+      "source_question": "What is the role of refuse-on-low-confidence in the answer generator?",
+      "source_options": [
+        "It logs every refusal to disk",
+        "It returns 'I do not know' when the reranker top-1 score sits below a corpus-specific threshold, preventing hallucinated answers when the retrieved context does not address the query",
+        "It blocks queries longer than 100 tokens",
+        "It triggers a re-retrieval with a different chunker"
+      ],
+      "source_correct_index": 1,
+      "source_explanation": "A consistently low rank-1 score is the model telling you nothing in the corpus answers this query; refuse rather than hallucinate.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1418,
+        "locator": "#### 测验 69-Q02（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确1；低score可以拒答，但MSE+lexical非confidence概率，未校准不能说模型告诉无答案或preventhallucinations。"
+    },
+    {
+      "lesson": 69,
+      "id": "69-Q03",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/quiz.json",
+      "source_quiz_sha256": "c2ac745683090dabaebeef03b12eb515ed6f79ed2f93c69019d9a5fecd9b49aa",
+      "stage": "check",
+      "source_question": "Why are the rerank training triples kept disjoint from the eval queries?",
+      "source_options": [
+        "To prevent train-test leakage; if the eval queries overlap the rerank training set the eval looks magical and the regression test does not catch real drift",
+        "Because RRF cannot fuse overlapping lists",
+        "Because the cross-encoder requires distinct vocabularies",
+        "To save GPU memory"
+      ],
+      "source_correct_index": 0,
+      "source_explanation": "Strict separation is the basic hygiene; otherwise the rerank metric does not predict production behavior.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1422,
+        "locator": "#### 测验 69-Q03（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确0原则；本17triple字面不含4evalquestion却同facts/docs/near paraphrase，不能称独立场景泛化。"
+    },
+    {
+      "lesson": 69,
+      "id": "69-Q04",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/quiz.json",
+      "source_quiz_sha256": "c2ac745683090dabaebeef03b12eb515ed6f79ed2f93c69019d9a5fecd9b49aa",
+      "stage": "check",
+      "source_question": "What is the purpose of the self-terminating demo's exit code?",
+      "source_options": [
+        "It is required by Python",
+        "The reranker uses it as a training signal",
+        "Cosmetic",
+        "It encodes pass/fail against the metric thresholds; a CI smoke test can plug the demo into the pipeline and gate the merge on a non-zero exit"
+      ],
+      "source_correct_index": 3,
+      "source_explanation": "Exit code 0 means thresholds met; non-zero means regression. That is the contract a CI gate consumes.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1426,
+        "locator": "#### 测验 69-Q04（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确3；exitcode接阈值PASSFAIL；本次没有运行不能写实际0/pass。"
+    },
+    {
+      "lesson": 69,
+      "id": "69-Q05",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/quiz.json",
+      "source_quiz_sha256": "c2ac745683090dabaebeef03b12eb515ed6f79ed2f93c69019d9a5fecd9b49aa",
+      "stage": "check",
+      "source_question": "What does a citation anchor look like in this pipeline?",
+      "source_options": [
+        "JSON-RPC envelope",
+        "[doc_id:chunk_index]",
+        "Markdown link with the source URL",
+        "The literal embedding vector"
+      ],
+      "source_correct_index": 1,
+      "source_explanation": "The generator emits the (doc_id, chunk_index) tuple as an anchor so a downstream UI or auditor can map every claim back to its source chunk.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1430,
+        "locator": "#### 测验 69-Q05（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确1；anchor[doc:index]只字符串定位意图，缺revision/offset/可信resolver，需校验真实支持非仅出现。"
+    },
+    {
+      "lesson": 69,
+      "id": "69-Q06",
+      "source_path": "phases/19-capstone-projects/69-end-to-end-rag-system/quiz.json",
+      "source_quiz_sha256": "c2ac745683090dabaebeef03b12eb515ed6f79ed2f93c69019d9a5fecd9b49aa",
+      "stage": "post",
+      "source_question": "Which failure mode is invisible to the mock generator and must be tested with a real LLM before shipping?",
+      "source_options": [
+        "Latency",
+        "Hallucination: the mock generator only emits text from retrieved chunks and cannot invent content; a real LLM can ignore the chunks and generate ungrounded answers",
+        "Tokenization",
+        "Vector index size"
+      ],
+      "source_correct_index": 1,
+      "source_explanation": "The mock cannot test the generator's safety against hallucinated content; only a real model swap-in can.",
+      "destination": {
+        "file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+        "line": 1434,
+        "locator": "#### 测验 69-Q06（",
+        "file_sha256": "938a4ba0d77d5ce55be45f89357000a08e21a51a3723070a241d24418f0606dc"
+      },
+      "chinese_reason_and_correction": "源正确1；mock只copy却仍可能答错facet/无关/错source或误引用，复制不等免hallucination和正确；真实LLM另需评估，latency也同样mock不覆盖。"
+    }
+  ],
+  "new_programs": [
+    {
+      "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+      "block": 7,
+      "line": 392,
+      "sha256": "667fe2a9e806cd56e7cf83e2cb7f61c4568d617d8c5995900a820acc9090ddea",
+      "temporary_script": "/tmp/study-capstone-joint-ce.py",
+      "formal_fence_equals_script_bytes": true,
+      "runtime": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "python": "3.12.13",
+      "torch": "2.14.1",
+      "numpy_version_readonly": "2.4.6",
+      "runtime_directory": "/tmp/study-source1-multimodal-runtime",
+      "wrapper": "import sys,runpy; sys.path.insert(0, runtime_directory); runpy.run_path(temporary_script,run_name=\"__main__\")",
+      "wrapper_scope": "only trusted existing runtime plus wholly self-written temporary script",
+      "device": "cpu",
+      "threads": 1,
+      "seed": 23,
+      "training_steps": 101,
+      "stdout": "environment {\"device\": \"cpu\", \"threads\": 1, \"torch\": \"2.14.1\"}\ndata_sha256 b7990d0a5cf7195dd38b155810c926397843d4933ddeb6b255ce792c33e64014\ncurve [completed_updates, same_snapshot_train_BCE, same_snapshot_held_family_BCE] [[0, 0.783081, 0.706742], [1, 0.670288, 0.653764], [11, 0.629878, 0.636993], [51, 0.197411, 0.862626], [101, 0.023439, 1.43031]]\nheld_candidate_scores {\"c-no\": -5.995965480804443, \"c-yes\": 2.2521252632141113, \"d-yes\": 2.085031032562256} ranking ['c-yes', 'd-yes', 'c-no']\npadding invariance passed; joint qkv gradients finite; disjoint document families\nindependent K=N fixture RR 0.25 -> 1.0; retained Recall@4 1.0 -> 1.0\ninvalid pair/control token/dtype/ID/mask/length rejected; trained parameters unchanged\nsynthetic CPU only; held scores are observations, no pretrained semantic or deployment claim\n",
+      "stdout_sha256": "f7d835247f77865abb39c651952862b27de7a21d588128079bc3dbe83e70344a",
+      "exit_code": 0,
+      "execution_date": "2026-10-12",
+      "meaningful_assertions": [
+        "joint QKV gradients finite",
+        "PAD extension invariance",
+        "train vs held doc-family disjoint",
+        "fixed vocabulary/known token/length contract",
+        "N=K independent ranking fixture changes RR but not set Recall",
+        "nonempty typed pairs; reserved control tokens rejected",
+        "CPU Long IDs/non-PAD mask/vocabulary/length validated",
+        "invalid inputs leave all trained parameters unchanged"
+      ],
+      "observed_boundary": "train BCE falls, held-family BCE rises; no generalized neural retrieval result",
+      "stderr": "",
+      "argv": [
+        "/Users/wangshuiqing/codex-tools/bin/python3",
+        "-I",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/tmp/study-source1-multimodal-runtime');runpy.run_path('/tmp/study-capstone-joint-ce.py',run_name='__main__')"
+      ],
+      "measurement_policy": "step0及完成1/11/51/101次更新后，两数据集在相同eval/no_grad快照测量",
+      "root_review_run": "/tmp/study-capstone-joint-ce-root-review-run.json"
+    }
+  ],
+  "new_primary_checks": [],
+  "primary_scope": "没有新增高时效接口/型号参数推荐或论文性能事实，无新增primary网页访问。冻结源码/报告只读与基础公式为本轮证据。",
+  "dynamic_register_scope": "六项由root完整静读最后provider函数，正式12来源图示段与7.2数字纠正保留限制",
+  "boundary": {
+    "source_programs_imported": 0,
+    "source_programs_executed": 0,
+    "source_tests_executed": 0,
+    "installed": false,
+    "downloads": false,
+    "services": false,
+    "gpu": false,
+    "sites_2_5_touched": false,
+    "root_master_navigation_ledger_git_touched": false,
+    "old_proofs_reused_without_rerun": true
+  },
+  "validation": {
+    "unique_practice_quiz_ids": true,
+    "all_old_python_fences_byte_identical": true,
+    "all_python_ast_parse": true,
+    "all_old_dates_retained": true,
+    "final_file_sha256_captured": true,
+    "knowledge_check": "root统一维护后运行",
+    "content_review": "agent阅读全文旧targets/frozen91heading28practice36quiz；写完按映射自检；root最终独立审阅待完成"
+  },
+  "root_previous_program_versions": [
+    {
+      "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+      "block": 7,
+      "line": 392,
+      "sha256": "ae7d540a9b587ed65de49606c1d96a7fdf8f34194b9c91c5ac943662c92520b8",
+      "temporary_script": "/tmp/study-capstone-joint-ce-before-root-review.py",
+      "formal_fence_equals_script_bytes": true,
+      "runtime": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "python": "3.12.13",
+      "torch": "2.14.1",
+      "numpy_version_readonly": "2.4.6",
+      "runtime_directory": "/tmp/study-source1-multimodal-runtime",
+      "wrapper": "import sys,runpy; sys.path.insert(0, runtime_directory); runpy.run_path(temporary_script,run_name=\"__main__\")",
+      "wrapper_scope": "only trusted existing runtime plus wholly self-written temporary script",
+      "device": "cpu",
+      "threads": 1,
+      "seed": 23,
+      "training_steps": 101,
+      "stdout": "environment {\"device\": \"cpu\", \"threads\": 1, \"torch\": \"2.14.1\"}\ndata_sha256 b7990d0a5cf7195dd38b155810c926397843d4933ddeb6b255ce792c33e64014\ncurve [epoch, train_BCE, held_family_BCE] [[0, 0.783081, 0.653764], [10, 0.632153, 0.636993], [50, 0.201142, 0.862626], [100, 0.024185, 1.43031]]\nheld_candidate_scores {\"c-no\": -5.995965480804443, \"c-yes\": 2.2521252632141113, \"d-yes\": 2.085031032562256} ranking ['c-yes', 'd-yes', 'c-no']\npadding invariance passed; joint qkv gradients finite; disjoint document families\nindependent K=N fixture RR 0.25 -> 1.0; retained Recall@4 1.0 -> 1.0\nsynthetic CPU only; held scores are observations, no pretrained semantic or deployment claim\n",
+      "stdout_sha256": "8f773147d6e4e9797086bec47af426a1e167af68ca3fb11cc599a9150b283faa",
+      "exit_code": 0,
+      "execution_date": "2026-10-12",
+      "meaningful_assertions": [
+        "joint QKV gradients finite",
+        "PAD extension invariance",
+        "train vs held doc-family disjoint",
+        "fixed vocabulary/known token/length contract",
+        "N=K independent ranking fixture changes RR but not set Recall"
+      ],
+      "observed_boundary": "train BCE falls, held-family BCE rises; no generalized neural retrieval result"
+    }
+  ],
+  "root_review_note": "根修日志同快照与step0、输入合同，保原run但不拿它冒称最终日志；最终文件SHA/行号由root统一覆盖重新定位。"
+}

@@ -1,0 +1,4042 @@
+{
+  "date": "2026-10-12",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "scope": "Phase19/70–75六课只读",
+  "status": "已封70–75：24文件实际SHA/Blob、65真实H2–H4中文解释、36测验中文判断、7非编号扩展、139测试定义原断言/中文目的；source静读全部完成，正式融合/动态图根核/验收另计",
+  "accepted_unchanged": 493,
+  "source_programs_executed": 0,
+  "source_imports": 0,
+  "candidate_execution": 0,
+  "sites_2_5_read": false,
+  "lessons": [
+    {
+      "lesson": "70-task-spec-format",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/70-task-spec-format/code/main.py",
+          "bytes": 16398,
+          "sha256": "3f279e14c3edd2bc5bfabc542c4eae76e058432e24af62c208f0fde88bf983b3",
+          "git_blob": "6059bbb6733c2ba69e9327eba98650c5f31f50fe",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 414,
+          "verified_git_blob": "6059bbb6733c2ba69e9327eba98650c5f31f50fe",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/70-task-spec-format/code/main.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/70-task-spec-format/code/tests/test_spec.py",
+          "bytes": 7219,
+          "sha256": "6ec6e6396dd5c146712f3faca9dd6cedbfe54ec516dada71ffae3faa94688197",
+          "git_blob": "7b1131f6b02f86b688a01528499d835eb9e305fe",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 207,
+          "verified_git_blob": "7b1131f6b02f86b688a01528499d835eb9e305fe",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/70-task-spec-format/code/tests/test_spec.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/70-task-spec-format/docs/en.md",
+          "bytes": 6799,
+          "sha256": "1728076774826c06143b03f2b3cf823492ac69e07b89455944092835674174fd",
+          "git_blob": "4e96d7b083736ccf97324fb5fe9c3398e19339f3",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 128,
+          "verified_git_blob": "4e96d7b083736ccf97324fb5fe9c3398e19339f3",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/70-task-spec-format/docs/en.md",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/70-task-spec-format/quiz.json",
+          "bytes": 3187,
+          "sha256": "5b91aa0fcbdb5d622a6f695f3cb1a519800151edf1b2b260d8718fc5fcd5fd3b",
+          "git_blob": "a3d12def8e4e9f295e71cd7a07811830da3d6c29",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 78,
+          "verified_git_blob": "a3d12def8e4e9f295e71cd7a07811830da3d6c29",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/70-task-spec-format/quiz.json",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning objectives",
+          "chinese_heading": "学习目标",
+          "chinese_explanation": "本课目标的实现范围及未达部分分别见learning_contract/code_static_walk/source_defects，不能把目标写成实测结论。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 22,
+          "heading": "## Why a frozen spec",
+          "chinese_heading": "为什么冻结规格",
+          "chinese_explanation": "让数据/渲染/评分/汇总共享明确合同；源dataclass未frozen且无schema hash，冻结应由实际不可变资产/版本和运行policy实现。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 28,
+          "heading": "## The record shape",
+          "chinese_heading": "记录形状",
+          "chinese_explanation": "六必需字段和few-shot/metadata两可选字段；本课自定义TaskSpec，不等官方benchmark通用schema。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 49,
+          "heading": "## Field rules",
+          "chinese_heading": "字段规则",
+          "chinese_explanation": "非空ID与prompt、category/metric/postprocess枚举、targets与few-shot字段结构；细节需实际validator，空target/string正则尾换行仍有缺口。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 65,
+          "heading": "## Validator behaviour",
+          "chinese_heading": "验证行为",
+          "chinese_explanation": "逐record返回首规则error、JSONL保合法记录和坏行；是否终止整run须外层明确，而不是认为continue=允许发布。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 88,
+          "heading": "## Few-shot rendering",
+          "chinese_heading": "少样本渲染",
+          "chinese_explanation": "固定fewshot prefix/body顺序及actual prompt，与Tokenizer/预算/模板身份绑定；同fewshot不保证只有模型因素变动。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 101,
+          "heading": "## Post-process rules",
+          "chinese_heading": "后处理规则",
+          "chinese_explanation": "none/strip/lower/letter/codeblock/firstline各有事件定义与解析失败；正则误抽与rawfallback不应伪装合法答案。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 114,
+          "heading": "## What this lesson does not do",
+          "chinese_heading": "未实现范围",
+          "chinese_explanation": "来源教学边界和production缺口分别保留，真实模型/外部服务/candidate执行均未发生，不补造验证。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 120,
+          "heading": "## How to read the code",
+          "chinese_heading": "源码阅读路线",
+          "chinese_explanation": "本课main/test所有字节已静读（70–73复用真实旧记录），函数目的与各test原断言/中文目的已另记；不是import或test pass。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 126,
+          "heading": "## Going further",
+          "chinese_heading": "扩展实践",
+          "chinese_explanation": "原非编号扩展全部见original_practices，每项含中文判断/交付范围与未运行标识，不当用户已完成实践。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        }
+      ],
+      "read_complete": true,
+      "written": false,
+      "accepted": false,
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "question": "Why freeze the task record schema before writing scoring code?",
+          "options": [
+            "It locks the contract so metrics, runners, and post-processors agree on field names",
+            "It allows arbitrary new metric names without further changes",
+            "It makes the JSON parser run faster",
+            "It removes the need for a validator"
+          ],
+          "correct": 0,
+          "explanation": "The schema is the contract every downstream consumer reads from. Locking it lets you change components independently without breaking the rest.",
+          "chinese_judgment": "冻结字段让组件合同一致，但源码仍需不变量/版本/hash实现。",
+          "chinese_question": "为何先冻结task schema再写评分代码？"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "question": "What is the closed vocabulary that the metric_name field accepts?",
+          "options": [
+            "Any string the task author chooses",
+            "Only exact_match and f1",
+            "Whatever the runner is configured to recognise",
+            "exact_match, f1, bleu_4, rouge_l, accuracy, code_exec"
+          ],
+          "correct": 3,
+          "explanation": "The lesson pins the metric vocabulary to six names. Adding one requires a new lesson and a new validator entry.",
+          "chinese_judgment": "词表exact_match/f1/bleu_4/rouge_l/accuracy/code_exec；新增需要迁移/验证而非必须新增lesson。",
+          "chinese_question": "metric_name的封闭词表有哪些？"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "question": "What does the validator do when it sees an unknown top-level field on a record?",
+          "options": [
+            "Logs a warning but accepts the record",
+            "Strips it and continues",
+            "Renames it to metadata.unknown",
+            "Returns a validation error and rejects the record"
+          ],
+          "correct": 3,
+          "explanation": "Unknown fields are a forward-compatibility hazard. The validator rejects them so the schema stays the only source of truth.",
+          "chinese_judgment": "未知顶层字段拒绝；metadata及fewshot内部的未知字段仍未拒。",
+          "chinese_question": "遇未知顶层字段validator怎样处理？"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "question": "Why are few-shot examples attached to the task record rather than computed by the runner?",
+          "options": [
+            "Few-shot is only used during fine-tuning",
+            "Author intent is part of the eval; binding examples to the task removes per-model variance in prompt construction",
+            "It saves disk space",
+            "The runner does not have file I/O"
+          ],
+          "correct": 1,
+          "explanation": "Few-shot composition is part of the eval definition, not the model interface. Putting it in the task means every model sees the same prompt.",
+          "chinese_judgment": "fewshot绑定task降低拼装差异，还需固定actualrender/tokenizer/模板/预算；非onlymodelvariance。",
+          "chinese_question": "为什么few-shot绑定task而非runner临时计算？"
+        },
+        {
+          "number": 5,
+          "stage": "check",
+          "question": "Which category-metric pair is illegal under the validator?",
+          "options": [
+            "code_exec + code_exec",
+            "summary + rouge_l",
+            "arithmetic + exact_match",
+            "mcq + bleu_4"
+          ],
+          "correct": 3,
+          "explanation": "BLEU on a single letter is meaningless. The validator enforces that mcq tasks use exact_match or accuracy only.",
+          "chinese_judgment": "mcq+bleu_4非法，实际mcq允许exact_match或accuracy，docs exactonly纠正。",
+          "chinese_question": "哪个category–metric组合非法？"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "question": "What does the post_process rule extract_letter return when the generation is `Answer: C is correct`?",
+          "options": [
+            "Answer",
+            "An empty string",
+            "The full string unchanged",
+            "C"
+          ],
+          "correct": 3,
+          "explanation": "extract_letter returns the first character matching [A-E] in the generation. The string has C at the start of the body.",
+          "chinese_judgment": "Answer: C is correct先独立字母得到C；不是首个任意A–E，否则会取Answer的A；fallback仍会误抓，需明确解析状态。",
+          "chinese_question": "extract_letter对Answer: C is correct提什么？"
+        }
+      ],
+      "tests_static_read": [
+        {
+          "name": "test_minimal_good_record",
+          "line": 39,
+          "end_line": 41,
+          "assertions": [
+            "self.assertEqual(errs, [])"
+          ],
+          "test_class": "TestValidateTask",
+          "chinese_purpose": "最小合法六字段记录无错误；仅接口fixture，不保证任务有真实答案或污染隔离。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_missing_required_fields",
+          "line": 43,
+          "end_line": 50,
+          "assertions": [
+            "self.assertEqual(len(errs), 1)",
+            "self.assertEqual(errs[0].rule, \"missing_required\")",
+            "self.assertEqual(errs[0].field_name, field_name)"
+          ],
+          "test_class": "TestValidateTask",
+          "chinese_purpose": "逐个删除required字段应各返一个missing_required及字段名，检查presence。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_unknown_top_level_field_rejected",
+          "line": 52,
+          "end_line": 57,
+          "assertions": [
+            "self.assertEqual(len(errs), 1)",
+            "self.assertEqual(errs[0].rule, \"unknown_field\")"
+          ],
+          "test_class": "TestValidateTask",
+          "chinese_purpose": "未知top-level键返unknown_field；不证明nested extras受同样约束。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_bad_category",
+          "line": 59,
+          "end_line": 64,
+          "assertions": [
+            "self.assertEqual(len(errs), 1)",
+            "self.assertEqual(errs[0].field_name, \"category\")"
+          ],
+          "test_class": "TestValidateTask",
+          "chinese_purpose": "非法category应在category字段报错，未验证strict types全域。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_empty_targets_rejected",
+          "line": 66,
+          "end_line": 71,
+          "assertions": [
+            "self.assertEqual(len(errs), 1)",
+            "self.assertEqual(errs[0].field_name, \"targets\")"
+          ],
+          "test_class": "TestValidateTask",
+          "chinese_purpose": "空targets列表报targets错误；未覆盖元素空字符串或多语种语义。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_trailing_whitespace_rejected",
+          "line": 73,
+          "end_line": 78,
+          "assertions": [
+            "self.assertEqual(len(errs), 1)",
+            "self.assertEqual(errs[0].field_name, \"prompt\")"
+          ],
+          "test_class": "TestValidateTask",
+          "chinese_purpose": "prompt尾空白报prompt错误；需注意正文/代码有意空白与本schema规则。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_illegal_category_metric_pair",
+          "line": 80,
+          "end_line": 88,
+          "assertions": [
+            "self.assertEqual(len(errs), 1)",
+            "self.assertEqual(errs[0].rule, \"illegal_pair\")"
+          ],
+          "test_class": "TestValidateTask",
+          "chinese_purpose": "非法category-metric组合报illegal_pair；不等category-postprocess也已校验。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_mcq_target_must_be_letter",
+          "line": 90,
+          "end_line": 97,
+          "assertions": [
+            "self.assertEqual(len(errs), 1)",
+            "self.assertEqual(errs[0].field_name, \"targets\")"
+          ],
+          "test_class": "TestValidateTask",
+          "chinese_purpose": "MCQ target非法字母结构报targets错误；未覆盖末尾换行正则边界。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_too_many_few_shot",
+          "line": 99,
+          "end_line": 104,
+          "assertions": [
+            "self.assertEqual(len(errs), 1)",
+            "self.assertEqual(errs[0].field_name, \"few_shot_examples\")"
+          ],
+          "test_class": "TestValidateTask",
+          "chinese_purpose": "fewshot数量超8报few_shot_examples；数量上限不是token预算。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_bad_task_id_chars",
+          "line": 106,
+          "end_line": 111,
+          "assertions": [
+            "self.assertEqual(len(errs), 1)",
+            "self.assertEqual(errs[0].field_name, \"task_id\")"
+          ],
+          "test_class": "TestValidateTask",
+          "chinese_purpose": "非法taskID字符报task_id错误；未覆盖终止newline或版本identity。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_good_fixture_passes",
+          "line": 115,
+          "end_line": 120,
+          "assertions": [
+            "self.assertEqual(len(tasks), len(fixture_tasks()))",
+            "self.assertEqual(errors, [])"
+          ],
+          "test_class": "TestValidateFile",
+          "chinese_purpose": "全部good fixture加载且无errors；同源fixture验证不代表真实任务能力。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_bad_fixture_all_fail",
+          "line": 122,
+          "end_line": 127,
+          "assertions": [
+            "self.assertEqual(len(tasks), 0)",
+            "self.assertEqual(len(errors), len(bad_fixture_tasks()))"
+          ],
+          "test_class": "TestValidateFile",
+          "chinese_purpose": "bad fixtures零validated且errors数等bad records；规则只返每record首错。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_duplicate_task_id",
+          "line": 129,
+          "end_line": 138,
+          "assertions": [
+            "self.assertEqual(len(tasks), 1)",
+            "self.assertEqual(len(errors), 1)",
+            "self.assertEqual(errors[0].rule, \"duplicate_task_id\")"
+          ],
+          "test_class": "TestValidateFile",
+          "chinese_purpose": "重复合法ID只留一task并返duplicate_task_id；未覆盖非法先行ID。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_malformed_json",
+          "line": 140,
+          "end_line": 149,
+          "assertions": [
+            "self.assertEqual(len(tasks), 1)",
+            "self.assertEqual(len(errors), 1)",
+            "self.assertEqual(errors[0].rule, \"bad_json\")"
+          ],
+          "test_class": "TestValidateFile",
+          "chinese_purpose": "malformed JSON返bad_json而其它合法记录保留，记录级错误非自动整run拒绝。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_render_with_few_shot",
+          "line": 153,
+          "end_line": 166,
+          "assertions": [
+            "self.assertIn(\"Q:1+1\", rendered)",
+            "self.assertIn(\"Q:3+3\", rendered)",
+            "self.assertTrue(rendered.endswith(\"A:\"))"
+          ],
+          "test_class": "TestRender",
+          "chinese_purpose": "渲染包含两例且以A:结束；未验template/tokenization/预算hash。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_render_without_few_shot",
+          "line": 168,
+          "end_line": 177,
+          "assertions": [
+            "self.assertEqual(render_prompt(spec), \"ONLY\")"
+          ],
+          "test_class": "TestRender",
+          "chinese_purpose": "无fewshot prompt原样ONLY，避免额外prefix。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_none",
+          "line": 181,
+          "end_line": 182,
+          "assertions": [
+            "self.assertEqual(post_process(\"  raw  \", \"none\"), \"  raw  \")"
+          ],
+          "test_class": "TestPostProcess",
+          "chinese_purpose": "none保留原空白raw文本。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_strip",
+          "line": 184,
+          "end_line": 185,
+          "assertions": [
+            "self.assertEqual(post_process(\"  raw\\n\", \"strip_whitespace\"), \"raw\")"
+          ],
+          "test_class": "TestPostProcess",
+          "chinese_purpose": "strip_whitespace去头尾空白不改内容内部。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_lower",
+          "line": 187,
+          "end_line": 188,
+          "assertions": [
+            "self.assertEqual(post_process(\"YES\", \"lower\"), \"yes\")"
+          ],
+          "test_class": "TestPostProcess",
+          "chinese_purpose": "YES变yes；大小写政策对代码/专名须另定。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_extract_letter",
+          "line": 190,
+          "end_line": 192,
+          "assertions": [
+            "self.assertEqual(post_process(\"Answer: C is right\", \"extract_letter\"), \"C\")",
+            "self.assertEqual(post_process(\"no letter here\", \"extract_letter\"), \"\")"
+          ],
+          "test_class": "TestPostProcess",
+          "chinese_purpose": "Answer: C is right提C、普通无字母句返空；未验fallback误抓Answer的A或未知状态。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_extract_code_block",
+          "line": 194,
+          "end_line": 196,
+          "assertions": [
+            "self.assertIn(\"def f()\", post_process(text, \"extract_code_block\"))"
+          ],
+          "test_class": "TestPostProcess",
+          "chinese_purpose": "fenced code提取含def f；未验证未闭/CRLF/语言标签与原文本兜底。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_extract_first_line",
+          "line": 198,
+          "end_line": 199,
+          "assertions": [
+            "self.assertEqual(post_process(\"\\n\\nfirst\\nsecond\\n\", \"extract_first_line\"), \"first\")"
+          ],
+          "test_class": "TestPostProcess",
+          "chinese_purpose": "跳开头空行取first，不覆盖无非空行。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_unknown_rule",
+          "line": 201,
+          "end_line": 203,
+          "assertions": [
+            "self.assertRaises(ValueError)"
+          ],
+          "test_class": "TestPostProcess",
+          "chinese_purpose": "未知post_process抛ValueError。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        }
+      ],
+      "learning_contract": [
+        "六必需task_id/category/prompt/targets/metric_name/post_process、两可选few_shot_examples/metadata为本课程自定义shape，不是HELM/BIGbench标准",
+        "JSONL逐记录验证返回validated/errors；runner另定error非空拒或显式允许，保错误行和完整计划分母",
+        "fewshot和后处理绑定task，需actualrenderedprompt/Tokenizer/model/预算版本与hash，不把sameprompt称唯一modelvariance",
+        "六metric词表/category合法pair/MCQ单A–E、good10/bad10接口fixture；迁移需schema版本/canonicalserialization/identity"
+      ],
+      "source_defects": [
+        "TaskSpec非frozen且嵌套可变，to_dict仅list/dict浅copy，不保证中途不可变",
+        "没有schema_version/hash/modelrevision；json.dumps非canonical且metadataNaN可接受，未实现版本迁移或安全JSON",
+        "category/metric/postprocess枚举非strict types；ASCII taskID比docs无空白更窄且$允许末尾newline；MCQ A\\n同样match",
+        "targets元素空字符串允许；metadata无size/finite/语义，fewshot extra键/空内容允许；上限8非token预算",
+        "实际仅category-metric校验，无category-postprocesspair；MCQ可lower/code_exec可none",
+        "embeddedfewshot marker>1且外部fewshot空才拦，外部列表非空放过body重复；自然文本可误判/其它标记漏判",
+        "extract_letter先独立ASCII A–E后任意fallback；Answer:C回C但无真实答案的Answer可fallback A；codeblock未支持CRLF/连字符language且找不到返回rawtext",
+        "validate_file只对已validatedID去重，无效同ID后合法可进入；只首规则error；docs --allow-bad-tasks不存在实际CLI",
+        "MCQ文档exactonly不符实际accuracy合法；十fixture只是接口教学非真实部署/用户经历"
+      ],
+      "original_practices": [
+        {
+          "type": "Going further非编号练习",
+          "topic": "像数据库迁移维护新category/metric/postprocess/fixture",
+          "judgment": "加显式schema版本、迁移/拒未知、实际序列化hash与回归；本轮只读未实现"
+        }
+      ],
+      "existing_entry_relation": [
+        "复用LLM06§27任务/adapter/指标/result identity和duplicateID；70六required与49四required不同，自定义shape需版本迁移解释，不混作同一schema",
+        "fewshot/postprocess联系LLM06§9/10规范化及MCQ请求模式；schema合法非真实答案正确"
+      ],
+      "dynamic": {
+        "extract_path": "/tmp/study-capstone-70-75-dynamic-extract.json",
+        "full_function_static_read": true,
+        "notes": "taskSpecGate全函数静读：固定2pass1bad动画不执行validator；逐记录continue和75整体拒errors是不同层政策，卡片不能证明整套跑成功。",
+        "browser_runs": 0,
+        "root_final_registration_review": "由根统一"
+      },
+      "source_programs_executed": 0,
+      "source_test_definition_count": 23,
+      "code_static_walk": [
+        {
+          "symbols": "ValidationError/TaskSpec",
+          "purpose": "字段错误规则与task容器；dataclass未frozen，to_dict浅copy，不能声称不可变schema。"
+        },
+        {
+          "symbols": "_check_required/_check_unknown_fields/_check_types/_check_category_metric/_embedded_few_shot/validate_task",
+          "purpose": "依次规则返回首错；自定义枚举/类型/ASCII ID/MCQ/fewshot数量与category-metric校验；未做schema_version或真实答案质量验证。"
+        },
+        {
+          "symbols": "validate_file",
+          "purpose": "逐JSONL记录load/validate/重复合法ID，保validated与errors；错误record continue非自动整run中止。"
+        },
+        {
+          "symbols": "render_prompt/post_process",
+          "purpose": "fewshot格式prefix渲染再body；none/strip/lower/letter/codeblock/firstline规则分别改变预测，解析兜底须与72/75统一。"
+        },
+        {
+          "symbols": "fixture_tasks/bad_fixture_tasks/write_jsonl/load_fixtures/demo",
+          "purpose": "good/bad各十个自定义fixture与本地JSONL序列化；demo验证fixtures、展示render/errors并用计数作exit条件，未真实模型运行。"
+        }
+      ],
+      "recovery_note": "2026-10-12续接：复用既有全部文件静读状态/日期及原分析；补逐test中文目的、函数用途与中文测验问题。仅必要测试命名/实际断言冲突选读，不以重新生成章节冒充阅读。",
+      "test_review_gaps": [
+        "测试定义名称不等实际断言；全部结果本轮仅静读。真实模型/服务/隔离安全/原源码测试均未运行。"
+      ],
+      "main_top_level_symbol_manifest": [
+        {
+          "name": "ValidationError",
+          "line": 48,
+          "end_line": 62,
+          "type": "ClassDef"
+        },
+        {
+          "name": "TaskSpec",
+          "line": 66,
+          "end_line": 86,
+          "type": "ClassDef"
+        },
+        {
+          "name": "_check_required",
+          "line": 89,
+          "end_line": 93,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_check_unknown_fields",
+          "line": 96,
+          "end_line": 100,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_check_types",
+          "line": 103,
+          "end_line": 137,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_check_category_metric",
+          "line": 140,
+          "end_line": 154,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_embedded_few_shot",
+          "line": 157,
+          "end_line": 161,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "validate_task",
+          "line": 164,
+          "end_line": 189,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "validate_file",
+          "line": 192,
+          "end_line": 225,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "render_prompt",
+          "line": 228,
+          "end_line": 233,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "post_process",
+          "line": 241,
+          "end_line": 262,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "fixture_tasks",
+          "line": 265,
+          "end_line": 358,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "bad_fixture_tasks",
+          "line": 361,
+          "end_line": 373,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "write_jsonl",
+          "line": 376,
+          "end_line": 380,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "load_fixtures",
+          "line": 383,
+          "end_line": 388,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "demo",
+          "line": 391,
+          "end_line": 410,
+          "type": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "lesson": "71-classical-metrics",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/71-classical-metrics/code/main.py",
+          "bytes": 7972,
+          "sha256": "b7af9e40ff155e17ec5f585fb77bef0aff6dff01c0c6c35a8e354926a2672558",
+          "git_blob": "736d653ac7295e01294b6918ba6d34ca42f261cd",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 242,
+          "verified_git_blob": "736d653ac7295e01294b6918ba6d34ca42f261cd",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/71-classical-metrics/code/main.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/71-classical-metrics/code/tests/test_metrics.py",
+          "bytes": 6523,
+          "sha256": "12530d3b23c020179ed3eff044191f5aec2865ace16a30d70dbc881962dd4d62",
+          "git_blob": "6d47d31edda4f00ae486f9d0ac4beee16adb10eb",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 206,
+          "verified_git_blob": "6d47d31edda4f00ae486f9d0ac4beee16adb10eb",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/71-classical-metrics/code/tests/test_metrics.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/71-classical-metrics/docs/en.md",
+          "bytes": 8130,
+          "sha256": "c7255f8e0370d103b9441ada75a11a28c74c0b4cf7cc2723fb019042411ae1d3",
+          "git_blob": "ad5d94afea03e7117d5bb0035260b3d801ef755e",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 147,
+          "verified_git_blob": "ad5d94afea03e7117d5bb0035260b3d801ef755e",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/71-classical-metrics/docs/en.md",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/71-classical-metrics/quiz.json",
+          "bytes": 3568,
+          "sha256": "5b1ebbb79198facad3d8b0c08d66a00ea5ea9ea2245cbe3bc5362824ec87e669",
+          "git_blob": "3c3490ee8afe62473568a3124d348ed53ccc067d",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 78,
+          "verified_git_blob": "3c3490ee8afe62473568a3124d348ed53ccc067d",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/71-classical-metrics/quiz.json",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning objectives",
+          "chinese_heading": "学习目标",
+          "chinese_explanation": "本课目标的实现范围及未达部分分别见learning_contract/code_static_walk/source_defects，不能把目标写成实测结论。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 22,
+          "heading": "## Why reimplement",
+          "chinese_heading": "为何教学重实现",
+          "chinese_explanation": "观察指标的tokenization、clip、归约和接口，不将教学实现当标准库全面一致或语义金标准。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 28,
+          "heading": "## Tokenisation",
+          "chinese_heading": "分词",
+          "chinese_explanation": "Unicode word regex lower保数字/下划线，连续中文可能一token；EM/accuracy实际只trim，分词版本不共享于全部函数。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 40,
+          "heading": "## Exact match",
+          "chinese_heading": "精确匹配",
+          "chinese_explanation": "trim字符串匹配任一reference；大小写/数值/单位政策预定，不能随结果改规则。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 49,
+          "heading": "## Token-level F1",
+          "chinese_heading": "词元F1",
+          "chinese_explanation": "Counter多重集交集及P/R调和；emptyempty1/单侧empty0源约定，缺失预测或参考另标状态。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 67,
+          "heading": "## BLEU-4",
+          "chinese_heading": "四阶BLEU",
+          "chinese_explanation": "单reference clip precision、四阶全部add1几何均值及BP；句分max多ref不同标准multi-reference，corpus汇count/length再求不同mean句分。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 91,
+          "heading": "## ROUGE-L",
+          "chinese_heading": "最长公共子序列ROUGE",
+          "chinese_explanation": "保序LCS转P/R/Fbeta，非连续片段要求，词面匹配不证明事实或理解。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 110,
+          "heading": "## Accuracy",
+          "chinese_heading": "正确率别名",
+          "chinese_explanation": "此源accuracy=exact_match别名；binary正确数不等soft score sum取整。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 114,
+          "heading": "## Dispatch contract",
+          "chinese_heading": "派发合同",
+          "chinese_explanation": "按metric_name给统一float，但必须验证metric、targets、strict finite与范围/语义；源emptyrefs先0可掩未知指标。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 135,
+          "heading": "## What this lesson does not do",
+          "chinese_heading": "未实现范围",
+          "chinese_explanation": "来源教学边界和production缺口分别保留，真实模型/外部服务/candidate执行均未发生，不补造验证。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 139,
+          "heading": "## How to read the code",
+          "chinese_heading": "源码阅读路线",
+          "chinese_explanation": "本课main/test所有字节已静读（70–73复用真实旧记录），函数目的与各test原断言/中文目的已另记；不是import或test pass。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 145,
+          "heading": "## Going further",
+          "chinese_heading": "扩展实践",
+          "chinese_explanation": "原非编号扩展全部见original_practices，每项含中文判断/交付范围与未运行标识，不当用户已完成实践。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        }
+      ],
+      "read_complete": true,
+      "written": false,
+      "accepted": false,
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "question": "Why is the tokenizer chosen at the metric layer rather than the runner layer?",
+          "options": [
+            "Tokenizers are model-specific and the runner cannot see the model",
+            "The tokenizer defines what counts as a token match; swapping it changes the benchmark",
+            "Metric implementations are O(n) regardless of tokenizer choice",
+            "Numpy requires a tokenizer at import time"
+          ],
+          "correct": 1,
+          "explanation": "BLEU and F1 are sensitive to tokenisation. Binding the tokenizer to the metric makes scores reproducible and lets you point at the rule.",
+          "chinese_judgment": "Tokenizer决定匹配事件与benchmark版本，必须固定；EM/accuracy实际只trim不是共享该tokenizer。",
+          "chinese_question": "为什么tokenizer由metric层而非runner层决定？"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "question": "What does modified n-gram precision do that plain n-gram precision does not?",
+          "options": [
+            "It clips each candidate n-gram count by the maximum count seen in any reference",
+            "It runs faster than plain precision",
+            "It uses a different log base",
+            "It returns a value in 0 to 100 instead of 0 to 1"
+          ],
+          "correct": 0,
+          "explanation": "Clipping by the reference cap stops a candidate from inflating its score by repeating a high-precision word over and over.",
+          "chinese_judgment": "modified precision按参考ngram次数裁剪防重复刷分；源码单参考，真正多reference需逐ngram最大cap，不能用max句分替代。",
+          "chinese_question": "modified ngram precision怎样区别plain precision？"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "question": "Why does BLEU use a brevity penalty?",
+          "options": [
+            "Long candidates make the geometric mean numerically unstable",
+            "Brevity penalty replaces the n-gram count cap",
+            "It compensates for the additive-one smoothing",
+            "Without it, a very short candidate that matches a few words gets a high precision and unfairly high BLEU"
+          ],
+          "correct": 3,
+          "explanation": "Precision alone rewards short outputs. BP downweights candidates shorter than the reference using exp(1 - r/c).",
+          "chinese_judgment": "BP=exp(1-r/c)惩罚候选太短，clip/平滑和BP各有目的；原句/语料归约不同。",
+          "chinese_question": "BLEU为何使用brevity penalty？"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "question": "What does ROUGE-L compare?",
+          "options": [
+            "The Levenshtein distance between candidate and reference strings",
+            "The 4-gram precision against any reference 4-gram",
+            "The longest common subsequence of candidate and reference token sequences",
+            "The character-level Jaccard index"
+          ],
+          "correct": 2,
+          "explanation": "ROUGE-L uses the LCS length, then computes precision (LCS/cand-len) and recall (LCS/ref-len) combined with F-beta.",
+          "chinese_judgment": "ROUGE-L比较token序列LCS及Fbeta，保持顺序非要求连续，不代表事实正确。",
+          "chinese_question": "ROUGE-L比较什么？"
+        },
+        {
+          "number": 5,
+          "stage": "check",
+          "question": "Token-level F1 returns 1.0 for which case?",
+          "options": [
+            "When the prediction and target share exactly one token",
+            "When the prediction is a superset of the target with extra noise",
+            "When the prediction is empty and the target is non-empty",
+            "When prediction and target are both empty"
+          ],
+          "correct": 3,
+          "explanation": "By convention, empty-empty is a perfect match. Any non-empty target with an empty prediction is 0.0.",
+          "chinese_judgment": "双方分词后为空约定F1=1，单侧空0；缺失输出/解析失败必须另状态，不能奖励成无答案。",
+          "chinese_question": "哪种情况token F1=1？"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "question": "Why dispatch on metric_name rather than category in the score function?",
+          "options": [
+            "The runner does not have access to the category field",
+            "It lets the same category use different metrics across tasks and keeps the dispatcher metric-agnostic",
+            "Category is harder to validate than metric_name",
+            "metric_name is shorter than category"
+          ],
+          "correct": 1,
+          "explanation": "metric_name is the contract. A summary task can use rouge_l on one record and bleu_4 on another; the dispatcher does not need to care.",
+          "chinese_judgment": "metric_name允许同category换合法指标，dispatcher保持接口统一；仍需严格metric/targets/finite与未知状态。",
+          "chinese_question": "score为何按metric_name而非category派发？"
+        }
+      ],
+      "tests_static_read": [
+        {
+          "name": "test_basic_tokenize",
+          "line": 31,
+          "end_line": 32,
+          "assertions": [
+            "self.assertEqual(tokenize(\"The Cat, sat!\"), [\"the\", \"cat\", \"sat\"])"
+          ],
+          "test_class": "TestTokenize",
+          "chinese_purpose": "英语标点词被lower与分割为the/cat/sat；不代表中文/下划线政策。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_empty",
+          "line": 34,
+          "end_line": 35,
+          "assertions": [
+            "self.assertEqual(tokenize(\"\"), [])"
+          ],
+          "test_class": "TestTokenize",
+          "chinese_purpose": "空文本tokenize返空列表。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_numbers_kept",
+          "line": 37,
+          "end_line": 38,
+          "assertions": [
+            "self.assertEqual(tokenize(\"answer is 41\"), [\"answer\", \"is\", \"41\"])"
+          ],
+          "test_class": "TestTokenize",
+          "chinese_purpose": "分词保留41数字token。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_hit",
+          "line": 42,
+          "end_line": 43,
+          "assertions": [
+            "self.assertEqual(exact_match(\"41\", [\"41\"]), 1.0)"
+          ],
+          "test_class": "TestExactMatch",
+          "chinese_purpose": "EM精确41对41返回1。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_miss",
+          "line": 45,
+          "end_line": 46,
+          "assertions": [
+            "self.assertEqual(exact_match(\"42\", [\"41\"]), 0.0)"
+          ],
+          "test_class": "TestExactMatch",
+          "chinese_purpose": "EM42对41返回0。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_strips_whitespace",
+          "line": 48,
+          "end_line": 49,
+          "assertions": [
+            "self.assertEqual(exact_match(\"  41  \", [\"41\"]), 1.0)"
+          ],
+          "test_class": "TestExactMatch",
+          "chinese_purpose": "EM剥两侧空白后匹配41；大小写不lower。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_multi_target_any_hit",
+          "line": 51,
+          "end_line": 52,
+          "assertions": [
+            "self.assertEqual(exact_match(\"yes\", [\"positive\", \"yes\"]), 1.0)"
+          ],
+          "test_class": "TestExactMatch",
+          "chinese_purpose": "多参考任一yes命中EM1。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_empty_targets",
+          "line": 54,
+          "end_line": 55,
+          "assertions": [
+            "self.assertEqual(exact_match(\"anything\", []), 0.0)"
+          ],
+          "test_class": "TestExactMatch",
+          "chinese_purpose": "EM空参考返0；缺参考应另作invalid状态。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_accuracy_alias",
+          "line": 57,
+          "end_line": 58,
+          "assertions": [
+            "self.assertEqual(accuracy(\"x\", [\"x\"]), 1.0)"
+          ],
+          "test_class": "TestExactMatch",
+          "chinese_purpose": "accuracy与同字符串EM一致，不是classifier混淆矩阵通用accuracy。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_identical",
+          "line": 62,
+          "end_line": 63,
+          "assertions": [
+            "self.assertAlmostEqual(f1_score(\"the cat\", \"the cat\"), 1.0)"
+          ],
+          "test_class": "TestF1",
+          "chinese_purpose": "相同token序列F1=1。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_disjoint",
+          "line": 65,
+          "end_line": 66,
+          "assertions": [
+            "self.assertEqual(f1_score(\"apple\", \"orange\"), 0.0)"
+          ],
+          "test_class": "TestF1",
+          "chinese_purpose": "F1或ROUGE-L不相交tokens得0，实际类别由test_class/调用断言识别。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_partial",
+          "line": 68,
+          "end_line": 71,
+          "assertions": [
+            "self.assertGreater(s, 0.4)",
+            "self.assertLess(s, 0.7)"
+          ],
+          "test_class": "TestF1",
+          "chinese_purpose": "部分token重叠F1或ROUGE-L只断固定范围，不验证真实语义；test_class区分算法。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_empty_prediction",
+          "line": 73,
+          "end_line": 74,
+          "assertions": [
+            "self.assertEqual(f1_score(\"\", \"target\"), 0.0)"
+          ],
+          "test_class": "TestF1",
+          "chinese_purpose": "F1空候选非空参考得0。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_empty_target",
+          "line": 76,
+          "end_line": 77,
+          "assertions": [
+            "self.assertEqual(f1_score(\"pred\", \"\"), 0.0)"
+          ],
+          "test_class": "TestF1",
+          "chinese_purpose": "F1非空候选空参考得0。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_both_empty",
+          "line": 79,
+          "end_line": 80,
+          "assertions": [
+            "self.assertEqual(f1_score(\"\", \"\"), 1.0)"
+          ],
+          "test_class": "TestF1",
+          "chinese_purpose": "F1两侧tokens空约定1；解析失败不得冒作有效无答案。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_repeated_token_counts_once_per_overlap",
+          "line": 82,
+          "end_line": 85,
+          "assertions": [
+            "self.assertEqual(s1, s2)"
+          ],
+          "test_class": "TestF1",
+          "chinese_purpose": "cat×3对cat及反向F1相等；只测P/R对称性（手算都.5），不是充分证明Counter计数或一次overlap。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_unigram",
+          "line": 89,
+          "end_line": 92,
+          "assertions": [
+            "self.assertEqual(c[(\"a\",)], 2)",
+            "self.assertEqual(c[(\"b\",)], 1)"
+          ],
+          "test_class": "TestNgram",
+          "chinese_purpose": "ngram计数a两次/b一次，检查保频次。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_4gram_short_text",
+          "line": 94,
+          "end_line": 95,
+          "assertions": [
+            "self.assertEqual(_ngram_counts([\"a\", \"b\"], 4), {})"
+          ],
+          "test_class": "TestNgram",
+          "chinese_purpose": "两token无四元组，不以缺阶自动称perfectBLEU。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_modified_precision_clips",
+          "line": 97,
+          "end_line": 102,
+          "assertions": [
+            "self.assertEqual(clipped, 1)",
+            "self.assertEqual(total, 4)"
+          ],
+          "test_class": "TestNgram",
+          "chinese_purpose": "重复候选ngram按reference clip为1/4，抑制重复刷precision。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_perfect_match",
+          "line": 106,
+          "end_line": 108,
+          "assertions": [
+            "self.assertAlmostEqual(s, 1.0, places=2)"
+          ],
+          "test_class": "TestBLEU",
+          "chinese_purpose": "固定足长相同句BLEU近1，places2，不覆盖有效阶/短句。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_no_match",
+          "line": 110,
+          "end_line": 112,
+          "assertions": [
+            "self.assertLess(s, 0.3)"
+          ],
+          "test_class": "TestBLEU",
+          "chinese_purpose": "固定不匹配句BLEU<.3；未覆盖一token cat对dog的add1高分反例。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_repetition_penalised",
+          "line": 114,
+          "end_line": 116,
+          "assertions": [
+            "self.assertLess(s, 0.5)"
+          ],
+          "test_class": "TestBLEU",
+          "chinese_purpose": "固定重复候选BLEU<.5，未证明全部重复模式稳定受罚。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_brevity_penalty",
+          "line": 118,
+          "end_line": 122,
+          "assertions": [
+            "self.assertLess(s_short, s_full)"
+          ],
+          "test_class": "TestBLEU",
+          "chinese_purpose": "短候选BLEU低于完整候选，检查BP效果。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_brevity_penalty_function",
+          "line": 124,
+          "end_line": 129,
+          "assertions": [
+            "self.assertEqual(_brevity_penalty(10, 10), 1.0)",
+            "self.assertEqual(_brevity_penalty(15, 10), 1.0)",
+            "self.assertAlmostEqual(bp, math.exp(1 - 10 / 5), places=6)",
+            "self.assertEqual(_brevity_penalty(0, 5), 0.0)"
+          ],
+          "test_class": "TestBLEU",
+          "chinese_purpose": "c>=r BP1、c5/r10 exp(1−10/5)、c0 BP0。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_empty_candidate",
+          "line": 131,
+          "end_line": 132,
+          "assertions": [
+            "self.assertEqual(bleu4(\"\", \"the cat\"), 0.0)"
+          ],
+          "test_class": "TestBLEU",
+          "chinese_purpose": "BLEU空候选0。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_corpus_bleu",
+          "line": 134,
+          "end_line": 138,
+          "assertions": [
+            "self.assertGreater(s, 0.5)"
+          ],
+          "test_class": "TestBLEU",
+          "chinese_purpose": "指定语料corpusBLEU>.5；未对照平均句BLEU或标准多reference实现。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_lcs_basic",
+          "line": 142,
+          "end_line": 143,
+          "assertions": [
+            "self.assertEqual(lcs_length([\"a\", \"b\", \"c\", \"d\"], [\"a\", \"c\", \"d\"]), 3)"
+          ],
+          "test_class": "TestRougeL",
+          "chinese_purpose": "a b c d与a c d LCS3，保序但非连续。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_lcs_empty",
+          "line": 145,
+          "end_line": 147,
+          "assertions": [
+            "self.assertEqual(lcs_length([], [\"a\"]), 0)",
+            "self.assertEqual(lcs_length([\"a\"], []), 0)"
+          ],
+          "test_class": "TestRougeL",
+          "chinese_purpose": "LCS任一空序列得0。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_perfect",
+          "line": 149,
+          "end_line": 150,
+          "assertions": [
+            "self.assertAlmostEqual(rouge_l(\"the cat sat\", \"the cat sat\"), 1.0)"
+          ],
+          "test_class": "TestRougeL",
+          "chinese_purpose": "ROUGE-L同句1，不说明事实正确。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_disjoint",
+          "line": 152,
+          "end_line": 153,
+          "assertions": [
+            "self.assertEqual(rouge_l(\"apple\", \"banana\"), 0.0)"
+          ],
+          "test_class": "TestRougeL",
+          "chinese_purpose": "F1或ROUGE-L不相交tokens得0，实际类别由test_class/调用断言识别。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_partial",
+          "line": 155,
+          "end_line": 158,
+          "assertions": [
+            "self.assertGreater(s, 0.6)",
+            "self.assertLess(s, 0.85)"
+          ],
+          "test_class": "TestRougeL",
+          "chinese_purpose": "部分token重叠F1或ROUGE-L只断固定范围，不验证真实语义；test_class区分算法。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_word_order_matters",
+          "line": 160,
+          "end_line": 163,
+          "assertions": [
+            "self.assertGreater(s_in_order, s_reverse)"
+          ],
+          "test_class": "TestRougeL",
+          "chinese_purpose": "有序候选ROUGE-L高于反序候选，验证LCS序信息。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_dispatch_exact_match",
+          "line": 167,
+          "end_line": 168,
+          "assertions": [
+            "self.assertEqual(score(\"exact_match\", \"41\", [\"41\"]), 1.0)"
+          ],
+          "test_class": "TestDispatcher",
+          "chinese_purpose": "dispatcher EM41→1。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_dispatch_accuracy",
+          "line": 170,
+          "end_line": 171,
+          "assertions": [
+            "self.assertEqual(score(\"accuracy\", \"yes\", [\"yes\"]), 1.0)"
+          ],
+          "test_class": "TestDispatcher",
+          "chinese_purpose": "dispatcher accuracy yes→1。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_dispatch_f1",
+          "line": 173,
+          "end_line": 175,
+          "assertions": [
+            "self.assertGreater(s, 0.0)"
+          ],
+          "test_class": "TestDispatcher",
+          "chinese_purpose": "dispatcher F1固定部分重叠>0，未检查exact数。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_dispatch_bleu",
+          "line": 177,
+          "end_line": 179,
+          "assertions": [
+            "self.assertGreater(s, 0.5)"
+          ],
+          "test_class": "TestDispatcher",
+          "chinese_purpose": "dispatcher句级BLEU固定示例>.5，不是corpus BLEU。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_dispatch_rouge_l",
+          "line": 181,
+          "end_line": 183,
+          "assertions": [
+            "self.assertAlmostEqual(s, 1.0)"
+          ],
+          "test_class": "TestDispatcher",
+          "chinese_purpose": "dispatcher同句ROUGE1。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_unknown_metric_raises",
+          "line": 185,
+          "end_line": 187,
+          "assertions": [
+            "self.assertRaises(ValueError)"
+          ],
+          "test_class": "TestDispatcher",
+          "chinese_purpose": "未知metric在非空refs时ValueError；空refs路径先返0可能绕未知拒绝。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_multi_target_takes_max",
+          "line": 189,
+          "end_line": 191,
+          "assertions": [
+            "self.assertGreater(s, 0.5)"
+          ],
+          "test_class": "TestDispatcher",
+          "chinese_purpose": "逐参考算分再max固定例>.5；不等标准多reference BLEU所有ngram联合clip。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_empty_targets_returns_zero",
+          "line": 193,
+          "end_line": 194,
+          "assertions": [
+            "self.assertEqual(score(\"f1\", \"x\", []), 0.0)"
+          ],
+          "test_class": "TestDispatcher",
+          "chinese_purpose": "dispatcher F1空refs0；invalid任务不能据此正常纳平均。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_corpus_mean",
+          "line": 198,
+          "end_line": 199,
+          "assertions": [
+            "self.assertAlmostEqual(corpus_mean([1.0, 0.0, 0.5]), 0.5)"
+          ],
+          "test_class": "TestCorpus",
+          "chinese_purpose": "1/0/.5算mean .5，算术均值而非corpus非线性指标。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_corpus_mean_empty",
+          "line": 201,
+          "end_line": 202,
+          "assertions": [
+            "self.assertEqual(corpus_mean([]), 0.0)"
+          ],
+          "test_class": "TestCorpus",
+          "chinese_purpose": "空mean0为源约定，学习正文无样本须unknown。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        }
+      ],
+      "learning_contract": [
+        "EM按trim字符串任一reference命中，accuracy是同一函数别名，不是所有指标共享lower+tokenizer",
+        "F1用Counter多重集交集保重复；P=overlap/候选token数、R=overlap/参考token数，maxreference为此任务约定",
+        "BLEU裁剪ngram precision+几何均值+BP，逐句与语料必须分开；corpus先汇计数/长度再非线性求，不能平均sentenceBLEU",
+        "ROUGE-L为顺序LCS precision/recall Fbeta，非语义/事实；同tokens和references/协议才可比较",
+        "评估区间须按配对样本重采样，corpusBLEU每draw重算原pred/reference整指标，非重采样均值句分"
+      ],
+      "source_defects": [
+        "doc所有指标同tokenizer不符EM/accuracy只trim且case敏感；F1/BLEU/ROUGE使用unicode\\w+lower，中文连续串一个token、underscore保留，不是通用CJK分词或移除全部punct",
+        "intro F1setintersection错，实际Counter多重集；SQuADstyle只maxrefs类似，非SQuAD原全部normalizearticles/punct规则",
+        "bleu4单参考、score逐reference算再取max，未实现多reference各ngram最大计数与最近长度，不能称完整multi-referenceBLEU",
+        "docs声称corpus-level但dispatcher实际sentenceBLEU，75可能再平均；corpus_bleu另函数仅parallel单reference列表；两者不等",
+        "每n分子分母全加1，缺有效ngram的阶也得到1；1tokencat对dog无任何匹配但约2^(-1/4)=.840896，为手算非执行；emptyreference非空候选同样可高分，不当可靠语义质量",
+        "来源Lin/Och method1的命名尚未一手核，不沿用该名，保实际全部阶add1算法并固定signature；既有语言05已有标准BLEU和有效阶/平滑边界",
+        "score空targets先返回0，unknownmetric+emptytargets也不会抛；空参考字符串可emptyempty F1/ROUGE1，解析失败不应冒作无答案任务",
+        "max_n/β/types/finite无严格校验；max_n0除零、negative返回无阶geo1、βNaN可NaN；corpus_mean([])=0掩盖无数据，无异常状态或完整分母合同",
+        "LCS npint32全O(nm)时间空间，doc小于1ms未测不能当规模保证；actualtest只有简单/界限断言，无真实库一致性、多语种、corpusvsmean、multi-reference或语义证明"
+      ],
+      "original_practices": [
+        {
+          "type": "Going further非编号练习",
+          "topic": "在词面指标之上补BLEURT/BERTScore/G-Eval等",
+          "judgment": "模型型指标各有参考/模型/校准与usage协议，并非加上便得到真实语义；复用现有语言05与LLM06§3，本轮未模型调用"
+        }
+      ],
+      "existing_entry_relation": [
+        "算法主入口保AI算法语言05§4 BLEU/ROUGE/chrF及已运行token教学，不复制71整套；source71sentence/单ref/add1协议与现行例区别须明示",
+        "LLM06§9–11/26–27维护EM/F1/失败分母与调度，71只补接线/normalization陷阱；CI配对保stats11§7，模型judge保LLM06§3"
+      ],
+      "dynamic": {
+        "extract_path": "/tmp/study-capstone-70-75-dynamic-extract.json",
+        "full_function_static_read": true,
+        "notes": "cdBleu全函数静读：5candidate/6ref固定单词线全matched1，5/5为unigram示意，非全部四阶BLEU；BP<1仅长度描述，没有算实际BLEU或corpus，多语义不证明。",
+        "browser_runs": 0,
+        "root_final_registration_review": "由根统一"
+      },
+      "source_programs_executed": 0,
+      "source_test_definition_count": 42,
+      "code_static_walk": [
+        {
+          "symbols": "tokenize/exact_match/accuracy/f1_score",
+          "purpose": "regex Unicode word lower仅部分指标；EM/accuracy trim后case敏感，F1 Counter交集、P/R调和与empty约定。"
+        },
+        {
+          "symbols": "_ngram_counts/_modified_precision/_brevity_penalty/bleu4",
+          "purpose": "ngram频次裁剪+所有阶add1+几何mean+短句BP；单ref句分与有效阶/标准multi-reference政策不同。"
+        },
+        {
+          "symbols": "lcs_length/rouge_l",
+          "purpose": "numpy DP LCS保序、O(nm)，以token P/R Fbeta评分，非语义或事实正确性。"
+        },
+        {
+          "symbols": "score/corpus_mean/corpus_bleu",
+          "purpose": "dispatcher空refs先0、逐ref max，mean简单均分；corpus_bleu另汇clip counts/length再非线性求，不能平均句BLEU替代。"
+        },
+        {
+          "symbols": "_reference_examples/demo",
+          "purpose": "五种人工文本对及示例分数表/exit检查，教学数据不证明真实质量/跨库一致性。"
+        }
+      ],
+      "recovery_note": "2026-10-12续接：复用既有全部文件静读状态/日期及原分析；补逐test中文目的、函数用途与中文测验问题。仅必要测试命名/实际断言冲突选读，不以重新生成章节冒充阅读。",
+      "test_review_gaps": [
+        "测试定义名称不等实际断言；全部结果本轮仅静读。真实模型/服务/隔离安全/原源码测试均未运行。"
+      ],
+      "main_top_level_symbol_manifest": [
+        {
+          "name": "tokenize",
+          "line": 23,
+          "end_line": 24,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "exact_match",
+          "line": 27,
+          "end_line": 31,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "accuracy",
+          "line": 34,
+          "end_line": 35,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "f1_score",
+          "line": 38,
+          "end_line": 52,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_ngram_counts",
+          "line": 55,
+          "end_line": 60,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_modified_precision",
+          "line": 63,
+          "end_line": 72,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_brevity_penalty",
+          "line": 75,
+          "end_line": 80,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "bleu4",
+          "line": 83,
+          "end_line": 96,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "lcs_length",
+          "line": 99,
+          "end_line": 113,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "rouge_l",
+          "line": 116,
+          "end_line": 134,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "score",
+          "line": 146,
+          "end_line": 159,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "corpus_mean",
+          "line": 162,
+          "end_line": 165,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "corpus_bleu",
+          "line": 168,
+          "end_line": 195,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_reference_examples",
+          "line": 198,
+          "end_line": 211,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "demo",
+          "line": 214,
+          "end_line": 238,
+          "type": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "lesson": "72-code-exec-metric",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/72-code-exec-metric/code/main.py",
+          "bytes": 11280,
+          "sha256": "930c509564f368761b5cd4f133a1d2d07b2916f2afce028104f74c99ff701580",
+          "git_blob": "61f456078eac542eca8997b1f34f6305ab903961",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 345,
+          "verified_git_blob": "61f456078eac542eca8997b1f34f6305ab903961",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/72-code-exec-metric/code/main.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/72-code-exec-metric/code/tests/test_exec.py",
+          "bytes": 4963,
+          "sha256": "94865632f5346372440189682ce90c6c1891b22d5a710fe1732687276eb6310e",
+          "git_blob": "9d74254fa3641a1e325181fddf081ca98fd92961",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 147,
+          "verified_git_blob": "9d74254fa3641a1e325181fddf081ca98fd92961",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/72-code-exec-metric/code/tests/test_exec.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/72-code-exec-metric/docs/en.md",
+          "bytes": 7077,
+          "sha256": "3d34777c2060b8fbd19bd1dbb86466b6711287fa0a501fbf4ce0d856c65476d7",
+          "git_blob": "38c933e7dd3562b49aaef98c4c4bd8d2d8989f9b",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 121,
+          "verified_git_blob": "38c933e7dd3562b49aaef98c4c4bd8d2d8989f9b",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/72-code-exec-metric/docs/en.md",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/72-code-exec-metric/quiz.json",
+          "bytes": 3322,
+          "sha256": "a6bdd651c48574d93c9bb7a1394d099715d2666f48319ab8de9935d945436970",
+          "git_blob": "987fd9a8ed2128b3277eb70ca9b5943fa5f1133b",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 78,
+          "verified_git_blob": "987fd9a8ed2128b3277eb70ca9b5943fa5f1133b",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/72-code-exec-metric/quiz.json",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning objectives",
+          "chinese_heading": "学习目标",
+          "chinese_explanation": "本课目标的实现范围及未达部分分别见learning_contract/code_static_walk/source_defects，不能把目标写成实测结论。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 22,
+          "heading": "## Why an isolated subprocess",
+          "chinese_heading": "为何另开子进程",
+          "chinese_explanation": "新进程分隔地址空间并有终止句柄；并未实现FS/network/资源/凭据/进程树隔离，Popen -I不等sandbox。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 28,
+          "heading": "## The shape of a code-exec task",
+          "chinese_heading": "代码执行任务形状",
+          "chinese_explanation": "candidate正文和测试assertions输入，partial assertion分与整taskpass不同；测试需身份、不可篡改及完整终态。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 48,
+          "heading": "## The denylist",
+          "chinese_heading": "禁用清单",
+          "chinese_explanation": "实际patch __import__与os.system、未删除builtins；普通禁止import不证明绕过受阻或宿主安全。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 68,
+          "heading": "## Wall-clock timeout",
+          "chinese_heading": "墙钟超时",
+          "chinese_explanation": "本源限制候选wait的一部分、单pid kill，最终读取/后代持pipe仍可无界；须全生命周期deadline及实际终止。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 74,
+          "heading": "## Output cap",
+          "chinese_heading": "输出限额",
+          "chinese_explanation": "stdout分块256KiB溢出归error，但tail/stderr无界且后代pipe阻塞；限额不只常规stdout。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 78,
+          "heading": "## Pass-at-k",
+          "chinese_heading": "k次中至少一次通过",
+          "chinese_explanation": "有效整数n>=k与0<=c<=n，1−C(n−c,k)/C(n,k)，c为全tests通过candidate数非partial fraction；空样本未知。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 97,
+          "heading": "## Exit codes",
+          "chinese_heading": "退出终态",
+          "chinese_explanation": "pass/assertion_fail/syntax_error/timeout/error需与runner状态保存，runtime eval在源折assertion_fail；仅exit0不能证明可信结果schema。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 109,
+          "heading": "## What this lesson does not do",
+          "chinese_heading": "未实现范围",
+          "chinese_explanation": "来源教学边界和production缺口分别保留，真实模型/外部服务/candidate执行均未发生，不补造验证。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 113,
+          "heading": "## How to read the code",
+          "chinese_heading": "源码阅读路线",
+          "chinese_explanation": "本课main/test所有字节已静读（70–73复用真实旧记录），函数目的与各test原断言/中文目的已另记；不是import或test pass。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 119,
+          "heading": "## Going further",
+          "chinese_heading": "扩展实践",
+          "chinese_explanation": "原非编号扩展全部见original_practices，每项含中文判断/交付范围与未运行标识，不当用户已完成实践。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        }
+      ],
+      "read_complete": true,
+      "written": false,
+      "accepted": false,
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "question": "Why does the runner spawn a fresh Python subprocess per candidate rather than calling exec inline?",
+          "options": [
+            "It avoids polluting builtins",
+            "exec is deprecated in modern Python",
+            "It is faster than exec",
+            "It isolates timeouts, output overruns, and dangerous imports from the host eval process"
+          ],
+          "correct": 3,
+          "explanation": "An infinite loop or runaway memory allocation in candidate code crashes only the subprocess. The host eval keeps making progress.",
+          "chinese_judgment": "子进程分离崩溃并提供终止句柄，但不保证危险imports/内存/FS/网络已隔离；源码stderr/后代仍可能影响host，本轮仅静读。",
+          "chinese_question": "为何每candidate用新Python子进程而非inline exec？"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "question": "What is the score for a task with three assertions when two pass and one fails?",
+          "options": [
+            "0.667",
+            "1.0",
+            "0.0",
+            "0.5"
+          ],
+          "correct": 0,
+          "explanation": "Score is passed divided by total. Two of three is 0.667. The exit code is assertion_fail.",
+          "chinese_judgment": "2/3是assertionfraction≈.667、terminal assertion_fail，不是整task成功或pass@k c贡献。",
+          "chinese_question": "三assertion两pass一fail分数多少？"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "question": "Which exit code does the runner return when the candidate code does not parse?",
+          "options": [
+            "syntax_error",
+            "error",
+            "timeout",
+            "assertion_fail"
+          ],
+          "correct": 0,
+          "explanation": "compile() raises SyntaxError inside the runner, the inner script catches it and writes exit_code=syntax_error.",
+          "chinese_judgment": "compile SyntaxError写syntax_error envelope；未closedfence/parser错误应另标，不把任意crash全称语法错。",
+          "chinese_question": "candidate不能编译时什么退出码？"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "question": "Why is wall-clock timeout the load-bearing control rather than the import denylist?",
+          "options": [
+            "Imports cannot be denied in Python",
+            "subprocess.run does not support denylists",
+            "Most failures are infinite loops, and a determined adversary can bypass any in-process denylist",
+            "Wall-clock is checked at compile time"
+          ],
+          "correct": 2,
+          "explanation": "Denylists catch lazy code, timeouts catch infinite loops. The denylist is a backstop, the timeout is the floor.",
+          "chinese_judgment": "deadline有助限制部分无限循环，denylist可绕；必须另限资源/进程树/输出与权限，不能说timeout单独能防破坏。",
+          "chinese_question": "为何wall-clock timeout比denylist更关键？"
+        },
+        {
+          "number": 5,
+          "stage": "check",
+          "question": "What does pass_at_k(n, c, k) return when n - c < k?",
+          "options": [
+            "One, because the sample must contain at least one passing solution",
+            "c / n, the empirical pass rate",
+            "Zero, because the sample is undefined",
+            "Raises ValueError"
+          ],
+          "correct": 0,
+          "explanation": "If there are fewer fails than the sample size, every sample of size k necessarily includes at least one pass, so the probability is 1.",
+          "chinese_judgment": "在有效整数n>=k内n-c<k则每k子集必含成功，概率1；k>n应拒/不适用而非源码fallback。",
+          "chinese_question": "有效域内n−c<k时pass@k多少？"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "question": "How does the runner surface an output overflow, and why is the cap 256 KB?",
+          "options": [
+            "Stderr only; size matches the OS pipe default",
+            "The score value, expressed as a percentage with two decimals",
+            "Stdout from the subprocess is streamed; once the 256 KB running total is crossed the child is killed and the task is recorded as exit_code=error with detail \"output overflow\"",
+            "The candidate source size, capped so generated code stays small"
+          ],
+          "correct": 2,
+          "explanation": "The cap protects the host. Candidate code that floods stdout gets killed mid-stream; the runner normalises the result under exit_code=error with detail \"output overflow\" rather than minting a new exit code.",
+          "chinese_judgment": "源码确实分块限制stdout256KiB并error output overflow，但stderr无界/tail无size/单pid kill缺口，不能称所有输出/资源受限。",
+          "chinese_question": "输出overflow如何报告，256KB上限为何仍不充分？"
+        }
+      ],
+      "tests_static_read": [
+        {
+          "name": "test_extracts_python_block",
+          "line": 32,
+          "end_line": 35,
+          "assertions": [
+            "self.assertIn(\"def add\", code)",
+            "self.assertNotIn(\"```\", code)"
+          ],
+          "test_class": "TestExtractCode",
+          "chinese_purpose": "提python fence内def且去backticks。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_extracts_untagged_block",
+          "line": 37,
+          "end_line": 40,
+          "assertions": [
+            "self.assertIn(\"def f\", code)"
+          ],
+          "test_class": "TestExtractCode",
+          "chinese_purpose": "提无语言fence内def。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_no_block_no_backticks_returns_raw",
+          "line": 42,
+          "end_line": 43,
+          "assertions": [
+            "self.assertEqual(extract_code(\"def f(): pass\"), \"def f(): pass\")"
+          ],
+          "test_class": "TestExtractCode",
+          "chinese_purpose": "无backticks原代码返回raw。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_backticks_but_unclosed_returns_none",
+          "line": 45,
+          "end_line": 46,
+          "assertions": [
+            "self.assertIsNone(extract_code(\"```python\\ndef f\"))"
+          ],
+          "test_class": "TestExtractCode",
+          "chinese_purpose": "未闭fence返None，不发送解析失败raw执行。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_all_assertions_pass",
+          "line": 50,
+          "end_line": 55,
+          "assertions": [
+            "self.assertEqual(r.exit_code, EXIT_PASS)",
+            "self.assertEqual(r.score, 1.0)",
+            "self.assertEqual(r.passed, 2)",
+            "self.assertEqual(r.total, 2)"
+          ],
+          "test_class": "TestRunCandidate",
+          "chinese_purpose": "两assert都pass，EXIT_PASS/score1/passed2/total2；测试定义仅静读。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_partial_assertions_fail",
+          "line": 57,
+          "end_line": 62,
+          "assertions": [
+            "self.assertEqual(r.exit_code, EXIT_ASSERTION_FAIL)",
+            "self.assertEqual(r.passed, 1)",
+            "self.assertEqual(r.total, 2)",
+            "self.assertAlmostEqual(r.score, 0.5)"
+          ],
+          "test_class": "TestRunCandidate",
+          "chinese_purpose": "两assert一pass一fail，EXIT_ASSERTION_FAIL/passed1/total2/score.5，partial非整taskpass。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_syntax_error",
+          "line": 64,
+          "end_line": 67,
+          "assertions": [
+            "self.assertEqual(r.exit_code, EXIT_SYNTAX_ERROR)",
+            "self.assertEqual(r.score, 0.0)"
+          ],
+          "test_class": "TestRunCandidate",
+          "chinese_purpose": "编译语法错归EXIT_SYNTAX_ERROR/0，非所有程序失败都语法错。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_timeout",
+          "line": 69,
+          "end_line": 73,
+          "assertions": [
+            "self.assertEqual(r.exit_code, EXIT_TIMEOUT)",
+            "self.assertEqual(r.score, 0.0)"
+          ],
+          "test_class": "TestRunCandidate",
+          "chinese_purpose": "无限循环候选期望EXIT_TIMEOUT/0；未验证全进程树与finally清理deadline。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_runtime_error_during_assertion",
+          "line": 75,
+          "end_line": 78,
+          "assertions": [
+            "self.assertEqual(r.exit_code, EXIT_ASSERTION_FAIL)",
+            "self.assertEqual(r.score, 0.0)"
+          ],
+          "test_class": "TestRunCandidate",
+          "chinese_purpose": "assertion求值runtime error折EXIT_ASSERTION_FAIL/0，不保独立error终态。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_denied_import_subprocess",
+          "line": 80,
+          "end_line": 83,
+          "assertions": [
+            "self.assertEqual(r.exit_code, EXIT_ERROR)",
+            "self.assertIn(\"denied\", r.detail)"
+          ],
+          "test_class": "TestRunCandidate",
+          "chinese_purpose": "常规import subprocess触denylist且detail含denied；不能证明沙箱。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_no_assertions_yields_error",
+          "line": 85,
+          "end_line": 87,
+          "assertions": [
+            "self.assertEqual(r.exit_code, EXIT_ERROR)"
+          ],
+          "test_class": "TestRunCandidate",
+          "chinese_purpose": "无测试目标EXIT_ERROR，避免空assertions全pass。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_score_from_fenced_block",
+          "line": 91,
+          "end_line": 95,
+          "assertions": [
+            "self.assertEqual(\n            score_code_exec(GOOD_ADD, [\"add(1,2) == 3\"]),\n            1.0,\n        )"
+          ],
+          "test_class": "TestScoreCodeExec",
+          "chinese_purpose": "正确add fenced candidate wrapper得1。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_score_zero_on_bad_block",
+          "line": 97,
+          "end_line": 101,
+          "assertions": [
+            "self.assertEqual(\n            score_code_exec(BAD_ADD, [\"add(1,2) == 3\"]),\n            0.0,\n        )"
+          ],
+          "test_class": "TestScoreCodeExec",
+          "chinese_purpose": "错误add candidate wrapper得0。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_unclosed_block_scores_zero",
+          "line": 103,
+          "end_line": 107,
+          "assertions": [
+            "self.assertEqual(\n            score_code_exec(\"```python\\nbroken\", [\"True\"]),\n            0.0,\n        )"
+          ],
+          "test_class": "TestScoreCodeExec",
+          "chinese_purpose": "wrapper未闭fence得0；75fallback raw不保持该行为。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_pass_at_1_equals_c_over_n",
+          "line": 111,
+          "end_line": 112,
+          "assertions": [
+            "self.assertAlmostEqual(pass_at_k(10, 3, 1), 0.3)"
+          ],
+          "test_class": "TestPassAtK",
+          "chinese_purpose": "n10/c3/k1 estimator=.3。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_pass_at_k_perfect",
+          "line": 114,
+          "end_line": 115,
+          "assertions": [
+            "self.assertAlmostEqual(pass_at_k(10, 10, 5), 1.0)"
+          ],
+          "test_class": "TestPassAtK",
+          "chinese_purpose": "n10/c10/k5=1。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_pass_at_k_none_pass",
+          "line": 117,
+          "end_line": 118,
+          "assertions": [
+            "self.assertAlmostEqual(pass_at_k(10, 0, 5), 0.0)"
+          ],
+          "test_class": "TestPassAtK",
+          "chinese_purpose": "n10/c0/k5=0。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_pass_at_k_known_value",
+          "line": 120,
+          "end_line": 123,
+          "assertions": [
+            "self.assertAlmostEqual(v, expected, places=8)"
+          ],
+          "test_class": "TestPassAtK",
+          "chinese_purpose": "n10/c1/k5与1−C(9,5)/C(10,5)一致（.5）。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_pass_at_k_when_k_greater_than_n_minus_c",
+          "line": 125,
+          "end_line": 126,
+          "assertions": [
+            "self.assertAlmostEqual(pass_at_k(5, 3, 4), 1.0)"
+          ],
+          "test_class": "TestPassAtK",
+          "chinese_purpose": "n5/c3/k4必含成功，估计1；仍要求k<=n。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_pass_at_k_estimator_over_tasks",
+          "line": 128,
+          "end_line": 135,
+          "assertions": [
+            "self.assertAlmostEqual(result[1], 0.5, places=6)",
+            "self.assertAlmostEqual(result[3], 1.0, places=6)"
+          ],
+          "test_class": "TestPassAtK",
+          "chinese_purpose": "两task各3候选，c1/c2，平均pass@1=.5、@3=1；未测采样独立/全测试终态。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_invalid_inputs_raise",
+          "line": 137,
+          "end_line": 143,
+          "assertions": [
+            "self.assertRaises(ValueError)",
+            "self.assertRaises(ValueError)",
+            "self.assertRaises(ValueError)"
+          ],
+          "test_class": "TestPassAtK",
+          "chinese_purpose": "n负、c>n、k0三例ValueError；未测bool/float/k>n/无样本。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        }
+      ],
+      "learning_contract": [
+        "独立地址空间、每candidate有限deadline、全部stdout/stderr/进程树资源与权限是不同合同；不能以Popen/容器名称认证安全",
+        "正确性观察每assertion的真假/异常和完整终态：部分assertion通过fraction与整task通过不同，pass@k c指整candidate全testpass数",
+        "固定n>=k、0<=c<=n整数下pass@k=1-C(n-c,k)/C(n,k)，按task平均并保采样/预算/测试协议；n-c<k时组合概率1",
+        "来源extract未闭fenceNone而70找不到fence返回raw，接线时parser/failure须统一，不能默默执行解析失败文本"
+      ],
+      "source_defects": [
+        "未删除builtins，实际monkeypatch __import__和os.system；完整builtins/ns仍可对象访问，open/FS/环境/网络/其它os能力未隔离，禁止把黑名单称可靠sandbox",
+        "代码由repr嵌入-c脚本非docs/动画stdin；模板两次replace允许占位串碰撞；代码/targets大小没有上限，-c参数还有平台长度限制",
+        "Popen-I只解释器路径环境行为，不限制FS/凭据/CPU/RSS/disk/GPU/后代；kill单pid无session/group/job控制，无整个树权限或终止证明",
+        "stdout分块256KiB不是KB，超过即error，但poll结束tail fd.read无size可一次读过大；stderr运行中不排空、最后blocking全read无cap，缓冲满可阻塞成timeout/后代持管道可使finally卡住",
+        "select/os.set_blocking匿名pipe平台限制未验证，Windows可抛异常而normalizederror保障不完整；os.set_blocking在try前也可bubble；有限timeout没涵盖finally全部清理",
+        "timeout clamp float(min/max)不是strict finite/type policy，NaN/Inf/巨大int/错误类型未核；70 metadata未查timeout，docs称validator cap30不实",
+        "candidate普通print会使父进程whole JSON parse失败；JSON rootlist可.get AttributeError，results不核长度/strictbool，truthy值可让passed>total/score>1，returncode0与stdout本身非可信验证器",
+        "compile/exec仅catchException，BaseException/提前退出可绕 envelope；assertion eval异常被折为assertion_fail而非独立runtimeerror；detail仅最后异常覆盖，无逐assertion原因",
+        "pass_at_k允许k>n直接bool(c>0)，超域不是HumanEval估计；bool/float不严格，n0k1给0而非缺样本；estimator truthy非bool计pass且空task平均0，缺失败/unknown状态",
+        "tests共21个定义静读，普通import拒绝/timeout不证明沙箱；没有outputoverflow、stderr flood、后代、强资源、结果schema、跨平台或真实candidate泛化验证"
+      ],
+      "original_practices": [
+        {
+          "type": "Going further非编号练习",
+          "topic": "受控容器版本与真实unit test files替代assertionstrings",
+          "judgment": "容器需真实FS/network/credential/资源/树退出合同，平台版本冻结与负例；testfiles也需身份/不可篡改/完整终态，本轮未执行或部署"
+        }
+      ],
+      "existing_entry_relation": [
+        "复用LLM06§10 pass@k和§27生成代码安全/终态边界及既有Agent安全执行器，不移入来源exec模板",
+        "与§15逐testID/F2P/P2P、§11完整账本保持：partialscore与taskpass分开、失败/unknown不丢；本轮仅记录静读不执行候选"
+      ],
+      "dynamic": {
+        "extract_path": "/tmp/study-capstone-70-75-dynamic-extract.json",
+        "full_function_static_read": true,
+        "notes": "sandboxRunner全函数静读：预设pass/pass/fail/pass=3/4，时钟动画不触发deadline；卡片stdin与main -c不符，subprocess sandbox标签不能证明安全，whole stdout/results协议另验。",
+        "browser_runs": 0,
+        "root_final_registration_review": "由根统一"
+      },
+      "source_programs_executed": 0,
+      "source_test_definition_count": 21,
+      "code_static_walk": [
+        {
+          "symbols": "ExecResult/extract_code/_build_runner",
+          "purpose": "退出码/通过数/total/score/detail envelope；code fence提取或raw；repr字符串替换嵌-c脚本不是stdin。"
+        },
+        {
+          "symbols": "run_candidate",
+          "purpose": "compile/exec/assertion eval子进程，monkeypatch import/os.system；Popen -I+stdout select分块、单PID kill/deadline；资源/FS/network/进程树/stderr/finally风险见source_defects。"
+        },
+        {
+          "symbols": "score_code_exec",
+          "purpose": "解析None直接0，其余run_candidate score；与75 rawfallback不一致。"
+        },
+        {
+          "symbols": "pass_at_k/pass_at_k_estimator",
+          "purpose": "合法n,c,k组合概率乘积与各task等权平均；source k>n fallback/truthy/无sample0不是标准有效域。"
+        },
+        {
+          "symbols": "_demo_examples/demo",
+          "purpose": "good/bad/timeout/missing fence等教学candidate与统计打印，退出pass计数检查；本轮绝未运行这些代码。"
+        }
+      ],
+      "recovery_note": "2026-10-12续接：复用既有全部文件静读状态/日期及原分析；补逐test中文目的、函数用途与中文测验问题。仅必要测试命名/实际断言冲突选读，不以重新生成章节冒充阅读。",
+      "test_review_gaps": [
+        "测试定义名称不等实际断言；全部结果本轮仅静读。真实模型/服务/隔离安全/原源码测试均未运行。"
+      ],
+      "main_top_level_symbol_manifest": [
+        {
+          "name": "ExecResult",
+          "line": 45,
+          "end_line": 61,
+          "type": "ClassDef"
+        },
+        {
+          "name": "extract_code",
+          "line": 135,
+          "end_line": 141,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_build_runner",
+          "line": 144,
+          "end_line": 148,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "run_candidate",
+          "line": 151,
+          "end_line": 243,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "score_code_exec",
+          "line": 246,
+          "end_line": 250,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "pass_at_k",
+          "line": 253,
+          "end_line": 265,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "pass_at_k_estimator",
+          "line": 268,
+          "end_line": 277,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_demo_examples",
+          "line": 280,
+          "end_line": 318,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "demo",
+          "line": 321,
+          "end_line": 341,
+          "type": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "lesson": "73-perplexity-calibration",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/73-perplexity-calibration/code/main.py",
+          "bytes": 9332,
+          "sha256": "5aefae60ee1f902d013be45913f5250a386fe43befaf19191bd352b885bb3489",
+          "git_blob": "cb27eb3a993bbe58fdd89e8335726ef0a070262a",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 265,
+          "verified_git_blob": "cb27eb3a993bbe58fdd89e8335726ef0a070262a",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/73-perplexity-calibration/code/main.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/73-perplexity-calibration/code/tests/test_calibration.py",
+          "bytes": 5902,
+          "sha256": "24947152b95d2ca7ab53d6e914194b50fb42e78d15a33384a2fb8f9db1d1407b",
+          "git_blob": "d2969193bf23257456ba4e6f53453e2ec8844626",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 159,
+          "verified_git_blob": "d2969193bf23257456ba4e6f53453e2ec8844626",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/73-perplexity-calibration/code/tests/test_calibration.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/73-perplexity-calibration/docs/en.md",
+          "bytes": 8060,
+          "sha256": "44c765c7c3b376b66571bab2fc66ffd7d1303d14a356e0321cca4b84f7a48b29",
+          "git_blob": "2fd6ab861d811f7572a90de5be9ab6ec1a433f6f",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 123,
+          "verified_git_blob": "2fd6ab861d811f7572a90de5be9ab6ec1a433f6f",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/73-perplexity-calibration/docs/en.md",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/73-perplexity-calibration/quiz.json",
+          "bytes": 3640,
+          "sha256": "c4215acae4defb1f06be528fa446b0362f7dc2c24fbe31ff6df8c1084b961267",
+          "git_blob": "17eaa150dd2df860379cf25bb3938b78cc05b9fc",
+          "status": "已完整静读（复用旧真实阅读记录）；本轮校验实际字节与固定Blob",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本逐字静读，未import/执行；从第1行到文件结束",
+          "line_count": 78,
+          "verified_git_blob": "17eaa150dd2df860379cf25bb3938b78cc05b9fc",
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/73-perplexity-calibration/quiz.json",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning objectives",
+          "chinese_heading": "学习目标",
+          "chinese_explanation": "本课目标的实现范围及未达部分分别见learning_contract/code_static_walk/source_defects，不能把目标写成实测结论。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 22,
+          "heading": "## What perplexity tells you",
+          "chinese_heading": "困惑度解释",
+          "chinese_explanation": "有效target NLL总和除token数再exp；只在固定Tokenizer/mask/window/数据请求下比较，无目标unknown，生成自身PPL非heldout质量。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 37,
+          "heading": "## What ECE measures",
+          "chinese_heading": "ECE量度",
+          "chinese_explanation": "按bin counts加权|meanconfidence−binaryaccuracy|；事件/分箱/样本/依赖固定，bin内异质仍可隐藏。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 54,
+          "heading": "## What Brier score does that ECE does not",
+          "chinese_heading": "Brier补充什么",
+          "chinese_explanation": "逐样本平方概率误差含概率分辨能力；源分箱分解缺bin内forecast变异项，不能普遍宣称准确恒等。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 65,
+          "heading": "## Reliability diagram data",
+          "chinese_heading": "可靠性图数据",
+          "chinese_explanation": "mean confidence/empirical correct/count三数组，空bin应未知；count和不确定性不可只画点忽略。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 82,
+          "heading": "## Confidence sources",
+          "chinese_heading": "置信度来源",
+          "chinese_explanation": "self-report、候选likelihood softmax或exp(avg logprob)对应不同概率事件，不自动等答案正确概率；需同事件校准。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 86,
+          "heading": "## Edge cases",
+          "chinese_heading": "边界情况",
+          "chinese_explanation": "无目标/空预测/calibration无样本、NaN/Inf/count非法等单列未知或错误；ECE/Brier空0不能称完美。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 95,
+          "heading": "## Dispatch",
+          "chinese_heading": "派发",
+          "chinese_explanation": "独立PPL/calibration报告不强制塞入[0,1]越高越好task score；方向、事件与样本单位保留。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 111,
+          "heading": "## What this lesson does not do",
+          "chinese_heading": "未实现范围",
+          "chinese_explanation": "来源教学边界和production缺口分别保留，真实模型/外部服务/candidate执行均未发生，不补造验证。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 115,
+          "heading": "## How to read the code",
+          "chinese_heading": "源码阅读路线",
+          "chinese_explanation": "本课main/test所有字节已静读（70–73复用真实旧记录），函数目的与各test原断言/中文目的已另记；不是import或test pass。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 121,
+          "heading": "## Going further",
+          "chinese_heading": "扩展实践",
+          "chinese_explanation": "原非编号扩展全部见original_practices，每项含中文判断/交付范围与未运行标识，不当用户已完成实践。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        }
+      ],
+      "read_complete": true,
+      "written": false,
+      "accepted": false,
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "question": "What does a perplexity of 1.0 imply about a language model on the test corpus?",
+          "options": [
+            "The model is broken",
+            "The model assigns probability 1 to every actual token; it is a perfect model",
+            "The model is uniform over the vocabulary",
+            "The corpus is empty"
+          ],
+          "correct": 1,
+          "explanation": "Perplexity equals exp(avg negative log-likelihood). When every token gets probability 1, the NLL is zero, and exp(0) is 1.",
+          "chinese_judgment": "PPL1在本有效目标集NLL0即各目标概率1；不能说跨任务完美，emptytokens未知不当PPL1。",
+          "chinese_question": "test corpus PPL1能说明什么？"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "question": "Why does the harness require non-negative log-probabilities from the adapter?",
+          "options": [
+            "Numpy crashes on negatives",
+            "The bin edges in ECE assume positivity",
+            "Perplexity is undefined for negative values",
+            "Negative log-probabilities are non-negative by definition; receiving a negative value means the adapter sent log p, not -log p"
+          ],
+          "correct": 3,
+          "explanation": "-log p of a probability is non-negative. A negative value is a contract violation that would silently give perplexity < 1, which is impossible.",
+          "chinese_judgment": "要求NLL=-logp非负；源码标neg_log_probs不是非负logp；还需finite/token整数/mask/总和合同。",
+          "chinese_question": "为何adapter应提供非负NLL，而不是非负log-probability？"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "question": "What does expected calibration error measure?",
+          "options": [
+            "The average gap between bin-level confidence and bin-level accuracy, weighted by bin size",
+            "The cross-entropy of the predictions",
+            "The mean absolute distance between predicted and true labels",
+            "The variance of the softmax output"
+          ],
+          "correct": 0,
+          "explanation": "ECE bins predictions by confidence, measures the gap between average confidence and average accuracy per bin, weights by bin size.",
+          "chinese_judgment": "ECE是按每bin样本数加权的绝对均值差；在同事件与分箱下解释，不是全部预测正确率。",
+          "chinese_question": "ECE测什么？"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "question": "Why does the implementation also return populated_bins alongside the ECE value?",
+          "options": [
+            "It is the denominator of the Brier score",
+            "It is needed by numpy",
+            "It signals when too few bins are populated for the single number to be trustworthy",
+            "It is required for reliability diagrams"
+          ],
+          "correct": 2,
+          "explanation": "With few populated bins the ECE is dominated by noise. Reporting the populated count lets the runner refuse to publish a misleading single number.",
+          "chinese_judgment": "populatedbins描述覆盖，但不能仅少bins便断不可信；还要每bincount/总体N/区间，常数置信度可一bin很多数据。",
+          "chinese_question": "为何返回populated_bins？"
+        },
+        {
+          "number": 5,
+          "stage": "check",
+          "question": "What does Brier score capture that ECE does not?",
+          "options": [
+            "It does not need ground-truth labels",
+            "It is faster to compute",
+            "It works only on binary outcomes",
+            "It penalises local miscalibration directly, since it is the per-prediction squared error"
+          ],
+          "correct": 3,
+          "explanation": "ECE only looks at averages per bin. Brier squares the error per prediction, so it catches the case where bins cancel out on average but are individually miscalibrated.",
+          "chinese_judgment": "Brier逐预测平方概率误差，包含校准/分辨率/不确定性并非纯localcalibration；ECE不同bins绝对gap不相抵，bin内异质和源码分解缺项须纠正。",
+          "chinese_question": "Brier有什么是ECE没测到的？"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "question": "Why is calibration a per-model report rather than a per-task metric?",
+          "options": [
+            "Calibration is too slow to compute per task",
+            "Tasks do not have probabilities",
+            "ECE requires the runner to know the model architecture",
+            "Single tasks have too few predictions to estimate bin statistics; the report aggregates across the whole eval"
+          ],
+          "correct": 3,
+          "explanation": "Per-task calibration is dominated by noise. The runner pools confidence/correctness pairs across all tasks before computing ECE, Brier, and the reliability diagram.",
+          "chinese_judgment": "需多个预测的概率事件样本来估binstatistics，跨taskpool只是策略，应保category/metric切片；校准不必只能permodel，单task多样本也可测。",
+          "chinese_question": "为何可把校准汇为每model report，而不称单task分数？"
+        }
+      ],
+      "tests_static_read": [
+        {
+          "name": "test_uniform_two_token_alphabet",
+          "line": 30,
+          "end_line": 33,
+          "assertions": [
+            "self.assertAlmostEqual(perplexity(nlls, counts), 2.0, places=6)"
+          ],
+          "test_class": "TestPerplexity",
+          "chinese_purpose": "uniform2目标NLL与count给PPL2；反向PPL2不证明uniform。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_perfect_model",
+          "line": 35,
+          "end_line": 36,
+          "assertions": [
+            "self.assertAlmostEqual(perplexity([0.0], [10]), 1.0)"
+          ],
+          "test_class": "TestPerplexity",
+          "chinese_purpose": "10有效tokens总NLL0，PPL1仅此目标集。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_zero_tokens_returns_nan",
+          "line": 38,
+          "end_line": 41,
+          "assertions": [
+            "self.assertTrue(math.isnan(result.perplexity))",
+            "self.assertEqual(result.total_tokens, 0)"
+          ],
+          "test_class": "TestPerplexity",
+          "chinese_purpose": "count0源返回NaN及total0；unknown需strictJSON null+reason。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_misaligned_inputs",
+          "line": 43,
+          "end_line": 45,
+          "assertions": [
+            "self.assertRaises(ValueError)"
+          ],
+          "test_class": "TestPerplexity",
+          "chinese_purpose": "NLL/count长度不等抛ValueError。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_negative_nll_rejected",
+          "line": 47,
+          "end_line": 49,
+          "assertions": [
+            "self.assertRaises(ValueError)"
+          ],
+          "test_class": "TestPerplexity",
+          "chinese_purpose": "NLL负抛ValueError；未检NaN/Inf/bool。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_multi_sequence_weighted_correctly",
+          "line": 51,
+          "end_line": 56,
+          "assertions": [
+            "self.assertAlmostEqual(perplexity(nlls, counts), expected, places=6)"
+          ],
+          "test_class": "TestPerplexity",
+          "chinese_purpose": "两序列都50tokens总NLL汇后exp，等长例不足检不等长加权或meanNLL误传。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_perfect_calibration_yields_zero",
+          "line": 60,
+          "end_line": 64,
+          "assertions": [
+            "self.assertAlmostEqual(ece, 0.05, places=6)"
+          ],
+          "test_class": "TestECE",
+          "chinese_purpose": "实际assert ECE=.05，conf .05/.95与标签0/1，名称zero不符断言；不是真零校准。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_completely_miscalibrated",
+          "line": 66,
+          "end_line": 71,
+          "assertions": [
+            "self.assertAlmostEqual(ece, 0.99, places=6)",
+            "self.assertEqual(populated, 1)"
+          ],
+          "test_class": "TestECE",
+          "chinese_purpose": "conf.99均wrong得ECE.99且1 populatedbin。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_empty_input",
+          "line": 73,
+          "end_line": 76,
+          "assertions": [
+            "self.assertEqual(ece, 0.0)",
+            "self.assertEqual(populated, 0)"
+          ],
+          "test_class": "TestECE",
+          "chinese_purpose": "ECE空返0/populated0或Brier空返0，按test_class识别；无样本不能说完美。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_bins_must_be_positive",
+          "line": 78,
+          "end_line": 80,
+          "assertions": [
+            "self.assertRaises(ValueError)"
+          ],
+          "test_class": "TestECE",
+          "chinese_purpose": "bins0抛ValueError；未测float/bool/预算。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_confidence_out_of_range_rejected",
+          "line": 82,
+          "end_line": 84,
+          "assertions": [
+            "self.assertRaises(ValueError)"
+          ],
+          "test_class": "TestECE",
+          "chinese_purpose": "普通超range confidence抛ValueError；NaN与strict输入遗漏。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_misaligned_lengths",
+          "line": 86,
+          "end_line": 88,
+          "assertions": [
+            "self.assertRaises(ValueError)"
+          ],
+          "test_class": "TestECE",
+          "chinese_purpose": "conf/correct不等长抛ValueError，不验证case身份。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_synthetic_overconfident_has_higher_ece",
+          "line": 90,
+          "end_line": 95,
+          "assertions": [
+            "self.assertGreater(o_ece, c_ece)"
+          ],
+          "test_class": "TestECE",
+          "chinese_purpose": "固定seed人工overconfident ECE大于calibrated；非真实LM校准证据。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_perfect",
+          "line": 99,
+          "end_line": 100,
+          "assertions": [
+            "self.assertEqual(brier_score([1.0, 0.0], [1, 0]), 0.0)"
+          ],
+          "test_class": "TestBrier",
+          "chinese_purpose": "概率1/0对label1/0 Brier0。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_max",
+          "line": 102,
+          "end_line": 103,
+          "assertions": [
+            "self.assertEqual(brier_score([1.0, 0.0], [0, 1]), 1.0)"
+          ],
+          "test_class": "TestBrier",
+          "chinese_purpose": "概率1/0对反label0/1 Brier1。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_uniform_predictor",
+          "line": 105,
+          "end_line": 106,
+          "assertions": [
+            "self.assertAlmostEqual(brier_score([0.5, 0.5], [0, 1]), 0.25)"
+          ],
+          "test_class": "TestBrier",
+          "chinese_purpose": "均p.5 Brier .25，与label比例无关。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_empty_input",
+          "line": 108,
+          "end_line": 109,
+          "assertions": [
+            "self.assertEqual(brier_score([], []), 0.0)"
+          ],
+          "test_class": "TestBrier",
+          "chinese_purpose": "ECE空返0/populated0或Brier空返0，按test_class识别；无样本不能说完美。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_decomposition_sums_to_brier",
+          "line": 111,
+          "end_line": 114,
+          "assertions": [
+            "self.assertAlmostEqual(decomp[\"brier\"], brier_score(conf, corr), places=2)"
+          ],
+          "test_class": "TestBrier",
+          "chinese_purpose": "固定synthetic分解brier与直接Brier只places2近似，不能证明恒等；bin内forecast变异缺项有反例。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_bin_counts_match",
+          "line": 118,
+          "end_line": 123,
+          "assertions": [
+            "self.assertEqual(bin_count.sum(), 3)",
+            "self.assertEqual(len(bin_conf), 10)"
+          ],
+          "test_class": "TestReliabilityDiagram",
+          "chinese_purpose": "三个sample counts.sum3，数组10bins。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_correct_bin_assignment",
+          "line": 125,
+          "end_line": 132,
+          "assertions": [
+            "self.assertEqual(bin_count[0], 1)",
+            "self.assertEqual(bin_count[9], 1)",
+            "self.assertAlmostEqual(bin_conf[0], 0.05, places=6)",
+            "self.assertAlmostEqual(bin_conf[9], 0.95, places=6)"
+          ],
+          "test_class": "TestReliabilityDiagram",
+          "chinese_purpose": "p.05/.95分别首/末bin count1均confidence对应；未测完整边界或NaN。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_empty_input_returns_zero_arrays",
+          "line": 134,
+          "end_line": 137,
+          "assertions": [
+            "self.assertEqual(int(bin_count.sum()), 0)",
+            "self.assertEqual(len(bin_conf), 10)"
+          ],
+          "test_class": "TestReliabilityDiagram",
+          "chinese_purpose": "空reliability counts0且len10；画图须空bin unknown。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_report_roundtrip",
+          "line": 141,
+          "end_line": 149,
+          "assertions": [
+            "self.assertIn(\"ece\", d)",
+            "self.assertIn(\"brier\", d)",
+            "self.assertIn(\"reliability\", d)",
+            "self.assertEqual(len(d[\"reliability\"][\"bin_conf\"]), 10)",
+            "self.assertEqual(d[\"n_samples\"], 200)"
+          ],
+          "test_class": "TestCalibrationReport",
+          "chinese_purpose": "200人工sample report含ece/brier/reliability且10bin数组，未证明semantic或JSONfinite。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        },
+        {
+          "name": "test_underconfident_lower_brier_than_uniform",
+          "line": 151,
+          "end_line": 155,
+          "assertions": [
+            "self.assertLessEqual(rep.brier, 1.0)",
+            "self.assertGreaterEqual(rep.brier, 0.0)"
+          ],
+          "test_class": "TestCalibrationReport",
+          "chinese_purpose": "实际仅assert Brier在[0,1]，完全没与uniform比较；名称不代表已验证lower。",
+          "validation_level": "复用已完整静读记录与原断言，本轮仅必要冲突选读；未执行测试或source模块"
+        }
+      ],
+      "learning_contract": [
+        "PPL=exp(sum序列有效目标NLL总和/sum有效token数)，先token加权再exp；输入此实现是每序列NLL总和非每token数组或每序列meanNLL，bindmask/window/tokenizer",
+        "ECE=Σbin(count/N)*abs(meanconfidence−meanbinarycorrect)，保count/空bin/边界、分组数和样本单位；不是未加权gap，也不是答正确概率已可靠",
+        "二值事件Brier=mean((p-y)^2)，衡量proper概率预测错误但不只calibration，confidence必须定义预测事件，与token probability/selfreport区分",
+        "reliability输出meanconfidence/empiricalcorrect/count三数组；count0格不当真实(0,0)点，画图需样本量/不确定性",
+        "校准拟合在独立validation，finaltest报告同定义概率事件、误判类别/切片、必要组级区间与accuracy/coverage，不保证调温总改善"
+      ],
+      "source_defects": [
+        "PPL=vocabsize只有uniform=>此值，反向不能证明uniform；PPL可>vocabsize甚至无限，源realnumbersinbetween/2026WikiText8–12/50无数据版本不采为当前结论；PPL1只已测有效tokens非完美model",
+        "PerplexityResult n=int转换bool/float截断，NLL bool/NaN/Inf无finite检查；n0但nll>0未拒，汇totaltokens0返回NaN+nllmean0掩盖未知；exp可OverflowError，strictJSON不允许NaN",
+        "docs叫per-token logprob列表但代码nlls每sequence total；把meanNLL+counts直接喂会错分母；test只有两序列等长50，不充分证明不等长归约",
+        "_validate_probs先np float转换strings/bools，conf NaN使min/max比较失效，NaN还可掩盖其它超range值；dtype/strictfinite/binstype/预算未核，float bins可内部TypeError而非规范ValueError",
+        "空ECE/Brier0、空reliabilityzeroarrays看似完美但无样本，须unknown/coverage，NaN PPL不同状态不可自动混聚合",
+        "ECE每bin绝对后求和，不会不同bins过/欠自相抵；只bin内部差可能隐藏异质。源码bins1/conf[.4,.6]/y[0,1]独立手算ECE0而Brier.16，不是运行来源",
+        "brier_decomposition以bin均值给reliability−resolution+uncertainty，没有bin内forecast变异项；同例bin均值.5/acc.5=>其brier.25不同真实.16，不能普遍宣称精确分解；测试只synthetic places2近似不证明恒等式",
+        "doc p=.5 edge ECE应abs(.5−acc)非带符号差，binaryBrier恒.25没有correction；非全wrong就Brier一定high（confidence低可低）",
+        "populated_bins少不必然噪声大，一常数p且大量独立样本可验证该点；需N/count/分布与区间；10/15 publishing/comparison convention及100sample不能分.02没有普遍依据",
+        "softmaxoptionlikelihood是条件候选模型分配，exp(avgloglikelihood)=1/PPL、selfreport均不直接等答正确概率；需同binaryevent拟合校验；pooled跨异构tasks可能遮切片",
+        "CalibrationReport没调用或保存brier_decomposition，与docs runner logsdecomp不符；synthetic Bernoulli规则真值只是模拟，未取realheldout/真实adapterlogprobs",
+        "续接必要选读确认：test_perfect_calibration_yields_zero实际断言ECE .05；test_underconfident_lower_brier_than_uniform仅断Brier范围不比较uniform，测试名不当验证。"
+      ],
+      "original_practices": [
+        {
+          "type": "Going further非编号练习",
+          "topic": "held-out validation温度缩放再校准",
+          "judgment": "定义confidence对应事件，保validation/finaltest分离和概率模型/温度版本，比较proper评分/ECE分箱/accuracy及切片，不保证gap必缩或accuracy高Brier低普遍决策；本轮未拟合/真实模型调用"
+        }
+      ],
+      "existing_entry_relation": [
+        "LLM06§9.1/26已维护有效token NLL加权/PPL和log域溢出；不复制同程序，补输入是sequence totals与校准事件",
+        "语言05/LLM06§3/§26需严区分judge与概率；stats11区间/依赖/validation分离和新增§6.4有限派生/口径继续复用",
+        "root建议进一步一手核Brier分解与calibration，现两个反例均独立手算非来源执行"
+      ],
+      "dynamic": {
+        "extract_path": "/tmp/study-capstone-70-75-dynamic-extract.json",
+        "full_function_static_read": true,
+        "notes": "cdReliability全函数静读：5固定confidence点与accuracy向对角线动画，不是实测或temperaturefit；没有bin_count所以gap线不直接给weightedECE；counts0/CI/事件语义缺，不证明模型calibrated。",
+        "browser_runs": 0,
+        "root_final_registration_review": "由根统一"
+      },
+      "source_programs_executed": 0,
+      "source_test_definition_count": 23,
+      "code_static_walk": [
+        {
+          "symbols": "PerplexityResult/perplexity",
+          "purpose": "每sequence NLL总和与token counts汇后exp；int转换及NaN/overflow/zero目标问题另记。"
+        },
+        {
+          "symbols": "_validate_probs/_bin_indices/expected_calibration_error",
+          "purpose": "numpy转换/range及长度、ceil bin边界；count权重abs bin meanconfidence−accuracy，空返回0未知；strictfinite未完备。"
+        },
+        {
+          "symbols": "brier_score/brier_decomposition/reliability_diagram",
+          "purpose": "逐样本平方概率误差；bin均值分解缺forecast内变异项不能普遍等式；reliability三数组保count，空bin不实际点。"
+        },
+        {
+          "symbols": "CalibrationReport",
+          "purpose": "from_predictions汇ECE/Brier/reliability/populated/N并to_dict，不包含brier_decomposition。"
+        },
+        {
+          "symbols": "synthetic_calibrated/synthetic_overconfident/synthetic_underconfident/synthetic_token_nll/demo",
+          "purpose": "人工Bernoulli和人为NLL/count构造展示三策略与PPL，固定seed校准比较/输出；不取真实heldout或Token logprobs。"
+        }
+      ],
+      "recovery_note": "2026-10-12续接：复用既有全部文件静读状态/日期及原分析；补逐test中文目的、函数用途与中文测验问题。仅必要测试命名/实际断言冲突选读，不以重新生成章节冒充阅读。",
+      "test_review_gaps": [
+        "测试定义名称不等实际断言；全部结果本轮仅静读。真实模型/服务/隔离安全/原源码测试均未运行。"
+      ],
+      "main_top_level_symbol_manifest": [
+        {
+          "name": "PerplexityResult",
+          "line": 22,
+          "end_line": 50,
+          "type": "ClassDef"
+        },
+        {
+          "name": "perplexity",
+          "line": 53,
+          "end_line": 54,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_validate_probs",
+          "line": 57,
+          "end_line": 68,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_bin_indices",
+          "line": 71,
+          "end_line": 75,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "expected_calibration_error",
+          "line": 78,
+          "end_line": 99,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "brier_score",
+          "line": 102,
+          "end_line": 108,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "brier_decomposition",
+          "line": 111,
+          "end_line": 140,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "reliability_diagram",
+          "line": 143,
+          "end_line": 163,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "CalibrationReport",
+          "line": 167,
+          "end_line": 199,
+          "type": "ClassDef"
+        },
+        {
+          "name": "synthetic_calibrated",
+          "line": 202,
+          "end_line": 206,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "synthetic_overconfident",
+          "line": 209,
+          "end_line": 213,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "synthetic_underconfident",
+          "line": 216,
+          "end_line": 220,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "synthetic_token_nll",
+          "line": 223,
+          "end_line": 231,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "demo",
+          "line": 234,
+          "end_line": 261,
+          "type": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "lesson": "74-leaderboard-aggregation",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/74-leaderboard-aggregation/code/main.py",
+          "bytes": 9261,
+          "sha256": "efd32f74dcf955f60919b6cc205dd643795892b4b04fd2eb659110b78010d6bb",
+          "git_blob": "6c062548970ce72ff2db04533a0dbb3a5e23f027",
+          "status": "已完整静读；未运行",
+          "verified_git_blob": "6c062548970ce72ff2db04533a0dbb3a5e23f027",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本静读，从第1行到文件结束；未import/执行/安装",
+          "line_count": 298,
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/74-leaderboard-aggregation/code/main.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/74-leaderboard-aggregation/code/tests/test_leaderboard.py",
+          "bytes": 5651,
+          "sha256": "707cbc6cf2f997108c9e8c3760d9e21ddcdbd11ab87a5ee8ae5fe84c08ae3105",
+          "git_blob": "36c6c1a0e27307aa73c8a9ef02705dee014b4f9c",
+          "status": "已完整静读；未运行",
+          "verified_git_blob": "36c6c1a0e27307aa73c8a9ef02705dee014b4f9c",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本静读，从第1行到文件结束；未import/执行/安装",
+          "line_count": 167,
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/74-leaderboard-aggregation/code/tests/test_leaderboard.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/74-leaderboard-aggregation/docs/en.md",
+          "bytes": 6818,
+          "sha256": "4512a7ee65a2a74b009c7ee2bb339d58b4e8c64c77f5cc7b5240c8457de22c00",
+          "git_blob": "7277f72a4483733676b27f891a9b14cff9dcd411",
+          "status": "已完整静读；未运行",
+          "verified_git_blob": "7277f72a4483733676b27f891a9b14cff9dcd411",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本静读，从第1行到文件结束；未import/执行/安装",
+          "line_count": 134,
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/74-leaderboard-aggregation/docs/en.md",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/74-leaderboard-aggregation/quiz.json",
+          "bytes": 3505,
+          "sha256": "59c334f6530f39f5a8bc4d1a6742ad99d23e350d3244d9f330934121e427733d",
+          "git_blob": "8bdee28bd2bd47b105723769423f80d5f6ea797c",
+          "status": "已完整静读；未运行",
+          "verified_git_blob": "8bdee28bd2bd47b105723769423f80d5f6ea797c",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本静读，从第1行到文件结束；未import/执行/安装",
+          "line_count": 78,
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/74-leaderboard-aggregation/quiz.json",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning objectives",
+          "chinese_heading": "学习目标",
+          "chinese_explanation": "本课目标的实现范围及未达部分分别见learning_contract/code_static_walk/source_defects，不能把目标写成实测结论。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 22,
+          "heading": "## The shape of input",
+          "chinese_heading": "聚合输入形状",
+          "chinese_explanation": "每model-task一EvalRun含metric/score/category/weight；实际无case层且weight忽略，plan matrix身份另建。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 38,
+          "heading": "## The output",
+          "chinese_heading": "聚合输出",
+          "chinese_explanation": "均分/均值CI/胜率/出现task数/categorymean和paired diff；缺plan分母、版本、paired N，不足复算真实质量。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 56,
+          "heading": "## Normalisation",
+          "chinese_heading": "规范化",
+          "chinese_explanation": "range检查不是语义标准化；metric方向、尺度、clip政策与权重预定，PPL无界/ECE低好不能直接混高好均分。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 60,
+          "heading": "## Mean and win-rate",
+          "chinese_heading": "均分与胜率",
+          "chinese_explanation": "源均值是已出现task等权；胜率各model出现task中最高/total，实际tie全计胜而非docs分摊，缺项可改变分母。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 84,
+          "heading": "## Bootstrap confidence intervals",
+          "chinese_heading": "bootstrap置信区间",
+          "chinese_explanation": "model mean按独立task重采样；同case model比较先paired差，相关家族group；ratio/corpus每draw重算全指标，多比较与最好选择另控。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 104,
+          "heading": "## Categories",
+          "chinese_heading": "类别切片",
+          "chinese_explanation": "保category均值及样本数/coverage/严重失败；切片不平衡权重预定，总体好仍可局部退化。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 108,
+          "heading": "## Markdown rendering",
+          "chinese_heading": "表格渲染",
+          "chinese_explanation": "源硬95%标题、两位显示、20字符ID截断与未转义有可读风险；展示精度非推断精度。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 122,
+          "heading": "## What this lesson does not do",
+          "chinese_heading": "未实现范围",
+          "chinese_explanation": "来源教学边界和production缺口分别保留，真实模型/外部服务/candidate执行均未发生，不补造验证。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 126,
+          "heading": "## How to read the code",
+          "chinese_heading": "源码阅读路线",
+          "chinese_explanation": "本课main/test所有字节已静读（70–73复用真实旧记录），函数目的与各test原断言/中文目的已另记；不是import或test pass。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 132,
+          "heading": "## Going further",
+          "chinese_heading": "扩展实践",
+          "chinese_explanation": "原非编号扩展全部见original_practices，每项含中文判断/交付范围与未运行标识，不当用户已完成实践。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        }
+      ],
+      "read_complete": true,
+      "written": false,
+      "accepted": false,
+      "tests_static_read": [
+        {
+          "name": "test_empty_input",
+          "line": 33,
+          "end_line": 34,
+          "assertions": [
+            "self.assertEqual(aggregate([]), [])"
+          ],
+          "chinese_purpose": "空记录 aggregate 返回空榜；缺样本应作为未知，不是均值0成绩。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestAggregate"
+        },
+        {
+          "name": "test_validate_score_range",
+          "line": 36,
+          "end_line": 39,
+          "assertions": [
+            "self.assertRaises(ValueError)"
+          ],
+          "chinese_purpose": "单条1.5超[0,1]须 ValueError；未覆盖 bool、字符串、NaN/Inf、metric方向。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestAggregate"
+        },
+        {
+          "name": "test_basic_two_model",
+          "line": 41,
+          "end_line": 49,
+          "assertions": [
+            "self.assertEqual(rows[0].model_id, \"good\")",
+            "self.assertEqual(rows[1].model_id, \"bad\")",
+            "self.assertGreater(rows[0].mean_score, rows[1].mean_score)"
+          ],
+          "chinese_purpose": "三共同task好模型排序靠前且均分较高；不验证真实任务质量或显著性。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestAggregate"
+        },
+        {
+          "name": "test_sorted_by_mean_descending",
+          "line": 51,
+          "end_line": 59,
+          "assertions": [
+            "self.assertEqual(ids, [\"b\", \"c\", \"a\"])"
+          ],
+          "chinese_purpose": "单task三model按.9/.5/.1排序 b/c/a；只验证排序。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestAggregate"
+        },
+        {
+          "name": "test_category_means_returned",
+          "line": 61,
+          "end_line": 68,
+          "assertions": [
+            "self.assertEqual(rows[0].categories[\"math\"], 1.0)",
+            "self.assertEqual(rows[0].categories[\"code\"], 0.0)"
+          ],
+          "chinese_purpose": "math1/code0分别留在切片均值；未验证不平衡切片/权重。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestAggregate"
+        },
+        {
+          "name": "test_ci_is_within_bounds",
+          "line": 70,
+          "end_line": 74,
+          "assertions": [
+            "self.assertAlmostEqual(rows[0].mean_ci_lo, 0.5, places=6)",
+            "self.assertAlmostEqual(rows[0].mean_ci_hi, 0.5, places=6)"
+          ],
+          "chinese_purpose": "常数.5的mean CI两端=.5；名称不足以证明任意样本CI覆盖率。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestAggregate"
+        },
+        {
+          "name": "test_constant_scores_zero_width_ci",
+          "line": 78,
+          "end_line": 81,
+          "assertions": [
+            "self.assertAlmostEqual(lo, 0.7, places=6)",
+            "self.assertAlmostEqual(hi, 0.7, places=6)"
+          ],
+          "chinese_purpose": "四个.7给经验重采样零宽区间；零经验方差不证明总体无不确定性。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestBootstrap"
+        },
+        {
+          "name": "test_ci_contains_mean",
+          "line": 83,
+          "end_line": 88,
+          "assertions": [
+            "self.assertLessEqual(lo, mean)",
+            "self.assertGreaterEqual(hi, mean)"
+          ],
+          "chinese_purpose": "固定五分数、固定seed的CI包含样本均值；这不是普遍覆盖证明。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestBootstrap"
+        },
+        {
+          "name": "test_pairwise_diff_zero_for_equal",
+          "line": 90,
+          "end_line": 94,
+          "assertions": [
+            "self.assertAlmostEqual(diff_mean, 0.0)",
+            "self.assertAlmostEqual(lo, 0.0)",
+            "self.assertAlmostEqual(hi, 0.0)"
+          ],
+          "chinese_purpose": "两组逐位置相同.5的配对均值与区间为0。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestBootstrap"
+        },
+        {
+          "name": "test_pairwise_diff_significant",
+          "line": 96,
+          "end_line": 101,
+          "assertions": [
+            "self.assertGreater(lo, 0.0)",
+            "self.assertAlmostEqual(diff_mean, 0.8, places=6)"
+          ],
+          "chinese_purpose": "30个固定.9与.1成对差恒.8，lo>0且mean=.8；不证明非恒定小样本误报率。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestBootstrap"
+        },
+        {
+          "name": "test_pairwise_diff_misaligned",
+          "line": 103,
+          "end_line": 105,
+          "assertions": [
+            "self.assertRaises(ValueError)"
+          ],
+          "chinese_purpose": "不等长pair数组抛ValueError；未验证实际caseID、维度或内容有限性。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestBootstrap"
+        },
+        {
+          "name": "test_empty_scores_returns_zero_width",
+          "line": 107,
+          "end_line": 110,
+          "assertions": [
+            "self.assertEqual(lo, 0.0)",
+            "self.assertEqual(hi, 0.0)"
+          ],
+          "chinese_purpose": "空scores返回(0,0)；这是源默认约定，学习正文须纠正为无样本未知。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestBootstrap"
+        },
+        {
+          "name": "test_winner_takes_all",
+          "line": 114,
+          "end_line": 121,
+          "assertions": [
+            "self.assertEqual(high.win_rate, 1.0)"
+          ],
+          "chinese_purpose": "high两题均胜，win_rate=1；不覆盖缺项与胜率统计量CI。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestWinRate"
+        },
+        {
+          "name": "test_ties_split_to_winner",
+          "line": 123,
+          "end_line": 130,
+          "assertions": [
+            "self.assertEqual(rows[0].win_rate, 1.0)",
+            "self.assertEqual(rows[1].win_rate, 1.0)"
+          ],
+          "chinese_purpose": "两model并列.5各win_rate=1，与docs分摊tie相冲突；测试名不能覆盖实际断言。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestWinRate"
+        },
+        {
+          "name": "test_returns_one_per_pair",
+          "line": 134,
+          "end_line": 141,
+          "assertions": [
+            "self.assertEqual(len(diffs), 3)"
+          ],
+          "chinese_purpose": "三model共同两题产三对差；未断言方向、common N或无共同task状态。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestPairwiseDiffs"
+        },
+        {
+          "name": "test_markdown_header_present",
+          "line": 145,
+          "end_line": 150,
+          "assertions": [
+            "self.assertIn(\"| Rank | Model | Mean\", md)",
+            "self.assertIn(\"| 1 | m |\", md)"
+          ],
+          "chinese_purpose": "输出含列名和第一行model；不验证alpha标题一致、转义或唯一长ID。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestRender"
+        },
+        {
+          "name": "test_json_round_trip",
+          "line": 152,
+          "end_line": 157,
+          "assertions": [
+            "self.assertEqual(parsed[0][\"model_id\"], \"m\")"
+          ],
+          "chinese_purpose": "render JSON可parse并保model m；未验证strict finite JSON、schema或全部身份。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestRender"
+        },
+        {
+          "name": "test_long_model_id_truncated",
+          "line": 159,
+          "end_line": 163,
+          "assertions": [
+            "self.assertNotIn(\"x\" * 25, md)"
+          ],
+          "chinese_purpose": "30位x在表中被截短，25位x不存在；不可据此确认两长ID不会碰撞。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestRender"
+        }
+      ],
+      "source_test_definition_count": 18,
+      "source_programs_executed": 0,
+      "learning_contract": [
+        "先冻结模型、任务/样本、数据split、metric版本/方向、后处理、权重与预定完整分母。每条[0,1]只是范围合同，accuracy/ROUGE/Brier不能因同范围等同含义；Brier/ECE等越低越好应先定义方向与变换，PPL无界不直接塞平均。",
+        "实际 EvalRun 是每model-task一条而无case层，aggregate 等权平均已出现task score。任务宏平均=Σtask均值/T；按case数的micro=Σcase分/N；soft sum保 score_sum，不round为binary正确人数。两task 1/1与0/9给macro .5、micro .1，仅独立手算。",
+        "若要权重，用非负有限且正总和的预定w，weighted mean=Σw*s/Σw；失败/缺项预定政策与coverage/原因同时报。源weight字段未使用不能冒称已实现。",
+        "平均分与每task同场胜率为不同统计量；并列应预定全计胜或分摊，实际源全计胜，不与docs ties split混写。缺model时任务不同，须固定比较矩阵。",
+        "均值bootstrap以独立task为抽样单位；相同case/model比较先按ID配对，重采样共同差。相关题族按组/层级重采样；独立组不能伪造位置配对。corpusBLEU、ratio/micro指标每draw重算完整计数与分母，不bootstrap平均句分替代。",
+        "空/全失败/无共同case返回unknown及全终态，不以[0,0]或empty榜作为成绩。有效样本数、bootstrap seed/B/alpha/方法、统计量、抽样单位及稳定性均应记录。CI含0只证据不足不证明等效；不把null-SE=0的退化模拟当统计证明。",
+        "CI是所定义统计量的不确定性区间，不是单题预测分布/正确概率，也不由各model独立区间是否重叠判断配对差；多candidate排名/多pair反复检验与选最好后的偏差需独立最终test或预定校正/选择协议。"
+      ],
+      "code_static_walk": [
+        {
+          "symbols": "EvalRun/LeaderboardRow/PairwiseDiff",
+          "purpose": "run带model/task/metric/score/category/weight；结果只带model均分/均值CI/win_rate/已出现tasks/categories；pair只带两ID/差CI/significant，缺case/split/metric版本/方向/plan分母/配对N。"
+        },
+        {
+          "symbols": "_validate_runs/_by_model/_by_task",
+          "purpose": "范围比较拒通常NaN/Inf和越界、唯一model-task对；不会验证严格numeric/metric一致/同taskcategory/weight，bool当0/1可进，错误类型异常类型不规范。"
+        },
+        {
+          "symbols": "bootstrap_mean_ci/bootstrap_pairwise_diff",
+          "purpose": "纯numpy按索引有放回取N个、循环B次算mean，np.percentile取100alpha/2与100(1-alpha/2)；paired先a-b再重采样differences。空返回0，缺严格参数/finite/shape校验。"
+        },
+        {
+          "symbols": "_win_rate/_category_means/aggregate",
+          "purpose": "同task最高分用math.isclose默认rel_tol+abs_tol全计胜，win/出现数；按出现run等权mean和category means，忽略weight，按均值descending，CI未参与排序或tie。"
+        },
+        {
+          "symbols": "pairwise_diffs",
+          "purpose": "sorted model pairs；对共同task组成parallel数组，缺项无惩罚，无共同task直接不输出；差lo>0或hi<0标significant，未多重比较校正。"
+        },
+        {
+          "symbols": "render_markdown/render_json/_synthetic_runs/demo",
+          "purpose": "表硬写95%且两位四舍五入，截ID20且不转义；JSON保存rows非pair或protocol。合成三model十二task随机剪裁、程序退出只空榜/首末排序检查；不代表真实模型能力。"
+        }
+      ],
+      "source_defects": [
+        "docs ties split与代码/测试双方并列各1矛盾；math.isclose默认rel_tol=1e-9也容近似并列，非仅abs_tol1e-12。",
+        "weight存在而完全忽略；metric_name也只存不核，无方向/normalization转换/语义兼容；73PPL可>1，ECE/Brier越低越好，与docs lessons71–73都[0,1]越高越好不成立。",
+        "分母按每model实际出现task；缺失高难task可提高均值/胜率，孤立单model task自动胜。不存在plan matrix、失败终态或完整task/case分母，无法判tasks_completed是否真实成功。",
+        "_validate_runs不是strict types；bool允许，decimal/numpy边界未知，无category/metric/model/task文本非空校验。range通常拦NaN/Inf，但低级bootstrap helpers可绕过范围且未有限数/维度检查。",
+        "低级bootstrap没有b正整数、alpha(0,1)、seed/预算/一维约束；b0/负值/非int、错误alpha触发内部异常或反向区间。空返回0宽，单值/常数0宽掩盖未知总体抽样误差，非通用coverage保证。",
+        "每modelCI在自己的task集；pairwise只common task、漏失者不计，结果没common N/IDs/删失原因。实际 paired实现成立于相同冻结case定义，不靠两数组同长度证明配对。",
+        "每task均值bootstrap不适用于原计数比例/corpus非线性指标；家族依赖、重复生成和ratio分母变动须重采样原unit并重算指标，源未实现。",
+        "significant每对lo>0/hi<0，没multiplicity/全部候选筛选偏差控制；docs说区间包含0就视tie不能推出等效，源rows仍按均值排序，未真用CI合并tie。",
+        "render_markdown无论alpha参数总标95%、2位显示可掩盖零附近端点；model_id截20碰撞或pipe/newline破坏表，JSON不带schema/alpha/B/seed/caseidentity/metric版本，pair diffs未纳入rows。",
+        "18个测试定义只静读；无duplicate run测试、missing matrix/metric direction/weight/非法finite/公共任务数/alpha标题与escaped ID等关键负例。",
+        "synthetic score是人工mean+uniform噪声clip，不是LM运行；exit0只检查榜单存在及首末排序，不能说明benchmark改善或统计推断有效。"
+      ],
+      "original_practices": [
+        {
+          "type": "Going further非编号练习",
+          "topic": "成对task bootstrap与保task family依赖的hierarchical bootstrap",
+          "judgment": "源pairwise已按共同task求差而非独立bootstrap；扩展需先定义独立case/组、样本集及完整分母，再按组重采样并保每draw原指标。未知/空组/全失败与选择后推断不能丢。本轮仅静读、未实现/运行。"
+        }
+      ],
+      "existing_entry_relation": [
+        "LLM06 §3.1/3.2 已有失败分母、finite评分/权重、Wilson单比例与unknown，§4已有配对bootstrap和等效边界；74只补真实接线/缺项与宏micro/soft统计量，避免另做平行评分器。",
+        "LLM06 §27.2 已写task宏/micro、soft不能round正确人数与完整终态，可在此补方向、commoncase身份、metric recompute、权重忽略及选最好偏差；统计方法继续连接既有统计章。"
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "question": "Why does the aggregator require every input score to be in [0, 1]?",
+          "options": [
+            "Without a common scale, a single metric with a 0-100 range dominates the per-model mean",
+            "Numpy requires it",
+            "It is the bin range for ECE",
+            "Markdown rendering expects two decimals"
+          ],
+          "correct": 0,
+          "explanation": "If pass-rate is in [0,1] and BLEU is in [0,100], the latter swamps the average. Normalisation belongs at the metric layer and is checked here.",
+          "chinese_question": "为什么聚合器要求分数在[0,1]？",
+          "chinese_judgment": "共同范围避免0–100一项数值压倒0–1，但范围一致仍不保证语义/方向可混合；源aggregator只检查range不实施normalization，PPL与Brier须另定协议。"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "question": "What information does mean score hide that win-rate exposes?",
+          "options": [
+            "The bootstrap interval",
+            "Whether the model is well calibrated",
+            "Per-task wins resist outliers and scale shifts; mean is sensitive to both",
+            "The number of tasks completed"
+          ],
+          "correct": 2,
+          "explanation": "Win-rate counts task-by-task wins. A model can have a high mean from one easy task and still lose most pairwise comparisons.",
+          "chinese_question": "均值隐藏的什么信息能由胜率暴露？",
+          "chinese_judgment": "按相同task比较的胜率弱化单项分差影响，但它是全候选相对最高的胜率，不是任意pairwise胜率；严格同task单调缩放不改变胜者，缺项/并列政策仍改变结果。"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "question": "How does bootstrap_mean_ci estimate the confidence interval?",
+          "options": [
+            "By assuming a normal distribution on the mean",
+            "By resampling task scores with replacement, computing the mean over each sample, then taking the alpha/2 and 1 - alpha/2 percentiles",
+            "By computing the standard deviation analytically",
+            "By calling scipy.stats.bootstrap"
+          ],
+          "correct": 1,
+          "explanation": "Non-parametric percentile bootstrap on the per-task scores; no distributional assumption, no scipy.",
+          "chinese_question": "bootstrap_mean_ci如何估区间？",
+          "chinese_judgment": "按冻结独立task score有放回抽N个，B次mean取alpha/2及1-alpha/2分位数；非参数不等于无需独立/代表性/足够样本，比例与corpus需重算原指标。"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "question": "When does the pairwise diff CI report `significant`?",
+          "options": [
+            "When both models have more than thirty tasks",
+            "When the CI does not contain zero",
+            "When the win-rates are unequal",
+            "When the mean difference is larger than 0.1"
+          ],
+          "correct": 1,
+          "explanation": "A CI that strictly excludes zero means the difference is unlikely to be zero at the chosen level; that is the operational definition the lesson uses.",
+          "chinese_question": "pairwise差区间何时源标significant？",
+          "chinese_judgment": "两端严格在零同一侧即lo>0或hi<0；包含零表示不足确定方向，非等效证明；需显式alpha与样本/选择协议，多个比较不自动保持整体错误率。"
+        },
+        {
+          "number": 5,
+          "stage": "check",
+          "question": "Why is the pairwise bootstrap paired rather than independent?",
+          "options": [
+            "Paired bootstrap respects that the same task feeds both models; differences are computed task by task before resampling",
+            "Paired bootstrap is the only one numpy supports",
+            "Paired bootstrap runs faster",
+            "Independent bootstrap is illegal in Python"
+          ],
+          "correct": 0,
+          "explanation": "Paired bootstrap reduces noise: we sample over tasks, not over models, so the comparison is on the same task set every iteration.",
+          "chinese_question": "为什么pairwise bootstrap应成对？",
+          "chinese_judgment": "同case同任务两model先按身份对齐求A−B并重采样pair，保共同题难相关；不同独立组需独立抽，不是随位置拼对；case缺失/失败仍保全plan与原因。"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "question": "Why does the aggregator return per-category means alongside the headline number?",
+          "options": [
+            "Headline mean can mask category-level weakness (good overall, bad at code); per-category exposes that",
+            "Per-category means run faster than overall mean",
+            "It is required by JSON Schema",
+            "Markdown rendering requires it"
+          ],
+          "correct": 0,
+          "explanation": "A model can win on aggregate by being okay everywhere or by dominating one category. Per-category breakdown lets the consumer see which.",
+          "chinese_question": "为何总体分外还留category均值？",
+          "chinese_judgment": "整体均值可遮某切片退化，报告每类均值/N/coverage及严重失败；不平衡category与权重须预定，categorymean不是泛化证明。"
+        }
+      ],
+      "dynamic": {
+        "extract_path": "/tmp/study-capstone-70-75-dynamic-extract.json",
+        "full_function_static_read": false,
+        "notes": "原正式动态图由父任务最后注册版本统一阅读/核验，本子任务未运行浏览器或动态图。",
+        "browser_runs": 0,
+        "root_final_registration_review": "由根统一，不冒称本子任务已读完整函数"
+      },
+      "main_top_level_symbol_manifest": [
+        {
+          "name": "EvalRun",
+          "line": 24,
+          "end_line": 30,
+          "type": "ClassDef"
+        },
+        {
+          "name": "LeaderboardRow",
+          "line": 34,
+          "end_line": 52,
+          "type": "ClassDef"
+        },
+        {
+          "name": "PairwiseDiff",
+          "line": 56,
+          "end_line": 72,
+          "type": "ClassDef"
+        },
+        {
+          "name": "_validate_runs",
+          "line": 75,
+          "end_line": 83,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_by_model",
+          "line": 86,
+          "end_line": 90,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_by_task",
+          "line": 93,
+          "end_line": 97,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "bootstrap_mean_ci",
+          "line": 100,
+          "end_line": 117,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "bootstrap_pairwise_diff",
+          "line": 120,
+          "end_line": 143,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_win_rate",
+          "line": 146,
+          "end_line": 159,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_category_means",
+          "line": 162,
+          "end_line": 166,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "aggregate",
+          "line": 169,
+          "end_line": 199,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "pairwise_diffs",
+          "line": 202,
+          "end_line": 238,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "render_markdown",
+          "line": 241,
+          "end_line": 251,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "render_json",
+          "line": 254,
+          "end_line": 255,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_synthetic_runs",
+          "line": 258,
+          "end_line": 277,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "demo",
+          "line": 280,
+          "end_line": 294,
+          "type": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "lesson": "75-end-to-end-eval-runner",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/75-end-to-end-eval-runner/code/main.py",
+          "bytes": 13436,
+          "sha256": "9e2bd2b6bbbbda698c84ad3231a6aa34ad9f6f0c01f4b75cfd2015ad9a8d6a9e",
+          "git_blob": "f5d5cf4a3c21c03b6241aa19588a0609a51bf2ff",
+          "status": "已完整静读；未运行",
+          "verified_git_blob": "f5d5cf4a3c21c03b6241aa19588a0609a51bf2ff",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本静读，从第1行到文件结束；未import/执行/安装",
+          "line_count": 385,
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/75-end-to-end-eval-runner/code/main.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/75-end-to-end-eval-runner/code/tests/test_runner.py",
+          "bytes": 6145,
+          "sha256": "89065b473aa5aa4d1dbad48f95f2bdb508daccd6bdbef90fa2d626ff9053e3ac",
+          "git_blob": "3104e28c0316352da7913a15ec6fe98669bd9320",
+          "status": "已完整静读；未运行",
+          "verified_git_blob": "3104e28c0316352da7913a15ec6fe98669bd9320",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本静读，从第1行到文件结束；未import/执行/安装",
+          "line_count": 162,
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/75-end-to-end-eval-runner/code/tests/test_runner.py",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/75-end-to-end-eval-runner/docs/en.md",
+          "bytes": 6546,
+          "sha256": "467d2ec758f5cc27cd542a84c0393e3f1094db8d92b04e6a5837633dbab18174",
+          "git_blob": "1897dcf8e7263a5a0573b38500c348b67b1bf6c8",
+          "status": "已完整静读；未运行",
+          "verified_git_blob": "1897dcf8e7263a5a0573b38500c348b67b1bf6c8",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本静读，从第1行到文件结束；未import/执行/安装",
+          "line_count": 135,
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/75-end-to-end-eval-runner/docs/en.md",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        },
+        {
+          "path": "phases/19-capstone-projects/75-end-to-end-eval-runner/quiz.json",
+          "bytes": 3586,
+          "sha256": "0ac32f561fa95bd96f77dfa711ebeb081c1d431034bd791a0d4eceb12e7ff27b",
+          "git_blob": "094664cd8bf73b2ce0b8e1b2c9d47a239b5af368",
+          "status": "已完整静读；未运行",
+          "verified_git_blob": "094664cd8bf73b2ce0b8e1b2c9d47a239b5af368",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "全部文本静读，从第1行到文件结束；未import/执行/安装",
+          "line_count": 78,
+          "blob_url": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/75-end-to-end-eval-runner/quiz.json",
+          "integrity_checked_date": "2026-10-12",
+          "integrity_check": "实际字节SHA256/按Git blob framing计算SHA1均与固定commit blob匹配；未修改源字节"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning objectives",
+          "chinese_heading": "学习目标",
+          "chinese_explanation": "本课目标的实现范围及未达部分分别见learning_contract/code_static_walk/source_defects，不能把目标写成实测结论。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 22,
+          "heading": "## The pipeline",
+          "chinese_heading": "运行流水",
+          "chinese_explanation": "实际imports五课main形成render→generate→postprocess→metric→buf→aggregates；报告只汇总，必须另保逐case账本和失败。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 45,
+          "heading": "## The adapter interface",
+          "chinese_heading": "适配器接口",
+          "chinese_explanation": "generate(prompt,task)→Generation最小形状，仍需请求/模型版本、strict fields/finite、caseID、timeout/usage/状态；NLL须sequence总和合同。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 65,
+          "heading": "## Parallel execution",
+          "chinese_heading": "并行执行",
+          "chinese_explanation": "所有model×task一次提交线程池，共享adapter/RNG/stats，只有排序不足case级复现；异常需stop/cancel/ledger及实际终止。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 71,
+          "heading": "## The single-pass scoring loop",
+          "chinese_heading": "单次评分循环",
+          "chinese_explanation": "generate elapsed后postprocess/metric、阈值correct与conf夹值；NLL未传入TaskResult，PPL旁路；rawfallback candidate不能静读执行。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 84,
+          "heading": "## Aggregation",
+          "chinese_heading": "runner汇总",
+          "chinese_explanation": "结果转EvalRun后74，校准73，tokenstats旁路PPL；schema/模型数据指标case身份及全部终态需补，JSON输出不等能力。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 106,
+          "heading": "## Self-terminating demo",
+          "chinese_heading": "演示退出",
+          "chinese_explanation": "RuleBased直接读gold，Noisy/Biased人工行为与伪NLL；实际只非空/top/bot检查，无structured runtime error与严格分差，不能当benchmark改善。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 119,
+          "heading": "## What this lesson does not do",
+          "chinese_heading": "未实现范围",
+          "chinese_explanation": "来源教学边界和production缺口分别保留，真实模型/外部服务/candidate执行均未发生，不补造验证。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 123,
+          "heading": "## How to read the code",
+          "chinese_heading": "源码阅读路线",
+          "chinese_explanation": "本课main/test所有字节已静读（70–73复用真实旧记录），函数目的与各test原断言/中文目的已另记；不是import或test pass。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        },
+        {
+          "line": 131,
+          "heading": "## Going further",
+          "chinese_heading": "扩展实践",
+          "chinese_explanation": "原非编号扩展全部见original_practices，每项含中文判断/交付范围与未运行标识，不当用户已完成实践。",
+          "reading_status": "正文已静读；概念/源实现/缺口分别解释"
+        }
+      ],
+      "read_complete": true,
+      "written": false,
+      "accepted": false,
+      "tests_static_read": [
+        {
+          "name": "test_abstract_raises",
+          "line": 52,
+          "end_line": 54,
+          "assertions": [
+            "self.assertRaises(NotImplementedError)"
+          ],
+          "chinese_purpose": "抽象adapter.generate抛NotImplementedError；不验证真实provider协议。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestAdapterInterface"
+        },
+        {
+          "name": "test_rule_based_always_correct_on_targets",
+          "line": 56,
+          "end_line": 62,
+          "assertions": [
+            "self.assertTrue(r.correct, f\"task {r.task_id} expected correct\")"
+          ],
+          "chinese_purpose": "fixture经RuleBased后仅EM/accuracy断言correct；adapter直接读取gold，不能当真实LM正确能力。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestAdapterInterface"
+        },
+        {
+          "name": "test_no_tasks_returns_empty",
+          "line": 66,
+          "end_line": 69,
+          "assertions": [
+            "self.assertEqual(results, [])",
+            "self.assertEqual(buf, {\"rule_based\": []})"
+          ],
+          "chinese_purpose": "无tasks返回空results与rule_based空buf；仍应报无评测未知，不是成功或校准0。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestRunEval"
+        },
+        {
+          "name": "test_no_adapters_returns_empty",
+          "line": 71,
+          "end_line": 75,
+          "assertions": [
+            "self.assertEqual(results, [])",
+            "self.assertEqual(buf, {})"
+          ],
+          "chinese_purpose": "无adapters返回空results与空buf；缺系统/配置不能当全部任务已完成。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestRunEval"
+        },
+        {
+          "name": "test_parallel_sequential_match",
+          "line": 77,
+          "end_line": 85,
+          "assertions": [
+            "self.assertEqual(seq_scores, par_scores)"
+          ],
+          "chinese_purpose": "独立两个RuleBased串/并行逐task score一致；未覆盖Noisy shared RNG、side-channel次序/失败/超时或真实provider线程安全。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestRunEval"
+        },
+        {
+          "name": "test_calibration_buf_populated",
+          "line": 87,
+          "end_line": 94,
+          "assertions": [
+            "self.assertEqual(len(buf[\"rule_based\"]), len(tasks))",
+            "self.assertEqual(len(entry), 3)",
+            "self.assertGreaterEqual(entry[0], 0.0)",
+            "self.assertLessEqual(entry[0], 1.0)"
+          ],
+          "chinese_purpose": "buf长度等task且每tuple3、confidence在范围；没有验证binary事件定义、strictfinite、caseID对齐或NLL传递。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestRunEval"
+        },
+        {
+          "name": "test_correct_threshold",
+          "line": 98,
+          "end_line": 103,
+          "assertions": [
+            "self.assertTrue(_correct_from_score(\"exact_match\", 1.0))",
+            "self.assertFalse(_correct_from_score(\"exact_match\", 0.99))",
+            "self.assertTrue(_correct_from_score(\"f1\", 0.6))",
+            "self.assertFalse(_correct_from_score(\"f1\", 0.49))",
+            "self.assertTrue(_correct_from_score(\"code_exec\", 1.0))"
+          ],
+          "chinese_purpose": "EM1真/.99假、F1.6真/.49假、code1真；未校准graded .5具有业务正确性，也未测近1阈值/非法分。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestScoring"
+        },
+        {
+          "name": "test_build_eval_runs",
+          "line": 105,
+          "end_line": 112,
+          "assertions": [
+            "self.assertEqual(len(runs), 2)",
+            "self.assertEqual(runs[0].score, 1.0)"
+          ],
+          "chinese_purpose": "两个手造TaskResult转两EvalRun且首分1；未核全部字段/身份/错误状态/缺失。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestScoring"
+        },
+        {
+          "name": "test_report_envelope",
+          "line": 116,
+          "end_line": 128,
+          "assertions": [
+            "self.assertIsInstance(report, EvalReport)",
+            "self.assertEqual(payload[\"summary\"][\"tasks\"], len(tasks))",
+            "self.assertEqual(payload[\"summary\"][\"models\"], 2)",
+            "self.assertIn(\"rule_based\", payload[\"calibration\"])",
+            "self.assertIn(key, payload)"
+          ],
+          "chinese_purpose": "report为EvalReport，JSON五个key和tasks/models数量以及calibration模型；未核fullcase账本/strict JSON/NaN/数据模型指标版本/完整分母。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestReport"
+        },
+        {
+          "name": "test_markdown_contains_models",
+          "line": 130,
+          "end_line": 138,
+          "assertions": [
+            "self.assertIn(\"Rank\", md)",
+            "self.assertIn(\"rule_based\", md)"
+          ],
+          "chinese_purpose": "渲染包含Rank与rule_based；未核百分区间标题/ID碰撞/转义或缺校准标unknown。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestReport"
+        },
+        {
+          "name": "test_rule_based_beats_noisy",
+          "line": 142,
+          "end_line": 148,
+          "assertions": [
+            "self.assertEqual(report.leaderboard[0][\"model_id\"], \"rule_based\")"
+          ],
+          "chinese_purpose": "gold-reading RuleBased在固定fixture/seed 排第一；这只是模拟策略差，未验证strict分差/CI/真实模型质量。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestRanking"
+        },
+        {
+          "name": "test_biased_strong_on_good_category",
+          "line": 150,
+          "end_line": 158,
+          "assertions": [
+            "self.assertGreater(sum(arith_scores) / len(arith_scores),\n                               sum(other_scores) / len(other_scores))"
+          ],
+          "chinese_purpose": "仅两类list皆非空才断言arithmetic均值高于其它；若列表缺失测试条件跳过，不能证明所有切片覆盖。",
+          "validation_level": "仅静读测试定义，未执行；断言不能替代缺失负例或真实模型能力",
+          "test_class": "TestRanking"
+        }
+      ],
+      "source_test_definition_count": 12,
+      "source_programs_executed": 0,
+      "learning_contract": [
+        "先冻结schema/dataset bytes/split/taskID与caseID、模型/请求类型/解码/模板/后处理/metric/资源版本，完成预定model×case矩阵；adapter接口只是一条接线，不能只凭model_id名称归因模型改进。",
+        "实际75通过_load_sibling加载70–74全部main并调用render/postprocess、文本metric、run_candidate、CalibrationReport/PerplexityResult、aggregate/pairwise_diffs，没有重写这些算法。模块加载会执行top-level，不能为静读验收import75/测试；72candidate任何路径本轮均不运行。",
+        "每case状态与输出/来源/失败原因/NLL/count/usage要直接从本次请求结果绑定case保存；plan、started、completed、scored、timeout/error/unknown分别计数并保完整分母。score不是task成功次数，soft阈值定义的新事件不等原正确性，所有失败不能丢。",
+        "perplexity只对明确有效token likelihood算 exp(sumNLL/sumcounts)，须参考语料/tokenizer/mask/window/计分请求身份；生成自身text的likelihood和人工mockNLL不能称held-out LM PPL。未返回stats时应null+reason，strictJSON不能NaN。",
+        "校准confidence对应预定binary事件，不由clamp造合法概率，不把F1/ROUGE>=.5自称真实答案正确。代码全pass与partialassertions区分；sourcecorrect near1阈值版本固定，校准与业务正确性另验。",
+        "网络I/O线程可并行但共享adapter需线程安全与case级稳定随机性，结果排序仅排序已完成记录不证明请求复现；generate/queue/metric分阶段deadline、全run预算、取消与进程树实际停止须显式设计，不能线程返回=工作停止。",
+        "report序列化/打印表/exit0只证明达到具体演示条件。真实质量应同case基线/候选完整diff、paired uncertainty、全部候选选择政策及关键切片，saveJSON不能当benchmark改善或部署通过。"
+      ],
+      "code_static_walk": [
+        {
+          "symbols": "_load_sibling/spec_mod/metrics_mod/exec_mod/calib_mod/board_mod",
+          "purpose": "相对路径固定五课main，spec_from_file_location+sys.modules+exec_module实际导入，不按module_name形参（未使用）选择其它module；无digest/version/隔离校验；静读过程中未调用。"
+        },
+        {
+          "symbols": "Generation/ModelAdapter/TaskResult/EvalReport",
+          "purpose": "Generation含text/conf/default .5/NLL0/count0；TaskResult存model/task/category/metric/score/阈值correct/conf/rawgen/detail/adapter wall；EvalReport只汇总四block+summary/error，不保逐例TaskResult、schema/请求/版本。"
+        },
+        {
+          "symbols": "_correct_from_score/_score_one",
+          "purpose": "EM/accuracy/code score>=.999999，其它>=threshold .5；render→timed generate→postprocess→metric；code extract or processed兜底执行，失败解析可能又送raw；conf min/max夹0–1，浮点转换后无schema/finite；wall只generate不含render/postprocess/metric。"
+        },
+        {
+          "symbols": "run_eval",
+          "purpose": "唯一modelID检查；全adapters×tasks组成work，所有future一次提交，as_completed结果fut.result直抛；无逐case异常ledger/取消/timeout，退出with会等工作。最后按model/task排序，用每条conf、binarycorrect、score填buf（注解第三项int实际float）。"
+        },
+        {
+          "symbols": "build_eval_runs/_calibration_blocks/_perplexity_blocks",
+          "purpose": "TaskResult转74 EvalRun丢raw/detail/wall与correct；calibration只取ECE/Brier/count，不保reliability数组或分解；PPL只读调用方adapter_token_stats，传入buf/results未使用。"
+        },
+        {
+          "symbols": "render_report/render_markdown_block",
+          "purpose": "B200 alpha.05 seed7给rows/diffs；summary len(tasks)/len(adapters)/len(results)/wall，不核results=plan且ID一致；JSON允许NaN，表硬95%并截ID20、不转义；没有缓存或写文件API。"
+        },
+        {
+          "symbols": "RuleBasedAdapter/NoisyAdapter/BiasedAdapter",
+          "purpose": "RuleBased取task.targets[0]，固定code_001/002骨架；Noisy RNG概率.25读gold否则常句/字母A/减法，Biased goodcat直接gold否则猜测；split数算伪token数，人为每tokenNLL .8/2.5或1/3并append共享token_stats，不能称LM预测或校准真实概率。"
+        },
+        {
+          "symbols": "_load_fixture_tasks/demo",
+          "purpose": "tmp目录调用70创建good/bad fixtures、只validate good，未清tmp；三个mock×10 tasks线程6、code2sec；render表/summary/pairwise，未print to_json也不saveJSON。退出检查非空/top rule_based/bot非rule_based，未严格rule_based分数大于全部其它/无失败/全部scored；异常无structured error包装。"
+        }
+      ],
+      "source_defects": [
+        "docs 实际imports五模块的主张符合代码，但称ModelAdapter只text+optional confidence/per-token NLL不精确：Generation实际sequence total NLL，run_eval完全不使用其NLL/count，PPL依赖adapter额外token_stats成员且没case绑定。",
+        "run_eval直接接tasks无validate_record/任务唯一/非空ID/immutable检查；唯一modelID也无strict字符串/版本身份检查；render_report能接受不完整/错误model或task results而未核plan，只74在出现rows校验duplicate及range。",
+        "Generation返回未查类型、text、confidence、NLL/count及finite；clamp会把Inf折边界、NaN按此参数顺序折0（静态语言语义推理），把invalid伪装概率。score float转换不保证finite；threshold .5没验证metric方向/语义，unknown metric只在具体dispatch后发现。",
+        "_score_one code路径 extract_code(processed) or processed使未闭fence/空抽取兜底raw执行，与72 score_code_exec解析失败返0不一致；70与72重复抽取政策有冲突。score/detail丢run_candidate exit_code/passed/total/逐test；代码error/timeout折零而全suite可继续排行，没有unknown/阻断策略。",
+        "generate无限时、没有队列/总run deadline；timeout_s只传code candidate，wall=time.time前后只generate并非percase端到端或单纯token推理。无monotonic或usage成本，doc under10sec未运行无证据。",
+        "所有work预提交；fut.result异常时直接raise，context manager等待已有worker/futures，没有cancel_futures/stop flag/保存已有results/失败完整ledger；串行首异常也停且丢返回。线程池返回或异常不证明72后代进程已停止。",
+        "同adapter跨task共享RNG和mutable token_stats，sort结果不恢复随机调用映射；Noisy并行seed无法保证逐case相同。重复run重用adapter会累积旧stats，PPL污染本run；无snapshot/clear/请求ID校验。",
+        "Noisy偶尔直接targets时code targets是assertion表达式不是完整candidate，可能非预期程序；Biased good_category=code同样读assertions；gold直读RuleBased和人为NLL为fixture，无真实model/loglikelihood/heldout。",
+        "selfreported confidence的binary事件未校准；softF1/ROUGE/BLEU .5统一阈值不意味着真实业务correct，code>=.999999允许高fraction误充allpass。calibration没有切片/labelversion，空buffer ECE/Brier0掩盖无样本。",
+        "_perplexity_blocks无stats填NaN/0，JSON默认可输出NaN非strictJSON；返回Generation的nll/count即使有效也不会被用，stats未对case/split/repeat绑定，generatedtokens统计与heldout corpus不同；buf/results形参未消费。",
+        "EvalReport不保逐case output/score/state/detail/latency，模型/task/dataset/prompt/metric版本、hash、解码/stop、rubric、资源/成本、run/repeatID均缺。只保存汇总不足复算、失败分母、配对identity或归因。",
+        "demo不输出fullJSON/写JSON文件，只print markdown+summary+pairwise；error属性没有自动catch填入，runtime错误无structured envelope；top rule_based条件在均值相同稳定排序时也可能成立，不是strictlyabove随机adapter，源实际无RandomAdapter。",
+        "代码没有cache/retry/ratelimit/APIkey/stream/pass@k采样；docs cache(task_id,model_id,model_version)不足，须taskbytes/dataset/request/template/params/metric/版本和repeat；provider free-tier30lines不是当前verified接入方法，本轮不访问服务。",
+        "12测试定义静读，未执行（实际会导入75并执行72候选）；没有duplicate model负例、异常stop/cancel、缺失/错ID、generationfinite、NLL传递、重用stats、Noisy并行一致或strictJSON/版本绑定覆盖。"
+      ],
+      "original_practices": [
+        {
+          "type": "Going further非编号练习",
+          "topic": "结果cache、usage/cost ledger、rate-limit retry、pass@k sampling、长suite streaming",
+          "judgment": "cache绑定实际任务/请求/输出评价版本；ledger记录真实usage与费用未知；重试保attempt ID/完整耗时与故障，不把重试当独立case；pass@k固定n>=k/c计完整pass；stream保已写断点及失败终态。本轮仅静读，未实现/运行。"
+        },
+        {
+          "type": "Going further非编号练习",
+          "topic": "先mock后新增真实provider adapter与第二provider比较",
+          "judgment": "当前没有调用服务/免费层核验；真实adapter应先明确请求语义、模型revision/参数、Token统计、deadline、身份/成本与错误合同，然后固定同case比较；代码行数不能证明合法可靠可比，尚未执行。"
+        }
+      ],
+      "existing_entry_relation": [
+        "LLM06 §27.2 已有adapter请求类型/输出ID/失败/缓存与身份、§11账本和diff；75增量保实际模块依赖/不保逐例与NLL旁路，避免复制模拟runner。",
+        "LLM06 §9.1与§26复用真实有效token PPL；§3/§4/§27合并阈值correct、全失败未知与配对差/选择偏差；代码安全仍归§15/§27，不复用72执行模板。"
+      ],
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "question": "What is the smallest possible surface for the ModelAdapter interface?",
+          "options": [
+            "complete, embed, classify, summarise",
+            "init, login, generate, close",
+            "generate(prompt, task) returning text plus optional confidence and per-token nll",
+            "load_weights, generate, save_weights"
+          ],
+          "correct": 2,
+          "explanation": "One method covers any adapter. Everything else is optional decoration. The runner does not need a richer surface.",
+          "chinese_question": "ModelAdapter最小接口是什么？",
+          "chinese_judgment": "源generate(prompt,task)→Generation可封适配接线，但其中NLL是sequence总和，不是per-token列表；还需明确请求/model版本、text、strictfinite、case身份/timeout/usage和状态。返回字段存在不等可靠协议。"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "question": "Why does the runner accept a parallel flag rather than always running in parallel?",
+          "options": [
+            "Tests need deterministic execution order; the flag lets them switch to sequential",
+            "Parallel execution is unsafe in CPython",
+            "Parallel execution requires GPU",
+            "ThreadPoolExecutor is not stdlib"
+          ],
+          "correct": 0,
+          "explanation": "Tests want reproducibility. Production wants throughput. The flag splits those concerns without two code paths.",
+          "chinese_question": "为何保parallel开关？",
+          "chinese_judgment": "串行便于固定执行顺序检查，线程可用于I/O并发；实际是两条调度分支且Noisy shared RNG不保证case级重现，只有RuleBased测试score相同；不把parallel当吞吐改善证据。"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "question": "How does the runner determine the correct flag for the calibration buffer?",
+          "options": [
+            "It uses exact_match-style metrics at threshold 1.0 and graded metrics at threshold 0.5 by default",
+            "It calls the adapter twice and compares outputs",
+            "It uses the average bin confidence",
+            "It uses Brier decomposition"
+          ],
+          "correct": 0,
+          "explanation": "The threshold is metric-aware: exact_match-style metrics use a near-1.0 cutoff, while graded metrics use 0.5 by default.",
+          "chinese_question": "校准buffer的correct怎样定？",
+          "chinese_judgment": "源码EM/accuracy/code>=.999999，其它>=.5；这是阈值事件而非天然真实正确，code应依据全tests pass。阈值/version/metric方向与业务label需定义，并验证confidence对应同事件。"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "question": "Why does the runner build EvalRun records and hand them to the aggregator instead of computing the leaderboard inline?",
+          "options": [
+            "It keeps the runner agnostic to the aggregator and lets the leaderboard layer evolve without touching the runner",
+            "The aggregator is faster on numpy arrays than dataclasses",
+            "EvalRun is required by JSON Schema",
+            "EvalRun is more memory-efficient"
+          ],
+          "correct": 0,
+          "explanation": "Composition over inlining. The runner produces records; the aggregator owns the leaderboard math. Each lesson owns one concern.",
+          "chinese_question": "为什么构造EvalRun再交聚合器？",
+          "chinese_judgment": "实际模块组合将评分和汇总分开，有助各自演化；但EvalRun丢原generation/error/latency，必须额外保逐case账本、metric/schema身份与完整plan分母，不能把接口分工当已完整验收。"
+        },
+        {
+          "number": 5,
+          "stage": "check",
+          "question": "What is the role of the perplexity block in the final JSON envelope?",
+          "options": [
+            "It is computed from the bootstrap CI",
+            "It carries the held-out language modelling number per model, independent of task scoring",
+            "It is the input to the calibration report",
+            "It is required for the leaderboard ranking"
+          ],
+          "correct": 1,
+          "explanation": "Perplexity sits next to the leaderboard, not inside it. It uses the adapter's per-call token NLL and token counts.",
+          "chinese_question": "最终PPL block的角色是什么？",
+          "chinese_judgment": "应独立报告明确heldout LM有效target NLL；此源mock侧token_stats人为造值且源generated text split数非Tokenizer token，Generation nll未接入。不能把exp(.8)/exp(2.5)称真实heldout质量。无有效数据为null+reason。"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "question": "What is the clean-run exit criterion of the self-terminating demo?",
+          "options": [
+            "Every task validated, every task scored, calibration aggregated, and rule-based adapter strictly above the random adapter on the leaderboard",
+            "Every task scored above 0.9",
+            "ECE below 0.05 for every model",
+            "Bootstrap CI excludes zero for every pair"
+          ],
+          "correct": 0,
+          "explanation": "The demo enforces the contract end to end: every layer ran and the most accurate adapter is ranked accordingly.",
+          "chinese_question": "self-terminating demo clean-run的退出标准是什么？",
+          "chinese_judgment": "原题A描述文档目标，但实际代码仅非空/top rule_based/bot非rule_based，异常直接抛无structured envelope，没严格分差或完整失败ledger。exit0/表/JSON只能说明明确合同层检查，不能说明实际模型能力或benchmark改善。"
+        }
+      ],
+      "dynamic": {
+        "extract_path": "/tmp/study-capstone-70-75-dynamic-extract.json",
+        "full_function_static_read": false,
+        "notes": "由根最后注册函数统一阅读/核；本子任务仅来源24文件全静读，不冒称动态图全读或浏览器成功。",
+        "browser_runs": 0,
+        "root_final_registration_review": "由根统一"
+      },
+      "main_top_level_symbol_manifest": [
+        {
+          "name": "_load_sibling",
+          "line": 23,
+          "end_line": 35,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "Generation",
+          "line": 49,
+          "end_line": 53,
+          "type": "ClassDef"
+        },
+        {
+          "name": "ModelAdapter",
+          "line": 56,
+          "end_line": 60,
+          "type": "ClassDef"
+        },
+        {
+          "name": "TaskResult",
+          "line": 64,
+          "end_line": 74,
+          "type": "ClassDef"
+        },
+        {
+          "name": "EvalReport",
+          "line": 78,
+          "end_line": 96,
+          "type": "ClassDef"
+        },
+        {
+          "name": "_correct_from_score",
+          "line": 99,
+          "end_line": 102,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_score_one",
+          "line": 105,
+          "end_line": 134,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "run_eval",
+          "line": 137,
+          "end_line": 174,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "build_eval_runs",
+          "line": 177,
+          "end_line": 187,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_calibration_blocks",
+          "line": 190,
+          "end_line": 205,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "_perplexity_blocks",
+          "line": 208,
+          "end_line": 220,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "render_report",
+          "line": 223,
+          "end_line": 248,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "render_markdown_block",
+          "line": 251,
+          "end_line": 265,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "RuleBasedAdapter",
+          "line": 268,
+          "end_line": 288,
+          "type": "ClassDef"
+        },
+        {
+          "name": "NoisyAdapter",
+          "line": 291,
+          "end_line": 310,
+          "type": "ClassDef"
+        },
+        {
+          "name": "BiasedAdapter",
+          "line": 313,
+          "end_line": 336,
+          "type": "ClassDef"
+        },
+        {
+          "name": "_load_fixture_tasks",
+          "line": 339,
+          "end_line": 346,
+          "type": "FunctionDef"
+        },
+        {
+          "name": "demo",
+          "line": 349,
+          "end_line": 381,
+          "type": "FunctionDef"
+        }
+      ]
+    }
+  ],
+  "prior_partial_history": "/tmp/study-capstone-70-75-reading-history-20261012-before-recovery.json",
+  "checkpoint_date": "2026-10-12",
+  "acceptance_note": "493为父任务当前已验收基线；本报告静读不增加验收数，旧partial历史另存",
+  "reading_manifest": {
+    "date": "2026-10-12",
+    "source_repository": "rohitg00/ai-engineering-from-scratch",
+    "fixed_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+    "local_source": "/tmp/study-source1-ai-engineering-20261008",
+    "head_matches_fixed_commit": true,
+    "counts": {
+      "files": 24,
+      "true_h2_h4": 65,
+      "test_definitions": 139,
+      "quiz": 36,
+      "original_practice_items": 7
+    },
+    "complete_static_read": true,
+    "written": 0,
+    "accepted": 0,
+    "accepted_baseline_unchanged": 493,
+    "source_executions": 0,
+    "source_imports": 0,
+    "candidate_executions": 0,
+    "source_tests_run": 0,
+    "model_gpu_api_calls": 0,
+    "external_current_verification": "本子任务未做外部/当前API验证；以固定commit实际静读与语言语义分析为限，未核当前实现的扩展不写作已验证",
+    "figures": "正式最后注册函数由根核；本子任务未运行浏览器。74/75 dynamic.full_function_static_read=false明确保留",
+    "history": "/tmp/study-capstone-70-75-reading-history-20261012-before-recovery.json"
+  }
+}
