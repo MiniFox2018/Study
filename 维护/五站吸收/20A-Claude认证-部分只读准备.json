@@ -11,7 +11,7 @@
     "truncated": false
   },
   "scope": "certifications/claude/lessons 33篇及对应课内文件完整静读；不修改课程状态",
-  "status": "00–08全课内静读；09–32语义未读",
+  "status": "00–10十一课全课内完整静读；11–32语义未读；正式写入/验收另计",
   "lessons": [
     {
       "lesson": "00-certification-strategy",
@@ -4824,8 +4824,15 @@
           "git_blob": "ad651d30e9413d416f1d645454206d7d0d10df5f",
           "official_tree_verified": true,
           "line_count": 135,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              135
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         },
         {
           "path": "certifications/claude/lessons/09-structured-output-and-defensive-parsing/code/tests/test_main.py",
@@ -4834,8 +4841,15 @@
           "git_blob": "0ac7b2e1ffb2cd88b0b3d4233ac1300448e4c5df",
           "official_tree_verified": true,
           "line_count": 57,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              57
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         },
         {
           "path": "certifications/claude/lessons/09-structured-output-and-defensive-parsing/docs/en.md",
@@ -4844,8 +4858,15 @@
           "git_blob": "a4d44676070adf2a308525c131c2c1418446d365",
           "official_tree_verified": true,
           "line_count": 358,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              358
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         },
         {
           "path": "certifications/claude/lessons/09-structured-output-and-defensive-parsing/outputs/validated-triage.json",
@@ -4854,8 +4875,15 @@
           "git_blob": "aeae2a9c21098ccb4aa8ffcd0aabd7b6138382c1",
           "official_tree_verified": true,
           "line_count": 6,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              6
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         },
         {
           "path": "certifications/claude/lessons/09-structured-output-and-defensive-parsing/quiz.json",
@@ -4864,203 +4892,400 @@
           "git_blob": "9d9add4c9a9ddaf879ae30ddb934f854216c4cf9",
           "official_tree_verified": true,
           "line_count": 78,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              78
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         }
       ],
       "outside_fence_h2_h4": [
         {
           "line": 10,
           "heading": "## Learning Objectives",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "把语法/shape/语义/授权四门分清，repair、schema迁移、streaming完结与未知状态不能混为JSON parse成功。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 19,
           "heading": "## The JSON That Should Have Failed",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "priority9语法合法但超过业务1..5域，schema和路由必须决定；JSON存在所有key不等可执行。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 59,
           "heading": "## Prompting for JSON Is Not a Contract",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "提示要求不能保证格式；即便平台限制解码也仍需语义与权限。精确当前API/model组合本轮未核，不抄固定菜单。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 99,
           "heading": "## Design Schemas From Consumer Decisions",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "按消费决策用enum、bounds、证据IDs、未知和version，null与missing分开，模式用tagged union而非任意optional。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 136,
           "heading": "## Parse Strictly",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "原字符串保持；不盲删fence/强转bool/int/str。Python默认JSON仍接受NaN/Inf和重复key覆盖，严格合同须另实现。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 166,
           "heading": "## Validate Meaning After Shape",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "真实invoice/主体/资源/金额与跨字段关系由可信应用核，此sample代码没有真实业务语义/权限。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 184,
           "heading": "## Repair With a Budget",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "合法结构错误可有限repair，缺证据不修事实；原代码只attemptcount，缺时间/token预算、provider失败与重复fingerprint状态。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 211,
           "heading": "## Tool Inputs and Final Outputs Are Different Contracts",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "toolinput/finalschema两个边界，模型approved不授权；current tool_choice准确wire shape未本轮核，不当永久API指南。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 238,
           "heading": "## Pydantic Is a Validator Implementation, Not the Contract",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "validator仅实现shape/crossfield，生产schema/strict/coercion需配套；不安装Pydantic或以名字保证真实性。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 258,
           "heading": "## Streaming Produces Partial Syntax",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "未闭structured block是partial非最终invalid；terminal后再parse/shape/meaning/auth发布，断流/quarantine不自动补尾。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 274,
           "heading": "## Schema Evolution Is an API Migration",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "prompt/producer/consumer/validator/version与兼容窗口一起迁移，拒未知版本不靠静默coercion。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 287,
           "heading": "## Build the Validator and Repair Loop",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "customJSONSchema subset函数+2scriptedresponses，不是完整标准validator/模型API；arrays仅items无min/maxItems，未知type/keyword可静默忽略。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 303,
           "heading": "## Interactive Lab",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "makePipeline滑块只显示5固定阶段/desc verified文字，不运行validate或repair，也不证明实际权限。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 311,
           "heading": "## Practice Lab",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "源demo/八tests静读，代码不能宿主执行来冒学习或SDK接入，题设negative须有实际预期与状态。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 315,
           "heading": "## Shipped Artifact",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "checkedinJSON是第二个scripted合法response，存在/测试名称不代表本轮运行或真正业务决策。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 319,
           "heading": "## Verify It",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "source CLI/unittest指令作为教学数据，本轮未run/import。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 327,
           "heading": "## Capstone Connection",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "capstone29–32依赖此合同；后续读取检查实际schema/policy身份与验证产物不能假设。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 331,
           "heading": "## Exam Decision Rules",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "考试记忆规则要回真实四门、final vs partial、有限retry及未知；不是平台当前考试官方认可证明。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 342,
           "heading": "## Exercises",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "六原实践保方法与验收：arraybound/crossfield/ownedinvoice/versionadapter/negativeinput/strictcoercion，真实服务和库安装未做。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 351,
           "heading": "## Further Reading",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "原官方入口保为追溯，未本轮全文读Anthropic/Pydantic/JSONSchema；源2026-08-09note不当本轮当前验证。",
+          "actual_read_date": "2026-10-13"
         }
       ],
-      "quiz": {
-        "lesson": "09-structured-output-and-defensive-parsing",
-        "title": "Structured Output Is an Untrusted Contract",
-        "questions": [
-          {
-            "stage": "pre",
-            "question": "A response is valid JSON and matches its schema. What has not yet been proven?",
-            "options": [
-              "That its claims are true and its proposed action is authorized",
-              "That every required key is present and no forbidden key was returned",
-              "That the response can be parsed into the declared primitive field types",
-              "That enum membership, string lengths, and numeric bounds are structurally valid"
-            ],
-            "correct": 0,
-            "explanation": "Syntax and schema validation do not establish semantic truth, resource ownership, or permission to act."
-          },
-          {
-            "stage": "check",
-            "question": "Why is silently converting the string \"4\" to integer 4 risky?",
-            "options": [
-              "It should occur before parsing so the producer's original value stays observable",
-              "It hides a contract violation and can make incompatible output appear valid",
-              "It preserves intent but prevents the validator from checking numeric bounds",
-              "It is safe whenever the schema also allows numeric strings through a union type"
-            ],
-            "correct": 1,
-            "explanation": "Optimistic coercion changes the returned value and masks a producer or schema problem. Strict parsing keeps failures observable."
-          },
-          {
-            "stage": "check",
-            "question": "Which schema choice best prevents new model-generated fields from leaking into logs?",
-            "options": [
-              "Store the raw response in restricted logs before parsing downstream fields",
-              "Accept extra fields and rely on log-redaction rules to remove sensitive ones",
-              "Set additionalProperties to false and map only approved fields",
-              "Allow optional extension fields but omit them from the user-facing result"
-            ],
-            "correct": 2,
-            "explanation": "Rejecting unexpected fields and explicitly mapping the validated contract prevents accidental propagation of unapproved content."
-          },
-          {
-            "stage": "check",
-            "question": "When should a bounded repair loop stop and escalate rather than keep requesting JSON?",
-            "options": [
-              "After the first structural failure, even when the evidence and repair are clear",
-              "Only when context and rate limits are reached during the same attempt",
-              "Whenever a schema-valid object fails one semantic business rule",
-              "When required evidence is absent or the retry budget is exhausted"
-            ],
-            "correct": 3,
-            "explanation": "Repair can correct formatting or shape. It cannot safely invent missing evidence, and unlimited retries waste budget and amplify hostile input."
-          },
-          {
-            "stage": "post",
-            "question": "A structured stream currently contains only {\"category\":\"bill. What should the application do?",
-            "options": [
-              "Buffer it until the content block and message complete, then parse and validate",
-              "Complete the obvious suffix locally, then validate the reconstructed object",
-              "Treat the prefix as malformed final JSON and begin a repair request immediately",
-              "Route it to billing provisionally because the observed prefix matches that category"
-            ],
-            "correct": 0,
-            "explanation": "The prefix is incomplete, not a finished contract. No downstream action should run until the stream completes and the full value passes validation."
-          },
-          {
-            "stage": "post",
-            "question": "Which component should verify that a refund does not exceed the authenticated user's charge?",
-            "options": [
-              "A constrained schema that limits refunds to a global maximum amount",
-              "Deterministic application code using authenticated identity and trusted charge records",
-              "A model reviewer that checks whether the refund seems proportionate",
-              "A system instruction that compares the amount with retrieved charge history"
-            ],
-            "correct": 1,
-            "explanation": "Ownership and monetary bounds are semantic and authorization checks. They require authenticated state and trusted application data."
-          }
-        ]
-      },
-      "read_complete": false,
-      "code_static_walk": [],
-      "tests_static_read": [],
-      "practices": [],
-      "existing_Study_entries": [],
-      "new_knowledge_gaps": [],
-      "volatile_claims_and_disposition": [],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "A response is valid JSON and matches its schema. What has not yet been proven?",
+          "options": [
+            "That its claims are true and its proposed action is authorized",
+            "That every required key is present and no forbidden key was returned",
+            "That the response can be parsed into the declared primitive field types",
+            "That enum membership, string lengths, and numeric bounds are structurally valid"
+          ],
+          "correct": 0,
+          "explanation": "Syntax and schema validation do not establish semantic truth, resource ownership, or permission to act.",
+          "chinese_reference_answer": "正确0；syntax/shape不证明事实/资源属于主体/权限，后两门独立",
+          "executed": false
+        },
+        {
+          "stage": "check",
+          "question": "Why is silently converting the string \"4\" to integer 4 risky?",
+          "options": [
+            "It should occur before parsing so the producer's original value stays observable",
+            "It hides a contract violation and can make incompatible output appear valid",
+            "It preserves intent but prevents the validator from checking numeric bounds",
+            "It is safe whenever the schema also allows numeric strings through a union type"
+          ],
+          "correct": 1,
+          "explanation": "Optimistic coercion changes the returned value and masks a producer or schema problem. Strict parsing keeps failures observable.",
+          "chinese_reference_answer": "正确1；静默coercion掩盖producer契约改变，必要转换须明确adapter版本而非修掉错误",
+          "executed": false
+        },
+        {
+          "stage": "check",
+          "question": "Which schema choice best prevents new model-generated fields from leaking into logs?",
+          "options": [
+            "Store the raw response in restricted logs before parsing downstream fields",
+            "Accept extra fields and rely on log-redaction rules to remove sensitive ones",
+            "Set additionalProperties to false and map only approved fields",
+            "Allow optional extension fields but omit them from the user-facing result"
+          ],
+          "correct": 2,
+          "explanation": "Rejecting unexpected fields and explicitly mapping the validated contract prevents accidental propagation of unapproved content.",
+          "chinese_reference_answer": "正确2；禁止额外fields+显式映射可减少传播，但raw/error/trace仍可能泄露，日志也要最小化",
+          "executed": false
+        },
+        {
+          "stage": "check",
+          "question": "When should a bounded repair loop stop and escalate rather than keep requesting JSON?",
+          "options": [
+            "After the first structural failure, even when the evidence and repair are clear",
+            "Only when context and rate limits are reached during the same attempt",
+            "Whenever a schema-valid object fails one semantic business rule",
+            "When required evidence is absent or the retry budget is exhausted"
+          ],
+          "correct": 3,
+          "explanation": "Repair can correct formatting or shape. It cannot safely invent missing evidence, and unlimited retries waste budget and amplify hostile input.",
+          "chinese_reference_answer": "正确3；缺事实/权限不通过repair编造，预算耗尽typedterminal；合法修形亦保原task和trace",
+          "executed": false
+        },
+        {
+          "stage": "post",
+          "question": "A structured stream currently contains only {\"category\":\"bill. What should the application do?",
+          "options": [
+            "Buffer it until the content block and message complete, then parse and validate",
+            "Complete the obvious suffix locally, then validate the reconstructed object",
+            "Treat the prefix as malformed final JSON and begin a repair request immediately",
+            "Route it to billing provisionally because the observed prefix matches that category"
+          ],
+          "correct": 0,
+          "explanation": "The prefix is incomplete, not a finished contract. No downstream action should run until the stream completes and the full value passes validation.",
+          "chinese_reference_answer": "正确0；partial等待合法terminal，不补后缀或见category早路由，断流保partial",
+          "executed": false
+        },
+        {
+          "stage": "post",
+          "question": "Which component should verify that a refund does not exceed the authenticated user's charge?",
+          "options": [
+            "A constrained schema that limits refunds to a global maximum amount",
+            "Deterministic application code using authenticated identity and trusted charge records",
+            "A model reviewer that checks whether the refund seems proportionate",
+            "A system instruction that compares the amount with retrieved charge history"
+          ],
+          "correct": 1,
+          "explanation": "Ownership and monetary bounds are semantic and authorization checks. They require authenticated state and trusted application data.",
+          "chinese_reference_answer": "正确1；trusted用户/charge/ownership与action权限由应用核，模型和通用额度上限不代替本主体charge",
+          "executed": false
+        }
+      ],
+      "read_complete": true,
+      "code_static_walk": [
+        "parse_and_validate jsonloads→validate subset issues→ContractError；source未import/run，syntax/shape不含semantic/auth",
+        "objecttype早return，required/additionalProperties/properties递归；primitive类型/intbool区分、enum/range/stringLength/arrayitems",
+        "unknown type fallbackTrue、null/combinators/ref/format不实现；array长度关键词未实现，object enum早return也不检查",
+        "BoundedExtractor遍历max_attempts，第二response修复；只catchContractError，generate/StopIteration/TypeError/RecursionError不转typedterminal，schema可变/反馈路径未隔离"
+      ],
+      "tests_static_read": [
+        {
+          "name": "test_shipped_artifact_matches_repaired_demo",
+          "line": 17,
+          "end_line": 19,
+          "chinese_purpose": "fixture等demo的第二scriptedresponse，不证明真实模型/语义",
+          "original_assertions": [
+            "self.assertEqual(json.loads(artifact.read_text(encoding=\"utf-8\")), demo())"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_valid_object_is_returned",
+          "line": 21,
+          "end_line": 22,
+          "chinese_purpose": "指定合法payload仅priority2返回，不覆盖所有shape",
+          "original_assertions": [
+            "self.assertEqual(parse_and_validate(VALID, TRIAGE_SCHEMA)[\"priority\"], 2)"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_markdown_fence_is_not_silently_stripped",
+          "line": 24,
+          "end_line": 26,
+          "chinese_purpose": "围栏raw被jsonloads拒绝，未全测trailing/duplicatekeys",
+          "original_assertions": [
+            "self.assertRaises(ContractError)"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_missing_required_field_reports_path",
+          "line": 28,
+          "end_line": 31,
+          "chinese_purpose": "一个needs_human缺失路径存在",
+          "original_assertions": [
+            "self.assertIn(\"$.needs_human\", str(caught.exception))",
+            "self.assertRaises(ContractError)"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_boolean_is_not_accepted_as_integer",
+          "line": 33,
+          "end_line": 35,
+          "chinese_purpose": "一个priority true确typed拒绝",
+          "original_assertions": [
+            "self.assertRaisesRegex(ContractError, \"expected integer\")"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_additional_field_is_rejected",
+          "line": 37,
+          "end_line": 39,
+          "chinese_purpose": "一个debug额外field拒绝；不证明rawlog脱敏",
+          "original_assertions": [
+            "self.assertRaisesRegex(ContractError, \"unexpected field\")"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_bounded_extractor_repairs_once",
+          "line": 41,
+          "end_line": 46,
+          "chinese_purpose": "脚本第二response合法且反馈字符串存在，非provider调用、semantic/auth检验",
+          "original_assertions": [
+            "self.assertEqual(extractor.extract(\"triage\")[\"category\"], \"billing\")",
+            "self.assertIn(\"Validation errors\", prompts[1])"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_bounded_extractor_stops_after_budget",
+          "line": 48,
+          "end_line": 53,
+          "chinese_purpose": "两个{}尝试耗尽ContractError；不覆盖bool/float预算、时间/生成异常",
+          "original_assertions": [
+            "self.assertEqual(len(calls), 2)",
+            "self.assertRaises(ContractError)"
+          ],
+          "executed": false
+        }
+      ],
+      "practices": [
+        {
+          "source_section": "Build/Practice/Shipped/Verify",
+          "criterion": "source仅scriptedvalidator，所有运行指令未执行；原8tests只相应fixture；四门独立路径需另实现",
+          "actual": "本5file完整静读；source/install/API/candidate0"
+        },
+        {
+          "source_number": 1,
+          "criterion": "evidence_ids设items string+maxLength与min/maxItems；现subset须补长度，不仅写schema；核int项/超长/空政策",
+          "executed": false
+        },
+        {
+          "source_number": 2,
+          "criterion": "可信uncertainty high→needs_human True跨字段；此triage无uncertainty，先version扩schema再核",
+          "executed": false
+        },
+        {
+          "source_number": 3,
+          "criterion": "auth user→可见invoice和charge amount读可信store，仅给最小证据，源未实现真实store",
+          "executed": false
+        },
+        {
+          "source_number": 4,
+          "criterion": "contract_version明确双读或adapter迁移，原/新对象和字段含义逐值核，schema版本不能只是decorator",
+          "executed": false
+        },
+        {
+          "source_number": 5,
+          "criterion": "fences/twoobjects/duplicatekeys/extra/rawcontrols/huge/boolean/deep/stringinjection每项分类syntax/shape/semantics/auth和资源终态，不eval/盲repair",
+          "executed": false
+        },
+        {
+          "source_number": 6,
+          "criterion": "另环境已授权时才用成熟Pydantic strict/coercing同向量对照；本轮未安装，不把coercion普遍判永不允许",
+          "executed": false
+        }
+      ],
+      "existing_Study_entries": [
+        "LLM 工程实践/13-结构化输出与对话状态.md",
+        "Agentic Design Patterns/01-核心章节/18-安全模式.md",
+        "LLM 工程实践/06-评测与实验管理.md",
+        "计算机科学基础/05-生产级软件工程.md"
+      ],
+      "new_knowledge_gaps": [
+        "复用既有strict typed/json/human/semantic授权主例；补源subset忽略arraybounds/unknownkeywords、provider生成异常和反馈低可信边界，不新造JSON教程",
+        "schema迁移与partialterminal绑定actualtask/template/版本身份；producer输出合法不代表可发布/可退款"
+      ],
+      "volatile_claims_and_disposition": [
+        "源2026-08-09structuredoutputs产品支持日期保为源note，本轮未查当前模型/API关键词/feature组合，不硬编码推荐",
+        "工具choice语义仅作为模式说明，当前wire对象待必要官方选读；examguide纯入口不当完成官方认证"
+      ],
       "dynamic_review": {
-        "status": "尚未读相关函数及实际注册",
+        "status": "root实际读取 makePipeline202–215、09literal339、pipelines构造392–400和LF.register416；1–202直接helper实际静读，LF共有wrapper复用先前同SHA静读",
+        "provider": "site/figures-claude-certifications.js",
+        "sha256": "c34728eff5fa1736b8de780ca482df5322e5a431a0d25e2367f9456337899b55",
+        "git_blob": "c02e5e5e558dd17fae22860a6bd98032f535f4eb",
+        "actual_read_ranges": [
+          [
+            1,
+            215
+          ],
+          [
+            336,
+            341
+          ],
+          [
+            386,
+            424
+          ]
+        ],
+        "judgment": "Generate/Parse/Validate/Repair/Escalate固定文案由stageSlider选择，前stage标verified只是UI文案，不是实际syntax/shape/auth检查或有界repair；无独立SVG/browser",
         "browser_runs": 0
       },
       "written": false,
-      "accepted": false
+      "accepted": false,
+      "source_defects": [
+        "Pythonjson默认NaN/Infinity与重复key最后覆盖政策，非完整strictJSON；numberNaN比较不触min/max错误",
+        "max_attempts bool接受、float在range报TypeError、生成和schema/nonstring异常缺统一终态；只有attempt数不限制wall/token",
+        "array minItems/maxItems缺实现，未知schema/keyword不拒，不能当完整JSONSchema",
+        "feedback含不可信keypath并直接拼入指令正文，源schema可变不hash/freeze，没有真正ownership/semantic/auth实现",
+        "tests八项无numericbound/enum/tie/NaN/重复keys/depth/arrays/跨字段/stream/迁移或权限"
+      ],
+      "actual_read_date": "2026-10-13"
     },
     {
       "lesson": "10-tool-use-and-agentic-loops",
@@ -5075,8 +5300,15 @@
           "git_blob": "3d28a60d296784d5c58b4b4d6e6e8efe9ae53577",
           "official_tree_verified": true,
           "line_count": 327,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              327
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         },
         {
           "path": "certifications/claude/lessons/10-tool-use-and-agentic-loops/code/tests/test_main.py",
@@ -5085,8 +5317,15 @@
           "git_blob": "900a4a9aabd60694e6468911baf4afbc1dbdfd60",
           "official_tree_verified": true,
           "line_count": 190,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              190
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         },
         {
           "path": "certifications/claude/lessons/10-tool-use-and-agentic-loops/docs/en.md",
@@ -5095,8 +5334,15 @@
           "git_blob": "eb42ba18f61243365aee3fe9937d74a4b30af4ae",
           "official_tree_verified": true,
           "line_count": 367,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              367
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         },
         {
           "path": "certifications/claude/lessons/10-tool-use-and-agentic-loops/outputs/runtime-and-tool-surface-decisions.json",
@@ -5105,8 +5351,15 @@
           "git_blob": "63e8c3b547e95c0e48609c6e42c38ea73a32f5d2",
           "official_tree_verified": true,
           "line_count": 51,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              51
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         },
         {
           "path": "certifications/claude/lessons/10-tool-use-and-agentic-loops/outputs/tool-loop-transcript.json",
@@ -5115,8 +5368,15 @@
           "git_blob": "662931ea657b836bdb25499964d9fe4c4f3c11d7",
           "official_tree_verified": true,
           "line_count": 24,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              24
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         },
         {
           "path": "certifications/claude/lessons/10-tool-use-and-agentic-loops/quiz.json",
@@ -5125,228 +5385,515 @@
           "git_blob": "eba5c634c2c2b390dbc18f60204283d94be89ea4",
           "official_tree_verified": true,
           "line_count": 78,
-          "semantic_read_complete": false,
-          "semantic_read_ranges": []
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              78
+            ]
+          ],
+          "actual_semantic_read_date": "2026-10-13",
+          "source_imported_or_executed": false
         }
       ],
       "outside_fence_h2_h4": [
         {
           "line": 10,
           "heading": "## Learning Objectives",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "协议/工具catalog/schema/policy/运行边界与退出预算分开；SDK/managed只比较职责，不推荐本任务更改runtime。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 19,
           "heading": "## The Agent That Repeats a Payment",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "断线后写操作结果未知，不能重试整turn造重复；需操作ID/idempotency和可信状态回读，语言生成非事务控制。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 32,
           "heading": "## The Wire Contract Before the Framework",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "assistant完整tool_use→user按ID tool_result相邻sequence；源仅模拟clientMessage，不真实API，当前wire shapes待必要官方查。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 89,
           "heading": "## The Loop Has Explicit States",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "Ask/stopreason/validate/auth/execute/result/budget/final不同失败类和恢复政策，不能一个broadexcept默认重试。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 115,
           "heading": "## Tool Design Is Interface Design",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "工具聚焦能力、什么时候使用/不能使用/结果含义及最小输入，schema只是生成约束，host仍负责权限。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 119,
           "heading": "### Give Each Tool One Job",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "分离查/提议/批准执行，避免宽manage_customer隐藏危险权限；业务授权来自host，不来自source教程或模型。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 130,
           "heading": "### Write Selection Descriptions, Not Internal Documentation",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "names/descriptions用于选择和边界，实例成本/selection错误须实测，不贴整个API手册。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 150,
           "heading": "### Make Invalid Calls Hard to Express",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "narrow enum/required/bounds/modes，少用任意shell/SQL/URL/path；输入schema不可替handler校验或resource授权。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 156,
           "heading": "## Keep the Tool Catalog Small and Distinct",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "最少有效catalog需任务eval支持，Skill/MCP/子Agent边界各自职责，不用tool数量当能力成绩。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 173,
           "heading": "## Authorization Happens After Validation",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "可信主体/租户/资源/policy/approval与normalized action绑定，callback truthy不是密码学token；源没有真正ACL/reconciliation。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 190,
           "heading": "## Return Failures as Results",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "correlated typederror要说明效果确定/未知与可安全retry；source直接暴露异常str且未判副作用，outputserialization失败也可能发生在effect后。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 216,
           "heading": "## Multiple and Parallel Tool Calls",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "按ID一一返回，读独立腿可并行，依赖/写冲突先串行或事务；source列表comprehension是串行，tests仅顺序IDs不证parallel。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 226,
           "heading": "## Bound the Agent",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "turn/call/time/token/cost/error/repeat/cancel/approval/finaleffect多预算；code只max_turns，badtype/同ID重放/handler长时间不控制。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 244,
           "heading": "## Workflow or Agent",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "已知path用workflow含可选modelstep，未知观察驱动才boundedagent；固定选择表不是所有场景最优实证。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 258,
           "heading": "## Choose How Much Loop to Own",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "wire手写/SDK编排/remoteharness承担不同plumbing，auth/idempotency/finaleffect仍应用负责；产品beta当前状态/价格/接口未本轮核。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 274,
           "heading": "## First-Party Does Not Mean One Execution Boundary",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "provider-executed/client-schema/managed/custom/Skill/MCP按data与executionboundary分域，firstparty不等自动授权，Skill是procedure不是工具权限。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 291,
           "heading": "## Build the Loop",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "ScriptedModel两response→add7+8→15；registry/treehandwritten validator支持subset，decision_lab为预填requirements，无SDK或API。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 303,
           "heading": "## Interactive Lab",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "makeEquation 1−(1−p)^calls是独立Bernoulli至少一次成功，不是多步完整task成功；未实现4预算/重复触发/approval实验。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 311,
           "heading": "## Practice Lab",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "未知工具/坏schema/拒绝mutate/多call/handlererror/turnbudget模拟及executionboundary；真实API/remote工具/安装未做。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 315,
           "heading": "## Shipped Artifact",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "transcript是两轮scriptedfixture；runtime表verified_on常量2026-08-09不代表本轮current官方或四runtime实证。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 319,
           "heading": "## Verify It",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "source CLI与unittest作为教材未run/import，不以存在产物当模型/业务效果。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 327,
           "heading": "## Capstone Connection",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "回capstone30–32检查真实协议身份/验证条件，不凭关联link认为已完成那些模块。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 331,
           "heading": "## Exam Decision Rules",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "proposal/权限/idempotency/typedterminal/final回读职责可长期复用；beta/provider表与具体选型需当前原始资料/真实需求，源元规则不作为本任务审批门禁。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 348,
           "heading": "## Exercises",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "五项实践有低风险设计与独立验证：approvedaction/parallelread/ambiguouswrite/idempotency/repeat/MCP跨host，未运行真实动作。",
+          "actual_read_date": "2026-10-13"
         },
         {
           "line": 356,
           "heading": "## Further Reading",
-          "chinese_learning_meaning": null
+          "chinese_learning_meaning": "官方入口按必要范围再核；SDKToolRunner/managed/servertools兼容版本和执行/data边界未本轮完整查，不能承诺当前支持。",
+          "actual_read_date": "2026-10-13"
         }
       ],
-      "quiz": {
-        "lesson": "10-tool-use-and-agentic-loops",
-        "title": "A Tool Loop Is Controlled Delegation",
-        "questions": [
-          {
-            "stage": "pre",
-            "question": "What does a Claude tool_use block represent?",
-            "options": [
-              "A safe operation whenever the arguments conform to the declared JSON schema",
-              "A client-authorized operation already dispatched to the named service",
-              "A committed transaction whose arguments passed the server's input schema",
-              "A model proposal for the client to validate and execute"
-            ],
-            "correct": 3,
-            "explanation": "Claude proposes a tool and arguments. Deterministic client code still validates, authorizes, executes, and records the operation."
-          },
-          {
-            "stage": "check",
-            "question": "A supported SDK is available, custom tools execute in the application's existing sandbox, and no remote durable session or custom wire control is needed. Which loop is the best default?",
-            "options": [
-              "SDK Tool Runner with application authorization, budgets, and final-state validation",
-              "A hand-written REST loop because SDK-managed message sequencing removes policy control",
-              "A deterministic workflow even though the next tool depends on observations",
-              "Claude Managed Agents because any open-ended task requires a remote managed session"
-            ],
-            "correct": 0,
-            "explanation": "Tool Runner removes repetitive client-loop plumbing while the application keeps execution, approval, sandboxing, budgets, and verification. Managed or hand-written infrastructure needs a concrete requirement."
-          },
-          {
-            "stage": "check",
-            "question": "A tool times out after the server may have sent a payment. What should happen before retry?",
-            "options": [
-              "Extend the timeout and resend only if the trace lacks a success event",
-              "Reconcile the operation by idempotency key and confirmed server state",
-              "Retry once with identical arguments because deterministic input prevents duplication",
-              "Ask Claude to compare the error with the conversation and infer the result"
-            ],
-            "correct": 1,
-            "explanation": "The outcome is ambiguous at the transaction boundary. Only idempotency and authoritative reconciliation can establish whether retry is safe."
-          },
-          {
-            "stage": "check",
-            "question": "A refund-review procedure should load only for relevant cases, while the approved refund action must run inside a private application service. Which composition fits?",
-            "options": [
-              "An Anthropic-schema computer tool that clicks the refund button without application policy",
-              "A server-executed built-in tool containing the private refund credentials",
-              "A Skill for the procedure plus a custom client tool for the authorized operation",
-              "An MCP server only, because reusable instructions and executable authority are the same layer"
-            ],
-            "correct": 2,
-            "explanation": "A Skill packages reusable procedure. The custom client tool preserves the private execution, identity, approval, and idempotency boundary."
-          },
-          {
-            "stage": "post",
-            "question": "Which success check is strongest for a deployment agent?",
-            "options": [
-              "The agent loop ends normally after reporting that post-deployment checks passed",
-              "The final response names the deployed version and cites the successful tool result",
-              "The trace shows that every planned deployment tool returned without an error",
-              "The configured version is healthy according to an independent final-state check"
-            ],
-            "correct": 3,
-            "explanation": "Protocol completion and confident prose do not prove the environment changed correctly. Verify the externally observable final state."
-          },
-          {
-            "stage": "post",
-            "question": "A task always extracts fields, validates them, and writes an approved record. What is the better default architecture?",
-            "options": [
-              "A deterministic workflow with an explicit model step",
-              "One model call that extracts and validates before invoking the write tool",
-              "A coordinator with separate extraction, validation, and writing subagents",
-              "A bounded agent that chooses among extraction, validation, and write tools"
-            ],
-            "correct": 0,
-            "explanation": "The path is known, so a workflow gives clearer control and testing. Agentic selection is useful when observations determine an unknown path."
-          }
-        ]
-      },
-      "read_complete": false,
-      "code_static_walk": [],
-      "tests_static_read": [],
-      "practices": [],
-      "existing_Study_entries": [],
-      "new_knowledge_gaps": [],
-      "volatile_claims_and_disposition": [],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What does a Claude tool_use block represent?",
+          "options": [
+            "A safe operation whenever the arguments conform to the declared JSON schema",
+            "A client-authorized operation already dispatched to the named service",
+            "A committed transaction whose arguments passed the server's input schema",
+            "A model proposal for the client to validate and execute"
+          ],
+          "correct": 3,
+          "explanation": "Claude proposes a tool and arguments. Deterministic client code still validates, authorizes, executes, and records the operation.",
+          "chinese_reference_answer": "正确3；tool_use只proposal，clientvalidate/auth/execute/回读；sourceflag不能赋实际session权限",
+          "executed": false
+        },
+        {
+          "stage": "check",
+          "question": "A supported SDK is available, custom tools execute in the application's existing sandbox, and no remote durable session or custom wire control is needed. Which loop is the best default?",
+          "options": [
+            "SDK Tool Runner with application authorization, budgets, and final-state validation",
+            "A hand-written REST loop because SDK-managed message sequencing removes policy control",
+            "A deterministic workflow even though the next tool depends on observations",
+            "Claude Managed Agents because any open-ended task requires a remote managed session"
+          ],
+          "correct": 0,
+          "explanation": "Tool Runner removes repetitive client-loop plumbing while the application keeps execution, approval, sandboxing, budgets, and verification. Managed or hand-written infrastructure needs a concrete requirement.",
+          "chinese_reference_answer": "正确0是给定requirements下候选SDK减少plumbing；sourceselector未校严格bool/需求矛盾，当前SDK/API需另核",
+          "executed": false
+        },
+        {
+          "stage": "check",
+          "question": "A tool times out after the server may have sent a payment. What should happen before retry?",
+          "options": [
+            "Extend the timeout and resend only if the trace lacks a success event",
+            "Reconcile the operation by idempotency key and confirmed server state",
+            "Retry once with identical arguments because deterministic input prevents duplication",
+            "Ask Claude to compare the error with the conversation and infer the result"
+          ],
+          "correct": 1,
+          "explanation": "The outcome is ambiguous at the transaction boundary. Only idempotency and authoritative reconciliation can establish whether retry is safe.",
+          "chinese_reference_answer": "正确1；timeout可能effect已成功，按操作id/idempotency可信服务状态回读后决定retry；同args不保证exactlyonce",
+          "executed": false
+        },
+        {
+          "stage": "check",
+          "question": "A refund-review procedure should load only for relevant cases, while the approved refund action must run inside a private application service. Which composition fits?",
+          "options": [
+            "An Anthropic-schema computer tool that clicks the refund button without application policy",
+            "A server-executed built-in tool containing the private refund credentials",
+            "A Skill for the procedure plus a custom client tool for the authorized operation",
+            "An MCP server only, because reusable instructions and executable authority are the same layer"
+          ],
+          "correct": 2,
+          "explanation": "A Skill packages reusable procedure. The custom client tool preserves the private execution, identity, approval, and idempotency boundary.",
+          "chinese_reference_answer": "正确2；Skillprocedure+privatecustomtool分别程序知识与执行边界，MCP是可组合连接而非自动权限",
+          "executed": false
+        },
+        {
+          "stage": "post",
+          "question": "Which success check is strongest for a deployment agent?",
+          "options": [
+            "The agent loop ends normally after reporting that post-deployment checks passed",
+            "The final response names the deployed version and cites the successful tool result",
+            "The trace shows that every planned deployment tool returned without an error",
+            "The configured version is healthy according to an independent final-state check"
+          ],
+          "correct": 3,
+          "explanation": "Protocol completion and confident prose do not prove the environment changed correctly. Verify the externally observable final state.",
+          "chinese_reference_answer": "正确3；健康版本独立探针最强，loopend/prose/call无error不保证最终实际状态",
+          "executed": false
+        },
+        {
+          "stage": "post",
+          "question": "A task always extracts fields, validates them, and writes an approved record. What is the better default architecture?",
+          "options": [
+            "A deterministic workflow with an explicit model step",
+            "One model call that extracts and validates before invoking the write tool",
+            "A coordinator with separate extraction, validation, and writing subagents",
+            "A bounded agent that chooses among extraction, validation, and write tools"
+          ],
+          "correct": 0,
+          "explanation": "The path is known, so a workflow gives clearer control and testing. Agentic selection is useful when observations determine an unknown path.",
+          "chinese_reference_answer": "正确0；固定抽取校验写有边界，用workflow含explicitmodelstep，不因模型可选tool就需coordinator",
+          "executed": false
+        }
+      ],
+      "read_complete": true,
+      "code_static_walk": [
+        "RuntimeNeeds/CapabilityNeeds frozen dataclass只注解无严格类型，selector先workflow→managed有betaflag→手写→SDK；capflag sum>1只是相同requirements示教",
+        "validator有primitive/null/union、enum、四numeric bounds、str/arraycounts/items和object props，但unsupported keywords/ref/complexschema仍非完整JSONSchema，bool/numeric enum Python相等不同JSON语义",
+        "ToolRegistry查name/schema；mutates由callbacktruthiness决定；sync handler→json.dumps；任何Exception str直接回model，效果/红action/limit未实施",
+        "ToolLoop完整appendassistantblocks+userresults；只end_turn/tool_use，calls串行，缺duplicate ID/replay、maxcall/time/token/cost/repeated/error/cancel/finalcontract",
+        "ScriptedModel pop两个response，add7+8→15；两个输出JSON为已冻结fixture，decision metadata日期常量非本轮测量"
+      ],
+      "tests_static_read": [
+        {
+          "name": "test_shipped_transcript_matches_demo",
+          "line": 30,
+          "end_line": 34,
+          "chinese_purpose": "transcript完全等scripted两轮fixture，不代表真实Messages",
+          "original_assertions": [
+            "self.assertEqual({\"answer\": answer, \"transcript\": transcript}, expected)"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_single_tool_round_trip",
+          "line": 36,
+          "end_line": 43,
+          "chinese_purpose": "一个call-id正确并finalok，未测重复/跨turn/replay",
+          "original_assertions": [
+            "self.assertEqual(answer, \"ok\")",
+            "self.assertEqual(messages[2][\"content\"][0][\"tool_use_id\"], \"c1\")"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_multiple_calls_return_multiple_results",
+          "line": 45,
+          "end_line": 54,
+          "chinese_purpose": "两个结果ID同源次序，实际syncserial，不核并行或重复ID",
+          "original_assertions": [
+            "self.assertEqual([r[\"tool_use_id\"] for r in messages[2][\"content\"]], [\"c1\", \"c2\"])"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_unknown_tool_is_model_visible_error",
+          "line": 56,
+          "end_line": 62,
+          "chinese_purpose": "正常strghost给is_error，不测unhashable名称/协议invalid",
+          "original_assertions": [
+            "self.assertTrue(messages[2][\"content\"][0][\"is_error\"])"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_schema_error_does_not_crash_loop",
+          "line": 64,
+          "end_line": 70,
+          "chinese_purpose": "missingrequired以error传，依旧第二scriptedfinal不证修复",
+          "original_assertions": [
+            "self.assertIn(\"missing required\", messages[2][\"content\"][0][\"content\"])"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_declared_type_is_checked_before_handler",
+          "line": 72,
+          "end_line": 80,
+          "chinese_purpose": "value7本应str，handler未调用，primitive限定fixture",
+          "original_assertions": [
+            "self.assertEqual(calls, [])",
+            "self.assertIn(\"expected string\", messages[2][\"content\"][0][\"content\"])"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_numeric_bounds_are_checked_before_handler",
+          "line": 82,
+          "end_line": 101,
+          "chinese_purpose": "value6>max5拒且handler空；无min/NaN/floatbool深边界",
+          "original_assertions": [
+            "self.assertEqual(calls, [])",
+            "self.assertIn(\"above maximum 5\", messages[2][\"content\"][0][\"content\"])"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_string_and_array_bounds_are_enforced",
+          "line": 103,
+          "end_line": 125,
+          "chinese_purpose": "一个minLength与minItems，仅这两项实际assert，不测试maxCases",
+          "original_assertions": [
+            "self.assertRaisesRegex(ValueError, \"minLength\")",
+            "self.assertRaisesRegex(ValueError, \"minItems\")"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_mutating_tool_requires_approval",
+          "line": 127,
+          "end_line": 133,
+          "chinese_purpose": "默认False拒mutate，未测回调truthy伪bool或真实token/expiry/资源",
+          "original_assertions": [
+            "self.assertEqual(messages[2][\"content\"][0][\"content\"], \"Approval denied\")"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_handler_exception_becomes_error",
+          "line": 135,
+          "end_line": 143,
+          "chinese_purpose": "OSError offline串转换给model，不证明脱敏或效果已无/已知",
+          "original_assertions": [
+            "self.assertIn(\"offline\", messages[2][\"content\"][0][\"content\"])"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_turn_budget_stops_runaway_agent",
+          "line": 145,
+          "end_line": 148,
+          "chinese_purpose": "一次call后maxturn1失败；不测toolcall/time/token/cost/repeat/cancel",
+          "original_assertions": [
+            "self.assertRaisesRegex(ToolLoopError, \"maximum turns\")"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_shipped_runtime_decisions_match_lab",
+          "line": 150,
+          "end_line": 152,
+          "chinese_purpose": "四预填runtime/四surface表等常量，不等current官方或实际运行",
+          "original_assertions": [
+            "self.assertEqual(json.loads(artifact.read_text(encoding=\"utf-8\")), decision_lab())"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_runtime_choice_preserves_workflow_gate",
+          "line": 154,
+          "end_line": 160,
+          "chinese_purpose": "三个typedfixture排序返回预填string，未校构造strictbool/矛盾需求",
+          "original_assertions": [
+            "self.assertEqual(choose_runtime(RuntimeNeeds(open_ended=False)), \"deterministic-workflow\")",
+            "self.assertEqual(choose_runtime(RuntimeNeeds(open_ended=True)), \"sdk-tool-runner\")",
+            "self.assertEqual(\n            choose_runtime(RuntimeNeeds(open_ended=True, needs_custom_wire_control=True)),\n            \"hand-written-loop\",\n        )"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_managed_runtime_requires_explicit_beta_acceptance",
+          "line": 162,
+          "end_line": 174,
+          "chinese_purpose": "False拒remote、True许remote，字符串false等truthy未拒，不改变本任务授权",
+          "original_assertions": [
+            "self.assertEqual(\n            choose_runtime(\n                RuntimeNeeds(\n                    open_ended=True,\n                    needs_remote_durable_session=True,\n                    accepts_managed_beta=True,\n                )\n            ),\n            \"managed-agents\",\n        )",
+            "self.assertRaisesRegex(ValueError, \"explicit acceptance\")"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_skill_composes_with_an_execution_surface",
+          "line": 176,
+          "end_line": 180,
+          "chinese_purpose": "Skill+custom元数据composition，不运行Skill或权限检查",
+          "original_assertions": [
+            "self.assertEqual(decision[\"procedure\"], \"skill\")",
+            "self.assertEqual(decision[\"execution\"], \"custom-client-tool\")",
+            "self.assertEqual(decision[\"authorization_owner\"], \"application-policy\")"
+          ],
+          "executed": false
+        },
+        {
+          "name": "test_capability_surface_has_one_execution_boundary",
+          "line": 182,
+          "end_line": 186,
+          "chinese_purpose": "两个Trueexecutionflag拒绝，未验证非boolflag/字段类型",
+          "original_assertions": [
+            "self.assertRaisesRegex(ValueError, \"one execution boundary\")"
+          ],
+          "executed": false
+        }
+      ],
+      "practices": [
+        {
+          "source_section": "Build/Practice/Shipped/Verify",
+          "criterion": "所有source方法及artifact/runtimetable完整静读，16源tests只limited fixture/branches；真SDK/managed/MCP/server/Skill/write/网络0执行",
+          "actual": "6课内files/原图helper完整静读，未安装或生成模型"
+        },
+        {
+          "source_number": 1,
+          "criterion": "approved_refund需host可信token绑actor/resource/normalizedaction/opid/expiry，拒模型text伪造，不执行真实退款",
+          "executed": false
+        },
+        {
+          "source_number": 2,
+          "criterion": "两个独立只读腿parallel，逐callID关联+确定展示顺序/单腿failure，全批不是假统一成功；source当前串行",
+          "executed": false
+        },
+        {
+          "source_number": 3,
+          "criterion": "side-effect timeout记unknown，可信opid回读并支持idempotentserver，不能从missingtrace或sameargs推没发生",
+          "executed": false
+        },
+        {
+          "source_number": 4,
+          "criterion": "canonical toolname/input hash+授权版本作重复fingerprint，预算如何计retry/attempt/cost分明，重复写不重发",
+          "executed": false
+        },
+        {
+          "source_number": 5,
+          "criterion": "两host共享MCP：transport/auth/consent与serverresource过滤、host策略和数据出口各负责；discovery/Skill加载不赋权限",
+          "executed": false
+        }
+      ],
+      "existing_Study_entries": [
+        "Agentic Design Patterns/01-核心章节/05-工具使用.md",
+        "Agentic Design Patterns/01-核心章节/18-安全模式.md",
+        "Agentic Design Patterns/06-专题扩展/07-工具授权与发布治理.md",
+        "Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md",
+        "LLM 工程实践/13-结构化输出与对话状态.md"
+      ],
+      "new_knowledge_gaps": [
+        "复用已有proposal与auth/async/replay/未知副作用/完整termination主体，补具体sourcevalidator09与10的arraybounds差、truthyapproval/enum和serialization后效果未知反例",
+        "provider分类与SDK接线若要保current具体API必须必要一手选读；保稳定execution/data边界，不把表格selector当可靠推荐"
+      ],
+      "volatile_claims_and_disposition": [
+        "2026-08-08/09verified note、managedbeta/versionheader/events/toolset/平台能力未本轮核，后续写入不作为当前产品推荐",
+        "runtime四case选择为source requirementsfixture，不推荐用户当前更改agent model/配置，不运行SDK/Skill/MCP"
+      ],
       "dynamic_review": {
-        "status": "尚未读相关函数及实际注册",
+        "status": "root实际完整读取makeEquation217–231、tool-loop-budgetliteral363附近/figures构造及LF.register、直接helpers1–202先前root09同SHA全读",
+        "provider": "site/figures-claude-certifications.js",
+        "sha256": "c34728eff5fa1736b8de780ca482df5322e5a431a0d25e2367f9456337899b55",
+        "git_blob": "c02e5e5e558dd17fae22860a6bd98032f535f4eb",
+        "actual_read_ranges": [
+          [
+            217,
+            231
+          ],
+          [
+            360,
+            368
+          ],
+          [
+            392,
+            416
+          ]
+        ],
+        "judgment": "独立固定p Bernoulli至少一成功1−(1−p)^calls，不等完整依赖任务成功，不实现真实turn/time/approval/repeatedbudgets；所有P50等性能未测",
         "browser_runs": 0
       },
       "written": false,
-      "accepted": false
+      "accepted": false,
+      "source_defects": [
+        "未知toolname unhashable与非dictblock在try外crash，toolID只非空str不检重复/跨turn，handler可重复执行",
+        "approve非exactbool、mutates和RuntimeNeeds等注解不验证；字符串false可许写或beta需求，auth不绑定normalizedargs/资源/版本/expiry",
+        "serialmultiplecalls非parallel；max_turns bool接受/floatTypeError/0无有效调用，no wallclock/output/token/cost budget和actualcancellation",
+        "handler效果后jsondumps失败被当genericerror，无outcomeunknown/reconciliation/idempotency，异常raw字符串可能暴露秘密",
+        "end_turn忽略pendingtool_use/unsupported content类型且emptytext可final，未验最终schema/业务状态",
+        "数值无bounds的NaN/Inf可过number，Pythonenum[true]可接受1，未知JSONschema关键词及additionalProperties schema未完整实施",
+        "原interactive4预算/repeated/approval称可触发，但actualEq只计算独立至少一次成功，不是wholetrajectory或预算流程"
+      ],
+      "actual_read_date": "2026-10-13"
     },
     {
       "lesson": "11-mcp-server-design-and-integration",
