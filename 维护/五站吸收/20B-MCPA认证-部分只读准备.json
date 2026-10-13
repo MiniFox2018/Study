@@ -1,0 +1,3804 @@
+{
+  "date": "2026-10-13",
+  "scope": "Source1 certifications/mcpa 00–33共34标准课完整只读",
+  "fixed_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "initial_acquired_date": "2026-10-03",
+  "previous_recovery_date": "2026-10-08",
+  "current_recovery_date": "2026-10-13",
+  "source_executions": 0,
+  "source_imports": 0,
+  "source_tests_run": 0,
+  "source_MCP_server_runs": 0,
+  "sites_2_5_read": false,
+  "formal_files_changed": false,
+  "lessons": [
+    {
+      "lesson": "00-mcp-exam-strategy",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/00-mcp-exam-strategy/code/figure.snippet.js",
+          "bytes": 2258,
+          "sha256": "17c0c8349c439d4ce34b6440ae5befa9bc7f3db2b8313ceade2d899ff5767e62",
+          "git_blob": "24674fcf6615ef1a44d04a368c6b12f48462daff",
+          "fixed_tree_blob": "24674fcf6615ef1a44d04a368c6b12f48462daff",
+          "blob_matches_fixed_tree": true,
+          "line_count": 49,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第49行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读"
+        },
+        {
+          "path": "certifications/mcpa/lessons/00-mcp-exam-strategy/code/main.py",
+          "bytes": 8224,
+          "sha256": "4a977edf52199ef558cfca72fef301548aeec50425ce265ebb33051876245afa",
+          "git_blob": "4359c088553302b64db8acb0be570b765ace2f91",
+          "fixed_tree_blob": "4359c088553302b64db8acb0be570b765ace2f91",
+          "blob_matches_fixed_tree": true,
+          "line_count": 184,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第184行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读",
+          "definitions": [
+            {
+              "name": "validate_weights",
+              "line": 87,
+              "end_line": 90,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "validate_domain",
+              "line": 93,
+              "end_line": 97,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "allocate_study_hours",
+              "line": 100,
+              "end_line": 106,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "estimate_readiness",
+              "line": 109,
+              "end_line": 120,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "validate_route",
+              "line": 123,
+              "end_line": 136,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "route_for_domain",
+              "line": 139,
+              "end_line": 147,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "transcript",
+              "line": 150,
+              "end_line": 151,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "demo",
+              "line": 154,
+              "end_line": 180,
+              "kind": "FunctionDef"
+            }
+          ]
+        },
+        {
+          "path": "certifications/mcpa/lessons/00-mcp-exam-strategy/code/tests/test_main.py",
+          "bytes": 3757,
+          "sha256": "cf76bfb5aee18226ef65e9d3e50cc965f5106686e1e8506bc1b65685dad0f825",
+          "git_blob": "9512d9f4d30ffba89be8a4aba2cb47d9dd393bd4",
+          "fixed_tree_blob": "9512d9f4d30ffba89be8a4aba2cb47d9dd393bd4",
+          "blob_matches_fixed_tree": true,
+          "line_count": 86,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第86行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读",
+          "definitions": [
+            {
+              "name": "McpaExamStrategyTests",
+              "line": 11,
+              "end_line": 82,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "test_domain_weights_sum_to_100",
+              "line": 12,
+              "end_line": 14,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_invalid_weights_raise_value_error",
+              "line": 16,
+              "end_line": 21,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_allocation_is_proportional_and_sums_to_budget",
+              "line": 23,
+              "end_line": 29,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_zero_budget_allocates_zero_to_every_domain",
+              "line": 31,
+              "end_line": 34,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_negative_hours_are_rejected",
+              "line": 36,
+              "end_line": 38,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_readiness_estimate_weights_domains_correctly",
+              "line": 40,
+              "end_line": 47,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_perfect_scores_in_every_domain_give_full_readiness",
+              "line": 49,
+              "end_line": 51,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_domain_with_zero_total_handled_without_division_error",
+              "line": 53,
+              "end_line": 56,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_missing_domain_in_results_defaults_to_zero",
+              "line": 58,
+              "end_line": 61,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_unknown_domain_in_results_is_rejected",
+              "line": 63,
+              "end_line": 65,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_unknown_domain_is_rejected_by_route_lookup",
+              "line": 67,
+              "end_line": 69,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_route_covers_all_34_lessons",
+              "line": 71,
+              "end_line": 74,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_route_for_domain_includes_this_lesson",
+              "line": 76,
+              "end_line": 77,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_capstone_lesson_spans_every_domain",
+              "line": 79,
+              "end_line": 82,
+              "kind": "FunctionDef"
+            }
+          ]
+        },
+        {
+          "path": "certifications/mcpa/lessons/00-mcp-exam-strategy/docs/en.md",
+          "bytes": 17848,
+          "sha256": "d37230e31bbe2fe9306806b41ae3fd63d38c069b17c2a482b0e51c0ee65405df",
+          "git_blob": "6953f418df74ed321bf5b786c81138c8f68bf57c",
+          "fixed_tree_blob": "6953f418df74ed321bf5b786c81138c8f68bf57c",
+          "blob_matches_fixed_tree": true,
+          "line_count": 97,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第97行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读"
+        },
+        {
+          "path": "certifications/mcpa/lessons/00-mcp-exam-strategy/outputs/mcpa-blueprint-cheatsheet.md",
+          "bytes": 6029,
+          "sha256": "a0188230f031fa3bbdce8001cd61371ac487538fd80ec301db8a9349a3dd3c87",
+          "git_blob": "f2b4d8460193b8994025e88110656408b6d71c9f",
+          "fixed_tree_blob": "f2b4d8460193b8994025e88110656408b6d71c9f",
+          "blob_matches_fixed_tree": true,
+          "line_count": 93,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第93行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读"
+        },
+        {
+          "path": "certifications/mcpa/lessons/00-mcp-exam-strategy/quiz.json",
+          "bytes": 4538,
+          "sha256": "aa328faeef465599c2f3f317452e507ba78a84f4c26b4e45b9988e49a398fac9",
+          "git_blob": "79e2f505b04faa301fb4f9785ff49211dd9b968f",
+          "fixed_tree_blob": "79e2f505b04faa301fb4f9785ff49211dd9b968f",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第78行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读"
+        }
+      ],
+      "complete_static_read": true,
+      "tests": [
+        {
+          "name": "test_domain_weights_sum_to_100",
+          "line": 12,
+          "end_line": 14,
+          "source_assertions": "def test_domain_weights_sum_to_100(self) -> None:\n        self.assertEqual(sum(main.DOMAIN_WEIGHTS.values()), 100)\n        main.validate_weights(main.DOMAIN_WEIGHTS)",
+          "actually_run": false,
+          "chinese_purpose": "sum硬编码weights=100并validate；不核provider现weights。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_invalid_weights_raise_value_error",
+          "line": 16,
+          "end_line": 21,
+          "source_assertions": "def test_invalid_weights_raise_value_error(self) -> None:\n        bad_weights = {\"mcp-fundamentals\": 50, \"architecture-and-components\": 40}\n        with self.assertRaises(ValueError):\n            main.validate_weights(bad_weights)\n        with self.assertRaises(ValueError):\n            main.allocate_study_hours(10.0, weights=bad_weights)",
+          "actually_run": false,
+          "chinese_purpose": "badweights sum90使validate/allocate拒绝；不核负权重sum100等。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_allocation_is_proportional_and_sums_to_budget",
+          "line": 23,
+          "end_line": 29,
+          "source_assertions": "def test_allocation_is_proportional_and_sums_to_budget(self) -> None:\n        total_hours = 50.0\n        allocation = main.allocate_study_hours(total_hours)\n        self.assertEqual(set(allocation), set(main.DOMAIN_WEIGHTS))\n        self.assertAlmostEqual(sum(allocation.values()), total_hours, places=6)\n        for domain, weight in main.DOMAIN_WEIGHTS.items():\n            self.assertAlmostEqual(allocation[domain], total_hours * weight / 100, places=6)",
+          "actually_run": false,
+          "chinese_purpose": "H50各allocation比例/总和与keys相符。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_zero_budget_allocates_zero_to_every_domain",
+          "line": 31,
+          "end_line": 34,
+          "source_assertions": "def test_zero_budget_allocates_zero_to_every_domain(self) -> None:\n        allocation = main.allocate_study_hours(0.0)\n        self.assertTrue(all(hours == 0.0 for hours in allocation.values()))\n        self.assertEqual(set(allocation), set(main.DOMAIN_WEIGHTS))",
+          "actually_run": false,
+          "chinese_purpose": "H0各域zero、keys齐。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_negative_hours_are_rejected",
+          "line": 36,
+          "end_line": 38,
+          "source_assertions": "def test_negative_hours_are_rejected(self) -> None:\n        with self.assertRaises(ValueError):\n            main.allocate_study_hours(-5.0)",
+          "actually_run": false,
+          "chinese_purpose": "H−5拒绝。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_readiness_estimate_weights_domains_correctly",
+          "line": 40,
+          "end_line": 47,
+          "source_assertions": "def test_readiness_estimate_weights_domains_correctly(self) -> None:\n        heavy_domain_only = {\"interactions-and-execution\": (10, 10)}\n        light_domain_only = {\"architecture-and-components\": (10, 10)}\n        heavy_score = main.estimate_readiness(heavy_domain_only)\n        light_score = main.estimate_readiness(light_domain_only)\n        self.assertEqual(heavy_score, 26.0)\n        self.assertEqual(light_score, 14.0)\n        self.assertGreater(heavy_score, light_score)",
+          "actually_run": false,
+          "chinese_purpose": "仅heavy域perfect得26/light域得14，说明权重敏感。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_perfect_scores_in_every_domain_give_full_readiness",
+          "line": 49,
+          "end_line": 51,
+          "source_assertions": "def test_perfect_scores_in_every_domain_give_full_readiness(self) -> None:\n        results = {domain: (10, 10) for domain in main.DOMAIN_WEIGHTS}\n        self.assertEqual(main.estimate_readiness(results), 100.0)",
+          "actually_run": false,
+          "chinese_purpose": "所有域10/10得100数学分，不是考试pass保证。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_domain_with_zero_total_handled_without_division_error",
+          "line": 53,
+          "end_line": 56,
+          "source_assertions": "def test_domain_with_zero_total_handled_without_division_error(self) -> None:\n        results = {domain: (0, 0) for domain in main.DOMAIN_WEIGHTS}\n        readiness = main.estimate_readiness(results)\n        self.assertEqual(readiness, 0.0)",
+          "actually_run": false,
+          "chinese_purpose": "所有域0attempt得0无除零。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_missing_domain_in_results_defaults_to_zero",
+          "line": 58,
+          "end_line": 61,
+          "source_assertions": "def test_missing_domain_in_results_defaults_to_zero(self) -> None:\n        partial_results = {\"security-and-governance\": (10, 10)}\n        readiness = main.estimate_readiness(partial_results)\n        self.assertEqual(readiness, 24.0)",
+          "actually_run": false,
+          "chinese_purpose": "只securityperfect得24，missing默0。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_unknown_domain_in_results_is_rejected",
+          "line": 63,
+          "end_line": 65,
+          "source_assertions": "def test_unknown_domain_in_results_is_rejected(self) -> None:\n        with self.assertRaises(ValueError):\n            main.estimate_readiness({\"not-a-real-domain\": (5, 5)})",
+          "actually_run": false,
+          "chinese_purpose": "results未知域ValueError。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_unknown_domain_is_rejected_by_route_lookup",
+          "line": 67,
+          "end_line": 69,
+          "source_assertions": "def test_unknown_domain_is_rejected_by_route_lookup(self) -> None:\n        with self.assertRaises(ValueError):\n            main.route_for_domain(\"not-a-real-domain\")",
+          "actually_run": false,
+          "chinese_purpose": "route未知域ValueError。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_route_covers_all_34_lessons",
+          "line": 71,
+          "end_line": 74,
+          "source_assertions": "def test_route_covers_all_34_lessons(self) -> None:\n        main.validate_route()\n        self.assertEqual(len(main.ROUTE), 34)\n        self.assertEqual({entry[\"nn\"] for entry in main.ROUTE}, {f\"{n:02d}\" for n in range(34)})",
+          "actually_run": false,
+          "chinese_purpose": "固定ROUTE34、ID集合00..33与validate，不核自定义恶意route。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_route_for_domain_includes_this_lesson",
+          "line": 76,
+          "end_line": 77,
+          "source_assertions": "def test_route_for_domain_includes_this_lesson(self) -> None:\n        self.assertIn(\"mcp-exam-strategy\", main.route_for_domain(\"mcp-fundamentals\"))",
+          "actually_run": false,
+          "chinese_purpose": "fundamentalsroute含本课slug。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        },
+        {
+          "name": "test_capstone_lesson_spans_every_domain",
+          "line": 79,
+          "end_line": 82,
+          "source_assertions": "def test_capstone_lesson_spans_every_domain(self) -> None:\n        capstone = main.ROUTE[-1]\n        self.assertEqual(capstone[\"nn\"], \"33\")\n        self.assertEqual(set(capstone[\"domains\"]), set(main.DOMAIN_WEIGHTS))",
+          "actually_run": false,
+          "chinese_purpose": "capstone33覆盖所有硬编码domain。",
+          "not_proved": [
+            "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+            "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+            "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+            "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+            "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+            "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+          ]
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "level": 2,
+          "heading": "Learning Objectives",
+          "line": 10,
+          "chinese_meaning": "区分五域权重/预算与考务快照，数学可验证而费与时间冲突须单独标时效。"
+        },
+        {
+          "level": 2,
+          "heading": "The Problem",
+          "line": 19,
+          "chinese_meaning": "同权学习预算只是隐含策略；专业学习还取决先修/弱项，权重不证明个体通过率。"
+        },
+        {
+          "level": 2,
+          "heading": "The Concept",
+          "line": 27,
+          "chinese_meaning": "以权重合计100、H×W/100与加权练习比率组织example；缺域当0是coverage政策，不能称掌握率。"
+        },
+        {
+          "level": 3,
+          "heading": "Reading a question: catching a legacy-era distractor",
+          "line": 35,
+          "chinese_meaning": "2026-07-28握手/session规则按指定版本，错误method/tool/schema层次需对应官方primitive；不泛化legacy真实部署。"
+        },
+        {
+          "level": 3,
+          "heading": "The route: 34 lessons across five domains",
+          "line": 39,
+          "chinese_meaning": "00–33全34课映射五域，部分双域和capstone全域用于导航，非double时长或已完成事实。"
+        },
+        {
+          "level": 2,
+          "heading": "Interactive Lab",
+          "line": 47,
+          "chinese_meaning": "source demo只计算硬编码facts/预算/route，无MCP消息或真实考试结果，命令未执行。"
+        },
+        {
+          "level": 2,
+          "heading": "Practice Lab",
+          "line": 57,
+          "chinese_meaning": "三项非编号练习：自定H并预算、按域记correct/total与缺测、按弱项选route；周周期是来源建议非用户承诺。"
+        },
+        {
+          "level": 2,
+          "heading": "Shipped Artifact",
+          "line": 61,
+          "chinese_meaning": "cheatsheet完整读：考务与route来源快照，不能印成当前官方保障；按知识主章去重。"
+        },
+        {
+          "level": 2,
+          "heading": "Verify It",
+          "line": 65,
+          "chinese_meaning": "tests验证算数/route和负H/unknown domain；wire checker命令未跑，NO_WIRE_REASON不是源server成功。"
+        },
+        {
+          "level": 2,
+          "heading": "Capstone Connection",
+          "line": 75,
+          "chinese_meaning": "capstone继续同一weighted scoring，不能由weighted分预测真考试过关，实例与用户能力分开。"
+        },
+        {
+          "level": 2,
+          "heading": "Key Terms",
+          "line": 79,
+          "chinese_meaning": "blueprint/weights/readiness/route为管理概念，unpublished=源查不到而非永远不公布。"
+        },
+        {
+          "level": 2,
+          "heading": "Further Reading",
+          "line": 91,
+          "chinese_meaning": "全部参考列表实际读，外部官方仅报告所列selected范围，考试来源未实时核。"
+        }
+      ],
+      "original_quiz": [
+        {
+          "stage": "pre",
+          "question": "What does a domain's weight in the MCPA blueprint most directly tell a candidate?",
+          "options": [
+            "The order in which the five domains appear in the official guide",
+            "The share of exam questions drawn from that domain, on average",
+            "The minimum score a candidate must reach in that domain alone",
+            "The number of official training hours required before attempting it"
+          ],
+          "correct": 1,
+          "explanation": "A domain's published weight is its share of the blueprint, the proportion of exam content the domain represents; it does not set a reading order, a required hour count, or a per-domain minimum score.",
+          "source_correct_option": "The share of exam questions drawn from that domain, on average",
+          "read_all_options": true,
+          "chinese_judgment": "原索引1；考试蓝图/facts仅固定源管理数据，数学题按权重算，非通过率证明。协议题只针对指定2026-07-28，需官方primitive选读，legacy不泛化。"
+        },
+        {
+          "stage": "check",
+          "question": "Which pair of domains carries the largest combined share of the MCPA blueprint?",
+          "options": [
+            "MCP Fundamentals and Architecture and Components, the two foundational domains",
+            "Architecture and Components and Use Cases and Ecosystem, the two mid-weight domains",
+            "Interactions and Execution and Security and Governance, the two heaviest domains",
+            "Use Cases and Ecosystem and MCP Fundamentals, the two adoption-facing domains"
+          ],
+          "correct": 2,
+          "explanation": "Interactions and Execution is weighted 26 percent and Security and Governance is weighted 24 percent, together half the blueprint, which is why they deserve the largest share of study hours.",
+          "source_correct_option": "Interactions and Execution and Security and Governance, the two heaviest domains",
+          "read_all_options": true,
+          "chinese_judgment": "原索引2；考试蓝图/facts仅固定源管理数据，数学题按权重算，非通过率证明。协议题只针对指定2026-07-28，需官方primitive选读，legacy不泛化。"
+        },
+        {
+          "stage": "check",
+          "question": "The MCPA certification page and the Linux Foundation's own launch press release disagree about one exam fact. Which fact is it, and which source does this curriculum follow?",
+          "options": [
+            "The included retake count",
+            "The credential validity period",
+            "The exam fee",
+            "The exam duration"
+          ],
+          "correct": 3,
+          "explanation": "The certification page states a 90 minute duration while the press release states 120 minutes; this curriculum follows the certification page as the exam-specific source and records the conflict rather than silently choosing a number.",
+          "source_correct_option": "The exam duration",
+          "read_all_options": true,
+          "chinese_judgment": "原索引3；考试蓝图/facts仅固定源管理数据，数学题按权重算，非通过率证明。协议题只针对指定2026-07-28，需官方primitive选读，legacy不泛化。"
+        },
+        {
+          "stage": "check",
+          "question": "A practice question claims a client must call initialize before a 2026-07-28 server will accept any other request. How should a prepared candidate read that claim?",
+          "options": [
+            "A legacy-era protocol distractor",
+            "True only for older MCP servers",
+            "A detail specific to stdio only",
+            "A true, still current requirement"
+          ],
+          "correct": 0,
+          "explanation": "The 2026-07-28 revision removed the initialize handshake and protocol sessions entirely, so every request now carries its own protocol version and capabilities in its metadata instead of relying on a prior handshake.",
+          "source_correct_option": "A legacy-era protocol distractor",
+          "read_all_options": true,
+          "chinese_judgment": "原索引0；考试蓝图/facts仅固定源管理数据，数学题按权重算，非通过率证明。协议题只针对指定2026-07-28，需官方primitive选读，legacy不泛化。"
+        },
+        {
+          "stage": "post",
+          "question": "A candidate scores 100 percent in MCP Fundamentals, weighted 16 percent, and 0 percent everywhere else. Why is a weighted readiness estimate more useful here than a plain five-way average?",
+          "options": [
+            "It rounds every domain score upward so the candidate always looks prepared",
+            "It shows readiness near 16 percent instead of a misleading 20 percent average",
+            "It replaces the five domains with a single combined pass or fail flag",
+            "It discards the weakest domain scores before computing any final result"
+          ],
+          "correct": 1,
+          "explanation": "A plain average shows 20 percent because one of five domains is perfect, but a weighted estimate reflects that the mastered domain is only 16 percent of the exam, which is a more honest picture of overall readiness.",
+          "source_correct_option": "It shows readiness near 16 percent instead of a misleading 20 percent average",
+          "read_all_options": true,
+          "chinese_judgment": "原索引1；考试蓝图/facts仅固定源管理数据，数学题按权重算，非通过率证明。协议题只针对指定2026-07-28，需官方primitive选读，legacy不泛化。"
+        },
+        {
+          "stage": "post",
+          "question": "A few lessons in the 34-lesson route, such as JSON-RPC and Meta, are tagged with two domains instead of one. What does that reflect about the route?",
+          "options": [
+            "A sign those lessons are optional to skip",
+            "A sign those lessons get double the study time",
+            "A concept tested from two domains at once",
+            "A numbering error the curriculum needs to fix"
+          ],
+          "correct": 2,
+          "explanation": "A lesson can sit at a genuine intersection, such as a message envelope that is both a core concept and a piece of the architecture, so the route tags it under both domains rather than forcing one arbitrary choice.",
+          "source_correct_option": "A concept tested from two domains at once",
+          "read_all_options": true,
+          "chinese_judgment": "原索引2；考试蓝图/facts仅固定源管理数据，数学题按权重算，非通过率证明。协议题只针对指定2026-07-28，需官方primitive选读，legacy不泛化。"
+        }
+      ],
+      "knowledge": "蓝图百分比到时间与练习加权分的确定性计算，34课域映射作为导航，不证明考试质量或用户掌握；考务fee/time/validity/retake与未公布pass/item仅固定源快照。",
+      "mechanism": "五个weight硬编码16/14/26/24/20；allocate H*W/100，estimate每域correct/total×weight，缺域/total≤0当0；validate_route用集合匹配00..len-1、查domain；无MCP wire，transcript明确空。",
+      "limitations": [
+        "validate_weights只检查sum100，不核正数/整数/恰五域；allocate接受NaN/Inf/bool，estimate不核0≤correct≤total或计数类型，可出现负/>100/NaN分",
+        "route验证集合不完整checkduplicate/slug类型，expected范围按输入length不固定34，test只固定ROUTE",
+        "全部tests是硬编码数学/route合同，没有考试provider实时验证，不证明费/时长/有效期当前或pass probability",
+        "均分预算并非一般学习错误，先修/已有弱点/目标不同可改配重；未尝试域当0是保守coverage政策，不是知识掌握率",
+        "旧协议distractor需标指定2026-07-28，不能把所有legacy部署断言错误；源题未知tool/schema错误规则由相关primitive官方继续选读",
+        "图lastprovider是动画bar，snippet是静态innerHTML；不是成绩或实际学习时长观测"
+      ],
+      "disposition": "考务与学习路线管理归来源/维护，非新的专业主章；保按权重预算/缺测不隐藏的原则，不能把weighted practice accuracy称真实通过率。",
+      "outputs": [
+        {
+          "path": "certifications/mcpa/lessons/00-mcp-exam-strategy/outputs/mcpa-blueprint-cheatsheet.md",
+          "read_complete": true,
+          "contract_chinese": "源教学reference，固定事实/版本并区分建议和规范；没有安装Skill/真正考试或server结果。",
+          "nonexecuted": true
+        }
+      ],
+      "practice": [
+        {
+          "kind": "Interactive Lab",
+          "source_heading_line": 47,
+          "actually_executed": false,
+          "chinese_evaluation": "source demo只计算硬编码facts/预算/route，无MCP消息或真实考试结果，命令未执行。"
+        },
+        {
+          "kind": "Practice Lab",
+          "source_heading_line": 57,
+          "actually_executed": false,
+          "chinese_evaluation": "三项非编号练习：自定H并预算、按域记correct/total与缺测、按弱项选route；周周期是来源建议非用户承诺。"
+        }
+      ],
+      "figures": {
+        "snippet_complete_read": true,
+        "last_provider": "site/figures-mcpa-certifications.js",
+        "function": "blueprintWeightsFigure",
+        "function_actual_read_ranges": [
+          [
+            159,
+            195
+          ]
+        ],
+        "full_function_static_read": true,
+        "helpers_read_range": [
+          1,
+          157
+        ],
+        "registration_line": 1382,
+        "registration_complete_read_range": [
+          1381,
+          1417
+        ],
+        "browser_executed": false,
+        "chinese_interpretation": "最终provider不同于课内innerHTML静态snippet：使用grow/pop/spot/SMIL，固定domainbar或MUST/MAY/featurechips；不产生quiz/成绩或规范测试结果。"
+      },
+      "fusion_candidates": [
+        "Study/Agentic Design Patterns/01-核心章节/10-模型上下文协议-MCP.md",
+        "Study/Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md"
+      ],
+      "fusion_scope_note": "候选落点先按已存在文件定位，尚未完整重读其正文；不先声称已融合"
+    },
+    {
+      "lesson": "01-reading-the-specification",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/01-reading-the-specification/code/figure.snippet.js",
+          "bytes": 5133,
+          "sha256": "879c0c98ccee9b17f7002b56e29f6e9ba9f23c97f0ba60ba62bf8c3583053f37",
+          "git_blob": "d3796db23cb8360f2f6079ee10e81ef216983ecc",
+          "fixed_tree_blob": "d3796db23cb8360f2f6079ee10e81ef216983ecc",
+          "blob_matches_fixed_tree": true,
+          "line_count": 61,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第61行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读"
+        },
+        {
+          "path": "certifications/mcpa/lessons/01-reading-the-specification/code/main.py",
+          "bytes": 11386,
+          "sha256": "75d61d766e28de89f740a071b6f96ba053c0fdec379586500aab47681d6ea4a2",
+          "git_blob": "faa6dc32b92b9f0273591eb08979a71936f609b3",
+          "fixed_tree_blob": "faa6dc32b92b9f0273591eb08979a71936f609b3",
+          "blob_matches_fixed_tree": true,
+          "line_count": 306,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第306行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读",
+          "definitions": [
+            {
+              "name": "make_request",
+              "line": 27,
+              "end_line": 35,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "make_result",
+              "line": 38,
+              "end_line": 39,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "make_error",
+              "line": 42,
+              "end_line": 46,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "revision_state",
+              "line": 58,
+              "end_line": 59,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "classify_requirement",
+              "line": 81,
+              "end_line": 85,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "Feature",
+              "line": 89,
+              "end_line": 97,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "find_feature",
+              "line": 123,
+              "end_line": 124,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "feature_state",
+              "line": 127,
+              "end_line": 135,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "migration_path",
+              "line": 138,
+              "end_line": 140,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "add_months",
+              "line": 143,
+              "end_line": 148,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "earliest_removal",
+              "line": 151,
+              "end_line": 160,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "ChangelogEntry",
+              "line": 164,
+              "end_line": 167,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "changelog_lookup",
+              "line": 195,
+              "end_line": 196,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "SpecServer",
+              "line": 199,
+              "end_line": 230,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "Client",
+              "line": 233,
+              "end_line": 247,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "run_scenario",
+              "line": 250,
+              "end_line": 254,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "transcript",
+              "line": 257,
+              "end_line": 268,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "demo",
+              "line": 271,
+              "end_line": 302,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "__init__",
+              "line": 200,
+              "end_line": 201,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "_server_meta",
+              "line": 203,
+              "end_line": 204,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "handle",
+              "line": 206,
+              "end_line": 230,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "__init__",
+              "line": 234,
+              "end_line": 237,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "send",
+              "line": 239,
+              "end_line": 244,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "discover",
+              "line": 246,
+              "end_line": 247,
+              "kind": "FunctionDef"
+            }
+          ]
+        },
+        {
+          "path": "certifications/mcpa/lessons/01-reading-the-specification/code/tests/test_main.py",
+          "bytes": 4014,
+          "sha256": "cbe718ce98de9b024cffe850f87ba7c7bb42ddbe101d8eac6a79e244e31a0661",
+          "git_blob": "60d991abe28a2433820e895c6057bbacf5e2d89f",
+          "fixed_tree_blob": "60d991abe28a2433820e895c6057bbacf5e2d89f",
+          "blob_matches_fixed_tree": true,
+          "line_count": 79,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第79行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读",
+          "definitions": [
+            {
+              "name": "SpecReadingTests",
+              "line": 11,
+              "end_line": 75,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "test_must_and_must_not_classify_as_required_and_forbidden",
+              "line": 12,
+              "end_line": 14,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_lowercase_keyword_carries_no_normative_weight",
+              "line": 16,
+              "end_line": 18,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_should_and_may_classify_as_recommended_and_optional",
+              "line": 20,
+              "end_line": 22,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_should_not_and_not_recommended_both_classify_as_not_recommended",
+              "line": 24,
+              "end_line": 26,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_deprecated_feature_reports_its_migration_path",
+              "line": 28,
+              "end_line": 30,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_feature_is_active_before_its_own_deprecation_revision",
+              "line": 32,
+              "end_line": 34,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_earliest_removal_is_computed_from_the_deprecation_window",
+              "line": 36,
+              "end_line": 38,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_feature_that_follows_another_shares_its_earliest_removal",
+              "line": 40,
+              "end_line": 44,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_removed_feature_is_never_reported_as_current",
+              "line": 46,
+              "end_line": 50,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_unknown_feature_is_handled_without_raising",
+              "line": 52,
+              "end_line": 55,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_changelog_lookup_by_sep_number",
+              "line": 57,
+              "end_line": 61,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_unknown_sep_returns_none",
+              "line": 63,
+              "end_line": 64,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_revision_state_distinguishes_current_from_final",
+              "line": 66,
+              "end_line": 69,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_every_transcript_result_carries_a_result_type",
+              "line": 71,
+              "end_line": 75,
+              "kind": "FunctionDef"
+            }
+          ]
+        },
+        {
+          "path": "certifications/mcpa/lessons/01-reading-the-specification/docs/en.md",
+          "bytes": 15052,
+          "sha256": "a89696b9c9a763adb8ac9366c42456789e3aa12e8915b1dc9383600f1bdc51fa",
+          "git_blob": "08344384726ad9f67136a1f29d45cf6cae51c5fb",
+          "fixed_tree_blob": "08344384726ad9f67136a1f29d45cf6cae51c5fb",
+          "blob_matches_fixed_tree": true,
+          "line_count": 134,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第134行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读"
+        },
+        {
+          "path": "certifications/mcpa/lessons/01-reading-the-specification/outputs/spec-reading-guide.md",
+          "bytes": 3016,
+          "sha256": "d6467a7662b545c04502055f8b94aafdb4ef7e3489159a419f07c515aa01b0e6",
+          "git_blob": "2a31c4314a3a8215c4a5a0dae33bc4db55d4348e",
+          "fixed_tree_blob": "2a31c4314a3a8215c4a5a0dae33bc4db55d4348e",
+          "blob_matches_fixed_tree": true,
+          "line_count": 45,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第45行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读"
+        },
+        {
+          "path": "certifications/mcpa/lessons/01-reading-the-specification/quiz.json",
+          "bytes": 4556,
+          "sha256": "572327ecb3cf7ac294b729fbcd44e6a75b6daa9bd308f4b041992250a3bebec4",
+          "git_blob": "2328a920ebf44bff2956d9726e167f9684fdb186",
+          "fixed_tree_blob": "2328a920ebf44bff2956d9726e167f9684fdb186",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": true,
+          "actual_read_date": "2026-10-13",
+          "read_scope": "第1行至第78行EOF；全文实际静读，未运行/import",
+          "status": "完整实际静读"
+        }
+      ],
+      "complete_static_read": true,
+      "tests": [
+        {
+          "name": "test_must_and_must_not_classify_as_required_and_forbidden",
+          "line": 12,
+          "end_line": 14,
+          "source_assertions": "def test_must_and_must_not_classify_as_required_and_forbidden(self) -> None:\n        self.assertEqual(main.classify_requirement(\"Servers MUST implement server/discover.\"), \"required\")\n        self.assertEqual(main.classify_requirement(\"Implementations MUST NOT emit -32002.\"), \"forbidden\")",
+          "actually_run": false,
+          "chinese_purpose": "MUST/MUST NOT两句分类正确，不验证规范语义全段。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_lowercase_keyword_carries_no_normative_weight",
+          "line": 16,
+          "end_line": 18,
+          "source_assertions": "def test_lowercase_keyword_carries_no_normative_weight(self) -> None:\n        self.assertEqual(main.classify_requirement(\"The client must not batch requests.\"), \"unspecified\")\n        self.assertEqual(main.classify_requirement(\"This paragraph is background only.\"), \"unspecified\")",
+          "actually_run": false,
+          "chinese_purpose": "lowercase/无关键字句返unspecified。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_should_and_may_classify_as_recommended_and_optional",
+          "line": 20,
+          "end_line": 22,
+          "source_assertions": "def test_should_and_may_classify_as_recommended_and_optional(self) -> None:\n        self.assertEqual(main.classify_requirement(\"Clients SHOULD include clientInfo.\"), \"recommended\")\n        self.assertEqual(main.classify_requirement(\"Servers MAY offer completions.\"), \"optional\")",
+          "actually_run": false,
+          "chinese_purpose": "SHOULD与MAY示例返recommended/optional。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_should_not_and_not_recommended_both_classify_as_not_recommended",
+          "line": 24,
+          "end_line": 26,
+          "source_assertions": "def test_should_not_and_not_recommended_both_classify_as_not_recommended(self) -> None:\n        self.assertEqual(main.classify_requirement(\"This SHOULD NOT be relied upon.\"), \"not_recommended\")\n        self.assertEqual(main.classify_requirement(\"Older patterns are NOT RECOMMENDED.\"), \"not_recommended\")",
+          "actually_run": false,
+          "chinese_purpose": "SHOULD NOT/NOT RECOMMENDED返not_recommended。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_deprecated_feature_reports_its_migration_path",
+          "line": 28,
+          "end_line": 30,
+          "source_assertions": "def test_deprecated_feature_reports_its_migration_path(self) -> None:\n        self.assertEqual(main.feature_state(\"logging\", \"2026-07-28\"), \"deprecated\")\n        self.assertIn(\"OpenTelemetry\", main.migration_path(\"logging\"))",
+          "actually_run": false,
+          "chinese_purpose": "logging静态registrydeprecated且migration含OTel。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_feature_is_active_before_its_own_deprecation_revision",
+          "line": 32,
+          "end_line": 34,
+          "source_assertions": "def test_feature_is_active_before_its_own_deprecation_revision(self) -> None:\n        self.assertEqual(main.feature_state(\"roots\", \"2025-11-25\"), \"active\")\n        self.assertEqual(main.feature_state(\"roots\", \"2026-07-28\"), \"deprecated\")",
+          "actually_run": false,
+          "chinese_purpose": "roots2025active/2026deprecated两个点。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_earliest_removal_is_computed_from_the_deprecation_window",
+          "line": 36,
+          "end_line": 38,
+          "source_assertions": "def test_earliest_removal_is_computed_from_the_deprecation_window(self) -> None:\n        self.assertEqual(main.earliest_removal(\"roots\"), \"2027-07-28\")\n        self.assertEqual(main.earliest_removal(\"dynamic-client-registration\"), \"2027-07-28\")",
+          "actually_run": false,
+          "chinese_purpose": "roots/DCR静态12month得2027-07-28，未测calendar非法day。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_feature_that_follows_another_shares_its_earliest_removal",
+          "line": 40,
+          "end_line": 44,
+          "source_assertions": "def test_feature_that_follows_another_shares_its_earliest_removal(self) -> None:\n        self.assertEqual(\n            main.earliest_removal(\"include-context-this-server-all-servers\"),\n            main.earliest_removal(\"sampling\"),\n        )",
+          "actually_run": false,
+          "chinese_purpose": "includeContext follows sampling earliest相等，没测循环或restore。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_removed_feature_is_never_reported_as_current",
+          "line": 46,
+          "end_line": 50,
+          "source_assertions": "def test_removed_feature_is_never_reported_as_current(self) -> None:\n        state = main.feature_state(\"json-rpc-batching\", \"2026-07-28\")\n        self.assertEqual(state, \"removed\")\n        self.assertNotEqual(state, \"active\")\n        self.assertIsNone(main.earliest_removal(\"json-rpc-batching\"))",
+          "actually_run": false,
+          "chinese_purpose": "batching当前removed且earliestNone，只这个revision点。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_unknown_feature_is_handled_without_raising",
+          "line": 52,
+          "end_line": 55,
+          "source_assertions": "def test_unknown_feature_is_handled_without_raising(self) -> None:\n        self.assertEqual(main.feature_state(\"does-not-exist\", \"2026-07-28\"), \"unknown\")\n        self.assertIsNone(main.earliest_removal(\"does-not-exist\"))\n        self.assertIsNone(main.migration_path(\"does-not-exist\"))",
+          "actually_run": false,
+          "chinese_purpose": "unknownfeature三接口unknown/None。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_changelog_lookup_by_sep_number",
+          "line": 57,
+          "end_line": 61,
+          "source_assertions": "def test_changelog_lookup_by_sep_number(self) -> None:\n        entry = main.changelog_lookup(\"SEP-2596\")\n        self.assertIsNotNone(entry)\n        self.assertEqual(entry.revision, main.PROTOCOL_VERSION)\n        self.assertIn(\"lifecycle\", entry.summary)",
+          "actually_run": false,
+          "chinese_purpose": "SEP2596查到静态当前revision与lifecycle字符串。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_unknown_sep_returns_none",
+          "line": 63,
+          "end_line": 64,
+          "source_assertions": "def test_unknown_sep_returns_none(self) -> None:\n        self.assertIsNone(main.changelog_lookup(\"SEP-0000000\"))",
+          "actually_run": false,
+          "chinese_purpose": "unknownSEPNone。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_revision_state_distinguishes_current_from_final",
+          "line": 66,
+          "end_line": 69,
+          "source_assertions": "def test_revision_state_distinguishes_current_from_final(self) -> None:\n        self.assertEqual(main.revision_state(\"2026-07-28\"), \"Current\")\n        self.assertEqual(main.revision_state(\"2025-11-25\"), \"Final\")\n        self.assertEqual(main.revision_state(\"2099-01-01\"), \"unknown\")",
+          "actually_run": false,
+          "chinese_purpose": "三revision固定current/final/unknown。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        },
+        {
+          "name": "test_every_transcript_result_carries_a_result_type",
+          "line": 71,
+          "end_line": 75,
+          "source_assertions": "def test_every_transcript_result_carries_a_result_type(self) -> None:\n        for entry in main.transcript():\n            message = entry.get(\"message\", entry) if isinstance(entry, dict) and \"violation\" in entry else entry\n            if isinstance(message, dict) and \"result\" in message:\n                self.assertIn(message[\"result\"][\"resultType\"], {\"complete\", \"input_required\"})",
+          "actually_run": false,
+          "chinese_purpose": "transcript内已有result值complete/input_required；不校完整schema/id/meta/error。",
+          "not_proved": [
+            "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+            "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+            "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+            "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+            "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+            "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+          ]
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "level": 2,
+          "heading": "Learning Objectives",
+          "line": 10,
+          "chinese_meaning": "目标规范部件/BCP14/schema/revision与featurestate/SEP关系；避免仅看结构列表冒充规范掌握。"
+        },
+        {
+          "level": 2,
+          "heading": "The Problem",
+          "line": 18,
+          "chinese_meaning": "版本漂移和Deprecated≠Removed是来源机制，需要明确目标version而不是泛API经验。"
+        },
+        {
+          "level": 2,
+          "heading": "The Concept",
+          "line": 24,
+          "chinese_meaning": "规范base/version/message必支持；prose/schema联读、关键词强度、Draft/Current/Final与Active/Deprecated/Removed分开、12month从release算资格、SEP需原文status；sourcecalendar实现有非法日期缺口。"
+        },
+        {
+          "level": 2,
+          "heading": "Interactive Lab",
+          "line": 74,
+          "chinese_meaning": "最终动态图完整函数静读：MUST3/MAY4与featurechips，仅规范架构示意，未运行runtime或真实合规验证。"
+        },
+        {
+          "level": 2,
+          "heading": "Practice Lab",
+          "line": 78,
+          "chinese_meaning": "practice要求看keyword/featuredate/changelog与meta拒绝，扩展registry需校日期/restore/follows；直接SpecServer dict是fixture无网络。"
+        },
+        {
+          "level": 2,
+          "heading": "Shipped Artifact",
+          "line": 88,
+          "chinese_meaning": "输出guide完整读并分析：keyword/层次/deprecation表是入口，不代表全部prose与schema已符合。"
+        },
+        {
+          "level": 2,
+          "heading": "Verify It",
+          "line": 92,
+          "chinese_meaning": "tests14定义完整读，分类/静态registry/date/exampletranscript结果为范围；source测试/wire checker不执行。"
+        },
+        {
+          "level": 2,
+          "heading": "Capstone Connection",
+          "line": 106,
+          "chinese_meaning": "后续capstone应按实际规范/版本判消息，而不是背key或相信sourceclassifier为语义证明。"
+        },
+        {
+          "level": 2,
+          "heading": "Key Terms",
+          "line": 110,
+          "chinese_meaning": "BCP14/TSschema/feature与revisionstates、earliest removal和SEP按条件理解，不把时间资格当实际删除。"
+        },
+        {
+          "level": 2,
+          "heading": "Further Reading",
+          "line": 125,
+          "chinese_meaning": "原URL/源内crosslinks完整读记录；当前官方selected scope明确单列，未冒全部链接全文。"
+        }
+      ],
+      "original_quiz": [
+        {
+          "stage": "pre",
+          "question": "According to the specification overview, which three components MUST every MCP implementation support?",
+          "options": [
+            "Server features, client features, and utilities",
+            "Resources, prompts, tools, and elicitation together",
+            "The base protocol, versioning, and message patterns",
+            "Authorization, extensions, and completion utilities"
+          ],
+          "correct": 2,
+          "explanation": "The specification states that all implementations MUST support the base protocol, versioning, and the message patterns, while server features, client features, authorization, and utilities MAY be implemented as the application needs them.",
+          "source_correct_option": "The base protocol, versioning, and message patterns",
+          "read_all_options": true,
+          "chinese_judgment": "原索引2；按规范层次与指定revision判断；keyword classifier/日期模型不能代替全文义务、真实SEP状态和合法calendar。"
+        },
+        {
+          "stage": "check",
+          "question": "A sentence reads, written in lowercase, that a client must not batch requests. What normative weight does that carry under BCP 14?",
+          "options": [
+            "The same forbidding weight as MUST NOT written in capitals",
+            "It makes that whole paragraph an invalid specification page",
+            "A soft recommendation, treated the same as SHOULD NOT",
+            "No normative weight; only capitalized keywords count"
+          ],
+          "correct": 3,
+          "explanation": "BCP 14 keywords carry their defined meaning only when they appear in all capitals; the identical words in lowercase are ordinary prose with no normative force.",
+          "source_correct_option": "No normative weight; only capitalized keywords count",
+          "read_all_options": true,
+          "chinese_judgment": "原索引3；按规范层次与指定revision判断；keyword classifier/日期模型不能代替全文义务、真实SEP状态和合法calendar。"
+        },
+        {
+          "stage": "check",
+          "question": "Which statement correctly describes the relationship between schema.ts and schema.json in the specification repository?",
+          "options": [
+            "schema.ts is the source of truth and schema.json is generated from it",
+            "schema.json is authoritative for SDKs and schema.ts is only a draft",
+            "schema.json is written by hand first and schema.ts is generated from it",
+            "The two files are maintained independently and are free to disagree"
+          ],
+          "correct": 0,
+          "explanation": "The specification names schema.ts the source of truth for every protocol message and structure, with schema.json generated automatically from it for tooling.",
+          "source_correct_option": "schema.ts is the source of truth and schema.json is generated from it",
+          "read_all_options": true,
+          "chinese_judgment": "原索引0；按规范层次与指定revision判断；keyword classifier/日期模型不能代替全文义务、真实SEP状态和合法calendar。"
+        },
+        {
+          "stage": "check",
+          "question": "A feature is marked Deprecated in the specification revision released on 2026-07-28 with a twelve-month window. From what point is that window measured?",
+          "options": [
+            "From the day the Core Maintainers approved the SEP in review",
+            "From the release of the specification revision that marks it Deprecated",
+            "From the day the deprecation SEP itself reached Final status",
+            "From the day the deprecation SEP was first opened as a pull request"
+          ],
+          "correct": 1,
+          "explanation": "SEP-2596 measures the deprecation window from the release of the revision that first marks the feature Deprecated, not from whenever its own SEP happened to reach Final.",
+          "source_correct_option": "From the release of the specification revision that marks it Deprecated",
+          "read_all_options": true,
+          "chinese_judgment": "原索引1；按规范层次与指定revision判断；keyword classifier/日期模型不能代替全文义务、真实SEP状态和合法calendar。"
+        },
+        {
+          "stage": "post",
+          "question": "Roots, Sampling, and Logging are sometimes described as having been removed in the 2026-07-28 revision. What does the specification actually say about their state?",
+          "options": [
+            "Active still; nothing about their status changed in this revision",
+            "Removed outright; a conformant server MUST NOT implement them",
+            "Deprecated, not removed; still fully specified and functional",
+            "Experimental now; only Tier 3 SDKs are required to support them"
+          ],
+          "correct": 2,
+          "explanation": "SEP-2577 deprecated Roots, Sampling, and Logging in the 2026-07-28 revision; they remain fully specified and functional, with removal not eligible before the first revision released on or after 2027-07-28.",
+          "source_correct_option": "Deprecated, not removed; still fully specified and functional",
+          "read_all_options": true,
+          "chinese_judgment": "原索引2；按规范层次与指定revision判断；keyword classifier/日期模型不能代替全文义务、真实SEP状态和合法calendar。"
+        },
+        {
+          "stage": "post",
+          "question": "A changelog entry cites a SEP number as the source of a major protocol change. What should a careful reader do before repeating that claim?",
+          "options": [
+            "Assume the change is still in review until the next revision ships",
+            "Read only the schema.json diff, since SEPs rarely touch the schema",
+            "Trust the one-line changelog summary, since SEPs close once accepted",
+            "Open the SEP file for its text, rationale, and final status"
+          ],
+          "correct": 3,
+          "explanation": "A changelog entry links back to the SEP that produced it, and reading the SEP itself confirms the exact specification text, the rationale, and whether it actually reached Final status.",
+          "source_correct_option": "Open the SEP file for its text, rationale, and final status",
+          "read_all_options": true,
+          "chinese_judgment": "原索引3；按规范层次与指定revision判断；keyword classifier/日期模型不能代替全文义务、真实SEP状态和合法calendar。"
+        }
+      ],
+      "knowledge": "规范关键词与版本/feature生命周期区分；按schema/SEP/registry溯源，Deprecated可用且migration，earliest removal只是资格不是固定实际删除日。",
+      "mechanism": "正则case-sensitive按固定keyword优先序返单strength；feature dataclass静态registry，字符串revision比较；add_months年月算术；SpecServer直接dict handle模拟server/discover/_meta/version error，Client直接method call日志无网络。",
+      "limitations": [
+        "keyword substring不理解多句/quoted文本/范围或义务主体，首个高优先词不等整段规范含义；BCP14大写特定义务与普通规范文本的作用需分开，不能只用classifier判断合规",
+        "add_months保原day可返回Feb31/非闰Feb29；未校合法ISO日期/月份类型或未来revision；feature_state在引入前也可能返active、没有restoreActive/followcycle完整模型",
+        "SpecServer没核jsonrpc2/id类型与唯一性/params/metatypes，非法list可能异常；工具式直接dict fixture不是SDK/真实server conformance",
+        "test transcript只检查已有result.resultType合法，不核错误code/id/meta/时序或完整schema",
+        "静态revision_states当前2026-07-28不作永远Current，官方registry对HTTP+SSE是policy过渡3month特殊条款，不能统一12month",
+        "输出reference聚焦实义但schema与prose不一致需复核规范/修订，不盲以字符串keyword覆盖语义"
+      ],
+      "disposition": "复用现MCP主章/通信状态与conformance/operations主题；补规范读取与日期calendar正确性，考试时间管理不新增33来源概要。",
+      "outputs": [
+        {
+          "path": "certifications/mcpa/lessons/01-reading-the-specification/outputs/spec-reading-guide.md",
+          "read_complete": true,
+          "contract_chinese": "源教学reference，固定事实/版本并区分建议和规范；没有安装Skill/真正考试或server结果。",
+          "nonexecuted": true
+        }
+      ],
+      "practice": [
+        {
+          "kind": "Interactive Lab",
+          "source_heading_line": 74,
+          "actually_executed": false,
+          "chinese_evaluation": "最终动态图完整函数静读：MUST3/MAY4与featurechips，仅规范架构示意，未运行runtime或真实合规验证。"
+        },
+        {
+          "kind": "Practice Lab",
+          "source_heading_line": 78,
+          "actually_executed": false,
+          "chinese_evaluation": "practice要求看keyword/featuredate/changelog与meta拒绝，扩展registry需校日期/restore/follows；直接SpecServer dict是fixture无网络。"
+        }
+      ],
+      "figures": {
+        "snippet_complete_read": true,
+        "last_provider": "site/figures-mcpa-certifications.js",
+        "function": "specMapFigure",
+        "function_actual_read_ranges": [
+          [
+            197,
+            242
+          ]
+        ],
+        "full_function_static_read": true,
+        "helpers_read_range": [
+          1,
+          157
+        ],
+        "registration_line": 1383,
+        "registration_complete_read_range": [
+          1381,
+          1417
+        ],
+        "browser_executed": false,
+        "chinese_interpretation": "最终provider不同于课内innerHTML静态snippet：使用grow/pop/spot/SMIL，固定domainbar或MUST/MAY/featurechips；不产生quiz/成绩或规范测试结果。"
+      },
+      "fusion_candidates": [
+        "Study/Agentic Design Patterns/01-核心章节/10-模型上下文协议-MCP.md",
+        "Study/Agentic Design Patterns/06-专题扩展/06-MCP通信与状态工程.md"
+      ],
+      "fusion_scope_note": "候选落点先按已存在文件定位，尚未完整重读其正文；不先声称已融合"
+    },
+    {
+      "lesson": "02-the-integration-problem",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/02-the-integration-problem/code/figure.snippet.js",
+          "bytes": 2825,
+          "sha256": "1308a265d62a844db38e196b3044e4461ecbf0ac5bf374fe78e62fe7b2343dfb",
+          "git_blob": "bdbde0923fae5ad9156422576c5bf90e07c98504",
+          "fixed_tree_blob": "bdbde0923fae5ad9156422576c5bf90e07c98504",
+          "blob_matches_fixed_tree": true,
+          "line_count": 42,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/02-the-integration-problem/code/main.py",
+          "bytes": 7785,
+          "sha256": "a66482ecc2ce8be535d25017235d79f6210f44896e9288369da2f114f8c0a258",
+          "git_blob": "16ab3782cfa52c238ad6220737f2daef7bbba230",
+          "fixed_tree_blob": "16ab3782cfa52c238ad6220737f2daef7bbba230",
+          "blob_matches_fixed_tree": true,
+          "line_count": 213,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/02-the-integration-problem/code/tests/test_main.py",
+          "bytes": 3613,
+          "sha256": "7918b4e5373358e0bcebd785869ff7c287cf7b6598611553e497d5566586e8ab",
+          "git_blob": "77d8ac8e616807e99b4eb9bf6f902ef819f1adb8",
+          "fixed_tree_blob": "77d8ac8e616807e99b4eb9bf6f902ef819f1adb8",
+          "blob_matches_fixed_tree": true,
+          "line_count": 77,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/02-the-integration-problem/docs/en.md",
+          "bytes": 9796,
+          "sha256": "5c68292cb097408cd67e40bd3182c8140d6855aec768baa9cb4e11c5bc781c73",
+          "git_blob": "70e36ade12dd6c1fe75ccb59b04130467ea606f8",
+          "fixed_tree_blob": "70e36ade12dd6c1fe75ccb59b04130467ea606f8",
+          "blob_matches_fixed_tree": true,
+          "line_count": 101,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/02-the-integration-problem/outputs/mcp-scope-brief.md",
+          "bytes": 2202,
+          "sha256": "7d6e3db51dff53e143feeeda3d6f2761000a8441c270d210bfe1438cb0a91dfb",
+          "git_blob": "7f945121f3fb8322a6a67e2077c311afcaf14477",
+          "fixed_tree_blob": "7f945121f3fb8322a6a67e2077c311afcaf14477",
+          "blob_matches_fixed_tree": true,
+          "line_count": 45,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/02-the-integration-problem/quiz.json",
+          "bytes": 4119,
+          "sha256": "28a2c501dc99b24eaeeefcf37bdc28bd3e32833bab03c724c4d1909986271e58",
+          "git_blob": "91fcefbc96fd1e5120b8768be925d40fe1c4a6c8",
+          "fixed_tree_blob": "91fcefbc96fd1e5120b8768be925d40fe1c4a6c8",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "03-json-rpc-and-meta",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/03-json-rpc-and-meta/code/figure.snippet.js",
+          "bytes": 3750,
+          "sha256": "470612fe55af48b8ce224a7f460f8008006a23cbd71e3ef364a748078de98b99",
+          "git_blob": "6efe69d221dfabc4b7ce63ce16ceb6601b51ab58",
+          "fixed_tree_blob": "6efe69d221dfabc4b7ce63ce16ceb6601b51ab58",
+          "blob_matches_fixed_tree": true,
+          "line_count": 60,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/03-json-rpc-and-meta/code/main.py",
+          "bytes": 9202,
+          "sha256": "84c8b333f6b5859b12ab064502e2d7d37728da29496f120ade174e898af92f46",
+          "git_blob": "2b93a4e1c3eeef967d0d03d3d587af93dacf2435",
+          "fixed_tree_blob": "2b93a4e1c3eeef967d0d03d3d587af93dacf2435",
+          "blob_matches_fixed_tree": true,
+          "line_count": 261,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/03-json-rpc-and-meta/code/tests/test_main.py",
+          "bytes": 4768,
+          "sha256": "0ac069e24d01cacbaaa3311d04ed54203b8187877c6218dffcaf7a2010f54096",
+          "git_blob": "ed0710a39b2084c6f2770d71d8afdaebd861cbbe",
+          "fixed_tree_blob": "ed0710a39b2084c6f2770d71d8afdaebd861cbbe",
+          "blob_matches_fixed_tree": true,
+          "line_count": 101,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/03-json-rpc-and-meta/docs/en.md",
+          "bytes": 14793,
+          "sha256": "e2dadc3c0fe0a52ce7fd6c26d6546134febd8f1764252355d5b38893f24286c9",
+          "git_blob": "fde2dade7b50f61007d6917d694876d0bb681171",
+          "fixed_tree_blob": "fde2dade7b50f61007d6917d694876d0bb681171",
+          "blob_matches_fixed_tree": true,
+          "line_count": 122,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/03-json-rpc-and-meta/outputs/message-shapes-reference.md",
+          "bytes": 3429,
+          "sha256": "5cdb22d167a2c3a4a219653a5835daac564625b73d76d2d1124bb7dc43d2e998",
+          "git_blob": "bf11f9696ba1072a0bd5f077411e10e3a6029538",
+          "fixed_tree_blob": "bf11f9696ba1072a0bd5f077411e10e3a6029538",
+          "blob_matches_fixed_tree": true,
+          "line_count": 56,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/03-json-rpc-and-meta/quiz.json",
+          "bytes": 4773,
+          "sha256": "0eebc883d812a145334fdec780bb376d49bbc45ad4c09bfe0b5e2af456e911a1",
+          "git_blob": "fa7fe96098491b25b5dbc07d2bcf245d46dbf9b7",
+          "fixed_tree_blob": "fa7fe96098491b25b5dbc07d2bcf245d46dbf9b7",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "04-the-stateless-core",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/04-the-stateless-core/code/figure.snippet.js",
+          "bytes": 3181,
+          "sha256": "de68df3ec6a17453db2d9b4bbd8c3c0f280c688d590deced7689eb5ab63aee9b",
+          "git_blob": "dd80a18904de1065e936f48f6172b2ceeb54e2f7",
+          "fixed_tree_blob": "dd80a18904de1065e936f48f6172b2ceeb54e2f7",
+          "blob_matches_fixed_tree": true,
+          "line_count": 31,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/04-the-stateless-core/code/main.py",
+          "bytes": 11452,
+          "sha256": "2eea73142770c009a7a66fca31eca1606c34fae59f538dc69bc072dfe933da33",
+          "git_blob": "c0d1006679e6b3ee053cf309fb3ac6dde2755062",
+          "fixed_tree_blob": "c0d1006679e6b3ee053cf309fb3ac6dde2755062",
+          "blob_matches_fixed_tree": true,
+          "line_count": 307,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/04-the-stateless-core/code/tests/test_main.py",
+          "bytes": 5043,
+          "sha256": "6942b2579e0a212f4d8d5a34a722c5daf0299a501be94163dd4024ab77b80ec3",
+          "git_blob": "9608145f458d2b610158a31b883cae350d2e249f",
+          "fixed_tree_blob": "9608145f458d2b610158a31b883cae350d2e249f",
+          "blob_matches_fixed_tree": true,
+          "line_count": 94,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/04-the-stateless-core/docs/en.md",
+          "bytes": 14575,
+          "sha256": "5efc595cf0ddb310a2d7512de2bac3dde1166eafcc821c8f6711512559751fbd",
+          "git_blob": "b6fc4bf0f379cb871d92c38e003be8eefa8ed8a2",
+          "fixed_tree_blob": "b6fc4bf0f379cb871d92c38e003be8eefa8ed8a2",
+          "blob_matches_fixed_tree": true,
+          "line_count": 131,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/04-the-stateless-core/outputs/stateless-design-checklist.md",
+          "bytes": 3673,
+          "sha256": "5d7f58de105da241d34473a11c5a045e109fe60df484ac2325f64f619407bad5",
+          "git_blob": "1b5c45759c5e07cb12c6cc795de12edd1a56e951",
+          "fixed_tree_blob": "1b5c45759c5e07cb12c6cc795de12edd1a56e951",
+          "blob_matches_fixed_tree": true,
+          "line_count": 55,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/04-the-stateless-core/quiz.json",
+          "bytes": 4672,
+          "sha256": "324c35ed3acdddacf521f38121ea06b6e67cecbc18577adfd35a3e94e2cf3e88",
+          "git_blob": "77f2c709469fd066d8d03e04d6d3fb4ec658ffc1",
+          "fixed_tree_blob": "77f2c709469fd066d8d03e04d6d3fb4ec658ffc1",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "05-protocol-eras-and-compatibility",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/05-protocol-eras-and-compatibility/code/figure.snippet.js",
+          "bytes": 2795,
+          "sha256": "4e4c169c78b388f46de6d2e3a82d92aa9b9a83da32ed50fd993a3e2490e1b947",
+          "git_blob": "7de78163032ecb749ea831eaa3f45ca313e5597e",
+          "fixed_tree_blob": "7de78163032ecb749ea831eaa3f45ca313e5597e",
+          "blob_matches_fixed_tree": true,
+          "line_count": 42,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/05-protocol-eras-and-compatibility/code/main.py",
+          "bytes": 9728,
+          "sha256": "59fd1c5b53f0da35b3199a4c445f07494dab950c2713e3c0cff9fcc6788137d4",
+          "git_blob": "201c0985f5d66aa7c7d1cbf4eb6276b9d8aef0a5",
+          "fixed_tree_blob": "201c0985f5d66aa7c7d1cbf4eb6276b9d8aef0a5",
+          "blob_matches_fixed_tree": true,
+          "line_count": 259,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/05-protocol-eras-and-compatibility/code/tests/test_main.py",
+          "bytes": 4798,
+          "sha256": "e6b6644bce6086658b9a2090e83509ebeb32da8ca5377bf21f8a6c394fd59aae",
+          "git_blob": "b737a1d4c46f51fc00f9fd04526af8a8b9dd0c78",
+          "fixed_tree_blob": "b737a1d4c46f51fc00f9fd04526af8a8b9dd0c78",
+          "blob_matches_fixed_tree": true,
+          "line_count": 100,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/05-protocol-eras-and-compatibility/docs/en.md",
+          "bytes": 13696,
+          "sha256": "e27539cf507caf81339248299b0e8a3f362e12e26736f1fe3f1526fec1cef51c",
+          "git_blob": "cf99a3fd7c3a1c4105346bb96bcafbc475512096",
+          "fixed_tree_blob": "cf99a3fd7c3a1c4105346bb96bcafbc475512096",
+          "blob_matches_fixed_tree": true,
+          "line_count": 128,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/05-protocol-eras-and-compatibility/outputs/era-compatibility-matrix.md",
+          "bytes": 4108,
+          "sha256": "14bb57ce83b8b35079b19cbf81e0ddb370f6b3dd92420350daa2ad5e8cf902a1",
+          "git_blob": "fc8aa40d0b3aae574b042d494662f300da6eaa9c",
+          "fixed_tree_blob": "fc8aa40d0b3aae574b042d494662f300da6eaa9c",
+          "blob_matches_fixed_tree": true,
+          "line_count": 57,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/05-protocol-eras-and-compatibility/quiz.json",
+          "bytes": 4642,
+          "sha256": "2860d4f20fd6fc75beda7308abb47b799698c022aa4d5b008f8f51dc1d38839e",
+          "git_blob": "9027f0d9bacc184b2ed44d62222a32b577a95647",
+          "fixed_tree_blob": "9027f0d9bacc184b2ed44d62222a32b577a95647",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "06-hosts-clients-and-servers",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/06-hosts-clients-and-servers/code/figure.snippet.js",
+          "bytes": 3634,
+          "sha256": "c5d003f2ec963351a2ade528a843f5c600d0bbd9289c27e14adf96208797085b",
+          "git_blob": "4fb5c78c15df3a7c70491d933d455b5db65571dc",
+          "fixed_tree_blob": "4fb5c78c15df3a7c70491d933d455b5db65571dc",
+          "blob_matches_fixed_tree": true,
+          "line_count": 41,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/06-hosts-clients-and-servers/code/main.py",
+          "bytes": 9928,
+          "sha256": "181272584f4e624fbda67719324f4f0ececc687398cf8f02162aec6af6d8b1d9",
+          "git_blob": "b9fd62dea630d03d3935d9e36c806036af42c049",
+          "fixed_tree_blob": "b9fd62dea630d03d3935d9e36c806036af42c049",
+          "blob_matches_fixed_tree": true,
+          "line_count": 258,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/06-hosts-clients-and-servers/code/tests/test_main.py",
+          "bytes": 3775,
+          "sha256": "82f77b0779107a3d360e5b7a910473281608f42e2c3b2f175c51634d649eb9df",
+          "git_blob": "10ac33b3baa5b9502a958dd763f62e860a0ab402",
+          "fixed_tree_blob": "10ac33b3baa5b9502a958dd763f62e860a0ab402",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/06-hosts-clients-and-servers/docs/en.md",
+          "bytes": 14851,
+          "sha256": "4de76be6536ae470562a101c1b4e8d2c36b68eb93a4b43a8c5230e277d7c753d",
+          "git_blob": "7ac0c042d7af07160c2e3e49b61f061f83dfcf3c",
+          "fixed_tree_blob": "7ac0c042d7af07160c2e3e49b61f061f83dfcf3c",
+          "blob_matches_fixed_tree": true,
+          "line_count": 101,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/06-hosts-clients-and-servers/outputs/architecture-roles-map.md",
+          "bytes": 3861,
+          "sha256": "7fc76fa9f4df6a031b0907d7a97872a9ae4cea4ae5750b94d67d467625ea5a20",
+          "git_blob": "6e0c6b89d5d1d8e3582b7536f4b6ace3904c1dba",
+          "fixed_tree_blob": "6e0c6b89d5d1d8e3582b7536f4b6ace3904c1dba",
+          "blob_matches_fixed_tree": true,
+          "line_count": 52,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/06-hosts-clients-and-servers/quiz.json",
+          "bytes": 5169,
+          "sha256": "5608f713f8cc66bf90d15a81c61693bb0a606123b9bf11014eaf9a5a362685d6",
+          "git_blob": "9feb4a13bbdf107784174ef0e90328b58e124ca1",
+          "fixed_tree_blob": "9feb4a13bbdf107784174ef0e90328b58e124ca1",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "07-discovery-and-capability-negotiation",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/07-discovery-and-capability-negotiation/code/figure.snippet.js",
+          "bytes": 3766,
+          "sha256": "827d41ddaf811e241aeec0cb01bb8312be4a3abfbe9e48a79a53a74075bb85ce",
+          "git_blob": "4d3332ba51f2226a34b08468a8c9a1ac6eb64e91",
+          "fixed_tree_blob": "4d3332ba51f2226a34b08468a8c9a1ac6eb64e91",
+          "blob_matches_fixed_tree": true,
+          "line_count": 45,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/07-discovery-and-capability-negotiation/code/main.py",
+          "bytes": 6353,
+          "sha256": "f01f2348e04c8b958f83fbe3dbbfeb333ce3a1ad0a1fff0b3c9a06703c244037",
+          "git_blob": "3f4092c54abf42fc7a589d7d6c1ea98c1269e5ec",
+          "fixed_tree_blob": "3f4092c54abf42fc7a589d7d6c1ea98c1269e5ec",
+          "blob_matches_fixed_tree": true,
+          "line_count": 174,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/07-discovery-and-capability-negotiation/code/tests/test_main.py",
+          "bytes": 4326,
+          "sha256": "190b20f1227073678962147fb2d194334343415be3b8d18751f787b527fb65d5",
+          "git_blob": "4dce397463c140b4b30ea4f040a9b2b1f03fb88f",
+          "fixed_tree_blob": "4dce397463c140b4b30ea4f040a9b2b1f03fb88f",
+          "blob_matches_fixed_tree": true,
+          "line_count": 87,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/07-discovery-and-capability-negotiation/docs/en.md",
+          "bytes": 12253,
+          "sha256": "e25f970b356bdafe0e9e6b41c11e7a6b4a69ac7f0e94d43794ad240f7a63f3db",
+          "git_blob": "f5fdf615aedc9fcdd2f37ec0f0448b5d4ef44c50",
+          "fixed_tree_blob": "f5fdf615aedc9fcdd2f37ec0f0448b5d4ef44c50",
+          "blob_matches_fixed_tree": true,
+          "line_count": 146,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/07-discovery-and-capability-negotiation/outputs/capability-negotiation-cheatsheet.md",
+          "bytes": 4186,
+          "sha256": "26e6fc313fb8bad526a932ff4686b721a7ad6574d21a8d2d6bfde17b57546524",
+          "git_blob": "a951c865a62f0711050e7798c9f13744cd200f3e",
+          "fixed_tree_blob": "a951c865a62f0711050e7798c9f13744cd200f3e",
+          "blob_matches_fixed_tree": true,
+          "line_count": 65,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/07-discovery-and-capability-negotiation/quiz.json",
+          "bytes": 5219,
+          "sha256": "fef7d9070bbae01c821f99751d76d43eb33a0728f3bd83a450d3ed0669ed3ec3",
+          "git_blob": "e0b41ffca97b8901a502107d7c089aa190941d9c",
+          "fixed_tree_blob": "e0b41ffca97b8901a502107d7c089aa190941d9c",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "08-tool-schemas-and-structured-content",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/08-tool-schemas-and-structured-content/code/figure.snippet.js",
+          "bytes": 3743,
+          "sha256": "282db2ed8a9d9eace30aa028c80d3d24b3aa7ebd63cd85958fd47bb8ba25031a",
+          "git_blob": "7e062447c6fe5380227cf3a035d9a4a765af670a",
+          "fixed_tree_blob": "7e062447c6fe5380227cf3a035d9a4a765af670a",
+          "blob_matches_fixed_tree": true,
+          "line_count": 63,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/08-tool-schemas-and-structured-content/code/main.py",
+          "bytes": 11948,
+          "sha256": "ed3a8bc5690efd6a9fc69ee5f85cea176e6bd62c6212270bac860c8d8ffd52e0",
+          "git_blob": "83e721c18e892e6998bc4e8fdaeaa5049a2aa39b",
+          "fixed_tree_blob": "83e721c18e892e6998bc4e8fdaeaa5049a2aa39b",
+          "blob_matches_fixed_tree": true,
+          "line_count": 330,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/08-tool-schemas-and-structured-content/code/tests/test_main.py",
+          "bytes": 4362,
+          "sha256": "ce5eabb87361488cf8fb88806a9212ba7fe2da609e04c54fc84ef2b449ba9b63",
+          "git_blob": "732c287439fcc084ddb8d89abe483b2bde7a9911",
+          "fixed_tree_blob": "732c287439fcc084ddb8d89abe483b2bde7a9911",
+          "blob_matches_fixed_tree": true,
+          "line_count": 88,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/08-tool-schemas-and-structured-content/docs/en.md",
+          "bytes": 12903,
+          "sha256": "60aeaf909de89d07c136adb6b33d14f17595cb0fa10a7b0f2d2bc614a7985c7e",
+          "git_blob": "afe330266bc4f8ec6b4aa2587c564d650b04f48d",
+          "fixed_tree_blob": "afe330266bc4f8ec6b4aa2587c564d650b04f48d",
+          "blob_matches_fixed_tree": true,
+          "line_count": 129,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/08-tool-schemas-and-structured-content/outputs/tool-schema-reference.md",
+          "bytes": 3750,
+          "sha256": "25f9dd90498375c52ce4c0545e1dc998613f5b5c994c66c3b63ec5cf2ba0a31d",
+          "git_blob": "af76a9dc8fe308682cf8df647773ee80a0a735c1",
+          "fixed_tree_blob": "af76a9dc8fe308682cf8df647773ee80a0a735c1",
+          "blob_matches_fixed_tree": true,
+          "line_count": 57,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/08-tool-schemas-and-structured-content/quiz.json",
+          "bytes": 4847,
+          "sha256": "61f3f62c21a5c01d96fd7df1ce141bb9fb73ed9bda5c9f08cb08f45cda5f28cc",
+          "git_blob": "1da7a7ab28d37802f3b50cfd2414b7ad08f26b83",
+          "fixed_tree_blob": "1da7a7ab28d37802f3b50cfd2414b7ad08f26b83",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "09-reading-server-manifests",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/09-reading-server-manifests/code/figure.snippet.js",
+          "bytes": 3657,
+          "sha256": "32ff62113a687e4ed6e36dcce0d335e35c97bd91dec39f1a1bd60ddca30c6261",
+          "git_blob": "a0cc7d39524799acd00694bf2ecadb45f036ef2e",
+          "fixed_tree_blob": "a0cc7d39524799acd00694bf2ecadb45f036ef2e",
+          "blob_matches_fixed_tree": true,
+          "line_count": 71,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/09-reading-server-manifests/code/main.py",
+          "bytes": 16690,
+          "sha256": "fd2b02daa3e7f351dbcc7c7229c2c56df89737394b116a6f83842b23215f9ae7",
+          "git_blob": "1ff0a1f0c45f91880d16596e8a1f812ed39c7f61",
+          "fixed_tree_blob": "1ff0a1f0c45f91880d16596e8a1f812ed39c7f61",
+          "blob_matches_fixed_tree": true,
+          "line_count": 433,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/09-reading-server-manifests/code/tests/test_main.py",
+          "bytes": 4816,
+          "sha256": "c107b25955e615b73019f9011859359abe1eb72968caf3d4d2a4af099c57ec3d",
+          "git_blob": "ec4274958cd5caba31e69154a5548896310c1160",
+          "fixed_tree_blob": "ec4274958cd5caba31e69154a5548896310c1160",
+          "blob_matches_fixed_tree": true,
+          "line_count": 100,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/09-reading-server-manifests/docs/en.md",
+          "bytes": 14501,
+          "sha256": "d1f6971e9f3912aee2b21b534e5dec9a32debc51307f53eb0e47457a7cb8b5e3",
+          "git_blob": "ef16a3741af1e3428fc1f8114cd4bd3ba2deb864",
+          "fixed_tree_blob": "ef16a3741af1e3428fc1f8114cd4bd3ba2deb864",
+          "blob_matches_fixed_tree": true,
+          "line_count": 96,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/09-reading-server-manifests/outputs/manifest-review-checklist.md",
+          "bytes": 4530,
+          "sha256": "91fbdfc89e95a5265732128c0f5be2cc19edc32e5eddbb719173525f22b90d67",
+          "git_blob": "ac95af953f45d7650e047faf20f0136f408574a9",
+          "fixed_tree_blob": "ac95af953f45d7650e047faf20f0136f408574a9",
+          "blob_matches_fixed_tree": true,
+          "line_count": 62,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/09-reading-server-manifests/quiz.json",
+          "bytes": 5590,
+          "sha256": "676c1ec4314c93e06d71c58f49bc3a9c71a17f8bb53cd7c0a0eceb8f526f1ada",
+          "git_blob": "f88f3d3129f5f87674029a7af38aeceb6855b1a9",
+          "fixed_tree_blob": "f88f3d3129f5f87674029a7af38aeceb6855b1a9",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "10-model-interaction-flow",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/10-model-interaction-flow/code/figure.snippet.js",
+          "bytes": 4836,
+          "sha256": "a3db519f3427efc066cbd7997d9560d2143662546e52924fd628c5bd0e29b9c4",
+          "git_blob": "d7147cef5d960e13a6e175d24ae38661791fb081",
+          "fixed_tree_blob": "d7147cef5d960e13a6e175d24ae38661791fb081",
+          "blob_matches_fixed_tree": true,
+          "line_count": 44,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/10-model-interaction-flow/code/main.py",
+          "bytes": 15224,
+          "sha256": "5e3d990f0e3387458a171512be41fd325582db53d7e314dce006c65f69fb8062",
+          "git_blob": "662e575b2a2b2c2ebdc626855c28011a6eea5334",
+          "fixed_tree_blob": "662e575b2a2b2c2ebdc626855c28011a6eea5334",
+          "blob_matches_fixed_tree": true,
+          "line_count": 401,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/10-model-interaction-flow/code/tests/test_main.py",
+          "bytes": 5669,
+          "sha256": "17bd214abf65fa2e1e6a5d57114b191c7300755a95208078adb6df789da7cce1",
+          "git_blob": "6d49fea13d8357a1f2ad643ae543f2e683d25323",
+          "fixed_tree_blob": "6d49fea13d8357a1f2ad643ae543f2e683d25323",
+          "blob_matches_fixed_tree": true,
+          "line_count": 121,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/10-model-interaction-flow/docs/en.md",
+          "bytes": 13138,
+          "sha256": "e236d59dc30468dd79bcc0e349d2e9647430f6deebd790a4b2a0fb451d70973e",
+          "git_blob": "5ea2f0e95c1f27c898645e70d5b984c499023e67",
+          "fixed_tree_blob": "5ea2f0e95c1f27c898645e70d5b984c499023e67",
+          "blob_matches_fixed_tree": true,
+          "line_count": 106,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/10-model-interaction-flow/outputs/interaction-flow-trace.md",
+          "bytes": 4806,
+          "sha256": "76c1926a3e6118b04da5072c63b605ff4bc0295b3060c78fbf51f7a0af49f80c",
+          "git_blob": "bcf811cbe9d3ff86c436ba720b89911cdb175fcf",
+          "fixed_tree_blob": "bcf811cbe9d3ff86c436ba720b89911cdb175fcf",
+          "blob_matches_fixed_tree": true,
+          "line_count": 74,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/10-model-interaction-flow/quiz.json",
+          "bytes": 5033,
+          "sha256": "afe78f51f04c7f266c4f190be1c41a068972a7afbb3ae93fcf7d1da0eabe36f7",
+          "git_blob": "9e56fa8db5a2e4819bca7b1284d1f35b163b36a8",
+          "fixed_tree_blob": "9e56fa8db5a2e4819bca7b1284d1f35b163b36a8",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "11-the-tools-primitive",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/11-the-tools-primitive/code/figure.snippet.js",
+          "bytes": 3132,
+          "sha256": "97e948ff44d309302d1379ae791af57a28e236f935f3507221aae196d58ee9d1",
+          "git_blob": "2764b5d08a9c394da1d75f365db6f948392a899d",
+          "fixed_tree_blob": "2764b5d08a9c394da1d75f365db6f948392a899d",
+          "blob_matches_fixed_tree": true,
+          "line_count": 35,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/11-the-tools-primitive/code/main.py",
+          "bytes": 14465,
+          "sha256": "f10f2e148d1d1fda5a81f364b0a701bd112083101f132d4dcd5ded4756458f47",
+          "git_blob": "68d461784e9da14de91dfd4fbf3fb5f3298dc782",
+          "fixed_tree_blob": "68d461784e9da14de91dfd4fbf3fb5f3298dc782",
+          "blob_matches_fixed_tree": true,
+          "line_count": 396,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/11-the-tools-primitive/code/tests/test_main.py",
+          "bytes": 6527,
+          "sha256": "2999a76980915a6931d17e63596959644d3506bc1ec686a9d2dbd93f877b1495",
+          "git_blob": "a81cb382f89497e12ca1173da6a61736f41c43ef",
+          "fixed_tree_blob": "a81cb382f89497e12ca1173da6a61736f41c43ef",
+          "blob_matches_fixed_tree": true,
+          "line_count": 126,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/11-the-tools-primitive/docs/en.md",
+          "bytes": 13832,
+          "sha256": "74bcfbea09e8bcaf0e17a51f09075d092ea443f17d4ce1c7b0785ce52f067f3b",
+          "git_blob": "32ad86dc951c538ee3dc4eaf7d1ab234663d9490",
+          "fixed_tree_blob": "32ad86dc951c538ee3dc4eaf7d1ab234663d9490",
+          "blob_matches_fixed_tree": true,
+          "line_count": 137,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/11-the-tools-primitive/outputs/tool-result-anatomy.md",
+          "bytes": 3553,
+          "sha256": "ccbfbda47e7c3c3cef436c45a45f5af7b225d55bd23b5301447cf74f310911eb",
+          "git_blob": "d15cadf6f9e172debaa509b3f11e74fabc52dd49",
+          "fixed_tree_blob": "d15cadf6f9e172debaa509b3f11e74fabc52dd49",
+          "blob_matches_fixed_tree": true,
+          "line_count": 65,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/11-the-tools-primitive/quiz.json",
+          "bytes": 5141,
+          "sha256": "88b59999fa9fc8af52069aa991805c07e9fa15cfc139aa3f9689d4a90281d671",
+          "git_blob": "0bbedc9d2ddf8cfa5756ee1bcf2265cbec171983",
+          "fixed_tree_blob": "0bbedc9d2ddf8cfa5756ee1bcf2265cbec171983",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "12-the-resources-primitive",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/12-the-resources-primitive/code/figure.snippet.js",
+          "bytes": 3819,
+          "sha256": "56bc382fa8287720bbae2006cc685df2f4c8c6eca5031bb0458326cfd7729cc1",
+          "git_blob": "358c3452b7b404369b556f5fcf9b2cb29eb45063",
+          "fixed_tree_blob": "358c3452b7b404369b556f5fcf9b2cb29eb45063",
+          "blob_matches_fixed_tree": true,
+          "line_count": 43,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/12-the-resources-primitive/code/main.py",
+          "bytes": 11699,
+          "sha256": "827fe5e593839b74c4f3386879ffa9a3078eceb09734b59c23cd38ec6ead194d",
+          "git_blob": "2789c04e4a5c84e22df2bc3740f8db42067b2398",
+          "fixed_tree_blob": "2789c04e4a5c84e22df2bc3740f8db42067b2398",
+          "blob_matches_fixed_tree": true,
+          "line_count": 323,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/12-the-resources-primitive/code/tests/test_main.py",
+          "bytes": 3980,
+          "sha256": "0bd4f7a2842b44bd943550fc4bf1af3512eb120ae0f834c756df67f4fb44f277",
+          "git_blob": "01c218b6c687499e627c75725609228e787c17c5",
+          "fixed_tree_blob": "01c218b6c687499e627c75725609228e787c17c5",
+          "blob_matches_fixed_tree": true,
+          "line_count": 86,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/12-the-resources-primitive/docs/en.md",
+          "bytes": 12220,
+          "sha256": "5c5862c75a4c7959be7cecc0d3c5ac29b0fcb441e4dda18ce6f53c08ccd0f9c8",
+          "git_blob": "704ab692c110303c6e6b78d5a4d5d04eb0ee6c87",
+          "fixed_tree_blob": "704ab692c110303c6e6b78d5a4d5d04eb0ee6c87",
+          "blob_matches_fixed_tree": true,
+          "line_count": 100,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/12-the-resources-primitive/outputs/resource-design-guide.md",
+          "bytes": 3449,
+          "sha256": "8c477126a71237fe0fe32b4d283e0f4e9e5bd518b762b8e835f9f0bc3ca29961",
+          "git_blob": "a9b8faaa67a6ded427e1bc4c8d9596d82b95aec8",
+          "fixed_tree_blob": "a9b8faaa67a6ded427e1bc4c8d9596d82b95aec8",
+          "blob_matches_fixed_tree": true,
+          "line_count": 62,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/12-the-resources-primitive/quiz.json",
+          "bytes": 4458,
+          "sha256": "4c65eae1a66eea0518dbcc694c9c510806c1aa23d121c189038178177100b77f",
+          "git_blob": "f19cb3af3fe4f352a188a1db9ed8673da41c8e26",
+          "fixed_tree_blob": "f19cb3af3fe4f352a188a1db9ed8673da41c8e26",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "13-prompts-and-completion",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/13-prompts-and-completion/code/figure.snippet.js",
+          "bytes": 3147,
+          "sha256": "22f8a6eab174da56d02af3ca22886a011046a4872c85e485fafc7fdceac6a560",
+          "git_blob": "c23fad4363c764bbff227af261c7e912071b5a42",
+          "fixed_tree_blob": "c23fad4363c764bbff227af261c7e912071b5a42",
+          "blob_matches_fixed_tree": true,
+          "line_count": 39,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/13-prompts-and-completion/code/main.py",
+          "bytes": 11462,
+          "sha256": "4f1234dd196434e68bf1bd567e6948082ae2e7518108ca909fd43ac6dab010cc",
+          "git_blob": "05e295f39cb19fe9392860d4ce54da6cb5c6ac15",
+          "fixed_tree_blob": "05e295f39cb19fe9392860d4ce54da6cb5c6ac15",
+          "blob_matches_fixed_tree": true,
+          "line_count": 302,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/13-prompts-and-completion/code/tests/test_main.py",
+          "bytes": 5393,
+          "sha256": "bab80dedb8c50f646ad2c97dd91d06f8aad41034a46fec57fb073bfeab5fdcc7",
+          "git_blob": "e2b27e9307216cb499b4b485682d17f06e229dcd",
+          "fixed_tree_blob": "e2b27e9307216cb499b4b485682d17f06e229dcd",
+          "blob_matches_fixed_tree": true,
+          "line_count": 106,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/13-prompts-and-completion/docs/en.md",
+          "bytes": 14066,
+          "sha256": "3c90511b5b9f99cfe177d2d68ccbf5f3ec6303f9881661d140528f3c956758d4",
+          "git_blob": "96332dd9eaef972fbc8b9bef4ee905adc205ca8b",
+          "fixed_tree_blob": "96332dd9eaef972fbc8b9bef4ee905adc205ca8b",
+          "blob_matches_fixed_tree": true,
+          "line_count": 160,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/13-prompts-and-completion/outputs/prompt-and-completion-reference.md",
+          "bytes": 3220,
+          "sha256": "1c434c1488b9fe90102c3dfbb0d82ab6b630cf7e9cd65d5c7d540b0b9e25f06f",
+          "git_blob": "a6560bcd1c88611c6fe2ae1f7b84a6d3487d6bbb",
+          "fixed_tree_blob": "a6560bcd1c88611c6fe2ae1f7b84a6d3487d6bbb",
+          "blob_matches_fixed_tree": true,
+          "line_count": 63,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/13-prompts-and-completion/quiz.json",
+          "bytes": 4632,
+          "sha256": "4b824b59a3a6755caec271ba6c4bb48faa587de9e3be6c2da4474b932404a80f",
+          "git_blob": "f83ea539fe05f40b56696c064f01e4879274015f",
+          "fixed_tree_blob": "f83ea539fe05f40b56696c064f01e4879274015f",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "14-multi-round-trip-requests-and-elicitation",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/14-multi-round-trip-requests-and-elicitation/code/figure.snippet.js",
+          "bytes": 3488,
+          "sha256": "9aae2e5869bf0f7fd8b96299f925c76b71e3740a637bb37da91e3470e5c1a6d4",
+          "git_blob": "cd386c646e61aa4f6537a4dfe3ff0fcb6e9bbfb7",
+          "fixed_tree_blob": "cd386c646e61aa4f6537a4dfe3ff0fcb6e9bbfb7",
+          "blob_matches_fixed_tree": true,
+          "line_count": 45,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/14-multi-round-trip-requests-and-elicitation/code/main.py",
+          "bytes": 17270,
+          "sha256": "3e8930ebbbdcb36f907459d0ae618f672f852c68c6069b1e0454761569d3130a",
+          "git_blob": "bba1a63ac28c62519d3f0a48e5b44c69e77870c3",
+          "fixed_tree_blob": "bba1a63ac28c62519d3f0a48e5b44c69e77870c3",
+          "blob_matches_fixed_tree": true,
+          "line_count": 389,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/14-multi-round-trip-requests-and-elicitation/code/tests/test_main.py",
+          "bytes": 6988,
+          "sha256": "1a0e8de6091d943582e6d79c09b4df9b708283b2e2a5de283320377bedce9ab0",
+          "git_blob": "7f95afafa29705bfd4cc4b93f41c45b479f6aeed",
+          "fixed_tree_blob": "7f95afafa29705bfd4cc4b93f41c45b479f6aeed",
+          "blob_matches_fixed_tree": true,
+          "line_count": 145,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/14-multi-round-trip-requests-and-elicitation/docs/en.md",
+          "bytes": 14890,
+          "sha256": "ee7283c937b645d6ee3bd764216550d0a96bb87b43f1ca55e391c4262c8bba54",
+          "git_blob": "e3fe90c6da5cff8498e96e2474ccc810e434bfe4",
+          "fixed_tree_blob": "e3fe90c6da5cff8498e96e2474ccc810e434bfe4",
+          "blob_matches_fixed_tree": true,
+          "line_count": 139,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/14-multi-round-trip-requests-and-elicitation/outputs/mrtr-implementation-checklist.md",
+          "bytes": 4676,
+          "sha256": "6c4e9d7e8d6bb5b1237eab848cead374e18f582c553118b5020d1a960bb281af",
+          "git_blob": "fe89c565b3bdf8ae1cfdf0bb1da4b8667f619825",
+          "fixed_tree_blob": "fe89c565b3bdf8ae1cfdf0bb1da4b8667f619825",
+          "blob_matches_fixed_tree": true,
+          "line_count": 48,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/14-multi-round-trip-requests-and-elicitation/quiz.json",
+          "bytes": 4935,
+          "sha256": "3a277eee253d910730140fb04e7e82fa00b4221dbd83c193d8d20bb065c3f0d3",
+          "git_blob": "ef71c768913a0509c350185d577c444bfb2ba224",
+          "fixed_tree_blob": "ef71c768913a0509c350185d577c444bfb2ba224",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "15-deprecated-client-features",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/15-deprecated-client-features/code/figure.snippet.js",
+          "bytes": 4279,
+          "sha256": "98c0d870fc30f1f3b46c03ebe719dd2ef75108fabb9c1ba3047eeab3ddb483e7",
+          "git_blob": "f3a12f4c8948231a44c719f374248e655bfbbe39",
+          "fixed_tree_blob": "f3a12f4c8948231a44c719f374248e655bfbbe39",
+          "blob_matches_fixed_tree": true,
+          "line_count": 63,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/15-deprecated-client-features/code/main.py",
+          "bytes": 12234,
+          "sha256": "ed0dca832b4bb353541b08e88367269b5008b621df1c93bc18f2a5f05cdbceda",
+          "git_blob": "c0907a8fe89df6d5cae6c98c167701774cc19a40",
+          "fixed_tree_blob": "c0907a8fe89df6d5cae6c98c167701774cc19a40",
+          "blob_matches_fixed_tree": true,
+          "line_count": 293,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/15-deprecated-client-features/code/tests/test_main.py",
+          "bytes": 5707,
+          "sha256": "7961b79d4f473f431408a9ed1e3aa32e2c92f66c36aad5121304992681f2dc08",
+          "git_blob": "58e2cca2858b742decd684e75ff0f6ee591de33b",
+          "fixed_tree_blob": "58e2cca2858b742decd684e75ff0f6ee591de33b",
+          "blob_matches_fixed_tree": true,
+          "line_count": 113,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/15-deprecated-client-features/docs/en.md",
+          "bytes": 15154,
+          "sha256": "72a63f71a4755a8cd096a18f150a355c868556595b9ea82e06b6ac8443242a3d",
+          "git_blob": "ee366f81901b5ae6a941cf15dc2900eeea356eb0",
+          "fixed_tree_blob": "ee366f81901b5ae6a941cf15dc2900eeea356eb0",
+          "blob_matches_fixed_tree": true,
+          "line_count": 140,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/15-deprecated-client-features/outputs/deprecation-migration-guide.md",
+          "bytes": 3644,
+          "sha256": "a5575c1c19dacd81e016536b2da8d3b0c6262894309b0943531b8e185a1a8ded",
+          "git_blob": "685bdbd21fc11b30f9336fe7d66e815575a9fd40",
+          "fixed_tree_blob": "685bdbd21fc11b30f9336fe7d66e815575a9fd40",
+          "blob_matches_fixed_tree": true,
+          "line_count": 55,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/15-deprecated-client-features/quiz.json",
+          "bytes": 4493,
+          "sha256": "de899d9e37b3e6b7f94cc54d4a2f230e23fb55450f79fb22f431edb0f4dbfaec",
+          "git_blob": "04213aec9ac903302fd32d03ee215218f78f4d88",
+          "fixed_tree_blob": "04213aec9ac903302fd32d03ee215218f78f4d88",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "16-notifications-and-subscriptions",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/16-notifications-and-subscriptions/code/figure.snippet.js",
+          "bytes": 4999,
+          "sha256": "40ac8c3286ef802ca555d75c44f1753029ac63693386b472141747188c4d3c77",
+          "git_blob": "58e29d9e13b94b1d7a60102fc72c3a0ebf2d3509",
+          "fixed_tree_blob": "58e29d9e13b94b1d7a60102fc72c3a0ebf2d3509",
+          "blob_matches_fixed_tree": true,
+          "line_count": 65,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/16-notifications-and-subscriptions/code/main.py",
+          "bytes": 9644,
+          "sha256": "ad8aa1aa2d1d3bd2076fcee3ae441ad4beb5685d7539cf5e7cabc32d905045fc",
+          "git_blob": "2075a3bf5a7d058f99105cbbf992850087ce15ad",
+          "fixed_tree_blob": "2075a3bf5a7d058f99105cbbf992850087ce15ad",
+          "blob_matches_fixed_tree": true,
+          "line_count": 249,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/16-notifications-and-subscriptions/code/tests/test_main.py",
+          "bytes": 6932,
+          "sha256": "a57c587e038d31184f5bb7650a3e4078c2f63e20294863bc7632d61ada601137",
+          "git_blob": "684f4614ceeef84a58712784bd4661b412f367f5",
+          "fixed_tree_blob": "684f4614ceeef84a58712784bd4661b412f367f5",
+          "blob_matches_fixed_tree": true,
+          "line_count": 139,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/16-notifications-and-subscriptions/docs/en.md",
+          "bytes": 14732,
+          "sha256": "a89b8474f2edad3122496771da89fc6a65c3cadd1bd2a2bcb3378625583230b4",
+          "git_blob": "c6d55bab7aa1c4922f93e8ea3a848ba4dcd420fd",
+          "fixed_tree_blob": "c6d55bab7aa1c4922f93e8ea3a848ba4dcd420fd",
+          "blob_matches_fixed_tree": true,
+          "line_count": 129,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/16-notifications-and-subscriptions/outputs/notification-routing-table.md",
+          "bytes": 3949,
+          "sha256": "42e8585d48135ab60b4e10bd66b4fd51a0e81112bfe2022e9462ec111b648b46",
+          "git_blob": "9b023e6792ca24b6a29aa21267d742761b57c3ab",
+          "fixed_tree_blob": "9b023e6792ca24b6a29aa21267d742761b57c3ab",
+          "blob_matches_fixed_tree": true,
+          "line_count": 46,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/16-notifications-and-subscriptions/quiz.json",
+          "bytes": 4814,
+          "sha256": "b4bb1d1eed90b43a53d2a1a372f4a9d6b7c3a0ad95dcbac9b20578b395aa3b1c",
+          "git_blob": "79322843b83fd355654744f2cc3991efb15965b2",
+          "fixed_tree_blob": "79322843b83fd355654744f2cc3991efb15965b2",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "17-tool-invocation-lifecycle",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/17-tool-invocation-lifecycle/code/figure.snippet.js",
+          "bytes": 5517,
+          "sha256": "106c68e1492016be76e7caaf08e982d53c4b830b2717d5dd14dd2b76eadb138b",
+          "git_blob": "c20e0007743848ecc7462bd61a3a8ecc966702bc",
+          "fixed_tree_blob": "c20e0007743848ecc7462bd61a3a8ecc966702bc",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/17-tool-invocation-lifecycle/code/main.py",
+          "bytes": 23517,
+          "sha256": "b5353c7963e7ece480c75e9b9a8cfff3249fdf60ca8b4380cbceb2ecc1e7073f",
+          "git_blob": "33c9f12bee69eec98aec5cd6818400b381a84580",
+          "fixed_tree_blob": "33c9f12bee69eec98aec5cd6818400b381a84580",
+          "blob_matches_fixed_tree": true,
+          "line_count": 569,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/17-tool-invocation-lifecycle/code/tests/test_main.py",
+          "bytes": 7333,
+          "sha256": "2b1ed001e6a2100f0f3617331705f4f8b15be525a45aa0eaced835981a016f9d",
+          "git_blob": "59e340551994fe43249ad8f5c7e09663010fdea0",
+          "fixed_tree_blob": "59e340551994fe43249ad8f5c7e09663010fdea0",
+          "blob_matches_fixed_tree": true,
+          "line_count": 143,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/17-tool-invocation-lifecycle/docs/en.md",
+          "bytes": 15182,
+          "sha256": "7ef72750139f8a204702b740da17a2efedba5d517449f42f97d69b1d483668ba",
+          "git_blob": "042ff1341226626a20a2b1e8195511995b19d850",
+          "fixed_tree_blob": "042ff1341226626a20a2b1e8195511995b19d850",
+          "blob_matches_fixed_tree": true,
+          "line_count": 159,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/17-tool-invocation-lifecycle/outputs/tool-lifecycle-state-chart.md",
+          "bytes": 3888,
+          "sha256": "45fb941bcd58274dbbe1b9288d7758859a075637acad41310ef9a44af9c47770",
+          "git_blob": "e99fd813fde06dbdfbe2927723f6e7aeed343132",
+          "fixed_tree_blob": "e99fd813fde06dbdfbe2927723f6e7aeed343132",
+          "blob_matches_fixed_tree": true,
+          "line_count": 46,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/17-tool-invocation-lifecycle/quiz.json",
+          "bytes": 4542,
+          "sha256": "ba72f6f0d7776a897648e1b4c861e502d550cfe71727551cc57345969cc50c29",
+          "git_blob": "c08ece64dfbc4207fdcdc699efaace35ac839cd7",
+          "fixed_tree_blob": "c08ece64dfbc4207fdcdc699efaace35ac839cd7",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "18-error-handling",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/18-error-handling/code/figure.snippet.js",
+          "bytes": 4108,
+          "sha256": "05ccba069dbea4ac3b4b01d8a1b98a0f2acdb2c0d44ffdd4648026039877ed3d",
+          "git_blob": "fdb55b61962f36d0ec767b8203f4dbbdbcfab75a",
+          "fixed_tree_blob": "fdb55b61962f36d0ec767b8203f4dbbdbcfab75a",
+          "blob_matches_fixed_tree": true,
+          "line_count": 52,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/18-error-handling/code/main.py",
+          "bytes": 10916,
+          "sha256": "728e2a200c4f64f63525c13966d48ba42d790af2b7bf9f43ff40ec6284f5893d",
+          "git_blob": "63e8df7fc64c3d68085ddfd23fae209e0b237390",
+          "fixed_tree_blob": "63e8df7fc64c3d68085ddfd23fae209e0b237390",
+          "blob_matches_fixed_tree": true,
+          "line_count": 278,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/18-error-handling/code/tests/test_main.py",
+          "bytes": 5041,
+          "sha256": "699455354b721ef72282f2199da987d87c225106cc2108e2a67cad101c74e57a",
+          "git_blob": "a001896b6934fd64e2ae0665fb159e09be1a7674",
+          "fixed_tree_blob": "a001896b6934fd64e2ae0665fb159e09be1a7674",
+          "blob_matches_fixed_tree": true,
+          "line_count": 103,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/18-error-handling/docs/en.md",
+          "bytes": 14667,
+          "sha256": "af132967a3fe47c23777e8de5dd5eb921ff001a1db37d1497f451f47ab79e34d",
+          "git_blob": "9efbdd4162fdcfca3a70869f7b59569c64c9e0b5",
+          "fixed_tree_blob": "9efbdd4162fdcfca3a70869f7b59569c64c9e0b5",
+          "blob_matches_fixed_tree": true,
+          "line_count": 144,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/18-error-handling/outputs/error-code-decision-table.md",
+          "bytes": 4075,
+          "sha256": "ecad15698d41df885bd668b7cf4f0034283fc8c7d291550f14840319ec001a35",
+          "git_blob": "72a36079a9f94e7a1de02be7f5683d1b4dcc38e9",
+          "fixed_tree_blob": "72a36079a9f94e7a1de02be7f5683d1b4dcc38e9",
+          "blob_matches_fixed_tree": true,
+          "line_count": 53,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/18-error-handling/quiz.json",
+          "bytes": 4328,
+          "sha256": "0308baec00b5e038a477dfc6f4517fd60e655436365de00ac9c5994968bcdeb1",
+          "git_blob": "b92dfe5087309fe1ba35ddf6036b54d24d6afb62",
+          "fixed_tree_blob": "b92dfe5087309fe1ba35ddf6036b54d24d6afb62",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "19-transports-and-http-headers",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/19-transports-and-http-headers/code/figure.snippet.js",
+          "bytes": 4189,
+          "sha256": "9016d0c4a28c591029a756ad4ac2d239998df5924f743bca05ccc7d726220d9f",
+          "git_blob": "8500ebb1fdd4fdb29de4083daf16cbbc6a80f317",
+          "fixed_tree_blob": "8500ebb1fdd4fdb29de4083daf16cbbc6a80f317",
+          "blob_matches_fixed_tree": true,
+          "line_count": 35,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/19-transports-and-http-headers/code/main.py",
+          "bytes": 12016,
+          "sha256": "3533f3f456dad4ccafceaabbe2359bf1f6474e81dece35cf64b249ad8ea973b5",
+          "git_blob": "0b3d55c9357e299f981688ce72e82c129474e56d",
+          "fixed_tree_blob": "0b3d55c9357e299f981688ce72e82c129474e56d",
+          "blob_matches_fixed_tree": true,
+          "line_count": 314,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/19-transports-and-http-headers/code/tests/test_main.py",
+          "bytes": 5888,
+          "sha256": "b688ce63abd626dffff7f3c3f354ad694d5455d6d9fb41342008b33cd575a1f0",
+          "git_blob": "43afa9f03c3a82f91ff6c68bb53dddc441cb8034",
+          "fixed_tree_blob": "43afa9f03c3a82f91ff6c68bb53dddc441cb8034",
+          "blob_matches_fixed_tree": true,
+          "line_count": 104,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/19-transports-and-http-headers/docs/en.md",
+          "bytes": 14632,
+          "sha256": "c42a6d2c7cd4c12a5a680b03426b3cab0a0521ff5c89d60e9f48978de3028358",
+          "git_blob": "70f76169ff792d5e0eead1e10fbef9ab17debaf4",
+          "fixed_tree_blob": "70f76169ff792d5e0eead1e10fbef9ab17debaf4",
+          "blob_matches_fixed_tree": true,
+          "line_count": 125,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/19-transports-and-http-headers/outputs/transport-selection-guide.md",
+          "bytes": 4056,
+          "sha256": "743151971f9c42a3de50f6f9dcd7e90250b09280176d57a231a69a4e3604dfeb",
+          "git_blob": "8a6e5d85a37d8c57435d626827bd14b2be3ba76b",
+          "fixed_tree_blob": "8a6e5d85a37d8c57435d626827bd14b2be3ba76b",
+          "blob_matches_fixed_tree": true,
+          "line_count": 69,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/19-transports-and-http-headers/quiz.json",
+          "bytes": 5295,
+          "sha256": "e0773182bbc896093ae622e110a18d8dd2be49a7731e61eb7aadfd7fa30a5e8e",
+          "git_blob": "5d5087395892ba83227c8605053bc089ac08e131",
+          "fixed_tree_blob": "5d5087395892ba83227c8605053bc089ac08e131",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "20-caching-and-pagination",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/20-caching-and-pagination/code/figure.snippet.js",
+          "bytes": 3715,
+          "sha256": "344d13936973390d5e35e74bee2e9f9807b7af99123bb1561bd9f03567020a42",
+          "git_blob": "457606bd9df8e66cc5fd736cf321d53dbf08d06c",
+          "fixed_tree_blob": "457606bd9df8e66cc5fd736cf321d53dbf08d06c",
+          "blob_matches_fixed_tree": true,
+          "line_count": 51,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/20-caching-and-pagination/code/main.py",
+          "bytes": 14703,
+          "sha256": "58b4b1907b6a5ab35bc33282aa810e03c12436d61293b16fb22513dcbb033f0e",
+          "git_blob": "8a7a00a5aa9b10fe47eb710d1e9b8aaecd2305c6",
+          "fixed_tree_blob": "8a7a00a5aa9b10fe47eb710d1e9b8aaecd2305c6",
+          "blob_matches_fixed_tree": true,
+          "line_count": 388,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/20-caching-and-pagination/code/tests/test_main.py",
+          "bytes": 4732,
+          "sha256": "c13428a102f7d8b89bb1d470e15246a902ade1c71264150461a126a382410988",
+          "git_blob": "bede51c1c02af30c1805c4a5d75d364b60e60e72",
+          "fixed_tree_blob": "bede51c1c02af30c1805c4a5d75d364b60e60e72",
+          "blob_matches_fixed_tree": true,
+          "line_count": 96,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/20-caching-and-pagination/docs/en.md",
+          "bytes": 15593,
+          "sha256": "34b975616c75886cb9c1a6b79d5603329aeb0e5b9654952b783d67d371fe39f7",
+          "git_blob": "8243d9ad2e180a8d8a18acd34688d00d623c0d27",
+          "fixed_tree_blob": "8243d9ad2e180a8d8a18acd34688d00d623c0d27",
+          "blob_matches_fixed_tree": true,
+          "line_count": 136,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/20-caching-and-pagination/outputs/caching-decision-guide.md",
+          "bytes": 4131,
+          "sha256": "e6cc6fdb91b4f3f005a34d556a1d4b1ceba8d9f64816fb7ddd9b05f8469c2b24",
+          "git_blob": "8cdc77530fd3ba3a1651c2e729e7c0c46169e1b2",
+          "fixed_tree_blob": "8cdc77530fd3ba3a1651c2e729e7c0c46169e1b2",
+          "blob_matches_fixed_tree": true,
+          "line_count": 60,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/20-caching-and-pagination/quiz.json",
+          "bytes": 4989,
+          "sha256": "c414f1fcbbf313b52b9199d0811acc4081f2219963c3829b010ccd4d2b5e132f",
+          "git_blob": "608e15d5a990b22a47d3ac15c9172b2d9f9360fd",
+          "fixed_tree_blob": "608e15d5a990b22a47d3ac15c9172b2d9f9360fd",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "21-long-running-work-and-tasks",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/21-long-running-work-and-tasks/code/figure.snippet.js",
+          "bytes": 3233,
+          "sha256": "b16bf95719a475518950354f1c1fd02fdbae22514099a40d9ff3e14cb4fe1090",
+          "git_blob": "91ea0367ed6443556da72a4ceb95ab8f610f328f",
+          "fixed_tree_blob": "91ea0367ed6443556da72a4ceb95ab8f610f328f",
+          "blob_matches_fixed_tree": true,
+          "line_count": 44,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/21-long-running-work-and-tasks/code/main.py",
+          "bytes": 14432,
+          "sha256": "2c234baba8d04af730219156ed4b41152a1d38df7894f5a2c0c41f105741d699",
+          "git_blob": "4e52b67a70525ad89f53d3f0665ff9458624656c",
+          "fixed_tree_blob": "4e52b67a70525ad89f53d3f0665ff9458624656c",
+          "blob_matches_fixed_tree": true,
+          "line_count": 360,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/21-long-running-work-and-tasks/code/tests/test_main.py",
+          "bytes": 6006,
+          "sha256": "b0ecf7cc640188ddeaefb4828497a1abfa354abccf5662da94e461b8572fe2ee",
+          "git_blob": "a6b5e38cad9b9b8ad50914b3b561fa561d32c939",
+          "fixed_tree_blob": "a6b5e38cad9b9b8ad50914b3b561fa561d32c939",
+          "blob_matches_fixed_tree": true,
+          "line_count": 122,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/21-long-running-work-and-tasks/docs/en.md",
+          "bytes": 16115,
+          "sha256": "a1f90db809634e446e8f3c3390c08ef252597088879ba4305bd5b0c6912befcf",
+          "git_blob": "fcbc22de29ec2e72d5f389e62fd69c8476915d42",
+          "fixed_tree_blob": "fcbc22de29ec2e72d5f389e62fd69c8476915d42",
+          "blob_matches_fixed_tree": true,
+          "line_count": 168,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/21-long-running-work-and-tasks/outputs/long-running-work-patterns.md",
+          "bytes": 5882,
+          "sha256": "fc233ac0ea0e33c6a6a7da4cb19bd04a8fbe505775144a264d31dd07fe661b42",
+          "git_blob": "dfc2eb593735d910325454c0dd079e7171cb5862",
+          "fixed_tree_blob": "dfc2eb593735d910325454c0dd079e7171cb5862",
+          "blob_matches_fixed_tree": true,
+          "line_count": 67,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/21-long-running-work-and-tasks/quiz.json",
+          "bytes": 4677,
+          "sha256": "8f4314aada7e56758358448d44cf4f4a94c411864189a4963d982ec350c375c8",
+          "git_blob": "59911f20a2f06ba13849fede50556766d1e186e7",
+          "fixed_tree_blob": "59911f20a2f06ba13849fede50556766d1e186e7",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "22-trust-boundaries",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/22-trust-boundaries/code/figure.snippet.js",
+          "bytes": 4116,
+          "sha256": "ace97fe38ae0df5f39398e8eb3027796247162f4f828dae094d83210a341d9da",
+          "git_blob": "2571fa34cef8fccf611f4fc1655d5d8b6133f03a",
+          "fixed_tree_blob": "2571fa34cef8fccf611f4fc1655d5d8b6133f03a",
+          "blob_matches_fixed_tree": true,
+          "line_count": 47,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/22-trust-boundaries/code/main.py",
+          "bytes": 15659,
+          "sha256": "89adfb41b2eed298be539bc7fee4a7eb720b1c091fcbc700f9317623c198d14f",
+          "git_blob": "196201fbec27f21aa59db8ee168aae4e4c05d262",
+          "fixed_tree_blob": "196201fbec27f21aa59db8ee168aae4e4c05d262",
+          "blob_matches_fixed_tree": true,
+          "line_count": 379,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/22-trust-boundaries/code/tests/test_main.py",
+          "bytes": 5739,
+          "sha256": "b6b4174bc62d8c6deb20cb210c44003682258f1732b3b1194646ee25db606508",
+          "git_blob": "6d743e68ca0ac349de0c1beb018badbb94bc333d",
+          "fixed_tree_blob": "6d743e68ca0ac349de0c1beb018badbb94bc333d",
+          "blob_matches_fixed_tree": true,
+          "line_count": 117,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/22-trust-boundaries/docs/en.md",
+          "bytes": 15123,
+          "sha256": "17da3ee6dbc652c2a6f2a12d36f00790c8a764ef97a947a10dc87fb00b40b35d",
+          "git_blob": "76512448805d1f9e5806284add4465b50a38626a",
+          "fixed_tree_blob": "76512448805d1f9e5806284add4465b50a38626a",
+          "blob_matches_fixed_tree": true,
+          "line_count": 110,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/22-trust-boundaries/outputs/trust-boundary-map.md",
+          "bytes": 3703,
+          "sha256": "33d5c4bd134664be61ca4604c4c0399468ee4c06fe3bc7f740aba8b35408e176",
+          "git_blob": "b7eed04a64a86d27f7933c24b664621545dee697",
+          "fixed_tree_blob": "b7eed04a64a86d27f7933c24b664621545dee697",
+          "blob_matches_fixed_tree": true,
+          "line_count": 49,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/22-trust-boundaries/quiz.json",
+          "bytes": 4318,
+          "sha256": "076cb51b5fe57754d7ebc3652b4679dedb1774313593221ab7a3565a00df949b",
+          "git_blob": "16df13feba34aa2a3c995a12a4bc72ce02842fbb",
+          "fixed_tree_blob": "16df13feba34aa2a3c995a12a4bc72ce02842fbb",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "23-oauth-authorization",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/23-oauth-authorization/code/figure.snippet.js",
+          "bytes": 4300,
+          "sha256": "a142c39fcc3029e27b82ecd70fc3ab86359a0b9c1b490679b8d51c892cdeb02c",
+          "git_blob": "1679c85372d2110c25f3addc087da6f54ee808e2",
+          "fixed_tree_blob": "1679c85372d2110c25f3addc087da6f54ee808e2",
+          "blob_matches_fixed_tree": true,
+          "line_count": 46,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/23-oauth-authorization/code/main.py",
+          "bytes": 14107,
+          "sha256": "cb167155578cc2fd6b942c3cb9f32c41e5263504a15cd552c1b3435211c8f306",
+          "git_blob": "d10cb6910ecaf5ad0f053db22e9bc47025caac0f",
+          "fixed_tree_blob": "d10cb6910ecaf5ad0f053db22e9bc47025caac0f",
+          "blob_matches_fixed_tree": true,
+          "line_count": 373,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/23-oauth-authorization/code/tests/test_main.py",
+          "bytes": 7769,
+          "sha256": "bb35385619641ded6bd6eaa1156ded82fa5fa647346ba40813c5d53d865288ab",
+          "git_blob": "c701edd7dd1b4f58334c2f772525f58be357cc34",
+          "fixed_tree_blob": "c701edd7dd1b4f58334c2f772525f58be357cc34",
+          "blob_matches_fixed_tree": true,
+          "line_count": 167,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/23-oauth-authorization/docs/en.md",
+          "bytes": 18313,
+          "sha256": "634ca0f683bbf4582fa32874c83aa2056ef748e4c6e3d38685bdf003d137e022",
+          "git_blob": "1f0c83933783f6aa72f7bc30901cb0f33a835566",
+          "fixed_tree_blob": "1f0c83933783f6aa72f7bc30901cb0f33a835566",
+          "blob_matches_fixed_tree": true,
+          "line_count": 139,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/23-oauth-authorization/outputs/authorization-flow-checklist.md",
+          "bytes": 3917,
+          "sha256": "3a8d2576deeb1e5deaa07df92036eb9cf9f18e13e879e3930f49b11c055ecd38",
+          "git_blob": "ce05bdbc16c6ce1e04fad115ef4d0e1f32ade530",
+          "fixed_tree_blob": "ce05bdbc16c6ce1e04fad115ef4d0e1f32ade530",
+          "blob_matches_fixed_tree": true,
+          "line_count": 81,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/23-oauth-authorization/quiz.json",
+          "bytes": 5258,
+          "sha256": "4c1c56afe6171d46598b9be8e58ac62f0d567ae287b3e2480f429e4bf01a5aef",
+          "git_blob": "15a490070bc71b43c4528e1b952efcb1da70dd4a",
+          "fixed_tree_blob": "15a490070bc71b43c4528e1b952efcb1da70dd4a",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "24-client-registration-and-identity",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/24-client-registration-and-identity/code/figure.snippet.js",
+          "bytes": 4693,
+          "sha256": "7849ad8fcbf0b1533d14bd9f7c0a89df2d326146f4b8133bb62cac30f34b4b7d",
+          "git_blob": "4cf22fab45a775a4dc7f1748327ead69f195748d",
+          "fixed_tree_blob": "4cf22fab45a775a4dc7f1748327ead69f195748d",
+          "blob_matches_fixed_tree": true,
+          "line_count": 64,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/24-client-registration-and-identity/code/main.py",
+          "bytes": 14485,
+          "sha256": "94ab606c8367c73e417ba649a30aae415f12bcd0a81707a86b282fc32c71f86a",
+          "git_blob": "010a81fe5deaed07fc96309dde773368c04c9952",
+          "fixed_tree_blob": "010a81fe5deaed07fc96309dde773368c04c9952",
+          "blob_matches_fixed_tree": true,
+          "line_count": 377,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/24-client-registration-and-identity/code/tests/test_main.py",
+          "bytes": 5052,
+          "sha256": "8eab4f13138ec49d15cab7b73b7a478768d9a9adf1dee72daeff9f8dd7d04b52",
+          "git_blob": "dd4aab6ffbddc2dfbe9c4e306600fd0cef807cc8",
+          "fixed_tree_blob": "dd4aab6ffbddc2dfbe9c4e306600fd0cef807cc8",
+          "blob_matches_fixed_tree": true,
+          "line_count": 101,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/24-client-registration-and-identity/docs/en.md",
+          "bytes": 18359,
+          "sha256": "699db7c45b21251b7e1945cb23ef251ef5f4e96c5b3f8de6a320684ae4a24e7a",
+          "git_blob": "f85d6e6a3c76ddc13e43b4566826f66b8546993e",
+          "fixed_tree_blob": "f85d6e6a3c76ddc13e43b4566826f66b8546993e",
+          "blob_matches_fixed_tree": true,
+          "line_count": 129,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/24-client-registration-and-identity/outputs/client-registration-guide.md",
+          "bytes": 2958,
+          "sha256": "83c3db36117282e5bfe2a7aff83932f96bfc67bd0e51a8767809fc3c65b4fad3",
+          "git_blob": "0ecdc179f8824db6de568bbb8460519d96ba865e",
+          "fixed_tree_blob": "0ecdc179f8824db6de568bbb8460519d96ba865e",
+          "blob_matches_fixed_tree": true,
+          "line_count": 54,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/24-client-registration-and-identity/quiz.json",
+          "bytes": 5706,
+          "sha256": "e07889029b5c3a899050c2e9fced4ba659bdce9bfd84bccc9c40c5e3b013d880",
+          "git_blob": "bbeaca5c66c9290fc21d727bff04a20dfa7166b6",
+          "fixed_tree_blob": "bbeaca5c66c9290fc21d727bff04a20dfa7166b6",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "25-consent-and-least-privilege",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/25-consent-and-least-privilege/code/figure.snippet.js",
+          "bytes": 3644,
+          "sha256": "6b4109ffaa09936f1bd01f6989af63b3443db8a230627a5771c8b34e91491b27",
+          "git_blob": "513cb33075127a4b15af417e5e800d33542f8f50",
+          "fixed_tree_blob": "513cb33075127a4b15af417e5e800d33542f8f50",
+          "blob_matches_fixed_tree": true,
+          "line_count": 49,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/25-consent-and-least-privilege/code/main.py",
+          "bytes": 20579,
+          "sha256": "3d5073831e8c6f32b19969769882cc0ac91c04221cdfd902f2410ef5099223a8",
+          "git_blob": "7ef004160a6d075c2ba3c9c6ec76440d1b1a781c",
+          "fixed_tree_blob": "7ef004160a6d075c2ba3c9c6ec76440d1b1a781c",
+          "blob_matches_fixed_tree": true,
+          "line_count": 470,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/25-consent-and-least-privilege/code/tests/test_main.py",
+          "bytes": 9427,
+          "sha256": "9a2e653ab10e9ad006523af493c35319b2f24dbaf04e8dc3e60ea69a75d20a15",
+          "git_blob": "15999fa652900a80aa5a4c3869772e4ffbe0f640",
+          "fixed_tree_blob": "15999fa652900a80aa5a4c3869772e4ffbe0f640",
+          "blob_matches_fixed_tree": true,
+          "line_count": 189,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/25-consent-and-least-privilege/docs/en.md",
+          "bytes": 15972,
+          "sha256": "5fa2d49e32134b8c5f2139a0f530dfc3a4bcfc572b985dfc60f7fc7d14b0a4c0",
+          "git_blob": "1ded9ed1ad28964ff40c58a576b71b1ce6286f85",
+          "fixed_tree_blob": "1ded9ed1ad28964ff40c58a576b71b1ce6286f85",
+          "blob_matches_fixed_tree": true,
+          "line_count": 138,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/25-consent-and-least-privilege/outputs/consent-design-checklist.md",
+          "bytes": 4898,
+          "sha256": "f37b72175a05dc861aea61e5ffa6b7d3f4a0e8fc3f96cd6415bbf7bdb92f36db",
+          "git_blob": "0111ff06b17cdb50951bf6c6381fc828f2d40af5",
+          "fixed_tree_blob": "0111ff06b17cdb50951bf6c6381fc828f2d40af5",
+          "blob_matches_fixed_tree": true,
+          "line_count": 53,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/25-consent-and-least-privilege/quiz.json",
+          "bytes": 5639,
+          "sha256": "7b5d11e1eabf01f451e3564039d5aaaf5855d8482cce5c2defed35be1a959e8e",
+          "git_blob": "f650a0dc0fe5f9a102b5ac6835688375700280a2",
+          "fixed_tree_blob": "f650a0dc0fe5f9a102b5ac6835688375700280a2",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "26-risk-and-safety-controls",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/26-risk-and-safety-controls/code/figure.snippet.js",
+          "bytes": 3022,
+          "sha256": "f32b7da3710a093cf9b62106eca6b679b22d5f2596b665ab961857ac407f7589",
+          "git_blob": "e589d3db5cafa21be84562d815033d7bf4726d8f",
+          "fixed_tree_blob": "e589d3db5cafa21be84562d815033d7bf4726d8f",
+          "blob_matches_fixed_tree": true,
+          "line_count": 52,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/26-risk-and-safety-controls/code/main.py",
+          "bytes": 11908,
+          "sha256": "ddf3cbb36d694f81d2081aa5e36dfae4c3022a29d3950765630bd35dbce8dbfa",
+          "git_blob": "491ab2a8f08a85230823f337006cc6ada78a54fa",
+          "fixed_tree_blob": "491ab2a8f08a85230823f337006cc6ada78a54fa",
+          "blob_matches_fixed_tree": true,
+          "line_count": 309,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/26-risk-and-safety-controls/code/tests/test_main.py",
+          "bytes": 6872,
+          "sha256": "b791a620b0ba064e5254caa87233e6908137c1726fa50f830859d530fcc3b867",
+          "git_blob": "6aa063dcfa505c02efa153e77cbc0c6055538c35",
+          "fixed_tree_blob": "6aa063dcfa505c02efa153e77cbc0c6055538c35",
+          "blob_matches_fixed_tree": true,
+          "line_count": 132,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/26-risk-and-safety-controls/docs/en.md",
+          "bytes": 18412,
+          "sha256": "5e427803b64ab6be7b05b86caef90ddf5b384647f27710ebe749799250d74f94",
+          "git_blob": "0999c0dfc7cc11b66bfc190defd39aa3ee6e0edd",
+          "fixed_tree_blob": "0999c0dfc7cc11b66bfc190defd39aa3ee6e0edd",
+          "blob_matches_fixed_tree": true,
+          "line_count": 133,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/26-risk-and-safety-controls/outputs/threat-control-matrix.md",
+          "bytes": 5409,
+          "sha256": "a47fa53671ba8ff6f506b3b0842ece79900f3caf8c21ca5ecfcced1ee532ea74",
+          "git_blob": "053a04f26354581db2bcfbd53d340a1a8a3edba0",
+          "fixed_tree_blob": "053a04f26354581db2bcfbd53d340a1a8a3edba0",
+          "blob_matches_fixed_tree": true,
+          "line_count": 43,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/26-risk-and-safety-controls/quiz.json",
+          "bytes": 5934,
+          "sha256": "ffaf07111930f552014ee62865d1abfc6e370ccf7ad91fd96627edf79fb8359f",
+          "git_blob": "dc5f4d9b0fd0cf9d2a7a39483f78fba8f982049a",
+          "fixed_tree_blob": "dc5f4d9b0fd0cf9d2a7a39483f78fba8f982049a",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "27-auditability-and-observability",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/27-auditability-and-observability/code/figure.snippet.js",
+          "bytes": 3531,
+          "sha256": "85c5d0deaa350c58e2d943bb8d6cee1fdd55c06cc2b779c5a529bf1fd032be61",
+          "git_blob": "09c30c2db35b04c32b1d599ed97cd6eb5161739f",
+          "fixed_tree_blob": "09c30c2db35b04c32b1d599ed97cd6eb5161739f",
+          "blob_matches_fixed_tree": true,
+          "line_count": 32,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/27-auditability-and-observability/code/main.py",
+          "bytes": 17539,
+          "sha256": "6fdcecbbc3220bddf340414502313cf7958d231803271191dea0216c9cbb2c8b",
+          "git_blob": "67c64468735ec994d26562c7cc5c3833681375e5",
+          "fixed_tree_blob": "67c64468735ec994d26562c7cc5c3833681375e5",
+          "blob_matches_fixed_tree": true,
+          "line_count": 497,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/27-auditability-and-observability/code/tests/test_main.py",
+          "bytes": 7877,
+          "sha256": "277eefbe21a6d279f42c84bc48c06fa1d557ecbbd46c59608adcb41f81cedd49",
+          "git_blob": "a9d131459f9dc9ca385534a0c27b969e8397e4c5",
+          "fixed_tree_blob": "a9d131459f9dc9ca385534a0c27b969e8397e4c5",
+          "blob_matches_fixed_tree": true,
+          "line_count": 153,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/27-auditability-and-observability/docs/en.md",
+          "bytes": 15029,
+          "sha256": "cacbe6c1e84b93465775c039396d90e50f90e36c2dd1ea0f8d9d3efd6ba47e5a",
+          "git_blob": "4b29708c59d58babc1122c6dfd3d8b403ed50825",
+          "fixed_tree_blob": "4b29708c59d58babc1122c6dfd3d8b403ed50825",
+          "blob_matches_fixed_tree": true,
+          "line_count": 126,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/27-auditability-and-observability/outputs/audit-and-telemetry-spec.md",
+          "bytes": 4386,
+          "sha256": "b2a5f18de4eb2b15d9d62046b3df61f06e646753da7ff3bc23909e65ab6104ee",
+          "git_blob": "5681ca9eb64567e29b61a7bd1ed3e2d0eeced342",
+          "fixed_tree_blob": "5681ca9eb64567e29b61a7bd1ed3e2d0eeced342",
+          "blob_matches_fixed_tree": true,
+          "line_count": 58,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/27-auditability-and-observability/quiz.json",
+          "bytes": 5596,
+          "sha256": "aa7b6165fd5b4385643415e8932b957bd6d0ad793fcfe90487fd7c88c91855df",
+          "git_blob": "70700ceea7f073d59b837d8b31b027bd2d270b58",
+          "fixed_tree_blob": "70700ceea7f073d59b837d8b31b027bd2d270b58",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "28-roles-and-adoption",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/28-roles-and-adoption/code/figure.snippet.js",
+          "bytes": 3679,
+          "sha256": "1b0ebc619316a2596b16460e752574911a3116d7c05d480f856d5b7c732abe21",
+          "git_blob": "362d7eb63f0df322617b68c7e3b4f08293609cdd",
+          "fixed_tree_blob": "362d7eb63f0df322617b68c7e3b4f08293609cdd",
+          "blob_matches_fixed_tree": true,
+          "line_count": 71,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/28-roles-and-adoption/code/main.py",
+          "bytes": 8920,
+          "sha256": "f36facfb6715c9eec86b1fa98a975354552abbc4eb4f17d151a32ce72f527a9f",
+          "git_blob": "bfc0323ccbc4b145c34a67d6714e01632c328c3a",
+          "fixed_tree_blob": "bfc0323ccbc4b145c34a67d6714e01632c328c3a",
+          "blob_matches_fixed_tree": true,
+          "line_count": 231,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/28-roles-and-adoption/code/tests/test_main.py",
+          "bytes": 3749,
+          "sha256": "d0fa618defac94fa107f1f4a2d72d58ec478dbdf42da68ff4d9402713fd1690f",
+          "git_blob": "f04eb41fecd023271b1feeadd308f62b3a918b17",
+          "fixed_tree_blob": "f04eb41fecd023271b1feeadd308f62b3a918b17",
+          "blob_matches_fixed_tree": true,
+          "line_count": 80,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/28-roles-and-adoption/docs/en.md",
+          "bytes": 14983,
+          "sha256": "473a4b0bc6309747e58a3665b644400be63a3b0862e52347ba2ab56f4c484dae",
+          "git_blob": "67b3126b2f4ed9f7c50c02ab39ce37015bedabe1",
+          "fixed_tree_blob": "67b3126b2f4ed9f7c50c02ab39ce37015bedabe1",
+          "blob_matches_fixed_tree": true,
+          "line_count": 100,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/28-roles-and-adoption/outputs/roles-responsibility-matrix.md",
+          "bytes": 3749,
+          "sha256": "865fca352bc6ed94c8e34438bfe1a627bdf79ca24cbe7b48c382763a546178b0",
+          "git_blob": "c7950773f9cdb93218507c38ccb470508b11ab46",
+          "fixed_tree_blob": "c7950773f9cdb93218507c38ccb470508b11ab46",
+          "blob_matches_fixed_tree": true,
+          "line_count": 51,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/28-roles-and-adoption/quiz.json",
+          "bytes": 4562,
+          "sha256": "5d728ebb8b1a6c71f2a2ed08fe82938faeab8af464197cc3a582b70a216989d2",
+          "git_blob": "206f44cf3e5ad3b06805e86f0272b48094506df6",
+          "fixed_tree_blob": "206f44cf3e5ad3b06805e86f0272b48094506df6",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "29-operational-use-cases",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/29-operational-use-cases/code/figure.snippet.js",
+          "bytes": 3557,
+          "sha256": "e3d1f53ccbb42c69d3f46233c5f9aff5b8530e45d45e3bfaf0e28798acc728f8",
+          "git_blob": "e12d1513dd4fd304ce69d28aeb6bf9f4c18c510d",
+          "fixed_tree_blob": "e12d1513dd4fd304ce69d28aeb6bf9f4c18c510d",
+          "blob_matches_fixed_tree": true,
+          "line_count": 53,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/29-operational-use-cases/code/main.py",
+          "bytes": 15017,
+          "sha256": "7eebe0553c43dcc1b6d23cbe02705666defd16d011e271a4a80c2f1b6c45d6f5",
+          "git_blob": "ce499740b861cd5fe8c836b39f7ace4dae50e029",
+          "fixed_tree_blob": "ce499740b861cd5fe8c836b39f7ace4dae50e029",
+          "blob_matches_fixed_tree": true,
+          "line_count": 337,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/29-operational-use-cases/code/tests/test_main.py",
+          "bytes": 6502,
+          "sha256": "646dc4750a46603133f7686c8d5a9a8e7aacaffd4ec21b2a4ffe9e78a9922091",
+          "git_blob": "01866e20fac4e026914f0fab62a9bc05874d1095",
+          "fixed_tree_blob": "01866e20fac4e026914f0fab62a9bc05874d1095",
+          "blob_matches_fixed_tree": true,
+          "line_count": 134,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/29-operational-use-cases/docs/en.md",
+          "bytes": 14035,
+          "sha256": "487fad1b57752eb7e05b94c25d8e58f0f4910da29352e5e60ac7a448b9555a25",
+          "git_blob": "9701a78ec0a2022a11a9686f868145b587df478d",
+          "fixed_tree_blob": "9701a78ec0a2022a11a9686f868145b587df478d",
+          "blob_matches_fixed_tree": true,
+          "line_count": 122,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/29-operational-use-cases/outputs/use-case-decision-matrix.md",
+          "bytes": 3587,
+          "sha256": "6af2363779dbd92bb2fd4eaa7e48e0854b09c67718276c8f938c39fc7ab51ea3",
+          "git_blob": "b0b3f14d32a041bea97b0437e77245eafe591984",
+          "fixed_tree_blob": "b0b3f14d32a041bea97b0437e77245eafe591984",
+          "blob_matches_fixed_tree": true,
+          "line_count": 43,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/29-operational-use-cases/quiz.json",
+          "bytes": 5358,
+          "sha256": "5725f79d42191b883c0edbf25ad8ff0620e6519e9c60b2a7278d88f83945d9fb",
+          "git_blob": "3cd62ab65b0262900c31f2e6333c3baf4da014b7",
+          "fixed_tree_blob": "3cd62ab65b0262900c31f2e6333c3baf4da014b7",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "30-the-extensions-framework",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/30-the-extensions-framework/code/figure.snippet.js",
+          "bytes": 4657,
+          "sha256": "eb8865bc54bc1f55d5757583b190cb367caeff3fbc4624fb591410d98a858030",
+          "git_blob": "dccac33271e707bf72a7c3d1416807afc75c3939",
+          "fixed_tree_blob": "dccac33271e707bf72a7c3d1416807afc75c3939",
+          "blob_matches_fixed_tree": true,
+          "line_count": 53,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/30-the-extensions-framework/code/main.py",
+          "bytes": 9209,
+          "sha256": "3e708fb21630f64b098bbab0f394d0ea3889ead0f3dc12bb1af585a534644613",
+          "git_blob": "467b9f430c80d1316a9a7c4eafbaaa73925d552b",
+          "fixed_tree_blob": "467b9f430c80d1316a9a7c4eafbaaa73925d552b",
+          "blob_matches_fixed_tree": true,
+          "line_count": 243,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/30-the-extensions-framework/code/tests/test_main.py",
+          "bytes": 4783,
+          "sha256": "5c63d25c0941070e97c95edf5ea992a1eff88396aa4d76c948a6e6b648001a0e",
+          "git_blob": "660779a3a6ed1a0b6d7b066c33c8ee9a83061c28",
+          "fixed_tree_blob": "660779a3a6ed1a0b6d7b066c33c8ee9a83061c28",
+          "blob_matches_fixed_tree": true,
+          "line_count": 101,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/30-the-extensions-framework/docs/en.md",
+          "bytes": 17619,
+          "sha256": "185d8bf9b8e0f6d3e385b31d86b7d7afe25f2528cbb4cfc688cdcb1ff1dd0b9d",
+          "git_blob": "f3c852df65e15acd74754bc173ec8ea447929b06",
+          "fixed_tree_blob": "f3c852df65e15acd74754bc173ec8ea447929b06",
+          "blob_matches_fixed_tree": true,
+          "line_count": 142,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/30-the-extensions-framework/outputs/extension-negotiation-guide.md",
+          "bytes": 4752,
+          "sha256": "ba113691d403aee6b476b9feb3a09b6b69d8e00e78795ad8c0592a140f8f51c0",
+          "git_blob": "bac29312c7e6c54bbde0de7cb00bc3206660f448",
+          "fixed_tree_blob": "bac29312c7e6c54bbde0de7cb00bc3206660f448",
+          "blob_matches_fixed_tree": true,
+          "line_count": 68,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/30-the-extensions-framework/quiz.json",
+          "bytes": 4585,
+          "sha256": "dead5b3cb466937b321336ef6e431cc71efdc274421c4ea074496e52a18acc57",
+          "git_blob": "727276790359bd784da33435df6374fa2ac7802e",
+          "fixed_tree_blob": "727276790359bd784da33435df6374fa2ac7802e",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "31-mcp-apps",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/31-mcp-apps/code/figure.snippet.js",
+          "bytes": 3508,
+          "sha256": "3a559f21a08f3b03b4ce48b199c237439eea8b3fd9db2644835ae8ee428ad056",
+          "git_blob": "820c364369719085dc0e530de7a2556bdb22ddf5",
+          "fixed_tree_blob": "820c364369719085dc0e530de7a2556bdb22ddf5",
+          "blob_matches_fixed_tree": true,
+          "line_count": 43,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/31-mcp-apps/code/main.py",
+          "bytes": 18794,
+          "sha256": "911796d3a405283c9e005da04528dfdba8977bd7f8a5bd116404013836dc017c",
+          "git_blob": "da221e1ed68d01f2c9deb330cac78859cc293174",
+          "fixed_tree_blob": "da221e1ed68d01f2c9deb330cac78859cc293174",
+          "blob_matches_fixed_tree": true,
+          "line_count": 427,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/31-mcp-apps/code/tests/test_main.py",
+          "bytes": 8016,
+          "sha256": "89a96870e7f35805ae9f368c37e7ec7b22a9f30b9f841bb7716ceb7402097ae5",
+          "git_blob": "6a39152325e7c53d818a96f61cc3612d3f74b8d9",
+          "fixed_tree_blob": "6a39152325e7c53d818a96f61cc3612d3f74b8d9",
+          "blob_matches_fixed_tree": true,
+          "line_count": 150,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/31-mcp-apps/docs/en.md",
+          "bytes": 17339,
+          "sha256": "178decb9413df5e67b925f9e757af0967b45d76546b3eda4112c834bac26dd2a",
+          "git_blob": "5c41f84c61997e55965a701149cbeb94c0ded305",
+          "fixed_tree_blob": "5c41f84c61997e55965a701149cbeb94c0ded305",
+          "blob_matches_fixed_tree": true,
+          "line_count": 158,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/31-mcp-apps/outputs/mcp-apps-review-checklist.md",
+          "bytes": 5982,
+          "sha256": "498b9341e22317ba33210b97cd10f9318cd7c84964daa209c9e0257d6909fd2b",
+          "git_blob": "6c162c9d18eb676465905fdb3dda9ebf6e1851f2",
+          "fixed_tree_blob": "6c162c9d18eb676465905fdb3dda9ebf6e1851f2",
+          "blob_matches_fixed_tree": true,
+          "line_count": 49,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/31-mcp-apps/quiz.json",
+          "bytes": 4660,
+          "sha256": "f6c91659a962bc11a05729dadea5d2cedd6466fe9cdcbb6e64ac1e8038b3b375",
+          "git_blob": "271a32a17cd8f79eb989fae007ef45cee3950bfb",
+          "fixed_tree_blob": "271a32a17cd8f79eb989fae007ef45cee3950bfb",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "32-registry-gateways-and-sdk-tiers",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/32-registry-gateways-and-sdk-tiers/code/figure.snippet.js",
+          "bytes": 4716,
+          "sha256": "5b997a149be3ab9ef0ae0abd9a0e629158c8618793f2cacebb71446a9f43b3a1",
+          "git_blob": "42d6c73012f81293ae07ca981c0cc67688139547",
+          "fixed_tree_blob": "42d6c73012f81293ae07ca981c0cc67688139547",
+          "blob_matches_fixed_tree": true,
+          "line_count": 73,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/32-registry-gateways-and-sdk-tiers/code/main.py",
+          "bytes": 18097,
+          "sha256": "61415fae36457dc967ac219276d3ab7768d469d933ecd5da06ca7178657e7c1d",
+          "git_blob": "a1e85cde166cd73145b335964c0c77f61769fdef",
+          "fixed_tree_blob": "a1e85cde166cd73145b335964c0c77f61769fdef",
+          "blob_matches_fixed_tree": true,
+          "line_count": 437,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/32-registry-gateways-and-sdk-tiers/code/tests/test_main.py",
+          "bytes": 8056,
+          "sha256": "45fc17476c0b9900f557f776679472e4e7614a0093929c89ed915673f407a1d7",
+          "git_blob": "a7f026cd520dd622933319e0028b9fd352f4c125",
+          "fixed_tree_blob": "a7f026cd520dd622933319e0028b9fd352f4c125",
+          "blob_matches_fixed_tree": true,
+          "line_count": 147,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/32-registry-gateways-and-sdk-tiers/docs/en.md",
+          "bytes": 21959,
+          "sha256": "5a56c144ecdefdcb5e1b3a92838457108ac453f8f754c29415f819674767a2d4",
+          "git_blob": "d418638ac6b6251f5a9e6eeae3414bbe8e0bfef0",
+          "fixed_tree_blob": "d418638ac6b6251f5a9e6eeae3414bbe8e0bfef0",
+          "blob_matches_fixed_tree": true,
+          "line_count": 141,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/32-registry-gateways-and-sdk-tiers/outputs/registry-and-gateway-guide.md",
+          "bytes": 4478,
+          "sha256": "081864e5e831d8a533906b49bb439f97ca1f8c2b525e2d452df76bfba5ca40a4",
+          "git_blob": "099d546066b097b3ed9d8b9e96244ef3dacbac7e",
+          "fixed_tree_blob": "099d546066b097b3ed9d8b9e96244ef3dacbac7e",
+          "blob_matches_fixed_tree": true,
+          "line_count": 61,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/32-registry-gateways-and-sdk-tiers/quiz.json",
+          "bytes": 4688,
+          "sha256": "ed40407e831d93eb67e588c341ab47f0db81013c3ca18e9694a3e39bc31792b4",
+          "git_blob": "2f23884277400ea9defeb65de63c7f66285b9853",
+          "fixed_tree_blob": "2f23884277400ea9defeb65de63c7f66285b9853",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    },
+    {
+      "lesson": "33-mcpa-capstone-readiness",
+      "files": [
+        {
+          "path": "certifications/mcpa/lessons/33-mcpa-capstone-readiness/code/figure.snippet.js",
+          "bytes": 4611,
+          "sha256": "d0ed5f987d415bc80eb2af256482f7b303083e6fd263235dbc7a7540fae8c715",
+          "git_blob": "8f51eea72841148f4875df8e3d19093b45caa2a8",
+          "fixed_tree_blob": "8f51eea72841148f4875df8e3d19093b45caa2a8",
+          "blob_matches_fixed_tree": true,
+          "line_count": 45,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/33-mcpa-capstone-readiness/code/main.py",
+          "bytes": 36782,
+          "sha256": "eecb996074bcf4f8764b101e126f4f29cca9a1098dd7667d7338ad1a562c3b28",
+          "git_blob": "7c851f749692a5871f0295fd1eb148769b8461ad",
+          "fixed_tree_blob": "7c851f749692a5871f0295fd1eb148769b8461ad",
+          "blob_matches_fixed_tree": true,
+          "line_count": 788,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/33-mcpa-capstone-readiness/code/tests/test_main.py",
+          "bytes": 12923,
+          "sha256": "0edbad916c97172b4fbdae55e268744e57e0da7def5e24942ac2348e6179bcff",
+          "git_blob": "c99fc7aa08fc082509fe072cb15b7074a3ec32fb",
+          "fixed_tree_blob": "c99fc7aa08fc082509fe072cb15b7074a3ec32fb",
+          "blob_matches_fixed_tree": true,
+          "line_count": 238,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/33-mcpa-capstone-readiness/docs/en.md",
+          "bytes": 17269,
+          "sha256": "659f83bce6425a188f7ff913e47dd6deebfbf88e0036c3987e59b2c2ccc95db1",
+          "git_blob": "bedd7be1709baf731790b8351c575e59f5df1c30",
+          "fixed_tree_blob": "bedd7be1709baf731790b8351c575e59f5df1c30",
+          "blob_matches_fixed_tree": true,
+          "line_count": 129,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/33-mcpa-capstone-readiness/outputs/mcpa-readiness-checklist.md",
+          "bytes": 7406,
+          "sha256": "bdd0ad5097cabaf9c211439ac0fbf87aa78a8ac7896f02849af3e0c2bc82f31d",
+          "git_blob": "06c08552986330307b590a4251e5a26da6d93479",
+          "fixed_tree_blob": "06c08552986330307b590a4251e5a26da6d93479",
+          "blob_matches_fixed_tree": true,
+          "line_count": 49,
+          "read_complete": false,
+          "actual_read_date": null
+        },
+        {
+          "path": "certifications/mcpa/lessons/33-mcpa-capstone-readiness/quiz.json",
+          "bytes": 6013,
+          "sha256": "b090db33c425469b41e1bb09a3d5786c172bc2e4cee64de92711871119cff3bb",
+          "git_blob": "deb51f99ac00f6b06d3443c69b4e89ec40709289",
+          "fixed_tree_blob": "deb51f99ac00f6b06d3443c69b4e89ec40709289",
+          "blob_matches_fixed_tree": true,
+          "line_count": 78,
+          "read_complete": false,
+          "actual_read_date": null
+        }
+      ],
+      "complete_static_read": false
+    }
+  ],
+  "status": "00–01两课12文件完整实际静读；02–33待续，aux元数据与后续图函数待读",
+  "checkpoint_date": "2026-10-13",
+  "counts_read": {
+    "lessons": 2,
+    "lesson_files": 12,
+    "true_h2_h4": 22,
+    "quiz": 12,
+    "test_definitions": 28,
+    "dynamic_final_functions": 2
+  },
+  "primary_selected": [
+    {
+      "local_file": "/tmp/study-cert-mcpa-spec-20260728-20261013.txt",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28",
+      "bytes": 5478,
+      "sha256": "f32a29c8ba099a5108fd229d10df453cb9cb347d8042793c5271a9b388c4b2f7",
+      "actual_selected_scope": "返回正文全文，overview/base/feature/trust；不是整套链接target",
+      "date": "2026-10-13",
+      "backend": "agent-reach Jina curl只读",
+      "verified_current_topics": "指定2026-07-28页真实规范正文存在；stateless/per-request与deprecated表已读，考试facts不由这些页证明"
+    },
+    {
+      "local_file": "/tmp/study-cert-mcpa-deprecated-primary-20261013.txt",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/deprecated",
+      "bytes": 3958,
+      "sha256": "959cef667d154c5ec548abcff4dfb3fe23ed92bf9e66882f6e1f7aac0c433dc6",
+      "actual_selected_scope": "返回正文全文registry与Deprecated/Removed说明，3958bytes",
+      "date": "2026-10-13",
+      "backend": "agent-reach Jina curl只读",
+      "verified_current_topics": "指定2026-07-28页真实规范正文存在；stateless/per-request与deprecated表已读，考试facts不由这些页证明"
+    },
+    {
+      "local_file": "/tmp/study-cert-mcpa-basic-primary-20261013.txt",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic",
+      "bytes": 22640,
+      "sha256": "a60e2cfa59d28ca2ea44c2a6a8fab7d59369e1875c2160890358ce73951577c2",
+      "actual_selected_scope": "返回正文line1–112：mandatoryparts/JSONRPC/resultType/errorcodes/notifications/stateless/Auth；其余未读",
+      "date": "2026-10-13",
+      "backend": "agent-reach Jina curl只读",
+      "verified_current_topics": "指定2026-07-28页真实规范正文存在；stateless/per-request与deprecated表已读，考试facts不由这些页证明"
+    }
+  ]
+}
