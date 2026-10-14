@@ -1735,3 +1735,108 @@ print('手算查询release：a分数', round(idx.search('release')[0]['score'], 
 原项目27个Test定义（8/6/6/7）分别约束上述基础行为，没有覆盖所有入口、总预算、并发或语义正确性。累计练习时应先预测结果，完成自己的实现后逐项核对，而不能用公开答案替代自己的验证。
 
 来源：第1来源固定commit `3be078b37ffd8f0c04953c0678e48f5c6d0c7775` 的[项目](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/semantic-notes-search)，2026-10-14完整静读四阶段、实现、测试、样本及图示。原30文件与provider、两PNG及39个GIF帧逐项核对；不镜像第三方全文，不执行来源命令。来源Python3.10+与README泛POSIX模板是原环境说明，本算法未用锁或进程组；学习例实测版本单独记录。
+
+
+## 18. 视觉证据库：文字、框坐标和复核记录分别保存
+
+第10节解决页面级视觉检索，这个实践解决更细的区域证据：在一张图里究竟哪一块支持当前文字。适用于截图、说明牌、图表标签的整理；输入是资产清单、声明尺寸和**已经提供的文字框**。离线核心没有OCR，也没有读取像素推断文字。可选视觉模型仅产生待审候选，不能因为返回结构正确就升级为证据。
+
+### 18.1 资产、区域和坐标的输入合同
+
+一份manifest包含assets列表；每张资产保存 `id,path,width,height,regions`，每个region保存 `id,text,bbox,origin`。资产ID全局唯一，区域ID只需在本资产内唯一，故引用键至少是 `(asset_id,region_id)`。原图字节SHA、清单版本、坐标系/方向和审核记录应一并保存，ID或路径本身不能证明版本相同。
+
+bbox是源图像素的 `[x,y,w,h]`，不是屏幕坐标、两端点或归一化数。声明宽高应是1～20000的精确整数，拒绝bool；坐标四个有限非布尔数，x/y非负，w/h为正，右/下边不越界。600×320图里的[45,130,510,45]到达(555,175)，有效；[590,130,30,45]到达x620，应拒绝，不能裁掉越界部分后当原证据。
+
+原读取器把root和候选路径resolve后判断包含、存在、后缀SVG/PNG/JPEG与单文件不超过5,000,000字节；它允许仍位于root内的符号链接，并非所有符号链接都拒绝。尺寸和文字仍是清单声明，没读真实宽高，也没验证图中确实有这句话。stat后重新读有竞争窗口，缺总资产数/总字节/解码像素预算和用户权限检查。`dict(region)`只浅拷贝，bbox列表仍可别名修改；验证后到导出前应使用同一个不可变版本，避免检查对象与展示对象脱节。
+
+### 18.2 按区域检索，而不是把整图标签当文字
+
+对query和每个区域文字casefold后取唯一Unicode词项，分数为 `|Q∩T_region|/|Q|`；只返回正分，按分数、资产ID、区域ID排序，limit精确整数1～100。重复查询词不加分、空查询无匹配，seed不自动匹配seeds。源分词没有NFC，所以组合重音与预组字符可能不同；第17节的NFC政策可复用，但改政策后要重新构建索引和评价。
+
+查询return dry seeds包含三个唯一词。种子牌的“Return dry seeds in paper envelopes.”得1；工具牌的“Return tools to the blue shelf.”只命中return，得1/3；“SEED LIBRARY”标题没有seeds复数，不应混成返还说明的区域。源输出保留原始文字、bbox、matched_terms与origin。100%只说明词面覆盖，不能证明词序、否定、图像文字准确或问题答案正确，更不是模型置信度。后续加入短语/别名时，把展开项展示出来，并在独立标签集测精确率与误伤。
+
+### 18.3 模型提议、分类标签和人审是三种对象
+
+一个模型响应可以同时包含 `regions=[{text,bbox}]` 和 `labels=["notice"]`。分类标签notice没有对应的文字框，保留在classification_labels，不进入OCR文字索引。候选区域按顺序命名proposal-1、proposal-2，来源model-proposed、reviewed=False，状态review-required；不合几何或空白文字拒绝。空regions可以保为空，不虚构“至少一条”证据。
+
+入库时源代码要求model-proposed区域的reviewed**恰为True**；provided只说明调用方提供，不能绕过实际核对。这个布尔值没有审核人身份、图像/候选SHA、审核时间、撤回与修改后失效机制。实际使用应把审核独立保存，并绑定 `image_sha + manifest_revision + region_id + text + bbox + coordinate_profile`；内容任一改变就重审。验证文字看字符错误率，验证框看IoU/遗漏与错框，验证检索另看命中/精确率；几何有效、标签存在、模型自报高分都不替代这些真值。
+
+可选HTTP适配器读取PNG/JPEG实际字节为data URL，按扩展名及PNG八字节/JPEG三字节前缀做浅检查，以model/messages/response_format=json_object序列化POST，并可带Bearer。SVG只用于离线。响应读取上限1,000,001字节并在大于1,000,000时拒绝，urlopen参数timeout=30；它不是整个调用的独立墙钟总预算。解析 `choices[0].message.content` 再校验区域，仍须处理HTTP错误、坏envelope/JSON和真实尺寸不符。
+
+直接validate_proposal未重用manifest的宽高严格验证；坏类型、非有限声明尺寸可能破坏边界比较。签名前缀不等于图片完整解码，明确URL也不等于已经批准上传或允许任意重定向。若接真实服务，先固定可信目标、数据范围与费用、传输和重定向政策，并对图片字节/尺寸/响应总量独立校验；本轮没有发送图片、读取密钥或运行该适配器。source mock/local-wire tests只是接线合同，不能称为视觉识别质量证据。
+
+### 18.4 导出时保持源坐标、显示比例与版本一致
+
+HTML里图像等比缩放时，把left=x/W、top=y/H、width=w/W、height=h/H转成百分比，JSON保原像素框。对于600×320和[45,130,510,45]，四比例是7.5%、40.625%、85%、14.0625%；显示宽420时左边31.5px、框宽357px。容器必须贴合实际图像内容；裁剪、letterbox、旋转、EXIF方向和SVG viewBox与声明尺寸不一致，都需要显式变换，不能只靠宽100%自动修正。
+
+源报告用相对定位容器叠绝对定位框，将图片base64内嵌为data URL，使HTML可离线携带；html.escape用于query、text、ID与origin，不能把候选文字拼成可执行HTML。图像字节和清单应先冻结并核SHA，避免验证一次、导出再次读到另一张图。portable JSON排除resolved_path，但源代码把其余原字段整体透传，额外字段仍可能含本地路径或敏感信息；正式导出使用字段白名单。
+
+对SVG，源实现用ElementTree解析，仅允许svg/g/基础形状/path/text/tspan等小集合；未知元素如script/foreignObject直接拒绝。仅保少量几何/颜色/字体/transform属性，删除事件处理器、未知属性和包含字面url(或小于号的值。这是一份受限教学策略，非完整SVG/CSS安全规范；它只按tag的本地名判断，没有严格根元素/命名空间及所有属性值语法验证。PNG/JPEG离线嵌入分支也未重新验证字节和尺寸。选用固定安全格式、解析资源上限和独立审核后再发布。[ElementTree解析与命名空间](https://docs.python.org/3/library/xml.etree.elementtree.html)（2026-10-15只核解析/namespace与不可信XML提示；XML解析本身不等于SVG净化）。
+
+源程序先写evidence.json，随后处理图片并写index.html；坏SVG可能留下新JSON和旧HTML，并非两个产物原子提交。实践中先在临时目录生成、验证完整产物、核一致版本，再用单一指针发布。打开保存的离线报告不应触发模型上传；若加query表单，只读内嵌索引，模型请求继续放在显式独立步骤。
+
+### 18.5 几何小例与四阶段验收
+
+下面验证**声明几何与词面覆盖**，不替像素解码、OCR、授权或完整SVG净化。它复用第17节的NFC，保留原声明坐标；正式文件发布和引用支持合同沿用第13、16节，不另造同义框架。
+
+```python
+import math
+import html
+import unicodedata
+import re
+
+
+def css_box(width, height, box):
+    if any(type(v) is not int or not 1 <= v <= 20000 for v in (width, height)):
+        raise ValueError('声明宽高需为1到20000的整数')
+    if not isinstance(box, list) or len(box) != 4 or any(
+        type(v) not in (int, float) or not math.isfinite(v) for v in box
+    ):
+        raise ValueError('四个有限非布尔坐标')
+    x, y, w, h = box
+    if x < 0 or y < 0 or w <= 0 or h <= 0 or w > width - x or h > height - y:
+        raise ValueError('框不得越出声明图像')
+    return dict(zip(('left', 'top', 'width', 'height'),
+                    (100*x/width, 100*y/height, 100*w/width, 100*h/height)))
+
+
+def coverage(query, text):
+    def words(value):
+        if not isinstance(value, str):
+            raise ValueError('需字符串')
+        return set(re.findall(r'\w+', unicodedata.normalize('NFC', value.casefold())))
+    q, t = words(query), words(text)
+    return len(q & t) / len(q) if q else 0.0
+
+
+box = css_box(600, 320, [45, 130, 510, 45])
+assert box == {'left': 7.5, 'top': 40.625, 'width': 85.0, 'height': 14.0625}
+assert math.isclose(420 * box['left']/100, 31.5)
+assert math.isclose(420 * box['width']/100, 357)
+assert coverage('return dry seeds', 'Return tools to the blue shelf.') == 1/3
+assert coverage('return return dry seeds', 'Return dry seeds in paper envelopes.') == 1
+assert coverage('cafe\u0301', 'CAFÉ') == 1
+assert coverage('seed', 'seeds') == 0
+for bad in [[590, 130, 30, 45], [0, 0, True, 2], [0, 0, float('nan'), 2]]:
+    try:
+        css_box(600, 320, bad)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('坏框必须拒绝')
+assert html.escape('<script>') == '&lt;script&gt;'
+print('声明几何/百分比缩放/Unicode词面覆盖与坏框拒绝通过；未读取像素或验证OCR真值')
+```
+
+2026-10-15这一个新增标准库例从最终Markdown提取实际CPU运行通过；原九个程序保原字节和持久成功日期，不重复运行。
+
+| 阶段 | 实际练习输入 | 参考判据与拓展 |
+|---|---|---|
+| 1 证据结构 | 有效区域、重复asset/region、负/越界/零宽/NaN/bool、越根绝对路径和链接、缺文件、bool尺寸、空文字、未审model-proposed | 原origin/bbox保留；坏项拒；model-proposed须显式True。再从一种图片格式读真实尺寸比声明，保provided标签；追加改bbox后审核失效与总量预算反例 |
+| 2 区域排名 | café、bicycle repair、重复query、不同ID同分、空/标点/OOV/复数、limit0/101/True/1.5 | 独立区域分数1和.5；重复不变；平局a先z；无词返回空；非法limit拒。再加独立别名表、公开展开项与未用于调参的精确率查询 |
+| 3 提议复核 | regions加labels、越界/无限/负宽/bool框、空文字/非字符串标签、空regions、受控响应与伪造图片前缀 | 提议reviewed=False且分类不入索引；坏框拒；空候选不补造。记录POST内容/图片dataURL只是序列化；另加坏width/height、envelope和超量响应；独立保存审核者与时间，测CER与IoU |
+| 4 可携报告 | 200×100框[10,10,170,40]、危险text/query、无匹配、script SVG、onload/onclick与外链fill属性 | HTML left5%/width85%；JSON保原框且不含resolved_path；文本转义、空态明确；未知元素拒/危险属性删。解码dataURL再核SVG；加不一致viewBox、额外敏感字段与图片处理失败后JSON/HTML一致发布反例 |
+
+作者参考24Test定义（各6）和9月28日PASS录像已静读，不执行。两张人工SVG的实际视觉内容、两PNG海报与GIF18+6全24帧已查看：示例只演示人工牌与提供的框，未测真实OCR、模型识别或人审身份。源输出媒体是浏览器滚动采集，不是一个可复跑的JSON测试结果。
+
+来源：固定commit `3be078b37ffd8f0c04953c0678e48f5c6d0c7775` 的[视觉证据项目](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/visual-evidence-library)，2026-10-15全文、实现、测试、清单/素材、最后四图及媒体静读后回融。只保主题知识与轻量出处，不复制整套原站。
