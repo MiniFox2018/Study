@@ -1509,3 +1509,62 @@ gold3只取到1时Hit=1而Recall=1/3；单gold才相等。定义唯一ID、K、�
 动态图六项已由统一维护记录核最后实际注册函数，均是预定坐标/路径/常数/成员或颜色变化：64的切点不是512-token实际分块，65的圆packet不是BM25或真实并发，66的keep集合不是CE推理，67的假文向量不是模型计算，68的.86不是所画二元gold的nDCG，69的[chunk:42]/拒答文字不是真实anchor resolver或confidence验证。静SVG亦为设计意图，不作为实测性能/全部接线证据。源码具体速度、规模、厂商默认与论文性能未新增primary核验，故未保为当前推荐/成绩。
 
 获取入口：[六课上游目录](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects)。此链接作为来源记录，不能表示本轮新增浏览或论文全文阅读；本轮用已完整静读并核Blob/SHA的冻结记录。
+
+## 14. 引用闭环：切分位置、相关性与框架适配
+
+先学第2–7节的词面检索、证据和引用，再接第13节的当前权限与代际。这个小项目补一个可复查链：原文身份→切分位置→候选排名→逐字引文→问题支持与消费状态。它能帮助定位答案来自哪里；下一步能否回答问题、当前来源是否有效、caller能否看到，仍要独立检查。继续复用本章八个完整标准库例，不再创建另一套弱问答服务。
+
+### 14.1 文档版本与偏移单位一起保留
+
+文本加载先确定允许的root和路径，拒静态解析后逃出root的symlink；仍需采集大小/文件数限制、实际打开与检查竞态、对象权限及版本。来源按文件名排序、以相对路径作ID，只扫txt；同文件的内部别名可产生两个ID，路径名稳定也不意味着内容未变。接真实多租户时，权限不能由“位于root内”自动给出。
+
+来源 `read_text`后的UTF-8重新编码SHA是**所读文本的身份**，不无条件等原磁盘bytes；换行处理可能使CRLF与LF得到相同文本。第13节已有原文/派生版本关系，原字节SHA、解码/换行规则、文本摘要和chunk范围应分栏。引用消费时重核当前source/version/权限，而不只是检查SHA字符串有64字符。
+
+字符窗口用半开区间 `[start,end)`。abcdef、size4/overlap1得[0,4)的abcd与[3,6)的def；最后已到原文末尾就停止，否则会继续产生多余的小尾窗。先验证size、overlap为明确整数且`0≤overlap<size`，bool不能当1，小数虽过比较也不能直接拿来slice。空原文返回空chunks，缺字段与非法对象按输入合同拒绝。
+
+Python偏移按字符串码点计算；UTF-8 bytes和JavaScript UTF-16不是相同单位。😀加空格前置时，后文start在Python为2、JS可能为3。不要把一份偏移拿到另一个renderer里直接slice；记录单位及规范化前后关系，明确转码或用原位置。overlap帮助边界上下文，不保证每个条件、否定句和表格都完整，也不创造新的独立证据。
+
+### 14.2 对数词频分数的计算与局限
+
+来源是一个可解释的log-TF词面基线，不是BM25。对query去重后的每个命中词t，按以下量求和：
+
+$$s(c,q)=\sum_{t\in q,\,tf(t,c)>0}(1+\ln tf(t,c))\ln\left(1+\frac{N}{1+df(t)}\right).$$
+
+这里N是候选语料中的**chunk数量**，df为含词的chunk数；重叠窗口会影响它，不能另称文档级DF。没有长度归一，也没有同义词或语义支持。query重复写cache不增加其set权重；chunk内重复关键词会按对数提高TF，仍可能被keyword stuffing影响。新增很多不命中的词本身不贡献分数，但不能因此把基线说成已解决长度偏差。
+
+手算三个chunks：a为cache cache，b为request deadline，c为request retry。query cache时df1、tf2，a分数为$(1+\ln2)\ln2.5\approx1.5514$；query request时b/c的tf1、df2，各为$\ln2\approx0.6931$，按固定ID打破tie。只返回正分候选，zebras没有命中就空列表；k0也空。k应是非负整数、输入形状/资源限额明确，不能依赖Python slicing在错误类型后报异常。
+
+真实中文、代码、表格和多语言要核相应分词与指标。Python\w会把连续中文作为一个词面块；来源图的JS\w又主要是ASCII范围，两者不能直接当同一tokenizer。排名分数仅决定调查次序，不是答案真值概率。
+
+### 14.3 逐字引文、问题支持和answered各有含义
+
+让生成回调返回来源chunk ID和逐字quote，检查ID属于本次检索集合、quote非空并确实在该chunk中，然后恢复原文偏移：原chunk.start10、text为abc def、quote def相对起点4，原start14、end17。不能因为同句出现在全库其它地方，就忽略当前所引用ID错位；重复引用位置也要有明确选择与验证依据。
+
+没有候选时应在生成器调用前返回abstained。模型异常、非法JSON、缺字段、未知ID和伪造quote分开；不要用eval、coercion或删除raw片段凑成功。来源的JSON解析仍允许重复键/忽略额外字段，输出没有大小、期限或费用边界，直接API也可能遇坏形状；应用入口沿本库严格合同补齐。
+
+最有价值的反例来自作者实际录制的输出。样本文档说：缓存保成功答案60秒，私人答案不进入共享缓存。问题是“When does cache expire?”，局部抽取器却因一个cache词与同分排序，选择了“Private answers never enter the shared cache.”，仍标answered。它是准确引文，但没有给出所问时间；应由问题支持/完整性检查保持needs_review或缺证据，而不是把state标签当答案已正确。
+
+另一个banana例无有意义query词交集，会在CLI的query层改needs_review；**直接answer和framework_qa没有经过这道额外相关性检查**。即使有query词重叠也可能答错，故不能用增加一个关键词谓词代替语义支持。状态最好分别表示字面引用通过、问题支持已核/未核、来源当前有效及访问许可。每条被消费主张仍要保限定词、适用日期与版本，当前权限的主程序继续由第13节维护。
+
+### 14.4 框架切分器回接同一位置合同
+
+适配器先保原doc，再逐part在原text中寻找可核的起点；找不到说明切分器改变了文本，应拒绝而非生成假位置。匹配后把cursor移到start+1，让重复且重叠的片段可继续定位：ababa拆为aba/aba，应在0和2；若移到完整chunk末尾3，第二个匹配会丢失。
+
+按顺序find只是一个明确假定：parts确来自同一原文、有序且对应这些出现位置。存在多处相同片段时，单凭substring找到下一处不证明那就是切分器实际意图。能获取原start metadata时，先保它再核原文slice；否则明记歧义、coverage和缺口。空/非字符串part拒，原文的空白变化或Unicode归一也不能悄悄跨越位置版本。
+
+2026-10-14选读[LangChain递归切分官方说明](https://docs.langchain.com/oss/python/integrations/splitters/recursive_text_splitter)：递归尝试段落、换行、空格等分隔，size按配置length_function度量，overlap为目标重叠；split_text给字符串，create_documents给Document对象。中文等无空格语言可另配标点分隔，不能把默认字符长度误叫token数。这里只核这些说明，没有安装或运行SDK。
+
+source framework_qa用实际导入的splitter和本地FakeListLLM，最后仍接原词面retrieval与answer；包装成框架不补tenant/权限、来源实时版本或语义审核。源锁定1.1.2与9-28的optional测试记录只作可重取历史环境，不能当本轮最新版本推荐。默认25个测试和额外5个真SDK测试分别统计：缺SDK的skip不是通过；该作者记录也不是本轮运行、云服务或用户完成证据。
+
+### 14.5 四阶段的输入与参考判据
+
+| 阶段 | 练习及拒绝/结果判据 |
+|---|---|
+| 文档与切分 | abcdef/4/1必须只有两个窗口；空文本空，overlap等size拒。多字节前置偏移按所声明单位核。sorted文件ID、文本/bytes SHA、root/symlink/TOCTOU与权限分别解释，不能只验hash长度。 |
+| 词面排名 | socket选socket，OOV/空语料/k0空，同分固定ID；重复不相关词无直接分数，相关keyword重复仍影响TF。用三个chunks手算N/df/TF，区分chunk与doc统计、中文词面和语义。 |
+| 引文与支持 | 合法quote给准确原start/end；坏JSON、伪造quote、错chunk ID分别拒，空检索0生成调用。banana仅字面通过应review；cache/privacy原录像有重叠仍没回答when，不能照抄其answered当接受标准。 |
+| 适配与交付 | ababa两aba定位0/2；changed或empty part拒；SDK路径和手工路径比较每chunk原位置，而非只数chunk。默认/optional测试各说明覆盖，result同对象生成JSON/HTML并escape，无当前源/权限证明时不作发布许可。 |
+
+CLI的source SHA与start_line只在query外层补上，直接answer/framework调用并不自动得到完整收据；框架路径也未复用CLI的needs_review策略。四个图共用whole-text substring、词交集和JS字符窗口，未实际加载文件、计算源码TF-IDF、生成器、SDK或SHA；JSUTF16偏移与Python单位差别明确保留。三个PNG及GIF全部34帧已实际视读，作者core/SDK PASS与上述错误回答各是历史范围。
+
+固定来源 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775` 的[Document QA With Citations](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/doc-qa-with-citations)，40项目文件、四正文/全部30原测试方法（25核心与5可选）、CLI/样本/所有媒体与provider于2026-10-14完整静读。源程序/测试/grader/SDK/安装/模型/网络/API/JS本轮0执行；八旧Python例原字节和持久成功日期保持，没有新同义RAG服务或评分。
