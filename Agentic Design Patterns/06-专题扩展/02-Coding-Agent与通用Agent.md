@@ -858,3 +858,35 @@ BrowseComp 测搜寻具体事实，WebArena 测模拟网站流程，OSWorld 测�
 团队扩展与初始化应有owner、真实缓存键/复审、配置变更与回退触发。模板宣传的市场份额、部署周期或固定包名只作情境，未核当前事实不进入规则。脚本在阅读任务中是教材；真实安装、网络、凭据与运行另按具体任务授权处理。
 
 2026-10-14融合固定[认证12/15/20/21](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/certifications/claude/lessons)，原配置/脚本/测试全静读，旧工作台三个Python合同原字节与实跑日期保留，没有安装、运行源码、实际CI、Hook、SDK或模型。
+
+### 四层harness接管的职责不同
+
+| 层次 | 可以交给它的循环职责 | 应用仍承担什么 |
+|---|---|---|
+| 直接模型API | 请求与返回消息 | 完整工具环、关联、预算、权限和最终目标验收。 |
+| 工具循环封装 | 一部分选择/执行/结果回传的循环 | handler授权/对象/幂等与明确失败终态；不默认具备Hook或OS隔离。 |
+| 本地Agent SDK | 所用版本提供的session、事件与扩展接线 | 干净配置/当前权限、真实执行隔离、外部状态和恢复；功能以安装版本验证。 |
+| 托管Agent服务 | 服务支持的会话、事件与持久托管接口 | 业务角色、工具边界、数据披露、费用与任务效果，不能只读idle/end_turn。 |
+
+这是责任划分，不是型号或产品优劣推荐。source文档列四层但局部policy validator只接受三种标签，表格存在也不代表所有能力组合已经实现。把同一只读工单任务分别画出谁控制调用、谁存事件、谁提供工具与谁核结果，才能比较最小适合的接线。方案增加一层时，原来必须核的权限和业务合同不会自然消失；断线恢复与目标完成仍按恢复主章分别验收。
+
+
+### 课堂变式练习：把条件改动落实到证据
+
+下面的编号只用于追溯原课堂，正文按本主题学习。先预测，再给输入、拒绝位置/结果、版本与证据；原程序命令和开放实验本轮未执行。可以复用上面的完整例，程序未支持的性质须先写清扩展合同，不能把表格当测试通过或用户已掌握。
+
+| 原课堂/项 | 练习方法与参考判断 |
+|---|---|
+| 12/练习1 | read/search/edit/tests各currenthandler/schema/prehook/OSscope/authorizedapproval/audit/finalreceipt，toolname不等safe。 |
+| 12/练习2 | 1500word移Skill前后同cases/完整failure/turn/token/latency与quality，保存authoritativeconstraints；sourceSkill不安装。 |
+| 12/练习3 | securityreviewcontract仅diff/checklist/currenttest，隔离builder隐藏思路/写权限， findings逐证据/不可验标记。 |
+| 12/练习4 | 3doc迁移阶段ownership/input/output/checkpointSHA/rollback/evaluator，按实际门推进不是固定时长承诺。 |
+| 12/练习5 | 许可eventID关联外加可信actor/action/resourceversion/expiry/replay，有限fixture只计算receipt不真实UI；重复事件不得重复effect，confirmation字段不靠模型自报。 |
+| 15/练习1 | default/acceptEdits/plan/dontAsk当前scope与safeeditfixture実获准/拒且effect记录，未真实切用户permissionmode。 |
+| 15/练习2 | compact后root/path/Skill实际reloadscope及sourceversion，不能以summary说成功；无实际session修改。 |
+| 15/练习3 | goal声明measurableacceptance+独立证据硬limit，loop只authorizedmonitorprompt与stopcondition，不自动创建提醒/任务。 |
+| 15/练习4 | 2disposableworktreeowner/files/branches共享credentialGitDB边界、reviewedmerge/cleanup，未新建工作树。 |
+| 15/练习5 | preJSONdeny与PRnesteddecision按currentruntime事件分别验证，exit2不能据旧文本当PRdeny，脚本失败/timeout onFailure范围另核；本轮只静读。 |
+| 15/练习6 | samePR读取scope/token/hosteddata/Actionsecrets/pin/minimaltools/findings/branchgate分开，当前产品资格和价格需官方，无发comment或review操作。 |
+
+方法优先于原案例数字与固定配置名；供应商能力、价格、安装版本或真实效果没有证据时保待核。相同主题迁到另一个任务，须重核适用条件、数据/权限与评价范围，不要求为了练习新增真实外部动作。

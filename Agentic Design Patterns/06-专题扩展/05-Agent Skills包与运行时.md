@@ -723,3 +723,20 @@ print("六层fixture/逐run摘要/原bytes漂移/symlink/升级移除只作计�
 **实践判据**：取两个结构相同的包，一包仅入口，一包含所需reference/helper；前者应报告缺能力而非通过。再保持方法不变改工具grant，要求审查观察自动批准变化、工具池、用户/组织授权与实际执行范围四层，不能用“已激活”代替任何一层。最后检查重复业务意图、引用漂移、安装副本漏文件、升级时unknown/已修改文件与卸载所有权：前文三个自有合同已有局部反例，本批不重复生成或运行它们，更不执行来源Skill。
 
 正文新增2026-10-14；认证19目录及所有伴随文件在2026-10-14静读完成，源[固定课程提交](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/certifications/claude/lessons/19-claude-code-skills-hooks-and-team-extension)。宿主官方仅上述选读，不冒全文、安装或实跑；旧三个Python程序与2026-10-08成功证据保留。
+
+
+### 课堂变式练习：把条件改动落实到证据
+
+下面的编号只用于追溯原课堂，正文按本主题学习。先预测，再给输入、拒绝位置/结果、版本与证据；原程序命令和开放实验本轮未执行。可以复用上面的完整例，程序未支持的性质须先写清扩展合同，不能把表格当测试通过或用户已掌握。
+
+| 原课堂/项 | 练习方法与参考判断 |
+|---|---|
+| 19/练习1 | onepagerouter保canonicalsource/commands/security+refs，前后同cases覆盖/维护，字数不是完整性。 |
+| 19/练习2 | 三globspositive/negativefixturepath实际loader+scope/date，regex或MD声称loads不证。 |
+| 19/练习3 | 200lineprocedure→Skilldescription/near-miss/ref/script/output/safetyscope多file，currentallowed-tools只grant，安装授权与手动运行另有边界。 |
+| 19/练习4 | agentreadonlyactualpool/maxturn+真实blockedreason/evidence/nextstep，description不豁免Bashwrites，未创建sourceagent。 |
+| 19/练习5 | PreToolUse vsPermissionRequest事件-specificJSON/exit及timeoutonFailure基于当前安装版本，引用15selected明确日期；未runhooks。 |
+| 19/练习6 | plugin/marketplacepublisher/pin/权限/managedsource/update/rollback需具体artifactreview，不部署或费用。 |
+| 19/练习7 | cleanheadlessinputcommit/scope/readonlytokens/schema/findingIDs/currentdiff/remediationstatus，no rawsecret，不发表PR comments。 |
+
+方法优先于原案例数字与固定配置名；供应商能力、价格、安装版本或真实效果没有证据时保待核。相同主题迁到另一个任务，须重核适用条件、数据/权限与评价范围，不要求为了练习新增真实外部动作。
