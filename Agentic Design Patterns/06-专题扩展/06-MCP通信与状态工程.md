@@ -8,7 +8,7 @@
 
 读完应能解释完整消息、自己改一个拒绝边界、运行本地负例，并指出哪些性质尚未实证。MCP标准化传递能力；授权、业务状态、有效证据、实际操作是否被用户允许，仍需实现。自报身份、tool annotations、可猜handle、模型文字与“程序返回成功”都不能自己产生授权。
 
-下文8个Python块各自完整、只用标准库。可把一个块保存为临时`.py`运行；SQLite例只在`/tmp`临时目录建库并清理，时间是虚拟毫秒或秒。没有安装包、调用模型、启动子进程MCP或HTTP服务。JSON片段、表和流程是协议示意；程序的明确子集不是完整JSON Schema、MCP SDK或官方conformance套件。
+下文Python块各自完整、只用标准库。可把一个块保存为临时`.py`运行；SQLite例只在`/tmp`临时目录建库并清理，时间是虚拟毫秒或秒。没有安装包、调用模型、启动子进程MCP或HTTP服务。JSON片段、表和流程是协议示意；程序的明确子集不是完整JSON Schema、MCP SDK或官方conformance套件。
 
 ## 2. 四种状态寿命不能混用
 
@@ -1476,3 +1476,95 @@ TS README stdio/模块/三mocktool/localcontract边界与Python非接线融入MC
 6. **什么证据支持无亲和部署？** 选2（index1）：真实双replicas并发wire且无affinity依赖；dict tests、目录entry、diagram都不是部署证据。
 
 本节来源：[13-mcp-server-with-registry](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/13-mcp-server-with-registry)，固定提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，课内全部文件、练习、测验、SVG和 TypeScript（如有）于2026-10-11静读。未执行原程序、安装依赖、调用模型、注册MCP或启动服务。新示例只验证标明的离线合同，旧例字节及核验日期保留。动态图由统一维护记录独立核，静图和动画都不当实测。 本轮官方[MCP changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog)与[Streamable HTTP](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http)选读逐请求metadata、发现、结果、POST/头镜像/取消范围；[官方Registry requirements](https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/server-json/official-registry-requirements.md)全文核namespace与元数据4KB约束，没有实际Registry发布或认证。
+
+## 16. 用反例检查请求到结果的完整路径
+
+先修是第3–10节的消息、缓存、MRTR、任务和Apps合同。下面补充一种学习方法：先写明输入在哪一层合法，再找第一次可能产生效果的位置，最后区分返回值与可独立确认的事实。比如一个client声明elicitation，却只支持url模式；服务器即使看见这个键，也不能据此发form输入请求。相反，合法elicitation空对象已有隐式form语义，也不能机械要求它一定写出form键。
+
+### 16.1 对象存在、字段合法和能力可用分别检查
+
+能力声明有三层。第一层是必需元数据的类型：CAPS必须为对象，不能用true、字符串或列表代替。第二层是已知字段的schema：form、url与每个extension settings具有自己的对象结构。第三层才是本次操作是否得到处理所需能力。声明对象本身坏与合法声明中缺本次能力，不是同一失败；前者不能直接伪装成“补个能力即可”的−32021。
+
+对form请求分别检查四种输入：完全没有elicitation，缺能力；elicitation:{}，隐式支持form；elicitation:{url:{}}，合法但不支持form；elicitation:{form:true}，已知能力字段类型坏。错误通道按对应schema判断，执行或显示问题前都不能假设真值就等于合法支持。源课程里form:true、只测键存在或空CAPS仍发elicitation的例子，只能帮助定位这一缺口，不能替换本专题已有的mode检查。
+
+扩展交集也有相同前提。双方都声明同一个标识，尚未证明settings符合该扩展的schema；服务器支持Apps而client写ui:{}，与明确支持HTML profile不是同一回事。服务器自己没实现某extension，也不能误报成“client补一个声明就一定成功”。能保持有意义core行为的可选功能可降级；确实需要已实现的能力而client未支持，才用适当缺能力错误。名称格式、namespace控制、实际实现与用户许可仍各自独立。
+
+### 16.2 媒体、资源和补全不要只验外观
+
+image或audio的Base64可解码，仍可能不是有效PNG、WAV等媒体。来源模拟的“PNG字节前缀”或fake音频字符串不证明完整解码、像素／时长边界或模型实际能理解；第6.3节已有微小媒体例只核明示性质。resource_link只给引用，不自动提供正文或永久权限；embedded resource已经将内容放进本次payload，需要立即计算预算。EmbeddedResource的annotations与resource是同层字段，不能把它塞进ResourceContents再宣称满足原结构。
+
+资源mimeType通常可选，而Apps UI资源另有必需的profile。prompt消息可以包含规定的ContentBlock，不应只接受text或图片两个分支。补全结果values至多100；total可以说明匹配总量，hasMore可以说明还有候选，两者可省略。即使总量只有20，本次只返回10，也可能还有未返回的值，不能把hasMore写死为“总量超过100”。补全、URI模板与普通资源读取都需同一对象权限，不能借建议名称泄露未授权的生产资源。
+
+### 16.3 让缓存和cursor的时间语义可核对
+
+假设在虚拟毫秒100收到ttlMs=60000的完整资源结果：毫秒60099仍在期限内，60100已到边界。cache hit应使用原接收时刻判断，不能每次把原TTL重新发给下游而无限延长新鲜度。来源Gateway只有cache字典，没有接收时刻或过期检查，两个caller读出计数2只能证明它按两个字符串分了缓存，不能证明TTL、真实身份或撤权已经正确处理。
+
+key要区分endpoint、所选版本、method、全部影响输出的参数和授权上下文。将raw bearer存作cache key既不等于验证了principal，也使秘密进入内部存储；是否使用受控凭证标识或摘要，要与真实认证机制、撤销新鲜度及存储政策一起决定。相同用户更换credential／scope后不能仅凭用户名复用旧private结果；public只允许本应可跨上下文分享的内容，不能补访问许可。
+
+空字符串在cursor字段中是合法的字符串值，所以客户端不能把它当“没有下一页”；它仍是服务器选择的opaque token。服务器可拒绝未知、过期或不属于当前目录／授权上下文的token，语法上允许空串不意味着每个server必须把任意空串解析成有效第一页。只从头重新列目录也不自动产生一致快照；需明确快照标识或验证遍历期间的变化策略。第6节的有界分页和变化失效继续作为实践入口。
+
+### 16.4 输入往返与长任务各有自己的状态合同
+
+MRTR可以经历多轮输入。两轮的状态可以分别封存已验证的选择与下一阶段；不能说requestState在协议上“只准存一个问题、绝不能承接下一轮”。state必须原封回传，并在每轮按需要更新绑定、期限和消费策略。源capstone把issuedAt与now都传0，即使函数写了expiresAt，也没有演示真实到期。测试正常值与翻签名的一条负例，不证明类型坏、到期边界、并发消费或当前撤权已经验证。
+
+任务状态应由worker及共享store驱动，而不是为了让测试通过，由测试直接把working改成completed。create返回可读taskId只是第一步，后续get、update、cancel必须逐次核owner和期限；知道ID不产生访问权。取消ACK不证明后台程序已停，failed、completed和cancelled也不能互相覆盖。本专题第8节已有租约与终态例，保它的提交权、输入键和复开数据库判据，不照搬来源的内存task表。
+
+### 16.5 Apps加载计划与真正浏览器之间还隔着什么
+
+返回mode:app、CSP字符串和grantedPermissions列表，是host作出的加载计划。要声称渲染成功，还需实际创建不同源的Sandbox proxy与View，落实CSP／iframe权限，完成ui/initialize与ui/notifications/initialized，再核可信消息来源和每个动作的当前权限。工具的visibility约束模型目录与app调用面，不能用调用方传来一个“visibility正确”的字典代替可信目录；app-only工具还要绑定自己的server。
+
+2026-10-14重新选读固定Apps规范及类型，确认两处容易混淆的合同。Apps client settings要求mimeTypes；ui/initialize自己的请求与结果包含protocolVersion，结果明确是协商的UI版本。它不恢复现代core的initialize/session，也不能说这个本地桥接“从不协商任何协议版本”。本专题第10节已有正确的三层区分，继续使用。
+
+缺CSP使用限制性默认；Sandbox还应禁止object-src、对未声明frameDomains用frame-src none、对未声明baseUriDomains用base-uri self。host可以进一步收紧声明域，permission请求也不保证获准。CSP字符串没有进入真实浏览器策略执行，就不能证明脚本、网络、窗口导航或设备访问已受限。源AppLoader返回plan而没有创建iframe，本轮也没有启动浏览器。
+
+### 16.6 十二个练习的评价方式
+
+这些是对已有例子的检查／扩展方向，本轮不新运行代码。先预测正例和反例的拒绝位置；只有涉及的性质在程序中真正连到该入口，才能记录它已验证。
+
+| 练习 | 需要给出的判断与可观察证据 |
+|---|---|
+| 能力类型与mode | 对缺elicitation、隐式form、url-only、form:true四值分别分类；记录失败层，确保无不合法form请求发出。 |
+| 两个扩展settings | 对一般空settings与Apps缺mimeTypes分别判断；双方同名但schema不合法不能激活。 |
+| 服务器没有该能力 | 说明client声明不能补服务器未实现的功能；有意义fallback与确实required的拒绝分别列出。 |
+| 假媒体 | 区分Base64有效、文件格式有效、尺寸／时长在限额、模型理解四种性质；不能用magic bytes替代后三项。 |
+| 补全的20个候选 | 本次返回10，讨论total/hasMore可选与剩余候选；低权限caller不得看到另一tenant的名字。 |
+| TTL边界 | 用100、60000、60099、60100毫秒核对接收时刻，不在cache hit时重置TTL。 |
+| cursor为空 | 回传原值而非解析offset；未知token拒绝与空串类型合法分开，遍历变化需明确策略。 |
+| 两轮MRTR | 三次RPC、新ID、当轮key与已验证中间值；改参数、改主体和旧revision应在effect前拒绝。 |
+| 到期时钟 | 查看真实now是否进入入口；恒0或只传一个假的过期值不能证明实际期限机制。 |
+| 跨主体task ID | 创建者之外的get/update/cancel不得因知道ID获权；过期、终态与lease分别检查。 |
+| Apps独立握手 | 明确core与UI两个版本、ready之前不能发送后续View消息；仅加载plan不能称iframe已工作。 |
+| 断流写动作 | outcome unknown先查receipt／独立效果，有业务幂等合同才条件重试；新RPC ID与idempotentHint均不够。 |
+
+### 16.7 二十四道边界自检
+
+| 问题 | 参考答案与理由 |
+|---|---|
+| notification带id会怎样？ | 违反通知形状。progressToken可为整数，但它不是通知的关联RPC id。 |
+| bool可当request id或JSON integer吗？ | 不能从Python的bool继承int推出协议合法；按JSON类型严格区分。 |
+| annotations缺省是否代表readonly？ | 不是。readOnly/idempotent默认false，destructive/openWorld默认true；仍是提示。 |
+| inputSchema没有root type合法吗？ | MCP Tool要求root type:object；这是Tool约束，不是所有JSON Schema都只准object。 |
+| 为什么不能把所有schema问题都回−32602？ | 信封／CallToolRequest形状坏与已知工具业务输入失败分层，后者是complete/isError。 |
+| embedded资源的annotations放哪里？ | 放在EmbeddedResource上，与resource同层；不是资源正文里的已定义字段。 |
+| mimeType是否对所有资源都必填？ | 普通ResourceContents可选；Apps UI资源有特定profile要求。 |
+| completion返回150个values而total也150，可以吗？ | 不可以。values至多100，total可以更大；hasMore可选。 |
+| hasMore只能在total超过100时为true吗？ | 不是。它表示还有未返回候选，不由一个固定100阈值决定。 |
+| 空cursor是不是“无下一页”？ | 不是。按字段存在与类型处理opaque值；是否已发行且有效由server检查。 |
+| list_changed发生时还等TTL吗？ | 不等。相关缓存立即失效，之后read仍核当前权限。 |
+| 从cache hit重新返回完整TTL会有什么风险？ | 下游可能以新接收时刻不断延寿，应维护原新鲜度，不能把过期数据伪装刚生成。 |
+| tool call带ttlMs就属于标准缓存面吗？ | 不属于六个cacheable操作，不能据任意附加字段自行缓存副作用。 |
+| 本次缺CAPS可以借第一次discover的声明吗？ | 不可以。现代每请求自描述；缺必需meta与缺可选处理能力不同。 |
+| elicitation:{url:{}}支持form吗？ | 不支持。空elicitation有隐式form，显式url-only不能替form。 |
+| 双方extension同名是否足够？ | 还要合法settings、实现支持与本次操作合同；能力不授权限。 |
+| MRTR原结果已返回，为何仍要求新id？ | 这是MRTR新请求的明确合同，不能只用“旧id仍pending”解释，因为原RPC已结束。 |
+| 来源state带expiry但now恒0证明什么？ | 只证明函数存在相关比较，不能证明真实到期；需入口时钟与等界负例。 |
+| tasks/get complete是否表示job completed？ | 外层RPC完成与内层任务status分别读。 |
+| cancel把failed改成cancelled是否合法？ | 不可使已终态回流；取消ACK也不能覆盖真实完成或失败。 |
+| 同trace id是否要求跨server RPC ID都不同？ | 不要求全局唯一。每hop以自己的在途ID关联，trace/span及业务key各自负责。 |
+| flags=02是否表示sampled？ | sampled看相应位，不能用flags!=00；已有观测主章用位检查维护。 |
+| Apps ui:{}与mode:app证明已渲染吗？ | 不证明。settings需MIME支持，plan之外还需独立UI握手和浏览器落实。 |
+| HTTP断流后是否“唯一正确做法总是立即重发”？ | 不是。无可恢复流，但未知写效果先核回执；真正幂等且仍授权才可条件重试。 |
+
+固定MCPA来源34课／11外围文件于2026-10-13至14实际静读；本节在2026-10-14主题去重，原课程题及外围题的选项、答案与纠错映射单独记录，未把414题重复铺成第二套协议说明。课程17的第3题原答案指向“直接HTTP error”，其解释与代码却要求已知工具输入失败的complete/isError；本节采用后者并保留错误发现记录。原34课的456个test方法与所有动态图函数只读；动画中的verify、approved、task completed均是预设，不当runtime结果。
+
+本轮官方新增只选读[固定Apps规范](https://github.com/modelcontextprotocol/ext-apps/blob/82221c0c8ce7661efa6771c9d461511b1650495f/specification/2026-01-26/apps.mdx)的MIME、默认CSP、Sandbox／ready、settings及[初始化类型](https://github.com/modelcontextprotocol/ext-apps/blob/82221c0c8ce7661efa6771c9d461511b1650495f/src/spec.types.ts)，并选读2026-07-28版本规范扩展段；不是通读所有外链或SDK。旧九个程序围栏保持原字节与原证明日期，本轮没有重跑它们或源程序，真实网络、MCP服务、模型、安装、Skill、攻击与浏览器验证均未新增。

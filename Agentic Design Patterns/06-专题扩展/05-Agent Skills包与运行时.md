@@ -711,3 +711,15 @@ print("六层fixture/逐run摘要/原bytes漂移/symlink/升级移除只作计�
 来源静态 skills-stack 把 AGENTS、Skills、MCP分层，但旧生态数量、SDK品牌/UI标签不作为当前事实。19幅动态 Skills 图的有效含义已融入上面的目录树、生命周期、资格/参数、authority链、六层门禁与升级流程：它们强调分层与分支，不是模型或host运行。入口的动画步骤/固定 host profiles、prediction、passed与示例artifact都是教学数据；未验证真宿主、SDK或容器行为。
 
 2026-10-08 吸收[AI Engineering from Scratch Phase13 22、24–27](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/13-tools-and-protocols)，源 commit `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`。完整读取原文、代码/tests/quiz、5个 bundle及全部 companion bytes；source SHA/GitBlob、标题、图builder/helper和 primary 指定范围记录在正式覆盖报告。GitSkills论文没有阅读全文，生态数量与所有性能百分比不吸收为质量或当前效果结论。本文三个新程序从最终 Markdown 提取在Python3.12.13标准库 CPU运行，只证明明确的本地反例和政策机制，不证明真实 capture、productionReady、跨宿主或用户掌握。
+
+## 10. 宿主的工具批准授予与任务授权仍须分开
+
+前文“激活不授予动作权限”指Skill内容不能自行扩大用户目标、组织policy或OS可达范围。还须区分宿主的**自动批准授予**：2026-10-14实际选读[Claude Code Skills](https://code.claude.com/docs/en/skills)的工具批准、调用作用域和路径替换段，`allowed-tools`可以为该Skill调用授予本轮自动批准，下一条用户消息时清除；它不会因此把未列工具从能力池移除。`disallowed-tools`承担移除工具的不同职责，Skill指令内容的可见性/持续时间也与本轮grant不同。
+
+这个区别能解释两个反例：列表只写Read，并不自动形成只读工具池；列表授予Bash，也不等用户批准脚本访问任意对象/出站。所读官方段还明确，workspace trust不门控 `allowed-tools`的该类授予，包括未信任文件夹中的相应非交互路径；不能只审“用户是否点了信任”，随后默认frontmatter不影响权限。产品版本与组织托管政策另核，本次只核所列内容，没有运行当前客户端验证。
+
+包审查同时检查元数据、入口、全部required companions、直接引用、脚本合同和调用策略。简单按冒号拆frontmatter不等完整YAML；只拒精确 `Bash(*)`不识别其它宽grant。`${CLAUDE_SKILL_DIR}`的正文和Bash规则替换是该宿主的路径机制，跨宿主不能自动继承。脚本路径相对cwd拼接、PurePosixPath词面拒parent，都不能代替真实解析路径、symlink/祖先、argv、deadline、环境和出站边界检查。
+
+**实践判据**：取两个结构相同的包，一包仅入口，一包含所需reference/helper；前者应报告缺能力而非通过。再保持方法不变改工具grant，要求审查观察自动批准变化、工具池、用户/组织授权与实际执行范围四层，不能用“已激活”代替任何一层。最后检查重复业务意图、引用漂移、安装副本漏文件、升级时unknown/已修改文件与卸载所有权：前文三个自有合同已有局部反例，本批不重复生成或运行它们，更不执行来源Skill。
+
+正文新增2026-10-14；认证19目录及所有伴随文件在2026-10-14静读完成，源[固定课程提交](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/certifications/claude/lessons/19-claude-code-skills-hooks-and-team-extension)。宿主官方仅上述选读，不冒全文、安装或实跑；旧三个Python程序与2026-10-08成功证据保留。
