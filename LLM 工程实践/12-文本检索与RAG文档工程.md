@@ -1510,11 +1510,11 @@ gold3只取到1时Hit=1而Recall=1/3；单gold才相等。定义唯一ID、K、�
 
 获取入口：[六课上游目录](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects)。此链接作为来源记录，不能表示本轮新增浏览或论文全文阅读；本轮用已完整静读并核Blob/SHA的冻结记录。
 
-## 14. 引用闭环：切分位置、相关性与框架适配
+## 16. 引用闭环：切分位置、相关性与框架适配
 
 先学第2–7节的词面检索、证据和引用，再接第13节的当前权限与代际。这个小项目补一个可复查链：原文身份→切分位置→候选排名→逐字引文→问题支持与消费状态。它能帮助定位答案来自哪里；下一步能否回答问题、当前来源是否有效、caller能否看到，仍要独立检查。继续复用本章八个完整标准库例，不再创建另一套弱问答服务。
 
-### 14.1 文档版本与偏移单位一起保留
+### 16.1 文档版本与偏移单位一起保留
 
 文本加载先确定允许的root和路径，拒静态解析后逃出root的symlink；仍需采集大小/文件数限制、实际打开与检查竞态、对象权限及版本。来源按文件名排序、以相对路径作ID，只扫txt；同文件的内部别名可产生两个ID，路径名稳定也不意味着内容未变。接真实多租户时，权限不能由“位于root内”自动给出。
 
@@ -1524,7 +1524,7 @@ gold3只取到1时Hit=1而Recall=1/3；单gold才相等。定义唯一ID、K、�
 
 Python偏移按字符串码点计算；UTF-8 bytes和JavaScript UTF-16不是相同单位。😀加空格前置时，后文start在Python为2、JS可能为3。不要把一份偏移拿到另一个renderer里直接slice；记录单位及规范化前后关系，明确转码或用原位置。overlap帮助边界上下文，不保证每个条件、否定句和表格都完整，也不创造新的独立证据。
 
-### 14.2 对数词频分数的计算与局限
+### 16.2 对数词频分数的计算与局限
 
 来源是一个可解释的log-TF词面基线，不是BM25。对query去重后的每个命中词t，按以下量求和：
 
@@ -1536,7 +1536,7 @@ $$s(c,q)=\sum_{t\in q,\,tf(t,c)>0}(1+\ln tf(t,c))\ln\left(1+\frac{N}{1+df(t)}\ri
 
 真实中文、代码、表格和多语言要核相应分词与指标。Python\w会把连续中文作为一个词面块；来源图的JS\w又主要是ASCII范围，两者不能直接当同一tokenizer。排名分数仅决定调查次序，不是答案真值概率。
 
-### 14.3 逐字引文、问题支持和answered各有含义
+### 16.3 逐字引文、问题支持和answered各有含义
 
 让生成回调返回来源chunk ID和逐字quote，检查ID属于本次检索集合、quote非空并确实在该chunk中，然后恢复原文偏移：原chunk.start10、text为abc def、quote def相对起点4，原start14、end17。不能因为同句出现在全库其它地方，就忽略当前所引用ID错位；重复引用位置也要有明确选择与验证依据。
 
@@ -1546,7 +1546,7 @@ $$s(c,q)=\sum_{t\in q,\,tf(t,c)>0}(1+\ln tf(t,c))\ln\left(1+\frac{N}{1+df(t)}\ri
 
 另一个banana例无有意义query词交集，会在CLI的query层改needs_review；**直接answer和framework_qa没有经过这道额外相关性检查**。即使有query词重叠也可能答错，故不能用增加一个关键词谓词代替语义支持。状态最好分别表示字面引用通过、问题支持已核/未核、来源当前有效及访问许可。每条被消费主张仍要保限定词、适用日期与版本，当前权限的主程序继续由第13节维护。
 
-### 14.4 框架切分器回接同一位置合同
+### 16.4 框架切分器回接同一位置合同
 
 适配器先保原doc，再逐part在原text中寻找可核的起点；找不到说明切分器改变了文本，应拒绝而非生成假位置。匹配后把cursor移到start+1，让重复且重叠的片段可继续定位：ababa拆为aba/aba，应在0和2；若移到完整chunk末尾3，第二个匹配会丢失。
 
@@ -1556,7 +1556,7 @@ $$s(c,q)=\sum_{t\in q,\,tf(t,c)>0}(1+\ln tf(t,c))\ln\left(1+\frac{N}{1+df(t)}\ri
 
 source framework_qa用实际导入的splitter和本地FakeListLLM，最后仍接原词面retrieval与answer；包装成框架不补tenant/权限、来源实时版本或语义审核。源锁定1.1.2与9-28的optional测试记录只作可重取历史环境，不能当本轮最新版本推荐。默认25个测试和额外5个真SDK测试分别统计：缺SDK的skip不是通过；该作者记录也不是本轮运行、云服务或用户完成证据。
 
-### 14.5 四阶段的输入与参考判据
+### 16.5 四阶段的输入与参考判据
 
 | 阶段 | 练习及拒绝/结果判据 |
 |---|---|
@@ -1568,3 +1568,170 @@ source framework_qa用实际导入的splitter和本地FakeListLLM，最后仍接
 CLI的source SHA与start_line只在query外层补上，直接answer/framework调用并不自动得到完整收据；框架路径也未复用CLI的needs_review策略。四个图共用whole-text substring、词交集和JS字符窗口，未实际加载文件、计算源码TF-IDF、生成器、SDK或SHA；JSUTF16偏移与Python单位差别明确保留。三个PNG及GIF全部34帧已实际视读，作者core/SDK PASS与上述错误回答各是历史范围。
 
 固定来源 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775` 的[Document QA With Citations](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/doc-qa-with-citations)，40项目文件、四正文/全部30原测试方法（25核心与5可选）、CLI/样本/所有媒体与provider于2026-10-14完整静读。源程序/测试/grader/SDK/安装/模型/网络/API/JS本轮0执行；八旧Python例原字节和持久成功日期保持，没有新同义RAG服务或评分。
+
+
+## 17. 本地笔记的可解释词面检索
+
+先完成第2节的排序与第4节的证据单位，再做这个小型索引。它适合少量本地 Markdown、稳定领域术语和需要解释“为什么命中”的场景。`Semantic Notes Search` 的实际算法是词面 TF-IDF 加显式单步别名；没有训练、向量API或自动推断同义句。之后是否改用Embedding，应依据独立查询集的遗漏类型判断。
+
+### 17.1 归一化先于分词，文档身份保持原样
+
+`café` 可以由一个 `é` 或 `e` 加组合重音表示；肉眼相同，底层码点不同。先 `casefold()` 再 NFC，把等价拼写收拢后才使用 Unicode `\w+`，否则先分词可能丢掉组合重音。Python 的 casefold 比普通 lower 更完整，例如 `ß` 会成为 `ss`；它仍不是语义翻译。别名的键和值也用相同规则。原始文件路径和正文用于展示与溯源，不要因检索归一化修改它们。
+
+`release → deploy` 是一次替换：`a→b,b→a` 下输入a只得到b，不能反复展开到循环。保留重复token以计算TF，仅在计算DF时对每个文档去重。别名要有版本和应用范围；“release软件”和“release压力”不能无条件视为deploy。源实现允许空值、多词值、归一化后键冲突且后写覆盖，还把假值aliases替换为空字典；正式接口应显式拒绝或定义这些政策。
+
+中文在 `\w+` 下可能整段成为一个token，它不是中文分词器。单复数 `replica/replicas` 也不会自动合并。空结果表示当前表示没有正分候选，不能据此断言资料库没有相关知识。
+
+### 17.2 TF-IDF和余弦的完整手算
+
+这里N是索引中的**文档数，包括空文档**，df是含词t的文档数，tf是该词在单个文档中出现的次数。采用项目明确的平滑政策：
+
+$$
+\operatorname{idf}(t)=\ln\frac{1+N}{1+\operatorname{df}(t)}+1,\qquad
+w_{t,d}=\operatorname{tf}(t,d)\operatorname{idf}(t),\qquad
+v_{t,d}=\frac{w_{t,d}}{\sqrt{\sum_s w_{s,d}^2}}.
+$$
+
+零向量保持为空，不除以零。查询用索引的同一词表、IDF和别名，忽略不在词表中的词，再做同样归一化；不要用只有一条查询的语料重拟合IDF。单位向量的点积就是余弦分数。这个模型忽略词序、否定及句间关系，余弦高分不证明答案受支持。[向量模型](https://nlp.stanford.edu/IR-book/html/htmledition/the-vector-space-model-for-scoring-1.html)、[余弦与单位向量](https://nlp.stanford.edu/IR-book/html/htmledition/dot-products-1.html)、[查询与文档共享坐标](https://nlp.stanford.edu/IR-book/html/htmledition/queries-as-vectors-1.html)（2026-10-14核指定段；此处平滑IDF是项目政策，不归因给书中唯一标准）。
+
+用a=`deploy deploy orchard`，b=`restore orchard`，c=`café orchard`：N=3，df(orchard)=3，所以IDF=1；deploy只出现在a，IDF=ln2+1≈1.693147。a未归一权重是deploy=3.386294、orchard=1，长度约3.530865；归一后deploy≈0.959056、orchard≈0.283217。查询release经别名成为deploy，只有该坐标且权重归一为1，故a得0.959056。重复整篇文档不会改变向量方向，但只重复某一个词会改变方向；归一化并不消除所有词频作用。它与第16节的对数TF分数、第2节的BM25是不同合同，不能混用名称或阈值。
+
+### 17.3 排名、文件读取与解释不能混为证明
+
+只返回正分，按原始分数降序、文档ID升序解平局，再截取k。**排序之后**才为展示四舍五入。源代码先把score保留六位再排序，两个不同分数可能因此变成假平局；跨实现比对要记录这个差异。`matched` 表示共同词项，`preview` 是正文开头240个Python字符，未必包含命中位置；二者均不是逐字引用或回答的语义支持。
+
+源CLI扫描调用者给定目录中的小写 `*.md`，保相对路径ID；拒绝符号链接文件与resolve后越根的文件，单文件stat大小大于100000字节拒绝，按UTF-8读取并从头重建索引。100000字节是十进制上限，不是100KiB；没有文件数量、累计字节或查询时间总预算。stat后读取仍有竞争窗口，根目录resolve本身也不是用户权限检查，不能把此读器称为安全沙箱。输出路径没有与输入目录隔离：把`--out`指定为笔记可能覆盖它；真实使用先确定可信目录、文件句柄/权限、总预算、输出独立目录及原子发布合同。
+
+作者9月28日录像中查询 `release replicas`，无别名时release.md=.246073、backup.md=.215061；加别名后release.md=.474234、backup.md=.215061。原文件中是单数replica，匹配词只有deploy；图中默认短句却含复数replicas，因此能命中两个词。这是两组不同输入，不能把图与文件样本分数当相同算法的交叉验证。录像中的cafe加组合重音命中café.md=.527132；它只证明作者当时公开样本的输出。
+
+图的JS用lower而非Python casefold，别名键/值没有统一规范化，数值ID而非文件路径、未先round再排序；四图共享一个小计算器，未读取文件或验证UTF-8/符号链接。可用它观察IDF/方向/命中变化，跨语言实现需另行校准。
+
+### 17.4 单标签命中率与真正召回率的关系
+
+每条case包含query和一个expected文档ID，实际调用search再判断前k是否含expected；hits/total是查询的HitRate@k。只有每个查询的完整相关集合恰好只有这一个文档时，它才同时等于宏平均Recall@k。若一个问题有两篇相关笔记而只标一篇，不能声称完整召回；多相关集合用[评测章节](./06-评测与实验管理.md)的分母与未标注政策。
+
+源函数对空case返回0，并不代表失败了某个查询；它对cases重复遍历，生成器/错误容器、坏query、布尔k等没有统一入口政策，空case甚至不触发search的k检查。下面学习实现要求列表、先验证k，空集返回None，明确“未评价”。留出不用于调别名的查询，记录语料/分词器/词典/标签/k的版本，比较每个查询与关键类别；三个公开样本满分不能证明新笔记质量，也没有固定“补几条标签就够”的万能数量。
+
+### 17.5 可运行实现与四阶段练习
+
+下面只实现内存词面索引，不做文件扫描、权限或引用发布；保持完整精度排序，拒绝布尔k、规范化后的别名冲突及多词别名。私有属性仍是普通Python对象，调用方若修改它们就破坏索引快照；生产共享索引应发布不可变代际，参见第13节。
+
+```python
+import math
+import re
+import unicodedata
+from collections import Counter
+
+
+def canonical(text):
+    if not isinstance(text, str):
+        raise ValueError('文本必须是字符串')
+    return unicodedata.normalize('NFC', text.casefold())
+
+
+def alias_table(aliases):
+    if not isinstance(aliases, dict):
+        raise ValueError('别名必须是字典')
+    result = {}
+    for key, value in aliases.items():
+        key, value = canonical(key), canonical(value)
+        if not re.fullmatch(r'\w+', key) or not re.fullmatch(r'\w+', value):
+            raise ValueError('这个例子只支持单词到单词的别名')
+        if key in result and result[key] != value:
+            raise ValueError('归一化后的别名冲突')
+        result[key] = value
+    return result
+
+
+def tokens(text, aliases):
+    return [aliases.get(t, t) for t in re.findall(r'\w+', canonical(text))]
+
+
+def unit(weights):
+    norm = math.sqrt(sum(x * x for x in weights.values()))
+    return {t: w / norm for t, w in weights.items()} if norm else {}
+
+
+class LexicalIndex:
+    def __init__(self, documents, aliases=None):
+        if not isinstance(documents, dict) or any(
+            not isinstance(key, str) or not key for key in documents
+        ):
+            raise ValueError('文档必须是非空字符串ID到文本的字典')
+        self.aliases = alias_table({} if aliases is None else aliases)
+        counts = {key: Counter(tokens(text, self.aliases))
+                  for key, text in documents.items()}
+        df = Counter(t for tf in counts.values() for t in tf)
+        self.idf = {t: math.log((1 + len(counts)) / (1 + n)) + 1
+                    for t, n in df.items()}
+        self.vectors = {key: unit({t: n * self.idf[t] for t, n in tf.items()})
+                        for key, tf in counts.items()}
+
+    def search(self, query, k=3):
+        if type(k) is not int or k < 1:
+            raise ValueError('k必须是正整数，不能是布尔值')
+        tf = Counter(tokens(query, self.aliases))
+        q = unit({t: n * self.idf[t] for t, n in tf.items() if t in self.idf})
+        rows = []
+        for key, vector in self.vectors.items():
+            score = sum(w * vector.get(t, 0) for t, w in q.items())
+            if score > 0:
+                rows.append({'id': key, 'score': score,
+                             'matched': sorted(q.keys() & vector.keys())})
+        return sorted(rows, key=lambda r: (-r['score'], r['id']))[:k]
+
+    def evaluate(self, cases, k=3):
+        if type(k) is not int or k < 1 or not isinstance(cases, list):
+            raise ValueError('先验证k和列表，即使没有评测查询')
+        hits = 0
+        for case in cases:
+            if not isinstance(case, dict) or set(case) != {'query', 'expected'}:
+                raise ValueError('每个case只有query和expected')
+            if not isinstance(case['expected'], str) or case['expected'] not in self.vectors:
+                raise ValueError('标签必须指向本索引中的文档')
+            hits += any(r['id'] == case['expected']
+                        for r in self.search(case['query'], k))
+        return {'hits': hits, 'total': len(cases),
+                'hit_rate_at_k': hits / len(cases) if cases else None}
+
+
+idx = LexicalIndex({'a': 'deploy deploy orchard', 'b': 'restore orchard',
+                    'c': 'café orchard'}, {'release': 'deploy'})
+assert math.isclose(idx.idf['orchard'], 1)
+assert math.isclose(idx.idf['deploy'], math.log(2) + 1)
+assert idx.search('release')[0]['id'] == 'a'
+assert idx.search('cafe\u0301')[0]['id'] == 'c'
+assert idx.search('replicas') == []
+assert [r['id'] for r in LexicalIndex({'z': 'a', 'b': 'a'}).search('a')] == ['b', 'z']
+assert math.isclose(sum(w*w for w in idx.vectors['a'].values()), 1)
+assert idx.evaluate([{'query': 'restore', 'expected': 'b'},
+                     {'query': 'absent', 'expected': 'c'}], 1)['hit_rate_at_k'] == .5
+assert idx.evaluate([])['hit_rate_at_k'] is None
+try:
+    idx.evaluate([], True)
+except ValueError:
+    pass
+else:
+    raise AssertionError('空评测也必须拒绝布尔k')
+try:
+    LexicalIndex({}, {'CAFÉ': 'a', 'cafe\u0301': 'b'})
+except ValueError:
+    pass
+else:
+    raise AssertionError('别名归一化冲突必须拒绝')
+print('TF-IDF/Unicode/别名冲突/正分排序/单标签命中率及空集政策通过')
+print('手算查询release：a分数', round(idx.search('release')[0]['score'], 6))
+```
+
+2026-10-14在Python3.12.13实际运行这一个新增程序：归一化、冲突拒绝、TF/DF、单位长度、正分和ID平局、OOV、单标签分母、空集政策通过。未执行原项目程序或任何模型/API。原章节已有八个程序保持字节和原验证日期，本例补不同的TF-IDF机制，不替代其BM25或权限流水线。
+
+| 阶段 | 动手输入和需保留的中间结果 | 参考判据与应调查的失败 |
+|---|---|---|
+| 1 归一化 | HELLO hello、两种café、CAFÉ别名、空字符串、a↔b；保原路径与重复token | hello出现两次；两种café相同；a单步到b。非字符串拒绝；加入冲突别名应拒而非默默覆盖。用“release压力”检查语义误伤 |
+| 2 建索引 | 空字典、空文档、a a b、共同orchard与稀有restore、空ID、别名release | 空索引词表空，空文档向量空；非空向量平方和1，DF每文档最多一次；稀有词IDF更大，保N/DF/词典版本。空ID拒绝；比较重复整篇与只重复一词 |
+| 3 排名 | apple/pear、同词ID z与b、OOV、空查询、release→deploy、k=0/True | 命中apple；平局b在z前；无正分返回空；非法k拒绝。另外构造第7位才不同的分数，检查先round排序会丢顺序；确认replicas不会匹配replica |
+| 4 评测与目录 | 命中、遗漏、两个case一中一漏、空case、标签不存在；组合重音文件名、越根链接、过大文件 | 一中一漏=.5；未知标签拒绝；明确空集None与源码0不同。保原路径/正文；链接拒绝不等于消除读时竞争。在独立查询集回看别名的收益和损害，不把作者参考pass当自己已学会 |
+
+原项目27个Test定义（8/6/6/7）分别约束上述基础行为，没有覆盖所有入口、总预算、并发或语义正确性。累计练习时应先预测结果，完成自己的实现后逐项核对，而不能用公开答案替代自己的验证。
+
+来源：第1来源固定commit `3be078b37ffd8f0c04953c0678e48f5c6d0c7775` 的[项目](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/semantic-notes-search)，2026-10-14完整静读四阶段、实现、测试、样本及图示。原30文件与provider、两PNG及39个GIF帧逐项核对；不镜像第三方全文，不执行来源命令。来源Python3.10+与README泛POSIX模板是原环境说明，本算法未用锁或进程组；学习例实测版本单独记录。
