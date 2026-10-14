@@ -937,6 +937,65 @@ Abootorabi等的v3 §3实际分 retrieval strategy、fusion、augmentation、gen
 
 下例的“逐主张支持”刻意限定为字面子串，不声称解决语言蕴涵。真实回答还要检查条件、数值、否定、跨段推论与事实来源；摘要里的词即使match，也要返回原代码。精确commit字符串在这里是教学值，并没有读取真实Git对象。
 
+### 内容身份和观察时间分开发布
+
+2026-10-14补本地新鲜度流水线合同。前文已有文档revision、跨索引代际、权限与当前引用程序，继续复用，不把一个词交集检索器再命名为完整神经RAG。doc ID标业务对象，content hash标某种规范化的正文，updated标来源提供的时间，index generation标已提交索引；四者不可互换。
+
+正文可选NFC、CRLF转LF和trim后UTF-8/SHA：组合与分解编码的café可同hash，更新时间100→200但正文不变仍同hash。这个合同不做NFKC、casefold或语义去重，与训练切分主章的策略不同；大小写、孤立CR或布局是否可归一应显式版本化。ID只检非空后还要明确是否trim，不能同一业务ID在不同入口产生别名。
+
+“更新时间改变”也不总等于可信刷新。参考实现用`int(updated)`强转，bool/小数可变时间，hash相同但时间倒退也被分到refresh。需要明确时间单位、取得方式、单调/撤销规则和可信观察；来源自报updated不能证明刚查过原页面。业务文本中15分钟的token有效期和metadata age是不同量，不能混成同一个时钟。
+
+### 全量快照与变更流使用不同删除合同
+
+先把全部incoming规范化并建唯一ID映射，重复ID拒，随后整体计划insert/update/refresh/delete/unchanged。旧hash与新hash不同先归update；正文不变、metadata按合同变化才refresh；完全相同unchanged。全量快照中缺失旧ID可列delete，partial feed中没出现却通常表示未触及，不能因此删除全库。
+
+Orchard例子保同ID的auth正文从60分钟改15分钟，retired-backup缺失、restore-runbook新增，结果update auth/delete retired/insert restore。先完整计算计划再修改，失败保旧有效版本；如果采用feed，应另定义tombstone、事件版本、幂等ID/顺序、源覆盖范围以及恢复时的完整基线。本章已有删除传播到chunk、图边、摘要、缓存的关系，单一documents字典替换并不自动完成全部失效。
+
+### 原子替换、版本前置条件与稳定锁文件
+
+本地commit在持久的同名sibling lock上取POSIX flock，在锁内read current、比较expected version、写同目录temp JSON、flush/fsync，再replace目的文件并fsync目录。锁文件不能释放后unlink：等待进程可能握旧inode，新进程打开新inode，就不再互斥。进程内Lock和跨合作本地进程flock分别说明范围；这不是多机器数据库锁。
+
+两个writer都读version1时，只有一个能在同一锁下以expected1提交version2；另一方必须reread、重新计划，而不是拿旧diff强行覆盖。atomic replacement避免读者看到半个目的文件，不证明所有崩溃、存储故障或外部篡改安全。temp写后rename前退出，旧snapshot仍可读，可能剩临时垃圾；rename后目录fsync失败则已经可能有提交效果，异常不能一律解释未写。恢复需读取权威状态及版本，再决定重试。
+
+reader还需验证snapshot/document schema、version类型、hash与正文对应、源覆盖与权限。参考read_snapshot只JSON读取，missing返回version0；commit甚至可保存任意JSON documents，它不是完整文档validator。原代码的文件锁与fsync有实际实现，四竞争进程测试也有实质断言，但本轮未运行该测试、故障注入或文件写操作。
+
+### 查询前检查年龄，返回一份已提交证据
+
+每次query读一份committed snapshot，先验证clock、updated、max_age与k的类型/有限性，再按`0≤age≤max_age`过滤候选，最后排名。updated200、now210、max_age60时age10合格；now500时age300过期；now比updated小则future排除，不能给负age当额外新鲜。bool、小数k、NaN clock/age等不能用宽松比较默认通过：参考实现的两个NaN比较都可能为假，绕过排除分支。
+
+参考排名只是casefold词集合重叠，score是命中query词数除query词数，再按score降、age升、ID打破tie，不是Embedding模型或语义支持概率。empty/OOV无命中，k0可空；条件合格后仍须本章已有当前对象权限、源revision和主张支持检查。命中返回snapshot_version、source hash、age和原文，使caller有条件复查；仅输出这些字段没有自动执行引用撤销。
+
+“编辑或删除后不会引用旧政策”有前提：正确全量源已经成功摄入并发布，或旧材料过了年龄界。上游刚改而尚未摄入、旧snapshot仍在age范围时，本地函数不知道变化，仍可能返回旧60分钟。旧回答cache、已组装prompt、进行中的stream和已发字节也不会凭本次字典更新全部撤销。按前文generation/permission epoch绑定各层，明确新鲜度窗口与残余未知，不将age视为事实正确或授权凭证。
+
+### 正文、变化、提交与查询的十二项实践
+
+这些任务是候选实现、手算和反例设计；本轮未执行来源测试或真实实践。编号便于逐项核对，完成应由所列后置条件支持。
+
+| 编号 | 原阶段任务 | 方法、期望结果与失败判据 |
+|---|---|---|
+| 新鲜度1-1 | 预测WorkedOrchard中间state再核fixture | 同ID正文未变、updated100→200，只metadata刷新而不改contenthash；先明确观察时间/业务有效期不同单位。 |
+| 新鲜度1-2 | normalize | NFC/CRLF/trim后hashUTF8正文，id与updated独立；strict时间/ID合同拒bool/小数/不明来源，保旧正确源映射。 |
+| 新鲜度1-3 | 编码不同café hash关系 | café两编码NFC同bytes/hash；不说NFKC/casefold或语义等价也成立，hashpolicy版本单列。 |
+| 新鲜度2-1 | 预测WorkedOrchard中间state再核fixture | old auth/retired→incomingauth/restore，update/delete/insert各列稳定ID，先全plan再change。 |
+| 新鲜度2-2 | diff | incoming全量IDmap先拒duplicate，hash变先update，合法metadata变才refresh；异常保旧完整snapshot。 |
+| 新鲜度2-3 | partial changefeed合同怎么改 | partialfeed需explicit tombstone、事件ID/版本/覆盖范围和未触及ID保留；没这些不能按缺失删除。 |
+| 新鲜度3-1 | 预测WorkedOrchard中间state再核fixture | writerA expected1→version2，B expected1须stale；同stable lock inode内compare/write，不unlinklock。 |
+| 新鲜度3-2 | read_snapshot/commit | siblingtemp flush/fsync→replace→dirfsync与版本前置condition；检查同进程/合作POSIX/多机分别边界，原process tests没运行。 |
+| 新鲜度3-3 | tempwrite后rename前崩溃 | temp写后rename前退出应保旧snapshot并清/隔离垃圾；rename后失败可能有effect，用版本权威回读而非假定没写，未做faultinjection。 |
+| 新鲜度4-1 | 预测WorkedOrchard中间state再核fixture | 已提交15分钟正文updated200；now210 age10入，now500 age300排；没成功ingest不能承诺上游旧文本已撤销。 |
+| 新鲜度4-2 | retrieve与queryreceipt | query读一次committedversion+hash，age filter先rank；finite/type/k/未来/当前权限/源支持逐项核；lexicalscore不当模型置信。 |
+| 新鲜度4-3 | 未来timestamp会否负age变最好 | futureupdated造成age负要exclude或明确错误，NaN/无可信clock不得放行；当前代码仅比较有缺口，caption/绿条不替真实后置条件。 |
+
+
+### 新鲜度流水线的源程序和图示边界
+
+本批23方法静读：normalize5、diff5、snapshot6（包括四process竞争）、retrieve/pipeline7。测试包括Unicode等价、重复ID、删除/update/refresh、stale writer保旧、persistent lock、未来/过期排除和toy生命周期；没有验证NaN/type全集、崩溃点、跨机器、缓存/active answer全失效或真实上游观察。原示例不是完整corpus独立真值；用户尚未开展这些实践。
+
+四图共用一套JS controls，实际比较NFC正文、metadata、age范围和current===expected，显示operation/CAS/eligible；没有SHA、全ID map/重复检测、flock/fsync/文件提交或lexical ranking。eligible还未与成功commit的实际内容绑定，不能按绿条宣称已发布正确版本。作者2026-09-28before/after/expired录像是本地文件fixture，不是本轮运行。本章八旧Python块保原字节与证明日期，复用已有快照/权限/引用程序，不新增同义流水线。
+
+来源：固定`3be078b37ffd8f0c04953c0678e48f5c6d0c7775`的`projects/rag-freshness-pipeline`，全部31文件与四stage完整只读。获取沿[轻量来源](../来源保全/AI-Engineering-From-Scratch.md)，数据文件/缓存基本关系可参照[数据版本缓存与流式处理](../数据科学基础/12-数据版本缓存与流式处理.md)；本增量没有源程序、POSIX测试、模型、API或外部部署执行。
+
+
 ### 完整离线例：一致的索引代际与当前证据权限
 
 本程序只用标准库与虚构记录，已实际执行。它验证以下明确合同，不启动模型、服务或真实项目；可信映射在同一进程内，只模拟外部信任，不提供实际隔离。
