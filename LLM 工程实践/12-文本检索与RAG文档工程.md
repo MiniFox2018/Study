@@ -1949,3 +1949,92 @@ print('重复块计数/顺序不变/策略身份/改块旧摘要拒绝通过；�
 原当前28个Go Test定义（7/7/8/6），第三阶段另含一个redirect表驱动测试；作者录像则记录7/7/7/6共27，保留时间与源码覆盖差异。四幅JS图只对已提取 `|`块做过滤/计数、门开关和文本变化；没有实际HTML扫描、HTTP、hash或文件保存，第三图baseline replacements固定0，不能证明CLI无覆盖风险。两PNG和GIF18+6全24帧已查看，输出是人工HTML样本的浏览器滚动截图，不是当前网络状态。
 
 来源：2026-10-15完整静读固定commit `3be078b37ffd8f0c04953c0678e48f5c6d0c7775` 的[Web Change Brief](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/web-change-brief)正文、实现、测试、人工HTML、provider及媒体。仅主题融合与轻量出处，不安装后台监视器，不执行原来源命令。
+
+
+## 20. 从问题到可审计研究报告：检索、片段、主张与版本一起走
+
+把第2节BM25、第3节多视角、第16节引用位置和[逐主张评测](./06-评测与实验管理.md)接成一条离线报告管道：文件语料→检索候选→研究面向→精确片段→带引用句子→支持审查→报告与追踪→独立评价。它适合技术决策草稿、资料比较和政策更新复盘。来源的Rust负责排名、Python负责证据与编排、TypeScript负责展示；语言分工不是质量保证，JSON边界必须各自有运行时合同。
+
+### 20.1 文件、搜索进程和BM25的身份边界
+
+每份Markdown用title/source_url/published头字段、空行和正文表示，ID由文件名stem产生；按路径排序，正文去头并strip后才定义偏移。它不是原文件字节坐标，需另保原始文件SHA和正文规范化版本。源只检查头字段存在，不拒空值、重复键后写覆盖或验证发布日期；带着官方URL的作者笔记也不自动变成该官方文档原文。导入新语料应先核唯一ID、字段类型/换行、文件范围/总量与日期，不能把header字符串当真实性证明。
+
+源索引对标题和正文一起分词，先lower再保ASCII字母/数字并去停用词。中文和重音字符可能被丢弃，复数/同义词不会自动统一；沿用第17节的归一化经验，但改变分词器必须重建并重新评价。这里BM25的k1=1.5、b=.75；N=2时，df=2的orchard其IDF=ln1.2≈.182322，df=1的expiration为ln2≈.693147。文内TF保重复，DF每文档一次；查询重复词在这个实现中会再次贡献，而本章第2节示例按查询唯一词计分，比较两个实现前要固定此政策。
+
+进程协议是一行JSON请求、一行JSON响应，stdout不能混构建日志；诊断走stderr，EOF退出并逐行flush。支持search/tokenize/idf/docs/doc/score。k要求0～10000的整数，0是合法空结果，1.5拒绝；未知操作/坏JSON返回结构化error。自带codec处理引号、控制字符、数字语法及Unicode代理对，但重复对象键读取**第一个**、缺递归深度限制，64KiB检查在整行已读取之后，不能宣称完整防御性JSON接口。继续采用[严格输出](./13-结构化输出与对话状态.md)的重复键、深度与分配前预算规则。
+
+Python把生成的000000.md等内部名写入私有语料目录，恢复调用方ID后再按分数/真实ID解平局，避免临时文件排序改变外部合同。构建二进制在每进程专有 `rra-private-build-`目录、权限0700，缓存这条路径并退出清理；使用argv、退出码和超时，优于信任可预测的共享可执行缓存。**缓存的是二进制，不是常驻索引**：源码每次_request都新启Rust并重载语料，idf/search/score会重复开进程和建索引；它的stdin循环可以连续处理，但当前Python适配器没有复用它。不应据原生语言名字推断已经获得大规模性能或运行安全。
+
+### 20.2 精确片段与四个研究面向怎样连接
+
+分句器识别英文.!?后接空白和受支持字符或文末，保末尾无句号片段；`container.sock`内部点不应截开，句号后小写user-space可以开新句。中文句号、缩写和复杂标点不在其完整能力范围内。先在原正文找边界，再移动start/end去空白，始终有 `body[start:end] == snippet.text`。如果做去指代改写，保存原quote与改写两份，引用仍指向原跨度。
+
+片段分数是查询唯一词在句中对应IDF之和；少于6个空白分隔单词得0，It/This/These/They等起始句乘.5，试图避免脱离上下文。这是便宜的可解释启发式：短句可能恰含关键否定，代词惩罚也不真正解析指代。按分数、doc_id、start排序，在每文档上限内选，再编号S1…；分数用于展示可round，但不能改变引用身份。
+
+规则规划依次列Overview、How it works、Risks and limits、When to use it四面向，去掉问句开头词提subject，把原查询词与每面向补词组合。每facet有稳定ID、label/sub_question/keywords。它提供覆盖检查表，不能保证四面向都有足够证据或互相独立。
+
+源gather先按**整个问题**选top文档一次；各facet只在这些文档中挑句，并按相对最高分的.4门限、每facet最多3句筛选。它不会让风险facet再去全库寻找漏掉的文档。跨facet按 `(doc_id,start,end)`去重，再全报告重新编号；同一个S1在另一次run可能指向完全不同的片段。若前面facet先占用某个span，后面的facet可能无句而消失，trace与评价要能展示这种覆盖损失。
+
+### 20.3 规则、回放与在线规划不能混成同一实验
+
+默认规则可离线。ReplayModel用 `purpose + SHA256(完整prompt)`找cassette，一字变化即miss并保调用记录；固定prompt用于复现实验，不能为了命中旧回放偷偷截掉新要求。cassette键没有绑定模型/设置，重复键后写覆盖，也没有真实性签名；正式录制继续用评测章节的完整任务/配置/采证身份。
+
+模型返回必须是非空facets数组，每项sub_question非空字符串、keywords字符串列表，最多截取max_facets，再构造成Plan。源没有全面校验max_facets的精确整数/正值、空keyword或额外字段，合法JSON形状也不证明计划合理。验证失败保存rules-fallback及notes；一般值/类型/KeyError/AttributeError被捕获，HTTP错误/运输超时等不在这个兜底集合，不能说“任意在线失败都会正常回退”。
+
+LiveModel只用于**规划**，正文仍是摘录排列。它发配置端点的chat-completions兼容请求、可选Bearer与timeout，源码未限制响应字节、目标/重定向或记录实际provider usage；这些能力不能从Model协议名推导。CLI的--eval分支直接用默认规则调用evaluate，未把--model参数传进去，因此不能用该CLI选项宣称做了live与replay评测对比。本轮不读取密钥、不执行模型或来源命令。
+
+### 20.4 摘录写作只保出处，支持审查还要保关系
+
+writer把片段按facet排成section，句子保cites，折叠空白后复制原文，末尾加 `[S1][S2].`；引用注册表好比主键，句子cites是外键。单独验证器检查句尾标记是否存在且指向已知snippet，标题不计句子；空列表仅表示这份**语法与解析政策**没有发现引用错误。源码允许句尾标点省略，不能把正文描述的“必须最后有句点”当已经严查。
+
+摘录模式减少凭空造句，却会复制错误、过时或不适用的原句，筛掉上下文也可能改变读者理解。源码文档的“correct by construction”应限于复制/引用结构，不能解释成事实正确。若改为模型转述，继续检查来源位置、逐主张语义、当前有效性与权限；重试一次也不自动解决这些问题。
+
+critic先核缺引用/悬空，再对每句取**最好的一条**引用词面分。它对带数字、词内大写、句中专名做严格词检查，用否定词集合拦not/no/never/cannot/without/nothing变化，其余按内容词交集比例、默认阈值.6。它不验证主宾关系/否定作用域，且所谓严格词只是source_lower中的**子串**：主张“5 destinations”对“50 destinations”可能让字符5检查通过，剩余词重合也达阈值；Alice/Bob对调亦可能全词命中。有效quote和高重合都不能代替蕴含。
+
+threshold没有完整类型/范围预检，0可把一些0分矛盾标supported；语义拒绝类别应先硬拒，再比较合格支持分。多引用取best不能给无关引用一起记credit，沿用评测第31节逐claim–cite归因。六份公开poisoned drafts只包含实体插入、否定翻转、5↔10、无关主张、悬空/无引和两个忠实转述，不能据它们证明上述更难反例都被拦。 可将词面分在.4～.6的不确定句交独立语义judge，并把请求/回复/成本及与原判据的差异录入cassette；这只是待比较的扩展，不降低数字/权限等硬门，也不把judge自信当真值。
+
+### 20.5 预算、终态和失败工件要逐项核到实现
+
+源码终态定义是：预算超限或无受支持句failed；全部原verdict支持completed；部分句被删needs_review。它基于**清理前的verdict**决定，不能删除坏句后再按剩余句全部通过报completed。静态critic动画却写“completed · 2 sentences dropped”，应按实现纠正；界面绿色、文件存在和CLI返回0也不是独立目标达成。原CLI把needs_review返回0，所以消费者必须读terminal_state。
+
+预算应在昂贵动作前预留，再按真实已知usage结算，失败/未知也入完整账本。源Budget只计步骤与估算 `max(1,len(text)//4)`，不是供应商token/费用，也未严拒bool、负tokens和非有限参数。index/plan在工作前charge，但gather与write先完成再charge，与课程的“先扣再做”建议不一致；不能把这个计数器当资源从未超支的保证。使用[资源账本](../Agentic%20Design%20Patterns/01-核心章节/16-资源感知优化.md)的更强合同。
+
+trace按index/plan/gather/write/verify保存耗时、部分detail、run_id、开始时间、预算、counts与终态。plan详情没保存notes；verify详情只保dropped文字，不是所有逐引用verdict。源只catch BudgetExceeded，语料加载在try外，构建/HTTP/JSON/渲染/磁盘等一般异常可能直接传播，没有承诺总能留下named failed工件。
+
+report变量直到verify后才赋已支持正文；若gather或write后才预算超限，已有候选/draft未放入report，不能声称总会把已收证据呈现在失败页面。应另存append-only尝试/证据/draft/verdict与真实失败阶段，再决定可发布子集；HTML/JSON失败时也保可回读的最小失败收据。started_at与各step ms不是完整跨进程墙钟，也不含全部发布耗时。
+
+### 20.6 出版物和来源更新用同一证据身份
+
+version1 payload包含question、sections、snippet注册表、documents及trace。TS类型只提供静态说明，JSON仍须运行时验证每个cite能解到snippet/doc、码点区间合法且原文切片相等；JS使用 `[...source.text]`对齐Python码点。首次出现的cite编号一次，多次引用用独立tooltip ID；hover或键盘focus看quote，脚注跳转，details展开追踪。所有文本按HTML上下文转义，来源链接仅HTTP(S)，不能只escape一个javascriptURL。 打印版可让脚注避免跨页断开，并明确展开哪些追踪内容；屏幕hover可读不保证打印时证据完整。
+
+源viewer仍有边界：重复doc ID被Map后写覆盖；snippets只检查typeof object而非严格映射；没有全面核score、trace和所有字段类型；允许空span，end超正文长度时JS slice可截断，若碰巧等于quote仍可能通过。应先核 `0 <= start < end <= 码点长度`、snippet.id与映射key、唯一doc/cite及全schema，再展示；slice相等仍不认证发布者、语义、有效时间或访问权限。
+
+write_outputs顺序写HTML、trace、report.json，compare后再写changes.json；不是一组原子提交。使用第13节冻结证据/同代发布，避免读到新页面配旧trace。compare_reports要求相同question/version，只按句子文字合并证据列表，列added/removed、同文字changed_evidence；引用序号S1变化本身不是证据变化，真实跨度/片段SHA才是线索。源比较未重核payload切片/权限，也未绑定完整doc revision，证据列表顺序变化可能触发changed，需区分身份、顺序与实际内容。
+
+具体小例：同问题“How long do Orchard guest tokens last?”，旧正文第一句说60分钟、新正文说15分钟，则旧句在removed、新句在added。即使两run都显示[S1]，也不能把它们当同一证据。另一个restore文档和guest文档第二句没变，若同文字的doc跨度或revision变了，仍需回看证据。两份人工文档头日期同为9月28日，不能据日期字段宣布新版本今天仍生效。
+
+### 20.7 公开87.5分怎样计算，怎样被误读
+
+源码按每问题宏平均：citation_precision用.8阈值（比critic .6严格），source_recall用预期doc集合，fact_coverage用同句包含金标词组；加权.4/.3/.3。六公开问题的precision都1、recall五个1一个.5、facts为1/1/1/.5/.5/0，均值为1、11/12、2/3；得100×(.4+.3×11/12+.3×2/3)=87.5。中间round与终值round属于显示合同，不宜只拿印出的.92/.67反算。
+
+source_recall直接从注册表全部snippets取doc，未逐实际引用/支持重新归因；fact coverage不筛真实语义。一般外部构造Report可能插没实际引用的snippet赚credit，错句也可能赚fact，需改用可信已核claim–cite链。空expected_docs或key_facts时该项目给1，和本库“缺标签为null/unavailable”的协议不同，不能无声混比。报告只发一句安全话可提高precision却遗漏事实，复制全库又会伤可用性，各分量/分母/缺标/终态须同时保。
+
+heldout目录名是历史名，六题和poisoned drafts全公开，demo正好复用h4。同一实现根据这些题反复改再得高分，是公开回归，不能叫盲测或泛化。要测新语料，由独立人员另建问题/完整金标，先冻结检索、规划、阈值、分母与运行配置，逐题保失败和关键类别；可读性另评，不混成词面grounding分。图里的可调scorecard使用.5/.25/.25、空标签null重归一，和后端.4/.3/.3、空标签1完全不同；图算出的数不能当后端验收值。
+
+### 20.8 七阶段实践与可核对结果
+
+| 阶段 | 独立实施前先预测什么 | 参考判据与失败反例 |
+|---|---|---|
+| 1 语料与进程 | 12份头/正文/ID、两个TF与DF、JSON请求响应、相同分数真实ID顺序 | 缺头拒；df稀有词权重大；socket检索回预期doc；OOV空；badJSON/Unicode代理/k1.5拒、k0空。私有0700 binary且stdout仅JSON；再查重复键/深度/字段换行和进程重建成本，不把私有目录当沙箱 |
+| 2 片段 | container.sock内部点、句号后小写、末尾无句号、空白偏移、每doc上限与S5起编 | 精确slice复现每quote，偏移属于strip后正文；短/代词句降分仅启发式。加原文前插入emoji、中文标点、关键短否定句与邻句context；改写不要覆盖原quote |
+| 3 规划 | 同question两次规则plan、max2、cassette完整prompt/purpose、好JSON/聊天文字/miss | 好录制3facet/source=model；坏形状或miss为rules-fallback且留notes。空facet要拒而非静默成功；HTTP超时不在源四类fallback。额外录制器须完整模型/设置/usage身份；本轮不连服务 |
+| 4 引用写作 | facet共用span、全局S编号、每section句数、未引句与S99、源码句与quote | 只有实际片段进正文，去重不冒独立证据；语法错误uncited/dangling。合法标记不证明关系/事实，把两个片段合一句时逐主张核支持，模型改写的验证器仍独立 |
+| 5 审查与预算 | 六公开poisoned drafts逐句bool、两步预算第三charge、good/mixed/empty | 插实体/否定/5↔10/悬空拒；全支持completed、mixed needs_review、空failed。再试5↔50、Alice/Bob倒置、threshold0和负tokens，先定类别硬门及完整ledger；不要只调词重合让fixture全绿 |
+| 6 出版与变化 | Python/TS emoji偏移、重复cite一个脚注多tooltip、危险URL/文本、tinybudget、60→15更新 | 先核schema/唯一ID/严格区间/quote再HTML；safeURL拒可执行scheme，trace可键盘查。一般异常、预算后扣/丢partial和三文件部分写单独保失败；同question保changed_evidence，不只看[S1] |
+| 7 评价 | toy precision.5/source recall.5/fact.5；单题(1,.5,0)权重55；公开六题表 | 逐题分量与weighted宏均值保，87.5仅公开fixture历史；空标签协议显式，注册表不赚无引用credit，独立新语料/私有问题冻结后才谈泛化。改可读性评分也不能覆盖grounding退化 |
+
+本节直接复用本章已有BM25、精确来源链、引用支持、代际发布与完整评价程序，不重建另一套Rust/Python/Node框架。来源82个测试定义（Rust7、Python68、Node7）与原断言、87个真阶段标题、78个项目文件/人工语料和全部8个最后注册图已静读；两PNG及GIF20+9全29帧已视读，作者历史4section/10句/trace五步/874估算tokens不冒本轮执行。八幅图的装饰分数、坐标和流程部分硬编码；输入实验有数学与形状校验，但没有执行Rust/模型/FS，动画“completed删句”与后端状态、图的评分权重差异已明确。
+
+补充读懂12份安全语料：denylist不替隔离；容器共享宿主内核，资源cgroups、daemon控制权、挂载、capabilities分别审；用户态应用内核、microVM/虚拟化容器与远端会话是不同边界；密钥代理不把key交Agent，仍需可信目的与出站限制；会话生命周期controller不自行实现隔离；临时任务结束还要撤销凭据/状态。这些原理接到[安全模式](../Agentic%20Design%20Patterns/01-核心章节/18-安全模式.md)。作者安全笔记中的泛RFC链接不充分支撑每个具体产品机制，不能用seccomp文档替用户态内核架构；已另核[Docker daemon控制面](https://docs.docker.com/engine/security/#docker-daemon-attack-surface)、[gVisor应用内核](https://gvisor.dev/docs/architecture_guide/intro/)和[Firecracker设计](https://github.com/firecracker-microvm/firecracker/blob/main/docs/design.md)指定段（2026-10-15），保“隔离不自动执行出站过滤/不保护已授权数据”边界，不收录旧型号、性能与安装流程。
+
+来源：[Research Report Agent](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/research-report-agent)，固定commit与其余本次来源相同，2026-10-15完整读后主题融合。原source/CLI/tests/grader/Rust/Node/模型/API/网络/安装均0执行；原11个Python示例保持字节及持久实际成功原日期，不重复运行。
