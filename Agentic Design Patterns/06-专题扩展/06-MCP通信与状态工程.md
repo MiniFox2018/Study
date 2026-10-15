@@ -1591,3 +1591,42 @@ MRTR可以经历多轮输入。两轮的状态可以分别封存已验证的选�
 资源路径、模板及名称必须保“原请求意图→解析对象→授权对象”的可复查关系。把恶意形式归一成另一个可读资源，或把原不合法对象coerce成空字典，都可能隐藏输入问题。相反，也不能把某个教学子集的硬拒绝外推成规范禁止全部正常值。
 
 这十二组是源03–08/11–13/15–20案例的补充判据，不是已执行的新增测试。原请求/响应、双方版本、目录与授权代、真实时间和效果回执须分别记录；旧程序明确覆盖的负例继续保留，其未实现的协议或部署行为不因多写一个表格而变成已验证。
+
+
+## 17. 发现预算、进程客户端与窄适配器的验收
+
+### 17.1 测量真正交给消费者的序列化对象
+
+发现工具时，排名回答“相关性如何”，打包回答“哪几个 schema 能放进预算”。两者应分开：固定排名后逐个尝试，把加入该项后的完整公开数组序列化，超预算可跳过该项继续寻找能放入的候选。返回值同时带已选项、实际计数和计数器合同，内部 resource/operation 元数据不能意外进入公开 schema。
+
+如果两个 schema 的紧凑序列化分别长 200 和 220，数组还有两括号和一逗号，总长 423；预算 420 不能接受两项。空数组 `[]` 也有两个字符。源 discovery 对空选择返回 characters=0，所以它的“精确 JSON 字符预算”在空结果与预算 0/1 的情形并不完整；只断言 characters≤预算，会漏掉真实输出长度超预算的反例。可以明确将 0 定义为“无 schema 的额外成本”，但不能再称它是实际数组长度。
+
+计数器须与最终字节相同。Python 默认 JSON 会把非 ASCII 转为转义，`len` 数的是转义后字符串；JavaScript `.length` 数 UTF-16 code units，Rust `.chars().count()` 数 Unicode 标量，网络限制通常按 UTF-8 bytes。它们都不是模型 token。代理再加封装字段、换空格/转义方式或转换 description 后，须重新度量真正输出；图上的示例计数不能替代。max_chars/k 还须作严格运行时类型与范围校验，不能因 Python bool 是 int 子类或 TypeScript 有类型注解就默认合格。
+
+### 17.2 跨进程验证比类型注解多哪几道门
+
+有限批处理客户端可以先验证请求并拒绝重复 ID，再启动子进程、发送初始化/notification/调用、关闭 stdin，等待 stdout/stderr 与 exit。notification 不占响应数；`initialize id=1`、无 ID 的 initialized notification、`tools/call id=2`，预期只有两个带 ID 响应。持续 MCP 连接还要按 pending requests 与状态机处理消息，不能直接把有限批客户端当完整会话客户端。
+
+运行时至少检查：JSON 对象、jsonrpc、合法且属于 pending 集合的 ID、结果与错误二者恰有一个、error 的 code/message 形状，以及每个结果的实际 schema/content。源 typed client 会核 ID 归属、重复、总数、退出码，并限时限输出，但 result+error 同时存在仍可被接受；类型声明 `Response` 不会补这道门。源按 stdout chunk 直接转字符串拼接，UTF-8 多字节字符若被拆开可能变成替代字符。沿用本篇已有**先按字节累积/限流，再完整解码分帧**的较强例，不退回逐 chunk 字符串拼接。
+
+限制应同时覆盖累计 stdout bytes、单帧、stderr、deadline 和进程回收。源 1,000,000 的字符串长度是 JS 单位，不能冒称一百万网络字节；发出 kill 也不证明子孙进程已停止或资源已回收。 malformed frame、非零 exit、超时和已完成业务效果的恢复各是独立问题。错误后先判断结果是否未知，不把客户端超时当服务一定没执行。
+
+### 17.3 REST adapter 先声明窄合同，再谈互操作
+
+从 OpenAPI 生成工具时，只支持 GET、简单路径/查询参数、唯一安全 operationId，可以构成可解释的小型 adapter。它应精确校验必填与未知参数，分别编码路径/查询，再以声明的传输和响应边界处理结果。源 recording 路径还核实际 arguments 与样例相同，避免任何 id 都返回同一 canned result；这比“文件里有一份成功 JSON”更接近可检查的测试。
+
+窄 adapter 不自动实现整个 OpenAPI。源未保留 enum/min/max/format/$ref/security 等语义；其 hash 是规范化逻辑 JSON 的 SHA，而非下载原字节或发布者签名。使用者应在转换报告中列出丢失的约束与来源定位，不能把转换后的 schema 当原接口全部能力。localhost URL、禁 redirect、deadline 和响应大小上限也是各自的门：仅检查 hostname 字符串没有验证 DNS、代理、实际连接端点与重绑定；路径参数 `.`/`..` 还可能保留点段语义。本轮未执行源中的任何真实 GET，亦未做网络边界验证。
+
+### 17.4 五阶段实践：从精确参数到进程边界
+
+| 阶段 | 练习输入与参考结果 | 证据边界 |
+|---|---|---|
+| 01 registry | 向 pods_search 传 query 与 extra；应在访问 inventory 前拒绝未知键。比较教学 250、三类资源 15、加搜索 16。 | 原五例核数量、唯一性、count/get 和额外键；同一 inventory 机制不是 250 个独立集成。 |
+| 02 discovery | 固定 schema 与序列化器，预算设实际数组长度及长度−1；还要测空数组、0/1、Unicode 与 bool 参数。 | 原五例核首项、空结果、k=2 与报数上界；空数组实际两字符是源码缺口，不能只看 reported 字段。 |
+| 03 protocol | 初始化前调用、完成初始化后 count、无 ID notification。分别核状态、ID 和两条实际响应。 | 原五例使用旧合同与−32002；未知工具/已知输入失败及当前结果类型遵循本篇当前规范，不抄旧例覆盖。 |
+| 04 audit | 假服务重复 cursor、跨页重复或用错误项替换正确项。 | 八页与 250 唯一项只是必要条件；应及时检测循环并比目标集合，内部 handler audit 不算跨进程证据。 |
+| 05 typed client | 错误 ID、重复 ID、result+error、拆开的 UTF-8、无限输出与超时分别预期拒绝/回收；REST recording 用不同 arguments 应拒绝。 | 当前 5 个 TS 进程案例、10 个 Python 集成案例只作为已读定义；可选官方客户端 5 例也未执行，旧 mcp==2.1.1 不是当前推荐。 |
+
+作者 run 媒体记录参考解必选 35 项，output 记录 catalog_size=15、选中 pods_count/logs_count、characters=343/full_characters=2788。这些是来源录制结果，不是本任务运行；schema 变更、计数单位和真实主机能力须另核。五幅交互图共用 calculate，families 滑块可到 50，而候选资源只列六种、生成 schema 也比 Python 简化；图上 250 和字数不等实际源码目录/序列化。图示的初始化复选框只是演示状态，没有发协议消息。
+
+增量来源：[MCP Tool Discovery Workbench 五阶段](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/mcp-at-scale)，固定提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`。源全文件、五注册及必要 helpers 和全部 GIF 帧在 2026-10-14 静读；2026-10-15 恢复字节核对并回融。未执行来源、build、CLI、SDK 或服务；本篇既有九个自有程序不重跑，原验证日期和输出保留。

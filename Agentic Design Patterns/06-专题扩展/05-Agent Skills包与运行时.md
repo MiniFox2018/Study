@@ -740,3 +740,73 @@ print("六层fixture/逐run摘要/原bytes漂移/symlink/升级移除只作计�
 | 19/练习7 | cleanheadlessinputcommit/scope/readonlytokens/schema/findingIDs/currentdiff/remediationstatus，no rawsecret，不发表PR comments。 |
 
 方法优先于原案例数字与固定配置名；供应商能力、价格、安装版本或真实效果没有证据时保待核。相同主题迁到另一个任务，须重核适用条件、数据/权限与评价范围，不要求为了练习新增真实外部动作。
+
+
+## 11. 把本地包合同接到可审查的升级
+
+本节在现有发现、资格、权限、manifest 和可信采集合同上补充实现边界。一个包可通过 parser、被 router 选中、在扫描器中低分、成功写入某宿主目录，却仍没有证明它被真实宿主加载或正确完成任务。下面四类组件各交付自己的结果，不合并成一个含糊的“SkillManager 已支持”。
+
+### 11.1 可解释路由：去重、路径和依赖的单位
+
+`SKILL.md` 的 name/description 是入口元数据；源 routing.json 的 keywords/paths/priority/requires/permissions 是**本地路由扩展**，不是可移植标准必需字段。源按匹配关键词加 2、每个不同输入路径加 3，再按 score、priority、id 排序。这些是可调政策，不是概率。对 release review 两个关键词、一个匹配的 deploy 文件，分数为 2×2+3=7；同一路径重复输入不能变 10，大小写相同查询词也不应重复计分。
+
+去重必须与计分单位一致。源把完整 keyword 字符串做规范化/去重，再判断它拆出的任一词是否在 query；`review` 和 `review!` 仍是不同字符串，可能共同命中同一个 review 词。若意图“每个词只计一次”，需以实际命中 token 去重；若每条规则独立加分，则应把它明写成规则权重，不能以“词项去重”掩盖放大。文件路径的斜线规范化/字符串去重同样不代表 `./a`、真实路径别名、大小写或 symlink 已合并。
+
+glob 需要明确语法：`*` 匹配单个路径分量，`**` 可跨目录且包括零层；`a+b` 的 + 是字面符号，不能不经转义就进入 regex。拒绝 absolute/drive/parent 是输入合同，字符串模式匹配不访问文件系统，不提供 containment。源码 tests 覆盖这些典型匹配，但 CLI 对真实文件的安全打开、TOCTOU 与 Unicode/case 身份仍是另一层。
+
+依赖计划用 active 集合查当前 DFS 路径的环，用 visited 避免菱形依赖重复，按后序使依赖先于使用者，缺依赖/重复 id/越权依赖明确失败。四个返回状态应可解释：no-match 没有相关候选，ambiguous 前两名分差不足，blocked 首选的计划/权限受阻，ready 得到候选与计划。source margin=0 时同分可能按 priority/id 选出 ready；这只是本地 tie 政策。本库仍保持调用资格先于相关性排名和歧义弃答，不能因有稳定排序就把同分当语义确定。ready 不运行 Skill，也不绑定未来时刻的权限；实际 executor 仍重核候选版本、动作和批准。
+
+### 11.2 小语法和渐进披露：拒绝歧义比猜 YAML 更可维护
+
+一个明确的 frontmatter 子集，可以只接受单行 plain scalar 与 JSON 兼容的双引号字符串，拒绝重复键、alias、tag、flow collection、多行 block 等未支持形式。这样 `description: "say \"review\""` 中的引号必须经相应转义规则处理，而不是简单去首尾引号。词法解析、字段语义与目录身份是三道门；解析成功不等于非空描述、合法长度或 name=folder。固定源 Rust validator 的 ASCII 名称政策允许数字开头；它是该 loader 的受限 profile，不能把它当所有标准/宿主的完整名称语法。
+
+双引号解码还要核 escape、控制字符与 Unicode surrogate pair；JSON 字符串能表述换行不代表入口支持多行 YAML。解析时重组 body 会改变 CRLF/末尾换行，故 parser 输出用于加载解释，不能拿它替原 bytes 做完整性证据。已有 manifest 继续对原字节计算，不先 normalize 后声称没有漂移。
+
+披露预算按**最终拼接文本**计算。若 metadata 80 字符、body 120、分隔符 2，激活需要 202；预算 200 应整体拒绝，不能截掉两字符约束。reference 若追加，还要加它的分隔符与完整正文。Rust `.chars().count()` 的 Unicode 标量数与 UTF-8 bytes、UTF-16 code units 和模型 token 不同；先声明计数器，再比较边界。metadata-only 可以只把元数据送入上下文，但源 CLI 仍读完整 SKILL 文件，不能把“少披露”说成“完全没有 I/O 读取正文”。`activated:true` 仅表示将正文纳入上下文，绝不表示脚本已执行或任务完成。
+
+引用路径先拒绝不允许的组件，再对已存在 root/target canonicalize，并按路径组件核目标仍在 root 下。还需确保目标是所需文件类型。这个快照检查不能防对抗性的检查后替换；实际读取应绑定安全打开的对象与祖先政策。CLI 单个文件 100KB 上限也不等于所有资源总预算、文件数或总耗时。
+
+### 11.3 安装候选的身份必须覆盖转换输入
+
+应把四个身份并列记录：源 envelope、源文件树、转换后的文件树、实际 installed tree。转换器若根据外层 name/description 重建 SKILL.md，目录也由 name 决定，那么只对 files 计算 digest 就漏掉会改变结果的输入。固定源 installer 恰有这个缺口：name/description 改变、files 不变，expected source digest 仍可匹配。可信摘要应覆盖完整候选以及转换器版本、目标 adapter 和必要政策；“inspect 算出的 digest”只说明当前不可信输入的自洽结果，不自动认证发布者。
+
+排序也属于摘要合同。源用 localeCompare 排序 path/content 对，仅有普通 ASCII 插入顺序测试；跨语言/locale/Unicode 等价键若无明确全序，不宜称规范化跨平台身份。生产合同需声明路径编码、规范形式、重复/大小写冲突与确定性序列化，再 hash 原 bytes；不同原始文件换行应按原本的漂移政策处理。
+
+转换应展示损失。源会重新生成带 JSON 引号的 name/description，移除它识别的 LF 前置头并 trim body；这并非任意 YAML/CRLF/BOM 的无损迁移。quoted subset 能与所示 Rust loader 的正常 Unicode 样例互通，不等于所有字符串都获验证。body 边界空白、未知宿主字段、mode、required capabilities 和 references 的实际字节都要纳入转换/安装 diff；不能只看到“同一套说明”就判无变化。
+
+目标路径同样要预检整棵树：文件/目录前缀冲突、保留 receipt 的子路径、大小写/Unicode 碰撞、未知宿主、最大文件数/总 bytes 与原始值类型。源拒绝基本 parent/absolute/backslash/NUL，但 `.installed.json/child` 可过早期校验后在 staging 写入失败；普通对象积累文件时 `__proto__` 等键还有语言对象语义，不宜用 Record 类型注解当运行时保证。晚期失败若尚未发布，仍比覆盖真实目标安全，但不等于预检合同完整。
+
+### 11.4 升级是有提交点的状态机
+
+新安装可在 sibling staging 准备完整树，再单次 rename 到原本不存在的目标。覆盖旧安装则不同：源先 dest→backup，再 staging→dest，中间目标路径不存在，第二次 rename 的原子性不能覆盖两步整体。若 final rename 失败，恢复 backup 只是尽力而为，也可能再次失败；若 final rename 已成功，随后 backup 清理失败会抛错，此时新版已在位。需要返回或持久记录提交阶段，而非一个真假布尔值；调用方回读当前 generation 与树，避免误以为旧版未动而重复升级。
+
+沿用本库冻结、manifest 和权限合同，可将升级理解为：固定完整候选→核当前所有权/编辑→准备完整新代→在明示提交点发布→验证当前代→清理旧代。不可变代与一个受控指针有助于缩小可见性切换；它本身仍不自动提供 fsync 耐久、并发 writer 协调或安全路径打开。应用异常模拟不能当断电和恶意并发实验。本节没有另造或运行安装器。
+
+本地 receipt 仅当其信任假设成立才有用。源会比较旧 tracked 文件与摘要，并拒绝 unmanaged 文件，但 receipt 与文件都可编辑时可共同伪造；receipt 还需要严格形状/路径/身份检查。unmanaged 空目录若只靠递归文件列表判断会被漏掉，随后 backup 清理可丢失它；“保护所有本地编辑”因此比当前实现更强。升级/卸载必须展示文件、目录、改动、unknown 和所有权，不使用宽 glob；未管理内容保留并交人工选择，不能以 receipt 自报消除冲突。
+
+### 11.5 十六阶段练习：预测、静态证据与未运行边界
+
+下面都是可核对的实践题与评价方法，当前只完成源静读与正文推导；没有执行所列 Skill、CLI 或安装流程。带真实宿主或文件操作的验证仍需按任务授权单独开展，表格不是通过记录。
+
+| 项目/阶段 | 练习及参考判据 |
+|---|---|
+| router 01 catalog | 缺 keywords/permissions、非字符串 keyword、unsafe id 分别拒绝；目录名与 SKILL name 不同不能悄悄取一个。源局部 regex 会转换非字符串，真实 schema 还要严格类型。 |
+| router 02 score | 重复 query token 与重复文件不能放大；测零层/多层 globstar、反斜线规范化和 a+b。对 review/review! 说明是词权重还是规则权重，不能混称去重。 |
+| router 03 dependencies | A→B→A 报环；A→B/C→D 只安排 D 一次且先于 B/C；缺依赖和依赖缺权限均失败，不能只看根节点。 |
+| router 04 route | 分别构造 no-match、ambiguous、blocked、ready。修改 margin=0、禁用高分候选，解释现有资格优先政策与源首选受阻政策的差别。输出计划不代表执行成功。 |
+| validator 01 parser | 对冒号、双引号/转义、é、损坏引号、重复键、alias 明确接受或拒绝；只声明支持的小语法，不猜全 YAML。 |
+| validator 02 metadata | 名称/目录一致、非空说明、长度与字符政策分别测；源码对 uppercase、double-hyphen 与 mismatch 的五例不证明全部标准字段。 |
+| validator 03 path | existing、missing、absolute、parent、backslash、symlink-outside 分开判；canonicalize 比 raw starts_with 强，但不覆盖检查后替换。 |
+| validator 04 disclose | metadata/body/separator/reference 全量计数；202 对 200 应 Limit。比较 é 的 bytes/scalars 与实际 tokenizer，未调用 tokenizer 不报 tokens。 |
+| scanner 01 spans | `café\n.env`、CRLF、空文件及限额+1；每个区间必须对应原 bytes，并保留字面 quote。 |
+| scanner 02 rules | 善意文档也可命中，改写可漏报；同一行的不同规则分别保留。不得执行规则所引用的指令或命令。 |
+| scanner 03 scoring | 同一证据重复不加分，不同规则可相加；冲突 severity 交换顺序不应改变结论，需拒绝或按冻结规则重算，源首项获胜不是完整合同。 |
+| scanner 04 review | threshold 只决定 review-required/below-threshold；验证 findings 数、字节边界、line/quote 一致和报告总量。源 CLI 未调用 review，不自动继承它的 max_findings。 |
+| installer 01 bundle | 在建目录前核所有路径、保留 metadata、大小及整树冲突；Windows 风格输入在 macOS 也不能被当普通资源名带过。 |
+| installer 02 translate | 引号说明往返、source/translated 摘要不同应可解释；保持 files 不变改外层 name/description，检查候选身份是否仍被完整绑定。 |
+| installer 03 install | digest 不符不建目标；staging 未完成前原目标不变。分别审新安装与升级、祖先 symlink 与检查后替换、候选源与实际 installed tree。 |
+| installer 04 upgrades | 修改 tracked 文件或新增 unmanaged 文件应保留并拒绝覆盖；再考虑空目录、共同篡改 receipt、final-rename 失败与 committed-but-cleanup-failed，回读提交点后状态。 |
+
+源测试定义分别为 router 30、validator 24、scanner 20、installer 23，共 97，未执行；validator 的 symlink 案例带平台条件。作者 run GIF 分别显示旧 24、24、20、22：router 当前新增 6 个路径/发现案例，installer 当前新增 1 个 CLI 集成案例，旧录屏不能证明这些增量已过。router 图用 Unicode words、简化 deploy 路径和额外 competitor 状态，不等于 ASCII/通用 glob 源实现；validator 图不实际解析/读文件；scanner 图不遍历或计算升级 diff；installer 图的 digest 复选框不做真实 hash/rename。六项目共 25 个图示注册及最终 provider/必要 helpers 已静读，图是推理辅具，不是能力验证。
+
+2026-10-15 回融自同一固定提交的 [skill-router](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-router)、[skill-validator](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-validator)、[skill-scanner](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-scanner)、[skill-installer](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-installer)。全课内文件、所有媒体帧、最终 provider/必要 helpers 在 10-15 完整静读；本文是主题解释和缺口分析，不声称最新产品发现路径、全 YAML/全 MCP 合规或真实宿主激活。此前五个围栏与原 CPU success 证据保持原字节/原日期，本批未重跑或新增自有程序。
