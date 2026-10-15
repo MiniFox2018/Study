@@ -1840,3 +1840,112 @@ print('声明几何/百分比缩放/Unicode词面覆盖与坏框拒绝通过；�
 作者参考24Test定义（各6）和9月28日PASS录像已静读，不执行。两张人工SVG的实际视觉内容、两PNG海报与GIF18+6全24帧已查看：示例只演示人工牌与提供的框，未测真实OCR、模型识别或人审身份。源输出媒体是浏览器滚动采集，不是一个可复跑的JSON测试结果。
 
 来源：固定commit `3be078b37ffd8f0c04953c0678e48f5c6d0c7775` 的[视觉证据项目](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/visual-evidence-library)，2026-10-15全文、实现、测试、清单/素材、最后四图及媒体静读后回融。只保主题知识与轻量出处，不复制整套原站。
+
+
+## 19. 网页变化证据：抽取策略、重复次数和基线批准
+
+第13节解释检索新鲜度与索引代际；这里把同一原则应用到网页资料更新：先保可复核的文本变化，再决定是否采用新基线。适合公告、规则、知识资料的定期人工复查。两份保存的HTML可以完全离线比较；显式抓取单页是另外一条路径，项目没有自动调度、消息通知或真实网页浏览器。
+
+### 19.1 先抽可读块，明确哪些变化故意忽略
+
+源扫描器逐字节找标签边界，在单/双引号内遇到 `>`不能结束标签，注释需找到结束标记；用skip名称与depth跳过head、script、style、nav、footer、noscript。遇p/div/section/article/li/tr/h1～h6/br/hr等块边界时flush；td/th插空格，strong等行内标签不额外切块。flush解码HTML实体、折叠空白、丢空块，应用显式忽略短语，再保留正文块。
+
+输入 `<nav>Visits 12</nav><p>Bring a mug &amp; a spoon.</p>`只得到“Bring a mug & a spoon.”；`<p title="a > b">A <strong>small</strong> repair</p>`应是一个“A small repair”。单段中的相邻行内元素如果原文没有空格，扫描器也不会自动补单词边界。源只支持有限HTML，不理解完整HTML5容错、CSS可见性、客户端JavaScript或所有script原始文本语义；残缺tag、comment、ignored区域报错，不能把抽取失败转成成功空快照。
+
+源限制HTML不超过2,000,000字节、最多10000块，但块数上限是在构造完之后检查；本地CLI也是先ReadFile再检查字节上限。响应有边界不等于所有入口在分配内存前都有限。页面编码也不应靠Content-Type形状推断已正确解码，源码直接把字节当Go字符串。
+
+过滤短语是忽略整块、大小写不敏感，不是只删除一个词；页脚可能有重要生效日期，因此默认跳过footer是可见取舍。源只TrimSpace来判断短语是否为空，真正Contains仍保原短语的前后空格；图会先trim，两者不完全一致。过滤/抽取规则要有版本，两份输入须相同政策，否则规则变化会伪装成网站新增或删除。
+
+### 19.2 用多重集保重复，内容指纹与出处身份分开
+
+普通集合会把重复的A丢掉。设before=[A,A,B]，after=[A,B,C]，逐块保存出现次数；共同数是每个块两侧次数的较小值相加，删除A一次、新增C一次、unchanged=2。输出新增/删除按文本排序。项目故意忽略块顺序，所以[B,A,A]与[A,A,B]内容指纹相同；若位置本身有含义，另做序列对齐/LCS报告，不要把搬移混成删除与新增。
+
+来源把排序后的块数组以Go `encoding/json`序列化后SHA-256，重复块仍保留；不能用随意拼接分隔符，免得“一个含分隔符的块”与“几个块”摘要碰成相同输入。跨语言复核必须固定UTF-8、数组顺序、转义/空值等序列化合同；Python默认JSON文本不能直接宣称与Go逐字节一样。
+
+URL需是无凭据的绝对HTTP(S)，host转小写、去fragment、空path补/、保query；不同query不自动视为同页，默认端口/百分号/路径等价也不自动全归一。对比要求canonical URL完全相同；源Compare直调只比较URL字符串，并不核快照本身的canonical或摘要，直接构造的坏对象必须由消费者前置检查。
+
+原内容摘要不包括URL、抓取时间、原HTML字节、忽略规则或发布者身份。Load重算块摘要可以发现“只改块、不改hash”的误改，不能防修改者同时重算hash，也不能证明谁发布或何时有效。原快照还不保存过滤政策，跨次调用换`--ignore`可能产生假变化。实际采证应另保原字节SHA、最终URL/重定向链、获取时间、解析/过滤版本、规范化内容摘要和必要权限，不让一个hash承担所有身份与时效主张。
+
+### 19.3 抓取合同：状态、类型、大小、重定向与时限
+
+源FetchHTML只接受显式HTTP(S)，状态恰200，媒体类型text/html或application/xhtml+xml，读到MaxHTMLBytes+1检测超量；不是先无限读完再裁。用带context的GET与独立User-Agent，不取链接资源、不执行页面脚本。
+
+默认client=nil时创建Timeout15秒；它涵盖连接、重定向、响应体读取。CLI另外给20秒context。**调用方提供client时保留其Timeout，0意味着无限**，不能仅凭函数名说任何直接调用都有15秒限制；context/Transport还需正确合作。源浅复制client后覆盖CheckRedirect，原client对象未改，但调用方原有更严格redirect回调没有合并，Jar/Transport仍可能共享。[Go Client时限与重定向合同](https://pkg.go.dev/net/http#Client)（2026-10-15只核Client字段指定段，不声称通读net/http或做完整网络安全测试）。
+
+重定向在发下一跳之前核：总计最多3次请求；目标Host含显式端口必须与最初相同，HTTPS起点不得降到HTTP。显式HTTP起点允许HTTP或HTTPS，这是来源政策，不能说“所有重定向都必须HTTPS”。同host不等于同实际IP、无代理/会话泄露或可访问任何路径；真实资料采集仍需可信目标与地址/权限边界。503、错媒体、超量、取消和拒绝重定向都应保为获取失败，不能替换成“页面已空”。ETag/Last-Modified与304尚未实现，若扩展必须区分未改变、失败和空内容。
+
+### 19.4 生成报告与接受基线是两个动作
+
+单个快照Save使用同目录临时文件、写入/close后rename，并在错误时清临时名；这有利于同文件系统原子替换可见性，没有fsync/目录sync或CAS，因此不证明掉电持久性、多个writer协调或整报告组原子发布。Load先读完整文件才检查8,000,000字节上限，再核canonical URL与内容SHA；它没有完整重跑新快照的块数/规范化约束。合法保存/载入不是来源认证。
+
+HTML用html/template按文本与URL上下文转义，JSON保确切新增/删除文字和count、两份快照与unchanged。fixture里维修从14:00变15:00、志愿名额3变1、增加无障碍入口，故删除2块、新增3块、共同3块；导航计数和footer时间被策略排除。报告给的是这些精确变化，不推断发布者意图或自动生成事实结论。无变化明确显示空列表；可加人审note/Markdown导出，通知仍属独立集成。
+
+**源CLI有路径别名风险**：它先写out/changes.json和index.html，再无条件写 `out/baseline.json`；随后才在`--accept`时写入传入的baseline。如果`--baseline`恰好就是out/baseline.json，即使没有`--accept`，前一步也已经覆盖旧基线。教程的“没有accept就不动旧基线”只在路径隔离前提下成立，不能照抄成普遍保证。报告目录采用新的版本目录，旧基线用独立只读路径，并在写入前用真实文件身份检查别名；输出可能是符号链接，单纯比较原字符串不足。
+
+changes.json、HTML、新快照和可选旧基线依次写，也可能部分成功。推荐先在临时版本目录生成并核全部工件，再以可信版本指针一次发布；接受旧基线要绑定已审核的新snapshot/hash、旧revision并用CAS防丢更新。失败时保旧版本并说明哪一步未完成，不把exit非零当“所有写入都撤回”。这些合同沿用第13节更强的代际发布，不另造同义监控后台。
+
+### 19.5 可运行多重集例与四阶段练习
+
+下面只比较**已经抽取的块**，加上抽取策略与URL身份；不提供HTML5解析器、网络客户端或基线文件写入。摘要合同是本例显式定义的Python JSON，与源Go只摘要块数组的合同不同，不能拿两个不同合同的SHA直接比较。
+
+```python
+from collections import Counter
+import hashlib
+import json
+
+
+def snapshot(url, policy, blocks):
+    if not isinstance(url, str) or not url or not isinstance(policy, str) or not policy:
+        raise ValueError('调用方必须提供已核的URL与抽取策略身份')
+    if not isinstance(blocks, list) or len(blocks) > 10000 or any(
+        not isinstance(x, str) or not x for x in blocks
+    ):
+        raise ValueError('这里只接受已经抽取的非空文本块列表')
+    # 重复保留，排序仅用于定义“忽略块顺序”的合同。
+    ordered = tuple(sorted(blocks))
+    payload = json.dumps({'url': url, 'policy': policy, 'blocks': ordered},
+                         ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+    return url, policy, ordered, hashlib.sha256(payload.encode()).hexdigest()
+
+
+def compare(before, after):
+    if before[:2] != after[:2]:
+        raise ValueError('URL或抽取/过滤策略变化，不能当页面正文变化')
+    # 重算身份以拒绝内存对象中仅改块却保留旧摘要。
+    for row in (before, after):
+        if snapshot(row[0], row[1], list(row[2])) != row:
+            raise ValueError('快照内容与摘要不一致')
+    a, b = Counter(before[2]), Counter(after[2])
+    return {'added': sorted((b-a).items()), 'removed': sorted((a-b).items()),
+            'unchanged': sum((a & b).values())}
+
+
+url = 'https://example.invalid/notices'
+a = snapshot(url, 'paragraphs-v1/no-footer', ['A', 'A', 'B'])
+b = snapshot(url, 'paragraphs-v1/no-footer', ['A', 'B', 'C'])
+assert compare(a, b) == {'added': [('C', 1)], 'removed': [('A', 1)], 'unchanged': 2}
+assert snapshot(url, a[1], ['B', 'A', 'A']) == a
+assert compare(a, a)['added'] == []
+for bad in [snapshot(url, 'different-policy', ['A', 'B', 'C']),
+            (a[0], a[1], ('X',), a[3])]:
+    try:
+        compare(a, bad)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('策略漂移或旧摘要必须拒绝')
+print('重复块计数/顺序不变/策略身份/改块旧摘要拒绝通过；没有抓取网页或替换基线')
+```
+
+2026-10-15这个新增自有例从最终Markdown提取CPU运行通过。原十个程序保字节、实际成功记录与原日期，不重复跑；源Go/CLI/httptest与网络均未执行。
+
+| 阶段 | 实际动手输入 | 参考判据与拓展 |
+|---|---|---|
+| 1 抽块 | 实体/换行、head/nav/script/style/footer、属性内>、inline strong、忽略词、空/注释、重复p、残缺tag/comment/nav、<>及超量 | 正文单块和原重复次数保留；噪声不漏；坏输入显式失败。记录每站提取规则并保真实HTML fixture；footer中的生效日可能被过滤，先判断需求再改政策 |
+| 2 比快照 | 大写host/fragment、fileURL/凭据/relative、AAB→ABC、重排、不同query、空快照、仅nav变化 | canonical有定义但不声称所有等价URL都合并；A删1/C增1/common2；重排指纹相同；URL不同时拒；空内容稳定但不代表抽取失败。另加顺序变化报告并说明内容SHA不是发布者/时间证明 |
+| 3 抓取保存 | 受控200/503/JSON/超量、跨host/端口与HTTPS降级、取消、JSON往返/改块旧hash | 在下一跳前拒越界，原client callback对象不被改；nil默认15秒与自带0timeout区别；误改hash拒。测试本地wire也是实接线范围，不称真实站点可用。扩展条件请求，保304/失败/空页三态 |
+| 4 发布 | 确切文字/count、无变化、script样文本、不可写输出、两hash/链接、baseline与out同路径 | 模板转义、JSON/HTML显示一致；新版本报告路径独立，未accept不可覆盖旧基线；制造第二产物失败时保部分写状态，不声称原子事务。加审核说明而不自动发通知 |
+
+原当前28个Go Test定义（7/7/8/6），第三阶段另含一个redirect表驱动测试；作者录像则记录7/7/7/6共27，保留时间与源码覆盖差异。四幅JS图只对已提取 `|`块做过滤/计数、门开关和文本变化；没有实际HTML扫描、HTTP、hash或文件保存，第三图baseline replacements固定0，不能证明CLI无覆盖风险。两PNG和GIF18+6全24帧已查看，输出是人工HTML样本的浏览器滚动截图，不是当前网络状态。
+
+来源：2026-10-15完整静读固定commit `3be078b37ffd8f0c04953c0678e48f5c6d0c7775` 的[Web Change Brief](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/web-change-brief)正文、实现、测试、人工HTML、provider及媒体。仅主题融合与轻量出处，不安装后台监视器，不执行原来源命令。
