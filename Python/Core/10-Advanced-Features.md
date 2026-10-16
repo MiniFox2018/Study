@@ -53,6 +53,67 @@ class Countdown:
 
 无限迭代器必须有明确停止条件。
 
+### 2.1 分批迭代：立即验参数，按需取数据
+
+生成器函数的函数体到第一次 `next()` 才运行。若把 `size`检查写在含yield的函数体里，调用 `batches(data, 0)`可能先正常返回，错误拖到训练循环才出现。可以让外层普通函数先核参数、取得迭代器，再返回内层生成器，把“何时报错”和“何时取数据”分别定义。
+
+下面是完整自有标准库例。size必须是正整数，bool和1.5都拒绝；drop_last必须是bool。读第一批只拉取这一批所需的元素，空输入产生零批；尾批是否丢弃由明确政策决定。
+
+~~~python
+from itertools import islice
+
+
+def checked_batches(values, size, *, drop_last=False):
+    if type(size) is not int or size <= 0:
+        raise ValueError("size须为正整数，不能是bool")
+    if type(drop_last) is not bool:
+        raise ValueError("drop_last须为bool")
+    source = iter(values)
+
+    def consume():
+        while True:
+            block = tuple(islice(source, size))
+            if not block or (drop_last and len(block) < size):
+                return
+            yield block
+
+    return consume()
+
+
+pulled = []
+def rows():
+    for n in range(7):
+        pulled.append(n)
+        yield n
+
+stream = checked_batches(rows(), 3)
+assert pulled == []
+assert next(stream) == (0, 1, 2) and pulled == [0, 1, 2]
+assert list(stream) == [(3, 4, 5), (6,)]
+assert list(stream) == []
+assert [len(x) for x in checked_batches(range(10), 4)] == [4, 4, 2]
+assert [len(x) for x in checked_batches(range(10), 4, drop_last=True)] == [4, 4]
+assert list(checked_batches([], 2)) == []
+for value in [0, -1, True, 1.5]:
+    try:
+        checked_batches(range(3), value)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("必须在调用时拒绝坏size")
+assert [list(checked_batches(range(3), 2)) for _ in range(2)] == [
+    [(0, 1), (2,)], [(0, 1), (2,)]
+]
+print("调用时拒绝/按需拉取/尾批/空输入/耗尽/重新创建各epoch通过")
+~~~
+
+
+Python3.12的标准库 `itertools.batched`同样惰性地产生tuple批次，末批可以不足n；它与上面的drop_last合同不同。[3.12官方文档](https://docs.python.org/3.12/library/itertools.html#itertools.batched)（2026-10-16选读batched段）。不要只因函数同名就假定返回list、丢尾批或接受相同参数。
+
+每个epoch应从可重新迭代的数据或明确工厂重新建立流。把同一个已耗尽generator再传给新batches，仍不会恢复原数据。这里的内存只按一个批次增长；闭包捕获的大对象、上游预加载或缓存仍可占大量内存。资源归调用方时，把文件打开与完整消费放进同一with范围；只停止外层批次迭代不自动证明上游文件已关闭。
+
+**自检**：在第二个epoch复用stream为何没有batch？因为它保存已到尾的同一迭代状态。把上游换成每次新建的rows()才有新数据；若要随机访问或多次重复读，小列表可能比单次流更合适。
+
 ## 3. 推导式、map 与 filter 的选择
 
 这三者都能表达转换与过滤：
