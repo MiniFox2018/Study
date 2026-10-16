@@ -25,6 +25,8 @@
 
 ## 3. stdio、Streamable HTTP与版本适配
 
+**版本自检**：题目若只问“MCP连接开始要做什么”，先补版本。`2025-11-25`及更早legacy使用initialize/initialized与能力协商；本专题固定的`2026-07-28`按每请求元数据和stateless合同处理，不能把旧握手教成所有时代的通用前置步骤。服务器须实现discover，与客户端是否必须在每次业务请求前先调用它，是不同要求；按所选版本和运输阅读具体条款。发现可用能力也不代当前主体授权。附加题库中的无版本握手题据此保历史定位，既有现代协议主文继续作为学习入口。
+
 ### 3.1 字节帧、进程与peer
 
 stdio的规范帧是UTF-8 JSON-RPC一行一条，`stdout`只写合法协议消息，诊断去`stderr`。JSON字符串中的换行要转义，不能把漂亮打印的多行JSON当一帧。一次read可能切在中文UTF-8字符中间，也可能带两条消息；先按换行累积字节，再解码完整帧。设单帧字节上限，EOF有残帧时报告未完整接收。stderr有信息不等错误；EOF是跨平台优雅退出信号，超时才按宿主系统策略结束进程。
@@ -1601,7 +1603,7 @@ MRTR可以经历多轮输入。两轮的状态可以分别封存已验证的选�
 
 如果两个 schema 的紧凑序列化分别长 200 和 220，数组还有两括号和一逗号，总长 423；预算 420 不能接受两项。空数组 `[]` 也有两个字符。源 discovery 对空选择返回 characters=0，所以它的“精确 JSON 字符预算”在空结果与预算 0/1 的情形并不完整；只断言 characters≤预算，会漏掉真实输出长度超预算的反例。可以明确将 0 定义为“无 schema 的额外成本”，但不能再称它是实际数组长度。
 
-计数器须与最终字节相同。Python 默认 JSON 会把非 ASCII 转为转义，`len` 数的是转义后字符串；JavaScript `.length` 数 UTF-16 code units，Rust `.chars().count()` 数 Unicode 标量，网络限制通常按 UTF-8 bytes。它们都不是模型 token。代理再加封装字段、换空格/转义方式或转换 description 后，须重新度量真正输出；图上的示例计数不能替代。max_chars/k 还须作严格运行时类型与范围校验，不能因 Python bool 是 int 子类或 TypeScript 有类型注解就默认合格。
+应对最终序列化结果按约定单位计数；封装、转义或空格改变后，按同一合同重新度量。Python 默认 JSON 会把非 ASCII 转为转义，`len` 数的是转义后字符串；JavaScript `.length` 数 UTF-16 code units，Rust `.chars().count()` 数 Unicode 标量，网络限制通常按 UTF-8 bytes。它们都不是模型 token。代理再加封装字段、换空格/转义方式或转换 description 后，须重新度量真正输出；图上的示例计数不能替代。max_chars/k 还须作严格运行时类型与范围校验，不能因 Python bool 是 int 子类或 TypeScript 有类型注解就默认合格。
 
 ### 17.2 跨进程验证比类型注解多哪几道门
 

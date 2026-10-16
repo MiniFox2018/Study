@@ -1,5 +1,7 @@
 # Agentic Design Patterns 中文学习库
 
+**默认入门闭环**：先读提示链/路由、工具05、检索14，再接人机协同13、恢复12和评估19，做一个输入、工具观察、候选结果与失败出口可逐项解释的本地例。需要协议与包再选MCP/Skills，需要改代码再选Coding Agent，需要协作再看多智能体；下面各批次深化路线都按需查阅。
+
 > 项目总规则：[Study 项目维护规则](../PROJECT_RULES.md)
 
 > 主结构来源：<https://adp.xindoo.xyz/chapters/>  

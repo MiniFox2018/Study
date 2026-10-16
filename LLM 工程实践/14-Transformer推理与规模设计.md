@@ -755,7 +755,9 @@ print('first-token/单token/失败分母正确；边际99%不等联合97%；教�
 原论文核验入口：[Switch](https://arxiv.org/abs/2101.03961)、[Loss-Free Balancing](https://arxiv.org/abs/2408.15664)、[DeepSeek-V3](https://arxiv.org/abs/2412.19437)、[FlashAttention](https://arxiv.org/abs/2205.14135)、[Chinchilla](https://arxiv.org/abs/2203.15556)、[生命周期规模成本](https://arxiv.org/abs/2401.00448)、[投机采样](https://arxiv.org/abs/2211.17192)、[并行引入的采样方法](https://arxiv.org/abs/2302.01318)。核验理论/实现范围与CPU合成验证分开；未下载权重/外部数据、未使用GPU、未调用服务，CPU浮点结果不作为真实kernel速度或模型质量。注意力拓扑依据：[GQA](https://arxiv.org/abs/2305.13245)、[Sparse Transformer](https://arxiv.org/abs/1904.10509)、[Differential Transformer](https://arxiv.org/abs/2410.05258)、[线性注意力](https://arxiv.org/abs/2006.16236)、[PagedAttention](https://arxiv.org/abs/2309.06180)；这些论文中的条件与架构不外推成所有模型的自动质量/速度保证。
 
 
-## 17. 综合推理服务：把无损采样、负载和收益放在同一合同
+## 18. 综合推理服务：把无损采样、负载和收益放在同一合同
+
+<a id="17-综合推理服务把无损采样负载和收益放在同一合同"></a>
 
 本章§7、§10与§15已经有完整投机采样条件、EAGLE机制、树mask、KV回滚和调度，不再复制算法。综合项目要解决的是：所服务的实际target是哪一版，在同一负载与采样协议下，投机是否增加合格请求吞吐并降低总费用。
 

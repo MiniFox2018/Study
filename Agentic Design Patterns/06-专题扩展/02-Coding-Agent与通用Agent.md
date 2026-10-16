@@ -853,6 +853,10 @@ BrowseComp 测搜寻具体事实，WebArena 测模拟网站流程，OSWorld 测�
 
 同样，command/http Hook失败或超时可能按默认策略继续，版本特定的 `onFailure:block`与SDK callback超时另有合同。要在事件正确位置用正常、拒绝、异常、超时、无JSON、坏JSON和决定冲突反例观察实际结果；一个Hook脚本存在不保证fail closed。本段核验只覆盖上述指定段，未运行Hook或声称全文/当前安装版本验证。
 
+2026-10-16补核[Hooks reference的PostToolUse决定段](https://code.claude.com/docs/en/hooks#posttooluse-decision-control)：所读版本允许 `updatedToolOutput`替换给模型的结果；`updatedMCPToolOutput`仅针对MCP。替换值要满足实际输出形状，不能假定所有旧SDK和事件都支持。工具在post事件前已经执行，OTel工具span与analytics也可能已经采到原输出；这层改写不能撤回文件、网络效果或替已采遥测脱敏。
+
+**自检**：工具先把秘密写进日志，再让post Hook只返回 `[redacted]`，泄露是否消失？没有。应在真实调用、数据采集和出口边界控制，并验证被阻止/保留的对象；post改写只证明模型接收视图改变。不要把 `decision:block`文字、工具已停止、实际副作用和结果替换当成同一种机制。
+
 权限模式影响哪些工具请求自动批准或询问，不建立用户目标、对象许可或OS隔离。`acceptEdits`也可能包含范围内部分文件系统命令；`dontAsk`拒本来要询问的调用但不等能力清单；bypass仍有版本/组织边界。SDK/harness提供循环、stream与追踪，业务权限、秘密、范围、幂等与目标验证仍在外层。导入源模块会执行顶层定义/初始化，是否会触发候选程序取决于顶层行为，不能把import当纯文本阅读。
 
 团队扩展与初始化应有owner、真实缓存键/复审、配置变更与回退触发。模板宣传的市场份额、部署周期或固定包名只作情境，未核当前事实不进入规则。脚本在阅读任务中是教材；真实安装、网络、凭据与运行另按具体任务授权处理。
@@ -873,7 +877,7 @@ BrowseComp 测搜寻具体事实，WebArena 测模拟网站流程，OSWorld 测�
 
 ### 课堂变式练习：把条件改动落实到证据
 
-下面的编号只用于追溯原课堂，正文按本主题学习。先预测，再给输入、拒绝位置/结果、版本与证据；原程序命令和开放实验本轮未执行。可以复用上面的完整例，程序未支持的性质须先写清扩展合同，不能把表格当测试通过或用户已掌握。
+先按[练习方法](../../学习指南.md#每次学习只留下可检查的结果)预测，再核对下表；表中原题的判断不代表本轮已运行。
 
 | 原课堂/项 | 练习方法与参考判断 |
 |---|---|
@@ -889,7 +893,7 @@ BrowseComp 测搜寻具体事实，WebArena 测模拟网站流程，OSWorld 测�
 | 15/练习5 | preJSONdeny与PRnesteddecision按currentruntime事件分别验证，exit2不能据旧文本当PRdeny，脚本失败/timeout onFailure范围另核；本轮只静读。 |
 | 15/练习6 | samePR读取scope/token/hosteddata/Actionsecrets/pin/minimaltools/findings/branchgate分开，当前产品资格和价格需官方，无发comment或review操作。 |
 
-方法优先于原案例数字与固定配置名；供应商能力、价格、安装版本或真实效果没有证据时保待核。相同主题迁到另一个任务，须重核适用条件、数据/权限与评价范围，不要求为了练习新增真实外部动作。
+迁到自己的任务时，重核输入、权限与评价条件；来源版本及未验证范围沿本章各节记录。
 
 ## 补丁、测试与harness的可审证据
 

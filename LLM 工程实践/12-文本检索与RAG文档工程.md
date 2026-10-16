@@ -2,6 +2,8 @@
 
 检索增强生成先找证据，再组织答案。检索器、文档处理和回答器分别会出错，必须分别验证。本篇承接 [Embedding 训练](07-Embedding与检索模型训练.md)，与 [Agent 中的知识检索](../Agentic%20Design%20Patterns/01-核心章节/14-知识检索-RAG.md) 分工：这里维护检索公式、分块实现、证据定位和问答评价，后者维护 Agent 工作流及工具边界。
 
+**第一次读法**：先读第1、2、4、6、7节，用同一小语料说明词项得分、分块、引用与拒答；需要完整管道再做7.1。代码与增量发布看13，权限会话看14，检索指标口径看7.2及16；视觉证据18、网页变化19、研究助手20按实际任务选择。先保版本、正例集合和分母，再考虑更多模型或索引工具。
+
 ## 1. 从问题到有出处的答案
 
 一个最小系统有六个环节：原文和版本 → 清洗与分块 → 建立索引 → 候选召回 → 重排与上下文装配 → 有证据的回答。索引是原文的派生表示，不能代替原文。检索得到的旧制度、重复副本或越权文档，分数再高也不能直接成为有效证据。
@@ -683,6 +685,10 @@ Faithfulness检查每个主张与实际context的支持；answer relevance检查
 
 定位按stage证据：gold不在候选N→解析/筛选/召回/rewrite；在N却不在最终K→排序与装配；已完整进入context却错→生成/支持；高Recall低MRR只是排序线索，先查gold/重复/粒度，再决定重排。无关块过多也会稀释预算或引入冲突；不存在“生成器总能丢弃噪声”的保证。答案长度与支持率相关也不能直接说明长答导致错误，要控制题难、事实数和拒答。
 
+**补充自检：返回了相关片段，究竟证明哪一层？** 不能仅由“主题相关”推断系统采用了向量相似度阈值：它也可能来自BM25、手写规则或固定top-K，更不证明权威、时效、完整与当前用户权限。若一个单选题没有提供检索方法和阈值，却将“已超过向量阈值”当已知前提，应先指出题目条件不足。
+
+再给两个必需来源A/B：候选top-K含A/B时，候选级集合Recall为1；重排/装配后只保A，则不能说B已经到达generation。核实际发送的context工件、source/chunk/revision与截断位置，最终答案逐项对该context检验。检索覆盖、最终上下文覆盖和答案支持分别报告；HTTP200或答案长度都不能替代这条证据链。此处校正附加评测的表述，沿用上面已有算法和代码。
+
 ### 7.3 组件接线、真实计算与演示替身
 
 2026-10-12 增量。端到端接线把原文身份、候选和实际context沿stage传递，接口相似并不等于实现接通。现7.1已给完整标准库链，13/14已覆盖可信principal/ACL、代际更新与会话终态；继续复用这些合同。Cross-encoder的联合注意力、训练与最小独立CPU例统一在[07第13节](07-Embedding与检索模型训练.md#13-联合编码重排的学习计算与训练目标)，本节不把identity或词重叠冒称神经重排。
@@ -1114,7 +1120,9 @@ print('类型化chunk身份/行号/scope/文本摘要、跨仓库与假Git值均
 
 本例在发布之前显式验证身份、文本摘要、非布尔整数行号与不可变scope集合，不依赖dataclass注解自动检查。代际限定单个明确仓库；40位小写十六进制只验证Git ID的格式，不证明真实对象存在或来源可信。构建错误不改变active，真实跨存储原子性与授权仍需外部实现。
 
-### 原项目的数据流与实现边界
+### 代码检索的数据流与实现边界
+
+<a id="原项目的数据流与实现边界"></a>
 
 Python:6人工Chunk→DenseIndex.fake_embed与BM25Index.add→query两list→RRF以anchor归并→词项overlap stub rerank→打印anchor。没有tree-sitter、真实仓库walker、真实向量库/模型/graph/webhook/synth/citation verifier。hash(tok)受PYTHONHASHSEED随机化，称跨run deterministic错误；cosine仅点积且zip静默截维，成立需同dim且单位化。BM25空corpus/全空dl边界未严校，重复query term多计。
 
@@ -1183,7 +1191,9 @@ SSE只是运输方式。`session/citations/token/done` 可以分别交付归属�
 
 缓存计费、断点与当前供应商行为由[服务化中的缓存合同](03-推理与服务化.md)统一维护；RAG排序指标沿用本文第2、7节及[评测与实验管理](06-评测与实验管理.md)。这里补的是这些原理跨权限和多轮状态时必须保持的关系，不另立第二份排行榜或定额定期计划。
 
-### 原项目的数据流与实现边界
+### 受控RAG会话的数据流与实现边界
+
+<a id="原项目的数据流与实现边界-1"></a>
 
 Python:5虚构Chunk role/juris exact+public/any过滤→Jaccard dense与词重叠/length pseudo BM25→RRF把全部eligible连0分也排名→system/policy/contextSHA截16hex→PromptCache store计数→拼接text60chars答案/3正则input/2regex scrub。无trueLLM/cacheAPI/rerank/presidio/LlamaGuard/NeMo/metrics/state；irrelevantquery也获得eligible citations；英文字面regex不能宣称高强防注入。MSA/GDPR30d与HIPAA60d是虚构合同fixtures非法律通用时限。
 
