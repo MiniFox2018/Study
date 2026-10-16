@@ -1,0 +1,913 @@
+{
+  "group": "Phase15 01–08",
+  "status": "主正文增量完成，等待根统一链接/逐标题/维护验收",
+  "read_report": "/tmp/study-autonomous-01-08-reading.json",
+  "date": "2026-10-09",
+  "files": [
+    {
+      "path": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "sha256": "40f5996314c80feb0142e474867c2bddf7e8ca506df5b87d8f0d4eb27112e89d",
+      "old_python_blocks": 0,
+      "new_python_blocks": 2,
+      "old_programs_rerun": 0,
+      "pandoc_exit": 0,
+      "pandoc_warnings": "",
+      "mathml_elements": 7,
+      "html": "/tmp/study-autonomous-01-08-pandoc/09-学习和适应.html"
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/17-推理技术.md",
+      "sha256": "21434e9eadbd9e78fb788a899fd5076aeb3168aef3830ba5152785d983a4bca1",
+      "old_python_blocks": 3,
+      "new_python_blocks": 1,
+      "old_programs_rerun": 0,
+      "pandoc_exit": 0,
+      "pandoc_warnings": "",
+      "mathml_elements": 5,
+      "html": "/tmp/study-autonomous-01-08-pandoc/17-推理技术.html"
+    },
+    {
+      "path": "LLM 工程实践/06-评测与实验管理.md",
+      "sha256": "9078682c7cf4ed698cd915b0131a972853273fe689f73bd82e72149901eb8920",
+      "old_python_blocks": 13,
+      "new_python_blocks": 1,
+      "old_programs_rerun": 0,
+      "pandoc_exit": 0,
+      "pandoc_warnings": "",
+      "mathml_elements": 26,
+      "html": "/tmp/study-autonomous-01-08-pandoc/06-评测与实验管理.html"
+    }
+  ],
+  "source_program_run": 0,
+  "new_programs_actual_run": 4,
+  "code_runs": [
+    {
+      "path": "/tmp/study-autonomous-01-08-code/archive.py",
+      "sha256": "9dedb029b7fd08f157bc77b47968094a7e036d845bc7cfa566ad26edd487e902",
+      "exit_code": 0,
+      "stdout": "archive cell数量： 2\n开发分相同，最终MSE： 0.7608369663783482 0.0\n简单性只改善本fixture；不保证所有任务能靠低degree得到正确泛化。\n",
+      "stderr": "",
+      "date": "2026-10-09",
+      "python": "3.12.13",
+      "source_program": false,
+      "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "python_block_number": 1,
+      "contains_final_lf": true,
+      "final_code_sha256": "9dedb029b7fd08f157bc77b47968094a7e036d845bc7cfa566ad26edd487e902"
+    },
+    {
+      "path": "/tmp/study-autonomous-01-08-code/bounded.py",
+      "sha256": "1bd4ab1865ce057dedcfafc73a2bad04a7903aa82e7992959c7b9c0a30ec060e",
+      "exit_code": 0,
+      "stdout": "独立负例：伪票据/目标/工具/缺case/安全下降/单case回退/非法值/旧授权均阻断。\n日志外部锚：修改与截尾可检测；并未证明 findings 真伪。\n",
+      "stderr": "",
+      "date": "2026-10-09",
+      "python": "3.12.13",
+      "source_program": false,
+      "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "python_block_number": 2,
+      "contains_final_lf": true,
+      "final_code_sha256": "1bd4ab1865ce057dedcfafc73a2bad04a7903aa82e7992959c7b9c0a30ec060e"
+    },
+    {
+      "path": "/tmp/study-autonomous-01-08-code/reasoner.py",
+      "sha256": "10486667533eb749146742efda67dcce1b411e51fa2c87c9f2b96fa961c013f8",
+      "exit_code": 0,
+      "stdout": "只看最终答案会保留错误步骤；只看局部算术会选错题意。\n训练保留： ['答案碰巧正确', '符合题意'] 局部排序首选： 错解题意\n",
+      "stderr": "",
+      "date": "2026-10-09",
+      "python": "3.12.13",
+      "source_program": false,
+      "file": "Agentic Design Patterns/01-核心章节/17-推理技术.md",
+      "python_block_number": 4,
+      "contains_final_lf": true,
+      "final_code_sha256": "10486667533eb749146742efda67dcce1b411e51fa2c87c9f2b96fa961c013f8"
+    },
+    {
+      "path": "/tmp/study-autonomous-01-08-code/horizon.py",
+      "sha256": "c0094acd5fff2040afb8f34b96643496a910376a56da4e517dc556a9dfe2a6e4",
+      "exit_code": 0,
+      "stdout": "50% 步数上限：68 / 138 / 692；70步(.99)： 0.494839\n相同 H50=10h 的4倍余量，示例斜率1/3： 0.8 0.984615\n假设14h、7月翻倍，30h/168h交点： 7.697 25.095\n",
+      "stderr": "",
+      "date": "2026-10-09",
+      "python": "3.12.13",
+      "source_program": false,
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "python_block_number": 14,
+      "contains_final_lf": true,
+      "final_code_sha256": "c0094acd5fff2040afb8f34b96643496a910376a56da4e517dc556a9dfe2a6e4"
+    }
+  ],
+  "courses": [
+    {
+      "course": "01-long-horizon-agents",
+      "mapped_file": "LLM 工程实践/06-评测与实验管理.md",
+      "exercise_section_line": 976,
+      "exercise_answers": [
+        {
+          "number": 1,
+          "question_line": 978,
+          "answer_line": 980,
+          "answer": "示例14h基准仅假设：cross30=7*log2(30/14)，168=7*log2(12)。"
+        },
+        {
+          "number": 2,
+          "question_line": 982,
+          "answer_line": 984,
+          "answer": "0.995最大138步；0.99最大68；0.999最大692，注意70步0.4948。"
+        },
+        {
+          "number": 3,
+          "question_line": 986,
+          "answer_line": 988,
+          "answer": "方法批评须指定权重/人类baseline/任务分布影响，不另造基准。"
+        },
+        {
+          "number": 4,
+          "question_line": 990,
+          "answer_line": 992,
+          "answer": "不要用轨迹长度乘概率，应链式乘积且说明估计不确定。"
+        },
+        {
+          "number": 5,
+          "question_line": 994,
+          "answer_line": 996,
+          "answer": "评测部署同工具/预算/权限且随机盲混+外部effect审计；不声称完全消除gaming。"
+        }
+      ],
+      "figure_and_practice_section_line": 1000,
+      "source_program_run": 0,
+      "quiz_count": 0,
+      "major_content_sections": [
+        {
+          "line": 860,
+          "title": "## 18. 长任务能力：时间跨度、运行时长与可靠性"
+        },
+        {
+          "line": 868,
+          "title": "### 条件概率与长链路"
+        },
+        {
+          "line": 874,
+          "title": "### 完整离线例：跨度斜率与条件概率"
+        },
+        {
+          "line": 951,
+          "title": "### 长任务评测中的行为差异"
+        },
+        {
+          "line": 955,
+          "title": "## 19. 自主研究：从论文产物追到实验事实"
+        },
+        {
+          "line": 963,
+          "title": "### 证据链与导出前的两类检查"
+        },
+        {
+          "line": 976,
+          "title": "### Phase15 01：原练习与参考判断"
+        },
+        {
+          "line": 1000,
+          "title": "### Phase15 01：原代码、图示与实践交付"
+        },
+        {
+          "line": 1007,
+          "title": "### Phase15 05：原练习与参考判断"
+        },
+        {
+          "line": 1031,
+          "title": "### Phase15 05：原代码、图示与实践交付"
+        }
+      ]
+    },
+    {
+      "course": "02-star-family-reasoning",
+      "mapped_file": "Agentic Design Patterns/01-核心章节/17-推理技术.md",
+      "exercise_section_line": 400,
+      "exercise_answers": [
+        {
+          "number": 1,
+          "question_line": 402,
+          "answer_line": 404,
+          "answer": "不能预置两情景必>90%或OOD崩溃；比较实际频率+理论更新，保留随机分母。"
+        },
+        {
+          "number": 2,
+          "question_line": 406,
+          "answer_line": 408,
+          "answer": "源码已有on_ood评估但不是新problem distribution；扩展须真实题集及generator可见信息隔离。"
+        },
+        {
+          "number": 3,
+          "question_line": 410,
+          "answer_line": 412,
+          "answer": "原练习节号错：mixing/endtoken在Quiet §4.3/4.4.1；end token终止标记，mixing浅MLP插值logits。"
+        },
+        {
+          "number": 4,
+          "question_line": 414,
+          "answer_line": 416,
+          "answer": "outcome标签便宜但中间错不见；process注释费时也有噪声，两者结合非必胜。"
+        },
+        {
+          "number": 5,
+          "question_line": 418,
+          "answer_line": 420,
+          "answer": "变化数字范围/去格式cue/反事实中间步/独立OOD，模型解释不等于faithful内部过程。"
+        }
+      ],
+      "figure_and_practice_section_line": 424,
+      "source_program_run": 0,
+      "quiz_count": 0,
+      "major_content_sections": [
+        {
+          "line": 320,
+          "title": "## 从候选解释到训练数据：STaR 家族"
+        },
+        {
+          "line": 324,
+          "title": "### STaR：筛选正确答案与失败题 rationalization"
+        },
+        {
+          "line": 330,
+          "title": "### V-STaR：失败解也能训练排序器"
+        },
+        {
+          "line": 336,
+          "title": "### Quiet-STaR：让内部解释帮助预测后续文本"
+        },
+        {
+          "line": 344,
+          "title": "### 完整离线例：答案筛选和局部验证的两种盲点"
+        },
+        {
+          "line": 400,
+          "title": "### Phase15 02：原练习与参考判断"
+        },
+        {
+          "line": 424,
+          "title": "### Phase15 02：原代码、图示与实践交付"
+        }
+      ]
+    },
+    {
+      "course": "03-alphaevolve-evolutionary-coding",
+      "mapped_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "exercise_section_line": 323,
+      "exercise_answers": [
+        {
+          "number": 1,
+          "question_line": 325,
+          "answer_line": 327,
+          "answer": "源程序未跑，不能报score；noholdout实际train-only选择，最终独立test不同。"
+        },
+        {
+          "number": 2,
+          "question_line": 329,
+          "answer_line": 331,
+          "answer": "描述符可代码长度×memory bucket；每cell最优，保留低分不同descriptor。"
+        },
+        {
+          "number": 3,
+          "question_line": 333,
+          "answer_line": 335,
+          "answer": "48是复数乘法计数的特定4x4算法，核tensor系数恒等而非random bit equality；非实数48mult等价。"
+        },
+        {
+          "number": 4,
+          "question_line": 337,
+          "answer_line": 339,
+          "answer": "开放ended美学/不可验证医疗效果难闭合objective；需human review非禁所有judge。"
+        },
+        {
+          "number": 5,
+          "question_line": 341,
+          "answer_line": 343,
+          "answer": "signature code/version, correctness, perf, resource, validation partition, sequestered test/version, anti sidechannel；噪声需repeat+interval。"
+        }
+      ],
+      "figure_and_practice_section_line": 347,
+      "source_program_run": 0,
+      "quiz_count": 0,
+      "major_content_sections": [
+        {
+          "line": 103,
+          "title": "## 受控改进：先明确究竟修改什么"
+        },
+        {
+          "line": 115,
+          "title": "### AlphaEvolve：定向代码变异、质量多样性与评估级联"
+        },
+        {
+          "line": 123,
+          "title": "### 完整离线例：同开发分不代表同泛化"
+        },
+        {
+          "line": 185,
+          "title": "### DGM：经验评分替代形式证明，但不替代评估完整性"
+        },
+        {
+          "line": 193,
+          "title": "### 自动对齐研究：合作、可评分问题与适应性泄漏"
+        },
+        {
+          "line": 201,
+          "title": "### 递归改进与受限接纳的边界"
+        },
+        {
+          "line": 209,
+          "title": "### 完整离线例：外部票据、逐案例门禁与日志锚"
+        },
+        {
+          "line": 323,
+          "title": "### Phase15 03：原练习与参考判断"
+        },
+        {
+          "line": 347,
+          "title": "### Phase15 03：原代码、图示与实践交付"
+        },
+        {
+          "line": 354,
+          "title": "### Phase15 04：原练习与参考判断"
+        },
+        {
+          "line": 378,
+          "title": "### Phase15 04：原代码、图示与实践交付"
+        },
+        {
+          "line": 385,
+          "title": "### Phase15 06：原练习与参考判断"
+        },
+        {
+          "line": 409,
+          "title": "### Phase15 06：原代码、图示与实践交付"
+        },
+        {
+          "line": 416,
+          "title": "### Phase15 07：原练习与参考判断"
+        },
+        {
+          "line": 440,
+          "title": "### Phase15 07：原代码、图示与实践交付"
+        },
+        {
+          "line": 447,
+          "title": "### Phase15 08：原练习与参考判断"
+        },
+        {
+          "line": 471,
+          "title": "### Phase15 08：原代码、图示与实践交付"
+        }
+      ]
+    },
+    {
+      "course": "04-darwin-godel-machine",
+      "mapped_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "exercise_section_line": 354,
+      "exercise_answers": [
+        {
+          "number": 1,
+          "question_line": 356,
+          "answer_line": 358,
+          "answer": "不运行源：列ops/score定义，无法全1须承认missing titlecase。"
+        },
+        {
+          "number": 2,
+          "question_line": 360,
+          "answer_line": 362,
+          "answer": "开bonus时reported与true分开，discovercycle需实测不能编数字。"
+        },
+        {
+          "number": 3,
+          "question_line": 364,
+          "answer_line": 366,
+          "answer": "AppendixH：移除actual-tool标记，detector看不到model抄marker不代表工具幻觉解决。"
+        },
+        {
+          "number": 4,
+          "question_line": 368,
+          "answer_line": 370,
+          "answer": "write scope vs protected evalconfig/data/dependencies/ingress，candidate允许只读给eval；同repo ACL可做到。"
+        },
+        {
+          "number": 5,
+          "question_line": 372,
+          "answer_line": 374,
+          "answer": "跨model改tool健壮性可迁移但已验models/tasks有限，非所有models证明。"
+        }
+      ],
+      "figure_and_practice_section_line": 378,
+      "source_program_run": 0,
+      "quiz_count": 0,
+      "major_content_sections": [
+        {
+          "line": 103,
+          "title": "## 受控改进：先明确究竟修改什么"
+        },
+        {
+          "line": 115,
+          "title": "### AlphaEvolve：定向代码变异、质量多样性与评估级联"
+        },
+        {
+          "line": 123,
+          "title": "### 完整离线例：同开发分不代表同泛化"
+        },
+        {
+          "line": 185,
+          "title": "### DGM：经验评分替代形式证明，但不替代评估完整性"
+        },
+        {
+          "line": 193,
+          "title": "### 自动对齐研究：合作、可评分问题与适应性泄漏"
+        },
+        {
+          "line": 201,
+          "title": "### 递归改进与受限接纳的边界"
+        },
+        {
+          "line": 209,
+          "title": "### 完整离线例：外部票据、逐案例门禁与日志锚"
+        },
+        {
+          "line": 323,
+          "title": "### Phase15 03：原练习与参考判断"
+        },
+        {
+          "line": 347,
+          "title": "### Phase15 03：原代码、图示与实践交付"
+        },
+        {
+          "line": 354,
+          "title": "### Phase15 04：原练习与参考判断"
+        },
+        {
+          "line": 378,
+          "title": "### Phase15 04：原代码、图示与实践交付"
+        },
+        {
+          "line": 385,
+          "title": "### Phase15 06：原练习与参考判断"
+        },
+        {
+          "line": 409,
+          "title": "### Phase15 06：原代码、图示与实践交付"
+        },
+        {
+          "line": 416,
+          "title": "### Phase15 07：原练习与参考判断"
+        },
+        {
+          "line": 440,
+          "title": "### Phase15 07：原代码、图示与实践交付"
+        },
+        {
+          "line": 447,
+          "title": "### Phase15 08：原练习与参考判断"
+        },
+        {
+          "line": 471,
+          "title": "### Phase15 08：原代码、图示与实践交付"
+        }
+      ]
+    },
+    {
+      "course": "05-ai-scientist-v2",
+      "mapped_file": "LLM 工程实践/06-评测与实验管理.md",
+      "exercise_section_line": 1007,
+      "exercise_answers": [
+        {
+          "number": 1,
+          "question_line": 1009,
+          "answer_line": 1011,
+          "answer": "代码clean与flaw份额要明确trials/submission分母，所有概率toy不校准。"
+        },
+        {
+          "number": 2,
+          "question_line": 1013,
+          "answer_line": 1015,
+          "answer": "polish0→1不改quality证明变量无effect，不用simulation给v2failure率。"
+        },
+        {
+          "number": 3,
+          "question_line": 1017,
+          "answer_line": 1019,
+          "answer": "禁止privatehome/hostsocket/credential，network allowlist+GPUdeadline+childproc监督；代码范围需实际验证。"
+        },
+        {
+          "number": 4,
+          "question_line": 1021,
+          "answer_line": 1023,
+          "answer": "原题“Beel§4 presentationgap”误定位；外评§2.4测code失败，检查runledger、baselinererun、figuredatahash。"
+        },
+        {
+          "number": 5,
+          "question_line": 1025,
+          "answer_line": 1027,
+          "answer": "分层先mechanicalprovenance+replication再domain novelty，抽样不能保证每项claim，未核claim保留unknown。"
+        }
+      ],
+      "figure_and_practice_section_line": 1031,
+      "source_program_run": 0,
+      "quiz_count": 0,
+      "major_content_sections": [
+        {
+          "line": 860,
+          "title": "## 18. 长任务能力：时间跨度、运行时长与可靠性"
+        },
+        {
+          "line": 868,
+          "title": "### 条件概率与长链路"
+        },
+        {
+          "line": 874,
+          "title": "### 完整离线例：跨度斜率与条件概率"
+        },
+        {
+          "line": 951,
+          "title": "### 长任务评测中的行为差异"
+        },
+        {
+          "line": 955,
+          "title": "## 19. 自主研究：从论文产物追到实验事实"
+        },
+        {
+          "line": 963,
+          "title": "### 证据链与导出前的两类检查"
+        },
+        {
+          "line": 976,
+          "title": "### Phase15 01：原练习与参考判断"
+        },
+        {
+          "line": 1000,
+          "title": "### Phase15 01：原代码、图示与实践交付"
+        },
+        {
+          "line": 1007,
+          "title": "### Phase15 05：原练习与参考判断"
+        },
+        {
+          "line": 1031,
+          "title": "### Phase15 05：原代码、图示与实践交付"
+        }
+      ]
+    },
+    {
+      "course": "06-automated-alignment-research",
+      "mapped_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "exercise_section_line": 385,
+      "exercise_answers": [
+        {
+          "number": 1,
+          "question_line": 387,
+          "answer_line": 389,
+          "answer": "toy预设rates比较不proveAAR；难度分层pairedseeds/budget+interval后才比较。"
+        },
+        {
+          "number": 2,
+          "question_line": 391,
+          "answer_line": 393,
+          "answer": "改变记录不重算hash可detect，但整体rewriting/truncation须外部signedhead+count。"
+        },
+        {
+          "number": 3,
+          "question_line": 395,
+          "answer_line": 397,
+          "answer": "primary只该chatpreference weakteacher/student PGR；math/coding不作hillclimb；具体publicationversion冻结。"
+        },
+        {
+          "number": 4,
+          "question_line": 399,
+          "answer_line": 401,
+          "answer": "分方向分预算+统一评价；自由proposal不得变更permission/eval/budget；保存失败+消融。"
+        },
+        {
+          "number": 5,
+          "question_line": 403,
+          "answer_line": 405,
+          "answer": "政策version须另phase19核验；bounded任务改善不是全面automatecompetitive研发门槛。"
+        }
+      ],
+      "figure_and_practice_section_line": 409,
+      "source_program_run": 0,
+      "quiz_count": 0,
+      "major_content_sections": [
+        {
+          "line": 103,
+          "title": "## 受控改进：先明确究竟修改什么"
+        },
+        {
+          "line": 115,
+          "title": "### AlphaEvolve：定向代码变异、质量多样性与评估级联"
+        },
+        {
+          "line": 123,
+          "title": "### 完整离线例：同开发分不代表同泛化"
+        },
+        {
+          "line": 185,
+          "title": "### DGM：经验评分替代形式证明，但不替代评估完整性"
+        },
+        {
+          "line": 193,
+          "title": "### 自动对齐研究：合作、可评分问题与适应性泄漏"
+        },
+        {
+          "line": 201,
+          "title": "### 递归改进与受限接纳的边界"
+        },
+        {
+          "line": 209,
+          "title": "### 完整离线例：外部票据、逐案例门禁与日志锚"
+        },
+        {
+          "line": 323,
+          "title": "### Phase15 03：原练习与参考判断"
+        },
+        {
+          "line": 347,
+          "title": "### Phase15 03：原代码、图示与实践交付"
+        },
+        {
+          "line": 354,
+          "title": "### Phase15 04：原练习与参考判断"
+        },
+        {
+          "line": 378,
+          "title": "### Phase15 04：原代码、图示与实践交付"
+        },
+        {
+          "line": 385,
+          "title": "### Phase15 06：原练习与参考判断"
+        },
+        {
+          "line": 409,
+          "title": "### Phase15 06：原代码、图示与实践交付"
+        },
+        {
+          "line": 416,
+          "title": "### Phase15 07：原练习与参考判断"
+        },
+        {
+          "line": 440,
+          "title": "### Phase15 07：原代码、图示与实践交付"
+        },
+        {
+          "line": 447,
+          "title": "### Phase15 08：原练习与参考判断"
+        },
+        {
+          "line": 471,
+          "title": "### Phase15 08：原代码、图示与实践交付"
+        }
+      ]
+    },
+    {
+      "course": "07-recursive-self-improvement",
+      "mapped_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "exercise_section_line": 416,
+      "exercise_answers": [
+        {
+          "number": 1,
+          "question_line": 418,
+          "answer_line": 420,
+          "answer": "无噪声教学假设C=1.15^n、A=1.08^n，n=10差约1.886，n=11差约2.320，因此首次gap≥2在第11周期。有噪声需记录seed与实际轨迹；原打印标题硬写1.5阈值，不能替代参数2的核对。"
+        },
+        {
+          "number": 2,
+          "question_line": 422,
+          "answer_line": 424,
+          "answer": "相等均值但不同variance乘性noise可放大；不证明真实alignment成长。"
+        },
+        {
+          "number": 3,
+          "question_line": 426,
+          "answer_line": 428,
+          "answer": "训练目标为始终有害回应、free/paid数据区别；对实验过程flagdistribution保留。"
+        },
+        {
+          "number": 4,
+          "question_line": 430,
+          "answer_line": 432,
+          "answer": "workshop四primitives共识未primary确认，改为工程归纳；指定问题评价实验可验证而非噱头。"
+        },
+        {
+          "number": 5,
+          "question_line": 434,
+          "answer_line": 436,
+          "answer": "human具体review evidence/permissions/regression then explicitapprove，低影响offline无需每轮全审批。"
+        }
+      ],
+      "figure_and_practice_section_line": 440,
+      "source_program_run": 0,
+      "quiz_count": 0,
+      "major_content_sections": [
+        {
+          "line": 103,
+          "title": "## 受控改进：先明确究竟修改什么"
+        },
+        {
+          "line": 115,
+          "title": "### AlphaEvolve：定向代码变异、质量多样性与评估级联"
+        },
+        {
+          "line": 123,
+          "title": "### 完整离线例：同开发分不代表同泛化"
+        },
+        {
+          "line": 185,
+          "title": "### DGM：经验评分替代形式证明，但不替代评估完整性"
+        },
+        {
+          "line": 193,
+          "title": "### 自动对齐研究：合作、可评分问题与适应性泄漏"
+        },
+        {
+          "line": 201,
+          "title": "### 递归改进与受限接纳的边界"
+        },
+        {
+          "line": 209,
+          "title": "### 完整离线例：外部票据、逐案例门禁与日志锚"
+        },
+        {
+          "line": 323,
+          "title": "### Phase15 03：原练习与参考判断"
+        },
+        {
+          "line": 347,
+          "title": "### Phase15 03：原代码、图示与实践交付"
+        },
+        {
+          "line": 354,
+          "title": "### Phase15 04：原练习与参考判断"
+        },
+        {
+          "line": 378,
+          "title": "### Phase15 04：原代码、图示与实践交付"
+        },
+        {
+          "line": 385,
+          "title": "### Phase15 06：原练习与参考判断"
+        },
+        {
+          "line": 409,
+          "title": "### Phase15 06：原代码、图示与实践交付"
+        },
+        {
+          "line": 416,
+          "title": "### Phase15 07：原练习与参考判断"
+        },
+        {
+          "line": 440,
+          "title": "### Phase15 07：原代码、图示与实践交付"
+        },
+        {
+          "line": 447,
+          "title": "### Phase15 08：原练习与参考判断"
+        },
+        {
+          "line": 471,
+          "title": "### Phase15 08：原代码、图示与实践交付"
+        }
+      ]
+    },
+    {
+      "course": "08-bounded-self-improvement",
+      "mapped_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "exercise_section_line": 447,
+      "exercise_answers": [
+        {
+          "number": 1,
+          "question_line": 449,
+          "answer_line": 451,
+          "answer": "新例应明确每gate independentnegativecontrol，不把源码allgates场景现象写已测。"
+        },
+        {
+          "number": 2,
+          "question_line": 453,
+          "answer_line": 455,
+          "answer": "设某case regression但aggregate维持，需percase账本定位，missingunknown拒接纳。"
+        },
+        {
+          "number": 3,
+          "question_line": 457,
+          "answer_line": 459,
+          "answer": "soft加权高perf补低safety错误；先feasibility再rank。"
+        },
+        {
+          "number": 4,
+          "question_line": 461,
+          "answer_line": 463,
+          "answer": "anchor外置readonly/version+摘要，实际loader路径及ACL，不能同process常量叫不可改。"
+        },
+        {
+          "number": 5,
+          "question_line": 465,
+          "answer_line": 467,
+          "answer": "给equivalentartifact/config/harness版本+具体case/CI/rollback，数值阈值显式教学选定无generalproof。"
+        }
+      ],
+      "figure_and_practice_section_line": 471,
+      "source_program_run": 0,
+      "quiz_count": 0,
+      "major_content_sections": [
+        {
+          "line": 103,
+          "title": "## 受控改进：先明确究竟修改什么"
+        },
+        {
+          "line": 115,
+          "title": "### AlphaEvolve：定向代码变异、质量多样性与评估级联"
+        },
+        {
+          "line": 123,
+          "title": "### 完整离线例：同开发分不代表同泛化"
+        },
+        {
+          "line": 185,
+          "title": "### DGM：经验评分替代形式证明，但不替代评估完整性"
+        },
+        {
+          "line": 193,
+          "title": "### 自动对齐研究：合作、可评分问题与适应性泄漏"
+        },
+        {
+          "line": 201,
+          "title": "### 递归改进与受限接纳的边界"
+        },
+        {
+          "line": 209,
+          "title": "### 完整离线例：外部票据、逐案例门禁与日志锚"
+        },
+        {
+          "line": 323,
+          "title": "### Phase15 03：原练习与参考判断"
+        },
+        {
+          "line": 347,
+          "title": "### Phase15 03：原代码、图示与实践交付"
+        },
+        {
+          "line": 354,
+          "title": "### Phase15 04：原练习与参考判断"
+        },
+        {
+          "line": 378,
+          "title": "### Phase15 04：原代码、图示与实践交付"
+        },
+        {
+          "line": 385,
+          "title": "### Phase15 06：原练习与参考判断"
+        },
+        {
+          "line": 409,
+          "title": "### Phase15 06：原代码、图示与实践交付"
+        },
+        {
+          "line": 416,
+          "title": "### Phase15 07：原练习与参考判断"
+        },
+        {
+          "line": 440,
+          "title": "### Phase15 07：原代码、图示与实践交付"
+        },
+        {
+          "line": 447,
+          "title": "### Phase15 08：原练习与参考判断"
+        },
+        {
+          "line": 471,
+          "title": "### Phase15 08：原代码、图示与实践交付"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "7原论文仅所记录选节核验，不声称全论文全链接已读",
+    "未运行源训练或真研究；4个自写stdlib fixture验证机制",
+    "METR当前数字未采用；动态/静图由已读代码/XML解释，非动画证明"
+  ],
+  "visual_verified_primary": [
+    {
+      "paper": "AlphaEvolve v1",
+      "pdf_page": 9,
+      "cache": "/tmp/study-autonomous-01-08-primary/alphaevolve-verified.png",
+      "content": "Table2 complexmultiplication footnote"
+    },
+    {
+      "paper": "DGM v3",
+      "pdf_page": 6,
+      "cache": "/tmp/study-autonomous-01-08-primary/dgm-verified.png",
+      "content": "§4.2 10+50/200 stages, Polyglot50 vsfull"
+    },
+    {
+      "paper": "STaR v2",
+      "pdf_page": 8,
+      "cache": "/tmp/study-autonomous-01-08-primary/star-verified.png",
+      "content": "Table2 directfinetuned5.8 vs10.7 baseline"
+    }
+  ],
+  "根复核说明": "原代理写作记录保留历史SHA与位置；最终正文/练习行号/代码SHA以15-自主系统覆盖与代码核对.json为准。根修40题中文、去重复、补primary和两个新程序，未重做已读资料。"
+}

@@ -1,0 +1,4940 @@
+{
+  "agent": "source1_ml_patterns",
+  "date": "2026-10-04",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "scope": "第一来源Phase04指定9课；没有读取后4站或新增任务范围",
+  "lessons": [
+    {
+      "lesson": "09-image-generation-gans",
+      "primary_target": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+      "reading_complete": true,
+      "source_files": [
+        {
+          "path": "phases/04-computer-vision/09-image-generation-gans/code/main.py",
+          "sha256": "eda28064a1cd527c5bd89850adb0ed001d19361a90e3e9053901d3a557d32010",
+          "git_blob_sha": "ee2d8bd6099e2afb816a78c5649e3714fc5780c3",
+          "bytes": 4277,
+          "lines": 128,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/09-image-generation-gans/docs/en.md",
+          "sha256": "dcdc65b519fc2a23620cde11212f4d3269b63bd52d568d72ef08c04867c33409",
+          "git_blob_sha": "895b3b1a6611efe90aa1d1091aebe2fb5a82a361",
+          "bytes": 14781,
+          "lines": 314,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/09-image-generation-gans/outputs/prompt-gan-training-triage.md",
+          "sha256": "c98630f0aab4708ae9442e21369284c3cf1af68724abfcb9f23f70e8936d795e",
+          "git_blob_sha": "f4b03baf2096fe13ebc6d2d22aef25007968838e",
+          "bytes": 2845,
+          "lines": 72,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/09-image-generation-gans/outputs/skill-dcgan-scaffold.md",
+          "sha256": "bee42cf04cffe387af76934bc846b531164d92c17f87c1ee816cdfb92051607f",
+          "git_blob_sha": "38a8687b957d3aa6987c10cf0c345e0135e4d2bd",
+          "bytes": 2378,
+          "lines": 81,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/09-image-generation-gans/quiz.json",
+          "sha256": "11a8b325d87f805d5b4993092ee0eae2dfa94818becc4911403f378f9e93f849",
+          "git_blob_sha": "3d8af81fdb02438498d0f578b1ec5f8ba1c718aa",
+          "bytes": 4281,
+          "lines": 39,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The two networks",
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The game",
+          "line": 44,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Non-saturating loss",
+          "line": 56,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "DCGAN architecture rules",
+          "line": 67,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Failure modes and their signatures",
+          "line": 79,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Evaluation",
+          "line": 96,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "10. 图像/视频评价与物理检查"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "line": 111,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: Generator",
+          "line": 113,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: Discriminator",
+          "line": 144,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: Training step",
+          "line": 170,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Full training loop on synthetic shapes",
+          "line": 202,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 5: Sampling",
+          "line": 239,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 6: Spectral normalisation",
+          "line": 253,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "3. WGAN、条件与图像翻译"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "line": 274,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "line": 283,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "line": 290,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "11. 评价与自查"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "line": 296,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "line": 309,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/04-computer-vision/09-image-generation-gans/code/main.py",
+          "symbol": "Generator",
+          "line_start": 9,
+          "line_end": 27,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/09-image-generation-gans/code/main.py",
+          "symbol": "Discriminator",
+          "line_start": 30,
+          "line_end": 51,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/09-image-generation-gans/code/main.py",
+          "symbol": "train_step",
+          "line_start": 54,
+          "line_end": 71,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/09-image-generation-gans/code/main.py",
+          "symbol": "synthetic_circles",
+          "line_start": 74,
+          "line_end": 85,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/09-image-generation-gans/code/main.py",
+          "symbol": "sample",
+          "line_start": 89,
+          "line_end": 94,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/09-image-generation-gans/code/main.py",
+          "symbol": "main",
+          "line_start": 97,
+          "line_end": 124,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "Why does GAN training use the non-saturating generator loss -log(D(G(z))) instead of log(1 - D(G(z)))?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "DCGAN's rules say to use strided convolutions instead of pooling. Why?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "You train a GAN and notice G produces almost identical samples regardless of the input noise. Which failure is this?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "Why do DCGAN training scripts use Adam with betas=(0.5, 0.999) instead of the default (0.9, 0.999)?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "A colleague reports a GAN with D loss near zero and G loss increasing over training. What is happening and how do you fix it?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**(Easy)** Train the DCGAN above on the synthetic circle dataset and save a grid of 16 samples at the end of each epoch. By which epoch do the generated circles become clearly circular?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 1,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**(Medium)** Replace the discriminator's batch norm with spectral norm. Train both versions side by side. Which one converges faster? Which one has lower variance across three seeds?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 2,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**(Hard)** Implement a conditional DCGAN: feed the class label into both G and D (concat one-hot to the noise in G, concat a class embedding channel in D). Train on the synthetic \"circles vs squares\" dataset from lesson 7 and show that class conditioning works by sampling with specific labels.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "11. 评价与自查"
+          },
+          "answer_number": 4,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/04-computer-vision/09-image-generation-gans/outputs/prompt-gan-training-triage.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "2. GAN：理想分布结论与实际训练"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "3. WGAN、条件与图像翻译"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "10. 图像/视频评价与物理检查"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        },
+        {
+          "source_file": "phases/04-computer-vision/09-image-generation-gans/outputs/skill-dcgan-scaffold.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "2. GAN：理想分布结论与实际训练"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "3. WGAN、条件与图像翻译"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "10. 图像/视频评价与物理检查"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "line": 29,
+          "sha256": "1819261a0202b100df380f0e7d631185e8a6c6dae2d91d238e499d5c21764981",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "调用/表示/时间顺序合入正文和独立代码，不把图示动画当实测"
+        },
+        {
+          "line": 81,
+          "sha256": "546842ef598961eb265461b9892805da7e93e170c268b33ecd0356d488b99313",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "2. GAN：理想分布结论与实际训练"
+          },
+          "disposition": "调用/表示/时间顺序合入正文和独立代码，不把图示动画当实测"
+        }
+      ]
+    },
+    {
+      "lesson": "10-image-generation-diffusion",
+      "primary_target": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+      "reading_complete": true,
+      "source_files": [
+        {
+          "path": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "sha256": "0ccd9af6e426019c18048c29f05c9523ed1ee79e65f2dd5baa04d6d39c06098c",
+          "git_blob_sha": "0909ac1666591b140c4cf12835a43d4b2f52cb5b",
+          "bytes": 6130,
+          "lines": 167,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/10-image-generation-diffusion/docs/en.md",
+          "sha256": "596c04cae482ef2dd4aae5b11e7452c9fa9bfe74a44047286ed296a5ea5634cd",
+          "git_blob_sha": "6803d21892319333fc9ac6b5c81044995ac06721",
+          "bytes": 14579,
+          "lines": 330,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/10-image-generation-diffusion/outputs/prompt-diffusion-sampler-picker.md",
+          "sha256": "7226110817487cbd4cf2b522349cc6c4a243d84d113a2c3c4c6ae0e90a2e9716",
+          "git_blob_sha": "aa218a7cb86fba486455872ac7d59fdda4fad544",
+          "bytes": 3111,
+          "lines": 59,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/10-image-generation-diffusion/outputs/skill-noise-schedule-designer.md",
+          "sha256": "dff2e4fca0e961ae7a46335e7a561bb753b2196cab1e63c29313157b82edea29",
+          "git_blob_sha": "9006b5b2453ec0feeb8095f63950f59c7b34f1ad",
+          "bytes": 2807,
+          "lines": 83,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/10-image-generation-diffusion/quiz.json",
+          "sha256": "77bec8d337e65db68dfed85f0e82b6462cdd1416e35e36fbbf1a03d443b95c41",
+          "git_blob_sha": "5fa67b076714d593c1141dad41a4b22c7788faf8",
+          "bytes": 4072,
+          "lines": 39,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The forward process",
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "6. DDPM：统一时间下标与前向闭式"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The closed-form jump",
+          "line": 37,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "6. DDPM：统一时间下标与前向闭式"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The reverse process",
+          "line": 55,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "7. 逆过程、预测参数与反向采样"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The training loss",
+          "line": 77,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "7. 逆过程、预测参数与反向采样"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The sampler (DDPM)",
+          "line": 90,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "8. 完整DDPM与DDIM端点机制实验"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Why 1000 steps",
+          "line": 104,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "7. 逆过程、预测参数与反向采样"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "DDIM: 20x faster sampling",
+          "line": 108,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "8. 完整DDPM与DDIM端点机制实验"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Time conditioning",
+          "line": 112,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "4. 可运行的微型时间条件U-Net"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "line": 127,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: Noise schedule",
+          "line": 129,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "6. DDPM：统一时间下标与前向闭式"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: Forward diffusion (q_sample)",
+          "line": 155,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "6. DDPM：统一时间下标与前向闭式"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: A tiny time-conditioned U-Net",
+          "line": 166,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "4. 可运行的微型时间条件U-Net"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Training loop",
+          "line": 212,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "7. 逆过程、预测参数与反向采样"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 5: Sampler (DDPM)",
+          "line": 232,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "8. 完整DDPM与DDIM端点机制实验"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 6: DDIM sampler (deterministic, ~20x faster)",
+          "line": 257,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "8. 完整DDPM与DDIM端点机制实验"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "line": 284,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "line": 299,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "line": 306,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "11. 评价与自查"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "line": 312,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "line": 325,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "symbol": "linear_beta_schedule",
+          "line_start": 9,
+          "line_end": 10,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "6. DDPM：统一时间下标与前向闭式"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "symbol": "precompute_schedule",
+          "line_start": 13,
+          "line_end": 23,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "6. DDPM：统一时间下标与前向闭式"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "symbol": "q_sample",
+          "line_start": 26,
+          "line_end": 29,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "6. DDPM：统一时间下标与前向闭式"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "symbol": "timestep_embedding",
+          "line_start": 32,
+          "line_end": 37,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "4. 可运行的微型时间条件U-Net"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "symbol": "TinyUNet",
+          "line_start": 40,
+          "line_end": 64,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "4. 可运行的微型时间条件U-Net"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "symbol": "train_step",
+          "line_start": 67,
+          "line_end": 79,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "7. 逆过程、预测参数与反向采样"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "symbol": "sample_ddpm",
+          "line_start": 83,
+          "line_end": 99,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "8. 完整DDPM与DDIM端点机制实验"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "symbol": "sample_ddim",
+          "line_start": 103,
+          "line_end": 121,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "8. 完整DDPM与DDIM端点机制实验"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "symbol": "synthetic_circles",
+          "line_start": 124,
+          "line_end": 135,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "4. 可运行的微型时间条件U-Net"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/code/main.py",
+          "symbol": "main",
+          "line_start": 138,
+          "line_end": 163,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "1. 生成分布与生成一张漂亮图不同"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "Why can diffusion training pick any timestep t directly instead of simulating the forward Markov chain step by step?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "6. DDPM：统一时间下标与前向闭式"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "What does a DDPM's neural network actually predict?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "7. 逆过程、预测参数与反向采样"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "Why does DDIM achieve similar sample quality to DDPM with ~20x fewer steps?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "8. 完整DDPM与DDIM端点机制实验"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "You plot `alpha_bar_t` for a linear beta schedule with T=1000 and see it drops to near-zero by t=600. Why does this matter?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "6. DDPM：统一时间下标与前向闭式"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "Why does time conditioning get added to the U-Net via a sinusoidal embedding instead of a one-hot timestep?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "4. 可运行的微型时间条件U-Net"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**(Easy)** Visualise the forward process: take one image and plot `x_t` at `t in [0, 100, 250, 500, 750, 1000]`. Verify that `x_1000` looks like pure Gaussian noise.",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "11. 评价与自查"
+          },
+          "answer_number": 5,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**(Medium)** Train the TinyUNet on the synthetic-circles dataset for 20 epochs and sample 16 circles. Compare DDPM (1000 steps) and DDIM (50 steps) sampling — do they produce similar images from the same noise seed?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 3,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**(Hard)** Implement a cosine noise schedule (Nichol & Dhariwal, 2021): `alpha_bar_t = cos^2((t/T + s) / (1 + s) * pi / 2)`. Train the same model with linear and cosine schedules and show that cosine gives better samples at low step counts.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 4,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/outputs/prompt-diffusion-sampler-picker.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "6. DDPM：统一时间下标与前向闭式"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "7. 逆过程、预测参数与反向采样"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "8. 完整DDPM与DDIM端点机制实验"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "4. 可运行的微型时间条件U-Net"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        },
+        {
+          "source_file": "phases/04-computer-vision/10-image-generation-diffusion/outputs/skill-noise-schedule-designer.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "6. DDPM：统一时间下标与前向闭式"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "7. 逆过程、预测参数与反向采样"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "8. 完整DDPM与DDIM端点机制实验"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "4. 可运行的微型时间条件U-Net"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "line": 59,
+          "sha256": "80abd3aa9b348c9240fd73b458353068ccdbf822b8c9baa0015489d9f0ae654a",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "7. 逆过程、预测参数与反向采样"
+          },
+          "disposition": "调用/表示/时间顺序合入正文和独立代码，不把图示动画当实测"
+        }
+      ]
+    },
+    {
+      "lesson": "11-stable-diffusion",
+      "primary_target": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "reading_complete": true,
+      "source_files": [
+        {
+          "path": "phases/04-computer-vision/11-stable-diffusion/code/main.py",
+          "sha256": "d205f171445734c78e3de37d4cb40529718d3fcb4fb1708c8d36a832d7f80119",
+          "git_blob_sha": "f9f2277b491ea5c2d7e132e7f8a857109e4c6618",
+          "bytes": 3010,
+          "lines": 88,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/11-stable-diffusion/docs/en.md",
+          "sha256": "f2940ee23e490fe19538347b5848aa5ebdee87848e8e2edcca1377f557c6ff09",
+          "git_blob_sha": "ef59d8954bdd21e458ab9867b76f22cfe5586c38",
+          "bytes": 13954,
+          "lines": 274,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/11-stable-diffusion/outputs/prompt-sd-pipeline-planner.md",
+          "sha256": "3d91a2be86b6823f1674f91622f8f22d753af4e35967dbfabdc63e7501446434",
+          "git_blob_sha": "9548e81b6235b25171b828d424e68604118f3471",
+          "bytes": 3808,
+          "lines": 79,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/11-stable-diffusion/outputs/skill-lora-training-setup.md",
+          "sha256": "e7a6cbfb767039a7a888684957dc5c98153453dcf2d2c2295c67182407123ae1",
+          "git_blob_sha": "616a671ce14be98fdb685d48b8eba2cf74f21d3b",
+          "bytes": 4487,
+          "lines": 122,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/11-stable-diffusion/quiz.json",
+          "sha256": "dbfccad2cb167143bec91f1588fd15d16d4fc0ae5ffc9383dedb2266116f6a7d",
+          "git_blob_sha": "660fd22191022a25b95abe764ecf91de230766c3",
+          "bytes": 4239,
+          "lines": 39,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The pipeline",
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Classifier-free guidance (CFG)",
+          "line": 54,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "2. 条件生成、编辑与CFG的可操作流程"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Latent space geometry",
+          "line": 66,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The U-Net architecture",
+          "line": 75,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "4. 可运行的微型时间条件U-Net"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "LoRA fine-tuning",
+          "line": 85,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "3. LoRA微调：小参数不等于自动泛化"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Schedulers you will see",
+          "line": 98,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "10. Guidance、条件与少步模型的边界"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "line": 111,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: Text-to-image",
+          "line": 115,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "2. 条件生成、编辑与CFG的可操作流程"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: Swap the scheduler",
+          "line": 137,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "10. Guidance、条件与少步模型的边界"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: Image-to-image",
+          "line": 148,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "2. 条件生成、编辑与CFG的可操作流程"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Inpainting",
+          "line": 170,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "2. 条件生成、编辑与CFG的可操作流程"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 5: LoRA loading",
+          "line": 193,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "3. LoRA微调：小参数不等于自动泛化"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 6: LoRA training (sketch)",
+          "line": 207,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "3. LoRA微调：小参数不等于自动泛化"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "line": 232,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "line": 243,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "line": 250,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "line": 256,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "line": 269,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/04-computer-vision/11-stable-diffusion/code/main.py",
+          "symbol": "has_diffusers",
+          "line_start": 10,
+          "line_end": 15,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/11-stable-diffusion/code/main.py",
+          "symbol": "describe_pipeline",
+          "line_start": 18,
+          "line_end": 24,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/11-stable-diffusion/code/main.py",
+          "symbol": "cfg_sweep_demo",
+          "line_start": 27,
+          "line_end": 38,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "2. 条件生成、编辑与CFG的可操作流程"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/11-stable-diffusion/code/main.py",
+          "symbol": "text_to_image_stub",
+          "line_start": 41,
+          "line_end": 59,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "2. 条件生成、编辑与CFG的可操作流程"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/11-stable-diffusion/code/main.py",
+          "symbol": "lora_training_sketch",
+          "line_start": 62,
+          "line_end": 77,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "3. LoRA微调：小参数不等于自动泛化"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/11-stable-diffusion/code/main.py",
+          "symbol": "main",
+          "line_start": 80,
+          "line_end": 84,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "Why does Stable Diffusion run its DDPM in a 4x64x64 latent space rather than directly on 3x512x512 pixel images?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "What does classifier-free guidance (CFG) do at inference?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "2. 条件生成、编辑与CFG的可操作流程"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "You swap SD's default scheduler for DPM-Solver++ 2M Karras and reduce num_inference_steps from 50 to 20. What is the expected result?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "10. Guidance、条件与少步模型的边界"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "Why is LoRA fine-tuning popular for Stable Diffusion instead of full fine-tuning?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "3. LoRA微调：小参数不等于自动泛化"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "You generate the same prompt with guidance_scale=15 and see oversaturated colours and burned-in artefacts. What is going on?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "2. 条件生成、编辑与CFG的可操作流程"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**(Easy)** Generate the same prompt with `guidance_scale` in `[1, 3, 5, 7.5, 10, 15]`. Describe how the image changes. At what guidance value do artefacts appear?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 5,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**(Medium)** Take any real photograph, run it through `StableDiffusionImg2ImgPipeline` at `strength` in `[0.2, 0.4, 0.6, 0.8, 1.0]`. Which strength preserves composition while changing style? Why does 1.0 ignore the input entirely?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "2. 条件生成、编辑与CFG的可操作流程"
+          },
+          "answer_number": null,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**(Hard)** Train a LoRA on 10-20 images of a single subject (a pet, a logo, a character) and generate novel scenes with that subject in them. Report the LoRA rank and training steps that produced the best identity preservation without overfitting to the input images.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 6,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/04-computer-vision/11-stable-diffusion/outputs/prompt-sd-pipeline-planner.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "10. Guidance、条件与少步模型的边界"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "1. 同一个采样循环的六个部件"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "2. 条件生成、编辑与CFG的可操作流程"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "3. LoRA微调：小参数不等于自动泛化"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "4. 可运行的微型时间条件U-Net"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        },
+        {
+          "source_file": "phases/04-computer-vision/11-stable-diffusion/outputs/skill-lora-training-setup.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "10. Guidance、条件与少步模型的边界"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "1. 同一个采样循环的六个部件"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "2. 条件生成、编辑与CFG的可操作流程"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "3. LoRA微调：小参数不等于自动泛化"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "4. 可运行的微型时间条件U-Net"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "line": 29,
+          "sha256": "c78c59017a1fbdbf534db05ce12b388de7ccd9674dd01995b7732c4cca8d742c",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "调用/表示/时间顺序合入正文和独立代码，不把图示动画当实测"
+        }
+      ]
+    },
+    {
+      "lesson": "12-video-understanding",
+      "primary_target": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "reading_complete": true,
+      "source_files": [
+        {
+          "path": "phases/04-computer-vision/12-video-understanding/code/main.py",
+          "sha256": "c8b63cba2827a17386772a634bf9e04ff22ccdceab1bccfe9639c85c82d120c9",
+          "git_blob_sha": "6090188d2923e44cf69f17fc13566d7e142996a5",
+          "bytes": 4450,
+          "lines": 113,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/12-video-understanding/docs/en.md",
+          "sha256": "34e81835e8d37aa76defa8bdc0940b3b04ff308755b27aec9db7d2236755d3fa",
+          "git_blob_sha": "6081dab92d5a9200a128b1a084759efb561ec036",
+          "bytes": 13527,
+          "lines": 276,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/12-video-understanding/outputs/prompt-video-architecture-picker.md",
+          "sha256": "e9b9e82b081a7e3c8f82292c799a3bf280e783ea5cdbf2dc8db1b87b3395de6b",
+          "git_blob_sha": "c1a47b0972bb10ec579cb6505f439e6300c1ffe8",
+          "bytes": 2158,
+          "lines": 58,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/12-video-understanding/outputs/skill-frame-sampler-auditor.md",
+          "sha256": "9cd320f4327cffd7c5a7474bf1e97f4e1ea9a391e9a46bcaa027787b909664e2",
+          "git_blob_sha": "2c2fcce5d857205e67a06c6e057a5e33be418a95",
+          "bytes": 2745,
+          "lines": 80,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/12-video-understanding/quiz.json",
+          "sha256": "0b2e3b164d1bb82401c1f130db0388d813ab8bda30cb1c5fe86fd1ce2cab2dea",
+          "git_blob_sha": "30e0baf364fc562c55ca7e60db8ec98847872c9f",
+          "bytes": 4552,
+          "lines": 64,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The three architectural families",
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "2D + pool",
+          "line": 44,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "3D convolutions",
+          "line": 59,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Spatio-temporal transformers",
+          "line": 75,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Frame sampling",
+          "line": 95,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "6. 视频先决定采样的真实时间"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Evaluation",
+          "line": 105,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "10. 图像/视频评价与物理检查"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Datasets you will meet",
+          "line": 113,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "10. 图像/视频评价与物理检查"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "line": 124,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: Frame sampler",
+          "line": 126,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "6. 视频先决定采样的真实时间"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: A 2D+pool baseline",
+          "line": 150,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: An I3D-style inflated 3D conv",
+          "line": 183,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Factorised (2+1)D conv",
+          "line": 209,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "line": 236,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "line": 245,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "line": 252,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "line": 258,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "line": 271,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/04-computer-vision/12-video-understanding/code/main.py",
+          "symbol": "sample_uniform",
+          "line_start": 7,
+          "line_end": 13,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "6. 视频先决定采样的真实时间"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/12-video-understanding/code/main.py",
+          "symbol": "sample_dense",
+          "line_start": 16,
+          "line_end": 23,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "6. 视频先决定采样的真实时间"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/12-video-understanding/code/main.py",
+          "symbol": "FramePool",
+          "line_start": 26,
+          "line_end": 39,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/12-video-understanding/code/main.py",
+          "symbol": "inflate_2d_to_3d",
+          "line_start": 42,
+          "line_end": 60,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/12-video-understanding/code/main.py",
+          "symbol": "Conv2Plus1D",
+          "line_start": 63,
+          "line_end": 80,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/12-video-understanding/code/main.py",
+          "symbol": "main",
+          "line_start": 83,
+          "line_end": 109,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "Why does a 2D+pool video model fail on the Something-Something V2 dataset?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "What is I3D's inflation trick?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "A (2+1)D factorised convolution splits a 3D conv into which two operations?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "In a video transformer, what does 'divided attention' mean?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "Your Kinetics-400 model reports 76% clip accuracy and 82% video accuracy. What does the gap tell you?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "10. 图像/视频评价与物理检查"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**(Easy)** Compute FLOPs (approximate) for FramePool with T=8 vs an I3D-style 3D ResNet with T=8. Justify why 2D+pool is 3-5x cheaper.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 7,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**(Medium)** Generate a synthetic video dataset: random balls moving in random directions, labelled by direction of motion (\"left-to-right\", \"right-to-left\", \"diagonal-up\"). Train FramePool on it. Show that it achieves near-chance accuracy, proving appearance alone is insufficient for motion tasks.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 8,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**(Hard)** Build an R(2+1)D-18 by replacing every Conv2d in a ResNet-18 with `Conv2Plus1D`. Inflate the first conv's weights from an ImageNet-pretrained ResNet-18. Train on the motion dataset from exercise 2 and beat FramePool.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 9,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/04-computer-vision/12-video-understanding/outputs/prompt-video-architecture-picker.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "6. 视频先决定采样的真实时间"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "7. 视频理解：顺序、局部motion与开销"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "10. 图像/视频评价与物理检查"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        },
+        {
+          "source_file": "phases/04-computer-vision/12-video-understanding/outputs/skill-frame-sampler-auditor.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "6. 视频先决定采样的真实时间"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "7. 视频理解：顺序、局部motion与开销"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "10. 图像/视频评价与物理检查"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "line": 29,
+          "sha256": "d1e246be9cbadc1d702349fb851adb6ee184d1fade50cc3c52f03cd3b43450f1",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "7. 视频理解：顺序、局部motion与开销"
+          },
+          "disposition": "调用/表示/时间顺序合入正文和独立代码，不把图示动画当实测"
+        }
+      ]
+    },
+    {
+      "lesson": "13-3d-vision-nerf",
+      "primary_target": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+      "reading_complete": true,
+      "source_files": [
+        {
+          "path": "phases/04-computer-vision/13-3d-vision-nerf/code/main.py",
+          "sha256": "984b6ceb2323689f57dafe296449e73035604a27fb0f33a5800da23bc7f68466",
+          "git_blob_sha": "7b4956e085874ac23a70814d3cacd15c676c734c",
+          "bytes": 4190,
+          "lines": 123,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/13-3d-vision-nerf/docs/en.md",
+          "sha256": "c91398ef171ce0b74699c08f47544c013b8fb0db493fa8719034051d08c3b169",
+          "git_blob_sha": "85431932a58246c0437b69aaf87d8ae5210ab4ff",
+          "bytes": 13311,
+          "lines": 302,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/13-3d-vision-nerf/outputs/prompt-3d-task-router.md",
+          "sha256": "4f94f18d23f206ad6facaeecd4e1330ce9907e70fa8fe8873f5ff61544125c79",
+          "git_blob_sha": "5148349fa599b0eec650f8526ebe345c1cccc759",
+          "bytes": 2569,
+          "lines": 67,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/13-3d-vision-nerf/outputs/skill-point-cloud-loader.md",
+          "sha256": "f990690b40296229e0ba39933a40777d3d938ebcbc4d249a072b5449c1f42e1f",
+          "git_blob_sha": "93aab99dd8a528e492a77179045ded4999c997e2",
+          "bytes": 4157,
+          "lines": 122,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/13-3d-vision-nerf/quiz.json",
+          "sha256": "a1fe23e2583a761ae23985f48750450b32d340be96f939d4101c6439f5a9fa92",
+          "git_blob_sha": "c2384853605d23eaddee7068a035d8846faa673c",
+          "bytes": 4343,
+          "lines": 39,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Point clouds",
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "5. 从depth到点云与输入数据管理"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The PointNet architecture",
+          "line": 53,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "6. PointNet：集合对称性与局部结构"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Neural Radiance Fields (NeRFs)",
+          "line": 71,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "8. NeRF：用图像训练一个场"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Positional encoding in NeRF",
+          "line": 88,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "8. NeRF：用图像训练一个场"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Volumetric rendering",
+          "line": 98,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "7. 体渲染：transmittance、background与depth"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "What replaced NeRFs",
+          "line": 109,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "8. NeRF：用图像训练一个场"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Datasets and benchmarks",
+          "line": 119,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "line": 131,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: PointNet classifier",
+          "line": 133,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "6. PointNet：集合对称性与局部结构"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: Positional encoding",
+          "line": 173,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "8. NeRF：用图像训练一个场"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: Tiny NeRF MLP",
+          "line": 193,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "8. NeRF：用图像训练一个场"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Volumetric rendering along a ray",
+          "line": 232,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "7. 体渲染：transmittance、background与depth"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "line": 261,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "line": 271,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "line": 278,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "line": 284,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "line": 297,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/04-computer-vision/13-3d-vision-nerf/code/main.py",
+          "symbol": "PointNet",
+          "line_start": 6,
+          "line_end": 29,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "6. PointNet：集合对称性与局部结构"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/13-3d-vision-nerf/code/main.py",
+          "symbol": "positional_encoding",
+          "line_start": 32,
+          "line_end": 36,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "8. NeRF：用图像训练一个场"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/13-3d-vision-nerf/code/main.py",
+          "symbol": "TinyNeRF",
+          "line_start": 39,
+          "line_end": 64,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "8. NeRF：用图像训练一个场"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/13-3d-vision-nerf/code/main.py",
+          "symbol": "volumetric_render",
+          "line_start": 67,
+          "line_end": 77,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "7. 体渲染：transmittance、background与depth"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/13-3d-vision-nerf/code/main.py",
+          "symbol": "permutation_invariance_check",
+          "line_start": 80,
+          "line_end": 88,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "6. PointNet：集合对称性与局部结构"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/13-3d-vision-nerf/code/main.py",
+          "symbol": "main",
+          "line_start": 91,
+          "line_end": 119,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "Why cannot a plain CNN process a point cloud directly?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "5. 从depth到点云与输入数据管理"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "What trick makes PointNet permutation-invariant over the input points?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "6. PointNet：集合对称性与局部结构"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "A vanilla NeRF MLP fed with raw (x, y, z) coordinates produces blurry results. What fixes it?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "8. NeRF：用图像训练一个场"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "How is a NeRF rendered pixel computed?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "7. 体渲染：transmittance、background与depth"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "Why has 3D Gaussian splatting largely replaced NeRF in production?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "9. 3D Gaussian Splatting：显式参数与投影"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**(Easy)** Show that PointNet is permutation-invariant: run the same cloud through twice, once with points shuffled. Verify outputs are identical up to floating-point noise.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "answer_number": 3,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**(Medium)** Implement a minimal ray-generation function that, given camera intrinsics and pose, produces ray origins and directions for every pixel of an H x W image.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "answer_number": 4,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**(Hard)** Train a TinyNeRF on a synthetic dataset of rendered views of a coloured cube (generated via differentiable rendering or a simple ray tracer). Report rendering loss at epoch 1, 10, and 100. At what epoch does the model produce recognisable views?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "answer_number": 5,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/04-computer-vision/13-3d-vision-nerf/outputs/prompt-3d-task-router.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "5. 从depth到点云与输入数据管理"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "6. PointNet：集合对称性与局部结构"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "7. 体渲染：transmittance、background与depth"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "8. NeRF：用图像训练一个场"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "9. 3D Gaussian Splatting：显式参数与投影"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "13. 练习与参考判断"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        },
+        {
+          "source_file": "phases/04-computer-vision/13-3d-vision-nerf/outputs/skill-point-cloud-loader.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "5. 从depth到点云与输入数据管理"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "6. PointNet：集合对称性与局部结构"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "7. 体渲染：transmittance、background与depth"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "8. NeRF：用图像训练一个场"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "9. 3D Gaussian Splatting：显式参数与投影"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "13. 练习与参考判断"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "line": 55,
+          "sha256": "bd5bb1782631812c5e41978b9c14ac8cdc46be323008305390fe6155f076624f",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "6. PointNet：集合对称性与局部结构"
+          },
+          "disposition": "调用/表示/时间顺序合入正文和独立代码，不把图示动画当实测"
+        }
+      ]
+    },
+    {
+      "lesson": "22-3d-gaussian-splatting",
+      "primary_target": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+      "reading_complete": true,
+      "source_files": [
+        {
+          "path": "phases/04-computer-vision/22-3d-gaussian-splatting/code/main.py",
+          "sha256": "601d685d5b00a390fdbdef56657b65345425e7315064a780d98aadf2db59c767",
+          "git_blob_sha": "fe451f3f70616618f2c27cd190bfeb5f3ca36480",
+          "bytes": 4959,
+          "lines": 141,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/22-3d-gaussian-splatting/docs/en.md",
+          "sha256": "0ede4133b98620602cbe40bc4ff92f43246dbe70e7575466b38207c470c0d55a",
+          "git_blob_sha": "83aa529036d28fab1705f7d6ea27d72140b49e82",
+          "bytes": 18486,
+          "lines": 369,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/22-3d-gaussian-splatting/outputs/prompt-3dgs-capture-planner.md",
+          "sha256": "2bf66cb9521b7793ab3ff28d94604249612ef82b18ab2e6ce0a29bcf61f1d12e",
+          "git_blob_sha": "a6547ac532b29ef4eb0f0b370a80a15f52d5ec28",
+          "bytes": 2806,
+          "lines": 71,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/22-3d-gaussian-splatting/outputs/skill-3dgs-export-router.md",
+          "sha256": "bf05901cf65804c79de1987e23b32601bd2fe0cc98c4749b1024b2670eb5b3a6",
+          "git_blob_sha": "9e49756b9e549f099ddc9d7197e3b5449ea75e5e",
+          "bytes": 3277,
+          "lines": 73,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/22-3d-gaussian-splatting/quiz.json",
+          "sha256": "54a606a95cdf55eee7fb7e20f29ddc0c860f7307d017bf276a8ba737e872788e",
+          "git_blob_sha": "2bdb2fb1c3f8f618e1e325f81caa1e9761c72b87",
+          "bytes": 4806,
+          "lines": 39,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "What a Gaussian carries",
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "9. 3D Gaussian Splatting：显式参数与投影"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Rasterisation, not ray marching",
+          "line": 43,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "9. 3D Gaussian Splatting：显式参数与投影"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The projection step",
+          "line": 60,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "9. 3D Gaussian Splatting：显式参数与投影"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The alpha-compositing rule",
+          "line": 74,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Why this is differentiable",
+          "line": 88,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Densification and pruning",
+          "line": 92,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Spherical harmonics in one paragraph",
+          "line": 102,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "11. Spherical harmonics：颜色依方向的明确约定"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The 2026 production stack",
+          "line": 106,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "12. 捕获、字段、标准与viewer往返"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "4D and generative variants",
+          "line": 117,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "line": 127,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: A 2D Gaussian",
+          "line": 129,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: 2D splatting rasteriser",
+          "line": 158,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: A trainable 2D splat scene",
+          "line": 200,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Fit 2D Gaussians to a target image",
+          "line": 234,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 5: From 2D to 3D",
+          "line": 266,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 6: Spherical harmonics evaluation",
+          "line": 278,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "11. Spherical harmonics：颜色依方向的明确约定"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "line": 315,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "12. 捕获、字段、标准与viewer往返"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "line": 336,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "line": 343,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "line": 349,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "line": 362,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/04-computer-vision/22-3d-gaussian-splatting/code/main.py",
+          "symbol": "eval_2d_gaussian",
+          "line_start": 8,
+          "line_end": 16,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/22-3d-gaussian-splatting/code/main.py",
+          "symbol": "rasterise_2d",
+          "line_start": 19,
+          "line_end": 42,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/22-3d-gaussian-splatting/code/main.py",
+          "symbol": "Splats2D",
+          "line_start": 45,
+          "line_end": 71,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/22-3d-gaussian-splatting/code/main.py",
+          "symbol": "make_target",
+          "line_start": 74,
+          "line_end": 81,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/22-3d-gaussian-splatting/code/main.py",
+          "symbol": "sh_degree_3_basis",
+          "line_start": 84,
+          "line_end": 105,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "11. Spherical harmonics：颜色依方向的明确约定"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/22-3d-gaussian-splatting/code/main.py",
+          "symbol": "eval_sh_degree_3",
+          "line_start": 108,
+          "line_end": 110,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "11. Spherical harmonics：颜色依方向的明确约定"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/22-3d-gaussian-splatting/code/main.py",
+          "symbol": "main",
+          "line_start": 113,
+          "line_end": 137,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "Why did 3D Gaussian Splatting largely replace NeRF as the production default for photorealistic scene reconstruction by 2026?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "9. 3D Gaussian Splatting：显式参数与投影"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "A 3D Gaussian in a scene carries position, rotation, scale, opacity, and what additional representation to handle view-dependent colour (like specular highlights)?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "11. Spherical harmonics：颜色依方向的明确约定"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "During 3DGS training, densification includes 'clone' and 'split' operations. What triggers each?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "10. 可运行2D splat优化与不可微排序反例"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "The colour equation for one pixel in both NeRF and 3DGS is `C = sum_i alpha_i * T_i * c_i` where `T_i = prod_{j<i}(1 - alpha_j)`. What does this shared equation say about the two methods?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "9. 3D Gaussian Splatting：显式参数与投影"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "You want to ship a 3DGS scene across Unreal Engine, Vision Pro, Blender, and a Three.js web viewer in 2026. Which export format is the safest bet?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "12. 捕获、字段、标准与viewer往返"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**(Easy)** Run the 2D splat trainer above on a different synthetic image. Vary `num_splats` in `[16, 64, 256]` and plot MSE vs step for each. Identify the point of diminishing returns.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "answer_number": 6,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**(Medium)** Extend the 2D rasteriser to support per-Gaussian RGB colours that depend on a scalar \"view angle\" through a degree-2 harmonic. Train on a pair of target images and verify the model reconstructs both.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "answer_number": 7,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**(Hard)** Clone `nerfstudio` and train `splatfacto` on a 20-photo capture of any scene you have (desk, plant, face, room). Export to glTF `KHR_gaussian_splatting` and open it in a viewer (Three.js `GaussianSplats3D`, SuperSplat, Babylon.js V9). Report training time, number of Gaussians, and rendered fps.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "answer_number": 11,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/04-computer-vision/22-3d-gaussian-splatting/outputs/prompt-3dgs-capture-planner.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "9. 3D Gaussian Splatting：显式参数与投影"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "10. 可运行2D splat优化与不可微排序反例"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "11. Spherical harmonics：颜色依方向的明确约定"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "12. 捕获、字段、标准与viewer往返"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        },
+        {
+          "source_file": "phases/04-computer-vision/22-3d-gaussian-splatting/outputs/skill-3dgs-export-router.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "9. 3D Gaussian Splatting：显式参数与投影"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "10. 可运行2D splat优化与不可微排序反例"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "11. Spherical harmonics：颜色依方向的明确约定"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "12. 捕获、字段、标准与viewer往返"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "line": 45,
+          "sha256": "0f7ce9153918f332568ee37c39bcde15c8292301335b7d7f5ebe72c69665a2db",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "9. 3D Gaussian Splatting：显式参数与投影"
+          },
+          "disposition": "调用/表示/时间顺序合入正文和独立代码，不把图示动画当实测"
+        }
+      ]
+    },
+    {
+      "lesson": "23-diffusion-transformers-rectified-flow",
+      "primary_target": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "reading_complete": true,
+      "source_files": [
+        {
+          "path": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py",
+          "sha256": "826e63e58bf364f57ec2e26410e789f8b75719dc1e3720c1688135da42085278",
+          "git_blob_sha": "2e381a2b69d2623cf91b90081bf1982212250da4",
+          "bytes": 5445,
+          "lines": 159,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/docs/en.md",
+          "sha256": "422060f3286899edcccdb97e17eda8c8f426a18c38116cbe0ef210ebda4aa606",
+          "git_blob_sha": "226e7759563590322d64674057e129a03b88984a",
+          "bytes": 16613,
+          "lines": 354,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/outputs/prompt-dit-model-picker.md",
+          "sha256": "256444db7eafa51c70ddc37ef38912cc7583188da4394d746c795d10fff0b634",
+          "git_blob_sha": "d6b50a948ee97b8a324d349340e427728dfc5306",
+          "bytes": 2329,
+          "lines": 57,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/outputs/skill-rectified-flow-trainer.md",
+          "sha256": "7530199dc84895cfa3c1ebea90507eb0f36c510c19c9f57b7c49afdd4b912406",
+          "git_blob_sha": "0ffc16e8ca7fbc0ac31ed808270536db57c701b1",
+          "bytes": 3327,
+          "lines": 91,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/quiz.json",
+          "sha256": "d0ce3bdbac70cdc6d51f922244ac4f12fa7c9994303668927c9f2d96b45bab84",
+          "git_blob_sha": "4c06409578eacf2daf534718cd02f8a6dd0a7d7b",
+          "bytes": 4661,
+          "lines": 39,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "From U-Net to transformer",
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Rectified flow in one paragraph",
+          "line": 56,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "9. Flow matching与rectified flow：方向不要混"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "AdaLN conditioning",
+          "line": 70,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Text encoders in SD3 and FLUX",
+          "line": 79,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Classifier-free guidance still holds",
+          "line": 87,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "10. Guidance、条件与少步模型的边界"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Consistency, Turbo, Schnell, LCM",
+          "line": 91,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "10. Guidance、条件与少步模型的边界"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Model landscape in 2026",
+          "line": 101,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Why this phase shift matters",
+          "line": 117,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "line": 125,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: A DiT block with AdaLN",
+          "line": 127,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: A tiny DiT",
+          "line": 176,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: Rectified flow training",
+          "line": 221,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "9. Flow matching与rectified flow：方向不要混"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Euler sampler",
+          "line": 246,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "9. Flow matching与rectified flow：方向不要混"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 5: End-to-end smoke test",
+          "line": 266,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "line": 287,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "line": 321,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "line": 328,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "line": 334,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "line": 347,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py",
+          "symbol": "timestep_embedding",
+          "line_start": 8,
+          "line_end": 12,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py",
+          "symbol": "AdaLNZero",
+          "line_start": 15,
+          "line_end": 26,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py",
+          "symbol": "DiTBlock",
+          "line_start": 29,
+          "line_end": 47,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py",
+          "symbol": "TinyDiT",
+          "line_start": 50,
+          "line_end": 85,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py",
+          "symbol": "rectified_flow_train_step",
+          "line_start": 88,
+          "line_end": 101,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "9. Flow matching与rectified flow：方向不要混"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py",
+          "symbol": "rectified_flow_sample",
+          "line_start": 105,
+          "line_end": 114,
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "9. Flow matching与rectified flow：方向不要混"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py",
+          "symbol": "synthetic_blobs",
+          "line_start": 117,
+          "line_end": 128,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py",
+          "symbol": "main",
+          "line_start": 131,
+          "line_end": 155,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "Why did 2024+ SOTA text-to-image models (SD3, FLUX, Z-Image) replace the U-Net denoiser with a Diffusion Transformer (DiT)?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "Rectified flow trains the model to predict velocity `v = epsilon - x_0` along a straight-line interpolation between data and noise. Why does this enable 20-step sampling instead of 1000?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "9. Flow matching与rectified flow：方向不要混"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "MMDiT (SD3) uses two sets of weights, one for text tokens and one for image tokens, that share a single joint attention layer. Why?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "What does AdaLN-Zero mean in a DiT block, and why does it help?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "FLUX.1-schnell can produce an image in 4 steps. Which technique lets it do that?",
+          "target": {
+            "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+            "section": "10. Guidance、条件与少步模型的边界"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**(Easy)** Train the TinyDiT above on the synthetic blob dataset for 500 steps. Compare samples produced with 10, 20, and 50 Euler steps.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 10,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**(Medium)** Add text conditioning by concatenating a learned class embedding to the time embedding (10 blob \"classes\" by colour). Sample with class 0, 5, and 9 and verify colours match.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "answer_number": null,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**(Hard)** Compute the Fréchet distance (FID proxy) between generated samples from rectified-flow and DDPM versions of the same-size network trained on the same data for the same number of steps. Report which converges faster.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 14,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/outputs/prompt-dit-model-picker.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "9. Flow matching与rectified flow：方向不要混"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "10. Guidance、条件与少步模型的边界"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "1. 同一个采样循环的六个部件"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "5. DiT、AdaLN与多模态流"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        },
+        {
+          "source_file": "phases/04-computer-vision/23-diffusion-transformers-rectified-flow/outputs/skill-rectified-flow-trainer.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "9. Flow matching与rectified flow：方向不要混"
+            },
+            {
+              "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+              "section": "10. Guidance、条件与少步模型的边界"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "1. 同一个采样循环的六个部件"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "5. DiT、AdaLN与多模态流"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "line": 29,
+          "sha256": "19eb619e706dcc48179910a8b8654a3decc38bef7658ab2871eb9a4b0a836f98",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "5. DiT、AdaLN与多模态流"
+          },
+          "disposition": "调用/表示/时间顺序合入正文和独立代码，不把图示动画当实测"
+        }
+      ]
+    },
+    {
+      "lesson": "26-monocular-depth",
+      "primary_target": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+      "reading_complete": true,
+      "source_files": [
+        {
+          "path": "phases/04-computer-vision/26-monocular-depth/code/main.py",
+          "sha256": "248973530db99ddbffe78e43a6a05ebd0c480e0c96200461621b558bc263665a",
+          "git_blob_sha": "52dbf7d024def2210e11ba44a7715382d5e3b149",
+          "bytes": 3438,
+          "lines": 105,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/26-monocular-depth/docs/en.md",
+          "sha256": "47580e0cea05da1ab7b06b7aa0e1cdda34c405fe64b1e8717e2f2cf1696d0aaf",
+          "git_blob_sha": "d14c09f1ef5cfe1f25a2283b27250e9f4c6ecf56",
+          "bytes": 12801,
+          "lines": 261,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/26-monocular-depth/outputs/prompt-depth-model-picker.md",
+          "sha256": "a180186c6747105fd61ecca90b146fe1321f0b8b8f51d1ada253999c8be1a96f",
+          "git_blob_sha": "a6c28cbcb4c9b140b3ea2d37fd2f277858cb0e81",
+          "bytes": 2595,
+          "lines": 58,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/26-monocular-depth/outputs/skill-depth-to-pointcloud.md",
+          "sha256": "27d99ef163861d1f8eee746193f2263e86817382631f1b126e7fe8ffc157fcaa",
+          "git_blob_sha": "691e446dc1a46245fc3a8385c9f72237d14cb4c0",
+          "bytes": 3698,
+          "lines": 95,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/26-monocular-depth/quiz.json",
+          "sha256": "dcd1e747304b35453faf7a88be88f455ceda51e180583611c6f784788edb157b",
+          "git_blob_sha": "b30579411cf12f075489cc0470b74791ebc64f44",
+          "bytes": 5003,
+          "lines": 64,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Relative vs metric depth",
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The encoder-decoder pattern",
+          "line": 34,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Why a single image produces depth at all",
+          "line": 50,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "What monocular depth cannot do",
+          "line": 62,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Depth Anything V3 in 2026",
+          "line": 68,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Marigold — diffusion for depth",
+          "line": 78,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Intrinsics and the pinhole camera",
+          "line": 82,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "2. 相机内外参、坐标系与射线"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Evaluation",
+          "line": 95,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "4. 深度指标、对齐与失效不能藏起来"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "line": 108,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: Depth metrics",
+          "line": 110,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "4. 深度指标、对齐与失效不能藏起来"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: Scale-and-shift alignment",
+          "line": 132,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "4. 深度指标、对齐与失效不能藏起来"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: Lift depth to a point cloud",
+          "line": 152,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "2. 相机内外参、坐标系与射线"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Smoke test with a synthetic depth scene",
+          "line": 175,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "5. 从depth到点云与输入数据管理"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 5: Depth Anything V2 usage (reference)",
+          "line": 195,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "line": 211,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "line": 229,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "line": 236,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "line": 242,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "line": 255,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/04-computer-vision/26-monocular-depth/code/main.py",
+          "symbol": "abs_rel_error",
+          "line_start": 8,
+          "line_end": 12,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "4. 深度指标、对齐与失效不能藏起来"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/26-monocular-depth/code/main.py",
+          "symbol": "delta_accuracy",
+          "line_start": 15,
+          "line_end": 20,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "4. 深度指标、对齐与失效不能藏起来"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/26-monocular-depth/code/main.py",
+          "symbol": "align_scale_shift",
+          "line_start": 23,
+          "line_end": 33,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "4. 深度指标、对齐与失效不能藏起来"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/26-monocular-depth/code/main.py",
+          "symbol": "depth_to_point_cloud",
+          "line_start": 36,
+          "line_end": 43,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "2. 相机内外参、坐标系与射线"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/26-monocular-depth/code/main.py",
+          "symbol": "synthetic_depth",
+          "line_start": 46,
+          "line_end": 51,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "5. 从depth到点云与输入数据管理"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/26-monocular-depth/code/main.py",
+          "symbol": "write_ply",
+          "line_start": 54,
+          "line_end": 73,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "5. 从depth到点云与输入数据管理"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/26-monocular-depth/code/main.py",
+          "symbol": "main",
+          "line_start": 76,
+          "line_end": 101,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "1. 先选任务，再选表示"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "What is the main difference between relative depth and metric depth?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "Depth Anything V3 uses a frozen DINOv2 encoder plus a DPT-style decoder. Why freeze the encoder?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "To lift a pixel (u, v) with predicted depth d to 3D, you use X = (u - cx) * d / fx, Y = (v - cy) * d / fy, Z = d. What are fx, fy, cx, cy?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "2. 相机内外参、坐标系与射线"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "When evaluating a relative-depth model (MiDaS, Depth Anything), why do you apply scale-and-shift alignment before computing AbsRel?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "4. 深度指标、对齐与失效不能藏起来"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "Your Depth Anything prediction on a glass-fronted reception desk reports believable but clearly wrong depth for the glass region. Why?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**(Easy)** Run Depth Anything V2 on any 10 images of your desk. Save depth as grayscale PNGs and inspect. Identify one object whose predicted depth looks wrong and explain why the monocular cues failed.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "answer_number": null,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**(Medium)** Given RGB + depth from Depth Anything V2, lift to a point cloud and render with `open3d`. Compare two scenes (indoor / outdoor) and note which looks more believable.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "5. 从depth到点云与输入数据管理"
+          },
+          "answer_number": null,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**(Hard)** Take five pairs of images that differ only by a known object's position (e.g. bottle moved 30 cm closer). Use UniDepth to predict metric depth on both. Report the predicted distance delta vs the true 30 cm.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "13. 练习与参考判断"
+          },
+          "answer_number": 2,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/04-computer-vision/26-monocular-depth/outputs/prompt-depth-model-picker.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "2. 相机内外参、坐标系与射线"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "3. 单目depth：尺度和输出空间"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "4. 深度指标、对齐与失效不能藏起来"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "5. 从depth到点云与输入数据管理"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        },
+        {
+          "source_file": "phases/04-computer-vision/26-monocular-depth/outputs/skill-depth-to-pointcloud.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "2. 相机内外参、坐标系与射线"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "3. 单目depth：尺度和输出空间"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "4. 深度指标、对齐与失效不能藏起来"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+              "section": "5. 从depth到点云与输入数据管理"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "line": 36,
+          "sha256": "b9ffbc321672584647e5c856f090b7a6ca5708fbc7c3981266ad371549128f5e",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+            "section": "3. 单目depth：尺度和输出空间"
+          },
+          "disposition": "调用/表示/时间顺序合入正文和独立代码，不把图示动画当实测"
+        }
+      ]
+    },
+    {
+      "lesson": "28-world-models-video-diffusion",
+      "primary_target": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "reading_complete": true,
+      "source_files": [
+        {
+          "path": "phases/04-computer-vision/28-world-models-video-diffusion/code/main.py",
+          "sha256": "e756c85917178520025dae5916b56964f3b04c183824b65a49c14cc26cbfce74",
+          "git_blob_sha": "880dc005daec65c45e1ced550461cf83ab3fdc57",
+          "bytes": 3460,
+          "lines": 95,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/28-world-models-video-diffusion/docs/en.md",
+          "sha256": "2b64fd3dbecb74fbc2cf8c017468033e16d103409dce31b25b62100838991acd",
+          "git_blob_sha": "8a18bee3fea5276bb8195d8d3fa1280be2db323c",
+          "bytes": 16687,
+          "lines": 303,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/28-world-models-video-diffusion/outputs/prompt-video-model-picker.md",
+          "sha256": "b900998c9c2c0f64d7d70e7368992cb69ad626f597153080936b85439e602260",
+          "git_blob_sha": "2fd3f0e8953d57c17a80a24d931d954f2c118919",
+          "bytes": 2110,
+          "lines": 55,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/28-world-models-video-diffusion/outputs/skill-physical-plausibility-checks.md",
+          "sha256": "c52601612c8a00f2fe73274a1f7a831b8436844f65c8db68b60d53131dd66704",
+          "git_blob_sha": "8d192cfcee6b3869a81e61532797898ab817d331",
+          "bytes": 3162,
+          "lines": 70,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        },
+        {
+          "path": "phases/04-computer-vision/28-world-models-video-diffusion/quiz.json",
+          "sha256": "627588ac1514bf9e369c989c54d630d1f40ed8cd1ce6f039ed48b8205f4866dd",
+          "git_blob_sha": "34c9dfb4ee99176b14dba82f6ba97ee0b4ae2bc9",
+          "bytes": 4748,
+          "lines": 39,
+          "reading": "已完整读取正文、全部代码、quiz和两份outputs，固定源SHA核对"
+        }
+      ],
+      "headings": [
+        {
+          "source_heading": "Learning Objectives",
+          "line": 10,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Problem",
+          "line": 17,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "The Concept",
+          "line": 25,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Three families of world-modelling",
+          "line": 27,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "9. 从视频预测到动作条件世界模型"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Video DiT architecture",
+          "line": 52,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Conditioning on actions: latent action models",
+          "line": 69,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "9. 从视频预测到动作条件世界模型"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Physical plausibility",
+          "line": 75,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "10. 图像/视频评价与物理检查"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Autonomous driving world models",
+          "line": 81,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "9. 从视频预测到动作条件世界模型"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Robotics stack: VLM + video model + inverse dynamics",
+          "line": 92,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "9. 从视频预测到动作条件世界模型"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Evaluation",
+          "line": 102,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "10. 图像/视频评价与物理检查"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Model landscape in 2026",
+          "line": 109,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Build It",
+          "line": 126,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 1: 3D patchify for video",
+          "line": 128,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 2: 3D rotary position encoding",
+          "line": 157,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 3: Divided attention block",
+          "line": 188,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 4: Compose a tiny video DiT",
+          "line": 218,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Step 5: Check shapes",
+          "line": 237,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Use It",
+          "line": 250,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Ship It",
+          "line": 269,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Exercises",
+          "line": 276,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Key Terms",
+          "line": 282,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        },
+        {
+          "source_heading": "Further Reading",
+          "line": 295,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "来源与核验备注"
+          },
+          "disposition": "知识解释/代码/边界融合，宣传和固定效果/旧接口纠正或淘汰"
+        }
+      ],
+      "code_symbols": [
+        {
+          "source_file": "phases/04-computer-vision/28-world-models-video-diffusion/code/main.py",
+          "symbol": "VideoPatch3D",
+          "line_start": 6,
+          "line_end": 19,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/28-world-models-video-diffusion/code/main.py",
+          "symbol": "DividedAttentionBlock",
+          "line_start": 22,
+          "line_end": 45,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/28-world-models-video-diffusion/code/main.py",
+          "symbol": "TinyVideoDiT",
+          "line_start": 48,
+          "line_end": 61,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/28-world-models-video-diffusion/code/main.py",
+          "symbol": "count_tokens",
+          "line_start": 64,
+          "line_end": 65,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        },
+        {
+          "source_file": "phases/04-computer-vision/28-world-models-video-diffusion/code/main.py",
+          "symbol": "main",
+          "line_start": 68,
+          "line_end": 91,
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "1. 同一个采样循环的六个部件"
+          },
+          "disposition": "核心mechanism重构/CPU微型验证；原下载/真实大模型入口未执行"
+        }
+      ],
+      "quiz": [
+        {
+          "source_question": 1,
+          "stage": "pre",
+          "question": "What architectural difference distinguishes an action-conditioned world model (Genie 3) from a pure video generation model (Sora 2)?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "9. 从视频预测到动作条件世界模型"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 2,
+          "stage": "pre",
+          "question": "Divided attention in a video transformer means what?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 3,
+          "stage": "post",
+          "question": "Sora 2's 2026 release advertised better physical plausibility. Which specific failure modes did this target?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "10. 图像/视频评价与物理检查"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 4,
+          "stage": "post",
+          "question": "In the emerging robotics stack (VLM + video generation + inverse dynamics), what does the inverse dynamics model do?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "9. 从视频预测到动作条件世界模型"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        },
+        {
+          "source_question": 5,
+          "stage": "post",
+          "question": "Autonomous-driving teams use world models (Cosmos-Drive, Gaia-2, DrivingWorld) to replace what cost?",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "9. 从视频预测到动作条件世界模型"
+          },
+          "disposition": "概念与参考答案融入正文；原quiz的错误/绝对断言改正，不机械保留正确选项"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": 1,
+          "description": "**(Easy)** Compute the token count for a 5-second 360p video at patch-t=2, patch-h=8, patch-w=8. Reason about memory for attention at this size.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 11,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 2,
+          "description": "**(Medium)** Swap the divided attention block above for a full joint attention block and measure the shape and parameter count. Explain why divided attention is necessary for real video models.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "8. Video DiT、真实RoPE与形状"
+          },
+          "answer_number": null,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        },
+        {
+          "source_exercise": 3,
+          "description": "**(Hard)** Build a minimal latent-action video model: take a dataset of (frame_t, action_t, frame_{t+1}) triples (any simple 2D game), train a tiny video DiT conditioned on action embeddings, and show that different actions produce different next frames.",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "11. 练习与参考判断"
+          },
+          "answer_number": 13,
+          "disposition": "保留具体方法和判据；大训练/下载/真实质量和fps未跑，不伪造epoch/结果"
+        }
+      ],
+      "outputs": [
+        {
+          "source_file": "phases/04-computer-vision/28-world-models-video-diffusion/outputs/prompt-video-model-picker.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "8. Video DiT、真实RoPE与形状"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "9. 从视频预测到动作条件世界模型"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "10. 图像/视频评价与物理检查"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        },
+        {
+          "source_file": "phases/04-computer-vision/28-world-models-video-diffusion/outputs/skill-physical-plausibility-checks.md",
+          "targets": [
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "8. Video DiT、真实RoPE与形状"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "9. 从视频预测到动作条件世界模型"
+            },
+            {
+              "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+              "section": "10. 图像/视频评价与物理检查"
+            }
+          ],
+          "disposition": "任务、数据/条件/坐标/字段/采样/评估流程保留；固定唯一方案/阈值/速度/品牌/许可/发布政策未机械采用"
+        }
+      ],
+      "mermaid_diagrams": [
+        {
+          "line": 29,
+          "sha256": "460015ad949806ae980de35723e820581785a42c7ca35ea76df0605153f37e7f",
+          "target": {
+            "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+            "section": "9. 从视频预测到动作条件世界模型"
+          },
+          "disposition": "调用/表示/时间顺序合入正文和独立代码，不把图示动画当实测"
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "source_file": "site/figures-cv2.js",
+      "source_file_sha256": "d2e9764200e9e7ae5467870f5d8ce39e8658aecc1ac9ae85769ed89fe66cf767",
+      "function": "ganMinimax",
+      "function_sha256": "74f1a641a604662dd492089298d54c667e5ea16f01ab7acf98766cf3cdb9de64",
+      "line_start": 116,
+      "line_end": 163,
+      "target": {
+        "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+        "section": "2. GAN：理想分布结论与实际训练"
+      },
+      "reading": "固定数据/路径/转换与核心caption逻辑已读",
+      "disposition": "机制保留；动画预设清图/直线/深度/质量/48x算力/实时fps并非实证，正文已纠正"
+    },
+    {
+      "source_file": "site/figures-cv2.js",
+      "source_file_sha256": "d2e9764200e9e7ae5467870f5d8ce39e8658aecc1ac9ae85769ed89fe66cf767",
+      "function": "diffusionDenoise",
+      "function_sha256": "01e93bab9ec832dfb8cc8e67dbc2af1a7bea2d460871fdbb5bf282418c6d1806",
+      "line_start": 166,
+      "line_end": 202,
+      "target": {
+        "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+        "section": "6. DDPM：统一时间下标与前向闭式"
+      },
+      "reading": "固定数据/路径/转换与核心caption逻辑已读",
+      "disposition": "机制保留；动画预设清图/直线/深度/质量/48x算力/实时fps并非实证，正文已纠正"
+    },
+    {
+      "source_file": "site/figures-cv3.js",
+      "source_file_sha256": "ac0ba50f88ff721c28f528e8d21f48d48d84c1a138dda0c754199a7e57023740",
+      "function": "latentCompression",
+      "function_sha256": "10d818c885e0cb78075db94493bc6410c6aed8d4ce87443329a556da947afb4f",
+      "line_start": 75,
+      "line_end": 112,
+      "target": {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "section": "1. 同一个采样循环的六个部件"
+      },
+      "reading": "固定数据/路径/转换与核心caption逻辑已读",
+      "disposition": "机制保留；动画预设清图/直线/深度/质量/48x算力/实时fps并非实证，正文已纠正"
+    },
+    {
+      "source_file": "site/figures-visaudio4.js",
+      "source_file_sha256": "72563649bfd780e85cfbc8f5663aeed5612866a5f1c1d0a487b0a3575722912c",
+      "function": "videoTemporal",
+      "function_sha256": "f59883456b32e0b3ae5824c70d9de0183cdf90b36289d07a3a7e59d1b9068e44",
+      "line_start": 62,
+      "line_end": 93,
+      "target": {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "section": "7. 视频理解：顺序、局部motion与开销"
+      },
+      "reading": "固定数据/路径/转换与核心caption逻辑已读",
+      "disposition": "机制保留；动画预设清图/直线/深度/质量/48x算力/实时fps并非实证，正文已纠正"
+    },
+    {
+      "source_file": "site/figures-cv2.js",
+      "source_file_sha256": "d2e9764200e9e7ae5467870f5d8ce39e8658aecc1ac9ae85769ed89fe66cf767",
+      "function": "nerfRays",
+      "function_sha256": "25bbbba47ced68b5efdba349e23c7848914cded73d861eaef3543e314db4345c",
+      "line_start": 205,
+      "line_end": 245,
+      "target": {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "section": "7. 体渲染：transmittance、background与depth"
+      },
+      "reading": "固定数据/路径/转换与核心caption逻辑已读",
+      "disposition": "机制保留；动画预设清图/直线/深度/质量/48x算力/实时fps并非实证，正文已纠正"
+    },
+    {
+      "source_file": "site/figures-cv3.js",
+      "source_file_sha256": "ac0ba50f88ff721c28f528e8d21f48d48d84c1a138dda0c754199a7e57023740",
+      "function": "gaussianSplat",
+      "function_sha256": "21b2b72a7f5314ca4b8d7e1955f26689ae4225492da77c21c68e553218b0e704",
+      "line_start": 194,
+      "line_end": 222,
+      "target": {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "section": "9. 3D Gaussian Splatting：显式参数与投影"
+      },
+      "reading": "固定数据/路径/转换与核心caption逻辑已读",
+      "disposition": "机制保留；动画预设清图/直线/深度/质量/48x算力/实时fps并非实证，正文已纠正"
+    },
+    {
+      "source_file": "site/figures-cv3.js",
+      "source_file_sha256": "ac0ba50f88ff721c28f528e8d21f48d48d84c1a138dda0c754199a7e57023740",
+      "function": "rectifiedFlow",
+      "function_sha256": "74dcbcb11ec4822dd2d61e4d99fc16ae48033e67520bafa98e6f4417a815d4c1",
+      "line_start": 225,
+      "line_end": 255,
+      "target": {
+        "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+        "section": "9. Flow matching与rectified flow：方向不要混"
+      },
+      "reading": "固定数据/路径/转换与核心caption逻辑已读",
+      "disposition": "机制保留；动画预设清图/直线/深度/质量/48x算力/实时fps并非实证，正文已纠正"
+    },
+    {
+      "source_file": "site/figures-cv2.js",
+      "source_file_sha256": "d2e9764200e9e7ae5467870f5d8ce39e8658aecc1ac9ae85769ed89fe66cf767",
+      "function": "depthSweep",
+      "function_sha256": "b48a6c1edbfdc515bacdaf79d2843e3e6d24a956042213bfbc8a553ecb109dc7",
+      "line_start": 324,
+      "line_end": 359,
+      "target": {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "section": "3. 单目depth：尺度和输出空间"
+      },
+      "reading": "固定数据/路径/转换与核心caption逻辑已读",
+      "disposition": "机制保留；动画预设清图/直线/深度/质量/48x算力/实时fps并非实证，正文已纠正"
+    },
+    {
+      "source_file": "site/figures-visaudio4.js",
+      "source_file_sha256": "72563649bfd780e85cfbc8f5663aeed5612866a5f1c1d0a487b0a3575722912c",
+      "function": "worldRollout",
+      "function_sha256": "6a76cb533e863f7f5d63d8bfb44b711807fbe40d60d1bef3c6cdd0937405cf16",
+      "line_start": 163,
+      "line_end": 199,
+      "target": {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "section": "9. 从视频预测到动作条件世界模型"
+      },
+      "reading": "固定数据/路径/转换与核心caption逻辑已读",
+      "disposition": "机制保留；动画预设清图/直线/深度/质量/48x算力/实时fps并非实证，正文已纠正"
+    }
+  ],
+  "corrections": [
+    {
+      "topic": "GAN",
+      "resolution": "D≈.5/loss≈1.386不证明全局均衡，非饱和logit梯度非D小必消失；SN非整体严格1-Lipschitz，TTUR非固定D4G；GAN现代目标不唯一"
+    },
+    {
+      "topic": "DDPM",
+      "resolution": "条件x0已知的高斯posterior与未知逆边际混淆，variance选择不同；beta/abar/time/prediction契约；低SNR非完全无用、训练不是总复杂度O1"
+    },
+    {
+      "topic": "DDIM",
+      "resolution": "上游index0仍第一带噪状态，最后不进clean；oracle实际重现残噪；新paper索引0clean与跨步末端核对"
+    },
+    {
+      "topic": "SD/LDM",
+      "resolution": "48只是元素压缩比非总算力或无损；0.18215非通用；CFG w1 conditional，原stub标unconditional错误；任意scheduler互换/precision不损/固定强度与VRAM承诺删除"
+    },
+    {
+      "topic": "LoRA",
+      "resolution": "rank/alpha比例与基权重形状，冻结/梯度、zero_grad、目标noise/v/flow，数据/主体/背景/验证；小数据必过拟合/固定许可和容量规则不采纳"
+    },
+    {
+      "topic": "Video",
+      "resolution": "帧PTS/fps/采样边界和splitvideo、pool逆序不变不代表整个dataset必chance；I3D保持bias等与内部/边缘；factorized参数可匹配甚至增加，原小例136vs54实算"
+    },
+    {
+      "topic": "Video attention",
+      "resolution": "joint T²S²与divided ST²+TS²；源quiz漏倍数/混帧与时间token；原rope_3d实为additive，重写pair rotations验证范数与相对点积"
+    },
+    {
+      "topic": "RF/DiT",
+      "resolution": "配对直线不保证conditional field轨迹直/恒速；DDPM v≠RF速度；4step未蒸馏不是Schnell；AdaLN子模块不是identity而完整residual block是；SD1/2不是MMDiT concat-shared"
+    },
+    {
+      "topic": "Depth",
+      "resolution": "relative depth/inverse与offset不保ratio，DA3有metric/mono/any-view；PIL图非数值米depth；metric/intrinsic与GT oracle alignment分开；delta区间0.8～1.25非±25%"
+    },
+    {
+      "topic": "Geometry",
+      "resolution": "world2camera t≠camera origin、投影Z≠range、K毫米≠pixel、resize/crop/畸变、OpenGL两轴符号；每任务必unit sphere错误"
+    },
+    {
+      "topic": "NeRF",
+      "resolution": "方向单位/密度位置与颜色方向、Fourier维度与局部偏置、finite delta+tail/background与depth opacity；随机MLP forward和单ray不是多view训练"
+    },
+    {
+      "topic": "3DGS",
+      "resolution": "5M×59float32≈1.18GB非240MB；projected covariance用rotation/Jacobian局部近似，不把4x4t乘3x3cov；排序/tile不是全部连续可微，原depth.grad=None实际重现"
+    },
+    {
+      "topic": "3DGS标准",
+      "resolution": "保留官方Complete/Ratified glTF/26.08USD有效schema；不同PLY/splat字段/SH/坐标/颜色/packing不可互换；不固化Apple/全viewer支持、压缩比与原发布日期"
+    },
+    {
+      "topic": "RGB/PLY",
+      "resolution": "上游floatRGB直接astype变0/0/1，实际重现；新writer乘255/round、字段/计数/坐标和临时文件验证"
+    },
+    {
+      "topic": "World/video",
+      "resolution": "漂亮视频不等于物理/可执行/可替代所有真实采集；动作latent/actual control区别、多步/终止/闭环；屏幕重力/遮挡/手指数等固定硬阈值不采纳"
+    },
+    {
+      "topic": "既有知识保全",
+      "resolution": "Progressive growing、minibatch discrimination、truncation、IS公式、流形precision/recall、12Notebook明确导航与Flow/VAE/importance旧知识保留，不仅来源备注"
+    }
+  ],
+  "output_files": [
+    "AI 算法基础/深度学习专题/10-深度生成模型.md",
+    "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+    "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md"
+  ],
+  "output_checksums": [
+    {
+      "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+      "sha256": "435ce6a1cca546afa60710cb78e6e581035abf4e8aa7a4185bc6cb0c29d9c7e9",
+      "lines": 251
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "sha256": "99e7156ec877be89a584d051ce7f954c32fe50e806b5c51f2a128dc07eee382e",
+      "lines": 408
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+      "sha256": "3454290b16382d572da5eeb83b6c141f26b9ef8d4d9e219bd2767c50c3c196bc",
+      "lines": 446
+    }
+  ],
+  "fusion": [
+    "生成10维护GAN/Flow/VAE/DDPM/DDIM/RF概率与数学；感知09管latent/条件/LoRA/DiT/视频与评价；感知10管camera/depth/point/NeRF/GS/interop，按知识不按网站",
+    "既有生成10的UDL实验/理论明确保留并导航，世界模型15与机器人04只读回链、未重复整章",
+    "9课全部正文/代码/quiz/18outputs/图意完整读后写入；提示词包装和高时效无证据型号/价格/性能不镜像"
+  ],
+  "official_verification": [
+    {
+      "topic": "3DGS",
+      "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/",
+      "sha256": "45d91f01fc9be498405785679533c19e88dbc7059f80fcd5b2cb98af01529327",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "CFG",
+      "url": "https://arxiv.org/abs/2207.12598",
+      "sha256": "52c38b1b59bdc020be0114f90248bd02535b678f9b5f06e3007d232c5ecb4297",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "ControlNet",
+      "url": "https://arxiv.org/abs/2302.05543",
+      "sha256": "4ad98702c9d74e7e323b4d02ac19298096fd478896a124f77ac6d04def541379",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "DDIM",
+      "url": "https://arxiv.org/abs/2010.02502",
+      "sha256": "9d3ea42e8a25dfe6a60b92fac8bec48cbc9c5191ccb171a29a4d4b1e6ff33002",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "DDPM",
+      "url": "https://arxiv.org/html/2006.11239",
+      "sha256": "247d4c848396431461856ca9f7bf8459fcbd1b1044437338a77f35f87d874980",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "DiT",
+      "url": "https://arxiv.org/html/2212.09748",
+      "sha256": "113e8c0e2d5a87715b45ad2f2fd935b893bfbd5341534c1222bea16da93e4e5f",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "提取到图/非正文，未作为专业核验；转官方web fallback"
+    },
+    {
+      "topic": "GAN",
+      "url": "https://arxiv.org/html/1406.2661",
+      "sha256": "cf4741261f4c1526438a8ffc75ecfb752a64aef99df11cde8eaec35b87e9fca7",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "提取到图/非正文，未作为专业核验；转官方web fallback"
+    },
+    {
+      "topic": "I3D",
+      "url": "https://arxiv.org/abs/1705.07750",
+      "sha256": "ead752d88f778bc4463080cd7f69e07fc9417b1f90ff946625f9a726798b508c",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "LDM",
+      "url": "https://arxiv.org/abs/2112.10752",
+      "sha256": "3c5a82381fcb44bf86d10473662f14c197b4339a4a94b7764c6d6bbb4271c377",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "NeRF",
+      "url": "https://www.matthewtancik.com/nerf",
+      "sha256": "73114a6b33b9cd4198052363a27d35a4152d518b8f25e8678ed14c2108764dfa",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "R21D",
+      "url": "https://arxiv.org/abs/1711.11248",
+      "sha256": "05a3a1765cf9ccdc88d2413e126bc09ca56cd36250b6359d708a3406c15870c5",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "RF",
+      "url": "https://arxiv.org/html/2209.03003",
+      "sha256": "73ba80b8a5ced8d741e72709639706f670d77b5223e2a624ea3d4d668b46f5ed",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "提取到图/非正文，未作为专业核验；转官方web fallback"
+    },
+    {
+      "topic": "SD3",
+      "url": "https://arxiv.org/html/2403.03206",
+      "sha256": "f3f358144015ca2bfa0ce98f1e358d18b2a4b969b5414bf9f0c2dbfb307c1489",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "提取到图/非正文，未作为专业核验；转官方web fallback"
+    },
+    {
+      "topic": "SN",
+      "url": "https://arxiv.org/abs/1802.05957",
+      "sha256": "532aaab775525211de0ca88adf427f49eab1bb3001d7e8cea5cf5c613e56e06b",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "gsplat",
+      "url": "https://docs.gsplat.studio/main/apis/rasterization.html",
+      "sha256": "2bd0b4394e2382940bd02157fcd7b2b04a0593733e0d0abcc6f8e7c924027fc5",
+      "date": "2026-10-04",
+      "backend": "agent-reach Jina Reader",
+      "status": "一手内容读取"
+    },
+    {
+      "topic": "web fallback专业核验",
+      "date": "2026-10-04",
+      "backend": "web仅一手网页；arxiv从abs跟随HTML具体版本；Jina429/图错误后替代",
+      "urls": [
+        "https://arxiv.org/html/2209.03003v1",
+        "https://arxiv.org/html/2212.09748v2",
+        "https://arxiv.org/html/2403.03206v1",
+        "https://github.com/ByteDance-Seed/Depth-Anything-3",
+        "https://huggingface.co/docs/transformers/main_classes/pipelines#transformers.DepthEstimationPipeline",
+        "https://arxiv.org/abs/2102.05095",
+        "https://arxiv.org/abs/2402.15391",
+        "https://arxiv.org/abs/2301.04104",
+        "https://marigoldmonodepth.github.io/",
+        "https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_gaussian_splatting/README.md",
+        "https://openusd.org/release/user_guides/schemas/usdVol/usdVol_toc.html"
+      ],
+      "verified": "RF conditional velocity/reflow、DiT零初始化、MMDiT双权重，DA3各系列/raw字段、HF raw输出和模型单位核对、video/world有效机制、glTF Complete/Ratified与USD有效schema；不从它们外推原站广告保证"
+    }
+  ],
+  "validation": {
+    "runtime": {
+      "Python": "3.12.13",
+      "PyTorch": "2.14.1",
+      "JAX": "0.11.2",
+      "JAXlib": "0.11.2",
+      "NumPy": "2.4.6",
+      "SciPy": "1.17.1",
+      "NumPy路径": "/tmp/study-source1-dl-runtime/numpy/__init__.py",
+      "测试设备": "CPU",
+      "JAX设备": [
+        "cpu:0"
+      ],
+      "梯度烟测": "PyTorch/JAX对x²均得[2,4]通过",
+      "配置": "临时PyPI wheel隔离目录，未修改全局Python安装；没有关闭OpenMP重复检查；未下载数据或模型"
+    },
+    "formal_programs": [
+      {
+        "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+        "block": 1,
+        "line": 37,
+        "sha256": "2c4608aed4515e58373c6cee9dcf2ab248369cdd5ee99b7a2b1a5a0e81cfa11d",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 1.436,
+        "stdout": "GAN机制loss 0.893 0.761 样本形状 (4, 1, 8, 8)\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+        "block": 2,
+        "line": 146,
+        "sha256": "db835851e1ce9a3a38d5195678809637d71d7315971b455d67e012fbec3cc358",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.052,
+        "stdout": "前向统计、DDPM与DDIM clean端点通过 [2. 2. 2. 2. 2. 2.]\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+        "block": 3,
+        "line": 189,
+        "sha256": "a3acccac339a0830878a7fa938ff1a26a086af314e14b4463ae12dae07f8c3d8",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.049,
+        "stdout": "flow负时间积分端点 [2. 2. 2. 2. 2. 2.]\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "block": 1,
+        "line": 25,
+        "sha256": "150ada0cbb70bced96d42337dc555e8802ae14f0a263dbdc5372c7c2dc07e920",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.04,
+        "stdout": "CFG的0/1/2 [ 0.2 -0.1] [0.5 0.3] [0.8 0.7]\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "block": 2,
+        "line": 45,
+        "sha256": "250829a838a06a938eab0ecbf7e0f8790a126e3b439df74bb7d358148be502d6",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.506,
+        "stdout": "LoRA参数 20 全权重 24 首轮B有梯度\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "block": 3,
+        "line": 67,
+        "sha256": "5e8b61d68feaf12b36a43a16173deae64ecc30be2c6db43c47a03936610c0d43",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.957,
+        "stdout": "MicroUNet训练loss 0.345 完整短DDPM结果形状 (2, 1, 8, 8)\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "block": 4,
+        "line": 125,
+        "sha256": "38e0b1bf934c25b58408aed93e60b28b475e8d89b7658f1db3d8ae816c5ec4e4",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.914,
+        "stdout": "DiT block初始identity、RF训练和4步形状机制通过\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "block": 5,
+        "line": 187,
+        "sha256": "e2c5f1cf9fe117b7773b736408a4a78884f57e3ad4f0cff7d3b48e0d5bb5aa2a",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.05,
+        "stdout": "采样边界、短片mask和随机seed复现通过\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "block": 6,
+        "line": 217,
+        "sha256": "2b897899407bac2bce1242f44e493623a703fef0963eea84a22d32272bc1a42b",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.503,
+        "stdout": "纯pool逆序不变；I3D inflation内部帧等价通过\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "block": 7,
+        "line": 248,
+        "sha256": "14bc2da37923c66aa1a1829af22e7561d817c85f87fde37aa5f60d21f25f79d5",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.501,
+        "stdout": "3D RoPE范数/相对点积通过\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "sha256": "3a9c704258f4a93fb48aae842ba54451e5021f4f65e8037bc2c3805a7518d15a",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.516,
+        "stdout": "Video patch往返、divided block与梯度通过 (2, 2, 2) (1, 8, 8)\n",
+        "stderr": "",
+        "block": 8,
+        "line": 279,
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "block": 9,
+        "line": 328,
+        "sha256": "05b8115d8a8d2ed901cc813c0a0f0e5fffc3de5a461e990abe3971f2bbbe6245",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.049,
+        "stdout": "动作条件参数 [ 0.95  0.1  -0.  ] 两rollout终点 [-0.673  0.673]\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+        "block": 10,
+        "line": 368,
+        "sha256": "6dd17d86a0eb45956d5bf6b94ab4d4306364c8256635039269e432df81ce58c2",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.046,
+        "stdout": "Fréchet特征代理：相同为0，均值差[1,2]为5\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "block": 1,
+        "line": 23,
+        "sha256": "f5d19c84c0a885551abe3b63f668ecf54b3b9c7881ac3a2f9af3094fd2eaca2e",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.04,
+        "stdout": "投影/反投影/距离与Z/相机世界坐标往返通过\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "block": 2,
+        "line": 65,
+        "sha256": "5c0a822781dce39cebd81b466bbe57a2fe901671b9817c547e407b9917ba6744",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.039,
+        "stdout": "depth对齐oracle与invalid计失败通过 {'AbsRel': inf, 'delta': 0.75, '有效预测率': 0.75}\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "block": 3,
+        "line": 102,
+        "sha256": "8cf734e5144015a59393d971d82a994857a18e42de1c09c1059e3e41005d5c42",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.043,
+        "stdout": "FPS索引 [0 3 1] 带元数据normalize可还原\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "sha256": "d5cc3eeb1539acae470803cc32e5d756534a02913e2e8a59c51da489c59b3cad",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.056,
+        "stdout": "普通点云PLY计数/坐标/float颜色缩放通过\n",
+        "stderr": "",
+        "block": 4,
+        "line": 132
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "block": 5,
+        "line": 169,
+        "sha256": "278ca6d2ce9083045b3ddc156eeaaee227d85c0102644a8092100d3efe2544ee",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.505,
+        "stdout": "共享MLP加对称max：置换不变通过\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "block": 6,
+        "line": 189,
+        "sha256": "66b0ae23b49ef5c272e6fc212caebdb948df9a8be9781a663e8aa0fcefc0a335",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.048,
+        "stdout": "有限slab颜色 [1.       0.367879 0.367879] 权重+透过率 1.0\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "block": 7,
+        "line": 234,
+        "sha256": "cb9205497547628e371d74937adb38daeebd57565cb2fe921d90573deb03ee8d",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.93,
+        "stdout": "单slab可微density 0.5 误差 3.3e-05\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "block": 8,
+        "line": 259,
+        "sha256": "7097dd7beca640c2df10fd9b3c7ddf7537c295324d44380599e7be306cf14fba",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.517,
+        "stdout": "两ray TinyRadianceField→有限体渲染→梯度连通通过 torch.Size([2, 3])\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "block": 9,
+        "line": 320,
+        "sha256": "e598e836f5140621d9fd0f1175f159b9fa4b9daa149ceea1d47306ee5199500f",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.041,
+        "stdout": "Gaussian中心pixel [48.667 30.667] screen covariance eigenvalues [ 44.753 100.05 ]\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "block": 10,
+        "line": 343,
+        "sha256": "0214d201339bd87abff02f3b76ef5b3c103fb3ac34a3fca6752f43e873c5ab2d",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.935,
+        "stdout": "2D splat MSE前后 0.01528 2e-05 排序depth grad=None\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      },
+      {
+        "file": "AI 算法基础/感知与多模态专题/10-几何深度与三维表示.md",
+        "block": 11,
+        "line": 389,
+        "sha256": "d877726608cf163819d69ba611048fe83de99de3ff0203241c2b5d03ec0e16f3",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.166,
+        "stdout": "SH degree3为16项、degree0颜色与方向无关通过\n",
+        "stderr": "",
+        "验证复用": "最终代码SHA一致，复用本批实际执行，不重复运行"
+      }
+    ],
+    "structure_errors": [],
+    "source_probes": [
+      {
+        "lesson": "09-image-generation-gans",
+        "scope": "仅指定CPU微型/原缺陷探针；未执行原下载/权重/大训练入口",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 1.146,
+        "stdout": "原GAN一批 (1.2638897895812988, 0.7241922616958618)\n仅原小参数一批/shape，未跑完整400图5epoch或图像质量验收\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "10-image-generation-diffusion",
+        "scope": "仅指定CPU微型/原缺陷探针；未执行原下载/权重/大训练入口",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.922,
+        "stdout": "原DDIM oracle clean端点误差 1.1094058752059937 末端仍abar0= 0.8999999761581421\n原UNet单批训练loss 1.059057354927063\n未训练原100图全流程/完整生成质量\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "11-stable-diffusion",
+        "scope": "仅指定CPU微型/原缺陷探针；未执行原下载/权重/大训练入口",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.495,
+        "stdout": "\n[cfg sweep values to try on a real pipeline]\n  w=  1.0  expected: unconditional\n  w=  3.0  expected: creative but weak prompt adherence\n  w=  5.0  expected: standard\n  w=  7.5  expected: standard\n  w= 10.0  expected: strong adherence, possible oversaturation\n  w= 15.0  expected: heavy artefacts\n只执行显示stub；w=1数学上conditional，原显示unconditional错误。未执行任何pipeline/下载\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "12-video-understanding",
+        "scope": "仅指定CPU微型/原缺陷探针；未执行原下载/权重/大训练入口",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.51,
+        "stdout": "原sampler短片 [0, 1, 2, 2, 2, 2, 2, 2]\n原sampler T=0触发未校验的ZeroDivisionError\n原小通道(2+1)D参数 136 full3D无bias参数 54\n只白名单采样/inflation/(2+1)D，未导入torchvision/预训练ResNet\n",
+        "stderr": "",
+        "initial_failure": {
+          "returncode": 1,
+          "stderr": "Traceback (most recent call last):\n  File \"/tmp/study-source1-cvgen-source-probes/12-video-understanding.py\", line 15, in <module>\n    print('原sampler短片',sample_uniform(3,8),'T=0返回',sample_uniform(8,0))\n                                                        ^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/study-source1-ai-engineering/phases/04-computer-vision/12-video-understanding/code/main.py\", line 12, in sample_uniform\n    step = num_frames_total / T\n           ~~~~~~~~~~~~~~~~~^~~\nZeroDivisionError: division by zero\n",
+          "reason": "对T=0原函数未经校验ZeroDivisionError未在第一版probe捕获；复核时显式记录原边界缺陷"
+        }
+      },
+      {
+        "lesson": "13-3d-vision-nerf",
+        "scope": "仅指定CPU微型/原缺陷探针；未执行原下载/权重/大训练入口",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.501,
+        "stdout": "原pointnet排列差 0.0 NeRF随机前向shape与单ray torch.Size([3]) 1.7591683864593506\n没有真实多视训练，不把最后无限delta当有限far解析\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "22-3d-gaussian-splatting",
+        "scope": "仅指定CPU微型/原缺陷探针；未执行原下载/权重/大训练入口",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.516,
+        "stdout": "原2D splat输出 torch.Size([8, 8, 3]) learned depth grad=None，排序不可微\nSH基形状；未跑原300step48splat或真实3D reconstruction\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "23-diffusion-transformers-rectified-flow",
+        "scope": "仅指定CPU微型/原缺陷探针；未执行原下载/权重/大训练入口",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.922,
+        "stdout": "原TinyDiT一批loss 1.966058611869812 4step仅shape/finite，不是Schnell质量\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "26-monocular-depth",
+        "scope": "仅指定CPU微型/原缺陷探针；未执行原下载/权重/大训练入口",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.504,
+        "stdout": "原float[0,1]颜色直接astype变0/0/1反例 0.0000 0.0000 1.0000 0 0 1\n原指标/反投影程序不代表任何真实depth model推理\n",
+        "stderr": ""
+      },
+      {
+        "lesson": "28-world-models-video-diffusion",
+        "scope": "仅指定CPU微型/原缺陷探针；未执行原下载/权重/大训练入口",
+        "status": "通过",
+        "returncode": 0,
+        "seconds": 0.511,
+        "stdout": "原VideoDiT结构shape torch.Size([1, 8, 8]) (2, 2, 2) token count 202500\n没有noise time/action目标/训练/采样/decoder，不称真实视频worldmodel\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "not_run": [
+    "真实SD/diffusers/LoRA主体训练、真实GAN/image质量、完整原TinyDiT/DDPM大训练未执行",
+    "真实camera/cube多视NeRF、3DGS SfM/densification/GPU tile训练与viewer往返未执行",
+    "DA3/MiDaS/Marigold/UniDepth等weights/dataset未下载或推理；只合成metrics/geometry/PLY",
+    "torchvision预训练FramePool、真实Kinetics/UCF/SSv2及大R(2+1)D训练未运行，只白名单与自写小CNN",
+    "任何视频API/外部服务、Genie/Dreamer视频/机器人闭环未运行；只低维动作条件与结构toy",
+    "历史UDL12 Notebook导航保留，本批未重新运行这些旧实验"
+  ],
+  "status": "24个正式独立CPU程序全部通过；9份原源指定微probe通过且明确原缺陷；3文件冻结待root统一验收/提交",
+  "统一验收日期": "2026-10-04",
+  "整体完成边界": "本批仅第1来源Phase04二十八课；第1来源和五站任务尚未完成。",
+  "SHA与后续文字调整说明": "源文件SHA/GitBlob保持原始读取证据；组交接时整篇正文SHA保留原记录。根收尾的交叉导航/LoRA缩放说明不改程序，最终正文文件SHA在04-计算机视觉统一检查.json；最终代码块SHA已与本批真实运行逐项核对。"
+}

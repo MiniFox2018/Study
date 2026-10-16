@@ -110,7 +110,7 @@ safe_substitute 对缺失占位符不抛 KeyError，而是保留原文本。
 import re
 
 text = "order=AB-1234"
-match = re.search(r"([A-Z]{2})-(d{4})", text)
+match = re.search(r"\b([A-Z]{2})-(\d{4})\b", text)
 
 if match:
     prefix, number = match.groups()

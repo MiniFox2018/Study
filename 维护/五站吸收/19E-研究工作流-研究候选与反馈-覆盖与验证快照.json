@@ -1,0 +1,855 @@
+{
+  "date": "2026-10-12",
+  "status": "三课正式融合，根复核说明及新合同输入边界修正完成；根最终批次验收仍由root负责",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "lessons": [
+    {
+      "lesson": "50-hypothesis-generator",
+      "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/50-hypothesis-generator/code/main.py",
+          "bytes": 10404,
+          "sha256": "4ab5416d0d2de80ed89e777042c804f754e327f5086d0189d5c27c5a023e15ae",
+          "read_scope": "全文静读，未import/调用/运行"
+        },
+        {
+          "path": "phases/19-capstone-projects/50-hypothesis-generator/code/tests/test_generator.py",
+          "bytes": 6482,
+          "sha256": "429d3b4d73448093f69f080cd98bf8bea508b05ba9447be30af892b4c5035bc1",
+          "read_scope": "全文静读，未import/调用/运行"
+        },
+        {
+          "path": "phases/19-capstone-projects/50-hypothesis-generator/docs/en.md",
+          "bytes": 7502,
+          "sha256": "4ba3d9e0eef1b1436ec2f46e91c9527f07ee9f908778fa0b015d36ea35cec146",
+          "read_scope": "全文静读，未import/调用/运行"
+        },
+        {
+          "path": "phases/19-capstone-projects/50-hypothesis-generator/quiz.json",
+          "bytes": 3604,
+          "sha256": "8f4b80fb55de213f386ba4e7c444201053e70bd478e65278bbd18bfe2ca25b50",
+          "read_scope": "全文静读，未import/调用/运行"
+        }
+      ],
+      "heading_count": 11,
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "从研究问题生成可测的候选队列",
+          "main_line": 570,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#从研究问题生成可测的候选队列",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Why generate, then filter",
+          "source_line": 17,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "从研究问题生成可测的候选队列",
+          "main_line": 570,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#从研究问题生成可测的候选队列",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## The Hypothesis shape",
+          "source_line": 25,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "从研究问题生成可测的候选队列",
+          "main_line": 570,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#从研究问题生成可测的候选队列",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Architecture",
+          "source_line": 48,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "从研究问题生成可测的候选队列",
+          "main_line": 570,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#从研究问题生成可测的候选队列",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Temperature ramp",
+          "source_line": 66,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "温度计划、脚本桶与词面重复",
+          "main_line": 582,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#温度计划脚本桶与词面重复",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Novelty filter",
+          "source_line": 72,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "温度计划、脚本桶与词面重复",
+          "main_line": 582,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#温度计划脚本桶与词面重复",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Rank score",
+          "source_line": 78,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "排名分、队列消费与证据交接",
+          "main_line": 600,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#排名分队列消费与证据交接",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Mock language model",
+          "source_line": 90,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "温度计划、脚本桶与词面重复",
+          "main_line": 582,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#温度计划脚本桶与词面重复",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Output queue",
+          "source_line": 102,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "排名分、队列消费与证据交接",
+          "main_line": 600,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#排名分队列消费与证据交接",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 108,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "排名分、队列消费与证据交接",
+          "main_line": 600,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#排名分队列消费与证据交接",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Where this slots in",
+          "source_line": 114,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "从研究问题生成可测的候选队列",
+          "main_line": 570,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#从研究问题生成可测的候选队列",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        }
+      ],
+      "quiz_count": 6,
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original_question": "Why does the generator produce a ranked queue instead of a single hypothesis?",
+          "source_correct_index": 0,
+          "source_correct_answer": "Because the runner needs depth so it can pop the next hypothesis when the first one fails",
+          "chinese_question": "生成器为什么输出有排名的队列，而不是单个假设？",
+          "chinese_explanation": "原A。后续失败时可取下一个，摊销预先生成开销；不是因为mock只返回列表、向量必须多输入或parser不能读单块。真实成本收益、失败归因与预算仍需测量。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original_question": "What does the temperature ramp accomplish on each pass?",
+          "source_correct_index": 0,
+          "source_correct_answer": "It widens the sampling distribution so later drafts can land further from the seed",
+          "chinese_question": "每轮提高温度计划希望达到什么？",
+          "chinese_explanation": "原A。对真实采样希望扩大候选变化，给去重保留不同提议；不改变向量维度、parser容错或把seed乘三。该mock实际查桶，不保证温度升高就更正确或更新颖。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original_question": "When does the novelty filter reject a draft?",
+          "source_correct_index": 1,
+          "source_correct_answer": "When its minimum cosine distance to any prior survivor falls below the novelty threshold",
+          "chinese_question": "novelty filter何时拒绝草稿？",
+          "chinese_explanation": "原B。当它与此前接受者的最小余弦距离小于阈值；不是rank低或pass超过队列长度。源比较为 `<`，等阈接受；中文零向量和语义查新须另处理。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original_question": "Which three components combine in the rank score?",
+          "source_correct_index": 1,
+          "source_correct_answer": "Novelty, specificity, testability",
+          "chinese_question": "rank由哪三个部分组合？",
+          "chinese_explanation": "原B。词面novelty、变量具体度specificity、可测性testability的加权和；不是延迟吞吐费用或温度seed轮次。字段数与基线字符串只是代理指标，且源N范围可到2，rank不能当置信概率。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        },
+        {
+          "number": 5,
+          "stage": "check",
+          "original_question": "Why is the mock language model keyed on a temperature bucket rather than the raw float?",
+          "source_correct_index": 0,
+          "source_correct_answer": "Because buckets make the schedule discrete so a small temperature change can pick a different scripted draft",
+          "chinese_question": "mock为什么用温度桶而非原始浮点数作查表键？",
+          "chinese_explanation": "原A。把连续计划离散到有限脚本，跨桶时可换草稿；并非float不能hash、parser要求整数或embedding要求。邻近温度未跨桶仍同脚本，seed在单条库也不增加多样性。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        },
+        {
+          "number": 6,
+          "stage": "check",
+          "original_question": "What happens if every draft from the mock model fails the parser?",
+          "source_correct_index": 1,
+          "source_correct_answer": "The queue is empty and each pass logs a parse rejection so the failure mode is auditable",
+          "chinese_question": "全部mock草稿都解析失败会怎样？",
+          "chinese_explanation": "原B。返回空队列，每pass记录parse rejection，能解释这一失败；不会自动降低novelty阈值或改prompt重试。源仅捕获ParserError，其他异常不因此得到统一可审计终态。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        }
+      ],
+      "numbered_source_exercises": [],
+      "practice": {
+        "independent_numbered_exercises": false,
+        "going_further_count": 0,
+        "main_heading": "排名分、队列消费与证据交接",
+        "scope": "原扩展建议及开放验收条件保留；50没有Going further，不补造原练习"
+      },
+      "dynamic_scope": "noveltyRamp温度/分数预设，非采样",
+      "source_executed": false,
+      "formal_written": true,
+      "root_acceptance_pending": true
+    },
+    {
+      "lesson": "55-critic-loop",
+      "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/55-critic-loop/code/main.py",
+          "bytes": 12246,
+          "sha256": "1429bd564cbd86543c7b14d03f106d64d08c49fd9f4e7a3c6fa8bfc5c344e94e",
+          "read_scope": "全文静读，未import/调用/运行"
+        },
+        {
+          "path": "phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py",
+          "bytes": 7179,
+          "sha256": "6014a13e4423f17795ebf7610048121257a013b7239209b8028cc89caed4ed75",
+          "read_scope": "全文静读，未import/调用/运行"
+        },
+        {
+          "path": "phases/19-capstone-projects/55-critic-loop/docs/en.md",
+          "bytes": 7323,
+          "sha256": "59d2590ccd9cd9851c962cc440e0569a41080c4e20dc92bd1955ccd0002c7775",
+          "read_scope": "全文静读，未import/调用/运行"
+        },
+        {
+          "path": "phases/19-capstone-projects/55-critic-loop/quiz.json",
+          "bytes": 3642,
+          "sha256": "db5d9c9ab0c74172af6e46184d8a80f901d0f28bd7577f19f9da661ae17e46ee",
+          "read_scope": "全文静读，未import/调用/运行"
+        }
+      ],
+      "heading_count": 11,
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "结构化批评与稿件修订：反馈必须落到版本和证据",
+          "main_line": 663,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#结构化批评与稿件修订反馈必须落到版本和证据",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Why five fixed dimensions",
+          "source_line": 22,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "五维评分怎样连接真实检查",
+          "main_line": 669,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#五维评分怎样连接真实检查",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## The Critique shape",
+          "source_line": 42,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "修订回执、重评与回滚",
+          "main_line": 683,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#修订回执重评与回滚",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Convergence rules, in order",
+          "source_line": 55,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "达标、平台和预算是不同终态",
+          "main_line": 691,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#达标平台和预算是不同终态",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Why plateau detection runs over two rounds",
+          "source_line": 74,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "达标、平台和预算是不同终态",
+          "main_line": 691,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#达标平台和预算是不同终态",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## The deterministic critic in this lesson",
+          "source_line": 78,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "原critic的评分、图示与扩展实践",
+          "main_line": 905,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#原critic的评分图示与扩展实践",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## The full loop contract",
+          "source_line": 92,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "修订回执、重评与回滚",
+          "main_line": 683,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#修订回执重评与回滚",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## The Trace output",
+          "source_line": 114,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "修订回执、重评与回滚",
+          "main_line": 683,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#修订回执重评与回滚",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Budgets that protect against bad critics",
+          "source_line": 118,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "达标、平台和预算是不同终态",
+          "main_line": 691,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#达标平台和预算是不同终态",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 122,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "原critic的评分、图示与扩展实践",
+          "main_line": 905,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#原critic的评分图示与扩展实践",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Going further",
+          "source_line": 128,
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "原critic的评分、图示与扩展实践",
+          "main_line": 905,
+          "main_link": "Agentic Design Patterns/01-核心章节/09-学习和适应.md#原critic的评分图示与扩展实践",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        }
+      ],
+      "quiz_count": 6,
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original_question": "Why does the critic score across five fixed dimensions instead of returning a freeform paragraph?",
+          "source_correct_index": 3,
+          "source_correct_answer": "Because a fixed vector lets the harness detect per-dimension regressions across rounds",
+          "chinese_question": "为什么按五个固定维度评分，而不只返回自由文字段落？",
+          "chinese_explanation": "原D。向量提供可比较字段，便于发现逐维回退；自由文字也可核查，向量不自动有真值。源码只用mean判断平台，并未实现题意所暗示的全部回归门禁。",
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "六道原测验的中文问题与解释"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original_question": "In what order does the loop check stop conditions at the end of a round?",
+          "source_correct_index": 3,
+          "source_correct_answer": "Target, then plateau, then budget",
+          "chinese_question": "每轮结束按什么顺序检查停止条件？",
+          "chinese_explanation": "原D，target→plateau→budget。先确定五维达标，再检查低收益停止，最后预算；源码reviser的最后预算行为仍需修复。顺序使同轮多条件结果稳定，不使平台成为学术合格。",
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "六道原测验的中文问题与解释"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original_question": "Why does plateau detection require two consecutive flat rounds rather than one?",
+          "source_correct_index": 1,
+          "source_correct_answer": "Because deterministic scoring still has noise per round; one flat round is not enough signal",
+          "chinese_question": "为什么平台观察两段连续小变化，而非一段？",
+          "chinese_explanation": "原B的理由是避免单轮变化误停。必要更正：确定性评分在固定稿件上没有随机噪声，修改顺序／输入变化才影响分数；两段只能形成自设停止政策，不证明稿件真的再无改进。",
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "六道原测验的中文问题与解释"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original_question": "What does the reviser receive as input each round?",
+          "source_correct_index": 3,
+          "source_correct_answer": "The paper and the list of Suggestion records",
+          "chinese_question": "每轮reviser接收什么输入？",
+          "chinese_explanation": "原D，paper与Suggestion记录列表。每条记录说明dimension、目标section与edit，reviser不直接收评分；接口可替换，但需实际diff、版本与no-op说明，不能借结构声称没有共享可变状态。",
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "六道原测验的中文问题与解释"
+        },
+        {
+          "number": 5,
+          "stage": "post",
+          "original_question": "What does the trace contain for each round?",
+          "source_correct_index": 3,
+          "source_correct_answer": "Round number, score vector, mean, suggestions applied, verdict",
+          "chinese_question": "trace逐轮包含什么？",
+          "chinese_explanation": "原D，round、score vector、mean、suggestions_applied和verdict。它能支持分数轨迹与诊断；源码applied常是计划建议条数，未执行或no-op时仍可能误记，需改为真实回执并绑定稿件版本。",
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "六道原测验的中文问题与解释"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "original_question": "A critic that keeps emitting suggestions that never improve any score will produce which terminal verdict?",
+          "source_correct_index": 2,
+          "source_correct_answer": "plateau or budget, because the harness will catch the lack of progress",
+          "chinese_question": "critic持续提建议但所有评分都没有提高，会产生什么终态？",
+          "chinese_explanation": "原C，plateau或budget。有限循环会结束，但源plateau也叫converged，不能说它“从不会默默成功”；外部检查reason与五维目标。保留不合格状态和原因，再诊断critic、reviser、目标或证据问题，不能凭这一轨迹唯一归因。",
+          "main_file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+          "main_heading": "六道原测验的中文问题与解释"
+        }
+      ],
+      "numbered_source_exercises": [],
+      "practice": {
+        "independent_numbered_exercises": false,
+        "going_further_count": 2,
+        "main_heading": "原critic的评分、图示与扩展实践",
+        "scope": "原扩展建议及开放验收条件保留；50没有Going further，不补造原练习"
+      },
+      "dynamic_scope": "chCritic五维预设，无评分与回归执行",
+      "source_executed": false,
+      "formal_written": true,
+      "root_acceptance_pending": true
+    },
+    {
+      "lesson": "56-iteration-scheduler",
+      "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+      "source_files": [
+        {
+          "path": "phases/19-capstone-projects/56-iteration-scheduler/code/main.py",
+          "bytes": 12089,
+          "sha256": "9efecbd00dd3c81ea776b3b6599f38b83b3a11dc18a7545374782ab4f5a306f1",
+          "read_scope": "全文静读，未import/调用/运行"
+        },
+        {
+          "path": "phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py",
+          "bytes": 7872,
+          "sha256": "f4ad64c80d8fe9bbc3d349723508fde2dc479f68133bb9683931d884dd15fd67",
+          "read_scope": "全文静读，未import/调用/运行"
+        },
+        {
+          "path": "phases/19-capstone-projects/56-iteration-scheduler/docs/en.md",
+          "bytes": 7115,
+          "sha256": "a5397d72c31c163366db46935f5c20beb12efd8130dd59e6d8272461c31a45b4",
+          "read_scope": "全文静读，未import/调用/运行"
+        },
+        {
+          "path": "phases/19-capstone-projects/56-iteration-scheduler/quiz.json",
+          "bytes": 3452,
+          "sha256": "6c8737c7f5a498c7dedabbdee60a11e8f8cc52b61d9b139631b5b9ea5a87a4f9",
+          "read_scope": "全文静读，未import/调用/运行"
+        }
+      ],
+      "heading_count": 12,
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "用 UCB 分配下一次实验机会",
+          "main_line": 608,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#用-ucb-分配下一次实验机会",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Why a scheduler, not a worklist",
+          "source_line": 22,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "用 UCB 分配下一次实验机会",
+          "main_line": 608,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#用-ucb-分配下一次实验机会",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## The system shape",
+          "source_line": 28,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "并发预留、尝试账本与有界停止",
+          "main_line": 620,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#并发预留尝试账本与有界停止",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## The Hypothesis shape",
+          "source_line": 46,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "用 UCB 分配下一次实验机会",
+          "main_line": 608,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#用-ucb-分配下一次实验机会",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## UCB scoring",
+          "source_line": 60,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "用 UCB 分配下一次实验机会",
+          "main_line": 608,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#用-ucb-分配下一次实验机会",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Parallel slots with asyncio",
+          "source_line": 72,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "并发预留、尝试账本与有界停止",
+          "main_line": 620,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#并发预留尝试账本与有界停止",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Fan-out: paper triggers",
+          "source_line": 93,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "剪枝、写作触发与持久恢复",
+          "main_line": 632,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#剪枝写作触发与持久恢复",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Fan-out: follow-up hypotheses",
+          "source_line": 97,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "剪枝、写作触发与持久恢复",
+          "main_line": 632,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#剪枝写作触发与持久恢复",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Budgets",
+          "source_line": 101,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "并发预留、尝试账本与有界停止",
+          "main_line": 620,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#并发预留尝试账本与有界停止",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## The Trace and final report",
+          "source_line": 112,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "并发预留、尝试账本与有界停止",
+          "main_line": 620,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#并发预留尝试账本与有界停止",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 116,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "剪枝、写作触发与持久恢复",
+          "main_line": 632,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#剪枝写作触发与持久恢复",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        },
+        {
+          "source_heading": "## Going further",
+          "source_line": 122,
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "剪枝、写作触发与持久恢复",
+          "main_line": 632,
+          "main_link": "Agentic Design Patterns/01-核心章节/06-规划.md#剪枝写作触发与持久恢复",
+          "written": true,
+          "disposition": "原理与教学正文融合；合成/缺口/图示边界在关联正文解释，非镜像来源"
+        }
+      ],
+      "quiz_count": 6,
+      "quiz": [
+        {
+          "number": 1,
+          "stage": "pre",
+          "original_question": "Why does the scheduler use UCB scoring instead of always picking the current best branch?",
+          "source_correct_index": 3,
+          "source_correct_answer": "Because greedy picks never explore; UCB balances exploitation with exploration",
+          "chinese_question": "为什么用UCB而非始终选择当前最高均值分支？",
+          "chinese_explanation": "原D。均值负责利用，少试分支的bonus提供探索；不因asyncio要求、队列无法排序或必然更快。是否有效取决于奖励与任务条件，不能宣称得到最有价值科研结果。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        },
+        {
+          "number": 2,
+          "stage": "pre",
+          "original_question": "What score does a branch with zero completed runs receive under UCB1?",
+          "source_correct_index": 0,
+          "source_correct_answer": "Positive infinity, so untried branches are always picked first",
+          "chinese_question": "零次完成反馈的分支在源UCB中得到什么分数？",
+          "chinese_explanation": "原A，正无穷。它表达优先尝试，不是均值0或常数c；并发时还要pending预留，源码本身不保证每branch先一次再重复。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        },
+        {
+          "number": 3,
+          "stage": "check",
+          "original_question": "How does the scheduler keep multiple slots busy?",
+          "source_correct_index": 0,
+          "source_correct_answer": "It uses asyncio.create_task per dispatched hypothesis and awaits FIRST_COMPLETED on the in-flight set",
+          "chinese_question": "调度器怎样保持多个slot有工作？",
+          "chinese_explanation": "原A。每次派发create_task，对in-flight集合等待FIRST_COMPLETED，再释放slot继续派；不是线程池／multiprocessing，阻塞sleep会阻塞event loop。可让出执行与CPU并行应分开核验。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        },
+        {
+          "number": 4,
+          "stage": "check",
+          "original_question": "When does the scheduler emit a paper.trigger for a branch?",
+          "source_correct_index": 3,
+          "source_correct_answer": "On the first result whose branch mean meets or exceeds the paper threshold, and only once per branch",
+          "chinese_question": "何时发paper.trigger？",
+          "chinese_explanation": "原D。首次某branch均值至少达到阈值且其flag未置时发一次；不是每结果、到prune floor或仅最后。事件表示交给写作候选，后续退化与证据完整性仍要传递。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        },
+        {
+          "number": 5,
+          "stage": "post",
+          "original_question": "What happens to a branch whose mean reward stays below the prune floor after the minimum-runs threshold?",
+          "source_correct_index": 2,
+          "source_correct_answer": "The branch is marked pruned and remaining hypotheses on that branch are removed from the queue",
+          "chinese_question": "最低次数后均值低于prune floor的分支会怎样？",
+          "chinese_explanation": "原C。标pruned并移除队列中的该branch项；排序与剪枝分工不同。pending仍可能完成，源expander还可重塞，需正式协议防止意外重入。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        },
+        {
+          "number": 6,
+          "stage": "post",
+          "original_question": "Which two budgets does the scheduler enforce as hard limits?",
+          "source_correct_index": 3,
+          "source_correct_answer": "max_experiments (total runs) and max_seconds (wall clock)",
+          "chinese_question": "原课称哪两种预算为hard limits？",
+          "chinese_explanation": "原D为max_experiments与max_seconds。必要更正：前者约束派发attempt数，后者只停新派发，wait/drain未有界，不能称源码已有hard wall cap；CPU／内存、队列深度和费用也不是这两参数已覆盖的资源。",
+          "main_file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+          "main_heading": "候选生成与调度的原测验核对"
+        }
+      ],
+      "numbered_source_exercises": [],
+      "practice": {
+        "independent_numbered_exercises": false,
+        "going_further_count": 3,
+        "main_heading": "剪枝、写作触发与持久恢复",
+        "scope": "原扩展建议及开放验收条件保留；50没有Going further，不补造原练习"
+      },
+      "dynamic_scope": "chScheduler固定UCB标签与prune，无调度执行",
+      "source_executed": false,
+      "formal_written": true,
+      "root_acceptance_pending": true
+    }
+  ],
+  "files": {
+    "Agentic Design Patterns/01-核心章节/06-规划.md": {
+      "old_sha256": "53196bc59e6e995fd2e981fc1d446557e4df37ec34ab6501ca42d2113b956aae",
+      "sha256": "80bf30d4d92f67f6a3579eb04c2686230462de62d18134a98579bd5b0ccf7a66",
+      "old_bytes": 54519,
+      "new_bytes": 73003,
+      "old_prefix_preserved": true,
+      "all_old_dates_preserved": true,
+      "old_code_blocks": 2,
+      "new_total_code_blocks": 2,
+      "added_code_blocks": 0,
+      "old_block_sha256": [
+        "d97e984334ddfdaa845948b6e7683dec4623cd6f528adfc8f1a63c1dab349a5b",
+        "748afc06ea1c98a2aaeaf2cdb787a5b4e667482ef159bf7db7c2962deb906830"
+      ],
+      "new_block_sha256": [],
+      "added_prose_bytes": 18484,
+      "block_sha_boundary": "old_block_sha256/new_block_sha256不含围栏及内容后的分隔LF；含最后LF的程序SHA另列，以new_example为实际运行边界",
+      "new_block_sha256_including_final_LF": []
+    },
+    "Agentic Design Patterns/01-核心章节/09-学习和适应.md": {
+      "old_sha256": "1f2d47bfbb9fe6ce23325f52121ef1b0f7091de9e15a72fcc4967f29560d4809",
+      "sha256": "14e2f7207e7d07390dca5ac371f644edf86ba7fd6b3775f2b57be7168892dfcc",
+      "old_bytes": 54806,
+      "new_bytes": 76133,
+      "old_prefix_preserved": true,
+      "all_old_dates_preserved": true,
+      "old_code_blocks": 3,
+      "new_total_code_blocks": 4,
+      "added_code_blocks": 1,
+      "old_block_sha256": [
+        "9529b9b28a1bc476523076f5f6633a337475a5a9e9f91411f6a03df429bf838b",
+        "971a79dd4b2259e370cc5e04eb8fa2ddebbd4caf1946365bbcf6db595add50ef",
+        "869ae231e39aff903c64a1c01ad28585a379778d6c55e3e776d51f97a43c20b6"
+      ],
+      "new_block_sha256": [
+        "bbd41ba44857a64dbadc482719b7a4831a5423ef5106651e7d162835ef5b00a1"
+      ],
+      "added_prose_bytes": 21327,
+      "block_sha_boundary": "old_block_sha256/new_block_sha256不含围栏及内容后的分隔LF；含最后LF的程序SHA另列，以new_example为实际运行边界",
+      "new_block_sha256_including_final_LF": [
+        "c842e0a8d7c1dfe320bf7b9e84d600fe8d918ecac637a52e1261753ab5724c3a"
+      ]
+    }
+  },
+  "new_example": {
+    "path": "/tmp/study-critic-version-contract.py",
+    "sha256": "c842e0a8d7c1dfe320bf7b9e84d600fe8d918ecac637a52e1261753ab5724c3a",
+    "official_fenced_block_sha256_including_final_LF": "c842e0a8d7c1dfe320bf7b9e84d600fe8d918ecac637a52e1261753ab5724c3a",
+    "fenced_block_equals_script": true,
+    "hash_boundary": "仅Python围栏内容含最后LF；不含围栏标记；脚本无额外preamble",
+    "exit_code": 0,
+    "stdout": "版本绑定/修订重评、真实diff/no-op、非法向量/协议拒绝、均值掩盖回退均核对通过\n构造与消费边界：bool版本/轮次、手工20分/错tuple/NaN/巨大整数均拒；旧稿和no-op状态不变\n合成mean=8.442/8.524/8.606；r5 stopped/plateau，clarity=7.03<8；target优先于平台与预算\n仅标准库CPU合同例；未评分真实论文、未执行来源critic或实验\n",
+    "stderr": "",
+    "environment": {
+      "python": "3.12.13",
+      "platform": "macOS-26.4.1-arm64-arm-64bit",
+      "processor": "arm64"
+    },
+    "source_program": false,
+    "new_standard_library_contract_examples": 1,
+    "root_review_targeted_run_count": 1
+  },
+  "structural_check": {
+    "command": "python3 tools/check_knowledge.py",
+    "exit_code": 0,
+    "stdout": "检查文档625篇（主库312篇），本地链接4057处；Notebook93个结构有效、1个已登记空文件；SVG395个有效；来源校验969个；结构检查通过。",
+    "boundary": "同站并行写作时的结构快照，不替代专业审阅或root最后检查"
+  },
+  "math_checks": {
+    "method": "独立标准库math标量计算，未调用来源函数",
+    "ucb_A": 1.458713564692573,
+    "ucb_B": 2.0174271293851467,
+    "cosine_distance_20_degrees": 0.06030737921409157,
+    "cosine_distance_40_degrees": 0.233955556881022
+  },
+  "boundaries": {
+    "source_programs_executed": 0,
+    "source_tests_executed": 0,
+    "candidate_experiments": 0,
+    "sites2_5_read": false,
+    "LLM_API": 0,
+    "GPU": 0,
+    "installs": 0,
+    "services_started": 0,
+    "real_paper_scoring": false,
+    "Git_nav_master_ledger_modified": false,
+    "new_contract_example_count": 1,
+    "old_examples_rerun": false
+  },
+  "reused_existing_content": [
+    {
+      "file": "Agentic Design Patterns/01-核心章节/06-规划.md",
+      "heading": "完整离线例：预算预留、未知费用和超额结算",
+      "purpose": "复用Ledger解释费用预留、失败与未知账，不另造预算程序"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/09-学习和适应.md",
+      "heading": "完整离线例：外部票据、逐案例门禁与日志锚",
+      "purpose": "复用可信成绩/产物绑定与逐case回退，新增稿件版本合同只补重评"
+    }
+  ],
+  "official_verification": [
+    {
+      "url": "https://homes.di.unimi.it/~cesabian/Pubblicazioni/ml-02.pdf",
+      "date": "2026-10-12",
+      "route": "agent-reach通用网页Jina Reader，辅web open核一手URL",
+      "scope": "§1–2基本设定、Theorem1/Figure1及§2末固定条件期望的依赖放宽；未读完所有证明，不声称所有异步/动态分支继承后悔界",
+      "retrieved_path": "/tmp/study-50-55-56-ucb-primary.txt",
+      "retrieved_sha256": "5708ef33d4950184b5184a9db09db8e1f5d313a91255369d6efd247a214c189e",
+      "retrieved_bytes": 36411,
+      "successful_nonempty": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/asyncio-task.html",
+      "date": "2026-10-12",
+      "route": "agent-reach通用网页Jina Reader，辅web open核一手URL",
+      "scope": "Task cancellation、wait_for与Waiting primitives：wait不自动cancel、wait_for取消等待可能超时；没有使用高版本新特性",
+      "retrieved_path": "/tmp/study-50-55-56-python-asyncio.txt",
+      "retrieved_sha256": "32e652f66c351803effed6ccf0aea66cb485c69623852a26227929e4dd6dcd49",
+      "retrieved_bytes": 68137,
+      "successful_nonempty": true
+    }
+  ],
+  "counts": {
+    "lessons": 3,
+    "source_files": 12,
+    "true_h2_h4": 34,
+    "quiz": 18
+  },
+  "unverified": [
+    "真实采样/中文embedding改造、真实新颖性与研究效果",
+    "真实UCB并发/pending/持久恢复/强制deadline执行系统",
+    "真实论文评分与critic校准、独立身份/签名票据/完整循环",
+    "来源程序与全部来源测试没有执行；旧例未本轮重复运行",
+    "根代理的专业/全批次验收、维护记录/ledger/导航/Git由root负责"
+  ],
+  "previous_successful_example": {
+    "path": "/tmp/study-critic-version-contract.py",
+    "sha256": "bb4aaf07d55a32177fc932bea4ac5e9769b9bca810ccffa79828aec5d0057ee0",
+    "exit_code": 0,
+    "stdout": "版本绑定/修订重评、真实diff/no-op、非法向量/协议拒绝、均值掩盖回退均核对通过\n合成mean=8.442/8.524/8.606；r5 stopped/plateau，clarity=7.03<8；target优先于平台与预算\n仅标准库CPU合同例；未评分真实论文、未执行来源critic或实验\n",
+    "stderr": "",
+    "environment": {
+      "python": "3.12.13",
+      "platform": "macOS-26.4.1-arm64-arm-64bit",
+      "processor": "arm64"
+    },
+    "source_program": false,
+    "new_standard_library_contract_examples": 1,
+    "preserved_path": "/tmp/study-critic-version-contract-before-root-review.py",
+    "official_fenced_block_sha256_including_final_LF": "bb4aaf07d55a32177fc932bea4ac5e9769b9bca810ccffa79828aec5d0057ee0",
+    "hash_boundary": "修订前Python围栏内容含最后LF，保存脚本无额外preamble"
+  },
+  "root_review_amendments": {
+    "date": "2026-10-12",
+    "UCB": "bonus仅在lnN/ni下降时缩小，ni固定而N增则上升",
+    "input_contract": "Draft构造及消费验证strict正int非bool/非空正文；Evaluation构造及消费验证64hex/protocol/round/五项tuple Fraction范围；先范围再isfinite以拒巨大int",
+    "negative_examples": [
+      "bool revision/round",
+      "手工20分/错tuple/错键/非Fraction/NaN",
+      "巨大int明确ValueError",
+      "合法其他协议hold",
+      "旧hash未重评hold与新版重评绑定",
+      "拒绝和no-op不修改旧状态"
+    ],
+    "runs": "根复核后仅最终新增标准库块针对性运行一次；旧5块未运行"
+  },
+  "root_snapshot_note": "保实际写作/根修改后新程序与历史版本；根另补float64精度说明，不改code/不重跑。最终正式SHA/定位以本覆盖核对为准。"
+}

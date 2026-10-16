@@ -1,0 +1,3678 @@
+{
+  "schema": "phase13-interop-observability-write-v1",
+  "date": "2026-10-08",
+  "source_root": "/tmp/study-source1-ai-engineering-20261008",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "study_baseline": "d2dec7e3ca28d2f5399c9a33d7b667d2672f0b04",
+  "status": "4正文已融合，4新标准库fixture实际exit0；1旧代码同SHA历史复用；根统一专业/结构复核待做，非整Phase或第一来源完成",
+  "scope": "第一来源Phase13原19/20/21/23四课；后四站未读；不改README/来源/维护/Git；不运行来源程序/SDK/server/network/model/OAuth/login/install/真实delegation/外部写",
+  "rules_read": "PROJECT_RULES14–17及Obsidian Markdown技能；source outputs/AGENTS仅资料，不激活",
+  "freeze_reference": {
+    "path": "维护/五站吸收/13-工具与协议-security-ops-只读准备.json",
+    "bytes": 482191,
+    "sha256": "574946e0cc9b8a1e2a140da3404e95384641c171376213d9a66c6593a738cc12",
+    "git_blob_sha": "4ddc1fe89d49de4012d7082b2e56aec6f02c4d19",
+    "frozen_preparation_scope": "原9课56文件，不冒称本写者全9课56文件通读"
+  },
+  "lessons": [
+    {
+      "lesson": "19-a2a-protocol",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/assets/a2a.svg",
+          "bytes": 3718,
+          "sha256": "f0823d48c58d156066c73c4f355c5bea6f6dcff22a10eea2e2f7da506e3e5df5",
+          "git_blob_sha": "c32c5854a877c861a5efb2a4c6b108cd520c7db9",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-66",
+          "line_count": 66,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 3718,
+            "sha256": "f0823d48c58d156066c73c4f355c5bea6f6dcff22a10eea2e2f7da506e3e5df5",
+            "git_blob_sha": "c32c5854a877c861a5efb2a4c6b108cd520c7db9"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/code/main.py",
+          "bytes": 4762,
+          "sha256": "5623c202fef4cdcf44764607bd0ae067a614834801391be473a3378483ca5942",
+          "git_blob_sha": "4d79c7850f82b20d73ea298e4d0318c78b40b1b4",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-155",
+          "line_count": 155,
+          "symbols": [
+            {
+              "name": "Part",
+              "start": 42,
+              "end": 44,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "Message",
+              "start": 48,
+              "end": 50,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "Artifact",
+              "start": 54,
+              "end": 57,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "Task",
+              "start": 61,
+              "end": 68,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "writer_tasks_send",
+              "start": 74,
+              "end": 90,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "writer_tasks_reply",
+              "start": 93,
+              "end": 100,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "finish",
+              "start": 103,
+              "end": 112,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "research_agent_flow",
+              "start": 115,
+              "end": 151,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "append",
+              "start": 67,
+              "end": 68,
+              "kind": "FunctionDef"
+            }
+          ],
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 4762,
+            "sha256": "5623c202fef4cdcf44764607bd0ae067a614834801391be473a3378483ca5942",
+            "git_blob_sha": "4d79c7850f82b20d73ea298e4d0318c78b40b1b4"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/code/main.ts",
+          "bytes": 6120,
+          "sha256": "4f93bbc481d0db3f05cee91db2ccf2547a444b513974a718ff0f5655109df72b",
+          "git_blob_sha": "474aa2cf8fe100638894e62a3f643bf8880255b3",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-210",
+          "line_count": 210,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 6120,
+            "sha256": "4f93bbc481d0db3f05cee91db2ccf2547a444b513974a718ff0f5655109df72b",
+            "git_blob_sha": "474aa2cf8fe100638894e62a3f643bf8880255b3"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/docs/en.md",
+          "bytes": 8735,
+          "sha256": "5c54f7443ce3693f8b9f4b7eb9e37daea2d9b74b2ff37e7afed9835df87dfd9c",
+          "git_blob_sha": "2d877744bad9978bfa0aeedb0787e138f3c7b8e5",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-192",
+          "line_count": 192,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 8735,
+            "sha256": "5c54f7443ce3693f8b9f4b7eb9e37daea2d9b74b2ff37e7afed9835df87dfd9c",
+            "git_blob_sha": "2d877744bad9978bfa0aeedb0787e138f3c7b8e5"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "空文件",
+          "line_count": 0,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/outputs/skill-a2a-agent-spec.md",
+          "bytes": 1692,
+          "sha256": "511dd8e030829a608926d4964af5d79da4329d925d539a0fb0a6ca84cdd65265",
+          "git_blob_sha": "0774c13ed111d02ce93e19872aaed4807e288f22",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-30",
+          "line_count": 30,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 1692,
+            "sha256": "511dd8e030829a608926d4964af5d79da4329d925d539a0fb0a6ca84cdd65265",
+            "git_blob_sha": "0774c13ed111d02ce93e19872aaed4807e288f22"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        }
+      ],
+      "read_notes": [
+        "可保留opaque task delegation与MCP工具调用对比、Task/Message/Part/Artifact/stream/poll概念；protocol不自动暴露chain-of-thought，MCP亦可包装代理，应避免不能使用MCP的绝对说法。",
+        "PY/TS都是in-process dataclass/types模拟，fake-pdf未解析、summary模板不真总结；state transitions到input_required不是当前wire spelling；没有tests/quiz。"
+      ],
+      "code_findings": [
+        "AgentCard.schemaVersion/url/parts.type/tasks/send/.well-known/agent.json为混旧/自定义形状；需要以当前A2A版本重写，不直接带入可运行规范例。",
+        "AP2并非AgentCard签名/鉴权方案；签名证明card真实性与OAuth/mTLS/APIkey request授权不同；HMAC练习只是本地tamper toy，不能称JWS AgentCard规范实现。",
+        "Python Languages声明只有Python但实际main.ts也存在；demo print标lesson18；skill output lesson18。",
+        "writer skill_id不校验，global task store无owner/token/Tenant/TTL/terminal immutability，task reply完成后仍append，数据payload targetLength任意，输入文件忽略；用于CPU lifecycle fixture须修正。",
+        "时间线/支持厂商数/尚无任何framework实现multi-hop的Exercise5不可稳定吸收；不作为唯一答案。",
+        "官方A2A1.0.0必须ProtoJSON enum TASK_STATE_INPUT_REQUIRED/ROLE_USER，Part直接oneof text/raw/url/data、mediaType；card supportedInterfaces/defaultInputModes/defaultOutputModes/skills.tags；不能仅把underscore改hyphen就称current。"
+      ],
+      "figures": [
+        {
+          "path": "phases/13-tools-and-protocols/19-a2a-protocol/assets/a2a.svg",
+          "viewBox": "0 0 960 540",
+          "texts": [
+            "A2A: opaque agent-to-agent task delegation",
+            "research agent (caller)",
+            "MCP tools for source",
+            "retrieval + reasoning",
+            "discovers writer via",
+            "/.well-known/agent.json",
+            "submits Task with",
+            "Message.parts = [",
+            "  text: \"summarize\",",
+            "  file: paper.pdf,",
+            "  data: {len: \"3 par\"}",
+            "]",
+            "tasks/send",
+            "state transitions + artifact",
+            "writer agent (callee, opaque inner state)",
+            "publishes Agent Card",
+            "{name, url, skills, capabilities}",
+            "signed via AP2 (optional)",
+            "submitted",
+            "working",
+            "input_required",
+            "working (resumed)",
+            "completed",
+            "returns Artifact:",
+            "{name: \"summary\", mimeType: \"text/markdown\",",
+            "  parts: [{type: \"text\", text: \"...\"}]}",
+            "opacity",
+            "caller sees state + artifact;",
+            "internal tool calls, sub-agents,",
+            "chain-of-thought all hidden."
+          ],
+          "raw_sha256": "f0823d48c58d156066c73c4f355c5bea6f6dcff22a10eea2e2f7da506e3e5df5",
+          "interpretation": "960x540 research caller→writer callee tasks/send，上下输入Task parts与Card，submitted-working-input_required-resume-completed，artifact返回且内部opaque。",
+          "errors": [
+            "agent.json/tasks/send/input_required/schema AP2 signed均需更新；mimeType置artifact不一定现行Part形状。"
+          ]
+        }
+      ],
+      "document": {
+        "headings": [
+          {
+            "heading": "Learning Objectives",
+            "level": 2,
+            "line": 10
+          },
+          {
+            "heading": "The Problem",
+            "level": 2,
+            "line": 17
+          },
+          {
+            "heading": "The Concept",
+            "level": 2,
+            "line": 29
+          },
+          {
+            "heading": "Agent Card",
+            "level": 3,
+            "line": 31
+          },
+          {
+            "heading": "Signed Agent Cards (AP2)",
+            "level": 3,
+            "line": 57
+          },
+          {
+            "heading": "Task lifecycle",
+            "level": 3,
+            "line": 61
+          },
+          {
+            "heading": "Messages and Parts",
+            "level": 3,
+            "line": 70
+          },
+          {
+            "heading": "Artifacts",
+            "level": 3,
+            "line": 91
+          },
+          {
+            "heading": "Two transport bindings",
+            "level": 3,
+            "line": 105
+          },
+          {
+            "heading": "Opacity preservation",
+            "level": 3,
+            "line": 112
+          },
+          {
+            "heading": "Timeline",
+            "level": 3,
+            "line": 118
+          },
+          {
+            "heading": "Relationship to MCP",
+            "level": 3,
+            "line": 126
+          },
+          {
+            "heading": "Use It",
+            "level": 2,
+            "line": 143
+          },
+          {
+            "heading": "Ship It",
+            "level": 2,
+            "line": 155
+          },
+          {
+            "heading": "Exercises",
+            "level": 2,
+            "line": 159
+          },
+          {
+            "heading": "Key Terms",
+            "level": 2,
+            "line": 171
+          },
+          {
+            "heading": "Further Reading",
+            "level": 2,
+            "line": 186
+          }
+        ],
+        "figures": [
+          "a2a-task-lifecycle\n"
+        ],
+        "learning_objectives": "- Distinguish agent-to-tool (MCP) from agent-to-agent (A2A) use cases.\n- Publish an Agent Card at `/.well-known/agent.json` with skills and endpoint metadata.\n- Walk the Task lifecycle (submitted → working → input-required → completed / failed / canceled / rejected).\n- Use Messages with Parts (text, file, data) and Artifacts as outputs."
+      },
+      "practice_sections": [
+        {
+          "heading": "Use It",
+          "raw": "`code/main.py` implements a minimal A2A harness: a research agent publishes its card, a writer agent receives a `tasks/send` with parts including a PDF and a text instruction, transitions through working → input_required → working → completed, and returns a text artifact. All stdlib; uses an in-memory transport to focus on message shapes.\n\nWhat to look at:\n\n- Agent Card JSON shape.\n- Task id assignment and state transitions.\n- Messages with mixed-type parts.\n- Input-required branch mid-task.\n- Artifact return on completion.",
+          "start_line": 143
+        },
+        {
+          "heading": "Ship It",
+          "raw": "This lesson produces `outputs/skill-a2a-agent-spec.md`. Given a new agent that should be callable by other agents, the skill produces the Agent Card JSON, skills schema, and endpoint blueprint.",
+          "start_line": 155
+        },
+        {
+          "heading": "Exercises",
+          "raw": "1. Run `code/main.py`. Trace the full Task lifecycle, including the input-required pause where the called agent asks for a clarification.\n\n2. Add a signed Agent Card. Sign with HMAC over the card's canonical JSON. Write a verifier and confirm it fails on a mutated card.\n\n3. Implement task streaming: the writer agent emits three incremental artifact chunks over SSE and the caller accumulates them.\n\n4. Design an A2A agent that wraps an MCP server. Map each MCP tool to an A2A skill. Note the trade-offs — what opacity is lost?\n\n5. Read the A2A v1.0 announcement and identify the one feature that is not yet implemented by any framework as of April 2026. (Hint: it relates to multi-hop task delegation.)",
+          "start_line": 159
+        }
+      ],
+      "quiz_present": false,
+      "tests_present": false,
+      "test_methods_defined": [],
+      "test_method_count": 0,
+      "test_execution": "未执行，不称测试通过",
+      "dynamic_figure_records": [
+        {
+          "id": "a2a-task-lifecycle",
+          "actual_provider": "site/figures-systems3.js",
+          "registered_function": "a2aLifecycle",
+          "all_provider_matches_in_order": [
+            "figures-systems3.js"
+          ],
+          "registration_override_rule": "LF.register同ID后值覆盖前值；requiredProviders按build顺序串行加载再mount，生成figure-manifest.js不在固定checkout（gitignored），本次只静态推导，未运行build/browser",
+          "complete_registered_function_read": true,
+          "function_range": [
+            264,
+            302
+          ],
+          "interpretation_and_limits": "8秒Task outbound、四state pills、artifact返回；标签称state opaque与可见状态矛盾，应内部execution opaque；缺resume working/terminal alternatives，仅动画",
+          "all_labels_and_decisions_source": "见shared_source_evidence.excerpts全文相关函数，含scenario labels/stage details/captions/result/evidence",
+          "rendered_or_executed": false,
+          "本写者核对": "已读注册完整函数与相关helper/实际provider顺序/挂载；没有browser/build执行"
+        }
+      ],
+      "H2_H4逐项融合": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "固定协议后再交接任务",
+          "融合判断": "当前合同/生命周期/媒体/权限的独立可学解释",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "固定协议后再交接任务",
+          "融合判断": "跨组织文档抽取输入与协作边界",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 29,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "Message、Task 与 Artifact 各承担什么",
+          "融合判断": "对象、身份与逻辑/传输分层",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Agent Card",
+          "level": 3,
+          "line": 31,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "Agent Card：发现的输出是候选能力与接口",
+          "融合判断": "v1.0.0字段及interface/tenant/media选择",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Signed Agent Cards (AP2)",
+          "level": 3,
+          "line": 57,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "流式结果与 Card 签名的有效边界",
+          "融合判断": "纠正AP2/签名/鉴权/授权；JWS/JCS可选，不沿用toyHMAC",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Task lifecycle",
+          "level": 3,
+          "line": 61,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "状态机、归属与断线恢复",
+          "融合判断": "枚举/owner/TTL/terminal/cancel/replay与持久fixture",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Messages and Parts",
+          "level": 3,
+          "line": 70,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "Message、Task 与 Artifact 各承担什么",
+          "融合判断": "messageId/role/Part oneof与输入输出JSON",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Artifacts",
+          "level": 3,
+          "line": 91,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "流式结果与 Card 签名的有效边界",
+          "融合判断": "artifactId/append/lastChunk/完成与内容验证分开",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Two transport bindings",
+          "level": 3,
+          "line": 105,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "Message、Task 与 Artifact 各承担什么",
+          "融合判断": "补3bindings与现SendMessage/GetTask/CancelTask",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Opacity preservation",
+          "level": 3,
+          "line": 112,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "流式结果与 Card 签名的有效边界",
+          "融合判断": "公开状态可观察、内部执行不透明；MCP也可包装Agent",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Timeline",
+          "level": 3,
+          "line": 118,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "原课五项练习的核对与替代验收",
+          "融合判断": "发布日期/厂商数/尚无任何框架的断言高时效，不作为长期结论",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Relationship to MCP",
+          "level": 3,
+          "line": 126,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "流式结果与 Card 签名的有效边界",
+          "融合判断": "组合场景与一对一适配tradeoff",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 143,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "一个可运行的任务归属、取消与重放实验",
+          "融合判断": "原PY/TS仅静态，本轮自写fixture运行边界",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 155,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "原课五项练习的核对与替代验收",
+          "融合判断": "原flat蓝图为资料；未安装/激活，修其AP2/旧Card要求",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 159,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "原课五项练习的核对与替代验收",
+          "融合判断": "原5项逐一答案/可评判替代protocol",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 171,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "Message、Task 与 Artifact 各承担什么",
+          "融合判断": "定义融合/旧Part路径AP2不沿用",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 186,
+          "target_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+          "target_heading": "固定协议后再交接任务",
+          "融合判断": "固定A2A规范及proto；不靠marketing时间线确定现协议",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        }
+      ],
+      "练习答案与评价": [
+        {
+          "index": 1,
+          "题目主题": "生命周期",
+          "答案或判断protocol": "源码静态working-input_required-working-completed；本fixture当前枚举+暂停/续接/owner/终态/replay已运行",
+          "正文": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md"
+        },
+        {
+          "index": 2,
+          "题目主题": "HMAC Card",
+          "答案或判断protocol": "字节变化MAC失败是局部篡改练习；不是JWS/JCS，真实加密未跑",
+          "正文": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md"
+        },
+        {
+          "index": 3,
+          "题目主题": "SSE 3chunks",
+          "答案或判断protocol": "A/B/C按artifactId与append累积ABC；lastChunk不是task终态；真实SSE未跑",
+          "正文": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md"
+        },
+        {
+          "index": 4,
+          "题目主题": "MCP包装A2A",
+          "答案或判断protocol": "要求media/权限/状态/错误identity映射与复杂度收益，不要求暴露内部推理",
+          "正文": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md"
+        },
+        {
+          "index": 5,
+          "题目主题": "multi-hop全生态断言",
+          "答案或判断protocol": "淘汰无版本全生态否定；固定所用SDK版本验AUTH_REQUIRED链、凭据归属、取消与恢复；未测试框架",
+          "正文": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md"
+        }
+      ],
+      "原题数": {
+        "Exercises": 5,
+        "quiz": 0,
+        "test_methods": 0,
+        "Practice Lab": 0
+      },
+      "source_read_and_write_dates": {
+        "read": "2026-10-08",
+        "write": "2026-10-08"
+      }
+    },
+    {
+      "lesson": "20-opentelemetry-genai",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/assets/otel-spans.svg",
+          "bytes": 2566,
+          "sha256": "9979e5d2816dc96160bd4553ab8d92c5ddb55981bbc7b357c7c1b7bab93d6cc5",
+          "git_blob_sha": "5218f48fb54d2c1e9403791ba65accc3ead4dc69",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-46",
+          "line_count": 46,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 2566,
+            "sha256": "9979e5d2816dc96160bd4553ab8d92c5ddb55981bbc7b357c7c1b7bab93d6cc5",
+            "git_blob_sha": "5218f48fb54d2c1e9403791ba65accc3ead4dc69"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/code/main.py",
+          "bytes": 5636,
+          "sha256": "93ac6540cf23c67eacb07a78eeb4aa102d44acdae3978b41627121a0a984f150",
+          "git_blob_sha": "1497cf3c4e93465eb3f246fb12c42dcc64d6e959",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-177",
+          "line_count": 177,
+          "symbols": [
+            {
+              "name": "_hex",
+              "start": 28,
+              "end": 29,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "Span",
+              "start": 33,
+              "end": 61,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "start_span",
+              "start": 67,
+              "end": 74,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "fake_llm_call",
+              "start": 77,
+              "end": 89,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "fake_tool_execute",
+              "start": 92,
+              "end": 98,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "fake_mcp_call",
+              "start": 101,
+              "end": 113,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "agent_loop",
+              "start": 116,
+              "end": 147,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "main",
+              "start": 150,
+              "end": 173,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "finish",
+              "start": 44,
+              "end": 45,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "add_event",
+              "start": 47,
+              "end": 48,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "to_otlp",
+              "start": 50,
+              "end": 61,
+              "kind": "FunctionDef"
+            }
+          ],
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 5636,
+            "sha256": "93ac6540cf23c67eacb07a78eeb4aa102d44acdae3978b41627121a0a984f150",
+            "git_blob_sha": "1497cf3c4e93465eb3f246fb12c42dcc64d6e959"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/docs/en.md",
+          "bytes": 8070,
+          "sha256": "473d0c4210eddf4b2ae01ce38d1b5a997e75fab66b4be17c32b319c666d88dbb",
+          "git_blob_sha": "975100e60daaa26fa6f659167169f9dd60819101",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-164",
+          "line_count": 164,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 8070,
+            "sha256": "473d0c4210eddf4b2ae01ce38d1b5a997e75fab66b4be17c32b319c666d88dbb",
+            "git_blob_sha": "975100e60daaa26fa6f659167169f9dd60819101"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "空文件",
+          "line_count": 0,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/outputs/skill-otel-genai-instrumentation.md",
+          "bytes": 1900,
+          "sha256": "42704991654e1e234d32d56a9b1184b92f1e1af5afe49fa75ecbf7abb246c311",
+          "git_blob_sha": "8f0f1d71b9e027ee1c59e7c3dd5184ab31eae658",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-30",
+          "line_count": 30,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 1900,
+            "sha256": "42704991654e1e234d32d56a9b1184b92f1e1af5afe49fa75ecbf7abb246c311",
+            "git_blob_sha": "8f0f1d71b9e027ee1c59e7c3dd5184ab31eae658"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        }
+      ],
+      "read_notes": [
+        "TraceId共祖/SpanId parent-child、CLIENT remote与INTERNAL inprocess、token/timing指标、隐私关闭内容与跨边界传播是长期知识；不得把toy stdout看成可接OTLP exporter。",
+        "source code实际1root+2LLM+3tool+3MCP=9 spans，无subagent/real exporter/collector，只sleep/random/token heuristic与summary打印；没有tests/quiz。"
+      ],
+      "code_findings": [
+        "官方GenAI目前稳定性需核验；来源声称v1.37+ stable不能继承。",
+        "OTLP是OpenTelemetry Protocol，非Line Protocol。",
+        "to_otlp不是OTLP wire：attributes需typed key-value、kind enum、resource/scope/envelope、nanosecond等编码；main甚至输出summary而不调to_otlp。",
+        "fake_mcp_call构造traceparent仅设span.attrs，未注入MCP请求/服务端extract，也不是current MCP namespaced trace传递的证明。",
+        "CAPTURE_CONTENT自定义env与标准semconv opt-in不是同一开关；content events gen_ai.content.prompt/completion需按当前semconv messages属性/事件更新。",
+        "Span emitter随机、global SPANS累积、无status/error/exception/sampling/traceparent验证，no metric recording；需要clock/ID injected deterministic fixture。",
+        "code+outputs print/lesson metadata=19，source实际20；docs称two tools one MCP实际three each；图caption称11实际9。",
+        "已核GenAI官方独立repo main06ec68...整体Development；旧URL已moved，不认stable。",
+        "已核现tool histogram gen_ai.execute_tool.duration，现inputs/outputmessages属性；fake traceparent写attrs≠propagator params._meta inject/extract。"
+      ],
+      "figures": [
+        {
+          "path": "phases/13-tools-and-protocols/20-opentelemetry-genai/assets/otel-spans.svg",
+          "viewBox": "0 0 960 540",
+          "texts": [
+            "OTel GenAI span hierarchy for one agent turn",
+            "agent.invoke_agent  INTERNAL  gen_ai.agent.name=research-agent",
+            "llm.chat  CLIENT  model=gpt-4o",
+            "tool.execute  INTERNAL  tool=get_weather(Bengaluru)",
+            "mcp.call  CLIENT  server=notes  transport=stdio  traceparent=...",
+            "tool.execute  INTERNAL  tool=get_weather(Tokyo)",
+            "mcp.call  CLIENT",
+            "tool.execute  INTERNAL  tool=get_weather(Zurich)",
+            "mcp.call  CLIENT",
+            "llm.chat  CLIENT  synthesize",
+            "one trace id; 11 spans; every GenAI attribute prefixed gen_ai.*  (spec v1.37+)"
+          ],
+          "raw_sha256": "9979e5d2816dc96160bd4553ab8d92c5ddb55981bbc7b357c7c1b7bab93d6cc5",
+          "interpretation": "960x540九个矩形root/LLM1/三个tool及其三个缩进MCP/LLM2，垂直布局表达parent hierarchy而非真实按x时间waterfall。",
+          "errors": [
+            "caption one trace id;11 spans错误，应9；spec v1.37+稳定性错误待官方纠正；provider model名称仅历史示例不得当当前选型。"
+          ]
+        }
+      ],
+      "document": {
+        "headings": [
+          {
+            "heading": "Learning Objectives",
+            "level": 2,
+            "line": 10
+          },
+          {
+            "heading": "The Problem",
+            "level": 2,
+            "line": 17
+          },
+          {
+            "heading": "The Concept",
+            "level": 2,
+            "line": 25
+          },
+          {
+            "heading": "Span hierarchy",
+            "level": 3,
+            "line": 27
+          },
+          {
+            "heading": "Required attributes",
+            "level": 3,
+            "line": 40
+          },
+          {
+            "heading": "Span kinds",
+            "level": 3,
+            "line": 61
+          },
+          {
+            "heading": "Opt-in content capture",
+            "level": 3,
+            "line": 66
+          },
+          {
+            "heading": "Events on spans",
+            "level": 3,
+            "line": 70
+          },
+          {
+            "heading": "Exporters",
+            "level": 3,
+            "line": 80
+          },
+          {
+            "heading": "Propagation across MCP",
+            "level": 3,
+            "line": 92
+          },
+          {
+            "heading": "Metrics",
+            "level": 3,
+            "line": 98
+          },
+          {
+            "heading": "AgentOps layer",
+            "level": 3,
+            "line": 108
+          },
+          {
+            "heading": "Use It",
+            "level": 2,
+            "line": 116
+          },
+          {
+            "heading": "Ship It",
+            "level": 2,
+            "line": 127
+          },
+          {
+            "heading": "Exercises",
+            "level": 2,
+            "line": 131
+          },
+          {
+            "heading": "Key Terms",
+            "level": 2,
+            "line": 143
+          },
+          {
+            "heading": "Further Reading",
+            "level": 2,
+            "line": 158
+          }
+        ],
+        "figures": [
+          "t3-span-waterfall\n"
+        ],
+        "learning_objectives": "- Name the required OTel GenAI attributes for an LLM span and a tool-execution span.\n- Build a trace hierarchy that covers agent loop, LLM call, tool call, and MCP client dispatch.\n- Decide what content to capture (opt-in) vs redact (defaults).\n- Emit spans to a local collector (Jaeger, Langfuse) without rewriting tool code."
+      },
+      "practice_sections": [
+        {
+          "heading": "Use It",
+          "raw": "`code/main.py` emits OTel-shaped spans to stdout (in OTLP-JSON-like format) for an agent that calls an LLM, dispatches two tools, and makes one MCP round-trip. No real exporter — the lesson focuses on the span shape and attribute set. Paste the output into an OTLP-compatible viewer or just read it.\n\nWhat to look at:\n\n- Trace id is shared across all spans.\n- Parent-child links are encoded via `parentSpanId`.\n- Required `gen_ai.*` attributes are populated.\n- Content capture is off by default; one scenario turns it on via env var.",
+          "start_line": 116
+        },
+        {
+          "heading": "Ship It",
+          "raw": "This lesson produces `outputs/skill-otel-genai-instrumentation.md`. Given an agent codebase, the skill produces an instrumentation plan: where to add spans, which attributes to populate, and which exporters to target.",
+          "start_line": 127
+        },
+        {
+          "heading": "Exercises",
+          "raw": "1. Run `code/main.py`. Count the spans and identify which is CLIENT vs INTERNAL.\n\n2. Turn on content capture (env var) and confirm `gen_ai.content.prompt` and `gen_ai.content.completion` events appear. Note the implications for PII.\n\n3. Add the tool-execution metric `gen_ai.tool.execution.duration` and emit it as a histogram sample per call.\n\n4. Propagate a traceparent from a parent agent span into an MCP request's `_meta.traceparent` field. Verify the MCP server would see the same trace id.\n\n5. Read the OTel GenAI semconv spec. Identify one attribute listed in the semconv that this lesson's code does NOT emit. Add it.",
+          "start_line": 131
+        }
+      ],
+      "quiz_present": false,
+      "tests_present": false,
+      "test_methods_defined": [],
+      "test_method_count": 0,
+      "test_execution": "未执行，不称测试通过",
+      "dynamic_figure_records": [
+        {
+          "id": "t3-span-waterfall",
+          "actual_provider": "site/figures-tools3.js",
+          "registered_function": "spanWaterfall",
+          "all_provider_matches_in_order": [
+            "figures-tools3.js"
+          ],
+          "registration_override_rule": "LF.register同ID后值覆盖前值；requiredProviders按build顺序串行加载再mount，生成figure-manifest.js不在固定checkout（gitignored），本次只静态推导，未运行build/browser",
+          "complete_registered_function_read": true,
+          "function_range": [
+            375,
+            410
+          ],
+          "interpretation_and_limits": "5条rowroot/llm/tool/mcp/llm，6秒预设width与parents缩进，强调coldstart条变长但无真实measurement;caption operation name链接层级不严，真正由traceId+parentSpanId",
+          "all_labels_and_decisions_source": "见shared_source_evidence.excerpts全文相关函数，含scenario labels/stage details/captions/result/evidence",
+          "rendered_or_executed": false,
+          "本写者核对": "已读注册完整函数与相关helper/实际provider顺序/挂载；没有browser/build执行"
+        }
+      ],
+      "H2_H4逐项融合": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "从失败结果定位到调用边界",
+          "融合判断": "质量与可观测性分开，接收边界验收",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "从失败结果定位到调用边界",
+          "融合判断": "30s/3s仅示例问题，根因需trace证据",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 25,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "Trace 的共同祖先与 Span 的直接父亲",
+          "融合判断": "根/父子/错误/区间/重试/并行时长",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Span hierarchy",
+          "level": 3,
+          "line": 27,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "Trace 的共同祖先与 Span 的直接父亲",
+          "融合判断": "直接parent与共享trace区别；去重instrumentation",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Required attributes",
+          "level": 3,
+          "line": 40,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "固定 GenAI 约定，按字段适用性记录",
+          "融合判断": "Development与requirement分级，不填假usage",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Span kinds",
+          "level": 3,
+          "line": 61,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "Trace 的共同祖先与 Span 的直接父亲",
+          "融合判断": "远端CLIENT/接收SERVER/本地INTERNAL",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Opt-in content capture",
+          "level": 3,
+          "line": 66,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "隐私、采样与可评判指标",
+          "融合判断": "contents opt-in/独立访问/脱敏/高基数",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Events on spans",
+          "level": 3,
+          "line": 70,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "隐私、采样与可评判指标",
+          "融合判断": "现input/outputmessages与events能力；源旧event非永久标准",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Exporters",
+          "level": 3,
+          "line": 80,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "OTLP 编码与接收证据",
+          "融合判断": "protobuf/gRPC/HTTP/typed JSON；相邻receipt非后端完成",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Propagation across MCP",
+          "level": 3,
+          "line": 92,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "跨边界传播：发送注入，接收提取",
+          "融合判断": "SEP414 params._meta injection/extraction及HTTP区别",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Metrics",
+          "level": 3,
+          "line": 98,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "固定 GenAI 约定，按字段适用性记录",
+          "融合判断": "现execute_tool.duration histogram秒与失败样本",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "AgentOps layer",
+          "level": 3,
+          "line": 108,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "原课五项练习的答案与证明层次",
+          "融合判断": "宿主auto instrumentation与manual择一审阅；不推购买/当前生态支持表",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 116,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "可运行的传播、区间与模拟回执实验",
+          "融合判断": "来源to_otlp/stdout不能export；本轮自写typed子集",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 127,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "原课五项练习的答案与证明层次",
+          "融合判断": "蓝图作为资料，不激活policy；custom attribute多namespace",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 131,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "原课五项练习的答案与证明层次",
+          "融合判断": "5项逐一答案；原9span及内容事件静态计数",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 143,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "OTLP 编码与接收证据",
+          "融合判断": "OTLP Protocol不是LineProtocol；字段成熟度独立",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 158,
+          "target_file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+          "target_heading": "固定 GenAI 约定，按字段适用性记录",
+          "融合判断": "官方独立GenAI repo固定06ec68，补OTLP/W3C必要范围",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        }
+      ],
+      "练习答案与评价": [
+        {
+          "index": 1,
+          "题目主题": "span计数",
+          "答案或判断protocol": "原PY静态9：CLIENT5/INTERNAL4，源SVG11错误；自写5span实际验证",
+          "正文": "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+        },
+        {
+          "index": 2,
+          "题目主题": "capture",
+          "答案或判断protocol": "源静态开关ON后2LLM×2=4自定义events，当前内容opt-in与命名需固定；未采集真实内容",
+          "正文": "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+        },
+        {
+          "index": 3,
+          "题目主题": "histogram",
+          "答案或判断protocol": "gen_ai.execute_tool.duration/s；本工具60ms=0.06s实际样本，无真实metrics exporter",
+          "正文": "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+        },
+        {
+          "index": 4,
+          "题目主题": "traceparent",
+          "答案或判断protocol": "client inject/JSON serialize/server extract/new remoteparent与无效拒绝实际本地执行；非跨进程",
+          "正文": "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+        },
+        {
+          "index": 5,
+          "题目主题": "missing attr",
+          "答案或判断protocol": "error.type在timeout结束ERROR，当前requirement层级说明；无假usage",
+          "正文": "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+        }
+      ],
+      "原题数": {
+        "Exercises": 5,
+        "quiz": 0,
+        "test_methods": 0,
+        "Practice Lab": 0
+      },
+      "source_read_and_write_dates": {
+        "read": "2026-10-08",
+        "write": "2026-10-08"
+      }
+    },
+    {
+      "lesson": "21-llm-routing-layer",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/assets/routing-gateway.svg",
+          "bytes": 4380,
+          "sha256": "2e3a407edccaa976a9450732e365cc15cf3bb718224ac131e85241bc928603d4",
+          "git_blob_sha": "7dfe2d1c8798b6fdd7ba659a44c967047006eb6b",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-79",
+          "line_count": 79,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 4380,
+            "sha256": "2e3a407edccaa976a9450732e365cc15cf3bb718224ac131e85241bc928603d4",
+            "git_blob_sha": "7dfe2d1c8798b6fdd7ba659a44c967047006eb6b"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/code/main.py",
+          "bytes": 4612,
+          "sha256": "bdea81aa42c4747bb3a142b364bca343e8ebc89334e5cadff4d8b3f751b1e836",
+          "git_blob_sha": "fa807ac32df2341ca36e099db5e238c55c6f96a3",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-146",
+          "line_count": 146,
+          "symbols": [
+            {
+              "name": "provider_call",
+              "start": 32,
+              "end": 44,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "redact_pii",
+              "start": 60,
+              "end": 66,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "Invocation",
+              "start": 70,
+              "end": 79,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "route",
+              "start": 82,
+              "end": 108,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "demo",
+              "start": 111,
+              "end": 142,
+              "kind": "FunctionDef"
+            }
+          ],
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 4612,
+            "sha256": "bdea81aa42c4747bb3a142b364bca343e8ebc89334e5cadff4d8b3f751b1e836",
+            "git_blob_sha": "fa807ac32df2341ca36e099db5e238c55c6f96a3"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/docs/en.md",
+          "bytes": 7971,
+          "sha256": "76708436ac5d3bafa1bcf40c7a4a7cc6cdb7e89b9d75bd0694bc5cc81549549a",
+          "git_blob_sha": "9b0be2762587bdd0e454bac181b40198bc20a82f",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-154",
+          "line_count": 154,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 7971,
+            "sha256": "76708436ac5d3bafa1bcf40c7a4a7cc6cdb7e89b9d75bd0694bc5cc81549549a",
+            "git_blob_sha": "9b0be2762587bdd0e454bac181b40198bc20a82f"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "空文件",
+          "line_count": 0,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/outputs/skill-routing-config-designer.md",
+          "bytes": 1664,
+          "sha256": "77468c2a0b969d7215a62a02447f103555a190f48b3c6836dda65d4bf75ece66",
+          "git_blob_sha": "12d1bfa5d68747a57d701763a50c146415d96866",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-30",
+          "line_count": 30,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 1664,
+            "sha256": "77468c2a0b969d7215a62a02447f103555a190f48b3c6836dda65d4bf75ece66",
+            "git_blob_sha": "12d1bfa5d68747a57d701763a50c146415d96866"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        }
+      ],
+      "read_notes": [
+        "保留alias→fallback、budget/retry、region/quality/latency条件、all providers failed拒绝、usage cost组成；产品表/provider count/价格/发布月份/百分比节约高时效不吸收为事实。",
+        "实际路由stub、SSN/card regex、cost示例明确fake rates，no actual providers/translator/HTTP/budgets/cache/load-balance/output filter/Otel。"
+      ],
+      "code_findings": [
+        "练习2 SHA256 prompt exact memoization不是semantic embedding cache；需正名并补metadata+policy/tenant/model参数隔离。",
+        "route捕获所有RuntimeError并fallback，无错误分类/timeout/retry预算/quality/capabilities/privacy/region gating；unknown model价格默认0，不能用作实际成本。",
+        "费用只统计成功最后一次未累计失败或charged attempts；输入tokens只最后messages字段len/4教具，不是真tokenizer。",
+        "regex仅两种PII形状，不能保证隐私；no text type/messages为空/structured/tool_calls shape验证。",
+        "Output skill强制>1provider和用户指定单模型时拒绝是源模板政策非一般规律，更不能覆盖本任务选模型；不触发其provider选型。",
+        "sampling建议已deprecated current MCP2026-07-28，需移legacy路径。",
+        "source output lesson20/demo20实际21；all speak OpenAI/price3x/semantic saving30–60等过强未验证。"
+      ],
+      "figures": [
+        {
+          "path": "phases/13-tools-and-protocols/21-llm-routing-layer/assets/routing-gateway.svg",
+          "viewBox": "0 0 960 540",
+          "texts": [
+            "LLM routing gateway: one API, N providers",
+            "your app",
+            "openai.chat.completions.create(",
+            "  model=\"smart\",",
+            "  messages=[...])",
+            "- alias \"smart\" is a logical",
+            "  name, not a real model",
+            "- no provider-specific code",
+            "routing gateway",
+            "1 / redact PII",
+            "regex or ML pre-dispatch",
+            "2 / semantic cache",
+            "prompt embedding lookup",
+            "3 / alias resolve",
+            "smart -> [gpt-4o, claude, gemini]",
+            "4 / pick strategy",
+            "static / cost / latency / A-B",
+            "5 / call provider",
+            "translate OpenAI -> backend shape",
+            "6 / fallback on 5xx",
+            "next provider in chain",
+            "7 / cost tracking",
+            "tokens x price -> per-key aggregate",
+            "8 / emit OTel GenAI",
+            "gen_ai.* on every hop",
+            "9 / guardrails on output",
+            "scrub completions before return",
+            "providers",
+            "OpenAI",
+            "gpt-4o, gpt-4o-mini",
+            "Anthropic",
+            "claude-sonnet, haiku",
+            "Google",
+            "gemini-pro, flash",
+            "Cohere / Mistral /",
+            "DeepSeek / Ollama",
+            "choices (2026)",
+            "LiteLLM (self-host)",
+            "OpenRouter (SaaS)",
+            "Portkey (prod)",
+            "key trade-off",
+            "control vs managed",
+            "vs guardrails out",
+            "of the box"
+          ],
+          "raw_sha256": "2e3a407edccaa976a9450732e365cc15cf3bb718224ac131e85241bc928603d4",
+          "interpretation": "960x540 app alias→gateway九阶段PII/cache/alias/strategy/provider/fallback/cost/Otel/output→Nproviders，体现设计组件而非现有stub完整功能。",
+          "errors": [
+            "图gateway九阶段只部分代码已实现；provider和product2026列表时效及stated restrictions不能作必选方案。"
+          ]
+        }
+      ],
+      "document": {
+        "headings": [
+          {
+            "heading": "Learning Objectives",
+            "level": 2,
+            "line": 10
+          },
+          {
+            "heading": "The Problem",
+            "level": 2,
+            "line": 17
+          },
+          {
+            "heading": "The Concept",
+            "level": 2,
+            "line": 33
+          },
+          {
+            "heading": "OpenAI-compatible proxy shape",
+            "level": 3,
+            "line": 35
+          },
+          {
+            "heading": "Model aliases",
+            "level": 3,
+            "line": 39
+          },
+          {
+            "heading": "Fallback chains",
+            "level": 3,
+            "line": 43
+          },
+          {
+            "heading": "Semantic caching",
+            "level": 3,
+            "line": 54
+          },
+          {
+            "heading": "Guardrails",
+            "level": 3,
+            "line": 58
+          },
+          {
+            "heading": "Per-key rate limits",
+            "level": 3,
+            "line": 68
+          },
+          {
+            "heading": "Self-hosted vs managed trade-offs",
+            "level": 3,
+            "line": 72
+          },
+          {
+            "heading": "Cost tracking",
+            "level": 3,
+            "line": 85
+          },
+          {
+            "heading": "MCP plus routing",
+            "level": 3,
+            "line": 89
+          },
+          {
+            "heading": "Routing strategies",
+            "level": 3,
+            "line": 93
+          },
+          {
+            "heading": "Use It",
+            "level": 2,
+            "line": 105
+          },
+          {
+            "heading": "Ship It",
+            "level": 2,
+            "line": 116
+          },
+          {
+            "heading": "Exercises",
+            "level": 2,
+            "line": 120
+          },
+          {
+            "heading": "Key Terms",
+            "level": 2,
+            "line": 132
+          },
+          {
+            "heading": "Further Reading",
+            "level": 2,
+            "line": 148
+          }
+        ],
+        "figures": [
+          "tp-router-failover\n"
+        ],
+        "learning_objectives": "- Distinguish self-hosted, managed, and production-grade routing options.\n- Implement a fallback chain that retries on provider failures in a defined priority order.\n- Track per-request cost and token usage across providers.\n- Decide between LiteLLM, OpenRouter, and Portkey for a given production constraint."
+      },
+      "practice_sections": [
+        {
+          "heading": "Use It",
+          "raw": "`code/main.py` implements a routing gateway in ~150 lines: accepts OpenAI-shaped requests, translates to per-provider stubs, runs a priority fallback chain, tracks per-request cost, and applies a PII redaction pass on inputs. Run it with three scenarios: normal request, primary-provider outage triggering fallback, PII leakage caught by redaction.\n\nWhat to look at:\n\n- `ROUTES` dict: alias -> priority-ordered list of concrete providers.\n- Fallback loop retries on 5xx.\n- Cost tracker multiplies token usage by per-model rates.\n- PII redactor scrubs SSN-shaped patterns before forwarding.",
+          "start_line": 105
+        },
+        {
+          "heading": "Ship It",
+          "raw": "This lesson produces `outputs/skill-routing-config-designer.md`. Given a workload profile (latency, cost, compliance), the skill picks LiteLLM / OpenRouter / Portkey and produces a routing config.",
+          "start_line": 116
+        },
+        {
+          "heading": "Exercises",
+          "raw": "1. Run `code/main.py`. Trigger the outage scenario; confirm fallback lands on the second provider and cost is attributed correctly.\n\n2. Add semantic caching: SHA256 of the prompt is a lookup key; cache hits return instantly. Measure cost savings on a repeated call.\n\n3. Add a prompt classifier that routes \"code ...\" prompts to an alias favoring intelligence and \"summarize ...\" prompts to an alias favoring speed.\n\n4. Design per-team budgets: each team has a monthly spend cap; gateway refuses requests once cap is hit. Pick an enforcement granularity (per-request or windowed).\n\n5. Read LiteLLM, OpenRouter, and Portkey docs side by side. Name the one feature each ships that the other two do not.",
+          "start_line": 120
+        }
+      ],
+      "quiz_present": false,
+      "tests_present": false,
+      "test_methods_defined": [],
+      "test_method_count": 0,
+      "test_execution": "未执行，不称测试通过",
+      "dynamic_figure_records": [
+        {
+          "id": "tp-router-failover",
+          "actual_provider": "site/figures-tools2.js",
+          "registered_function": "routerFailover",
+          "all_provider_matches_in_order": [
+            "figures-tools2.js"
+          ],
+          "registration_override_rule": "LF.register同ID后值覆盖前值；requiredProviders按build顺序串行加载再mount，生成figure-manifest.js不在固定checkout（gitignored），本次只静态推导，未运行build/browser",
+          "complete_registered_function_read": true,
+          "function_range": [
+            218,
+            251
+          ],
+          "interpretation_and_limits": "A/B down、C ok固定6秒动画；priority不保证cheapest，caption最便宜好模型需独立策略；motion 1.8s无限与opacity6s不同周期不等同步3次真实retry",
+          "all_labels_and_decisions_source": "见shared_source_evidence.excerpts全文相关函数，含scenario labels/stage details/captions/result/evidence",
+          "rendered_or_executed": false,
+          "本写者核对": "已读注册完整函数与相关helper/实际provider顺序/挂载；没有browser/build执行"
+        }
+      ],
+      "H2_H4逐项融合": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "模型网关：先决定能发送到哪里",
+          "融合判断": "明确request/policy/budget输入、answer/attempt账本输出",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 17,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "硬条件先筛，软目标后排",
+          "融合判断": "质量/成本/时延与地域/隐私不同层；同任务测量",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 33,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "模型网关：先决定能发送到哪里",
+          "融合判断": "工作流路由与模型网关区分并融合",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "OpenAI-compatible proxy shape",
+          "level": 3,
+          "line": 35,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "硬条件先筛，软目标后排",
+          "融合判断": "只说明形状子集，adapter语义不自动保真",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Model aliases",
+          "level": 3,
+          "line": 39,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "硬条件先筛，软目标后排",
+          "融合判断": "alias绑定route/model/模板/schema revision，变更回归",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Fallback chains",
+          "level": 3,
+          "line": 43,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "Fallback 的每一跳重新准入",
+          "融合判断": "硬过滤/每hop授权/错误分类/总deadline/预算/全失败",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Semantic caching",
+          "level": 3,
+          "line": 54,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "精确缓存与语义缓存是两种判断",
+          "融合判断": "SHAexact正名；语义相近不证明答案适用/权限",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Guardrails",
+          "level": 3,
+          "line": 58,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "Fallback 的每一跳重新准入",
+          "融合判断": "不靠regex保证隐私；输出拒绝usage照记",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Per-key rate limits",
+          "level": 3,
+          "line": 68,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "成本账本要包括失败和未结费用",
+          "融合判断": "速率/并发/账期预算不同；原子reserve/unknownhold",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Self-hosted vs managed trade-offs",
+          "level": 3,
+          "line": 72,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "网关部署与失败域的选择",
+          "融合判断": "数据/运营/信任/共同failure domain；不保当前营销对比表",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Cost tracking",
+          "level": 3,
+          "line": 85,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "成本账本要包括失败和未结费用",
+          "融合判断": "分次计量/失败已知费用/unknown不为0/价格上界",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "MCP plus routing",
+          "level": 3,
+          "line": 89,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "网关部署与失败域的选择",
+          "融合判断": "current sampling旧版路径deprecated，不默认启用",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Routing strategies",
+          "level": 3,
+          "line": 93,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "硬条件先筛，软目标后排",
+          "融合判断": "priority/cost/latency/实验/任务匹配在合法集合内排序",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 105,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "一个可运行的约束、回退与账本实验",
+          "融合判断": "原stub未运行，本轮hardfilter/撤权/ledger/cache例",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 116,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "网关部署与失败域的选择",
+          "融合判断": "flat蓝图不激活；单合法provider是有效停止设计",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 120,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "原课五项练习的参考答案",
+          "融合判断": "5项逐一答案，产品排他性改版本证据protocol",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 132,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "模型网关：先决定能发送到哪里",
+          "融合判断": "术语按工作流/网关/alias/cache/账本重构",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 148,
+          "target_file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+          "target_heading": "网关部署与失败域的选择",
+          "融合判断": "只保产品核验入口/方法，不保现价数量未核排他声明",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        }
+      ],
+      "练习答案与评价": [
+        {
+          "index": 1,
+          "题目主题": "fallback",
+          "答案或判断protocol": "hardfilter EU与逐hop政策重核；失败0.10+成功0.14=0.24教学units实际验证",
+          "正文": "Agentic Design Patterns/01-核心章节/02-路由.md"
+        },
+        {
+          "index": 2,
+          "题目主题": "cache",
+          "答案或判断protocol": "SHA完整身份是exact；authrevision/model/route/data/schema/evidence/params绑定；hit重核权限",
+          "正文": "Agentic Design Patterns/01-核心章节/02-路由.md"
+        },
+        {
+          "index": 3,
+          "题目主题": "classifier",
+          "答案或判断protocol": "关键词作基线，补引用/否定/混合任务/置信出口，同case结果检验；未跑模型",
+          "正文": "Agentic Design Patterns/01-核心章节/02-路由.md"
+        },
+        {
+          "index": 4,
+          "题目主题": "team budget",
+          "答案或判断protocol": "原子reserve/结算/unknownhold/账期与多worker竞争，当前单进程request预算fixture",
+          "正文": "Agentic Design Patterns/01-核心章节/02-路由.md"
+        },
+        {
+          "index": 5,
+          "题目主题": "product exclusive feature",
+          "答案或判断protocol": "无永恒唯一答案；三方官方日期版本与同功能证据的可评判protocol，本轮未核排他功能",
+          "正文": "Agentic Design Patterns/01-核心章节/02-路由.md"
+        }
+      ],
+      "原题数": {
+        "Exercises": 5,
+        "quiz": 0,
+        "test_methods": 0,
+        "Practice Lab": 0
+      },
+      "source_read_and_write_dates": {
+        "read": "2026-10-08",
+        "write": "2026-10-08"
+      }
+    },
+    {
+      "lesson": "23-capstone-tool-ecosystem",
+      "files": [
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/assets/capstone-architecture.svg",
+          "bytes": 4824,
+          "sha256": "561dbaf8820869fecb5eec48d93c611a35515a877e68a45de891e9c931a1e682",
+          "git_blob_sha": "0feb15eead8c17a4d631e82c3f7890a7079e7f65",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-88",
+          "line_count": 88,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 4824,
+            "sha256": "561dbaf8820869fecb5eec48d93c611a35515a877e68a45de891e9c931a1e682",
+            "git_blob_sha": "0feb15eead8c17a4d631e82c3f7890a7079e7f65"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/code/main.py",
+          "bytes": 12134,
+          "sha256": "1b6570628ccd12f5f6ebac3af3009529c68d6f93afb1c6ab33d3daa4d5ea3ee9",
+          "git_blob_sha": "52346bf80c2751f9443e16bb4e839c121b6bff31",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-336",
+          "line_count": 336,
+          "symbols": [
+            {
+              "name": "request_meta",
+              "start": 35,
+              "end": 44,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "_server_meta",
+              "start": 47,
+              "end": 48,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "complete_result",
+              "start": 51,
+              "end": 52,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "protocol_error",
+              "start": 55,
+              "end": 59,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "validate_request_meta",
+              "start": 62,
+              "end": 90,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "server_discover",
+              "start": 93,
+              "end": 105,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "_hex",
+              "start": 108,
+              "end": 109,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "span",
+              "start": 112,
+              "end": 118,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "finish",
+              "start": 121,
+              "end": 122,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "research_arxiv_search",
+              "start": 140,
+              "end": 146,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "research_generate_report",
+              "start": 149,
+              "end": 195,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "tasks_get",
+              "start": 198,
+              "end": 207,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "pin_ok",
+              "start": 220,
+              "end": 221,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "gateway_call",
+              "start": 224,
+              "end": 252,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "orchestrator",
+              "start": 255,
+              "end": 282,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "demo",
+              "start": 285,
+              "end": 332,
+              "kind": "FunctionDef"
+            }
+          ],
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 12134,
+            "sha256": "1b6570628ccd12f5f6ebac3af3009529c68d6f93afb1c6ab33d3daa4d5ea3ee9",
+            "git_blob_sha": "52346bf80c2751f9443e16bb4e839c121b6bff31"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/code/tests/test_main.py",
+          "bytes": 7005,
+          "sha256": "ace65926076be1592eb6f3bf94d36439b6e9c45cb0b77d14a6e701791d36b508",
+          "git_blob_sha": "43b7aeb2f9b3d10cab5fdae97db743c6a435a38d",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-186",
+          "line_count": 186,
+          "symbols": [
+            {
+              "name": "ToolEcosystemTests",
+              "start": 25,
+              "end": 182,
+              "kind": "ClassDef"
+            },
+            {
+              "name": "setUp",
+              "start": 26,
+              "end": 29,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_pinned_description_detects_mutation",
+              "start": 31,
+              "end": 36,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_finish_guarantees_positive_duration_at_clock_resolution_boundary",
+              "start": 38,
+              "end": 43,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_search_uses_local_fixtures",
+              "start": 45,
+              "end": 50,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_server_discovery_advertises_stateless_revision_and_task_extension",
+              "start": 52,
+              "end": 59,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_unsupported_protocol_version_uses_reserved_error",
+              "start": 61,
+              "end": 71,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_missing_protocol_version_is_invalid_params",
+              "start": 73,
+              "end": 79,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_unknown_token_is_rejected",
+              "start": 81,
+              "end": 91,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_read_only_actor_cannot_generate_report",
+              "start": 93,
+              "end": 103,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_report_uses_task_extension_and_tasks_get_returns_final_result",
+              "start": 105,
+              "end": 121,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_task_handle_requires_per_request_extension_capability",
+              "start": 123,
+              "end": 137,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_tasks_get_rejects_non_string_ids_without_hashing_them",
+              "start": 139,
+              "end": 144,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_delegation_span_uses_current_a2a_operation_name",
+              "start": 146,
+              "end": 155,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_one_orchestrator_run_preserves_trace_parentage",
+              "start": 157,
+              "end": 162,
+              "kind": "FunctionDef"
+            },
+            {
+              "name": "test_shipped_blueprint_metadata_matches_course_parsers",
+              "start": 164,
+              "end": 182,
+              "kind": "FunctionDef"
+            }
+          ],
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 7005,
+            "sha256": "ace65926076be1592eb6f3bf94d36439b6e9c45cb0b77d14a6e701791d36b508",
+            "git_blob_sha": "43b7aeb2f9b3d10cab5fdae97db743c6a435a38d"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/docs/en.md",
+          "bytes": 16471,
+          "sha256": "8502c8512390067ef4d8bad0dcafcf1cfe9f3a40d6f24e71b9d54939f13ab4c4",
+          "git_blob_sha": "4598dfae8635d38c4cb99257ffaf0dcc3b37745f",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-269",
+          "line_count": 269,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 16471,
+            "sha256": "8502c8512390067ef4d8bad0dcafcf1cfe9f3a40d6f24e71b9d54939f13ab4c4",
+            "git_blob_sha": "4598dfae8635d38c4cb99257ffaf0dcc3b37745f"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "空文件",
+          "line_count": 0,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/outputs/skill-ecosystem-blueprint.md",
+          "bytes": 2207,
+          "sha256": "61efbd2ddd4ff84e8acab8439915efaa348aed9f2043beb4838f4ab0e6c5730b",
+          "git_blob_sha": "138c8678c4fffb5771c9223572ca7691109b1465",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-33",
+          "line_count": 33,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 2207,
+            "sha256": "61efbd2ddd4ff84e8acab8439915efaa348aed9f2043beb4838f4ab0e6c5730b",
+            "git_blob_sha": "138c8678c4fffb5771c9223572ca7691109b1465"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        },
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/quiz.json",
+          "bytes": 3633,
+          "sha256": "e38ef3c3520460b2bf9086f33f511a86d45a3e1ee848c7c3420fde79fcad55a8",
+          "git_blob_sha": "ce57a7f2d9dec3085f4ce05b78b8fb214a54a84e",
+          "sha_verified": true,
+          "blob_verified": true,
+          "read_status": "完整静态读取（不执行）",
+          "read_range": "1-78",
+          "line_count": 78,
+          "source_last_change_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+          "source_last_change_date": "2026-10-02T05:37:23Z",
+          "read_date": "2026-10-08",
+          "executed": false,
+          "本写者复核": {
+            "bytes": 3633,
+            "sha256": "e38ef3c3520460b2bf9086f33f511a86d45a3e1ee848c7c3420fde79fcad55a8",
+            "git_blob_sha": "ce57a7f2d9dec3085f4ce05b78b8fb214a54a84e"
+          },
+          "本写者读取": "非空文本/代码/测试/quiz/SVG/output全文实际静态读取；空gitkeep确认0字节",
+          "source_executed": false
+        }
+      ],
+      "read_notes": [
+        "综合研究报告架构拆分MCP discovery/metadata/tools/task、静态scope、A2A stub、UI-string、spans与flatSkill；核心是local simulation vs production evidence表，语义长期可用。",
+        "Python/search/Task/UI/trace都是离线fixture，没有transport/arxiv/OAuth/A2A/App桥/Exporter/sandbox；outputs只flat course artifact，catalog metadata来自top-level parser，不能说可携bundle。",
+        "7 Exercises及6quiz原文完整保存；source Skill提规则不激活，不授权新网络服务/LLM模型/容器/支付。"
+      ],
+      "code_findings": [
+        "TOOLS仅name/description没有inputSchema；无tools/list实现。Description-only PINNED不验证schema/annotations，须沿L15 whole-descriptor修正。",
+        "gateway_call返回不同ad-hoc error，protocol_error没有jsonrpc/id；这是函数模拟不是fullJSONRPC。",
+        "tasks_get只meta/taskId查表，没有principal/tenant所有权和ttl/poll validation；Tasks update/cancel/持久化/异常恢复未实现。",
+        "orchestrator user_query未使用，固定query agent；generate_report直接PAPERS三项而非search hits、没有真实writer；fixture arxivId不可冒充实际论文及most-cited。",
+        "TASKS先完成存储然后handle称working，是控制流示意，无真实长工作流；ui_resource content-type是非core自定义形状，CSP dict无App bridge enforcement。",
+        "trace模拟time/uuid+global spans，无propagator/export/statuserror；parentage测试只确认一个root与positive durations，没有逐child parent存在/无环/区间包含。",
+        "docs称Inspect five things但列6，Simulation表Delegation写Sleep但当前代码没有delay；两roottrace确为demo两次，不能归成one trace。"
+      ],
+      "figures": [
+        {
+          "path": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/assets/capstone-architecture.svg",
+          "viewBox": "0 0 980 560",
+          "texts": [
+            "capstone: stateless research and report ecosystem",
+            "client / host",
+            "Claude Desktop,",
+            "Cursor, VS Code",
+            "per request:",
+            "protocolVersion",
+            "clientCapabilities",
+            "clientInfo",
+            "renders:",
+            "ui://report/current",
+            "(iframe sandbox)",
+            "OAuth 2.1:",
+            "PKCE + RFC 8707",
+            "gateway",
+            "auth: Bearer",
+            "user = alice | bob",
+            "RBAC:",
+            "research:read",
+            "research:write",
+            "stateless route:",
+            "Mcp-Method",
+            "Mcp-Name",
+            "audit log",
+            "user, tool, decision",
+            "OTel: gen_ai.*",
+            "mcp.call CLIENT",
+            "research MCP server",
+            "server/discover",
+            "2026-07-28",
+            "tools + extensions",
+            "resources",
+            "notes://recent",
+            "prompts",
+            "/research_topic",
+            "ui://",
+            "ui://report/current",
+            "tasks extension",
+            "get / update / cancel",
+            "A2A call out:",
+            "writer-agent",
+            "SendMessage summary",
+            "writer",
+            "A2A agent",
+            "opaque",
+            "skills:",
+            "summarize_",
+            "papers",
+            "returns:",
+            "Artifact",
+            "summary.md",
+            "no protocol session: every request carries version and capabilities; traces cross each boundary."
+          ],
+          "raw_sha256": "561dbaf8820869fecb5eec48d93c611a35515a877e68a45de891e9c931a1e682",
+          "interpretation": "980x560四栏client-host→gateway→researchMCP→writer，version/meta、OAuth/RBAC、resources/prompts/UI/tasks/sendmessage与trace边界；属于目标架构非实现完成图。",
+          "errors": [
+            "UI rendered sandbox/OAuth/Tasks get-update-cancel图是目标，不是本地code已验；writer栏恰到viewBox右边980，未做视觉渲染QA。"
+          ]
+        }
+      ],
+      "document": {
+        "headings": [
+          {
+            "heading": "Learning Objectives",
+            "level": 2,
+            "line": 10
+          },
+          {
+            "heading": "The Problem",
+            "level": 2,
+            "line": 20
+          },
+          {
+            "heading": "The Concept",
+            "level": 2,
+            "line": 37
+          },
+          {
+            "heading": "Target architecture",
+            "level": 3,
+            "line": 39
+          },
+          {
+            "heading": "Target trace",
+            "level": 3,
+            "line": 60
+          },
+          {
+            "heading": "Current protocol surfaces",
+            "level": 3,
+            "line": 78
+          },
+          {
+            "heading": "Stateless MCP changes the integration boundary",
+            "level": 3,
+            "line": 95
+          },
+          {
+            "heading": "Security posture",
+            "level": 3,
+            "line": 118
+          },
+          {
+            "heading": "Skills are procedure, not transport",
+            "level": 3,
+            "line": 132
+          },
+          {
+            "heading": "Course artifact metadata is a local adapter",
+            "level": 3,
+            "line": 148
+          },
+          {
+            "heading": "Simulation versus production",
+            "level": 3,
+            "line": 167
+          },
+          {
+            "heading": "Phase 13 map",
+            "level": 3,
+            "line": 183
+          },
+          {
+            "heading": "Build It",
+            "level": 2,
+            "line": 199
+          },
+          {
+            "heading": "Use It",
+            "level": 2,
+            "line": 219
+          },
+          {
+            "heading": "Ship It",
+            "level": 2,
+            "line": 234
+          },
+          {
+            "heading": "Exercises",
+            "level": 2,
+            "line": 240
+          },
+          {
+            "heading": "Key Terms",
+            "level": 2,
+            "line": 250
+          },
+          {
+            "heading": "Further Reading",
+            "level": 2,
+            "line": 261
+          }
+        ],
+        "figures": [
+          "t3-capstone-chain\n"
+        ],
+        "learning_objectives": "- Compose tool calls, task-shaped results, delegated work, UI resources, authorization policy, and trace records into one flow.\n- Carry protocol version, client identity, and capabilities on every MCP request instead of relying on a connection session.\n- Discover a server before use and drive long work through the official Tasks extension.\n- Distinguish a protocol-shaped simulation from an MCP, A2A, OAuth, or OpenTelemetry implementation.\n- Map each simulated boundary to the production component that must replace it.\n- Keep `AGENTS.md`, an Agent Skill, runtime adapters, tools, and security policy in their correct roles.\n- Explain which claims can be verified from local output and which need live integration tests."
+      },
+      "practice_sections": [
+        {
+          "heading": "Build It",
+          "raw": "Run the in-process harness:\n\n```bash\ncd phases/13-tools-and-protocols/23-capstone-tool-ecosystem\npython3 code/main.py\n```\n\nInspect five things:\n\n1. `server/discover` advertises revision `2026-07-28` and the Tasks extension.\n2. Alice can read and generate a report, while Bob's write-scoped call is denied.\n3. Every local span in one orchestrator run shares one trace identifier and records parent span identifiers.\n4. The report begins as a task handle. `tasks/get` returns a completed task whose final result contains text and a `ui://` reference.\n5. The delegated writer remains opaque because the orchestrator records only the boundary span.\n6. No output claims a network connection, OAuth exchange, collector export, browser render, or sandbox execution occurred.\n\nThe script runs twice, so it produces two root traces. Audit entries are process-local and reset on the next run.",
+          "start_line": 199
+        },
+        {
+          "heading": "Use It",
+          "raw": "Promote one layer at a time:\n\n1. Replace `server_discover()` and the static tool list with real `server/discover` and `tools/list` calls. Send version, identity, and capabilities in every request.\n2. Replace static tokens with an authorization server and protected resource validation.\n3. Implement the `io.modelcontextprotocol/tasks` extension and test `tasks/get`, `tasks/update`, `tasks/cancel`, timeout, TTL, and restart recovery. Do not add `tasks/result` or `tasks/list`.\n4. Replace the delegation stub with an A2A client that resolves an Agent Card and sends a message.\n5. Build the App with the official SDK and call server tools through `app.callServerTool`.\n6. Export spans to a test collector and assert parentage at the receiver.\n7. Run tool and script execution inside the sandbox contract from Lesson 26.\n8. Package the procedure as a complete directory bundle and pass the Lesson 27 release gate.\n\nEach promotion needs an integration test that crosses the new boundary. Do not delete the lower-level policy tests when the wire becomes real.",
+          "start_line": 219
+        },
+        {
+          "heading": "Ship It",
+          "raw": "This lesson produces `outputs/skill-ecosystem-blueprint.md`, a legacy single-file course artifact. It asks for a one-page architecture covering primitives, security, delegation, telemetry, packaging, and the hardest operational risk. Its top-level catalog fields are exercised by the repository's real catalog and installer parsers.\n\nBecause it is not a directory bundle, it cannot carry references, scripts, assets, or eval fixtures. Use the package format from Lessons 22 and 24 through 27 when publishing a reusable skill outside this course.",
+          "start_line": 234
+        },
+        {
+          "heading": "Exercises",
+          "raw": "1. Run `code/main.py`. Separate facts proven by the output from production claims that still need integration evidence.\n2. Add a second static backend and define the collision rule for two tools with the same name. Then replace both lists with real `tools/list` calls.\n3. Replace the writer stub with an A2A test server. Record the Agent Card, message request, timeout path, and returned artifact.\n4. Add a task store that survives a process restart. Prove a client can resume with `tasks/get`, respect `pollIntervalMs`, and read the completed task's final result without `tasks/result`.\n5. Build a minimal MCP App and verify `app.callServerTool` in a browser with a restrictive CSP and explicit permissions.\n6. Export the simulated spans through an OTel SDK to a local collector. Assert receipt, trace identifiers, parentage, and error status.\n7. Write `AGENTS.md` for repository-wide maintenance rules and a separate skill bundle for the reusable research procedure. Explain why neither file grants tool authority.",
+          "start_line": 240
+        }
+      ],
+      "quiz_original": {
+        "lesson": "23-capstone-tool-ecosystem",
+        "title": "Capstone: Stateless Tool Ecosystem",
+        "questions": [
+          {
+            "stage": "pre",
+            "question": "What does a successful run of this lesson's stdlib harness prove?",
+            "options": [
+              "The in-process policy and data flow behaved as asserted",
+              "A real MCP transport completed initialization",
+              "An OAuth authorization server issued a valid token",
+              "A collector received every OpenTelemetry span"
+            ],
+            "correct": 0,
+            "explanation": "The harness uses Python functions, static tokens, fixtures, and in-memory spans. It validates those local boundaries while leaving protocol, authorization, export, browser, and sandbox integration to later tests."
+          },
+          {
+            "stage": "check",
+            "question": "Which flow matches MCP revision 2026-07-28 for discovering a server and polling long-running work?",
+            "options": [
+              "server/connect, tools/poll, tasks/status",
+              "server/discover, tools/call returning a task handle, tasks/get",
+              "initialize, tools/call, tasks/result",
+              "GET /mcp, tools/call, tasks/list"
+            ],
+            "correct": 1,
+            "explanation": "The stateless revision uses mandatory `server/discover`. The optional `io.modelcontextprotocol/tasks` extension returns a task handle and uses `tasks/get`; a terminal task carries its final result. The old handshake, GET endpoint, `tasks/result`, and `tasks/list` are not in this flow."
+          },
+          {
+            "stage": "check",
+            "question": "How does A2A v1 name the send-message operation in its gRPC and JSON-RPC bindings?",
+            "options": [
+              "AgentMessage",
+              "message/create",
+              "tasks/send",
+              "SendMessage"
+            ],
+            "correct": 3,
+            "explanation": "A2A v1 uses `SendMessage` for gRPC and JSON-RPC. Its HTTP+JSON binding exposes `POST /message:send`."
+          },
+          {
+            "stage": "check",
+            "question": "Which MCP Apps SDK call lets an App request a tool on its originating server?",
+            "options": [
+              "host.callTool(name, args)",
+              "app.callServerTool({ name, arguments })",
+              "app.invoke(name, args)",
+              "server.tools.call(args)"
+            ],
+            "correct": 1,
+            "explanation": "The App instance calls `callServerTool` with an object containing `name` and optional `arguments`; the host proxies the underlying `tools/call` request."
+          },
+          {
+            "stage": "post",
+            "question": "What authority does the capstone Agent Skill provide over MCP tools and the sandbox?",
+            "options": [
+              "It bypasses approval after explicit invocation",
+              "It grants every tool named in the body",
+              "It grants read-only network access",
+              "None; host adapters and policy still authorize each capability"
+            ],
+            "correct": 3,
+            "explanation": "A skill supplies procedure. Discovery, invocation, tool exposure, authorization, credentials, and isolation are enforced by the host and external runtime boundaries."
+          },
+          {
+            "stage": "post",
+            "question": "Which evidence best proves that telemetry crossed the production export boundary?",
+            "options": [
+              "A skill instruction saying to emit spans",
+              "A local dictionary containing a traceId key",
+              "A diagram of the intended span hierarchy",
+              "Receiver-side collector data with trace and parent assertions"
+            ],
+            "correct": 3,
+            "explanation": "A receiver-side observation proves the SDK, propagator, exporter, transport, and collector path worked. Local data and diagrams prove only local construction or intent."
+          }
+        ]
+      },
+      "quiz_present": true,
+      "tests_present": true,
+      "test_methods_defined": [
+        "test_pinned_description_detects_mutation",
+        "test_finish_guarantees_positive_duration_at_clock_resolution_boundary",
+        "test_search_uses_local_fixtures",
+        "test_server_discovery_advertises_stateless_revision_and_task_extension",
+        "test_unsupported_protocol_version_uses_reserved_error",
+        "test_missing_protocol_version_is_invalid_params",
+        "test_unknown_token_is_rejected",
+        "test_read_only_actor_cannot_generate_report",
+        "test_report_uses_task_extension_and_tasks_get_returns_final_result",
+        "test_task_handle_requires_per_request_extension_capability",
+        "test_tasks_get_rejects_non_string_ids_without_hashing_them",
+        "test_delegation_span_uses_current_a2a_operation_name",
+        "test_one_orchestrator_run_preserves_trace_parentage",
+        "test_shipped_blueprint_metadata_matches_course_parsers"
+      ],
+      "test_method_count": 14,
+      "test_execution": "未执行，不称测试通过",
+      "dynamic_figure_records": [
+        {
+          "id": "t3-capstone-chain",
+          "actual_provider": "site/figures-tools3.js",
+          "registered_function": "capstoneChain",
+          "all_provider_matches_in_order": [
+            "figures-tools3.js"
+          ],
+          "registration_override_rule": "LF.register同ID后值覆盖前值；requiredProviders按build顺序串行加载再mount，生成figure-manifest.js不在固定checkout（gitignored），本次只静态推导，未运行build/browser",
+          "complete_registered_function_read": true,
+          "function_range": [
+            453,
+            500
+          ],
+          "interpretation_and_limits": "gateway/MCP/writer/UI+trace tick，6秒预设，无模型、OAuth、App或export；每件原语one request是概念，真实有独立RPC",
+          "all_labels_and_decisions_source": "见shared_source_evidence.excerpts全文相关函数，含scenario labels/stage details/captions/result/evidence",
+          "rendered_or_executed": false,
+          "本写者核对": "已读注册完整函数与相关helper/实际provider顺序/挂载；没有browser/build执行"
+        }
+      ],
+      "H2_H4逐项融合": [
+        {
+          "heading": "Learning Objectives",
+          "level": 2,
+          "line": 10,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "11. 综合案例先冻结输入、产物与证据",
+          "融合判断": "真实输入/成功条件/边界与每层证据",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "The Problem",
+          "level": 2,
+          "line": 20,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "11. 综合案例先冻结输入、产物与证据",
+          "融合判断": "Alice/Bob闭集材料场景，固定fake论文不作ground truth",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "The Concept",
+          "level": 2,
+          "line": 37,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "调用边界与状态的唯一维护入口",
+          "融合判断": "各层组合/唯一主入口，不重复协议教程",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Target architecture",
+          "level": 3,
+          "line": 39,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "调用边界与状态的唯一维护入口",
+          "融合判断": "Host/gateway/MCP/A2A/App/trace安全分层",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Target trace",
+          "level": 3,
+          "line": 60,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "调用边界与状态的唯一维护入口",
+          "融合判断": "short request traces与长期task identity/恢复关联",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Current protocol surfaces",
+          "level": 3,
+          "line": 78,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "调用边界与状态的唯一维护入口",
+          "融合判断": "逐请求metadata/MCP Tasks/A2A/Apps明确区别",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Stateless MCP changes the integration boundary",
+          "level": 3,
+          "line": 95,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "调用边界与状态的唯一维护入口",
+          "融合判断": "协议无session业务仍需状态；MCP主章唯一wire入口",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Security posture",
+          "level": 3,
+          "line": 118,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "调用边界与状态的唯一维护入口",
+          "融合判断": "namespace/directcall/auth复核/凭据分离/安全主章",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Skills are procedure, not transport",
+          "level": 3,
+          "line": 132,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "13. 工具生态原练习与六题答案",
+          "融合判断": "AGENTS/Skill程序与工具/隔离权限分开",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Course artifact metadata is a local adapter",
+          "level": 3,
+          "line": 148,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "13. 工具生态原练习与六题答案",
+          "融合判断": "course顶层catalog字段不等portable通用schema，parser已静态读",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Simulation versus production",
+          "level": 3,
+          "line": 167,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "断点选择决定恢复动作",
+          "融合判断": "从输入与断点解释actualeffect/receipt/恢复，不复制表格称集成",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Phase 13 map",
+          "level": 3,
+          "line": 183,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "调用边界与状态的唯一维护入口",
+          "融合判断": "按主题融合tools/MCP/security/A2A/routing/telemetry而非新source课程目录",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Build It",
+          "level": 2,
+          "line": 199,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "13. 工具生态原练习与六题答案",
+          "融合判断": "原观察项静态核；原脚本未执行，本例边界保留",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Use It",
+          "level": 2,
+          "line": 219,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "断点选择决定恢复动作",
+          "融合判断": "逐层提升与失败恢复证据；真实wire/browser/export均未做",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Ship It",
+          "level": 2,
+          "line": 234,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "13. 工具生态原练习与六题答案",
+          "融合判断": "legacy flat blueprint+catalog与实际bundle分开",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Exercises",
+          "level": 2,
+          "line": 240,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "13. 工具生态原练习与六题答案",
+          "融合判断": "7项均给答案/可评判protocol，真实服务步骤明确未做",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Key Terms",
+          "level": 2,
+          "line": 250,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "11. 综合案例先冻结输入、产物与证据",
+          "融合判断": "actor/op/task/trace身份与授权职责明确",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 261,
+          "target_file": "LLM 工程实践/10-案例方法论.md",
+          "target_heading": "调用边界与状态的唯一维护入口",
+          "融合判断": "互链唯一维护入口与本批已核固定官方范围",
+          "状态": "已写/纠正/去重或明确淘汰，根专业复核待做"
+        }
+      ],
+      "练习答案与评价": [
+        {
+          "index": 1,
+          "题目主题": "run vs production",
+          "答案或判断protocol": "来源为localfixtures/static tokens/simulated trace；原tests仅读；本例实际恢复fixture",
+          "正文": "LLM 工程实践/10-案例方法论.md"
+        },
+        {
+          "index": 2,
+          "题目主题": "backend collision",
+          "答案或判断protocol": "qualified deterministic namespace+discovery/directcall同policy；真实tools/list未跑",
+          "正文": "LLM 工程实践/10-案例方法论.md"
+        },
+        {
+          "index": 3,
+          "题目主题": "A2A test server",
+          "答案或判断protocol": "当前Card/interface/media/SendMessage/timeout/replay/owner/artifact记录protocol；server未跑",
+          "正文": "LLM 工程实践/10-案例方法论.md"
+        },
+        {
+          "index": 4,
+          "题目主题": "durable tasks",
+          "答案或判断protocol": "本地SQLite reopen+receipt恢复completed/pollInterval1/TTL10/单receipt，MCP真实update/cancel未跑",
+          "正文": "LLM 工程实践/10-案例方法论.md"
+        },
+        {
+          "index": 5,
+          "题目主题": "MCP App",
+          "答案或判断protocol": "local pending→result/owner撤权已验；真实bridge/CSP/browser权限需独立证据，未跑",
+          "正文": "LLM 工程实践/10-案例方法论.md"
+        },
+        {
+          "index": 6,
+          "题目主题": "collector",
+          "答案或判断protocol": "19章fake receipt仅本地；真实SDK/collector/最终backend未做",
+          "正文": "LLM 工程实践/10-案例方法论.md"
+        },
+        {
+          "index": 7,
+          "题目主题": "AGENTS vs Skill",
+          "答案或判断protocol": "程序/规则不授予能力；完整bundle与course flat顶层catalog分开；未创建/安装",
+          "正文": "LLM 工程实践/10-案例方法论.md"
+        }
+      ],
+      "原题数": {
+        "Exercises": 7,
+        "quiz": 6,
+        "test_methods": 14,
+        "Practice Lab": 0
+      },
+      "quiz完整": {
+        "lesson": "23-capstone-tool-ecosystem",
+        "title": "Capstone: Stateless Tool Ecosystem",
+        "questions": [
+          {
+            "stage": "pre",
+            "question": "What does a successful run of this lesson's stdlib harness prove?",
+            "options": [
+              "The in-process policy and data flow behaved as asserted",
+              "A real MCP transport completed initialization",
+              "An OAuth authorization server issued a valid token",
+              "A collector received every OpenTelemetry span"
+            ],
+            "correct": 0,
+            "explanation": "The harness uses Python functions, static tokens, fixtures, and in-memory spans. It validates those local boundaries while leaving protocol, authorization, export, browser, and sandbox integration to later tests."
+          },
+          {
+            "stage": "check",
+            "question": "Which flow matches MCP revision 2026-07-28 for discovering a server and polling long-running work?",
+            "options": [
+              "server/connect, tools/poll, tasks/status",
+              "server/discover, tools/call returning a task handle, tasks/get",
+              "initialize, tools/call, tasks/result",
+              "GET /mcp, tools/call, tasks/list"
+            ],
+            "correct": 1,
+            "explanation": "The stateless revision uses mandatory `server/discover`. The optional `io.modelcontextprotocol/tasks` extension returns a task handle and uses `tasks/get`; a terminal task carries its final result. The old handshake, GET endpoint, `tasks/result`, and `tasks/list` are not in this flow."
+          },
+          {
+            "stage": "check",
+            "question": "How does A2A v1 name the send-message operation in its gRPC and JSON-RPC bindings?",
+            "options": [
+              "AgentMessage",
+              "message/create",
+              "tasks/send",
+              "SendMessage"
+            ],
+            "correct": 3,
+            "explanation": "A2A v1 uses `SendMessage` for gRPC and JSON-RPC. Its HTTP+JSON binding exposes `POST /message:send`."
+          },
+          {
+            "stage": "check",
+            "question": "Which MCP Apps SDK call lets an App request a tool on its originating server?",
+            "options": [
+              "host.callTool(name, args)",
+              "app.callServerTool({ name, arguments })",
+              "app.invoke(name, args)",
+              "server.tools.call(args)"
+            ],
+            "correct": 1,
+            "explanation": "The App instance calls `callServerTool` with an object containing `name` and optional `arguments`; the host proxies the underlying `tools/call` request."
+          },
+          {
+            "stage": "post",
+            "question": "What authority does the capstone Agent Skill provide over MCP tools and the sandbox?",
+            "options": [
+              "It bypasses approval after explicit invocation",
+              "It grants every tool named in the body",
+              "It grants read-only network access",
+              "None; host adapters and policy still authorize each capability"
+            ],
+            "correct": 3,
+            "explanation": "A skill supplies procedure. Discovery, invocation, tool exposure, authorization, credentials, and isolation are enforced by the host and external runtime boundaries."
+          },
+          {
+            "stage": "post",
+            "question": "Which evidence best proves that telemetry crossed the production export boundary?",
+            "options": [
+              "A skill instruction saying to emit spans",
+              "A local dictionary containing a traceId key",
+              "A diagram of the intended span hierarchy",
+              "Receiver-side collector data with trace and parent assertions"
+            ],
+            "correct": 3,
+            "explanation": "A receiver-side observation proves the SDK, propagator, exporter, transport, and collector path worked. Local data and diagrams prove only local construction or intent."
+          }
+        ]
+      },
+      "quiz逐项答案": [
+        {
+          "index": 1,
+          "question": "What does a successful run of this lesson's stdlib harness prove?",
+          "correct_option_one_based": 1,
+          "correct_text": "The in-process policy and data flow behaved as asserted",
+          "explanation": "The harness uses Python functions, static tokens, fixtures, and in-memory spans. It validates those local boundaries while leaving protocol, authorization, export, browser, and sandbox integration to later tests.",
+          "target": "13. 工具生态原练习与六题答案"
+        },
+        {
+          "index": 2,
+          "question": "Which flow matches MCP revision 2026-07-28 for discovering a server and polling long-running work?",
+          "correct_option_one_based": 2,
+          "correct_text": "server/discover, tools/call returning a task handle, tasks/get",
+          "explanation": "The stateless revision uses mandatory `server/discover`. The optional `io.modelcontextprotocol/tasks` extension returns a task handle and uses `tasks/get`; a terminal task carries its final result. The old handshake, GET endpoint, `tasks/result`, and `tasks/list` are not in this flow.",
+          "target": "13. 工具生态原练习与六题答案"
+        },
+        {
+          "index": 3,
+          "question": "How does A2A v1 name the send-message operation in its gRPC and JSON-RPC bindings?",
+          "correct_option_one_based": 4,
+          "correct_text": "SendMessage",
+          "explanation": "A2A v1 uses `SendMessage` for gRPC and JSON-RPC. Its HTTP+JSON binding exposes `POST /message:send`.",
+          "target": "13. 工具生态原练习与六题答案"
+        },
+        {
+          "index": 4,
+          "question": "Which MCP Apps SDK call lets an App request a tool on its originating server?",
+          "correct_option_one_based": 2,
+          "correct_text": "app.callServerTool({ name, arguments })",
+          "explanation": "The App instance calls `callServerTool` with an object containing `name` and optional `arguments`; the host proxies the underlying `tools/call` request.",
+          "target": "13. 工具生态原练习与六题答案"
+        },
+        {
+          "index": 5,
+          "question": "What authority does the capstone Agent Skill provide over MCP tools and the sandbox?",
+          "correct_option_one_based": 4,
+          "correct_text": "None; host adapters and policy still authorize each capability",
+          "explanation": "A skill supplies procedure. Discovery, invocation, tool exposure, authorization, credentials, and isolation are enforced by the host and external runtime boundaries.",
+          "target": "13. 工具生态原练习与六题答案"
+        },
+        {
+          "index": 6,
+          "question": "Which evidence best proves that telemetry crossed the production export boundary?",
+          "correct_option_one_based": 4,
+          "correct_text": "Receiver-side collector data with trace and parent assertions",
+          "explanation": "A receiver-side observation proves the SDK, propagator, exporter, transport, and collector path worked. Local data and diagrams prove only local construction or intent.",
+          "target": "13. 工具生态原练习与六题答案"
+        }
+      ],
+      "source_read_and_write_dates": {
+        "read": "2026-10-08",
+        "write": "2026-10-08"
+      }
+    }
+  ],
+  "shared_source_evidence": [
+    {
+      "path": "site/figures-tools3.js",
+      "bytes": 31231,
+      "sha256": "8b97974be5a4566d2b24c7a157146ae1ffa109bcf1dcdb83ceb3464e0915878e",
+      "git_blob_sha": "d6b6ec97a5adb97535d8544145dc9f1cfccc3bf4",
+      "read_ranges": [
+        [
+          1,
+          70
+        ],
+        [
+          374,
+          410
+        ],
+        [
+          452,
+          515
+        ]
+      ],
+      "range_status": "相关完整函数/helper/注册/挂载静态读取；非整个网站源完整读取",
+      "executed": false,
+      "本写者复核": {
+        "bytes": 31231,
+        "sha256": "8b97974be5a4566d2b24c7a157146ae1ffa109bcf1dcdb83ceb3464e0915878e",
+        "git_blob_sha": "d6b6ec97a5adb97535d8544145dc9f1cfccc3bf4"
+      },
+      "范围": "仅指定完整相关函数/helper/常量/挂载，非整个网站代码全读"
+    },
+    {
+      "path": "site/figures-tools2.js",
+      "bytes": 19563,
+      "sha256": "8012bef6c369bef910d64a13e9b43c0dc876e966b8dd64e302f509a86b7f5eb2",
+      "git_blob_sha": "ac3d634a62e4337277b15b664de9224e95e0a71c",
+      "read_ranges": [
+        [
+          1,
+          32
+        ],
+        [
+          217,
+          291
+        ]
+      ],
+      "range_status": "相关完整函数/helper/注册/挂载静态读取；非整个网站源完整读取",
+      "executed": false,
+      "本写者复核": {
+        "bytes": 19563,
+        "sha256": "8012bef6c369bef910d64a13e9b43c0dc876e966b8dd64e302f509a86b7f5eb2",
+        "git_blob_sha": "ac3d634a62e4337277b15b664de9224e95e0a71c"
+      },
+      "范围": "仅指定完整相关函数/helper/常量/挂载，非整个网站代码全读"
+    },
+    {
+      "path": "site/figures-systems3.js",
+      "bytes": 23924,
+      "sha256": "98762980faa0c7e65ce486100826ec591ff310033f183a668e8ae7dfee0768f6",
+      "git_blob_sha": "2dc17dc0ce1633a3088d578ec8a3b1366fc5f8bd",
+      "read_ranges": [
+        [
+          1,
+          36
+        ],
+        [
+          263,
+          302
+        ],
+        [
+          352,
+          362
+        ]
+      ],
+      "range_status": "相关完整函数/helper/注册/挂载静态读取；非整个网站源完整读取",
+      "executed": false,
+      "本写者复核": {
+        "bytes": 23924,
+        "sha256": "98762980faa0c7e65ce486100826ec591ff310033f183a668e8ae7dfee0768f6",
+        "git_blob_sha": "2dc17dc0ce1633a3088d578ec8a3b1366fc5f8bd"
+      },
+      "范围": "仅指定完整相关函数/helper/常量/挂载，非整个网站代码全读"
+    },
+    {
+      "path": "site/lesson-figures.js",
+      "bytes": 72860,
+      "sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+      "git_blob_sha": "e90e743c4f4b3e282e46c1a27a6602faa9745973",
+      "read_ranges": [
+        [
+          1,
+          118
+        ],
+        [
+          280,
+          641
+        ],
+        [
+          1241,
+          1345
+        ]
+      ],
+      "range_status": "相关完整函数/helper/注册/挂载静态读取；非整个网站源完整读取",
+      "executed": false,
+      "本写者复核": {
+        "bytes": 72860,
+        "sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+        "git_blob_sha": "e90e743c4f4b3e282e46c1a27a6602faa9745973"
+      },
+      "范围": "仅指定完整相关函数/helper/常量/挂载，非整个网站代码全读"
+    },
+    {
+      "path": "site/build.js",
+      "bytes": 104702,
+      "sha256": "0859517c9e3a6d70eb720c91ef4e81b0313145c2f3f06dbce91fffc71d098f37",
+      "git_blob_sha": "ec0bd096b4e9333430a12cce6bd048c5b326c63e",
+      "read_ranges": [
+        [
+          1,
+          110
+        ],
+        [
+          529,
+          636
+        ]
+      ],
+      "range_status": "相关完整函数/helper/注册/挂载静态读取；非整个网站源完整读取",
+      "executed": false,
+      "本写者复核": {
+        "bytes": 104702,
+        "sha256": "0859517c9e3a6d70eb720c91ef4e81b0313145c2f3f06dbce91fffc71d098f37",
+        "git_blob_sha": "ec0bd096b4e9333430a12cce6bd048c5b326c63e"
+      },
+      "范围": "仅指定完整相关函数/helper/常量/挂载，非整个网站代码全读"
+    },
+    {
+      "path": "site/lesson.html",
+      "bytes": 249289,
+      "sha256": "03a79431a160d84c30793da3433d565b236db586ba53083b45b07e304d15757e",
+      "git_blob_sha": "e0dab75fa0746e01a6618ff5b507975a70967334",
+      "read_ranges": [
+        [
+          2768,
+          2784
+        ],
+        [
+          3800,
+          3836
+        ],
+        [
+          4304,
+          4322
+        ]
+      ],
+      "range_status": "相关完整函数/helper/注册/挂载静态读取；非整个网站源完整读取",
+      "executed": false,
+      "本写者复核": {
+        "bytes": 249289,
+        "sha256": "03a79431a160d84c30793da3433d565b236db586ba53083b45b07e304d15757e",
+        "git_blob_sha": "e0dab75fa0746e01a6618ff5b507975a70967334"
+      },
+      "范围": "仅指定完整相关函数/helper/常量/挂载，非整个网站代码全读"
+    },
+    {
+      "path": "scripts/build_catalog.py",
+      "bytes": 11257,
+      "sha256": "d1acef6a103c78bf1cf1671bf2488535744ca676adb531218cbff29c197a41b7",
+      "git_blob_sha": "7002c9fa11c75ba227390e8768cca6cff619742b",
+      "read_ranges": [
+        [
+          1,
+          163
+        ]
+      ],
+      "range_status": "相关完整函数/helper/注册/挂载静态读取；非整个网站源完整读取",
+      "executed": false,
+      "本写者复核": {
+        "bytes": 11257,
+        "sha256": "d1acef6a103c78bf1cf1671bf2488535744ca676adb531218cbff29c197a41b7",
+        "git_blob_sha": "7002c9fa11c75ba227390e8768cca6cff619742b"
+      },
+      "范围": "仅指定完整相关函数/helper/常量/挂载，非整个网站代码全读"
+    },
+    {
+      "path": "scripts/install_skills.py",
+      "bytes": 24797,
+      "sha256": "32598a9168e1dedaed8ad91700ec65a662bfc430206deb2dc4d40f56439bc775",
+      "git_blob_sha": "dd1a6f4969fd447d2a90543960bd57aed4043810",
+      "read_ranges": [
+        [
+          1,
+          159
+        ]
+      ],
+      "range_status": "相关完整函数/helper/注册/挂载静态读取；非整个网站源完整读取",
+      "executed": false,
+      "本写者复核": {
+        "bytes": 24797,
+        "sha256": "32598a9168e1dedaed8ad91700ec65a662bfc430206deb2dc4d40f56439bc775",
+        "git_blob_sha": "dd1a6f4969fd447d2a90543960bd57aed4043810"
+      },
+      "范围": "仅指定完整相关函数/helper/常量/挂载，非整个网站代码全读"
+    },
+    {
+      "path": "scripts/_lib.py",
+      "bytes": 5468,
+      "sha256": "9ae7c026e3990bf847cf6d2a8d06e6239b9a0ed69687904abb354cdbd015fc6b",
+      "git_blob_sha": "e5ff2afce990d926b3522e08ebe198d90a660953",
+      "read_ranges": [
+        [
+          1,
+          68
+        ],
+        [
+          106,
+          153
+        ]
+      ],
+      "range_status": "相关完整函数/helper/注册/挂载静态读取；非整个网站源完整读取",
+      "executed": false,
+      "本写者复核": {
+        "bytes": 5468,
+        "sha256": "9ae7c026e3990bf847cf6d2a8d06e6239b9a0ed69687904abb354cdbd015fc6b",
+        "git_blob_sha": "e5ff2afce990d926b3522e08ebe198d90a660953"
+      },
+      "范围": "仅指定完整相关函数/helper/常量/挂载，非整个网站代码全读"
+    }
+  ],
+  "official_verification": [
+    {
+      "temp_path": "/tmp/study-protocols-official/a2a.txt",
+      "url": "https://a2a-protocol.org/v1.0.0/specification/",
+      "date": "2026-10-08",
+      "sha256": "f21718d7efb467fc13b2ec29af9ee6a5eea60fd315e1af0c437b129312318f6d",
+      "bytes": 220187,
+      "read_scope": "网页latest显示v1.0.0；已读1–46,860–956,1060–1150,1403–1483,2126–2390,2499–2552,3123–3187；签名verification2390后未完整读",
+      "conclusion": "currentcard /.well-known/agent-card.json、supportedInterfaces/defaultmodes/skilltags、enumTASK_STATE_*/ROLE_*、Part oneof text/raw/url/data mediaType、Artifact artifactId、SendMessage三bindings、signatures JWS/JCS optional与auth分离；不保AP2=签名/授权或所有响应必须artifact",
+      "route": "agent-reach web/Jina Reader；GitHub code使用gh API read-only；Registry Jina422后官方raw/OpenAPI+只读GET",
+      "本写者范围": "已实际读取原read_scope指定相关范围；未读范围不升级为全文",
+      "additional_read_ranges": [
+        [
+          150,
+          183
+        ],
+        [
+          270,
+          330
+        ],
+        [
+          581,
+          594
+        ],
+        [
+          962,
+          984
+        ],
+        [
+          3450,
+          3499
+        ]
+      ],
+      "范围补充": "SendMessage terminal/CancelTask/idempotency/stream/每请求任务授权，不完整读签名verification/RFC"
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/a2a-v1.0.0.proto",
+      "url": "https://github.com/a2aproject/A2A/blob/173695755607e884aa9acf8ce4feed90e32727a1/specification/a2a.proto",
+      "date": "2026-10-08",
+      "sha256": "4b74c0baa923ae0acb55474e548f1d6e5d3f83b80d757b65f8bf3e99a3c2257f",
+      "bytes": 34461,
+      "read_scope": "1–50,167–292,336–460,642–674",
+      "conclusion": "tag v1.0.0固定commit；message/task/cards/parts/enums/operation与web一致，源码范围限定未安装SDK/生成RPC",
+      "route": "agent-reach web/Jina Reader；GitHub code使用gh API read-only；Registry Jina422后官方raw/OpenAPI+只读GET",
+      "本写者范围": "已实际读取原read_scope指定相关范围；未读范围不升级为全文",
+      "additional_read_ranges": [
+        [
+          706,
+          715
+        ],
+        [
+          764,
+          773
+        ]
+      ]
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/genai-README.md",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/06ec68e722c45a7218e23ea1bc1339fe4e21ecae/docs/gen-ai/README.md",
+      "date": "2026-10-08",
+      "sha256": "e78dca1c37b3dfafcf555f1ba2678a3b967c50687b04940ef725840faaa9f53d",
+      "bytes": 1617,
+      "read_scope": "完整原始Markdown",
+      "conclusion": "官方迁移目标；GenAI overall Development，不能继承source v1.37+ stable",
+      "route": "agent-reach web/Jina Reader；GitHub code使用gh API read-only；Registry Jina422后官方raw/OpenAPI+只读GET",
+      "本写者范围": "已实际读取原read_scope指定相关范围；未读范围不升级为全文"
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/genai-client-inference.md",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/06ec68e722c45a7218e23ea1bc1339fe4e21ecae/docs/gen-ai/client-inference.md",
+      "date": "2026-10-08",
+      "sha256": "09016e12a3c1c4f0ce250b8bf8727a4bd93bc4eb3fc215fbd61257bb3cd8dbd3",
+      "bytes": 116488,
+      "read_scope": "1–100",
+      "conclusion": "inferenceCLIENT/同进程可INTERNAL、span name op+model、required/conditional/recommended分级；provider现例gcp.gen_ai/gcp.vertex_ai，非source笼统google；文档其余表格未全读",
+      "route": "agent-reach web/Jina Reader；GitHub code使用gh API read-only；Registry Jina422后官方raw/OpenAPI+只读GET",
+      "本写者范围": "已实际读取原read_scope指定相关范围；未读范围不升级为全文"
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/genai-gen-ai-spans.md",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/06ec68e722c45a7218e23ea1bc1339fe4e21ecae/docs/gen-ai/gen-ai-spans.md",
+      "date": "2026-10-08",
+      "sha256": "af0b7501177452a5fb929e09a42d791631511a0544f2c71e1a008ff177bcebf0",
+      "bytes": 84003,
+      "read_scope": "1–52,739–796,905–968",
+      "conclusion": "logicaloperation includes retries；execute_tool INTERNAL/name/toolname；toolcallid recommended非必需；content opt-in inputs/outputsmessages而非oldgen_ai.content.prompt；不重复同toolcallspan",
+      "route": "agent-reach web/Jina Reader；GitHub code使用gh API read-only；Registry Jina422后官方raw/OpenAPI+只读GET",
+      "本写者范围": "已实际读取原read_scope指定相关范围；未读范围不升级为全文"
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/genai-gen-ai-agent-spans.md",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/06ec68e722c45a7218e23ea1bc1339fe4e21ecae/docs/gen-ai/gen-ai-agent-spans.md",
+      "date": "2026-10-08",
+      "sha256": "018ffd339be99c7e56ddba7265dd3095ca0735ddf680d28f96036043641384f4",
+      "bytes": 146984,
+      "read_scope": "1–36,189–215,545–570,1081–1094",
+      "conclusion": "invoke_agent远端CLIENT、本地INTERNAL；不强制所有root INTERNAL，不按frameworkname判断",
+      "route": "agent-reach web/Jina Reader；GitHub code使用gh API read-only；Registry Jina422后官方raw/OpenAPI+只读GET",
+      "本写者范围": "已实际读取原read_scope指定相关范围；未读范围不升级为全文"
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/genai-gen-ai-events.md",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/06ec68e722c45a7218e23ea1bc1339fe4e21ecae/docs/gen-ai/gen-ai-events.md",
+      "date": "2026-10-08",
+      "sha256": "6003d091a7cdb4c537b483b1ebe2c2e414cfc4ffde797e43c5439de0dd2ac0bc",
+      "bytes": 5211,
+      "read_scope": "1–32",
+      "conclusion": "events Development；当前inference event链接client-inference，sourceprompt/completion固定名不可当现行标准",
+      "route": "agent-reach web/Jina Reader；GitHub code使用gh API read-only；Registry Jina422后官方raw/OpenAPI+只读GET",
+      "本写者范围": "已实际读取原read_scope指定相关范围；未读范围不升级为全文"
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/genai-gen-ai-metrics.md",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/06ec68e722c45a7218e23ea1bc1339fe4e21ecae/docs/gen-ai/gen-ai-metrics.md",
+      "date": "2026-10-08",
+      "sha256": "4e9ed9ce0c7a00ba71eb3671b27817f755302ccd553b10e60715b2996d58e32a",
+      "bytes": 65015,
+      "read_scope": "1–50,766–802",
+      "conclusion": "tool metric当前gen_ai.execute_tool.duration histogram秒；旧gen_ai.tool.execution.duration不可当current",
+      "route": "agent-reach web/Jina Reader；GitHub code使用gh API read-only；Registry Jina422后官方raw/OpenAPI+只读GET",
+      "本写者范围": "已实际读取原read_scope指定相关范围；未读范围不升级为全文"
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/genai-mcp.md",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/06ec68e722c45a7218e23ea1bc1339fe4e21ecae/docs/gen-ai/mcp.md",
+      "date": "2026-10-08",
+      "sha256": "d5eb3b023f553c56052a07aecf3384ac5f64f894825c72eacf8c0eeda3c49a26",
+      "bytes": 114878,
+      "read_scope": "1–138,349–372,1103–1120",
+      "conclusion": "propagator inject/extract params._meta unprefixed traceparent/tracestate/baggage按SEP414，不是未来roadmap；outer alreadytraces sameMCPtoolcall不重复；该文session/init与2025多msg说明不能覆盖2026-07-28 core无session要求",
+      "route": "agent-reach web/Jina Reader；GitHub code使用gh API read-only；Registry Jina422后官方raw/OpenAPI+只读GET",
+      "本写者范围": "已实际读取原read_scope指定相关范围；未读范围不升级为全文"
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/w3c-trace-context.txt",
+      "url": "https://www.w3.org/TR/trace-context/",
+      "date": "2026-10-08",
+      "bytes": 32621,
+      "sha256": "023bdc002c61452332751ea5dce31880a7c1ce651e1b44bad6324f8c19af6a8b",
+      "read_scope": "Jina提取95–180；Jina遗漏§3，额外web.run原页§3.2.2字段/低位sampled与invalid parent规则实际读取",
+      "conclusion": "version00 lowercase/非零32hex16hex；parent是发送operation；sampled非ingestion保证；未声称完整futureversion实现",
+      "route": "agent-reach web/Jina Reader；W3C缺§3经native web.run官方原页补核",
+      "executed": false
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/otlp.txt",
+      "url": "https://opentelemetry.io/docs/specs/otlp/",
+      "date": "2026-10-08",
+      "bytes": 39873,
+      "sha256": "dfb7324d7b885df99e02817cd97fc0773ea11829042898e86ccf52f578da3f92",
+      "read_scope": "1–36,70–94,215–300",
+      "conclusion": "OpenTelemetryProtocol；gRPCprotobuf/HTTPbinary或JSON；integerenum/64bit string/lowerCamelCase/hex；receipt单hop与partial success不重发整批",
+      "route": "agent-reach web/Jina Reader；W3C缺§3经native web.run官方原页补核",
+      "executed": false
+    },
+    {
+      "temp_path": "/tmp/study-protocols-official/ap2.txt",
+      "url": "https://ap2-protocol.org/",
+      "date": "2026-10-08",
+      "bytes": 8495,
+      "sha256": "4edf620d85604483c272d340132dd43c19d4e8675bb6017f22afdd211818ae3c",
+      "read_scope": "1–100",
+      "conclusion": "官方用途/支付mandates，纠正Card签名不是AP2；未读支付规范实现/样例",
+      "route": "agent-reach web/Jina Reader；W3C缺§3经native web.run官方原页补核",
+      "executed": false
+    }
+  ],
+  "old_context": [
+    {
+      "path": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+      "sha256": "4937c74831942dcedd5a59cb40041252c038e9de4d88e8c49b6e0d59658a5401",
+      "lines": 37,
+      "read_range": "全文",
+      "python_blocks": []
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "sha256": "2c747304cad885a58f89e2009c473ee7093e816c31d819f3e0bad26ca61b37b1",
+      "lines": 76,
+      "read_range": "全文",
+      "python_blocks": []
+    },
+    {
+      "path": "Agentic Design Patterns/01-核心章节/02-路由.md",
+      "sha256": "49d1de84e582f80addcd984d91064960017aad1be4f9f578e9f86d02c8dbc0ec",
+      "lines": 35,
+      "read_range": "全文",
+      "python_blocks": []
+    },
+    {
+      "path": "LLM 工程实践/10-案例方法论.md",
+      "sha256": "267099d98a29c317454a6e8986105336c71982cbfcbf4f4c13896e4e3bd3d3cc",
+      "lines": 183,
+      "read_range": "全文",
+      "python_blocks": [
+        {
+          "block": 1,
+          "sha256": "a868465eea8a4e7810227a36fd8fcd45b969c492dbd82b1986846392a9de5a52"
+        }
+      ]
+    }
+  ],
+  "final_files": [
+    {
+      "file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+      "bytes": 22225,
+      "sha256": "43240e7b959b4cce81419491eb48b8cc65d7d3ccb4f5a707bebcdd13851ecf44",
+      "git_blob_sha": "7d9f7ab213d77cf9a94c3df22f5ec1708d523a9e",
+      "lines": 272,
+      "python_blocks": 1,
+      "original_prefix_bytes_preserved": true,
+      "new_code_after_original_code": true,
+      "headings": [
+        {
+          "heading": "本章定位",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "A2A 管的是跨 Agent 的任务交接",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "具体例子：委托一个文档抽取 Agent",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "自检与核对",
+          "level": 2,
+          "line": 23
+        },
+        {
+          "heading": "来自《深入理解 AI Agent》的增量吸收",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "固定协议后再交接任务",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "Agent Card：发现的输出是候选能力与接口",
+          "level": 3,
+          "line": 45
+        },
+        {
+          "heading": "Message、Task 与 Artifact 各承担什么",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "状态机、归属与断线恢复",
+          "level": 3,
+          "line": 108
+        },
+        {
+          "heading": "一个可运行的任务归属、取消与重放实验",
+          "level": 3,
+          "line": 118
+        },
+        {
+          "heading": "流式结果与 Card 签名的有效边界",
+          "level": 3,
+          "line": 256
+        },
+        {
+          "heading": "原课五项练习的核对与替代验收",
+          "level": 2,
+          "line": 264
+        }
+      ]
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "bytes": 20830,
+      "sha256": "f35abc7fe8f1c9aa6073f779a93ef73be2b2550faffe11f0a61fa25fbc5785df",
+      "git_blob_sha": "6b5b87ddba36b80f020f2e3a88c1ee5d9ea2ab56",
+      "lines": 227,
+      "python_blocks": 1,
+      "original_prefix_bytes_preserved": true,
+      "new_code_after_original_code": true,
+      "headings": [
+        {
+          "heading": "本章定位",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "定义一次尝试与一次成功",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "具体例子：区分可靠性与候选能力",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "自检与核对",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "来自《深入理解 AI Agent》的增量吸收",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "来自《动手学大模型应用开发》的增量吸收",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "RAG 必须拆开评估",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "从 Bad Case 建自己的评估集",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "参数必须跟结果一起记录",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "评估驱动优化",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "从失败结果定位到调用边界",
+          "level": 2,
+          "line": 78
+        },
+        {
+          "heading": "Trace 的共同祖先与 Span 的直接父亲",
+          "level": 3,
+          "line": 82
+        },
+        {
+          "heading": "固定 GenAI 约定，按字段适用性记录",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "跨边界传播：发送注入，接收提取",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "OTLP 编码与接收证据",
+          "level": 3,
+          "line": 114
+        },
+        {
+          "heading": "可运行的传播、区间与模拟回执实验",
+          "level": 3,
+          "line": 120
+        },
+        {
+          "heading": "隐私、采样与可评判指标",
+          "level": 3,
+          "line": 209
+        },
+        {
+          "heading": "原课五项练习的答案与证明层次",
+          "level": 2,
+          "line": 217
+        }
+      ]
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+      "bytes": 18686,
+      "sha256": "6dc24fa7a5e689acd2c2dd21f985d07cb48cfb7d44e47916c6579fb725a71c57",
+      "git_blob_sha": "133d6e037a2b3f6ff8a023a812a554ddf8ea7f91",
+      "lines": 198,
+      "python_blocks": 1,
+      "original_prefix_bytes_preserved": true,
+      "new_code_after_original_code": true,
+      "headings": [
+        {
+          "heading": "本章定位",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "路由器需要决定什么",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "具体例子：知识库助手",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "自检与核对",
+          "level": 2,
+          "line": 23
+        },
+        {
+          "heading": "来自《深入理解 AI Agent》的增量吸收",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "模型网关：先决定能发送到哪里",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "硬条件先筛，软目标后排",
+          "level": 3,
+          "line": 41
+        },
+        {
+          "heading": "Fallback 的每一跳重新准入",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "成本账本要包括失败和未结费用",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "精确缓存与语义缓存是两种判断",
+          "level": 3,
+          "line": 75
+        },
+        {
+          "heading": "一个可运行的约束、回退与账本实验",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "网关部署与失败域的选择",
+          "level": 3,
+          "line": 184
+        },
+        {
+          "heading": "原课五项练习的参考答案",
+          "level": 2,
+          "line": 190
+        }
+      ]
+    },
+    {
+      "file": "LLM 工程实践/10-案例方法论.md",
+      "bytes": 28331,
+      "sha256": "f989cb3430cb54738377153e22c504bb48577e5f031c79d4bfbb5b0c555edfe1",
+      "git_blob_sha": "2dcfdb731f6ccc46a342bcab167cf26b9354752c",
+      "lines": 376,
+      "python_blocks": 2,
+      "original_prefix_bytes_preserved": true,
+      "new_code_after_original_code": true,
+      "headings": [
+        {
+          "heading": "1. 角色风格模型",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "风险",
+          "level": 3,
+          "line": 20
+        },
+        {
+          "heading": "2. 领域问答",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "3. 个人数字分身",
+          "level": 2,
+          "line": 45
+        },
+        {
+          "heading": "4. 综合应用系统",
+          "level": 2,
+          "line": 66
+        },
+        {
+          "heading": "5. 案例设计模板",
+          "level": 2,
+          "line": 78
+        },
+        {
+          "heading": "目标",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "基线",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "数据",
+          "level": 3,
+          "line": 88
+        },
+        {
+          "heading": "方法",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "评测",
+          "level": 3,
+          "line": 96
+        },
+        {
+          "heading": "部署",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "迭代",
+          "level": 3,
+          "line": 104
+        },
+        {
+          "heading": "6. 最重要结论",
+          "level": 2,
+          "line": 108
+        },
+        {
+          "heading": "7. 一个完整但很小的案例设计",
+          "level": 2,
+          "line": 116
+        },
+        {
+          "heading": "8. 从需求走到可追责的请求流水线",
+          "level": 2,
+          "line": 127
+        },
+        {
+          "heading": "9. 候选门禁、A/B和回滚要绑定版本",
+          "level": 2,
+          "line": 173
+        },
+        {
+          "heading": "10. 综合应用原练习怎样验收",
+          "level": 2,
+          "line": 177
+        },
+        {
+          "heading": "11. 综合案例先冻结输入、产物与证据",
+          "level": 2,
+          "line": 185
+        },
+        {
+          "heading": "调用边界与状态的唯一维护入口",
+          "level": 3,
+          "line": 193
+        },
+        {
+          "heading": "断点选择决定恢复动作",
+          "level": 3,
+          "line": 205
+        },
+        {
+          "heading": "12. 可运行的报告提交与重启恢复实验",
+          "level": 2,
+          "line": 220
+        },
+        {
+          "heading": "13. 工具生态原练习与六题答案",
+          "level": 2,
+          "line": 353
+        }
+      ]
+    }
+  ],
+  "python_blocks": [
+    {
+      "file": "Agentic Design Patterns/01-核心章节/02-路由.md",
+      "block": 1,
+      "date": "2026-10-08",
+      "environment": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+      "interpreter": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "code_sha256": "734cc089de66972118ecfde337c2dbdddd199d54aed3b4b72eb191f7feea92ee",
+      "run_file_sha256": "1b1c4686ceb49057f292bf14f2807b05917c64aac1bb18977443ac54af41002a",
+      "stdout": "硬条件先筛、每hop撤权重核、精确hit、总费 0.24 unknown保留 0.20 预算/deadline/全失败/权限错误停止通过\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "本轮实际执行"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md",
+      "block": 1,
+      "date": "2026-10-08",
+      "environment": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+      "interpreter": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "code_sha256": "7d57fbe47f1f89b34ba71c0176f003b35c0625c9eb1c6e11e5824d3fb30fe569",
+      "run_file_sha256": "16260abd48da3fea616cd69db8e5d2d56ec0578ac27b5c7486a4ca6dea11bddf",
+      "stdout": "归属隔离、同ID冲突、重启重放、终态、取消幂等、撤权、TTL边界通过\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "本轮实际执行；上一个exec输出已核，未重跑"
+    },
+    {
+      "file": "Agentic Design Patterns/01-核心章节/19-评估和监控.md",
+      "block": 1,
+      "date": "2026-10-08",
+      "environment": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+      "interpreter": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "code_sha256": "6ec14e0329d92d8b1ca4013f59372b727a8e384e9b2b46f9504e25477bc62703",
+      "run_file_sha256": "ff2f0334566105248ff21849e26fa4339e7457a6e18ba6ba746c21605dfd632e",
+      "stdout": "5 spans；remote parent、错误终结、区间通过；工具样本 0.06 s；fake receipt {'fake': True, 'accepted': 5, 'rejected': 0}\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "本轮实际执行"
+    },
+    {
+      "file": "LLM 工程实践/10-案例方法论.md",
+      "block": 1,
+      "date": "2026-10-07",
+      "environment": "原持久记录明确stdlib CPU fixture；未保存确切解释器版本，不借本轮版本补写",
+      "code_sha256": "a868465eea8a4e7810227a36fd8fcd45b969c492dbd82b1986846392a9de5a52",
+      "stdout": "重试已知总费 0.22 输出拒绝保原usage 0.18 未知写状态不重复 reconcile_required\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "同SHA持久历史证据复用；本轮未执行",
+      "history_record": "维护/五站吸收/11-LLM工程-缓存安全与协议框架-覆盖与验证.json",
+      "history_record_sha256": "e393bc768556235104f0c277f683f5d2122352ac8bfea3b491c9a99041f0685c",
+      "history_entry": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "block": 1,
+        "sha256": "a868465eea8a4e7810227a36fd8fcd45b969c492dbd82b1986846392a9de5a52",
+        "sha256_convention": "fenced body without terminal LF",
+        "script": "/tmp/study-llmeng-systems-validation-1007/02.py",
+        "execution_date": "2026-10-07",
+        "exit_code": 0,
+        "stdout": "重试已知总费 0.22 输出拒绝保原usage 0.18 未知写状态不重复 reconcile_required\n",
+        "stderr": "",
+        "elapsed_seconds": 0.01907979091629386,
+        "scope": "self-contained stdlib CPU fixture; no SDK/model/API/permanentservice",
+        "line": 135,
+        "evidence_file": "/tmp/study-llmeng-systems-validation-1007/formal-results.json",
+        "result_file_sha256": "106a257a1ab468c002f69bea214ac00cee64a5a76bf1bdd6cdb8f36426fddae0"
+      }
+    },
+    {
+      "file": "LLM 工程实践/10-案例方法论.md",
+      "block": 2,
+      "date": "2026-10-08",
+      "environment": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+      "interpreter": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "code_sha256": "c898162a5317f41cdba7bff813d2565a6a03d5b5da3d1ac9e98d20b5917ce1ac",
+      "run_file_sha256": "ef8b2b623586e9f085b9d0de1a7ef561ba620c59b089dbb40d3f69911899da1f",
+      "stdout": "qualified隔离、能力/权限、poll、effect后重启恢复、单receipt、归属/撤权/TTL通过\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "本轮实际执行"
+    }
+  ],
+  "counts": {
+    "lessons": 4,
+    "source_files": 23,
+    "source_bytes": 108100,
+    "H2_H4": 70,
+    "source_exercises": 22,
+    "source_quiz": 6,
+    "source_tests_defined": 14,
+    "source_code_or_tests_executed": 0,
+    "static_svg": 4,
+    "registered_dynamic_figures": 4,
+    "new_python_runs": 4,
+    "historical_same_sha_reused": 1,
+    "final_python_blocks": 5
+  },
+  "validation": {
+    "all_source_sha_and_gitblob_match": true,
+    "source_headings_exact": true,
+    "all_target_titles_exist": true,
+    "all_old_body_prefixes_exact": true,
+    "all_final_python_sha_match_success_record": true,
+    "python_ast_parse": true,
+    "all_local_link_paths_exist": true,
+    "real_OTLP_or_A2A_or_MCP_or_OAuth_or_browser_or_model": false,
+    "root_knowledge_check": "待根执行统一检查；本分工不修改维护/来源索引"
+  },
+  "fixture_limits": [
+    "SQLite/virtualclock仅本地策略；A2A单owner为自定模型，非协议唯一授权模型",
+    "A2A send messageId去重为服务端可选自定合同，非所有peer协议保证",
+    "OTLP scalar typed shape未官方proto decoder/conformance；fake collector不是export；remoteparent同进程序列化非跨进程",
+    "strict parent interval仅虚拟同clockfixture，真实跨进程clock skew另核",
+    "路由reserve需可信max charge题设，duration为预设，未知计费不为0；未测真实质量/延迟/费用",
+    "报告receipt与effect在同SQLite事务，真实第三方effect需外部receipt/reconcile；未测真实并发/远端exactlyonce",
+    "旧代码环境精确版本未在原持久记录保存，明确unknown并未重跑"
+  ],
+  "unexecuted": [
+    "来源PY/TS与tests",
+    "source build/installer/catalog执行",
+    "A2A/MCP server/SDK",
+    "OAuth/login",
+    "真实delegation消息/发布/外部写",
+    "模型API/权重",
+    "MCP App browser/CSP实测",
+    "OTel SDK/exporter/collector/backend",
+    "第三方支付/AP2/JWS加密实现",
+    "后4站"
+  ],
+  "root_final_audit": {
+    "date": "2026-10-08",
+    "state": "root独立source/hash/blob/title/exercise/quiz/code核对通过；整批数学/结构验收见统一记录",
+    "raw_report_file": "/tmp/study-source1-protocols-interop-observability-report.json",
+    "raw_report_sha256": "b04a736d6e67be302de822fe4248f645682cf4fafac3a8c3007a1be336272fab",
+    "reading_instruction_boundary": "source instructions remain educational data; no source2–5 read"
+  }
+}

@@ -1,0 +1,1822 @@
+{
+  "date": "2026-10-14",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "reading_complete": true,
+  "accepted": true,
+  "files": [
+    {
+      "source_file": "projects/postmortem-writer/README.md",
+      "bytes": 3064,
+      "sha256": "0c56ded49d1d8a7b3f6a2e80845391205b7c8b556dfe10cd57fca425fb677eca",
+      "git_blob_sha1": "d13bb3510abd9b251e29a360b4d2f24e9b5a1a68",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 49,
+      "headers": [
+        {
+          "line": 7,
+          "heading": "## Before you start"
+        },
+        {
+          "line": 11,
+          "heading": "## Stages"
+        },
+        {
+          "line": 18,
+          "heading": "## Build it"
+        },
+        {
+          "line": 26,
+          "heading": "## Run the artifact"
+        },
+        {
+          "line": 39,
+          "heading": "## Completion evidence"
+        },
+        {
+          "line": 47,
+          "heading": "## Sources"
+        }
+      ],
+      "semantic": "四函数/自己workspace/原reference区别、来源cause-reviewer边界、自证report不当professionalcert"
+    },
+    {
+      "source_file": "projects/postmortem-writer/examples/events.jsonl",
+      "bytes": 235,
+      "sha256": "e18df1af586d9bf8e62e0ec2bced156bb25eb3ae702881d50c5ab240a78bdd54",
+      "git_blob_sha1": "75a99baac94dc786d94a8345f6b679b4685acc23",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 3,
+      "headers": [],
+      "semantic": "3events deploy0/alert35/rollback90，只时间先后未因果"
+    },
+    {
+      "source_file": "projects/postmortem-writer/examples/review.json",
+      "bytes": 687,
+      "sha256": "1fd897d8f9f6092b098f77be1fec4289264cc67ca8e1a463b9a817dd2800b503",
+      "git_blob_sha1": "66a408e4983d772525ae02bd0b92ea0766743725",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 31,
+      "headers": [],
+      "semantic": "impact待调查/pending/ownerteam open及第二unassignedopen；rawSHA空pending可先形成review，不是approved"
+    },
+    {
+      "source_file": "projects/postmortem-writer/media/output.gif",
+      "bytes": 51278,
+      "sha256": "ec9f626deca03ba1cd9638a74b3bec6515252194720480389aeb5b46a87cdce8",
+      "git_blob_sha1": "ae5aeec0ebf7154c5421fd278c0e298a1f75f004",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": true,
+      "semantic": "两PNG实际视读，GIF18run/6output全部24帧contact视读，仅9-28历史/页面部分不编造未见review actions"
+    },
+    {
+      "source_file": "projects/postmortem-writer/media/output.json",
+      "bytes": 233,
+      "sha256": "24aef5b0178f205f296d9304e5928aab43fdd3fbe3f5c68c770ac0dfcfb92320",
+      "git_blob_sha1": "7008db44c3c574320f00991fb0ff91b9624aa683",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 11,
+      "headers": [],
+      "semantic": "browsercapture URL/actions不是packetresultJSON，PNG/GIF页面全文视觉另核"
+    },
+    {
+      "source_file": "projects/postmortem-writer/media/output.png",
+      "bytes": 38414,
+      "sha256": "3b8c609ee1b3d5890e63a8e0fea6f11f3baedb8c1d7ee37b9a4d619c6a4780da",
+      "git_blob_sha1": "6ba0a994d532381e0d78fd272f6bb3b467e5283c",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": true,
+      "semantic": "两PNG实际视读，GIF18run/6output全部24帧contact视读，仅9-28历史/页面部分不编造未见review actions"
+    },
+    {
+      "source_file": "projects/postmortem-writer/media/run.gif",
+      "bytes": 216442,
+      "sha256": "ea86602f0805f58cc567996bf92ddb07025680b602ac2998e54a03d559f3b1ea",
+      "git_blob_sha1": "dfd69c23e6ee03691e42a959babbe7ab3415764a",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": true,
+      "semantic": "两PNG实际视读，GIF18run/6output全部24帧contact视读，仅9-28历史/页面部分不编造未见review actions"
+    },
+    {
+      "source_file": "projects/postmortem-writer/media/run.json",
+      "bytes": 2017,
+      "sha256": "fa3f72944eb8c6af9a01dacb1a5960b44db5040ec08dfb332f8dbaa51ae8cdda",
+      "git_blob_sha1": "9a5646146181cbf99f3675452d415c0124d9dbc7",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 48,
+      "headers": [],
+      "semantic": "9-28作者stub仅首fail1、reference各5/5/5/14总29，不能变本轮run"
+    },
+    {
+      "source_file": "projects/postmortem-writer/media/run.png",
+      "bytes": 85513,
+      "sha256": "4907595b93a758e86f35ab10d22f090056e6f51c449c01b75d2899658150427d",
+      "git_blob_sha1": "c4f62aeb8078fc49d78303991043ca0f97fada58",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": true,
+      "semantic": "两PNG实际视读，GIF18run/6output全部24帧contact视读，仅9-28历史/页面部分不编造未见review actions"
+    },
+    {
+      "source_file": "projects/postmortem-writer/project.json",
+      "bytes": 3789,
+      "sha256": "bb00bd363ae862b83c864e5868eac3569447865b4d490b1dfc1385fc4f64ddc9",
+      "git_blob_sha1": "fed55ca46cfd23e482cc0cfc59ab8768180d265c",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 122,
+      "headers": [],
+      "semantic": "4stage contracts/figures/level/hour/ready仅metadata，demo非本轮actual"
+    },
+    {
+      "source_file": "projects/postmortem-writer/solution/go.mod",
+      "bytes": 45,
+      "sha256": "486b2d0a91c11d839e2e1cabdc37288e92b3488a01076f562dd61f1accf8281d",
+      "git_blob_sha1": "2ab2f12bdffc1fab7a95721c0e92a54d27af1789",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 3,
+      "headers": [],
+      "semantic": "标准库module Go1.22最小声明，不当实际本机runtime证明"
+    },
+    {
+      "source_file": "projects/postmortem-writer/solution/integration.go",
+      "bytes": 7555,
+      "sha256": "2a0b35071294bc2c230424e74f8f20b75fa0fd50f1ae5eca4b4026c75d0a4c1d",
+      "git_blob_sha1": "d412a4cae44019d8941b7601ce46116c48145e28",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 192,
+      "headers": [],
+      "semantic": "192linefullread：2MiB/10000import/physical line、second*int、separatorsreject；strictJSON unknown/EOF却v1允许dup/invalidUTF8，review1MiB/100/100，rawSHA/approvedreviewer标签/substringquote，actions onlystatus+owner；sourceSHA不绑claimtext/reviewer真身份，done未验，HTMLtemplateescape，text完整metadata"
+    },
+    {
+      "source_file": "projects/postmortem-writer/solution/main.go",
+      "bytes": 1988,
+      "sha256": "97b6feb6d6fe29f460399d6367ee3208a50160819df9e4942023ad53d608190f",
+      "git_blob_sha1": "a2a64f4775196c4cdefdd4bc7857b1ee785a7e9f",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 58,
+      "headers": [],
+      "semantic": "完整flagCLI/demo，要events/review同选，ReadFile先读再cap；Mkdir/WriteFile依次HTML/JSON/TXT非groupatomic；默认fixturepending/unknownimpact；0run"
+    },
+    {
+      "source_file": "projects/postmortem-writer/solution/stage1.go",
+      "bytes": 586,
+      "sha256": "905d1faeeb1d8cd8c8597c7ca76553dcb19b491c8c922e6678197d25e7752cfc",
+      "git_blob_sha1": "0ef517ce2dd613d97ac3d2de8d123074fcb108b4",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 30,
+      "headers": [],
+      "semantic": "Parse四tab/整数非负/uniqueID conflict/空ledger允许，TrimSpace整个输入不同于raw定位；batch失败nil不回部分"
+    },
+    {
+      "source_file": "projects/postmortem-writer/solution/stage2.go",
+      "bytes": 447,
+      "sha256": "c180d70e99944de6f1e178d7091d72a5903015014c1600c4aadd79fc110f2ead",
+      "git_blob_sha1": "783cef8f913c74986116f1cd956bc2a74d5aa886",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 22,
+      "headers": [],
+      "semantic": "validatehorizon、copy、time then ID排序；超horizon整批ErrLimit，保证事件顺序不证因果，raw/lines/wholepacket不同"
+    },
+    {
+      "source_file": "projects/postmortem-writer/solution/stage3.go",
+      "bytes": 438,
+      "sha256": "534820d4bc6879719c96ec924a06d5b958cdb074fe48866d5b75c852b03cbd19",
+      "git_blob_sha1": "f8ff31bb7f4eb70c9e32584adaf515b8a90c60e2",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 24,
+      "headers": [],
+      "semantic": "nonblankclaim/至少known distinct IDs，仅存在检查、不证causality"
+    },
+    {
+      "source_file": "projects/postmortem-writer/solution/stage4.go",
+      "bytes": 724,
+      "sha256": "2821b06dcdb0cc4b746de01ad92a623f57e1bec607adb9f14330597048fa2d4f",
+      "git_blob_sha1": "558d0a1e61770e9d36ebf87b85c2ff527b5f7b46",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 30,
+      "headers": [],
+      "semantic": "所有claim Verify先、Timeline、fmt%q逃逸newline，原Report空结果onerror；此核函数无HTML/磁盘atomic"
+    },
+    {
+      "source_file": "projects/postmortem-writer/solution/types.go",
+      "bytes": 304,
+      "sha256": "b549127ad11cebe78b8cdcc1347152ff37fccdf19751274eddb5f5163902b040",
+      "git_blob_sha1": "8020320735c218a4f3bc69c1721617af266a9c75",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 18,
+      "headers": [],
+      "semantic": "Eventintseconds vs Claimtext/refslice与typedError分Invalid/Limit/Conflict"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/docs/en.md",
+      "bytes": 3104,
+      "sha256": "0467f2c73596b97036112f994d6b355b2ab858ba73ae2ab1ef7d085471fa324f",
+      "git_blob_sha1": "87b19f158f378f819fb8e6f41dd126e222b78e03",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 56,
+      "headers": [
+        {
+          "line": 10,
+          "heading": "## Ingest evidence with a stable locator",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1127,
+            "heading": "### 20.1 事件身份、物理行与整批失败",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 14,
+          "heading": "## Work through one case",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1127,
+            "heading": "### 20.1 事件身份、物理行与整批失败",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 22,
+          "heading": "## Your task",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 30,
+          "heading": "## Run the tests",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 38,
+          "heading": "## Implementation hints",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 44,
+          "heading": "## Check your understanding",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 50,
+          "heading": "## Use it with your own data",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 54,
+          "heading": "## Sources",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1127,
+            "heading": "### 20.1 事件身份、物理行与整批失败",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        }
+      ],
+      "semantic": "完整合同/机制/onecase/实现/原tests/提示/理解/自数据用法/sources；新正文20各主题及四实践覆盖"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/starter/go.mod",
+      "bytes": 45,
+      "sha256": "486b2d0a91c11d839e2e1cabdc37288e92b3488a01076f562dd61f1accf8281d",
+      "git_blob_sha1": "2ab2f12bdffc1fab7a95721c0e92a54d27af1789",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 3,
+      "headers": [],
+      "same_bytes_full_read_reuse_of": "projects/postmortem-writer/solution/go.mod",
+      "semantic": "同字节fullprovidedmain/integration/types/gomod，复用上述完整阅读，不当运行或实际grant"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/starter/integration.go",
+      "bytes": 7555,
+      "sha256": "2a0b35071294bc2c230424e74f8f20b75fa0fd50f1ae5eca4b4026c75d0a4c1d",
+      "git_blob_sha1": "d412a4cae44019d8941b7601ce46116c48145e28",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 192,
+      "headers": [],
+      "same_bytes_full_read_reuse_of": "projects/postmortem-writer/solution/integration.go",
+      "semantic": "同字节fullprovidedmain/integration/types/gomod，复用上述完整阅读，不当运行或实际grant"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/starter/main.go",
+      "bytes": 1988,
+      "sha256": "97b6feb6d6fe29f460399d6367ee3208a50160819df9e4942023ad53d608190f",
+      "git_blob_sha1": "a2a64f4775196c4cdefdd4bc7857b1ee785a7e9f",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 58,
+      "headers": [],
+      "same_bytes_full_read_reuse_of": "projects/postmortem-writer/solution/main.go",
+      "semantic": "同字节fullprovidedmain/integration/types/gomod，复用上述完整阅读，不当运行或实际grant"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/starter/stage1.go",
+      "bytes": 93,
+      "sha256": "1a357a4735b17c3e694a4adf5da49abf3d8c0e7be302032be0905a8e0f119c9f",
+      "git_blob_sha1": "cae31ae4daff0ece95d08251cc76df6b90b3f9c0",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 3,
+      "headers": [],
+      "semantic": "panic未实现四职责，只有合同，初始化不当完成"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/starter/types.go",
+      "bytes": 304,
+      "sha256": "b549127ad11cebe78b8cdcc1347152ff37fccdf19751274eddb5f5163902b040",
+      "git_blob_sha1": "8020320735c218a4f3bc69c1721617af266a9c75",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 18,
+      "headers": [],
+      "same_bytes_full_read_reuse_of": "projects/postmortem-writer/solution/types.go",
+      "semantic": "同字节fullprovidedmain/integration/types/gomod，复用上述完整阅读，不当运行或实际grant"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/tests/stage_test.go",
+      "bytes": 624,
+      "sha256": "2ce1622ca10e5504f75d6450a93626f81b530c20fdc397f08604ef6f6273eda6",
+      "git_blob_sha1": "ef75d09e1e2067203ede2e6134558e9d9a92bbb1",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 33,
+      "headers": [],
+      "semantic": "29实际Go Test方法各assert全文静读/原测试不执行"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/02-build-a-stable-bounded-timeline/docs/en.md",
+      "bytes": 2981,
+      "sha256": "749d531234577dd45b3815c94d40b52cd20c726840612ae926eb235511ac8ac3",
+      "git_blob_sha1": "0f1b74d1d6560f4e0461d92d79666ee5f739b6b9",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 56,
+      "headers": [
+        {
+          "line": 10,
+          "heading": "## Separate ingestion order from timeline order",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1135,
+            "heading": "### 20.2 时间顺序不是因果顺序",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 14,
+          "heading": "## Work through one case",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1135,
+            "heading": "### 20.2 时间顺序不是因果顺序",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 22,
+          "heading": "## Your task",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 30,
+          "heading": "## Run the tests",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 38,
+          "heading": "## Implementation hints",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 44,
+          "heading": "## Check your understanding",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 50,
+          "heading": "## Use it with your own data",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 54,
+          "heading": "## Sources",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1135,
+            "heading": "### 20.2 时间顺序不是因果顺序",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        }
+      ],
+      "semantic": "完整合同/机制/onecase/实现/原tests/提示/理解/自数据用法/sources；新正文20各主题及四实践覆盖"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/02-build-a-stable-bounded-timeline/starter/stage2.go",
+      "bytes": 115,
+      "sha256": "abee9cc37153fa0250407d75f4cfb213a7ee916f055a693a3024e35a5c12fed5",
+      "git_blob_sha1": "37b779f4117b36f47595157f028b60059dda82cc",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 3,
+      "headers": [],
+      "semantic": "panic未实现四职责，只有合同，初始化不当完成"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/02-build-a-stable-bounded-timeline/tests/stage_test.go",
+      "bytes": 711,
+      "sha256": "490ee40ea1899dab0f8c21ca25e0330cc57d7ce871f2987665f6ce79aef2b3c0",
+      "git_blob_sha1": "9902c0b924dcedbbb765b051aa63be7141e0bd7f",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 36,
+      "headers": [],
+      "semantic": "29实际Go Test方法各assert全文静读/原测试不执行"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/03-require-evidence-for-each-claim/docs/en.md",
+      "bytes": 3176,
+      "sha256": "47dc6dcf5e985558033f70ea39541789fd96514fb9ab2f34a68fd6e412a6c718",
+      "git_blob_sha1": "232857733bc9e6874df5d59c8dcc9ba327ca4b92",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 56,
+      "headers": [
+        {
+          "line": 10,
+          "heading": "## Distinguish a citation from a conclusion",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1143,
+            "heading": "### 20.3 引用、逐字引文、支持程度与批准分别核对",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 14,
+          "heading": "## Work through one case",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1143,
+            "heading": "### 20.3 引用、逐字引文、支持程度与批准分别核对",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 22,
+          "heading": "## Your task",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 30,
+          "heading": "## Run the tests",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 38,
+          "heading": "## Implementation hints",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 44,
+          "heading": "## Check your understanding",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 50,
+          "heading": "## Use it with your own data",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 54,
+          "heading": "## Sources",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1143,
+            "heading": "### 20.3 引用、逐字引文、支持程度与批准分别核对",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        }
+      ],
+      "semantic": "完整合同/机制/onecase/实现/原tests/提示/理解/自数据用法/sources；新正文20各主题及四实践覆盖"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/03-require-evidence-for-each-claim/starter/stage3.go",
+      "bytes": 100,
+      "sha256": "ae25a932d8c01dde85e82d2a4d0bc9761e23a9a3335ff4353aa4739fc0cdd6c3",
+      "git_blob_sha1": "35d04ae49aebae18db574653208c1dce31023c83",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 3,
+      "headers": [],
+      "semantic": "panic未实现四职责，只有合同，初始化不当完成"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/03-require-evidence-for-each-claim/tests/stage_test.go",
+      "bytes": 729,
+      "sha256": "82c247e9852cd0c371c4536ecf7b16e1c55f63cd400bdc6f2e822a913892e776",
+      "git_blob_sha1": "885ce0311e5cf8e3478057bde0675f993e33b74a",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 31,
+      "headers": [],
+      "semantic": "29实际Go Test方法各assert全文静读/原测试不执行"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/docs/en.md",
+      "bytes": 3349,
+      "sha256": "0af34ecf36074b7f767d1b11c7566439200dae1189d039d5024da0b8705ebdf4",
+      "git_blob_sha1": "eff81d22c9405b75cc1317fb97741c83a3d17291",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 56,
+      "headers": [
+        {
+          "line": 10,
+          "heading": "## Publish a packet that exposes unfinished review",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1157,
+            "heading": "### 20.4 报告不能把未完成工作藏起来",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 14,
+          "heading": "## Work through one case",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1157,
+            "heading": "### 20.4 报告不能把未完成工作藏起来",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 22,
+          "heading": "## Your task",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 30,
+          "heading": "## Run the tests",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 38,
+          "heading": "## Implementation hints",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 44,
+          "heading": "## Check your understanding",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 50,
+          "heading": "## Use it with your own data",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        },
+        {
+          "line": 54,
+          "heading": "## Sources",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1157,
+            "heading": "### 20.4 报告不能把未完成工作藏起来",
+            "sha256": "80e1f7d74d103e47fe1b347aead9746cbc556a6eef92bfe08e8b7a67034260fe"
+          }
+        }
+      ],
+      "semantic": "完整合同/机制/onecase/实现/原tests/提示/理解/自数据用法/sources；新正文20各主题及四实践覆盖"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/starter/stage4.go",
+      "bytes": 129,
+      "sha256": "ce9746f4c068cad3d80258743f6294b1db1e60f465ba85c100b15aedfc8a5bf6",
+      "git_blob_sha1": "39d63a5f71eec8d254eb5a8ce019bbf48e44c2d1",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 5,
+      "headers": [],
+      "semantic": "panic未实现四职责，只有合同，初始化不当完成"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/integration_test.go",
+      "bytes": 2901,
+      "sha256": "f484e6fee9f88fde936e24becc20cc183a8bc8fb1c986bdd5e394c8953dabe5f",
+      "git_blob_sha1": "be1e811eeaa08de456698c9b414feb365ddb320c",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 81,
+      "headers": [],
+      "semantic": "29实际Go Test方法各assert全文静读/原测试不执行"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/stage_test.go",
+      "bytes": 836,
+      "sha256": "e00ba069a72446b58e926acd17a10315a37278c267044718953d9e208364ec70",
+      "git_blob_sha1": "9505aa1eea50188fd4856f02f6537fcaac080bd9",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 38,
+      "headers": [],
+      "semantic": "29实际Go Test方法各assert全文静读/原测试不执行"
+    }
+  ],
+  "stages": [
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/docs/en.md",
+      "bytes": 3104,
+      "sha256": "0467f2c73596b97036112f994d6b355b2ab858ba73ae2ab1ef7d085471fa324f",
+      "git_blob_sha1": "87b19f158f378f819fb8e6f41dd126e222b78e03",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 56,
+      "headers": [
+        {
+          "line": 10,
+          "heading": "## Ingest evidence with a stable locator",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1127,
+            "heading": "### 20.1 事件身份、物理行与整批失败",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 14,
+          "heading": "## Work through one case",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1127,
+            "heading": "### 20.1 事件身份、物理行与整批失败",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 22,
+          "heading": "## Your task",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 30,
+          "heading": "## Run the tests",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 38,
+          "heading": "## Implementation hints",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 44,
+          "heading": "## Check your understanding",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 50,
+          "heading": "## Use it with your own data",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 54,
+          "heading": "## Sources",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1157,
+            "heading": "### 20.4 报告不能把未完成工作藏起来",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        }
+      ],
+      "semantic": "完整合同/机制/onecase/实现/原tests/提示/理解/自数据用法/sources；新正文20各主题及四实践覆盖"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/02-build-a-stable-bounded-timeline/docs/en.md",
+      "bytes": 2981,
+      "sha256": "749d531234577dd45b3815c94d40b52cd20c726840612ae926eb235511ac8ac3",
+      "git_blob_sha1": "0f1b74d1d6560f4e0461d92d79666ee5f739b6b9",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 56,
+      "headers": [
+        {
+          "line": 10,
+          "heading": "## Separate ingestion order from timeline order",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1135,
+            "heading": "### 20.2 时间顺序不是因果顺序",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 14,
+          "heading": "## Work through one case",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1135,
+            "heading": "### 20.2 时间顺序不是因果顺序",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 22,
+          "heading": "## Your task",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 30,
+          "heading": "## Run the tests",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 38,
+          "heading": "## Implementation hints",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 44,
+          "heading": "## Check your understanding",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 50,
+          "heading": "## Use it with your own data",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 54,
+          "heading": "## Sources",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1157,
+            "heading": "### 20.4 报告不能把未完成工作藏起来",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        }
+      ],
+      "semantic": "完整合同/机制/onecase/实现/原tests/提示/理解/自数据用法/sources；新正文20各主题及四实践覆盖"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/03-require-evidence-for-each-claim/docs/en.md",
+      "bytes": 3176,
+      "sha256": "47dc6dcf5e985558033f70ea39541789fd96514fb9ab2f34a68fd6e412a6c718",
+      "git_blob_sha1": "232857733bc9e6874df5d59c8dcc9ba327ca4b92",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 56,
+      "headers": [
+        {
+          "line": 10,
+          "heading": "## Distinguish a citation from a conclusion",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1143,
+            "heading": "### 20.3 引用、逐字引文、支持程度与批准分别核对",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 14,
+          "heading": "## Work through one case",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1143,
+            "heading": "### 20.3 引用、逐字引文、支持程度与批准分别核对",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 22,
+          "heading": "## Your task",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 30,
+          "heading": "## Run the tests",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 38,
+          "heading": "## Implementation hints",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 44,
+          "heading": "## Check your understanding",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 50,
+          "heading": "## Use it with your own data",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 54,
+          "heading": "## Sources",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1157,
+            "heading": "### 20.4 报告不能把未完成工作藏起来",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        }
+      ],
+      "semantic": "完整合同/机制/onecase/实现/原tests/提示/理解/自数据用法/sources；新正文20各主题及四实践覆盖"
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/docs/en.md",
+      "bytes": 3349,
+      "sha256": "0af34ecf36074b7f767d1b11c7566439200dae1189d039d5024da0b8705ebdf4",
+      "git_blob_sha1": "eff81d22c9405b75cc1317fb97741c83a3d17291",
+      "official_blob_matches": true,
+      "read_complete": true,
+      "read_date": "2026-10-14",
+      "executed": false,
+      "binary": false,
+      "lines": 56,
+      "headers": [
+        {
+          "line": 10,
+          "heading": "## Publish a packet that exposes unfinished review",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1157,
+            "heading": "### 20.4 报告不能把未完成工作藏起来",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 14,
+          "heading": "## Work through one case",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1157,
+            "heading": "### 20.4 报告不能把未完成工作藏起来",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 22,
+          "heading": "## Your task",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 30,
+          "heading": "## Run the tests",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 38,
+          "heading": "## Implementation hints",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 44,
+          "heading": "## Check your understanding",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 50,
+          "heading": "## Use it with your own data",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1167,
+            "heading": "### 20.5 四阶段练习与可复查验收",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        },
+        {
+          "line": 54,
+          "heading": "## Sources",
+          "formal_destination": {
+            "file": "LLM 工程实践/10-案例方法论.md",
+            "line": 1157,
+            "heading": "### 20.4 报告不能把未完成工作藏起来",
+            "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+          }
+        }
+      ],
+      "semantic": "完整合同/机制/onecase/实现/原tests/提示/理解/自数据用法/sources；新正文20各主题及四实践覆盖"
+    }
+  ],
+  "tests": [
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/tests/stage_test.go",
+      "line": 7,
+      "method": "TestValid",
+      "purpose": "e1时间12合法",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/tests/stage_test.go",
+      "line": 13,
+      "method": "TestNegative",
+      "purpose": "负time拒绝",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/tests/stage_test.go",
+      "line": 18,
+      "method": "TestDuplicate",
+      "purpose": "重复IDconflict",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/tests/stage_test.go",
+      "line": 23,
+      "method": "TestMissing",
+      "purpose": "缺消息拒绝",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/01-parse-an-incident-event-ledger/tests/stage_test.go",
+      "line": 28,
+      "method": "TestEmpty",
+      "purpose": "empty小ledger允许",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/02-build-a-stable-bounded-timeline/tests/stage_test.go",
+      "line": 7,
+      "method": "TestOrdered",
+      "purpose": "timeorder",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/02-build-a-stable-bounded-timeline/tests/stage_test.go",
+      "line": 13,
+      "method": "TestTied",
+      "purpose": "tiedIDorder",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/02-build-a-stable-bounded-timeline/tests/stage_test.go",
+      "line": 19,
+      "method": "TestNoMutation",
+      "purpose": "caller slice不修改",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/02-build-a-stable-bounded-timeline/tests/stage_test.go",
+      "line": 26,
+      "method": "TestBound",
+      "purpose": "horizon整批拒",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/02-build-a-stable-bounded-timeline/tests/stage_test.go",
+      "line": 31,
+      "method": "TestEmpty",
+      "purpose": "emptytimeline允许",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/03-require-evidence-for-each-claim/tests/stage_test.go",
+      "line": 7,
+      "method": "TestSupported",
+      "purpose": "known ref存在",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/03-require-evidence-for-each-claim/tests/stage_test.go",
+      "line": 12,
+      "method": "TestDangling",
+      "purpose": "dangling拒",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/03-require-evidence-for-each-claim/tests/stage_test.go",
+      "line": 17,
+      "method": "TestNoEvidence",
+      "purpose": "noevidence拒",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/03-require-evidence-for-each-claim/tests/stage_test.go",
+      "line": 22,
+      "method": "TestDuplicate",
+      "purpose": "duplicatecite conflict",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/03-require-evidence-for-each-claim/tests/stage_test.go",
+      "line": 27,
+      "method": "TestBlank",
+      "purpose": "blankclaim拒",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/integration_test.go",
+      "line": 15,
+      "method": "TestPhysicalLineLocator",
+      "purpose": "blankfirst→物理line2",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/integration_test.go",
+      "line": 21,
+      "method": "TestFabricatedQuote",
+      "purpose": "fabricatedquote拒",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/integration_test.go",
+      "line": 26,
+      "method": "TestApprovalNeedsVersion",
+      "purpose": "approved缺sourceversion拒",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/integration_test.go",
+      "line": 31,
+      "method": "TestStaleReview",
+      "purpose": "stalehash拒",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/integration_test.go",
+      "line": 36,
+      "method": "TestApprovedReceipt",
+      "purpose": "matchingapproved保pending0/hash",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/integration_test.go",
+      "line": 43,
+      "method": "TestHTMLQuotedAndLinked",
+      "purpose": "HTMLescape/link/line",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/integration_test.go",
+      "line": 53,
+      "method": "TestUnknownRecordField",
+      "purpose": "unknownrecordfield拒",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/integration_test.go",
+      "line": 58,
+      "method": "TestMissingTime",
+      "purpose": "missingsecond拒",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/integration_test.go",
+      "line": 63,
+      "method": "TestTextPacketPreservesReviewMetadata",
+      "purpose": "text保review/impact/hash/owner/loc/quote",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/stage_test.go",
+      "line": 8,
+      "method": "TestPacket",
+      "purpose": "textpacket引用",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/stage_test.go",
+      "line": 14,
+      "method": "TestLimit",
+      "purpose": "claimcap拒",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/stage_test.go",
+      "line": 19,
+      "method": "TestInvalidAtomic",
+      "purpose": "badclaim无partialstring",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/stage_test.go",
+      "line": 25,
+      "method": "TestEscaped",
+      "purpose": "msgnewlinefmt转义",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    },
+    {
+      "source_file": "projects/postmortem-writer/stages/04-publish-a-deterministic-incident-packet/tests/stage_test.go",
+      "line": 31,
+      "method": "TestDeterministic",
+      "purpose": "sameinputdeterministic",
+      "executed": false,
+      "formal_destination": {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    }
+  ],
+  "provider": {
+    "source_file": "site/figures/projects/postmortem-writer.js",
+    "sha256": "b7a873433d62d71b8e74760fe3e67a6b50b8eb197acee58db3d123d23bf8ec54",
+    "git_blob_sha1": "ed082621fd139809c8aa26129754bed02a5c846d",
+    "read_complete": true,
+    "executed": false,
+    "meaning": "四不同fixture lab:second+duplicate无实际Parse、3fixedeventstimeorder、3IDs/substrings、approved+changedbool，无rawSHA/realidentity/CLI/receipt；localeCompare不等Go任意UnicodeID字节排序"
+  },
+  "counts": {
+    "project_files": 35,
+    "text": 31,
+    "binary": 4,
+    "stages": 4,
+    "stage_h2_h4": 32,
+    "test_methods_static": 29,
+    "figures": 4,
+    "all_GIF_frames_viewed": 24,
+    "new_code": 0,
+    "old_same_bytes_persistent_success": 5,
+    "source_executions": 0
+  },
+  "formal_file": {
+    "file": "LLM 工程实践/10-案例方法论.md",
+    "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65",
+    "destinations": [
+      {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1127,
+        "heading": "### 20.1 事件身份、物理行与整批失败",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      },
+      {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1135,
+        "heading": "### 20.2 时间顺序不是因果顺序",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      },
+      {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1143,
+        "heading": "### 20.3 引用、逐字引文、支持程度与批准分别核对",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      },
+      {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1157,
+        "heading": "### 20.4 报告不能把未完成工作藏起来",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      },
+      {
+        "file": "LLM 工程实践/10-案例方法论.md",
+        "line": 1167,
+        "heading": "### 20.5 四阶段练习与可复查验收",
+        "sha256": "5805dbf9c1030cc73cc1c911c8a9c6f5628c0574144afa37aa10757434853c65"
+      }
+    ]
+  },
+  "old_code": {
+    "file": "LLM 工程实践/10-案例方法论.md",
+    "baseline_sha256": "9de62e200bb84e50021725f0b8ed9ce4a470a770e291d90ccc91b548a20b0cd4",
+    "old_blocks": [
+      {
+        "block": 1,
+        "sha256_with_lf": "7b5af038309e1559c58cec6ed8ecf26957479dbfe13c087c9afb009d0549c947",
+        "sha256_without_lf": "a868465eea8a4e7810227a36fd8fcd45b969c492dbd82b1986846392a9de5a52",
+        "proof_file": "维护/五站吸收/11-LLM工程-缓存安全与协议框架-覆盖与验证.json",
+        "proof": {
+          "file": "LLM 工程实践/10-案例方法论.md",
+          "block": 1,
+          "sha256": "a868465eea8a4e7810227a36fd8fcd45b969c492dbd82b1986846392a9de5a52",
+          "sha256_convention": "fenced body without terminal LF",
+          "script": "/tmp/study-llmeng-systems-validation-1007/02.py",
+          "execution_date": "2026-10-07",
+          "exit_code": 0,
+          "stdout": "重试已知总费 0.22 输出拒绝保原usage 0.18 未知写状态不重复 reconcile_required\n",
+          "stderr": "",
+          "elapsed_seconds": 0.01907979091629386,
+          "scope": "self-contained stdlib CPU fixture; no SDK/model/API/permanentservice",
+          "line": 135,
+          "evidence_file": "/tmp/study-llmeng-systems-validation-1007/formal-results.json",
+          "result_file_sha256": "106a257a1ab468c002f69bea214ac00cee64a5a76bf1bdd6cdb8f36426fddae0"
+        },
+        "mode": "同字节持久成功SHA证明可复用"
+      },
+      {
+        "block": 2,
+        "sha256_with_lf": "ef8b2b623586e9f085b9d0de1a7ef561ba620c59b089dbb40d3f69911899da1f",
+        "sha256_without_lf": "c898162a5317f41cdba7bff813d2565a6a03d5b5da3d1ac9e98d20b5917ce1ac",
+        "proof_file": "维护/五站吸收/13-工具与协议-互操作路由与观测-覆盖与验证.json",
+        "proof": {
+          "file": "LLM 工程实践/10-案例方法论.md",
+          "block": 2,
+          "date": "2026-10-08",
+          "environment": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+          "interpreter": "/Users/wangshuiqing/codex-tools/bin/python3",
+          "code_sha256": "c898162a5317f41cdba7bff813d2565a6a03d5b5da3d1ac9e98d20b5917ce1ac",
+          "run_file_sha256": "ef8b2b623586e9f085b9d0de1a7ef561ba620c59b089dbb40d3f69911899da1f",
+          "stdout": "qualified隔离、能力/权限、poll、effect后重启恢复、单receipt、归属/撤权/TTL通过\n",
+          "stderr": "",
+          "exit_code": 0,
+          "status": "本轮实际执行"
+        },
+        "mode": "同字节持久成功SHA证明可复用"
+      },
+      {
+        "block": 3,
+        "sha256_with_lf": "7229be2475973efea7512c4bf1040242eea10216543ab4a0283fbe6d25192e0c",
+        "sha256_without_lf": "cb57da58bfbd23b997359a1819dd03d8cf948b43b0bbcce77e130fcc1a0f6cc9",
+        "proof_file": "维护/五站吸收/14-Agent工程-工作台与成果判断-覆盖与验证.json",
+        "proof": {
+          "file": "LLM 工程实践/10-案例方法论.md",
+          "block": 3,
+          "line": 518,
+          "sha256": "7229be2475973efea7512c4bf1040242eea10216543ab4a0283fbe6d25192e0c",
+          "sha256_convention": "fenced body including terminal LF",
+          "script": "/tmp/study-agents3154-root-final/04.py",
+          "argv": [
+            "/Users/wangshuiqing/codex-tools/bin/python3",
+            "-I",
+            "/tmp/study-agents3154-root-final/04.py"
+          ],
+          "cwd": "/tmp/study-agents3154-root-final",
+          "execution_date": "2026-10-09",
+          "runtime": "Python3.12.13标准库；仅人工数据/内存及自身TemporaryDirectory SQLite",
+          "exit_code": 0,
+          "stdout": "outcome: 先硬筛slice；缺case/耗时未知保ambiguous；越权/错误/审核转移失败\n",
+          "stderr": "",
+          "reused": false,
+          "source_executed": false
+        },
+        "mode": "同字节持久成功SHA证明可复用"
+      },
+      {
+        "block": 4,
+        "sha256_with_lf": "a9ce43582b70fc21a730a5324df27e5c5681b2273f11e9269894bbd2ab45cd0e",
+        "sha256_without_lf": "aa8666b314b458395af5b0b6b3c8654e78576e41780fc712fff72ecf93e29b4d",
+        "proof_file": "维护/五站吸收/19A-综合项目集成-行动交付与运维-覆盖与验证.json",
+        "proof": {
+          "file": "LLM 工程实践/10-案例方法论.md",
+          "block": 4,
+          "script": "/tmp/study-capstone-a-final-head-final.py",
+          "sha256": "a9ce43582b70fc21a730a5324df27e5c5681b2273f11e9269894bbd2ab45cd0e",
+          "exit_code": 0,
+          "stdout": "最终HEAD/环境绑定：缺回执、缺用例、失败、skip、未知、预算停止和旧HEAD不通过；完整fixture通过\n",
+          "stderr": "",
+          "date": "2026-10-11",
+          "python": "Python 3.12.13",
+          "scope": "标准库合成fixture；未读实际仓库/执行CI/验签/网络；负例包括最终HEAD变化、环境匹配、必要用例缺失、skip/失败/未知、预算停止、重复回执/bool退出码"
+        },
+        "mode": "同字节持久成功SHA证明可复用"
+      },
+      {
+        "block": 5,
+        "sha256_with_lf": "9a505c8bde0b9c36b3984412935dc37540730dc355939df79e74d09156d65972",
+        "sha256_without_lf": "27d87174a49f9ada9319700cf513dc021bd9628a605d8e15fee2c35cd9398f8c",
+        "proof_file": "维护/五站吸收/21B-CSV问答项目-覆盖与代码核对.json",
+        "proof": {
+          "date": "2026-10-14",
+          "mode": "本库自有标准库CPU实际，不执行source",
+          "script": "/tmp/study-csv-sql-owned-program.py",
+          "sha256": "9a505c8bde0b9c36b3984412935dc37540730dc355939df79e74d09156d65972",
+          "python": "3.12.13",
+          "sqlite": "3.53.1",
+          "exit_code": 0,
+          "stdout": "SQLite 3.53.1 结果 [('East', 7), ('West', 5)] 三个TEXT标识保真\n原始CRLF/LF指纹不同、聚合相同；截断显式；7类越界拒绝；昂贵读中断。\n",
+          "stderr": "",
+          "root_repair": "初版known COUNT(*)在本SQLite null-db/emptycolumn被误拒，补已知table空column窄分支及COUNT3actualpositive后最终实跑成功；不拓宽其他动作",
+          "scope": "显式三列合同、rawbytesSHA、TEXTIDs、SELECT聚合/count、7deny、truncation、expensiveinterrupt；非source全部29tests或production"
+        },
+        "mode": "同字节持久成功SHA证明可复用"
+      }
+    ]
+  },
+  "primary": [
+    {
+      "url": "https://sre.google/workbook/postmortem-culture/",
+      "date": "2026-10-14",
+      "actually_selected_read": [
+        43,
+        48,
+        165,
+        210
+      ],
+      "scope": "context/impact/action具体归属跟踪、blameless；没有全文阅读或复用其整章"
+    },
+    {
+      "url": "https://pkg.go.dev/encoding/json",
+      "date": "2026-10-14",
+      "actually_selected_read_web_ranges": [
+        [
+          271,
+          279
+        ],
+        [
+          801,
+          805
+        ]
+      ],
+      "scope": "source使用encoding/json v1仍允许dup/invalidUTF8替换；不把新v2默认外推旧API"
+    }
+  ],
+  "root_corrections": [
+    "源SHA绑rawbytes，但不绑claim/review变更与真实reviewer",
+    "排序语义重排可同，不等包含rawSHA/physicalLine的完整packet同",
+    "核心Report无partial不等磁盘三文件groupatomic；CLIReadFile先read后cap",
+    "引文substring存在不证因果/充分性；pending/unknownimpact/unassignedopen保留，done仅label缺实际完成证明",
+    "source strictJSON未rejectdup/invalidUTF8 v1，sourcecode/tests均未run"
+  ],
+  "not_verified": [
+    "Go/CLI/grader/tests/template/JS/安装/server0运行；本批仅完整静读与主题正文",
+    "现有5Python仅同字节持久proof不重跑，没新同义报告程序",
+    "source1整站未完，后四站未读"
+  ],
+  "shared_runtime_full_read_reuse": {
+    "source_file": "site/figures/projects/runtime.js",
+    "sha256": "233d9784654b37028abe604652b36f81d32722bb51221b6c8b92a05318c4470a",
+    "scope": "复用已完整静读426行同字节；无JS/browser执行"
+  }
+}

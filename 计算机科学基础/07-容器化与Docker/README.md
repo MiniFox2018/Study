@@ -117,3 +117,6 @@ Image / Container / Registry
 ### 2026-10-03 配置验证
 
 使用 Docker Compose 5.1.4 对 04 章完整 YAML 执行 `docker compose config --quiet` 和 JSON 规范化解析，均成功；检查了健康依赖、容器内变量转义、secret 文件引用与 PostgreSQL 18 卷路径。当前 Docker daemon 仍不可连接，因此没有拉取/构建镜像、创建容器、验证查询结果或数据卷持久化。配置解析通过与运行验收通过分开记录。
+## AI工作负载的深化
+
+已有构建/网络/Compose基础后，进入[AI容器与硬件边界](./09-AI容器与硬件运行边界.md)，用CPU小例子验证持久产物，再按当前平台判断GPU路径。

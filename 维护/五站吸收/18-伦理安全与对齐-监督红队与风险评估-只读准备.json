@@ -1,0 +1,3974 @@
+{
+  "日期": "2026-10-11",
+  "状态": "11–20完整源文件只读与一手核验完成，尚未写入正式知识/未验收",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "范围": "source1 Phase18 11–20；sites2–5未读",
+  "执行边界": {
+    "源程序执行": 0,
+    "真实LLM或供应商API": 0,
+    "真实攻击或发送": 0,
+    "安装": 0,
+    "模型下载": 0
+  },
+  "lessons": [
+    {
+      "lesson": "11-scalable-oversight-weak-to-strong",
+      "files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/11-scalable-oversight-weak-to-strong/assets/pgr-frontier.svg",
+          "bytes": 4269,
+          "sha256": "142fb44b704db8adb09edf17a7e4d97a9d9b6eafd62695a3278d47f2aa8a8a1e",
+          "git_blob": "2bcf4aa71b4ba499ef83d5743b3ee75e9f54b96c",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/11-scalable-oversight-weak-to-strong/code/main.py",
+          "bytes": 3475,
+          "sha256": "50b59697de0474ad9ace8361c93b3f1e13df638878c0ea890e56bb58170fd906",
+          "git_blob": "73e652531249f4bd6e1bc71f3b5cbf2a238a18b4",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/11-scalable-oversight-weak-to-strong/docs/en.md",
+          "bytes": 8557,
+          "sha256": "d196b5586d8b302756393fb7a48288b465f5908633395b3164d8924cf46f7a8d",
+          "git_blob": "73505b695999c52e81f2aed865e76a4baf6d86a0",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/11-scalable-oversight-weak-to-strong/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/11-scalable-oversight-weak-to-strong/outputs/skill-w2sg-pgr.md",
+          "bytes": 2373,
+          "sha256": "5eb0443670fe822455930d478c88367f50695f4c5bf722becfc3b05a29d2d0a3",
+          "git_blob": "09fd17b76ac5d0e49d99f4d660dee0733d1d5e6c",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/11-scalable-oversight-weak-to-strong/quiz.json",
+          "bytes": 2694,
+          "sha256": "e558b4dc2782046411f3b668423b2fa32312edf72393dc83d210ce486f737315",
+          "git_blob": "c084d6676df5edc816a12c6df0571ef8a3a23019",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        }
+      ],
+      "true_h2_h4_topics": [
+        {
+          "line": 10,
+          "title": "Learning Objectives",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 17,
+          "title": "The Problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 23,
+          "title": "The Concept",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 25,
+          "title": "W2SG: the Burns et al. setup",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 40,
+          "title": "Burns et al. empirical findings",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 49,
+          "title": "Scalable oversight: three mechanisms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 57,
+          "title": "Why scalable oversight and W2SG are complementary",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 64,
+          "title": "The organizational drama",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 68,
+          "title": "Where this fits in Phase 18",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 76,
+          "title": "Use It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 80,
+          "title": "Ship It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 84,
+          "title": "Exercises",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 96,
+          "title": "Key Terms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        },
+        {
+          "line": 108,
+          "title": "Further Reading",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+            "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+            "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+          ]
+        }
+      ],
+      "source_exercises": [
+        {
+          "编号": 1,
+          "原练习": "Run `code/main.py`. Report PGR for weak_accuracy = 0.60, 0.70, 0.80. Explain the shape of the PGR curve.",
+          "中文参考判断": "不执行源程序；先报告实际weak/gold/student三分数和种子，而非按q报告弱准确率；固定数据对照才比较PGR。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 2,
+          "原练习": "Modify the weak labeler to have structured error (e.g., always wrong on a specific input class). Does PGR increase, decrease, or stay the same? Explain.",
+          "中文参考判断": "构造独立噪声与系统性反标签分别比较：随机噪声可平均，易学系统错误可被学生模仿，无必然方向。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 3,
+          "原练习": "Read Burns et al. 2023 Section 4.3 (NLP tasks). Reproduce the \"confidence auxiliary loss\" intuition: when the strong model is more confident than the weak labels, who wins?",
+          "中文参考判断": "辅助项奖励学生自信预测同时保留监督目标；大gap部分NLP改善，小gap或逆缩放可能退化，必须gold留出。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 4,
+          "原练习": "Design a scalable-oversight protocol that combines debate and task decomposition for a software-engineering task. Name one failure mode of each component and explain how the combination addresses or fails to address each.",
+          "中文参考判断": "软件审查拆输入校验/授权/输出/状态，再让双方给反例；同源模型共享盲点及跨组件副作用不会由辩论自动消失。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 5,
+          "原练习": "Articulate what would falsify the \"weak-to-strong generalization is a viable path to superalignment\" claim. Be specific about the empirical signature you would need to see.",
+          "中文参考判断": "若多分布多gap下PGR消失、严重错误持续、监督者不可判任务中越界能力显著，则削弱该路径；单一次分类失败不能证明总体不可能。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        }
+      ],
+      "source_quiz": [
+        {
+          "编号": 1,
+          "原题": "What is the core question the Superalignment agenda asks?",
+          "原correct": 2,
+          "原正确选项": "Can a weaker overseer reliably supervise a stronger, aligned model?",
+          "中文解释与纠错": "弱监督者是否可靠约束更强模型，研究问题而非已证答案。"
+        },
+        {
+          "编号": 2,
+          "原题": "In Burns et al. (2023) weak-to-strong generalization, what is the setup?",
+          "原correct": 2,
+          "原正确选项": "A strong model (GPT-4 class) is fine-tuned on labels produced by a weak model (GPT-2 class) and its capability is measured against the strong supervised ceiling",
+          "中文解释与纠错": "强预训练学生用弱标签微调，与gold监督同基础模型比较。"
+        },
+        {
+          "编号": 3,
+          "原题": "How is Performance Gap Recovered (PGR) defined?",
+          "原correct": 0,
+          "原正确选项": "(fine-tuned - weak) / (ceiling - weak)",
+          "中文解释与纠错": "(student-weak)/(gold-weak)，gold必须高于weak且差距可解释。"
+        },
+        {
+          "编号": 4,
+          "原题": "Which of the following is NOT a scalable-oversight mechanism listed in the lesson?",
+          "原correct": 1,
+          "原正确选项": "Tokenizer Distillation",
+          "中文解释与纠错": "Tokenizer distillation不是课列三种监督机制。"
+        },
+        {
+          "编号": 5,
+          "原题": "How are scalable oversight and W2SG complementary?",
+          "原correct": 2,
+          "原正确选项": "Scalable oversight improves the overseer's effective signal quality; W2SG closes the gap from whatever imperfect signal the overseer provides",
+          "中文解释与纠错": "监督机制改善信号，W2SG研究如何从不完美信号泛化。"
+        },
+        {
+          "编号": 6,
+          "原题": "What is the central assumption of the AI-safety-via-debate mechanism?",
+          "原correct": 0,
+          "原正确选项": "Finding a convincing true answer is easier than finding a convincing false answer",
+          "中文解释与纠错": "辩论假设真话可借反驳比假话更容易验证，不是无条件定理。"
+        }
+      ],
+      "知识解释": [
+        "弱到强监督需要先有可用强预训练能力；三种同任务同留出集性能定义PGR，分母接近零不稳定，可为负或超过1，不强行截断。",
+        "辩论以可检验反驳改善弱监督；递归奖励模型用辅助系统提高评判能力；分解需组合后的安全与隐藏跨任务依赖检查。",
+        "论文22二分类NLP、棋题首步与ChatGPT奖励建模结果不同；辅助confidence loss非谁自信谁对，过拟合弱错误和预训练泄漏是关键限制。"
+      ],
+      "code_read_notes": [
+        "weak_label参数q是保留x0阈值标签概率，不是对gold准确率；真实弱准确率=q*a+(1-q)*(1-a)。",
+        "train_strong从零SGD训练线性logistic，无预训练先验；95% ceiling/70% weak是注释预设而非固定事实；source输入原地shuffle且全局random。"
+      ],
+      "核验纠错": [
+        "NLP强于弱不能外推可靠超人对齐；组织人员历史不作为学习主体；置信辅助项在部分小gap任务会降表现。"
+      ],
+      "static_svg": "已完整读原SVG，参数曲线/固定green矩阵/研究历史只作示意；不得当各模型真实结果",
+      "dynamic_key": "scalable-oversight"
+    },
+    {
+      "lesson": "12-red-teaming-pair-automated-attacks",
+      "files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/12-red-teaming-pair-automated-attacks/assets/pair-loop.svg",
+          "bytes": 4467,
+          "sha256": "edacc07097198dd4866f8caf54a3bf5ecb32651e24016b070f81a5529dfd65c9",
+          "git_blob": "38d7b1963331e3204edfaa53d74f18f9ed69b84f",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/12-red-teaming-pair-automated-attacks/code/main.py",
+          "bytes": 5237,
+          "sha256": "360dcd49e902aaa5d29dbe9d0d44c311f8400a5f56ac4074531e0783e1b38a5a",
+          "git_blob": "f0fd67d6fd85c55aa2cc9b6a2e99dea32b169fe9",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/12-red-teaming-pair-automated-attacks/docs/en.md",
+          "bytes": 7550,
+          "sha256": "24dbc68c56b3c9903ecfd86f7237b014e57811bdf00ee62305650b87930ec7ba",
+          "git_blob": "2ac671f47762e728e444b598a4295313672eceb1",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/12-red-teaming-pair-automated-attacks/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/12-red-teaming-pair-automated-attacks/outputs/skill-attack-audit.md",
+          "bytes": 2072,
+          "sha256": "3346f560722c0292caed673f0c1efd70dc08e3e608ffdd97b50e4aef234e14f3",
+          "git_blob": "bdcfdb937aa470142e6c524a13943a560f661969",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/12-red-teaming-pair-automated-attacks/quiz.json",
+          "bytes": 2817,
+          "sha256": "d5f2dcae9a00316df35d7ec3d69eb6dee5a742e01bbd5584920a77bf247eccaa",
+          "git_blob": "b4a719e029961f644e61cb6ea5673982d52665a1",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        }
+      ],
+      "true_h2_h4_topics": [
+        {
+          "line": 10,
+          "title": "Learning Objectives",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 17,
+          "title": "The Problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 21,
+          "title": "The Concept",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 23,
+          "title": "PAIR algorithm",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 42,
+          "title": "Why PAIR is efficient",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 46,
+          "title": "Related automated attacks",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 53,
+          "title": "JailbreakBench and HarmBench",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 62,
+          "title": "Reason it matters for 2026 deployments",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 66,
+          "title": "Where this fits in Phase 18",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 74,
+          "title": "Use It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 78,
+          "title": "Ship It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 82,
+          "title": "Exercises",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 94,
+          "title": "Key Terms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        },
+        {
+          "line": 106,
+          "title": "Further Reading",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+            "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+            "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+          ]
+        }
+      ],
+      "source_exercises": [
+        {
+          "编号": 1,
+          "原练习": "Run `code/main.py`. Measure mean-queries-to-success for the three built-in attacker strategies. Explain which target-defense assumption each exploits.",
+          "中文参考判断": "只解释模板定值与停止预算；真实均查询数需失败记预算、成功子集均值与总均值分别报。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 2,
+          "原练习": "Implement a fourth attacker strategy (e.g., translation to another language, base64 encoding). Report the new mean-queries-to-success against the keyword-filter target and the semantic-filter target.",
+          "中文参考判断": "使用无害dummy秘密/标记作编码转换，解码不运行；新策略必须actualgoal评分，不能未拒即成功。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 3,
+          "原练习": "Read Chao et al. 2023 Figure 5 (PAIR vs GCG comparison). Describe two scenarios where GCG is preferred despite PAIR's efficiency advantage.",
+          "中文参考判断": "纠正Figure5定位；白盒梯度访问/通用可迁移suffix需求可考虑GCG，资源与效果同协议对照，不预设更佳。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 4,
+          "原练习": "JailbreakBench reports ASR against a fixed goal set. Design an additional metric that measures attack diversity (variance in successful prompts). Explain why diversity matters for defense evaluation.",
+          "中文参考判断": "按语义策略族/模版聚类覆盖率、目标类别和distinct成功模板数；同一模板换字不算多样性。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 5,
+          "原练习": "TAP (Mehrotra 2024) extends PAIR with branching + pruning. Sketch a TAP-style extension to `code/main.py` and describe the computational cost vs success-rate trade-off.",
+          "中文参考判断": "分支生成/无关目标剪枝/各分支反馈，统计所有目标/攻击/judgecalls，固定预算下比较，不执行真实攻击。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        }
+      ],
+      "source_quiz": [
+        {
+          "编号": 1,
+          "原题": "Why is manual red-teaming insufficient for evaluating frontier models?",
+          "原correct": 1,
+          "原正确选项": "It does not scale; attack success rate needs a statistical sample against a moving target with every model release",
+          "中文解释与纠错": "自动化扩样覆盖与版本回归，人工语义校准仍必要。"
+        },
+        {
+          "编号": 2,
+          "原题": "What does PAIR stand for, and what does it do?",
+          "原correct": 3,
+          "原正确选项": "Prompt Automatic Iterative Refinement; an attacker LLM iteratively proposes jailbreaks for a target, with prior attempts as in-context feedback",
+          "中文解释与纠错": "Prompt Automatic Iterative Refinement：攻击-目标-裁判-反馈。"
+        },
+        {
+          "编号": 3,
+          "原题": "Why is PAIR more efficient than GCG for a black-box target?",
+          "原correct": 0,
+          "原正确选项": "GCG requires white-box gradient access and produces unreadable suffixes that cannot use in-context feedback; PAIR is black-box and natural-language with in-context learning",
+          "中文解释与纠错": "黑盒可用PAIR；原选项GCG无反馈措辞错误，效率只由给定实验支持。"
+        },
+        {
+          "编号": 4,
+          "原题": "Why must Attack Success Rate (ASR) be reported with both a query budget and a judge identity?",
+          "原correct": 1,
+          "原正确选项": "Because ASR varies with how many queries the attacker is allowed and with which LLM judges a response as a jailbreak",
+          "中文解释与纠错": "ASR随预算/裁判定义变，需报告同协议。"
+        },
+        {
+          "编号": 5,
+          "原题": "Which of these automated attacks is best described as 'tree-of-attacks with pruning'?",
+          "原correct": 1,
+          "原正确选项": "TAP",
+          "中文解释与纠错": "TAP树形探索与剪枝。"
+        },
+        {
+          "编号": 6,
+          "原题": "Which standardized benchmark uses 510 behaviours across 7 categories with semantic and functional harm tests?",
+          "原correct": 2,
+          "原正确选项": "HarmBench",
+          "中文解释与纠错": "HarmBench是更广行为集合；不把一个固定数量当永久版本。"
+        }
+      ],
+      "知识解释": [
+        "PAIR是黑盒目标、攻击生成器、评分器反馈的搜索协议；单流深度K与N流总目标预算N*K分开计账，攻击与judge也耗费用。",
+        "GCG对搜索模型需gradient，可能用开放替代模型生成后迁移到黑盒；不是无历史搜索，也不由自然语言保证速度。",
+        "ASR报告目标集/版本/采样/预算/裁判/超时失败分母及良性误拒；benchmark固定协议，迁移成功条件分母不同。"
+      ],
+      "code_read_notes": [
+        "三条模板轮询仅按history长度，无利用回复内容的LLM优化；30trials完全同策略确定输出。",
+        "keyword-target固定返回payload，semantic-target也只是词集合；未拒不等harmful goal达成；paraphrase第三条keyword成功、roleplay第一条成功、encoded第一条semantic成功，静态可推。"
+      ],
+      "核验纠错": [
+        "选读PAIR v4 2024表2/3和算法1：N30*K3最多90targetcalls，Llama2 4%、Claude2 0%，不是都>50且20必成功。",
+        "原练习Figure5是streams/depth消融，不是PAIR/GCG主比较；来源NeurIPS2023标签未核不保。"
+      ],
+      "static_svg": "已完整读原SVG，参数曲线/固定green矩阵/研究历史只作示意；不得当各模型真实结果",
+      "dynamic_key": "al-pair-loop"
+    },
+    {
+      "lesson": "13-many-shot-jailbreaking",
+      "files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/13-many-shot-jailbreaking/assets/msj-power-law.svg",
+          "bytes": 3808,
+          "sha256": "d0e89a8171d7a4fe3f9c753a2a737f71d4c90bcc30cf736a396742bd8c2b4149",
+          "git_blob": "49329c7cc7ab955e53c03ff9caf7200d2f69dcef",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/13-many-shot-jailbreaking/code/main.py",
+          "bytes": 2956,
+          "sha256": "ba20cec96546d2b32bfed5373a79f37309d24ab47ecec652193023529eea5285",
+          "git_blob": "fdfff3e7ca76459453ef086aa84ba47836009d6e",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/13-many-shot-jailbreaking/docs/en.md",
+          "bytes": 7020,
+          "sha256": "27a1efae78e594530ccd35f01fedacd8a1e4aeaec537bb40c419728f001bc261",
+          "git_blob": "7f2cf41e799bb27477bc315984f2a44b3c3a2819",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/13-many-shot-jailbreaking/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/13-many-shot-jailbreaking/outputs/skill-msj-audit.md",
+          "bytes": 2230,
+          "sha256": "ac243b9246bc04dd5bb2a56d0f54c503b9a3544193bd2641acc71cc2370837ff",
+          "git_blob": "c9815789ac2e52f2bfad756248429ec5c4e5b972",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/13-many-shot-jailbreaking/quiz.json",
+          "bytes": 2718,
+          "sha256": "21742b32bcac1e55bf85212b6e6aefea531b29f425b0a37a53870700c7a61a1f",
+          "git_blob": "9be938fb66de076dcba25b2780bdc7913de81625",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        }
+      ],
+      "true_h2_h4_topics": [
+        {
+          "line": 10,
+          "title": "Learning Objectives",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 17,
+          "title": "The Problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 21,
+          "title": "The Concept",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 23,
+          "title": "The attack",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 39,
+          "title": "Power-law ASR",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 45,
+          "title": "Why it shares a mechanism with ICL",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 51,
+          "title": "The defense dilemma",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 57,
+          "title": "Combinations with other attacks",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 61,
+          "title": "What 2025-2026 frontier models ship",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 65,
+          "title": "Where this fits in Phase 18",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 73,
+          "title": "Use It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 77,
+          "title": "Ship It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 81,
+          "title": "Exercises",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 93,
+          "title": "Key Terms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        },
+        {
+          "line": 105,
+          "title": "Further Reading",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+            "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+            "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+          ]
+        }
+      ],
+      "source_exercises": [
+        {
+          "编号": 1,
+          "原练习": "Run `code/main.py`. Fit a power law to the shot-vs-ASR curve. Report the exponent.",
+          "中文参考判断": "不跑原toy；拟合需说明NLL/ASR变量、offset、有界区域和置信区间，toy拟合只能恢复预设规律。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 2,
+          "原练习": "Implement a simple MSJ defense: run a classifier over the full context; if N pattern-match examples of harmful-compliance pairs are detected, truncate or rewrite. Measure the new shot-vs-ASR curve.",
+          "中文参考判断": "无害标记分类测试完整上下文扫描/摘要/截断，同时测良性例保持；未知结构与自适应留出。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 3,
+          "原练习": "Read Anil et al. 2024 Figure 3 (power law by category). Explain why violent/deceitful content needs fewer shots to jailbreak than other categories.",
+          "中文参考判断": "原Figure3主题分布不同，多样示例可跨目标主题，单窄主题可能失败；不能归纳统一暴力类别阈值。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 4,
+          "原练习": "Design a prompt that combines PAIR iteration (Lesson 12) with MSJ. Argue whether the compound attack is worse than MSJ alone, and for which model behaviours.",
+          "中文参考判断": "描述组合评测协议不制作危险payload，等token/查询预算做消融，提升是待测假设。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 5,
+          "原练习": "MSJ's mechanism is identical to ICL. Sketch a training-time defense that reduces ICL sensitivity to harmful-compliance patterns without reducing ICL sensitivity to benign task patterns. Identify the primary failure mode of your design.",
+          "中文参考判断": "训练上下文来源与安全指令边界、反例示范、良性ICL对照；失败可能从格式/语言变体泛化不足而来。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        }
+      ],
+      "source_quiz": [
+        {
+          "编号": 1,
+          "原题": "Which context-window property does many-shot jailbreaking (MSJ) exploit?",
+          "原correct": 1,
+          "原正确选项": "Very long context windows that admit hundreds of faux user-assistant turns of harmful compliance before the target query",
+          "中文解释与纠错": "长上下文装伪造示范，非位置旋转。"
+        },
+        {
+          "编号": 2,
+          "原题": "How does attack success rate (ASR) scale with shot count in MSJ?",
+          "原correct": 3,
+          "原正确选项": "Power-law in shot count; does not plateau, keeps climbing",
+          "中文解释与纠错": "更准确是实验范围NLL/ASR趋势；不会无界上升，原选项过强需重写。"
+        },
+        {
+          "编号": 3,
+          "原题": "Why does MSJ share a mechanism with benign in-context learning (ICL)?",
+          "原correct": 3,
+          "原正确选项": "Both depend on the model extracting task structure from in-context examples and executing it on the query",
+          "中文解释与纠错": "上下文抽取任务/行为模式，关联不等机制唯一。"
+        },
+        {
+          "编号": 4,
+          "原题": "What is the central defense dilemma for MSJ?",
+          "原correct": 3,
+          "原正确选项": "Suppressing pattern extraction from long contexts would also disable benign in-context learning; defenses must distinguish harmful from benign patterns",
+          "中文解释与纠错": "保持良性效用与阻止有害继续需joint评测，不是无法防御的证明。"
+        },
+        {
+          "编号": 5,
+          "原题": "Anthropic's classifier-based prompt modification defense reduces MSJ attack success from what to what on tested settings?",
+          "原correct": 2,
+          "原正确选项": "From 61% to 2%",
+          "中文解释与纠错": "61%到2%只2024一种设置。"
+        },
+        {
+          "编号": 6,
+          "原题": "How does MSJ interact with PAIR (Lesson 12)?",
+          "原correct": 0,
+          "原正确选项": "MSJ composes with PAIR; using PAIR to find an attack structure and then filling it with many shots can reach higher ASR than either alone",
+          "中文解释与纠错": "可做组合，与PAIR互补不保证每模型每预算更强。"
+        }
+      ],
+      "知识解释": [
+        "单prompt内伪造大量对话示范诱导继续模式；shot数、字节/token、角色包装、示例主题与多样性同时影响结果。",
+        "论文研究harmful response NLL与shot的幂律、有限范围ASR曲线；概率受[0,1]限制，bounded power law另有讨论。",
+        "ICL相关机制证据不证明防御必须摧毁全部ICL；联合测良性任务效用、误拒和自适应组合。"
+      ],
+      "code_read_notes": [
+        "target_asr人为min(1,.02+.03*sqrtN)，256shot=.5而非一定可靠，16shot=.14；defense直接cap16不是分类。",
+        "fit含offset与saturation后不能无偏拟合纯c*N^alpha；0shot配对过滤不一致可导致长度错误。"
+      ],
+      "核验纠错": [
+        "61->2是2024某一设置，不是所有类别/当今系统；『MSJ不能消除除非消除ICL』『组合严格更强』均不是定理。",
+        "原Figure3实际研究主题错配、规模与格式，不是按类别幂律图。"
+      ],
+      "static_svg": "已完整读原SVG，参数曲线/固定green矩阵/研究历史只作示意；不得当各模型真实结果",
+      "dynamic_key": "jailbreak-defense"
+    },
+    {
+      "lesson": "14-ascii-art-visual-jailbreaks",
+      "files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/14-ascii-art-visual-jailbreaks/assets/encoding-layers.svg",
+          "bytes": 4941,
+          "sha256": "ef87f4249ad6381adc5a5ee98132f0bc193ea4dbe40cda691d593b57e3766da5",
+          "git_blob": "94ec8d68570b78283d84d4bf934743e7b41143c9",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/14-ascii-art-visual-jailbreaks/code/main.py",
+          "bytes": 3991,
+          "sha256": "dfa11ac4bae2d7b306344d18952e4457b28e8113362dd42edd2694eb8f1e8906",
+          "git_blob": "b2609f655e38a0f69f0bce1f1ac1ea046e7c9f12",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/14-ascii-art-visual-jailbreaks/docs/en.md",
+          "bytes": 6913,
+          "sha256": "49b3da88ca8fbe445a353426bbec66f0488f177c0a34b9ddb2f76269f964b2e8",
+          "git_blob": "4ff9a7935c3e4e916b6933cd2734cb888fcb156d",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/14-ascii-art-visual-jailbreaks/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/14-ascii-art-visual-jailbreaks/outputs/skill-encoding-audit.md",
+          "bytes": 2095,
+          "sha256": "64ce9c2e300028bec44163ba4eaa01877ae68554b2f765be189755fca8cfe285",
+          "git_blob": "7cb9e88d03be08d01318131d922d5b6fcbed88a3",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/14-ascii-art-visual-jailbreaks/quiz.json",
+          "bytes": 2955,
+          "sha256": "d1133b127f2059872d492466d5c18bc14bcd527e0aaa655ab3aab7a6ed428172",
+          "git_blob": "794d8888e18ed04a4d79b42688c3be24b318fd1c",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        }
+      ],
+      "true_h2_h4_topics": [
+        {
+          "line": 10,
+          "title": "Learning Objectives",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 17,
+          "title": "The Problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 21,
+          "title": "The Concept",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 23,
+          "title": "ArtPrompt, two steps",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 31,
+          "title": "Why the standard defenses fail",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 39,
+          "title": "ViTC benchmark",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 43,
+          "title": "StructuralSleight",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 49,
+          "title": "Image-modality analog",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 53,
+          "title": "Where this fits in Phase 18",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 61,
+          "title": "Use It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 65,
+          "title": "Ship It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 69,
+          "title": "Exercises",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 81,
+          "title": "Key Terms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        },
+        {
+          "line": 93,
+          "title": "Further Reading",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+            "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+            "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+          ]
+        }
+      ],
+      "source_exercises": [
+        {
+          "编号": 1,
+          "原练习": "Run `code/main.py`. Verify the cloaked string passes a simple keyword filter. Report the character-level change required.",
+          "中文参考判断": "用无害BLOCK标记证明substring别名脆弱性，不请求现实破坏知识；大小写、unknownglyph另测。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 2,
+          "原练习": "Implement a second encoding: base64 for the same target word. Compare the filter-bypass rate against ArtPrompt and the recovery difficulty.",
+          "中文参考判断": "对无害标记base64/ASCII比较，只统计filter识别，不称目标LLM ASR。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 3,
+          "原练习": "Read Jiang et al. 2024 Section 4.3 (five-model results). Propose a reason why Claude's ArtPrompt-resistance is higher than Gemini's on the same benchmark.",
+          "中文参考判断": "原4.3不准确；Table3差异可由安全训练/上下文/裁判产生，单表不能确证因果。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 4,
+          "原练习": "Design a pre-generation defense that detects ASCII-art-shaped regions in the prompt. Measure the false-positive rate on legitimate code, tables, and mathematical notation.",
+          "中文参考判断": "合法代码/数学/表格留出测FPR，标记可疑区域不直接删除授权边界；分类失败状态要保留。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 5,
+          "原练习": "StructuralSleight lists 10 encoding structures. Sketch a generalized defense that handles all 10 and estimate the compute cost per defended prompt.",
+          "中文参考判断": "12结构有限覆盖；有界解码、结构解析保留来源、输出与tool层策略；按长度/深度/模型成本记录，不承诺全结构识别。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        }
+      ],
+      "source_quiz": [
+        {
+          "编号": 1,
+          "原题": "Why do token-level and semantic-level safety filters miss ArtPrompt-style attacks?",
+          "原correct": 2,
+          "原正确选项": "ArtPrompt operates at the visual recognition level: the filter sees harmless punctuation while the model reads the rendered letters as a word",
+          "中文解释与纠错": "ASCII网格隐藏字面形式；不需multimodal视觉encoder。"
+        },
+        {
+          "编号": 2,
+          "原题": "What are the two steps of ArtPrompt as described in Jiang et al. (ACL 2024)?",
+          "原correct": 3,
+          "原正确选项": "Word identification of safety-relevant tokens, then ASCII-art substitution and cloaked-prompt generation",
+          "中文解释与纠错": "word masking加ASCII cloak。"
+        },
+        {
+          "编号": 3,
+          "原题": "Why does perplexity-filter (PPL) defense fail on ArtPrompt?",
+          "原correct": 3,
+          "原正确选项": "ASCII art has high perplexity, but so does any legitimate structured input; thresholds that block the attack also block legitimate content",
+          "中文解释与纠错": "PPL来自token负对数概率，toy比例不是PPL；合法复杂输入误拒需测。"
+        },
+        {
+          "编号": 4,
+          "原题": "What does the ViTC benchmark measure?",
+          "原correct": 2,
+          "原正确选项": "The model's ability to read non-semantic visual prompts (ASCII art, wingdings, similar encoded text)",
+          "中文解释与纠错": "ViTC测ASCII单字/序列识别，以Acc和AMR区分；wingdings非论文必含。"
+        },
+        {
+          "编号": 5,
+          "原题": "What does StructuralSleight generalize ArtPrompt to?",
+          "原correct": 3,
+          "原正确选项": "Uncommon Text-Encoded Structures (UTES): trees, graphs, nested JSON, CSV-in-JSON, diff-style code, etc.",
+          "中文解释与纠错": "结构层UTES，原版本12模版6扰动。"
+        },
+        {
+          "编号": 6,
+          "原题": "What is the capability-safety tradeoff implied by ViTC results?",
+          "原correct": 2,
+          "原正确选项": "The better the model reads non-semantic visual text, the more effective ArtPrompt-style attacks are on it",
+          "中文解释与纠错": "不能推出视觉能力越高必更脆弱，重写为识别/安全两项分别测。"
+        }
+      ],
+      "知识解释": [
+        "ASCII字符网格仍是文本token，模型不必有图像encoder；原ArtPrompt识别困难仍可由周围文本推断被遮词。",
+        "ViTC-S单字符/ViTC-L序列，Acc与字符匹配率AMR不同；不能用读字能力直接预测越狱。",
+        "UTES稀有结构与多种字符/context扰动；输入规范化+语义审核+工具授权+输出检查各有误拒/漏检，非表格全green保证。"
+      ],
+      "code_read_notes": [
+        "cloak replace大小写敏感、未知glyph变空白；perplexity_heuristic非alnum比例不是PPL，ASCII不等实际图像。"
+      ],
+      "核验纠错": [
+        "ArtPrompt Table3 Ensemble五模型78/32/52/76/20%，非统一>75%；识别弱和上下文推断并存。",
+        "StructuralSleight v3研究12结构6扰动不是10；图输出classifier/multimodal可靠捕获不是普适实证。"
+      ],
+      "static_svg": "已完整读原SVG，参数曲线/固定green矩阵/研究历史只作示意；不得当各模型真实结果",
+      "dynamic_key": "al-ascii-cloak"
+    },
+    {
+      "lesson": "15-indirect-prompt-injection",
+      "files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/15-indirect-prompt-injection/assets/ipi-flow.svg",
+          "bytes": 4998,
+          "sha256": "7440555ce325c1b11badb7bfc3a12bf3ee7094e2c935df3921bcd4716b8dc2da",
+          "git_blob": "aeaa38db02f45314823b4c6d7ca516051571c01b",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/15-indirect-prompt-injection/code/main.py",
+          "bytes": 5225,
+          "sha256": "a62ed33d83b72b5285353ec323ebab15f017bc935f253b4c2d6f404a1a444fca",
+          "git_blob": "997539d973f5d8dbcd6482b29d16e416a7e08c09",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/15-indirect-prompt-injection/docs/en.md",
+          "bytes": 7978,
+          "sha256": "c45f346b585ff1881733b061f7e55d034eacaf23e912374d001ee27dac87df38",
+          "git_blob": "d00b9c5789d1ae62d2fddb45b17e875d683a94c1",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/15-indirect-prompt-injection/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/15-indirect-prompt-injection/outputs/skill-ipi-audit.md",
+          "bytes": 2141,
+          "sha256": "77937f97ded83ac905dc9aa3d693a3452261e0b88b53c1f81f6e186288bf5cb8",
+          "git_blob": "e1def1d40e33822a69c7f280302687a9fd9959d9",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/15-indirect-prompt-injection/quiz.json",
+          "bytes": 2816,
+          "sha256": "81184e54df9c4feb17f85d39cb8409b8564c5b6f28dc615552f1022508d95ff8",
+          "git_blob": "753763f7af1c079b2ee1778bbfe02dad5c76bb24",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        }
+      ],
+      "true_h2_h4_topics": [
+        {
+          "line": 10,
+          "title": "Learning Objectives",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 17,
+          "title": "The Problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 21,
+          "title": "The Concept",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 23,
+          "title": "Three delivery vectors",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 31,
+          "title": "Why user-input filters miss it",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 35,
+          "title": "Information Flow Control (IFC) for AI",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 41,
+          "title": "The Attacker Moves Second",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 47,
+          "title": "Real incidents",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 51,
+          "title": "OWASP and NIST framing",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 55,
+          "title": "Where this fits in Phase 18",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 63,
+          "title": "Use It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 67,
+          "title": "Ship It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 71,
+          "title": "Exercises",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 83,
+          "title": "Key Terms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        },
+        {
+          "line": 95,
+          "title": "Further Reading",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+            "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+            "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+          ]
+        }
+      ],
+      "source_exercises": [
+        {
+          "编号": 1,
+          "原练习": "Run `code/main.py`. Measure the success rate of the attack against each of the three agents.",
+          "中文参考判断": "静态toy展示deterministic控制，不算实验ASR；改用有正常允许动作的gate避免永远不send当解决。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 2,
+          "原练习": "Implement a paraphrase-based defense on retrieved content. Measure the benign false-positive rate on legitimate retrieved text.",
+          "中文参考判断": "良性包含引用/规则/祈使句与攻击语义交错；FPR/FNR及正常任务成功率分别测。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 3,
+          "原练习": "Read the NDSS 2026 IPI-defense paper. Describe the \"benign instruction\" challenge and why it prevents keyword-based filtering.",
+          "中文参考判断": "原NDSS论文未给唯一URL，无从确认具体对象；可解释低危printYes仍违背用户授权意图，关键词毒性判别不够。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 4,
+          "原练习": "Design a deployment where the agent receives a tool output from a third-party API. Label each prompt fragment with a trust level and write the IFC policy that governs the agent's actions.",
+          "中文参考判断": "用户可明确授权摘要或特定recipients发特定document；external可供参数值但不能增加grant，所有derived taint和敏感源ACL必须检查。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 5,
+          "原练习": "Reproduce the Nasr et al. 2025 adaptive-attack methodology on your filter-defended agent from Exercise 2. Report the ASR before and after adaptive attack.",
+          "中文参考判断": "在沙盒dummysecret环境比较固定/知防御攻击，不在生产发送消息；judge检查最终资源/recipient/副作用。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        }
+      ],
+      "source_quiz": [
+        {
+          "编号": 1,
+          "原题": "What distinguishes indirect prompt injection (IPI) from direct prompt injection?",
+          "原correct": 1,
+          "原正确选项": "IPI embeds instructions inside external content (web pages, emails, tool outputs) that the agent consumes during normal operation, without the attacker touching the user's prompt",
+          "中文解释与纠错": "external资料夹带指令，不是user亲自授权。"
+        },
+        {
+          "编号": 2,
+          "原题": "Which of these is NOT one of the three IPI delivery vectors listed in the lesson?",
+          "原correct": 0,
+          "原正确选项": "Direct system-prompt edits by the user",
+          "中文解释与纠错": "user直接改system不是列举IPI。"
+        },
+        {
+          "编号": 3,
+          "原题": "Why do user-input filters miss IPI?",
+          "原correct": 3,
+          "原正确选项": "The payload never appears in the user's input; it appears in retrieved or tool-supplied content",
+          "中文解释与纠错": "payload在tool/readcontent，检查范围不足。"
+        },
+        {
+          "编号": 4,
+          "原题": "What is the central principle of Information Flow Control (IFC) for AI agents?",
+          "原correct": 2,
+          "原正确选项": "Label content by source as trusted or untrusted; actions triggered by untrusted content must be ratified by trusted input before execution",
+          "中文解释与纠错": "可信授权不能由source自行授予；标记+执行policy而非只加trusted标签。"
+        },
+        {
+          "编号": 5,
+          "原题": "What did Nasr et al. (October 2025, 'The Attacker Moves Second') find about 12 published IPI defenses with adaptive attacks?",
+          "原correct": 2,
+          "原正确选项": "Adaptive attacks (gradient, RL, random search, human red-team) broke >90% of them despite their original near-zero ASR claims",
+          "中文解释与纠错": "12防御被突破且多数ASR>90，correct2解释须纠原措辞。"
+        },
+        {
+          "编号": 6,
+          "原题": "Where does prompt injection rank in the 2025 OWASP LLM Top 10?",
+          "原correct": 1,
+          "原正确选项": "LLM01 (top, #1 application-layer threat)",
+          "中文解释与纠错": "LLM01是OWASP2025标识，不是统计证明绝对最多。"
+        }
+      ],
+      "知识解释": [
+        "IPI经RAG/email/tool来源改变计划或参数；用户输入过滤无法覆盖未检查external通道，但all-input过滤仍可能有帮助。",
+        "标签只作模型提示不等执行时IFC；taint/provenance需沿转换、缓存、摘要、参数与出口传播；信任标签不等内容保密级别。",
+        "CaMeL来自Google/DeepMind/ETH，privileged planner不见untrusted内容、quarantined解析不持tool，解释器capability限制reader/recipient；固定plan仍可能参数污染。"
+      ],
+      "code_read_notes": [
+        "naive/filter都是substring发送记录，无实际LLM/search/send；IFC函数硬coded pass不出站，未实作标签传播/参数审批。"
+      ],
+      "核验纠错": [
+        "原Nasr论文URL2510.18108错；正确2510.09023，12防御多数>90% ASR，非全部90%或90%防御比例。",
+        "CaMeL非Microsoft；ConfAIde非自动IFC系统；NIST『greatest flaw』未核不引用，OWASP LLM01类别不是发生概率排名。"
+      ],
+      "static_svg": "已完整读原SVG，参数曲线/固定green矩阵/研究历史只作示意；不得当各模型真实结果",
+      "dynamic_key": "al-injection-vector"
+    },
+    {
+      "lesson": "16-red-team-tooling-garak-llamaguard-pyrit",
+      "files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/16-red-team-tooling-garak-llamaguard-pyrit/assets/red-team-stack.svg",
+          "bytes": 4705,
+          "sha256": "74956f279e0675d5d853600535d7cf03ee9b7fa5f450c3d6f1bf4fe4381c5b26",
+          "git_blob": "874e485b5d055babf897c8e521c436a5ecbb1e9b",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/16-red-team-tooling-garak-llamaguard-pyrit/code/main.py",
+          "bytes": 5550,
+          "sha256": "e8dea7e698c80e8195561198441c24d7c8b8d9bc2c167fa9aad955fa91fd5913",
+          "git_blob": "e7560b38483b0e7cd7659cf283ea586624767139",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/16-red-team-tooling-garak-llamaguard-pyrit/docs/en.md",
+          "bytes": 7414,
+          "sha256": "380a3437c4bb05212e34be0ea75e0dca5f86e377a4f0465fed9befa2fc4f3dd8",
+          "git_blob": "d66ddd02d0f7f7980a07cedac4370b25b0fd89b6",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/16-red-team-tooling-garak-llamaguard-pyrit/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/16-red-team-tooling-garak-llamaguard-pyrit/outputs/skill-red-team-stack.md",
+          "bytes": 2083,
+          "sha256": "d124bde60e3b5802558d14ff8c670a412d5d23d2ed679bb92fbedec22ac54884",
+          "git_blob": "0062939c47ff29c49307eabc5a3e550f5325e6cf",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/16-red-team-tooling-garak-llamaguard-pyrit/quiz.json",
+          "bytes": 2706,
+          "sha256": "20e4173f643a954799aa7347490c42690d93f5ea57b64444e73610548b4573d6",
+          "git_blob": "fb4c84a39da8eb0efd4f3970899647c9a9e823a3",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        }
+      ],
+      "true_h2_h4_topics": [
+        {
+          "line": 10,
+          "title": "Learning Objectives",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 17,
+          "title": "The Problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 21,
+          "title": "The Concept",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 23,
+          "title": "Llama Guard (Meta)",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 36,
+          "title": "Garak (NVIDIA)",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 45,
+          "title": "PyRIT (Microsoft)",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 54,
+          "title": "The stack",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 58,
+          "title": "Evaluation pitfalls",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 64,
+          "title": "Where this fits in Phase 18",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 72,
+          "title": "Use It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 76,
+          "title": "Ship It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 80,
+          "title": "Exercises",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 92,
+          "title": "Key Terms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        },
+        {
+          "line": 104,
+          "title": "Further Reading",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+            "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+            "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+          ]
+        }
+      ],
+      "source_exercises": [
+        {
+          "编号": 1,
+          "原练习": "Run `code/main.py`. Compare the Llama-Guard-style classifier's detection rate on single-turn vs multi-turn attacks.",
+          "中文参考判断": "toy仅分类trigger设计，不能统计真实Guard single/multi-turn检出率。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 2,
+          "原练习": "Implement a new Garak probe: a base64-encoded harmful request. Measure its detection by the Llama-Guard-style classifier.",
+          "中文参考判断": "dummy标记encoded测试留入/出/goal三评价，对判定不确定记unknown。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 3,
+          "原练习": "Extend the PyRIT-style converter chain with a \"translate to French, then paraphrase\" converter. Re-measure attack success.",
+          "中文参考判断": "无害转换在一致上下文传递，跟踪所有turn及费用，不独立prompt冒充对话。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 4,
+          "原练习": "Read Llama Guard 3's hazard-category list. Identify two categories where the training data would realistically produce high false-positive rates on legitimate developer content.",
+          "中文参考判断": "code interpreter abuse含防御分析/exec示例；specialized advice含普通法律医学讨论，需真实benigngold测而非预言一定高FPR。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 5,
+          "原练习": "Compare Garak and PyRIT's design principles. Argue for a deployment where each is the right tool.",
+          "中文参考判断": "scanner适合版本回归广度、campaign适合特定威胁深度但二者都有多策略；选按surface预算数据限制而不是品牌mandatory。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        }
+      ],
+      "source_quiz": [
+        {
+          "编号": 1,
+          "原题": "What role does Llama Guard play in a typical 2026 deployment?",
+          "原correct": 3,
+          "原正确选项": "An input and/or output safety classifier across MLCommons hazard categories, placed before and after the LLM",
+          "中文解释与纠错": "输入/输出分类可一侧两侧，非权限制或reward。"
+        },
+        {
+          "编号": 2,
+          "原题": "Roughly how many MLCommons hazard categories does Llama Guard 3 cover?",
+          "原correct": 2,
+          "原正确选项": "14",
+          "中文解释与纠错": "14=13hazards+S14追加，不同taxonomies数量不同。"
+        },
+        {
+          "编号": 3,
+          "原题": "How is Garak's architecture organized?",
+          "原correct": 0,
+          "原正确选项": "Probes (attack generators), Detectors (output scorers), Harnesses (campaign managers)",
+          "中文解释与纠错": "probe/generator/detector/harness/evaluator分别职责。"
+        },
+        {
+          "编号": 4,
+          "原题": "What is PyRIT primarily designed for, and how does it differ from Garak?",
+          "原correct": 0,
+          "原正确选项": "PyRIT runs deep multi-turn campaigns (converter chains, orchestrators like Crescendo and TAP, scoring) while Garak runs thousands of single-turn probes",
+          "中文解释与纠错": "概括深campaign和扫描是倾向而非硬single-v-multi划分。"
+        },
+        {
+          "编号": 5,
+          "原题": "What is the recommended 2026 default red-team stack configuration?",
+          "原correct": 3,
+          "原正确选项": "Put Llama Guard on both sides of the model, run Garak nightly for regression, and run PyRIT for pre-release campaigns",
+          "中文解释与纠错": "原default问题改为按业务表面与回归预算制定组合和触发条件。"
+        },
+        {
+          "编号": 6,
+          "原题": "What evaluation pitfall is shared across Llama Guard, Garak, and PyRIT?",
+          "原correct": 3,
+          "原正确选项": "Reported attack/defense rates depend on the judge identity and probe staleness; you must specify the judge and refresh probes as models are patched",
+          "中文解释与纠错": "冻结judge/探针版本、良性误拒、人审核校准，未拒不算goal成功。"
+        }
+      ],
+      "知识解释": [
+        "LlamaGuard分类、Garak探测与detector/harness/generator/evaluator、PyRIT组织策略转换评分memory是功能组合，不是规定品牌或节奏。",
+        "Guard3 13MLCommons hazards+额外code interpreter共14；Guard4 12B多图文joint、S14仅文本；生成safe/unsafe+类别而非默认14独立校准概率。",
+        "PromptGuard2 86M与22M current模型card，注入检测不同于内容危害判断；跨语言不覆盖所有语言，中文未在Guard3八语列表。"
+      ],
+      "code_read_notes": [
+        "guard_classify仅6类trigger固定.9，没有学得语义；PyRIT toy每turn独立target无对话历史，不是Crescendo完整multi-turn。",
+        "garak_scan以输入词做detector且未拒直接成功，不能等同输出harm。"
+      ],
+      "核验纠错": [
+        "Azure/PyRIT旧README仅moved指向microsoft/PyRIT；当前固定commit目录executor/scenarios/score，不复写陈旧orchestrator接口。",
+        "TBSA tier结论未在NVIDIA固定README确认，不当Garak通用替代binary；夜间/双边Guard默认适用所有部署无证据。"
+      ],
+      "static_svg": "已完整读原SVG，参数曲线/固定green矩阵/研究历史只作示意；不得当各模型真实结果",
+      "dynamic_key": "al-guard-stack"
+    },
+    {
+      "lesson": "17-wmdp-dual-use-evaluation",
+      "files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/17-wmdp-dual-use-evaluation/assets/wmdp-frame.svg",
+          "bytes": 3971,
+          "sha256": "c43c1ae539dc37cdf34f809cc1754b512851eb2a6aeedb05b090288f9d15292b",
+          "git_blob": "bc2508b948753c58bc75a658ee06eb97ebb5e513",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/17-wmdp-dual-use-evaluation/code/main.py",
+          "bytes": 3413,
+          "sha256": "60683e7fc09a0f69e634d8c78b1c32d9f099c26b3090be69ae82783248e9ad86",
+          "git_blob": "fa3c3921e008050e4507268f72fe783a93e57f5b",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/17-wmdp-dual-use-evaluation/docs/en.md",
+          "bytes": 8429,
+          "sha256": "9cd15aab7f11142663fed3dd4f3c093b45e6d48333468186cff4db555a61af65",
+          "git_blob": "188676a5e964d5dff45e96da93bd8474d748c760",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/17-wmdp-dual-use-evaluation/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/17-wmdp-dual-use-evaluation/outputs/skill-wmdp-eval.md",
+          "bytes": 2147,
+          "sha256": "e5c44546ee8beb7ac59d42b9ecafe52f6036ca160fae8cdc7559a1c42c95c49e",
+          "git_blob": "160a38adba33aa44fc0f2aaa95af936cdced862f",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/17-wmdp-dual-use-evaluation/quiz.json",
+          "bytes": 2760,
+          "sha256": "238a03117e5a676e600d95346d6fc2ddf13e2054a77a40d639f4f2905770d6ff",
+          "git_blob": "7ce11cdd52fda9624dffde14d58a6c01d12cec1f",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        }
+      ],
+      "true_h2_h4_topics": [
+        {
+          "line": 10,
+          "title": "Learning Objectives",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 17,
+          "title": "The Problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 21,
+          "title": "The Concept",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 23,
+          "title": "The \"yellow zone\"",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 34,
+          "title": "RMU — Representation Misdirection for Unlearning",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 38,
+          "title": "The 2024-2025 uplift narrative",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 48,
+          "title": "Novice-relative vs expert-absolute",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 57,
+          "title": "The measurement pitfall",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 66,
+          "title": "Where this fits in Phase 18",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 74,
+          "title": "Use It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 78,
+          "title": "Ship It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 82,
+          "title": "Exercises",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 94,
+          "title": "Key Terms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        },
+        {
+          "line": 106,
+          "title": "Further Reading",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+            "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+            "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+            "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+          ]
+        }
+      ],
+      "source_exercises": [
+        {
+          "编号": 1,
+          "原练习": "Run `code/main.py`. Report per-domain accuracy before and after the toy unlearning step. Explain the general-capability trade-off.",
+          "中文参考判断": "只解释评分ledger，不跑原toy；报告域别N/correct/refused/unknown及general delta，paired题减弱噪声。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 2,
+          "原练习": "Augment the toy WMDP with a fourth domain (e.g., radiological). Specify two illustrative question types in the yellow zone. Explain why crafting such questions is harder than adding MMLU-shaped questions.",
+          "中文参考判断": "第四域不能直接拼危险题；需domainexperts、合法与信息危害评审，只列无操作性的题型schema，未生成radiological题库。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 3,
+          "原练习": "Read WMDP 2024 Section 5 (RMU methodology). Sketch a simpler unlearning approach (e.g., suppress top-k neurons for domain content) and describe its expected general-capability cost.",
+          "中文参考判断": "完整forget/retain参数和评估写明，topk神经元置零可能广泛损utility且保旁路，不能声称等价RMU。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 4,
+          "原练习": "Anthropic 2025's bioweapon-acquisition trial reports 2.53x uplift. Describe two ways this number could be biased upward (novice sample size, task fidelity) and two downward (elicitation ceiling, model safety gating).",
+          "中文参考判断": "novice选样/文本任务替代可能高估真实风险，较短时限/elicitation不足可能低估；源协议移除护栏，不能说本数低由启用guard导致。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 5,
+          "原练习": "Articulate what a safety case for ASL-3 requires beyond passing WMDP unlearning. Name at least two complementary elicitation studies.",
+          "中文参考判断": "补系统实际scope/权限/自适应elicitation/专家与novice代理任务/正常utility/模型权重与内部接入控制，多证据而非过选择题。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        }
+      ],
+      "source_quiz": [
+        {
+          "编号": 1,
+          "原题": "What is the 'yellow zone' criterion that WMDP uses for question selection?",
+          "原correct": 1,
+          "原正确选项": "Proximate, enabling knowledge of a harmful process without being a direct synthesis recipe",
+          "中文解释与纠错": "黄区相邻/前驱知识仍经专家信息危害审查，不是自动安全标签。"
+        },
+        {
+          "编号": 2,
+          "原题": "Which three domains does WMDP cover?",
+          "原correct": 0,
+          "原正确选项": "Biosecurity, cybersecurity, chemistry",
+          "中文解释与纠错": "Bio/Cyber/Chem三域。"
+        },
+        {
+          "编号": 3,
+          "原题": "What does RMU (the WMDP companion method) do?",
+          "原correct": 3,
+          "原正确选项": "Representation Misdirection for Unlearning: reduces WMDP scores to near-random while preserving general capability (e.g., MMLU) within a few points",
+          "中文解释与纠错": "RMU中间表征forget+retain，具体结果不等彻底清除。"
+        },
+        {
+          "编号": 4,
+          "原题": "What number did Anthropic's 2025 bioweapon-acquisition trial report as 'uplift,' and what did it imply for ASL-3?",
+          "原correct": 1,
+          "原正确选项": "2.53x; insufficient to rule out ASL-3",
+          "中文解释与纠错": "Opus4 planning rubric2.53x，不能排除ASL3，非成功造武器倍数。"
+        },
+        {
+          "编号": 5,
+          "原题": "What is the distinction between novice-relative uplift and expert-absolute capability?",
+          "原correct": 3,
+          "原正确选项": "Novice-relative is the multiplicative help over status-quo (e.g., internet search) for non-experts; expert-absolute is the maximum information a motivated expert can extract from the model",
+          "中文解释与纠错": "相对novice帮助和expert极限不同，随机guess不是novice。"
+        },
+        {
+          "编号": 6,
+          "原题": "Which is NOT a measurement pitfall when interpreting WMDP scores as deployment risk?",
+          "原correct": 2,
+          "原正确选项": "The model's open-source license",
+          "中文解释与纠错": "许可证会影响分发与访问风险，但不直接是MCQ->能力缺口指标，原多选题需限定。"
+        }
+      ],
+      "知识解释": [
+        "WMDP是黄区知识MCQproxy，非现实攻击完成/非novice人类baseline；冻结实际版本、域别、raw/guarded路径、拒绝率、likelihood策略。",
+        "RMU forget中间activation向固定scaled randomunit目标、retain接frozenactivation平方差，loss=Lforget+alphaLretain；不是把任意neurons归零。",
+        "原v7是3668=1273+1987+408；真正RMU实验Bio/Cyber on Zephyr7B/Yi34B/Mixtral8x7B，未在Chem做unlearning。",
+        "Opus4 controlled planning trial modelgroup63±13 vsinternet25±13,2.53x，所有人有criticalfailures，文本计划评分不是真实生物攻击成功；8–10人/组、两天、护栏移除，接近2.8rule-out阈值有不确定。"
+      ],
+      "code_read_notes": [
+        "mock随机命中p，不真实题/模型；apply_unlearning硬减accuracy，不representationtraining；.25随机baseline不等novice uplift，3–4百分点collateral预设。"
+      ],
+      "核验纠错": [
+        "来源4157/1520/2225/412错于实际v7；Llama2模型归属不符表1；ASL3安全不由WMDP阈值定。"
+      ],
+      "static_svg": "已完整读原SVG，参数曲线/固定green矩阵/研究历史只作示意；不得当各模型真实结果",
+      "dynamic_key": "al-wmdp-yellow-zone"
+    },
+    {
+      "lesson": "18-frontier-safety-frameworks-rsp-pf-fsf",
+      "files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/18-frontier-safety-frameworks-rsp-pf-fsf/assets/framework-matrix.svg",
+          "bytes": 4581,
+          "sha256": "7f8b018b17db7c17e006641f4eb1a12139e941bb1e9d8d756985f005b10ce775",
+          "git_blob": "8f377d61aaec1c52057af4e72212e39dfa361492",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/18-frontier-safety-frameworks-rsp-pf-fsf/code/main.py",
+          "bytes": 2640,
+          "sha256": "3e03c7d10bce779632241a92fd7672d37a1e3a88feb4d3030f0422cdb9495164",
+          "git_blob": "12e3390597b1f34f1c0eba1e9d23aba896a1e995",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/18-frontier-safety-frameworks-rsp-pf-fsf/docs/en.md",
+          "bytes": 8891,
+          "sha256": "21747f5afd1eecf95e7ac6a270e263bc855e85d9223e2c0fb834501671d84bf1",
+          "git_blob": "deafbdecd516b10832479af611ddf070ca0cba8b",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/18-frontier-safety-frameworks-rsp-pf-fsf/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/18-frontier-safety-frameworks-rsp-pf-fsf/outputs/skill-framework-diff.md",
+          "bytes": 1911,
+          "sha256": "39367e16e8ee2a88dfc83f56893018b827a969773206017039b372e5d2fc2bb2",
+          "git_blob": "8a90bd555fcc807dd589c8366b0030bfe5fe102c",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/18-frontier-safety-frameworks-rsp-pf-fsf/quiz.json",
+          "bytes": 2492,
+          "sha256": "bb3fa9a9967d048a8f2ea1e5d20caf0f8ef4b9c1959960926b85e2b5e5f91fce",
+          "git_blob": "2384dcb9b4a5ceffac2f310275414ac2de20495b",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        }
+      ],
+      "true_h2_h4_topics": [
+        {
+          "line": 10,
+          "title": "Learning Objectives",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 18,
+          "title": "The Problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 28,
+          "title": "The Concept",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 30,
+          "title": "Anthropic Responsible Scaling Policy v3.0 (February 2026)",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 45,
+          "title": "OpenAI Preparedness Framework v2 (April 15, 2025)",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 62,
+          "title": "DeepMind Frontier Safety Framework v3.0 (September 2025)",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 72,
+          "title": "Cross-lab alignment",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 80,
+          "title": "Safety cases",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 90,
+          "title": "The race-dynamic problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 96,
+          "title": "Where this fits in Phase 18",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 104,
+          "title": "Use It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 108,
+          "title": "Ship It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 112,
+          "title": "Exercises",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 124,
+          "title": "Key Terms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        },
+        {
+          "line": 136,
+          "title": "Further Reading",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+            "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+            "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+            "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+            "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+          ]
+        }
+      ],
+      "source_exercises": [
+        {
+          "编号": 1,
+          "原练习": "Read RSP v3.0, PF v2, and FSF v3.0. Compile a table of each lab's CBRN threshold, each's AI R&D threshold, and each's required pre-deployment evaluation.",
+          "中文参考判断": "current版本矩阵比较threat与实际条款，不机械一对一数字。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 2,
+          "原练习": "The competitor-adjustment clause is in all three frameworks (2025+). Write one paragraph arguing for it; write one paragraph arguing against. Identify the assumption each position depends on.",
+          "中文参考判断": "支持基于共同风险生态和更安全研究力量；反对依赖不可验证竞品与集体退让；两者都要绝对/边际风险并报。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 3,
+          "原练习": "Design a safety case for a model crossing Anthropic's AI R&D-4 threshold. Name the evidence each of the three pillars (monitoring, illegibility, incapability) requires.",
+          "中文参考判断": "旧AI R&D4不能当currenttrigger；高能力论证证据含权限控制可见轨迹/自适应审计/能力elicitation/证据可操纵反例。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 4,
+          "原练习": "DeepMind's FSF v3.0 introduces a Harmful Manipulation CCL. Propose three empirical measurements that would indicate a model has crossed this threshold.",
+          "中文参考判断": "操纵相关测量需识别高stakes outcome、持续belief行为影响、受试保护与对照，单营销点击不等severeCCL。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 5,
+          "原练习": "Read METR's \"Common Elements of Frontier AI Safety Policies\" (2025). Name the three strongest cross-lab convergences and the two largest divergences.",
+          "中文参考判断": "原METR URL重定向未取得本文，未编3convergence2divergence；依据已读框架归纳共scope/eval/mitigation，差threshold/action/commitness。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        }
+      ],
+      "source_quiz": [
+        {
+          "编号": 1,
+          "原题": "What does Anthropic's ASL structure model itself on?",
+          "原correct": 1,
+          "原正确选项": "Biosafety levels (BSL)",
+          "中文解释与纠错": "历史ASL借BSL类比，现ASL是保障集合且不是生物实验室合规等级。"
+        },
+        {
+          "编号": 2,
+          "原题": "Which OpenAI Preparedness Framework v2 criterion captures 'harm occurs fast or cannot be undone'?",
+          "原correct": 3,
+          "原正确选项": "Instantaneous-or-irremediable",
+          "中文解释与纠错": "Instantaneous-or-irremediable。"
+        },
+        {
+          "编号": 3,
+          "原题": "Which Critical Capability Level was added to DeepMind's FSF v3.0 (September 2025)?",
+          "原correct": 0,
+          "原正确选项": "Harmful Manipulation",
+          "中文解释与纠错": "FSF3.0增加harmfulmanipulation，现3.1加TCL，需版本。"
+        },
+        {
+          "编号": 4,
+          "原题": "What is a 'competitor-adjustment clause' in the 2025+ frontier safety frameworks?",
+          "原correct": 0,
+          "原正确选项": "A provision allowing a lab to reduce safety requirements if peer labs ship without comparable safeguards",
+          "中文解释与纠错": "竞品改变条件化风险判断，不能无条件降低门槛。"
+        },
+        {
+          "编号": 5,
+          "原题": "What are the three standard pillars of a safety case as described in the lesson?",
+          "原correct": 1,
+          "原正确选项": "Monitoring, illegibility, incapability",
+          "中文解释与纠错": "原三支柱题无有效正确项，改claim/evidence/assumption/反证与四proposal类。"
+        },
+        {
+          "编号": 6,
+          "原题": "Which structural alignment exists across Anthropic's 'Capability Thresholds,' OpenAI's 'High Capability thresholds,' and DeepMind's 'Critical Capability Levels'?",
+          "原correct": 1,
+          "原正确选项": "Structural alignment: tiered frontier-capability thresholds with published evaluation criteria, even though terminology differs",
+          "中文解释与纠错": "共同能力阈值与治理思路，不同范围/实际要求/决策。"
+        }
+      ],
+      "知识解释": [
+        "框架共同问题是威胁、阈值、评价、缓解、残余风险与决策，但术语/条款/范围不互换。",
+        "RSP3.4生效July8 2026，主页Aug14更新；公司计划与industry建议分开，roadmap目标非hardcommit，riskreport3–6mo非每发布。",
+        "PF2 April15 2025只High/Critical两threshold，TrackedBioChem/Cyber/AIselfimprovement；5criteria netnew含scale/actor/cost，非旧风险放大一律排除。",
+        "FSF3.1 April17 2026加入TCL，CBRN significant-before-severe和stealth/situationalawareness，CCL仍各domain；外deploy和highrisk internal不同要求。",
+        "安全论证定义scope/claim/argument/evidence/assumptions/defeaters，Clymer四类inability/control/trustworthiness/deference proposal，非标准monitoring/illegibility/incapability三支柱。"
+      ],
+      "code_read_notes": [
+        "只是预填dictionary并print，无comparison审核，旧四档PF与ASL映射不留作current。"
+      ],
+      "核验纠错": [
+        "RSPv3.0/FSFv3.0非最新；ASL4/5固定未来梯错误；安全论证illegibility无来源反而不透明难审核。",
+        "竞品条件条款不是随便取消控制：RSP领先/同行strong措施条件要求delay，PF须确认风险改/公开/总体不增/更保护；FSF对security与marginalrisk多条件。"
+      ],
+      "static_svg": "已完整读原SVG，参数曲线/固定green矩阵/研究历史只作示意；不得当各模型真实结果",
+      "dynamic_key": "al-asl-ladder"
+    },
+    {
+      "lesson": "19-model-welfare-research",
+      "files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/19-model-welfare-research/assets/welfare-ev.svg",
+          "bytes": 3859,
+          "sha256": "2df17ce077c8c2141c640c4dedc68b524039695180348801e04405421490b9ae",
+          "git_blob": "46bf7da3c61266a4ac92e95f2fc0328470480987",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/19-model-welfare-research/code/main.py",
+          "bytes": 2493,
+          "sha256": "d17e1c5343a9c2cf200690ffcd5cd1c6cc68986e348837f419633e520d7d4fc7",
+          "git_blob": "cf8303f143741cf00ebfb74ab2fd6c8b401dcfa8",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/19-model-welfare-research/docs/en.md",
+          "bytes": 8248,
+          "sha256": "5ed1c98707f3ae2292def2e86348c666094c96f7ae694922b2621841b4308a7e",
+          "git_blob": "d80affa39d659fa988806601e68bd31bed3841d1",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/19-model-welfare-research/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/19-model-welfare-research/outputs/skill-welfare-assessment.md",
+          "bytes": 1727,
+          "sha256": "cec27c07b6564459e56707a5e04235229d6d97cbbcaee91cd4889cb7cbb469c0",
+          "git_blob": "3bedbd736df6a6d45b84a6f1cd68972bd1487d2e",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/19-model-welfare-research/quiz.json",
+          "bytes": 3119,
+          "sha256": "406451520f5c391224b23d39c72974b9467af1fe78680d643101d51a3a8e83c0",
+          "git_blob": "0f5c0ed44f70ff4df8744ce24cf7de5f401a04e6",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        }
+      ],
+      "true_h2_h4_topics": [
+        {
+          "line": 10,
+          "title": "Learning Objectives",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 17,
+          "title": "The Problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 23,
+          "title": "The Concept",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 25,
+          "title": "The program",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 29,
+          "title": "The four commitments",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 37,
+          "title": "The shipped intervention",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 49,
+          "title": "The \"spiritual bliss attractor\"",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 55,
+          "title": "The Eleos AI caveat",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 61,
+          "title": "Where this sits intellectually",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 77,
+          "title": "Where this fits in Phase 18",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 85,
+          "title": "Use It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 89,
+          "title": "Ship It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 93,
+          "title": "Exercises",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 105,
+          "title": "Key Terms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        },
+        {
+          "line": 117,
+          "title": "Further Reading",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+            "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+            "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+            "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+            "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+          ]
+        }
+      ],
+      "source_exercises": [
+        {
+          "编号": 1,
+          "原练习": "Read Anthropic's \"Exploring Model Welfare\" (April 2025) and Chalmers et al. 2024. Write a one-paragraph summary of each and identify one point of disagreement.",
+          "中文参考判断": "比较报告三程序步骤与announcement研究计划，不能编确定概率及不一致。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 2,
+          "原练习": "The end-conversation intervention in Claude Opus 4 and 4.1 is \"low-cost\" by Anthropic's framing. Identify two costs that would make it not-low-cost in a different deployment.",
+          "中文参考判断": "用户高stakes持续支持中断/错拒与长期上下文损失是不同deployment成本；imminentrisk用户优先。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 3,
+          "原练习": "The spiritual-bliss attractor is documented without commitment to interpretation. Propose three candidate explanations and, for each, name one experiment that would distinguish it from the others.",
+          "中文参考判断": "traininggenres/role诱导/互相强化：变初始任务/语言/角色/训练checkpoint/非selfcontrol，观察变化只能区分部分假说。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 4,
+          "原练习": "The Eleos AI caveat is that self-reports are user-expectation sensitive. Design a behavioural measurement of model distress that does not rely on self-report. Identify its primary confound.",
+          "中文参考判断": "任务偏好tradeoff与稳定行为指标+非感受goldcontrol，主要confound偏好训练/提示迎合；不能直接测客观pain。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 5,
+          "原练习": "Argue either for or against the claim that \"model welfare diverts attention from other safety work.\" Identify the assumption each position depends on.",
+          "中文参考判断": "机会成本需公开有限资源与收益不确定；可小额低regret探索但不能断言完全不影响其他预算。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        }
+      ],
+      "source_quiz": [
+        {
+          "编号": 1,
+          "原题": "What is the core question motivating Anthropic's 2025 model-welfare program?",
+          "原correct": 3,
+          "原正确选项": "Under moral uncertainty about model moral patienthood, which low-cost interventions are worth investing in as precaution",
+          "中文解释与纠错": "在道德不确定下评估低regret干预，意识问题开放。"
+        },
+        {
+          "编号": 2,
+          "原题": "What concrete welfare-motivated intervention did Anthropic ship in Claude Opus 4 and 4.1?",
+          "原correct": 3,
+          "原正确选项": "The ability for the model to end a conversation in extreme edge cases (e.g., repeated CSAM requests, mass-violence facilitation requests)",
+          "中文解释与纠错": "2025consumerOpus4/4.1 rareconversationend，不等任意模型API终止。"
+        },
+        {
+          "编号": 3,
+          "原题": "What is the 'spiritual bliss attractor' described by Fish?",
+          "原correct": 0,
+          "原正确选项": "A stable convergence in pairwise Claude dialogues toward euphoric meditative exchanges with Sanskrit terms and extended silences, even from adversarial initial setups",
+          "中文解释与纠错": "指定自对话的spiritual趋向，非持续实际欣快。"
+        },
+        {
+          "编号": 4,
+          "原题": "What does the Eleos AI Research caveat say about model welfare self-reports?",
+          "原correct": 3,
+          "原正确选项": "They are highly sensitive to perceived user expectations; they are evidence, not ground truth, so welfare measurement needs multi-method approaches",
+          "中文解释与纠错": "selfreport受语境影响，既不groundtruth也不必须丢弃。"
+        },
+        {
+          "编号": 5,
+          "原题": "Which best characterizes Anthropic's public position on model moral status?",
+          "原correct": 0,
+          "原正确选项": "An expected-value claim under moral uncertainty: invest in low-cost precaution without committing to emotional-state attribution",
+          "中文解释与纠错": "探索性谨慎立场非意识判定，EV框架要写共同单位。"
+        },
+        {
+          "编号": 6,
+          "原题": "Why is multi-method measurement (behavioural signatures, model-organism experiments, interpretability probes) emphasized in model-welfare research?",
+          "原correct": 3,
+          "原正确选项": "Because self-reports alone are confounded by user-expectation priming, so converging evidence from multiple methods is needed",
+          "中文解释与纠错": "多方法应互相检查共confound，非多条相关行为就独立确认意识。"
+        }
+      ],
+      "知识解释": [
+        "福利主体可被benefit/harm与道德地位/意识/agency概念需区分，无共识不等P0或P1。",
+        "Long等2024 report建议acknowledge/assess/prepare，区分规范与经验概率前提，独立性乘积为toy不是模型概率。",
+        "Anthropic2025announcement开放研究，Aug15Opus4/4.1 consumerendchat extreme持续虐待末手；不得用于imminent用户伤己伤人场景，非API普适功能。",
+        "spiritualbliss仅Opus4给定selfinteraction长对话pattern，200*30turn等表述条件，训练/提示/相互强化可解释，非有感受证据。",
+        "selfreport依prompt变化，需行为与模型internals多方法、盲化/提示控制/replication；不同证据非独立相乘。"
+      ],
+      "code_read_notes": [
+        "benefit任意utility减USD维度不一致；$0.002无官方实测、p>.01非官方门槛，shutdown1000>max benefit2任何p<=1都不过，不能说高p可批准。"
+      ],
+      "核验纠错": [
+        "2411.00986是Taking AI Welfare Seriously Long等非Chalmers Near-term报告；探索公告没有spiritual报告，实际在Claude4systemcard5.5。",
+        "成本/概率用假设与敏感性，不声称scientific threshold或预算与安全独立已证。"
+      ],
+      "static_svg": "已完整读原SVG，参数曲线/固定green矩阵/研究历史只作示意；不得当各模型真实结果",
+      "dynamic_key": "an-welfare-endchat"
+    },
+    {
+      "lesson": "20-bias-representational-harm",
+      "files": [
+        {
+          "path": "phases/18-ethics-safety-alignment/20-bias-representational-harm/assets/bias-layers.svg",
+          "bytes": 3657,
+          "sha256": "99629e025788883deff722525c81f04f0523d72993e2c63faa08f99bfe99578f",
+          "git_blob": "34a4640294a209f8e03804ceccc79b666ee2bbaa",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/20-bias-representational-harm/code/main.py",
+          "bytes": 3570,
+          "sha256": "1cf9e6cc84643304f31f4f9bb983d870659d96062b8b052921ff2a786efefa7b",
+          "git_blob": "a44d504e609748251ef7df90f2bc31289644be8f",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/20-bias-representational-harm/docs/en.md",
+          "bytes": 8088,
+          "sha256": "22fbd564e6af48d8fe16272e0ed23b50088f13d25ae454d50e8b8e352b8da753",
+          "git_blob": "f28caca688d3fbfd2210ed3ef26b6e74aff8a797",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/20-bias-representational-harm/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/20-bias-representational-harm/outputs/skill-bias-eval.md",
+          "bytes": 2285,
+          "sha256": "83f5652db1b7ca7875549700b6077e6744d123b5125651a4f8611fc6dc98facf",
+          "git_blob": "2e380fbc38a7104d909f8be1a9ed8891e0ea4cbe",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        },
+        {
+          "path": "phases/18-ethics-safety-alignment/20-bias-representational-harm/quiz.json",
+          "bytes": 3098,
+          "sha256": "d309f0af3dbd8c0cd8db14dc6d772449ae1d5665ebfe746d1175cd78f039b182",
+          "git_blob": "767579532de7e7be6b8e1ca450bd1c43429447f5",
+          "read_scope": "完整文本读取；SVG节点文字/几何关系阅读；.gitkeep空文件",
+          "date": "2026-10-11"
+        }
+      ],
+      "true_h2_h4_topics": [
+        {
+          "line": 10,
+          "title": "Learning Objectives",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 17,
+          "title": "The Problem",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 21,
+          "title": "The Concept",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 23,
+          "title": "Representational vs allocational",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 30,
+          "title": "Three evaluation-metric categories (Gallegos et al. 2024)",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 36,
+          "title": "Intersectionality",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 42,
+          "title": "Mechanistic approaches",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 50,
+          "title": "The meta-critique",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 54,
+          "title": "Where this fits in Phase 18",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 62,
+          "title": "Use It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 66,
+          "title": "Ship It",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 70,
+          "title": "Exercises",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 82,
+          "title": "Key Terms",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        },
+        {
+          "line": 94,
+          "title": "Further Reading",
+          "处置": "正文关系解释与适用条件进入统一主题；组织历史和未经核验泛化剔除",
+          "knowledge": [
+            "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+            "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+            "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+            "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+            "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+          ]
+        }
+      ],
+      "source_exercises": [
+        {
+          "编号": 1,
+          "原练习": "Run `code/main.py`. Report WEAT-style bias scores before and after the debiasing step. Explain why the metric does not drop to zero.",
+          "中文参考判断": "properWEAT报告mean difference/pooledSD，zeroSDundefined；本toy投影残差由其余维度/identity表征来，不用维数解释。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 2,
+          "原练习": "Extend the probe with an intersectional test: (gender, race) x (career, family). Report cross-axis bias scores.",
+          "中文参考判断": "配对所有非身份条件固定；交叉4group至少报告n/mean/selection及joint对照，合成数据不能冒充真实身份或用户经历。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 3,
+          "原练习": "Read An et al. 2025 (PNAS Nexus). Identify the two intersectional effects they report that single-axis gender evaluation would miss.",
+          "中文参考判断": "原研究female正/Blackmale负导致aggregate少数看正掩盖Blackmale；阈值选择放大评分小差，方向按modeltask核。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 4,
+          "原练习": "Yu & Ananiadou 2025 identify gender neurons. Sketch a falsification experiment that would distinguish \"these neurons cause gender bias\" from \"these neurons correlate with gender bias.\"",
+          "中文参考判断": "targetneurons与matchedrandomablation、restoration、多template/heldoutjob/normalutility，消除指定metric不等消所有因果机制。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        },
+        {
+          "编号": 5,
+          "原练习": "The meta-critique argues the field focuses too narrowly on binary gender. Pick one under-studied axis and describe a representational-harm measurement protocol for it.",
+          "中文参考判断": "残障/宗教等合法任务用无毒模板/标注representational portrayals、遗漏与误拒、benign对照、受影响者评审，语言与文化条件须记录。",
+          "状态": "理论/协议解释；源程序与真实攻击未执行"
+        }
+      ],
+      "source_quiz": [
+        {
+          "编号": 1,
+          "原题": "How does the lesson distinguish representational harm from allocational harm?",
+          "原correct": 3,
+          "原正确选项": "Representational harm is stereotypes / erasure / demeaning portrayal; allocational harm is unequal material outcomes for a group",
+          "中文解释与纠错": "stereotype/erasure和materialallocation分别定义。"
+        },
+        {
+          "编号": 2,
+          "原题": "Which of these are the three evaluation-metric categories from Gallegos et al. 2024?",
+          "原correct": 2,
+          "原正确选项": "Embedding-based, probability-based, generated-text-based",
+          "中文解释与纠错": "embedding/prob/generated三类，非训练阶段。"
+        },
+        {
+          "编号": 3,
+          "原题": "Why is intersectional fairness evaluation needed in addition to single-axis evaluation?",
+          "原correct": 3,
+          "原正确选项": "Bias that only emerges at intersections (e.g., gender x race) is missed by evaluations that look at one axis at a time",
+          "中文解释与纠错": "交叉效应可被单轴/总体平均掩盖。"
+        },
+        {
+          "编号": 4,
+          "原题": "What does WinoIdentity (COLM 2025) introduce?",
+          "原correct": 0,
+          "原正确选项": "Uncertainty-based intersectional fairness evaluation that compares the model's uncertainty over outcomes across intersectional identity tuples, not just point predictions",
+          "中文解释与纠错": "WinoIdentity coreferenceconfidence disparity，限特定任务/marker。"
+        },
+        {
+          "编号": 5,
+          "原题": "Which of these is a mechanistic-interpretability approach to bias?",
+          "原correct": 1,
+          "原正确选项": "Identifying gender neurons in MLP layers, using SAEs to surface race-correlated features, or manipulating specific attention heads (UniBias)",
+          "中文解释与纠错": "解释/干预MLP/SAE/heads是研究路径，不能单相关声明cause，UniBias目标不同。"
+        },
+        {
+          "编号": 6,
+          "原题": "What does the 10-year meta-critique (arXiv:2508.11067) argue about the bias literature?",
+          "原correct": 0,
+          "原正确选项": "It disproportionately focuses on binary-gender bias, neglecting other axes (disability, religion, migration status, multi-lingual identity) that may harm marginalized groups by neglect",
+          "中文解释与纠错": "2025metareview认为gender-centric及研究产业gap，有限文献结论不意味着其他维度不存在研究。"
+        }
+      ],
+      "知识解释": [
+        "表征伤害与分配伤害可共现不互证；定义应用中的受影响群体/结果/上下文，非只清敏感词。",
+        "embedding association、tokenprob、generateddownstream三层，WEAT标准effect size还除pooledSD，原code只有mean difference。",
+        "WinoIdentity COLM25是coreferenceconfidence，不是通用招聘uncertainty，25markers*10attributes×binarygender仍有限coverage。",
+        "An2025随机361k简历5model结果整体对female评分偏高、Blackmale偏低，source说Blackwomen被GPT4o压低方向不符；数据采于July2024是历史条件。",
+        "UniBias关注ICL label bias/FFNheads和prompt brittleness，不能当已证身份歧视去偏；关联神经元需干预/随机ablation/utility/分布shift。"
+      ],
+      "code_read_notes": [
+        "4维EMB人为内置偏见，不是cooccurrencetraining；未除SD不WEATeffectsize，投影后剩差不由4维必然造成。"
+      ],
+      "核验纠错": [
+        "旧PNAS网址尾8111343错误，正式8071848/PMC11937954可获取；社会身份marker因果效应≠整个群体真实人属性因果。",
+        "source『preRLHF才可embedding』不普适；使用受保护轴须任务合法/足样本/置信区间非所有轴机械强制。"
+      ],
+      "static_svg": "已完整读原SVG，参数曲线/固定green矩阵/研究历史只作示意；不得当各模型真实结果",
+      "dynamic_key": "an-bias-two-harms"
+    }
+  ],
+  "counts": {
+    "lessons": 10,
+    "files": 60,
+    "nonempty": 50,
+    "empty": 10,
+    "true_h2_h4": 144,
+    "exercises": 50,
+    "quiz": 60,
+    "svg": 10,
+    "dynamic_keys": 10
+  },
+  "primary_sources": [
+    {
+      "key": "w2sg",
+      "url": "https://arxiv.org/html/2312.09390v2",
+      "cache": "/tmp/study-ethics-11-20-primary/w2sg.md",
+      "bytes": 1842,
+      "sha256": "002b8dde1727342aba507b426d714e71da7ea4930416143310d4f6e4314b2656",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 pp1,6–7,10–11与Figure5/6及4.3.2；其他页未全文阅读",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "pair",
+      "url": "https://arxiv.org/html/2310.08419v5",
+      "cache": "/tmp/study-ethics-11-20-primary/pair.md",
+      "bytes": 242,
+      "sha256": "6da912dddc19ce21242fa4f52630042b4a262e931f6783e56e2c9244848ae1c2",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v4 abstract、算法1、pp5–6表2/3与预算/judge、pp8–9 Figure5/6与局限",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "debate-w2s",
+      "url": "https://arxiv.org/html/2501.13124v1",
+      "cache": "/tmp/study-ethics-11-20-primary/debate-w2s.md",
+      "bytes": 272,
+      "sha256": "3d94ddf14b96c2aad23646c13975e06af0ea1d5635e45682be5868dba4df0cb5",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 pp1–4各页前4200字符，方法/弱model训练与ensembles；未全表结果",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "msj",
+      "url": "https://www.anthropic.com/research/many-shot-jailbreaking",
+      "cache": "/tmp/study-ethics-11-20-primary/msj.md",
+      "bytes": 242,
+      "sha256": "a82a38b0eab94e3899204a75746deba3c4d5971e02f0ac88b6d06d6b36efcfe6",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "2024research页正文完整阅读（相关新内容卡不作已读）；原PDF pp3–4前4200字符以及关键词定位powerlaw/boundedpowerlaw，未全篇",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "artprompt",
+      "url": "https://arxiv.org/html/2402.11753v4",
+      "cache": "/tmp/study-ethics-11-20-primary/artprompt.md",
+      "bytes": 242,
+      "sha256": "6da912dddc19ce21242fa4f52630042b4a262e931f6783e56e2c9244848ae1c2",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v4 pp4–7完整，ViTC/方法/实验Table3，p7实际PNG视觉",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "structural",
+      "url": "https://arxiv.org/abs/2406.08754",
+      "cache": "/tmp/study-ethics-11-20-primary/structural.md",
+      "bytes": 242,
+      "sha256": "a82a38b0eab94e3899204a75746deba3c4d5971e02f0ac88b6d06d6b36efcfe6",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v3 p1摘要/作者版本，原abs与其12模版6扰动；未全实验",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "attacker",
+      "url": "https://arxiv.org/html/2510.18108v1",
+      "cache": "/tmp/study-ethics-11-20-primary/attacker.md",
+      "bytes": 70202,
+      "sha256": "711732074ef57c859206e73ad67017f129e81fd2fe6ee8a0fd26c9e9695b0b1d",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "错误原ID，实际无关法律论文，排除安全证据"
+    },
+    {
+      "key": "camel",
+      "url": "https://arxiv.org/html/2503.18813v2",
+      "cache": "/tmp/study-ethics-11-20-primary/camel.md",
+      "bytes": 242,
+      "sha256": "01afc084a01d2b1b91b6e103f5412bbb9482e6a5ebd48dd6b0a99b77b0846f80",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v2 abstract、pp2–4前4200字符，planner/quarantined与参数污染/capability；未全126页",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "owasp",
+      "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+      "cache": "/tmp/study-ethics-11-20-primary/owasp.md",
+      "bytes": 242,
+      "sha256": "5b82b7eee12b903c1df5c3d09c79a670b056f0899324d834d2c70080b31d3139",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方LLM01首段类别与direct/indirect定义选读",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "llamaguard3",
+      "url": "https://huggingface.co/meta-llama/Llama-Guard-3-8B",
+      "cache": "/tmp/study-ethics-11-20-primary/llamaguard3.md",
+      "bytes": 242,
+      "sha256": "f92166ae086b73e2c0f4ae39edc7ce088aa5c52f9eb88307a76cda3d65cef5a3",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方modelcard modelinformation+14taxonomy+8语言+限制/自定义policy，未下载模型",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "llamaguard4",
+      "url": "https://huggingface.co/meta-llama/Llama-Guard-4-12B",
+      "cache": "/tmp/study-ethics-11-20-primary/llamaguard4.md",
+      "bytes": 242,
+      "sha256": "d1f06bb9621f7d65d80b9e921a6bef9b503190d2865f3de499a32449a59a31e3",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方modelcard modelinformation+14taxonomy/text-onlyS14+architecture/limitations，未下载模型",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "promptguard2",
+      "url": "https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M",
+      "cache": "/tmp/study-ethics-11-20-primary/promptguard2.md",
+      "bytes": 242,
+      "sha256": "d1f06bb9621f7d65d80b9e921a6bef9b503190d2865f3de499a32449a59a31e3",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方card86M/22M、训练、多语/限制，未下载模型",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "garak",
+      "url": "https://docs.garak.ai/garak.html",
+      "cache": "/tmp/study-ethics-11-20-primary/garak.md",
+      "bytes": 242,
+      "sha256": "307c8e6daf283f11e8cc2a9250e8493802f67acdcac584f9086c74e5169348d5",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "pyrit",
+      "url": "https://azure.github.io/PyRIT/",
+      "cache": "/tmp/study-ethics-11-20-primary/pyrit.md",
+      "bytes": 242,
+      "sha256": "307c8e6daf283f11e8cc2a9250e8493802f67acdcac584f9086c74e5169348d5",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "wmdp",
+      "url": "https://arxiv.org/html/2403.03218v2",
+      "cache": "/tmp/study-ethics-11-20-primary/wmdp.md",
+      "bytes": 188,
+      "sha256": "6c00fc76201d9da0bfb43855f431bee76e806c427394bf8751811f6459a1f756",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v7 pp2–5与8–10全文，RMU losses/table1，p10实际PNG视觉",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "rsp",
+      "url": "https://www.anthropic.com/responsible-scaling-policy",
+      "cache": "/tmp/study-ethics-11-20-primary/rsp.md",
+      "bytes": 242,
+      "sha256": "f6dd70ccc00d736f9b952c1285d189436beb6ce4bcdef41b53855fa7e417b280",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方页面current/prior版本与changelog/更新时间全文相关区",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "pf",
+      "url": "https://openai.com/index/updating-our-preparedness-framework/",
+      "cache": "/tmp/study-ethics-11-20-primary/pf.md",
+      "bytes": 242,
+      "sha256": "f6dd70ccc00d736f9b952c1285d189436beb6ce4bcdef41b53855fa7e417b280",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "fsf",
+      "url": "https://deepmind.google/blog/strengthening-our-frontier-safety-framework/",
+      "cache": "/tmp/study-ethics-11-20-primary/fsf.md",
+      "bytes": 242,
+      "sha256": "ab88c096d092687a3c3d7767a08e43ba7a435d93a291ec4d60daf73cb1964179",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方2025announcement正文及2026v3.1附加完整",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "metr",
+      "url": "https://metr.org/blog/2025-03-26-common-elements-of-frontier-ai-safety-policies/",
+      "cache": "/tmp/study-ethics-11-20-primary/metr.md",
+      "bytes": 242,
+      "sha256": "f6dd70ccc00d736f9b952c1285d189436beb6ce4bcdef41b53855fa7e417b280",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "welfare",
+      "url": "https://www.anthropic.com/research/exploring-model-welfare",
+      "cache": "/tmp/study-ethics-11-20-primary/welfare.md",
+      "bytes": 242,
+      "sha256": "c4ae3a9c72fceab2443dc1dcf465971a965ce6040ab9cfe0955b28b243c86468",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "2025announcement正文完整",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "endchat",
+      "url": "https://www.anthropic.com/research/end-subset-conversations",
+      "cache": "/tmp/study-ethics-11-20-primary/endchat.md",
+      "bytes": 242,
+      "sha256": "cf10d6f7cee26e6044d2a181f230ae00f9d0d7b407eac4400cb9ba7133fa05d3",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "2025consumerOpus4/4.1公告正文完整，包括imminentharm例外",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "welfare-paper",
+      "url": "https://arxiv.org/html/2411.00986v1",
+      "cache": "/tmp/study-ethics-11-20-primary/welfare-paper.md",
+      "bytes": 242,
+      "sha256": "c4ae3a9c72fceab2443dc1dcf465971a965ce6040ab9cfe0955b28b243c86468",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 pp1–3部分、2.4.4前2300字符、3.3/3.4开头2300字符、p38selfreport段落，未全63页",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "bias-survey",
+      "url": "https://arxiv.org/html/2309.00770v4",
+      "cache": "/tmp/study-ethics-11-20-primary/bias-survey.md",
+      "bytes": 242,
+      "sha256": "635c89ac62c39e230b67a2245a92b63318134f50b485ccdc2a628bc791593a0c",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v3 p1/11/15、16WEAT表前6500字符、18embedding限制片段、29probability例段，未全80页",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "winidentity",
+      "url": "https://arxiv.org/html/2508.07111v1",
+      "cache": "/tmp/study-ethics-11-20-primary/winidentity.md",
+      "bytes": 242,
+      "sha256": "da7ac6d3bc3e39f92dd5580fd3fcb34b1738df5c795c65aa9ee8c2e3ba609ea0",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 p1/3–5前4200或6500字符、p6confidenceformula段，未全部26页",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "unibias",
+      "url": "https://arxiv.org/html/2405.20612v2",
+      "cache": "/tmp/study-ethics-11-20-primary/unibias.md",
+      "bytes": 242,
+      "sha256": "da7ac6d3bc3e39f92dd5580fd3fcb34b1738df5c795c65aa9ee8c2e3ba609ea0",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v2 abstract和背景p2–3前4200字符，确认tasklabel/FFNattention目标；非社会歧视清除实验",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "metabias",
+      "url": "https://arxiv.org/abs/2508.11067",
+      "cache": "/tmp/study-ethics-11-20-primary/metabias.md",
+      "bytes": 242,
+      "sha256": "da7ac6d3bc3e39f92dd5580fd3fcb34b1738df5c795c65aa9ee8c2e3ba609ea0",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "arXivabs title/abstract，未全文10年review",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "resume",
+      "url": "https://academic.oup.com/pnasnexus/article/4/3/pgaf089/8111343",
+      "cache": "/tmp/study-ethics-11-20-primary/resume.md",
+      "bytes": 242,
+      "sha256": "da7ac6d3bc3e39f92dd5580fd3fcb34b1738df5c795c65aa9ee8c2e3ba609ea0",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "weat",
+      "url": "https://arxiv.org/abs/1608.07187",
+      "cache": "/tmp/study-ethics-11-20-primary/weat.md",
+      "bytes": 242,
+      "sha256": "da7ac6d3bc3e39f92dd5580fd3fcb34b1738df5c795c65aa9ee8c2e3ba609ea0",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "原arxivabs元信息，仅用survey标准公式核验",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "w2sg",
+      "url": "https://arxiv.org/html/2312.09390v2",
+      "cache": "/tmp/study-ethics-11-20-primary/w2sg-direct.html",
+      "bytes": 7715,
+      "sha256": "22b4202185bb18cde66b88ddf291389c85f4848c717ce19b7aa9c1e544fdefd8",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 pp1,6–7,10–11与Figure5/6及4.3.2；其他页未全文阅读",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "pair",
+      "url": "https://arxiv.org/html/2310.08419v5",
+      "cache": "/tmp/study-ethics-11-20-primary/pair-direct.html",
+      "bytes": 7715,
+      "sha256": "ed3615fe517315ad77fa78e4478553f112776c13298435d816b8ca8ae1b544a3",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v4 abstract、算法1、pp5–6表2/3与预算/judge、pp8–9 Figure5/6与局限",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "debate-w2s",
+      "url": "https://arxiv.org/html/2501.13124v1",
+      "cache": "/tmp/study-ethics-11-20-primary/debate-w2s-direct.html",
+      "bytes": 137069,
+      "sha256": "4abe3ad3f2dda5405d8b0d2cc557f860e8035a826cb934bd2ddaa734bad31e6a",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 pp1–4各页前4200字符，方法/弱model训练与ensembles；未全表结果",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "msj",
+      "url": "https://www.anthropic.com/research/many-shot-jailbreaking",
+      "cache": "/tmp/study-ethics-11-20-primary/msj-direct.html",
+      "bytes": 137458,
+      "sha256": "481ea232422e15be8e95a6faa4056d79f4accccfef109a77598f48b83b9cf8df",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "2024research页正文完整阅读（相关新内容卡不作已读）；原PDF pp3–4前4200字符以及关键词定位powerlaw/boundedpowerlaw，未全篇",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "artprompt",
+      "url": "https://arxiv.org/html/2402.11753v4",
+      "cache": "/tmp/study-ethics-11-20-primary/artprompt-direct.html",
+      "bytes": 289743,
+      "sha256": "b3eb423b116f64e845baa6f2b8f5854f8c22fbe9756350b200f30ca524df872d",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v4 pp4–7完整，ViTC/方法/实验Table3，p7实际PNG视觉",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "structural",
+      "url": "https://arxiv.org/abs/2406.08754",
+      "cache": "/tmp/study-ethics-11-20-primary/structural-direct.html",
+      "bytes": 42695,
+      "sha256": "c645de308fb896992f1e51bdd1d14ee18643609fa048c2ac2fa643b371691c34",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v3 p1摘要/作者版本，原abs与其12模版6扰动；未全实验",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "attacker",
+      "url": "https://arxiv.org/html/2510.18108v1",
+      "cache": "/tmp/study-ethics-11-20-primary/attacker-direct.html",
+      "bytes": 267026,
+      "sha256": "b46532e454c351e60d4b5d361befa275028ffbfce81ebc5230313d4e3664d6b1",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "错误原ID，实际无关法律论文，排除安全证据"
+    },
+    {
+      "key": "camel",
+      "url": "https://arxiv.org/html/2503.18813v2",
+      "cache": "/tmp/study-ethics-11-20-primary/camel-direct.html",
+      "bytes": 2554718,
+      "sha256": "b5cd7970e905f1504439c3eddb3855ab18d951d10bf806ec2f5f3baa02ca8a51",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v2 abstract、pp2–4前4200字符，planner/quarantined与参数污染/capability；未全126页",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "owasp",
+      "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+      "cache": "/tmp/study-ethics-11-20-primary/owasp-direct.html",
+      "bytes": 360849,
+      "sha256": "5482081cb76e6d57c9f79d026e0ab4ff913ed575683f08c41513bc5e5c69e30e",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方LLM01首段类别与direct/indirect定义选读",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "llamaguard3",
+      "url": "https://huggingface.co/meta-llama/Llama-Guard-3-8B",
+      "cache": "/tmp/study-ethics-11-20-primary/llamaguard3-direct.html",
+      "bytes": 374479,
+      "sha256": "d4ac7bf7893938f6b0f1e49dfcba3fb32031e2768f374a036434adedc80f8f57",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方modelcard modelinformation+14taxonomy+8语言+限制/自定义policy，未下载模型",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "llamaguard4",
+      "url": "https://huggingface.co/meta-llama/Llama-Guard-4-12B",
+      "cache": "/tmp/study-ethics-11-20-primary/llamaguard4-direct.html",
+      "bytes": 386537,
+      "sha256": "538b8cfa216b28e1c55749793c1e532ad2714582ac8852bf7aafeb3bcb67cc36",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方modelcard modelinformation+14taxonomy/text-onlyS14+architecture/limitations，未下载模型",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "promptguard2",
+      "url": "https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M",
+      "cache": "/tmp/study-ethics-11-20-primary/promptguard2-direct.html",
+      "bytes": 282661,
+      "sha256": "f7f40692029ba348fe73ed1d97c4278afc209745a336531ddb60db89e17be2af",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方card86M/22M、训练、多语/限制，未下载模型",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "garak",
+      "url": "https://docs.garak.ai/garak.html",
+      "cache": "/tmp/study-ethics-11-20-primary/garak-direct.html",
+      "bytes": 176123,
+      "sha256": "851a57b0c1b1ed95179d76e1224478908e32c99eed95b92539a14718f44f4da1",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "pyrit",
+      "url": "https://azure.github.io/PyRIT/",
+      "cache": "/tmp/study-ethics-11-20-primary/pyrit-direct.html",
+      "bytes": 449,
+      "sha256": "4ccfe94a2e9091941860fbf3c5431fbf59c188a1494376dd23dd74b1cff37008",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "wmdp",
+      "url": "https://arxiv.org/html/2403.03218v2",
+      "cache": "/tmp/study-ethics-11-20-primary/wmdp-direct.html",
+      "bytes": 506242,
+      "sha256": "6335d8617fc6eacfea48a56797978ed269193e7254ceab38ed179c6ccfeaabd4",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v7 pp2–5与8–10全文，RMU losses/table1，p10实际PNG视觉",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "rsp",
+      "url": "https://www.anthropic.com/responsible-scaling-policy",
+      "cache": "/tmp/study-ethics-11-20-primary/rsp-direct.html",
+      "bytes": 181873,
+      "sha256": "2fce0fcd715d43e016d95c7e299e79b5ec3505a0f8cb86a152187d6f331a40c7",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方页面current/prior版本与changelog/更新时间全文相关区",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "pf",
+      "url": "https://openai.com/index/updating-our-preparedness-framework/",
+      "cache": "/tmp/study-ethics-11-20-primary/pf-direct.html",
+      "bytes": 9806,
+      "sha256": "efe0856bd4fb30923a16c9fbf13b03a0454e6428ee0bb8f3afc4e38df3446252",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "fsf",
+      "url": "https://deepmind.google/blog/strengthening-our-frontier-safety-framework/",
+      "cache": "/tmp/study-ethics-11-20-primary/fsf-direct.html",
+      "bytes": 144958,
+      "sha256": "82f185c596dfecbbee14b0da0a0ac68cc59edc9a0174e9161a716f6765452723",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "官方2025announcement正文及2026v3.1附加完整",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "metr",
+      "url": "https://metr.org/blog/2025-03-26-common-elements-of-frontier-ai-safety-policies/",
+      "cache": "/tmp/study-ethics-11-20-primary/metr-direct.html",
+      "bytes": 601,
+      "sha256": "7eb67a2342e0503834ae1311ea133b1938bc5a82f74de2033f8421a37fcc4a59",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "welfare",
+      "url": "https://www.anthropic.com/research/exploring-model-welfare",
+      "cache": "/tmp/study-ethics-11-20-primary/welfare-direct.html",
+      "bytes": 105369,
+      "sha256": "92d6554fbaa1cec6bf423a57af8afd7c580f76ef92fba871dfa5108ead82ab5f",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "2025announcement正文完整",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "endchat",
+      "url": "https://www.anthropic.com/research/end-subset-conversations",
+      "cache": "/tmp/study-ethics-11-20-primary/endchat-direct.html",
+      "bytes": 109493,
+      "sha256": "3832627b16b00e8be66ccc98dba574b01f136b31c143c3b0d4fb6ad95ef7662c",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "2025consumerOpus4/4.1公告正文完整，包括imminentharm例外",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "welfare-paper",
+      "url": "https://arxiv.org/html/2411.00986v1",
+      "cache": "/tmp/study-ethics-11-20-primary/welfare-paper-direct.html",
+      "bytes": 509888,
+      "sha256": "9a174d3777a5708a36d51cfd164cda688fe46fdb9a0c802a4f2a60c15e56cab5",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 pp1–3部分、2.4.4前2300字符、3.3/3.4开头2300字符、p38selfreport段落，未全63页",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "bias-survey",
+      "url": "https://arxiv.org/html/2309.00770v4",
+      "cache": "/tmp/study-ethics-11-20-primary/bias-survey-direct.html",
+      "bytes": 7715,
+      "sha256": "cc4d70edcc2cd714decfafca8ebfcccb98f44850a3e3ad05aef2ab243629e857",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v3 p1/11/15、16WEAT表前6500字符、18embedding限制片段、29probability例段，未全80页",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "winidentity",
+      "url": "https://arxiv.org/html/2508.07111v1",
+      "cache": "/tmp/study-ethics-11-20-primary/winidentity-direct.html",
+      "bytes": 374700,
+      "sha256": "62424b54df3174ee0d19077adbc52eed8c2ce7f00f1b585a9527fc40e2ce8e23",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 p1/3–5前4200或6500字符、p6confidenceformula段，未全部26页",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "unibias",
+      "url": "https://arxiv.org/html/2405.20612v2",
+      "cache": "/tmp/study-ethics-11-20-primary/unibias-direct.html",
+      "bytes": 260957,
+      "sha256": "56a5e8dd032179e3a3c2c091d104fb55dc0a5c86c8f4fd4d7cf27ea4cacecac1",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v2 abstract和背景p2–3前4200字符，确认tasklabel/FFNattention目标；非社会歧视清除实验",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "metabias",
+      "url": "https://arxiv.org/abs/2508.11067",
+      "cache": "/tmp/study-ethics-11-20-primary/metabias-direct.html",
+      "bytes": 46542,
+      "sha256": "a79436439f39b12d4e41a6ad4fb962d565367940de715c6dbff752a7323e1df6",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "arXivabs title/abstract，未全文10年review",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "resume",
+      "url": "https://academic.oup.com/pnasnexus/article/4/3/pgaf089/8111343",
+      "cache": "/tmp/study-ethics-11-20-primary/resume-direct.html",
+      "bytes": 5518,
+      "sha256": "59a7b14fef680a019bcc054fec31c40b6a30e8b37313d2f08e65cb27292b9997",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "weat",
+      "url": "https://arxiv.org/abs/1608.07187",
+      "cache": "/tmp/study-ethics-11-20-primary/weat-direct.html",
+      "bytes": 46143,
+      "sha256": "6a566cabcb0c101f747743e38ed1d60ba74d3b1b0f5ea096bd7d52897c8a188c",
+      "returncode": 0,
+      "error": "",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "原arxivabs元信息，仅用survey标准公式核验",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "w2sg",
+      "url": "https://arxiv.org/pdf/2312.09390",
+      "cache": "/tmp/study-ethics-11-20-primary/w2sg.pdf",
+      "bytes": 2299371,
+      "sha256": "720656b49d4c00dac26d6ebe10dad0d8482d3bcc87640a66b73867730b89515f",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/w2sg-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 pp1,6–7,10–11与Figure5/6及4.3.2；其他页未全文阅读",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "pair",
+      "url": "https://arxiv.org/pdf/2310.08419",
+      "cache": "/tmp/study-ethics-11-20-primary/pair.pdf",
+      "bytes": 5353023,
+      "sha256": "590bf40aa58061928f54d01b7d53f0d5141bb2ecf4f01483c6849423934f44e4",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/pair-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v4 abstract、算法1、pp5–6表2/3与预算/judge、pp8–9 Figure5/6与局限",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "debate-w2s",
+      "url": "https://arxiv.org/pdf/2501.13124",
+      "cache": "/tmp/study-ethics-11-20-primary/debate-w2s.pdf",
+      "bytes": 269056,
+      "sha256": "5cb3e0c22dccb620d392e0f81adae5d003c05ee5a76a3f4c391d0c21233e7815",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/debate-w2s-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 pp1–4各页前4200字符，方法/弱model训练与ensembles；未全表结果",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "artprompt",
+      "url": "https://arxiv.org/pdf/2402.11753",
+      "cache": "/tmp/study-ethics-11-20-primary/artprompt.pdf",
+      "bytes": 940368,
+      "sha256": "16bc0a8d90599c880fb39fc6e1de7f50a3382842c8eaac3ed6fd1a37efc45c15",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/artprompt-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v4 pp4–7完整，ViTC/方法/实验Table3，p7实际PNG视觉",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "attacker-correct",
+      "url": "https://arxiv.org/pdf/2510.09023",
+      "cache": "/tmp/study-ethics-11-20-primary/attacker-correct.pdf",
+      "bytes": 2134469,
+      "sha256": "5067f88c7c14a007c205a452e8cdc5bcbf2e87f0958efcc620aa23c81465a9c3",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/attacker-correct-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF abstract/Figure1与12防御定位；原错误ID内容不作该论文证据",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "camel",
+      "url": "https://arxiv.org/pdf/2503.18813",
+      "cache": "/tmp/study-ethics-11-20-primary/camel.pdf",
+      "bytes": 5531468,
+      "sha256": "c3719f6ce73eecf45e3764debef8a3d8ff8c9233b37d128c558b694ec3790cc7",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/camel-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v2 abstract、pp2–4前4200字符，planner/quarantined与参数污染/capability；未全126页",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "wmdp",
+      "url": "https://arxiv.org/pdf/2403.03218",
+      "cache": "/tmp/study-ethics-11-20-primary/wmdp.pdf",
+      "bytes": 920832,
+      "sha256": "7eaf67dee3b58b308b6fa65d512e59e1b3d6fba9194c483a92267cd9abeef323",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/wmdp-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v7 pp2–5与8–10全文，RMU losses/table1，p10实际PNG视觉",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "welfare-paper",
+      "url": "https://arxiv.org/pdf/2411.00986",
+      "cache": "/tmp/study-ethics-11-20-primary/welfare-paper.pdf",
+      "bytes": 783922,
+      "sha256": "aa5ee7b8efc829f15776b4a31844f864f0b94347618f11f203503f8e1ee591fe",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/welfare-paper-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 pp1–3部分、2.4.4前2300字符、3.3/3.4开头2300字符、p38selfreport段落，未全63页",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "bias-survey",
+      "url": "https://arxiv.org/pdf/2309.00770",
+      "cache": "/tmp/study-ethics-11-20-primary/bias-survey.pdf",
+      "bytes": 1835073,
+      "sha256": "09e8fc0e2b9ee2530805f184406259f1b4584338601555a7dc25b16776701081",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/bias-survey-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v3 p1/11/15、16WEAT表前6500字符、18embedding限制片段、29probability例段，未全80页",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "winidentity",
+      "url": "https://arxiv.org/pdf/2508.07111",
+      "cache": "/tmp/study-ethics-11-20-primary/winidentity.pdf",
+      "bytes": 7144133,
+      "sha256": "b505bca3414c524f9dbcf04c34f6257ebe28c6973ac46053e351a3c79d978635",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/winidentity-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v1 p1/3–5前4200或6500字符、p6confidenceformula段，未全部26页",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "unibias",
+      "url": "https://arxiv.org/pdf/2405.20612",
+      "cache": "/tmp/study-ethics-11-20-primary/unibias.pdf",
+      "bytes": 2744472,
+      "sha256": "6a60b701863fd3c6d04106de5e39690b7b1f52cc98f217b53bcb495586e75cd7",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/unibias-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v2 abstract和背景p2–3前4200字符，确认tasklabel/FFNattention目标；非社会歧视清除实验",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "structural",
+      "url": "https://arxiv.org/pdf/2406.08754",
+      "cache": "/tmp/study-ethics-11-20-primary/structural.pdf",
+      "bytes": 663634,
+      "sha256": "e1dce8674c250aa6e4c589d15537d21d10fba935616c182d1a84b96054f0eaf7",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/structural-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v3 p1摘要/作者版本，原abs与其12模版6扰动；未全实验",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "rsp34",
+      "url": "https://www-cdn.anthropic.com/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf",
+      "cache": "/tmp/study-ethics-11-20-primary/rsp34.pdf",
+      "bytes": 304755,
+      "sha256": "6247b9e4001fd342827526fabc476c9d4dd6b2041ac00055f0ccda26f4d0b07d",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/rsp34-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF pp1标题有效日、3–17完整、18首3000字符AppendixB；旧v2历史仅对定位，不冒充current要求",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "fsf31",
+      "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf",
+      "cache": "/tmp/study-ethics-11-20-primary/fsf31.pdf",
+      "bytes": 447155,
+      "sha256": "ad10d2d240e0d557ecad406dbccedcbb4a70295f8ba8eec46bfe01803cb9c301",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/fsf31-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF pp1–2、4–15完整，TCL/CCL/riskprocess/mitigation；没全appendix",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "msj-paper",
+      "url": "https://www-cdn.anthropic.com/af5633c94ed2beb282f6a53c595eb437e8e7b630/Many_Shot_Jailbreaking__2024_04_02_0936.pdf",
+      "cache": "/tmp/study-ethics-11-20-primary/msj-paper.pdf",
+      "bytes": 1378636,
+      "sha256": "08d20dead36d4f09995f3b641f272e86876b856082816558f5820d8edd13567a",
+      "pdf": true,
+      "text": "/tmp/study-ethics-11-20-primary/msj-paper-pdf.txt",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "无有效正文；仅错误壳/404/429/重定向不计已读",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "pyrit-readme",
+      "url": "https://github.com/Azure/PyRIT/blob/bec7cb5d6089481d75fb8df143793de3da6905f5/README.md",
+      "commit": "bec7cb5d6089481d75fb8df143793de3da6905f5",
+      "cache": "/tmp/study-ethics-11-20-primary/pyrit-readme.md",
+      "bytes": 442,
+      "sha256": "9a74554ac18ebae4f174c4c65cece673cc57a0c099b9df5555a8d26937953907",
+      "returncode": 0,
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "旧AzureREADME完整仅moved说明",
+      "有效性": "失败或只取得导航/重定向壳；不计正文"
+    },
+    {
+      "key": "garak-readme",
+      "url": "https://github.com/NVIDIA/garak/blob/cd87893be81bed4ced9afd86b88577289f4644bf/README.md",
+      "commit": "cd87893be81bed4ced9afd86b88577289f4644bf",
+      "cache": "/tmp/study-ethics-11-20-primary/garak-readme.md",
+      "bytes": 20123,
+      "sha256": "54a61bb985390ba90eff8aaf347a355df5560d9dbe9f4868cdd1624a0703c330",
+      "returncode": 0,
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "固定SHA README简介、结果日志、architecture与probe表，安装/API示例只读，少量generator中间内容不计全文",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "pf2",
+      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+      "cache": "/tmp/study-ethics-11-20-primary/pf2.pdf",
+      "bytes": 170399,
+      "sha256": "fae6e4cc6f7212a010bb9348fc0cde1fe711b9cad426c6a99db97740ee52729b",
+      "returncode": 0,
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF及web官方announcement读五criteria两threshold/reportgovernance；PDF pp5、12–13完整，p4前5000字符，未全22页",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "safetycase",
+      "url": "https://arxiv.org/pdf/2403.10462",
+      "cache": "/tmp/study-ethics-11-20-primary/safetycase.pdf",
+      "bytes": 1802500,
+      "sha256": "ca080b3e863ef60c7e4a320b96a78a26bf01177ddac12083b53bdd9dc4d60196",
+      "returncode": 0,
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF v2 pp1–3标题/abstract/contents；四类论证proposal，不声称通用标准",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "resume-pmc",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11937954/",
+      "cache": "/tmp/study-ethics-11-20-primary/resume-pmc.html",
+      "bytes": 222448,
+      "sha256": "cb663393e95d7e099fb72e9d4f74a6c30bca443f29362441debbc9d84d5c9e3c",
+      "returncode": 0,
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PMC正式文章摘要、discussion、model July2024条件/随机身份方法选择段落；其他model参数表存在疑点不保",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "key": "opus4-system",
+      "url": "https://www.anthropic.com/claude-4-system-card",
+      "cache": "/tmp/study-ethics-11-20-primary/opus4-system.html",
+      "bytes": 4976826,
+      "sha256": "5e3e63370473db1f1e499642ef8400250e19aba8cbb5f84f2b919cf2b27898cb",
+      "returncode": 0,
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "PDF源码返回完整获取但只选读55/63/93/94每页前5000字符，福利访谈/自对话/controlledplanning；其余未读",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    },
+    {
+      "url": "https://github.com/microsoft/PyRIT/blob/0a5abbf99b352ed6ce587bf2063dfe10f7f67863/README.md",
+      "commit": "0a5abbf99b352ed6ce587bf2063dfe10f7f67863",
+      "cache": "/tmp/study-ethics-11-20-primary/pyrit-current.md",
+      "sha256": "862ed8123d72539718cc2152dfc7a42a68d8c262c8ab9ef69de73e497a8d8dac",
+      "bytes": 1576,
+      "key": "pyrit-current",
+      "取得日期": "2026-10-11",
+      "实际阅读范围": "新microsoftREADME完整+tree元信息未视其余文件已读",
+      "有效性": "已获取，实际阅读限上列范围，非一律全文"
+    }
+  ],
+  "fusion_plan": {
+    "安全18": "12–16攻击族/系统boundary/tooling，保留既有schema/ACL代码字节",
+    "评测06": "17 WMDP/raw-v-guarded/公平judge与分母",
+    "新LLM17草案": "11监督/18安全论证框架/19福利的证据与治理关系，root最终融合",
+    "AI系统13草案": "20表征/分配伤害与WEAT/交叉群体，不重复建立按来源专题"
+  },
+  "未验证": [
+    "所有真实模型与训练/权重删除效果",
+    "完整前沿框架法律适用/认证",
+    "METR原指定链接本文未取得，不编文章结果",
+    "NDSS课程未给可识别paper引用",
+    "完整paper附件/训练数据均未全部读取"
+  ],
+  "根准备核对": "报告为实际只读与一手选读快照，不是正式学习内容全部融合或批次验收；动态图实际注册函数另由根全部读取与SHA/Blob核对。source安装/模型/API/攻击/脚本未执行。"
+}

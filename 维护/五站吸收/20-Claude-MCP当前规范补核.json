@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-13",
+  "scope": "source1 Claude11必须新旧MCP专业核验，官方tag与currentversioning的指定段实际静读，不执行SDK/server",
+  "sources": [
+    {
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/2026-07-28/schema/2026-07-28/schema.ts",
+      "file": "/tmp/study-mcp-20260728-schema-primary.ts",
+      "sha256": "742750af0bb8c716e7030c4977c992b55d1adc4407e9e66997db5846baedc2cd",
+      "actual_scope": "60–96 perrequestMeta,195–240 Result/ResultType,483–527 errors data,648–701 mandatorydiscover；检索LATEST_PROTOCOL_VERSION与deprecated定位，不当3197lines全部阅读"
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/2026-07-28/docs/specification/2026-07-28/basic/versioning.mdx",
+      "file": "/tmp/study-mcp-20260728-versioning-primary.mdx",
+      "sha256": "bc02f271700bdecd88034f2d7801eb09110a71d65876487378d94e48dfeb90dc",
+      "actual_scope": "1–95新版metadata/discovery/version mismatch，107–EOF扩展fallback/compatmatrix/dualera；非所有transports/auth规范"
+    }
+  ],
+  "key_findings": [
+    "7.28正式稳定现代perrequestmetadata与servermandatorydiscover，clientdiscoveryoptional；旧2025握手只在明确legacy/dualera模式",
+    "ResultType schema包含string扩展，不强称规范只永远两种；现代required与legacymissing兼容分开",
+    "error supported/requested 与requiredCapabilities object区别；metadatainfo selfreport不是身份",
+    "modern/legacy/dualera各组合兼容路径需transport具体探测和配置，不把升级规范当旧部署立即失效"
+  ],
+  "not_verified": [
+    "完整3197line schema/认证/HTTP/MRTR/deprecated registry所有条款",
+    "SDK安装实现/真实wire/proxy/应用权限",
+    "当前每SDK或服务的准确版本/时延/费用"
+  ]
+}

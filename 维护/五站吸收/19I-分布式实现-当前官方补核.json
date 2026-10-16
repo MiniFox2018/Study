@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-13",
+  "scope": "source1 Phase19/76–81必要当前官方核验，未执行通信或SDK",
+  "sources": [
+    {
+      "local_file": "/tmp/study-distributed-primary-2.14-20261013.txt",
+      "url": "https://docs.pytorch.org/docs/2.14/distributed",
+      "actual_selected_scope": "Backends表与reduce_scatter列表API指定段落；Jina text约179k，仅这些指定段实际选读",
+      "bytes": 183747,
+      "sha256": "a043fd8419065f4b33c01c07c9386edcd44a885ae133ff3eaf8dbab20d85855d"
+    },
+    {
+      "local_file": "/tmp/study-gloo-source-2.14.0-20261013.cpp",
+      "url": "https://github.com/pytorch/pytorch/blob/v2.14.0/torch/csrc/distributed/c10d/ProcessGroupGloo.cpp",
+      "actual_selected_scope": "line1558–1615 reduce_scatter_single/合并实现，line2242–2284 reduce_scatter列表实现；只读源码未编译/import/run",
+      "bytes": 95895,
+      "sha256": "16844fae7ab374b445c1b8de41b2c34f6658e5d7656dc80b0f6e3e4ba998ae95"
+    },
+    {
+      "local_file": "/tmp/study-dcp-primary-20261013.txt",
+      "url": "https://docs.pytorch.org/docs/stable/distributed.checkpoint.html",
+      "actual_selected_scope": "DCP介绍、save/load的stateful/in-place/版本兼容警告及get_state_dict的FQN/reshard说明，不是全部DCP实现",
+      "bytes": 68020,
+      "sha256": "dadc7f2e321d86b594cfefef08057cfa4f2cd4e1d735f3b093d97ced6021c8bb"
+    }
+  ],
+  "findings": [
+    "当前2.14官方backend表Gloo reduce_scatter CPU/GPU列为支持，不能沿旧版本记忆写永远不支持",
+    "v2.14.0 ProcessGroupGloo列表实现将本rank输出buffer替换后对每个chunk调用allreduce，并返回等待这些works；具有API语义不等原生reduce-scatter通信效率",
+    "single实现allreduce大buffer后取rankchunk，同样语义与native效率分开，未验证本机binary/build/backend或实际速度",
+    "DCP多个rank并行保存/localshard与加载时reshard有官方说明；in-place需事先分配目标，Stateful调用load_state_dict才能设置应用状态",
+    "model+optimizer FQN映射与新world_size/parallelism配套；跨PyTorch版本state_dict不保证后向兼容，版本锁与resume验证需保留",
+    "源80逐shard覆盖+最后manifest不等checkpoint集合事务、81保存比较不等真正恢复后训练next-step，这些源静读事实与DCP能力分开"
+  ],
+  "not_verified": [
+    "当前本机Gloo二进制的构建/设备能力和实际执行",
+    "通信性能/数值不同比特可重复",
+    "完整DCP及filesystem故障事务保证",
+    "新pipelineSDK全部接口或ZeRO部署"
+  ],
+  "failed_routes": [
+    {
+      "url": "https://docs.pytorch.org/docs/stable/distributed.html",
+      "result": "Jina返回Redirecting空正文，未作为backend支持证据；改取明确2.14路径成功"
+    }
+  ]
+}

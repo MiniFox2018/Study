@@ -1,0 +1,576 @@
+{
+  "date": "2026-10-12",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "study_base": "ed3521c",
+  "scope": "Phase19/58–63视觉语言构建6课机械发现，未阅读/写作/验收",
+  "counts": {
+    "lessons": 6,
+    "files": 24,
+    "nonempty": 24,
+    "empty": 0,
+    "true_doc_h2_h4": 81,
+    "accepted_unchanged": 455,
+    "source_programs_executed": 0
+  },
+  "lessons": [
+    {
+      "lesson": "58-vision-encoder-patches",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/58-vision-encoder-patches/code/main.py",
+          "bytes": 8441,
+          "sha256": "b91bab0303b00a9fbb9b1f6faa9badf22453736899e9400b396198a2ea66c15f",
+          "git_blob": "4ce7ea817c2bc2e134a41513f7b113f9c8a05dda",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/58-vision-encoder-patches/code/test_main.py",
+          "bytes": 3010,
+          "sha256": "00f8d2703cd0c6857eaf2ecdd107af0f846312faa9ffddb5017a5e93315dfde2",
+          "git_blob": "35addde947e2d2731da9cd525da9936f64d06491",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+          "bytes": 8075,
+          "sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+          "git_blob": "d7ddbf82b2d95417a0145d4fb9abb149d37b2cda",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/58-vision-encoder-patches/quiz.json",
+          "bytes": 3403,
+          "sha256": "c6422bf3c7a5d4fedee19300d289fa60a3356626f61939c2a9ca55efdbe5ef75",
+          "git_blob": "c7394d2c53fcb2d06ebb81f2ee26cd8873e5a5df",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 36,
+          "heading": "### Why patches, not pixels"
+        },
+        {
+          "line": 40,
+          "heading": "### Why a linear projection is enough"
+        },
+        {
+          "line": 44,
+          "heading": "### The `Conv2d` trick"
+        },
+        {
+          "line": 48,
+          "heading": "### Position embeddings"
+        },
+        {
+          "line": 60,
+          "heading": "### Equivalence as a sanity check"
+        },
+        {
+          "line": 68,
+          "heading": "## Build It"
+        },
+        {
+          "line": 86,
+          "heading": "## Use It"
+        },
+        {
+          "line": 90,
+          "heading": "## Tests"
+        },
+        {
+          "line": 106,
+          "heading": "## Exercises"
+        },
+        {
+          "line": 118,
+          "heading": "## Key Terms"
+        },
+        {
+          "line": 128,
+          "heading": "## Further Reading"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "59-vit-transformer",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/59-vit-transformer/code/main.py",
+          "bytes": 7832,
+          "sha256": "379f4ebb6a7f04cba39a1baf183ec53dca295e2cd076ed40b1d8a0fa888047fd",
+          "git_blob": "c72388cb89a6acc779ca77477bb577128c6e3186",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/59-vit-transformer/code/test_main.py",
+          "bytes": 2993,
+          "sha256": "bdfc09857f1e21bf191c62abe94e8cd4b13b204c174e72499f93ec533d8e24a7",
+          "git_blob": "086ea02429b2182d35884278a122d26ae9d08bbc",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+          "bytes": 8136,
+          "sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+          "git_blob": "e16e4ff1294c2203b4264ba5489ec75ef4c748cc",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/59-vit-transformer/quiz.json",
+          "bytes": 3327,
+          "sha256": "72d0052980ab1566ed6cd94f0165b265de7e24ac7acc66d5b50c8bbff74f3603",
+          "git_blob": "6987b795d9fdfc6622662cc3d79c330ae52012d7",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 46,
+          "heading": "### Pre-LN vs post-LN"
+        },
+        {
+          "line": 50,
+          "heading": "### Multi-head self-attention"
+        },
+        {
+          "line": 54,
+          "heading": "### Why the 4x feed-forward expansion"
+        },
+        {
+          "line": 70,
+          "heading": "### Causal mask or not?"
+        },
+        {
+          "line": 74,
+          "heading": "### What the CLS token learns"
+        },
+        {
+          "line": 82,
+          "heading": "## Build It"
+        },
+        {
+          "line": 101,
+          "heading": "## Use It"
+        },
+        {
+          "line": 112,
+          "heading": "## Tests"
+        },
+        {
+          "line": 128,
+          "heading": "## Exercises"
+        },
+        {
+          "line": 140,
+          "heading": "## Key Terms"
+        },
+        {
+          "line": 150,
+          "heading": "## Further Reading"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "60-projection-layer-modality-align",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/60-projection-layer-modality-align/code/main.py",
+          "bytes": 7678,
+          "sha256": "e435ea92736f2729ce7a0137b3d285a0fccb26d2bd4a6b9e36e29ef082079cd1",
+          "git_blob": "35c444deb0231c3a08c05a46c4e7b8ded92670fb",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/60-projection-layer-modality-align/code/test_main.py",
+          "bytes": 4766,
+          "sha256": "016c52da9d826e734e6361b8e8aeca2fe3168c93cf89e0a7e0ee0748ff9ecc4b",
+          "git_blob": "fc1be62aafa25cf903033e14d95ff8ea3d615f5d",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+          "bytes": 8276,
+          "sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+          "git_blob": "bf9bfbe8957d5a2d981b15551d7e61635b7b6f41",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/60-projection-layer-modality-align/quiz.json",
+          "bytes": 3378,
+          "sha256": "a4e4f82cf9a11ccf9085e32670e64e2c3cd5ee13ea7dab140f0f3210369e1ed9",
+          "git_blob": "927b02db38f902eededbc66fbbfaa23851104c59",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 38,
+          "heading": "### Pooling before projection"
+        },
+        {
+          "line": 42,
+          "heading": "### Why two layers and not one"
+        },
+        {
+          "line": 54,
+          "heading": "### Cosine alignment loss"
+        },
+        {
+          "line": 58,
+          "heading": "### Frozen encoder is the trick"
+        },
+        {
+          "line": 66,
+          "heading": "## Build It"
+        },
+        {
+          "line": 84,
+          "heading": "## Use It"
+        },
+        {
+          "line": 95,
+          "heading": "## Tests"
+        },
+        {
+          "line": 111,
+          "heading": "## Exercises"
+        },
+        {
+          "line": 123,
+          "heading": "## Key Terms"
+        },
+        {
+          "line": 133,
+          "heading": "## Further Reading"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "61-cross-attention-fusion",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/61-cross-attention-fusion/code/main.py",
+          "bytes": 10076,
+          "sha256": "68766f9fd8c8fb9de83bb6d8da7b90bbbe61e860b4f8eac38089c93413d74296",
+          "git_blob": "ac1fd6dd1008481ddd69ee898f5a5badd67855df",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/61-cross-attention-fusion/code/test_main.py",
+          "bytes": 3838,
+          "sha256": "c55219edb3d54e28b6932176a1bb0144d51a5c1f9410bf24b52e571771bce8ec",
+          "git_blob": "63ef34fe3183f54d904d8b40194a49bbd9726ffc",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+          "bytes": 8275,
+          "sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+          "git_blob": "a9dee87d7385cf901bb171d88f89441a998e13d9",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/61-cross-attention-fusion/quiz.json",
+          "bytes": 3396,
+          "sha256": "3d30c1860e8dffbf62ff9e3833f6fa2f1b72ce7e84c5a401f7b1abaf94dca3c2",
+          "git_blob": "ebfc5d30ea0bebd3100fe5934c75ca5c8e8b9928",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 46,
+          "heading": "### Mask shapes"
+        },
+        {
+          "line": 57,
+          "heading": "### Why no mask on cross-attention"
+        },
+        {
+          "line": 61,
+          "heading": "### Key/value caching"
+        },
+        {
+          "line": 65,
+          "heading": "### Block composition"
+        },
+        {
+          "line": 85,
+          "heading": "## Build It"
+        },
+        {
+          "line": 104,
+          "heading": "## Use It"
+        },
+        {
+          "line": 113,
+          "heading": "## Tests"
+        },
+        {
+          "line": 129,
+          "heading": "## Exercises"
+        },
+        {
+          "line": 141,
+          "heading": "## Key Terms"
+        },
+        {
+          "line": 151,
+          "heading": "## Further Reading"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "62-vision-language-pretraining",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/62-vision-language-pretraining/code/main.py",
+          "bytes": 10920,
+          "sha256": "420d394bc14059338277bbd2e6460b1b4f402051ad14918ad58aef2acde92a25",
+          "git_blob": "f8963a5598669b366f7553092033b523d520b73d",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/62-vision-language-pretraining/code/test_main.py",
+          "bytes": 4086,
+          "sha256": "73c68aa3838dd4090c167e809085ccdc14007704d1867a0282d1db215cee4177",
+          "git_blob": "2e6fbe44d4093fbd4adb325d6056cbf786eb3140",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+          "bytes": 7967,
+          "sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+          "git_blob": "1c4db9e4e58ccdbc246f2d7d38d0f835b6b18a20",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/62-vision-language-pretraining/quiz.json",
+          "bytes": 3309,
+          "sha256": "a5ef982fab8106f3227eeab2d476f3bbaa453731dec7d92eff4b4169ff261115",
+          "git_blob": "d7d46a48da792458b061f97adf9a7d01560e6b06",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 43,
+          "heading": "### InfoNCE in one paragraph"
+        },
+        {
+          "line": 47,
+          "heading": "### Temperature matters"
+        },
+        {
+          "line": 51,
+          "heading": "### Language modeling loss"
+        },
+        {
+          "line": 55,
+          "heading": "### Combining the losses"
+        },
+        {
+          "line": 65,
+          "heading": "### Why 50 steps is enough for a demo"
+        },
+        {
+          "line": 73,
+          "heading": "## Build It"
+        },
+        {
+          "line": 91,
+          "heading": "## Use It"
+        },
+        {
+          "line": 101,
+          "heading": "## Tests"
+        },
+        {
+          "line": 117,
+          "heading": "## Exercises"
+        },
+        {
+          "line": 129,
+          "heading": "## Key Terms"
+        },
+        {
+          "line": 139,
+          "heading": "## Further Reading"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    },
+    {
+      "lesson": "63-multimodal-eval",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/63-multimodal-eval/code/main.py",
+          "bytes": 11254,
+          "sha256": "425628da9c98ec7122ae2196bf7b67763ea43958f3e1821d6ca6b69d27b00935",
+          "git_blob": "789e53763f95540345e98e9ad4aafbf108884045",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/63-multimodal-eval/code/test_main.py",
+          "bytes": 2821,
+          "sha256": "db7b44b0c3d663925d6e484ec79ecaae01ae4e1f8dca9bb1b82360c74b86398b",
+          "git_blob": "5b71fcd0174b155cc8de6a2b46cbb34078115f79",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+          "bytes": 8831,
+          "sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+          "git_blob": "0055a6ed9631c493b8ac5d41b0f1f920a17a1f90",
+          "status": "仅机械盘点；阅读状态另记"
+        },
+        {
+          "path": "phases/19-capstone-projects/63-multimodal-eval/quiz.json",
+          "bytes": 3425,
+          "sha256": "592ace2b74c0b754f89595de6273eff626359240df3aa377bc1b1b981ecc159c",
+          "git_blob": "ecadf273e4c598ce65dc52e7f83424c2e3c83712",
+          "status": "仅机械盘点；阅读状态另记"
+        }
+      ],
+      "doc_headings": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem"
+        },
+        {
+          "line": 27,
+          "heading": "## The Concept"
+        },
+        {
+          "line": 42,
+          "heading": "### Recall@K from a similarity matrix"
+        },
+        {
+          "line": 46,
+          "heading": "### VQA exact match"
+        },
+        {
+          "line": 50,
+          "heading": "### BLEU-4"
+        },
+        {
+          "line": 65,
+          "heading": "### Synthetic eval suite"
+        },
+        {
+          "line": 89,
+          "heading": "## Build It"
+        },
+        {
+          "line": 108,
+          "heading": "## Use It"
+        },
+        {
+          "line": 118,
+          "heading": "## Tests"
+        },
+        {
+          "line": 135,
+          "heading": "## Exercises"
+        },
+        {
+          "line": 147,
+          "heading": "## Key Terms"
+        },
+        {
+          "line": 157,
+          "heading": "## Further Reading"
+        }
+      ],
+      "reading_status": "未确认完整阅读",
+      "written": false,
+      "accepted": false
+    }
+  ],
+  "not_read_sites": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "guide": "Phase19 README已经由此前外围20导读处理，本次复核不增加课数/外围完成数"
+}

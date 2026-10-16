@@ -1,0 +1,1437 @@
+{
+  "date": "2026-10-12",
+  "status": "静读报告完成；根代理尚需静读及融合验收，不计正式已写已验收",
+  "source_root": "/tmp/study-source1-ai-engineering-20261008",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "previous_checkpoint": "仅自报完成，缺逐文件和内容证据；不得计完成",
+  "lessons": [
+    {
+      "number": 58,
+      "code_purpose": "FrontEndConfig.grid_size验证image_size%patch；PatchEmbed仅检查rank/channel/exact square dimensions，直接使用PatchEmbed可绕过grid_size整除验证造成valid截边。VisionFrontEnd调用grid_size会拒不整除。pos_embed persistent=False；CLS expand只广播，没有attention，所以CLS永远图像无关。synthesize_image channels参数实际上gradient恒3通道，应限定3或重构。",
+      "tests": {
+        "count": 9,
+        "purpose": "patch数量/CLS形状、conv-unfold同权重等价、sin确定性形状与dim4整除、CLS广播与拒错尺寸、fixture确定性。",
+        "not_covered": "无非方形/非整除PatchEmbed边界、dtype/device、重算位置动态分辨率、unpatch roundtrip、CLS语义分类、训练与泛化。未运行。",
+        "actual_test_function_names": [
+          "test_patch_count_matches_grid",
+          "test_output_shape_includes_cls",
+          "test_conv2d_matches_unfold_reference",
+          "test_sinusoidal_deterministic",
+          "test_sinusoidal_shape",
+          "test_sinusoidal_requires_div_by_four",
+          "test_cls_token_broadcasts_without_leakage",
+          "test_rejects_wrong_spatial_size",
+          "test_synthesize_image_is_deterministic"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md §1",
+          "AI 算法基础/感知与多模态专题/05-图像表征卷积与视觉训练.md"
+        ],
+        "overlap": "16已有标量/token区分、exact/valid/pad、CLS/mean/interface合同与计算量。",
+        "new": "可增同权重unfold数学、二维sin条件、前端CLS不读图与channels fixture限制；不新增镜像。"
+      },
+      "diagram": {
+        "static": "image→patch→flatten→projection→tokens→2Dpos；Mermaid省略CLS节点，文字另述。",
+        "dynamic": "ch-patch-tokenizer实际注册figures-capstone-h.js chPatches 186–216；4×4示意格、飞块和8框淡入表示196token，不是精确网格/计算。标量当token的shell文案需纠正；无真实图像或token计算。"
+      },
+      "external_verification": "纯固定源静读，模型族和性能概括尚未当前一手复核，不作为已核事实。",
+      "lesson": "58-vision-encoder-patches",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/58-vision-encoder-patches/code/main.py",
+          "bytes": 8441,
+          "sha256": "b91bab0303b00a9fbb9b1f6faa9badf22453736899e9400b396198a2ea66c15f",
+          "git_blob_sha": "4ce7ea817c2bc2e134a41513f7b113f9c8a05dda",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-229",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "4ce7ea817c2bc2e134a41513f7b113f9c8a05dda"
+        },
+        {
+          "path": "phases/19-capstone-projects/58-vision-encoder-patches/code/test_main.py",
+          "bytes": 3010,
+          "sha256": "00f8d2703cd0c6857eaf2ecdd107af0f846312faa9ffddb5017a5e93315dfde2",
+          "git_blob_sha": "35addde947e2d2731da9cd525da9936f64d06491",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-88",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "35addde947e2d2731da9cd525da9936f64d06491"
+        },
+        {
+          "path": "phases/19-capstone-projects/58-vision-encoder-patches/docs/en.md",
+          "bytes": 8075,
+          "sha256": "8632eb2d21b609c00fc93c7f805e54de22338f2828826839fd01391810009954",
+          "git_blob_sha": "d7ddbf82b2d95417a0145d4fb9abb149d37b2cda",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-132",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "d7ddbf82b2d95417a0145d4fb9abb149d37b2cda"
+        },
+        {
+          "path": "phases/19-capstone-projects/58-vision-encoder-patches/quiz.json",
+          "bytes": 3403,
+          "sha256": "c6422bf3c7a5d4fedee19300d289fa60a3356626f61939c2a9ca55efdbe5ef75",
+          "git_blob_sha": "c7394d2c53fcb2d06ebb81f2ee26cd8873e5a5df",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "c7394d2c53fcb2d06ebb81f2ee26cd8873e5a5df"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "把RGB网格转为固定长度patch序列，学习卷积/展开等价、二维位置和数值合同；先修trackB基础。"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "中文解释": "224²×3=150528是标量数；逐RGB像素token应为50176，不能把标量/像素/patch混用。16patch得到14²=196，CLS后197。"
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept",
+          "中文解释": "流程是分块→展平→共享线性→位置，前端只局部投影不含跨patch交互。"
+        },
+        {
+          "line": 36,
+          "heading": "### Why patches, not pixels",
+          "中文解释": "注意力score的N²项下降；源590000倍按错误标量token基线算出。patch会牺牲块内细节，不能保证任务精度。"
+        },
+        {
+          "line": 40,
+          "heading": "### Why a linear projection is enough",
+          "中文解释": "每块CP²向量用同W投影，能学习线性滤波但未经训练不能认定已有边缘检测能力。"
+        },
+        {
+          "line": 44,
+          "heading": "### The `Conv2d` trick",
+          "中文解释": "kernel=stride=P、无padding、同权重bias和展平顺序时Conv2d与unfold linear等价。"
+        },
+        {
+          "line": 48,
+          "heading": "### Position embeddings",
+          "中文解释": "dim须4整除；一半row一半col各sin/cos，固定table无参数。可以按坐标重算不等于实际代码支持动态分辨率或保证泛化。CLS位全零pos。"
+        },
+        {
+          "line": 60,
+          "heading": "### Equivalence as a sanity check",
+          "中文解释": "两种实现逐元素allclose检查，不能证明训练语义，也不等于quiz中无projection round-trip。"
+        },
+        {
+          "line": 68,
+          "heading": "## Build It",
+          "中文解释": "代码实现cfg整除检查、patch、CLS、buffer位置和确定性fixture；默认形状(1,197,768)是预期而非本次运行。"
+        },
+        {
+          "line": 86,
+          "heading": "## Use It",
+          "中文解释": "现代视觉模型patch、pooling和位置各变体须看具体权重合同；源概括全部使用此精确结构过宽。"
+        },
+        {
+          "line": 90,
+          "heading": "## Tests",
+          "中文解释": "9个unit test静读：数量/形状/等价/确定性/非法维度/CLS广播/拒尺寸/fixture。"
+        },
+        {
+          "line": 106,
+          "heading": "## Exercises",
+          "中文解释": "5练习须分别检查位置泛化、算子等价、矩形合同、profile和特征可学习性，均未执行。"
+        },
+        {
+          "line": 118,
+          "heading": "## Key Terms",
+          "中文解释": "patch区域、projection、sequence length、sinusoidal、CLS读出可区分；仅前端CLS尚不读图。"
+        },
+        {
+          "line": 128,
+          "heading": "## Further Reading",
+          "中文解释": "ViT/Transformer/register是来源索引；未以导航或引用标题算论文已读。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why does a Vision Transformer use patches instead of feeding one pixel per token?",
+          "source_correct_index": 1,
+          "source_answer": "Pixel-per-token sequences explode attention compute quadratically and lose tractability at typical resolutions",
+          "中文解释及核对": "源正确1；patch降低N²。校正逐像素为224²token，150528为RGB标量，仍不改变patch动机。"
+        },
+        {
+          "stage": "pre",
+          "question": "What is the relationship between Conv2d with kernel = stride = patch_size and flatten-then-linear?",
+          "source_correct_index": 2,
+          "source_answer": "Conv2d is a faster way to spell the same linear projection over each patch",
+          "中文解释及核对": "源正确2；同kernel stride权重和顺序时是相同线性运算，无新增非线性。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is the 2D sinusoidal position embedding deterministic instead of learned?",
+          "source_correct_index": 0,
+          "source_answer": "Fixed sin/cos signals interpolate cleanly to grids the model never saw, which is useful when resolution changes",
+          "中文解释及核对": "源正确0；位置表可重算，但本VisionFrontEnd固定image_size拒新尺寸；无泛化保证。"
+        },
+        {
+          "stage": "check",
+          "question": "What is the output sequence length of a 224x224 image with patch_size=16 and one CLS token?",
+          "source_correct_index": 3,
+          "source_answer": "197",
+          "中文解释及核对": "源正确3；14×14+1=197。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is reconstruction (unfold then unflatten) a useful sanity check on the patch front end?",
+          "source_correct_index": 1,
+          "source_answer": "Round-tripping pixels through patch-flatten with no projection must equal the input; failure means the unfold math is wrong",
+          "中文解释及核对": "源正确1；无projection完整patch拆装应回原图；有降维线性投影一般不可逆。该roundtrip没有源测试实现。"
+        },
+        {
+          "stage": "post",
+          "question": "What changes when you swap a learned position embedding for the 2D sinusoidal one in this lesson?",
+          "source_correct_index": 2,
+          "source_answer": "Learned positions can fit a fixed resolution slightly better; sinusoidal positions transfer to new resolutions without retraining",
+          "中文解释及核对": "源正确2；learned位置带参数，sin固定无参数；性能/迁移需对照，不接受绝对胜负。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Replace the sinusoidal position with a learned `nn.Parameter` and compare the first-epoch loss on a tiny synthetic classification task. Learned positions win at fixed resolution; sinusoidal wins when you change resolution after training.",
+          "中文解释及验收边界": "固定相同数据切分/初始化/训练预算对照learned与sin位置，并用改变分辨率测试；源断言learned固定必胜/sin变分辨率必胜无实验。",
+          "executed": false
+        },
+        {
+          "source": "Swap the `Conv2d` for an explicit `nn.Unfold` plus `nn.Linear` and assert the outputs match to within float tolerance. Same math, two ways to spell it.",
+          "中文解释及验收边界": "复制Conv2d weight展平为Linear，保持C/P行列顺序与bias；同float tolerance检查，不能比较独立随机参数。",
+          "executed": false
+        },
+        {
+          "source": "Add support for non-square patch sizes (e.g. 32x16 for wide-aspect inputs) and verify the position table handles non-square grids.",
+          "中文解释及验收边界": "需要patch_h/patch_w、grid_h/grid_w和spatial合同同步改，先明确resize/crop/pad/valid；现cfg只支持方形。",
+          "executed": false
+        },
+        {
+          "source": "Profile the patch step at batch sizes 1, 8, 64. The patch projection is rarely the bottleneck; the attention layers downstream dominate.",
+          "中文解释及验收边界": "真实设备warmup、同步、重复计时并报告batch/pixel/hidden；不能从动画或理论直接断定patch不是瓶颈。",
+          "executed": false
+        },
+        {
+          "source": "Train the front end as a frozen feature extractor on a 4-class synthetic shape dataset (circles, squares, triangles, stars). The CLS token output should linearly separate.",
+          "中文解释及验收边界": "冻结随机前端的CLS输出只由cls_token决定，完全不依赖图像，四类不可据它线性分离；应加可训练attention encoder后读CLS或用patch池化基线，并设独立test。",
+          "executed": false
+        }
+      ],
+      "status": "24文件范围内本课4文件全文静读已落盘；未写作/未验收/未运行"
+    },
+    {
+      "number": 59,
+      "code_purpose": "MHA只对输出Dropout，attention概率无Dropout；store_attn保存detach softmax。FFN末尾Dropout，两个preLN eps1e-6残差，finalLN。VisionEncoder动态import58，front+vit返回(tokens, tokens[:,0])。demo用CLS平方和梯度，受finalLN近定长影响不是稳健语义学习目标。",
+      "tests": {
+        "count": 8,
+        "purpose": "shape/softmax rows/FFN expansion/residual nonzero/4stack/patch gradient/head config。",
+        "not_covered": "test residual只是out-x>0不能证明identity残差正确，梯度norm>0不证语义或稳定；无未来mask、dropout train/eval、图像扰动CLS敏感性、注册token、学习/泛化；未运行。",
+        "actual_test_function_names": [
+          "test_attention_preserves_shape",
+          "test_attention_rows_sum_to_one",
+          "test_feed_forward_expansion",
+          "test_block_residual_wired",
+          "test_full_stack_shape",
+          "test_gradient_reaches_patch_projection",
+          "test_head_dim_divides",
+          "test_invalid_head_dim_rejected"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md §1",
+          "AI 算法基础/感知与多模态专题/05-图像表征卷积与视觉训练.md",
+          "AI 算法基础/深度学习专题/04-注意力机制与Transformer.md"
+        ],
+        "overlap": "已有pooling差异、MAC/FLOPs、标准dense参数和注意力先修。",
+        "new": "补preLN数据流、CLS真正读图、head reshape、残差与finalLN梯度测试边界；不重复现代模型规格。"
+      },
+      "diagram": {
+        "static": "12层与finalLN序列shape及preLN两残差图，CLS汇聚需说明保留全部patch输出。",
+        "dynamic": "ch-cls-funnel→figures-capstone-h.js chVit218–251；6patch示意，4粒子汇CLS/圈脉冲；只演示汇聚，未计算任何attention，12×12标签是本cfg，不是所有VLM结构。"
+      },
+      "external_verification": "当前模型规格/所有现代模型断言未核，不保为当前事实；现有16的MAP条款可作融合纠错线索。",
+      "lesson": "59-vit-transformer",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/59-vit-transformer/code/main.py",
+          "bytes": 7832,
+          "sha256": "379f4ebb6a7f04cba39a1baf183ec53dca295e2cd076ed40b1d8a0fa888047fd",
+          "git_blob_sha": "c72388cb89a6acc779ca77477bb577128c6e3186",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-236",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "c72388cb89a6acc779ca77477bb577128c6e3186"
+        },
+        {
+          "path": "phases/19-capstone-projects/59-vit-transformer/code/test_main.py",
+          "bytes": 2993,
+          "sha256": "bdfc09857f1e21bf191c62abe94e8cd4b13b204c174e72499f93ec533d8e24a7",
+          "git_blob_sha": "086ea02429b2182d35884278a122d26ae9d08bbc",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-94",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "086ea02429b2182d35884278a122d26ae9d08bbc"
+        },
+        {
+          "path": "phases/19-capstone-projects/59-vit-transformer/docs/en.md",
+          "bytes": 8136,
+          "sha256": "073281fdcce6066d61bffd5a86410bf11e13f0d96fd64675ac6baf77dd0221ad",
+          "git_blob_sha": "e16e4ff1294c2203b4264ba5489ec75ef4c748cc",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-154",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "e16e4ff1294c2203b4264ba5489ec75ef4c748cc"
+        },
+        {
+          "path": "phases/19-capstone-projects/59-vit-transformer/quiz.json",
+          "bytes": 3327,
+          "sha256": "72d0052980ab1566ed6cd94f0165b265de7e24ac7acc66d5b50c8bbff74f3603",
+          "git_blob_sha": "6987b795d9fdfc6622662cc3d79c330ae52012d7",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "6987b795d9fdfc6622662cc3d79c330ae52012d7"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "用preLN attention/FFN将局部patch变上下文，CLS读出及梯度是接口目标。"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "中文解释": "patch不互见，encoder做全序列交互；源所有现代VLM均12层12头/完全相同过宽，不能保。"
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept",
+          "中文解释": "12block后finalLN；每block是x+Attn(LN(x))再x+FFN(LN(x))，sequence形状保持。"
+        },
+        {
+          "line": 46,
+          "heading": "### Pre-LN vs post-LN",
+          "中文解释": "preLN保留残差梯度通路，通常有稳定性益处；不用warmup和postLN六层必发散不是定理。"
+        },
+        {
+          "line": 50,
+          "heading": "### Multi-head self-attention",
+          "中文解释": "QKV [B,N,3,H,dh]→[3,B,H,N,dh]，scores按1/sqrt(dh)，softmax key维，合并heads后out；head未保证独立语义。"
+        },
+        {
+          "line": 54,
+          "heading": "### Why the 4x feed-forward expansion",
+          "中文解释": "hidden→int(hidden×ratio)→hidden，GELU引入非线性；4为配置而非最优定理，参数表是粗计且bias另算。"
+        },
+        {
+          "line": 70,
+          "heading": "### Causal mask or not?",
+          "中文解释": "视觉encoder双向无需causal；decoder文本self-attn需因果，视觉cross-attn本身不套文本三角mask。"
+        },
+        {
+          "line": 74,
+          "heading": "### What the CLS token learns",
+          "中文解释": "CLS初为参数，经attention才读图；随机encoder能依赖图像，不代表语义已训练好。"
+        },
+        {
+          "line": 82,
+          "heading": "## Build It",
+          "中文解释": "实现配置、MHA、FFN、残差块、ViT及动态导入58前端；本次未import。"
+        },
+        {
+          "line": 101,
+          "heading": "## Use It",
+          "中文解释": "族间宽深、pooling、位置/register有差异；SigLIP average表述应核pooler，已有16注明MAP。不能称只加一行就完整register实现。"
+        },
+        {
+          "line": 112,
+          "heading": "## Tests",
+          "中文解释": "8测试检查形状、softmax行和、FFN维度、残差delta、4层形状、patch梯度、head整除。"
+        },
+        {
+          "line": 128,
+          "heading": "## Exercises",
+          "中文解释": "5练习需训练和负对照，不把profile或语义头命名当结论。"
+        },
+        {
+          "line": 140,
+          "heading": "## Key Terms",
+          "中文解释": "preLN、自注意力、多头、扩张、CLS分别是布置/交互/维度/容量/读出。"
+        },
+        {
+          "line": 150,
+          "heading": "## Further Reading",
+          "中文解释": "论文是引用入口，未全文核查；DINOv2/register与SigLIP pooler需一手精确区分。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why does the standard ViT block use pre-LayerNorm placement instead of post-LayerNorm?",
+          "source_correct_index": 2,
+          "source_answer": "Pre-LN trains stably at depth without learning-rate warm-up while post-LN diverges past about 6 layers",
+          "中文解释及核对": "源正确2包含错误绝对断言：preLN改善梯度条件，但postLN六层发散/无需warmup不一般成立。"
+        },
+        {
+          "stage": "pre",
+          "question": "At hidden=768 with heads=12, what is the per-head dimension and why does it matter?",
+          "source_correct_index": 3,
+          "source_answer": "64, which controls the resolution of each attention map and lets twelve heads attend independently in parallel",
+          "中文解释及核对": "源正确3；768/12=64，attention map空间形状是N×N不是64×64，64是每head表示维。"
+        },
+        {
+          "stage": "check",
+          "question": "Does the ViT encoder need a causal attention mask?",
+          "source_correct_index": 1,
+          "source_answer": "No: the encoder is bidirectional, every token may attend to every other token in the same sequence",
+          "中文解释及核对": "源正确1；encoder双向；decoder因果是在text self-attn，不是视觉cross-attn。"
+        },
+        {
+          "stage": "check",
+          "question": "What does the CLS token's final hidden state represent after all 12 blocks?",
+          "source_correct_index": 0,
+          "source_answer": "A learned vector summary of the entire image that downstream heads project into class logits or contrastive embeddings",
+          "中文解释及核对": "源正确0；经训练可用的全局向量，无训练不证明猫眼/背景语义。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is the feed-forward layer expanded to 4x the hidden dim?",
+          "source_correct_index": 2,
+          "source_answer": "An empirical sweet spot since the original Transformer; smaller underfits, larger overfits at fixed data budget",
+          "中文解释及核对": "源正确2仅可保经验配置4，容量最优/2欠拟合8过拟合需实验。"
+        },
+        {
+          "stage": "post",
+          "question": "Which family extension keeps the block math unchanged but adds prepended learned tokens?",
+          "source_correct_index": 2,
+          "source_answer": "Register tokens (DINOv2): a few learned vectors prepended after CLS that capture global statistics and smooth attention maps",
+          "中文解释及核对": "源正确2；register为专用可学习计算槽，改善是研究特定条件，不保证所有attention更平滑。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Add register tokens (4 learned vectors prepended after CLS) and rerun. Compare attention map smoothness via the entropy of the softmax distribution on the last layer.",
+          "中文解释及验收边界": "register要同步特殊token、position和patch提取索引；相同训练/数据观察dense feature与attention entropy，熵改变不自动代表更好。",
+          "executed": false
+        },
+        {
+          "source": "Swap pre-LN for post-LN and train for one epoch on a synthetic shape classifier. Observe which one trains stably without LR warm-up.",
+          "中文解释及验收边界": "同初始化数据budget/优化器对照pre/postLN，加warmup作为消融；不能预定一epoch后post必发散。",
+          "executed": false
+        },
+        {
+          "source": "Implement causal masking as an `attn_mask` argument so the same block can be reused as a decoder block. The mask shape is `(seq, seq)`, lower-triangular.",
+          "中文解释及验收边界": "新增[B/head可broadcast,N,N]mask并明确True允许/禁止；未来非均匀扰动应不改过去输出，取消mask应改，encoder双向仍保。",
+          "executed": false
+        },
+        {
+          "source": "Profile a forward pass at batch sizes 1, 8, 64 with `torch.profiler`. The MLP layer dominates wall time, not attention.",
+          "中文解释及验收边界": "真实设备同步warmup多次profile；N²attention与ND²FFN比例随N/D变化，不接受MLP必占墙钟。",
+          "executed": false
+        },
+        {
+          "source": "Replace one attention head's q-k-v projections with a low-rank LoRA adapter, freeze the rest, and verify the gradient only flows where you expect.",
+          "中文解释及验收边界": "合并qkv线性中一个head的切片加低秩更新，冻结base并确认可训练param集合和真实非零梯度，dropout/eval和optimizer覆盖检查。",
+          "executed": false
+        }
+      ],
+      "status": "24文件范围内本课4文件全文静读已落盘；未写作/未验收/未运行"
+    },
+    {
+      "number": 60,
+      "code_purpose": "MockTextEmbedding ids0 padding mean clamp1；全padding输出零。train encoder随机hidden可配但heads8、image224、depth4、ratio2，eval并freeze；each step一pair cycle、no_grad encoder/table，projector Adam更新。initial/final loss是不同pair的更新前loss，不是同全数据平均，也不是最终optimizer后评估。固定encoder反复重算本可预缓存。",
+      "tests": {
+        "count": 8,
+        "purpose": "MLPshape/梯度、table冻结/pad忽略、cos端点、小fixture训练drop和ID范围。",
+        "not_covered": "_train_small用32px2层4head替代train，所以不验正式train的输入验证/4层/40或200全目标；首末pair不同未证明平均改善。无heldout、负对、encoder optimizer误入、全padding/零向量、invalid vocab、checkpoint reload、真实语义；未运行。",
+        "actual_test_function_names": [
+          "test_output_shape",
+          "test_gradient_flows",
+          "test_table_is_frozen",
+          "test_pooling_ignores_padding",
+          "test_zero_loss_on_identical_vectors",
+          "test_max_loss_on_antiparallel_vectors",
+          "test_loss_drops_over_steps",
+          "test_make_pair_shapes"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md §1/3/5",
+          "LLM 工程实践/08-多模态模型工程.md",
+          "AI 算法基础/感知与多模态专题/03-多模态学习.md"
+        ],
+        "overlap": "16已有CLS/patch/pool区别、QFormer、bridge与真实梯度；LLM08维护processor/media合同。",
+        "new": "补单pair cosine无负例边界、mock frozen随机encoder、temp退化、首末样本不可直接比、部署要完整encoder合同。"
+      },
+      "diagram": {
+        "static": "Frozen双边+可训MLP+pair cosine，一向量教学图，不是完整生成VLM。",
+        "dynamic": "ch-projection-bridge→figures-capstone-h.js chProjection253–290；固定椭圆/点经MLP飞到caption并脉冲，1.3M只是标签；没有训练、cos计算或真实特征变化。"
+      },
+      "external_verification": "具体历史head/model实现未本次外查；需一手核后才可保规格，长效数学与源码事实已静读。",
+      "lesson": "60-projection-layer-modality-align",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/60-projection-layer-modality-align/code/main.py",
+          "bytes": 7678,
+          "sha256": "e435ea92736f2729ce7a0137b3d285a0fccb26d2bd4a6b9e36e29ef082079cd1",
+          "git_blob_sha": "35c444deb0231c3a08c05a46c4e7b8ded92670fb",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-235",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "35c444deb0231c3a08c05a46c4e7b8ded92670fb"
+        },
+        {
+          "path": "phases/19-capstone-projects/60-projection-layer-modality-align/code/test_main.py",
+          "bytes": 4766,
+          "sha256": "016c52da9d826e734e6361b8e8aeca2fe3168c93cf89e0a7e0ee0748ff9ecc4b",
+          "git_blob_sha": "fc1be62aafa25cf903033e14d95ff8ea3d615f5d",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-155",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "fc1be62aafa25cf903033e14d95ff8ea3d615f5d"
+        },
+        {
+          "path": "phases/19-capstone-projects/60-projection-layer-modality-align/docs/en.md",
+          "bytes": 8276,
+          "sha256": "c43a0ab82ea91579e714eb15796b825c401c1f39dc3646384de1a65db84a1b39",
+          "git_blob_sha": "bf9bfbe8957d5a2d981b15551d7e61635b7b6f41",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-137",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "bf9bfbe8957d5a2d981b15551d7e61635b7b6f41"
+        },
+        {
+          "path": "phases/19-capstone-projects/60-projection-layer-modality-align/quiz.json",
+          "bytes": 3378,
+          "sha256": "a4e4f82cf9a11ccf9085e32670e64e2c3cd5ee13ea7dab140f0f3210369e1ed9",
+          "git_blob_sha": "927b02db38f902eededbc66fbbfaa23851104c59",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "927b02db38f902eededbc66fbbfaa23851104c59"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "冻结视觉/随机文本表，仅学习两层MLP将单图向量对齐caption平均向量，无真实语言模型。"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "中文解释": "维度和表示basis不同，bridge可调整但小mock训练只演示损失；768→1024→512带bias共1312256参数。"
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept",
+          "中文解释": "图像→冻结encoder→CLS→MLP，与captionID→冻结table→mean共享cos loss；pool一个向量不能等同VLM逐patch语言接入。"
+        },
+        {
+          "line": 38,
+          "heading": "### Pooling before projection",
+          "中文解释": "本码CLS；mean若只196patch须排CLS。源SigLIP平均全部197说法与真实MAP不符。"
+        },
+        {
+          "line": 42,
+          "heading": "### Why two layers and not one",
+          "中文解释": "Linear只能仿射，GELU提供非线性；够不够取决数据/表示，BLIP2最终head结构和LLaVA实际任务不能按此mock统一。"
+        },
+        {
+          "line": 54,
+          "heading": "### Cosine alignment loss",
+          "中文解释": "L=mean(1−归一化点积)，非零反向向量为2，同向0；零向量eps有例外。只有正对，无负对/检索约束。"
+        },
+        {
+          "line": 58,
+          "heading": "### Frozen encoder is the trick",
+          "中文解释": "requires_grad=False并eval、no_grad减少图；eval不等freeze。合成小loss下降不证真实对齐或全模型永远冻结。"
+        },
+        {
+          "line": 66,
+          "heading": "## Build It",
+          "中文解释": "make_pair随机noise图和随机ID没有共享语义；train实际4层8头ratio2随机encoder而非源称86M预训ViT。"
+        },
+        {
+          "line": 84,
+          "heading": "## Use It",
+          "中文解释": "LLaVA/BLIP2/MiniGPT4/Qwen分别有token、query与训练目标；不都是先单向量pool+cosine训练。"
+        },
+        {
+          "line": 95,
+          "heading": "## Tests",
+          "中文解释": "8测试含projector shape/gradient、freeze、padding、cos端点、小训练和fixture；小训练替代了生产train。"
+        },
+        {
+          "line": 111,
+          "heading": "## Exercises",
+          "中文解释": "5练习需修正temperature目标与deploy依赖，不能照输出结论。"
+        },
+        {
+          "line": 123,
+          "heading": "## Key Terms",
+          "中文解释": "模态对齐、桥、cos、冻结和mock是不同合同；mock对应不是自然图文。"
+        },
+        {
+          "line": 133,
+          "heading": "## Further Reading",
+          "中文解释": "仅引用索引；模型历史实现需一手核，不算已查官方。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why does the vision encoder produce tokens that the text decoder cannot consume directly?",
+          "source_correct_index": 3,
+          "source_answer": "Image tokens live in a basis the encoder learned during vision pretraining with no correspondence to the decoder's word vectors",
+          "中文解释及核对": "源正确3；维度和basis不同需桥/联合训练，不是文件格式问题。"
+        },
+        {
+          "stage": "pre",
+          "question": "Why is the two-layer MLP enough for modality alignment in practice?",
+          "source_correct_index": 2,
+          "source_answer": "One non-linear bend (GELU) between two linear projections is empirically enough to align CLIP-style features with text embeddings",
+          "中文解释及核对": "源正确2；MLP是可用baseline，不能证明每数据两层充分或每变体相同。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is the vision encoder frozen during this alignment stage?",
+          "source_correct_index": 1,
+          "source_answer": "The 86M-parameter encoder cannot be retrained on a small mock corpus; the 1.3M-parameter projection alone is light enough to align in minutes",
+          "中文解释及核对": "源正确1；小资料冻结降训练范围/成本，86M和minutes非当前码和实测，random encoder不同于预训练。"
+        },
+        {
+          "stage": "check",
+          "question": "What does cosine_alignment_loss(image_emb, text_emb) return when the two vectors point in opposite directions?",
+          "source_correct_index": 3,
+          "source_answer": "2.0",
+          "中文解释及核对": "源正确3；非零向量cos=-1，则1−(-1)=2。"
+        },
+        {
+          "stage": "check",
+          "question": "Why does CLS pooling get used to produce a single image-level vector from 197 tokens?",
+          "source_correct_index": 3,
+          "source_answer": "Captions are one vector per sample so the image side also needs one vector; the CLS token is the encoder's built-in image summary",
+          "中文解释及核对": "源正确3；该pair目标需单向量，因此选择CLS；不否定dense tokens，也不代表所有VLM必须pool一向量。"
+        },
+        {
+          "stage": "post",
+          "question": "Which production system maps most directly to the lesson 60 pattern?",
+          "source_correct_index": 0,
+          "source_answer": "LLaVA 1.5: frozen vision encoder, frozen LLM, train only a two-layer MLP projection",
+          "中文解释及核对": "源正确0是族近似；LLaVA stage1训练桥的模式类似，实际图条件语言损失、逐patch视觉token并非本cos mock完全相同。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Replace CLS pooling with mean pooling over the 196 patch tokens and compare final loss after 200 steps. Mean pooling usually trains faster on synthetic data; CLS is more sample-efficient on natural images.",
+          "中文解释及验收边界": "mean 196patch排CLS，统一相同pairs/预算/heldout比较cos与检索；不能预设synthetic更快或natural CLS样本效率。",
+          "executed": false
+        },
+        {
+          "source": "Add a learned scalar temperature to the cosine loss (`cos / tau`) and observe what happens when `tau` is too small (gradient noise) or too large (loss plateaus high).",
+          "中文解释及验收边界": "若用1−cos/tau且tau可学，正cos下tau趋0可令loss负无界，改变了[0,2]边界；temperature应配有界/正则或对比softmax协议，不只是观察noise。",
+          "executed": false
+        },
+        {
+          "source": "Swap the two-layer MLP for a single linear layer and quantify the loss gap. The non-linearity matters more on natural image features and less on synthetic ones.",
+          "中文解释及验收边界": "同预算比较Linear/MLP train和heldout，随机mock不代表自然特征曲率；参数量差异要报。",
+          "executed": false
+        },
+        {
+          "source": "Add a small L2 penalty on the projector weights and watch how it interacts with cosine alignment (cosine is scale-invariant, so the penalty mostly shrinks unused directions).",
+          "中文解释及验收边界": "cos对非零正尺度不变，但eps/近零norm和L2可相互作用；同时看norm/loss/梯度，不能只说缩unused方向。",
+          "executed": false
+        },
+        {
+          "source": "Persist projector weights, then reload and run inference without the vision encoder backward pass to verify that only the projector is needed at deploy time.",
+          "中文解释及验收边界": "持久化projector还需视觉encoder权重/config、预处理、维度/feature layer、文本/LM部署合同；只是不做backward，不能称部署只需要projector。",
+          "executed": false
+        }
+      ],
+      "status": "24文件范围内本课4文件全文静读已落盘；未写作/未验收/未运行"
+    },
+    {
+      "number": 61,
+      "code_purpose": "CrossMemory kvproj vision_dim→2hidden，qproj hidden→hidden，各headhd；cache shape校验[B,H,Nv,hd]但无来源ID/revision/device/dtype权重版本检查。causal uses masked_fill(~mask,-inf) onlyshape检查无bool/allmasked保护。self/cache无增量位置offset；decoderposition从0起且每次整前缀。Dropout只attentionout，FFN无drop。",
+      "tests": {
+        "count": 9,
+        "purpose": "mask bool/三角、query输出独立Nv、cacheallclose、batch异常、self错mask、decoder shape/cache与超长。",
+        "not_covered": "没有未来token扰动、媒体跨段mask、pad/allmasked、dropout train/eval、cache失效或跨步projection计数、增量positions、真实生成、梯度/训练；cache测试只数值不是速度。未运行。",
+        "actual_test_function_names": [
+          "test_shape",
+          "test_lower_triangular",
+          "test_output_shape_independent_of_key_length",
+          "test_kv_cache_matches_uncached",
+          "test_batch_mismatch_raises",
+          "test_rejects_wrong_mask_shape",
+          "test_forward_shape",
+          "test_cache_path_matches",
+          "test_rejects_too_long_input"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md §3/4",
+          "LLM 工程实践/08-多模态模型工程.md",
+          "AI 算法基础/深度学习专题/04-注意力机制与Transformer.md"
+        ],
+        "overlap": "16已有QFormer可见性、Flamingo最近媒体mask、双gate真实梯度；LLM08媒体序号绑定。",
+        "new": "补Nt×Nv及query输出形状、bool语义、输出Dropout区别、每forward重建并非跨步cache、cache身份合同；不造第二Flamingo章节。"
+      },
+      "diagram": {
+        "static": "三sub层流与QKscore/softmax/value图；blockcode是伪码不具实际crossmask参数。",
+        "dynamic": "ch-crossattn-fan→figures-capstone-h.js chCross292–324；on的6条fan淡入/1粒子回流，底部5词因果label，仅示意而无attention/mask/cache计算。computed once/long cheap是意图非此decoder实证。"
+      },
+      "external_verification": "纯源静读与现有已核主文合同；没有外部性能/接口最新核查。",
+      "lesson": "61-cross-attention-fusion",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/61-cross-attention-fusion/code/main.py",
+          "bytes": 10076,
+          "sha256": "68766f9fd8c8fb9de83bb6d8da7b90bbbe61e860b4f8eac38089c93413d74296",
+          "git_blob_sha": "ac1fd6dd1008481ddd69ee898f5a5badd67855df",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-270",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "ac1fd6dd1008481ddd69ee898f5a5badd67855df"
+        },
+        {
+          "path": "phases/19-capstone-projects/61-cross-attention-fusion/code/test_main.py",
+          "bytes": 3838,
+          "sha256": "c55219edb3d54e28b6932176a1bb0144d51a5c1f9410bf24b52e571771bce8ec",
+          "git_blob_sha": "63ef34fe3183f54d904d8b40194a49bbd9726ffc",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-120",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "63ef34fe3183f54d904d8b40194a49bbd9726ffc"
+        },
+        {
+          "path": "phases/19-capstone-projects/61-cross-attention-fusion/docs/en.md",
+          "bytes": 8275,
+          "sha256": "ab465527a7ba5bb7ef01be0f03d86b1f23963384853c4e8c07a1afd5f3735e69",
+          "git_blob_sha": "a9dee87d7385cf901bb171d88f89441a998e13d9",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-155",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "a9dee87d7385cf901bb171d88f89441a998e13d9"
+        },
+        {
+          "path": "phases/19-capstone-projects/61-cross-attention-fusion/quiz.json",
+          "bytes": 3396,
+          "sha256": "3d30c1860e8dffbf62ff9e3833f6fa2f1b72ce7e84c5a401f7b1abaf94dca3c2",
+          "git_blob_sha": "ebfc5d30ea0bebd3100fe5934c75ca5c8e8b9928",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "ebfc5d30ea0bebd3100fe5934c75ca5c8e8b9928"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "文本作Q，视觉memory作K/V；组合因果文本self、cross、FFN与shape合同。"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "中文解释": "early统一序列/late分离memory都是可选设计；cross不自动保text-only能力、便宜生成或grounding正确性。"
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept",
+          "中文解释": "数据流图memory→cross、text→embedding→self→cross→FFN→logits；QKᵀ尺寸[B,H,Nt,Nv] softmax Nv，output跟query长度。图Image名已是tokens再encoder表述混。"
+        },
+        {
+          "line": 46,
+          "heading": "### Mask shapes",
+          "中文解释": "本bool True=允许，self[Nt,Nt]下三角；cross单有效图全开放。padding或多媒体仍需有效性/归属mask。"
+        },
+        {
+          "line": 57,
+          "heading": "### Why no mask on cross-attention",
+          "中文解释": "整图先观测不需要空间causal；空白pad、未知有效区和interleaved媒体并非无mask。"
+        },
+        {
+          "line": 61,
+          "heading": "### Key/value caching",
+          "中文解释": "CrossAttention允许外部(K,V)复用；VisionLanguageDecoder每forward use_cache内部重新build，未跨decode保存；没有selfKV增量缓存。"
+        },
+        {
+          "line": 65,
+          "heading": "### Block composition",
+          "中文解释": "三preLN三残差，cross原版无gate；Flamingo是特定gate/频率，QFormer query不是这里的causal text。"
+        },
+        {
+          "line": 85,
+          "heading": "## Build It",
+          "中文解释": "代码cfg、causal mask、twoattention、block、decoder、synthetic generators；预测logits不代表真实caption生成。"
+        },
+        {
+          "line": 104,
+          "heading": "## Use It",
+          "中文解释": "Flamingo/BLIP2抽象QKV相近但mask/query/task与语言连接不同，不直接复现。"
+        },
+        {
+          "line": 113,
+          "heading": "## Tests",
+          "中文解释": "9测试仅mask形状三角、cross shapes、数值cache等价、batch/错mask、decoder形状/cache/超长。"
+        },
+        {
+          "line": 129,
+          "heading": "## Exercises",
+          "中文解释": "5实践包括gate、多图mask、成本、dropout和query；均未执行，需负对照。"
+        },
+        {
+          "line": 141,
+          "heading": "## Key Terms",
+          "中文解释": "latefusion/QKV/causal/cache/memory不同；cache不可称每token免费，QKAV与text运算仍付成本。"
+        },
+        {
+          "line": 151,
+          "heading": "## Further Reading",
+          "中文解释": "引用入口未论文全文阅读，不借图称实现Flamingo/BLIP2。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What is the operational difference between early fusion and late fusion in vision-language modeling?",
+          "source_correct_index": 2,
+          "source_answer": "Early fusion concatenates image and text tokens into one sequence; late fusion keeps them separate and bridges via cross-attention at each block",
+          "中文解释及核对": "源正确2；共同序列 vs 分离cross抽象可保，BLIP2 QFormer再接LM不是每语言block视觉cross。"
+        },
+        {
+          "stage": "pre",
+          "question": "In a decoder block with both self-attention and cross-attention, which one uses a causal mask?",
+          "source_correct_index": 3,
+          "source_answer": "Self-attention only; the image is fully observed and cross-attention has no temporal order",
+          "中文解释及核对": "源正确3；单有效图条件下text self因果，cross全可见；多图/pad需另mask。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is the cross-attention KV cache built once per image?",
+          "source_correct_index": 0,
+          "source_answer": "Image keys and values do not change as text is decoded, so projecting memory once and reusing the K and V across all decode steps is the whole inference speedup",
+          "中文解释及核对": "源正确0；视觉和权重固定时可复用各层K/V，但本decoder没有跨调用cache接口。投影省掉仍QKAV付成本，非free。"
+        },
+        {
+          "stage": "check",
+          "question": "What is the output shape of cross-attention when text length is Nt=10 and image length is Nv=197 with hidden=256?",
+          "source_correct_index": 0,
+          "source_answer": "(B, 10, 256)",
+          "中文解释及核对": "源正确0；每query生成hidden向量，[B,10,256]。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is no mask used on cross-attention?",
+          "source_correct_index": 2,
+          "source_answer": "The image is fully observed before text generation begins; every text position may attend to every patch",
+          "中文解释及核对": "源正确2仅适用单有效整图，空pad/交错图仍限制可见性。"
+        },
+        {
+          "stage": "post",
+          "question": "Which extension would you add to recover Flamingo-style stability during training?",
+          "source_correct_index": 1,
+          "source_answer": "Insert a learned tanh gate on the cross-attention residual so the model can start from text-only behavior and grow into the image stream",
+          "中文解释及核对": "源正确1；tanh0gate可保持该残差初identity，收敛/不遗忘需测，已有16完整双门控可融合。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Add a learned tanh gate to the cross-attention residual (the Flamingo trick) and verify training converges from a near-zero initial gate. The gate starts at 0; the model recovers text-only behavior before mixing the image stream in.",
+          "中文解释及验收边界": "x+tanh(alpha)cross，alpha0使该branch有限值forward为identity；branch参数初grad0而gate可非0。要测随后gate打开梯度；整个block另有self/FFN不能因此与预训text LM完全等同。",
+          "executed": false
+        },
+        {
+          "source": "Implement interleaved attention where the same decoder consumes multiple images plus multiple text segments. Build the per-sample cross-attention mask that prevents text segment 2 from attending to image 1.",
+          "中文解释及验收边界": "构造每sample文本位置→最近前置image映射，首图前无视觉；segment2只直接读image2，不读image1。旧图可经过去文本self间接影响；改未来image应不改旧segment，解除mask作负对照。",
+          "executed": false
+        },
+        {
+          "source": "Profile the cross-attention vs the self-attention layer at `Nt=64, Nv=576` (a 24x24 grid at higher resolution). The cross-attention cost is `Nt * Nv` and dominates at high image resolution.",
+          "中文解释及验收边界": "cross score乘法NtNv vs self Nt²是相互作用项，尚含Q/K/V/out和FFN；Nv576/Nt64的score项9倍非墙钟必占。",
+          "executed": false
+        },
+        {
+          "source": "Add a query-side dropout on the cross-attention map and measure caption diversity on the demo (caption sample variance increases with dropout in the cross map).",
+          "中文解释及验收边界": "query-side dropout/map dropout含义先定；现码dropout只out非map。train概率dropout改变权重和行和，eval关闭；caption diversity需真正训练/解码/采样而本demo无caption。",
+          "executed": false
+        },
+        {
+          "source": "Swap the cross-attention layer for a Q-Former-style attention block where a fixed 32-token query pool attends to image features once per layer.",
+          "中文解释及验收边界": "32learned queries要含query self/cross、位置/FFN/实际梯度，固定长度压缩与语言head连接另定；不是把Nt改32就完整QFormer。",
+          "executed": false
+        }
+      ],
+      "status": "24文件范围内本课4文件全文静读已落盘；未写作/未验收/未运行"
+    },
+    {
+      "number": 62,
+      "code_purpose": "MultimodalModel随机2层ViT32×32，memory5×vision_hidden，projector仅CLS ranking；decoder vision_dim=vision_hidden。text_encoder独立mean, padding_idx0。Sscale exp(log_tau)clamp。model.stats tau保存未clamp的scale且打印initialtau14.286。mock bias i%7和caption base (i17)%(vocab−50)及i%5，seed只noise；caption长6+i%8截max。train随机无放回batch但跨step可重复。",
+      "tests": {
+        "count": 7,
+        "purpose": "perfect eye scale100 CE<.001，modal交换同loss、shape异常、pad CE等价、forward finite/has tau、10步total首尾允许+1e-3、8pairsshapeIDs。",
+        "not_covered": "不是5步测试，而10步；只要求total last<first+.001不要求两个loss各降；未独立检验encoder/projector/decoder梯度，未tempgrad/clamp/allpad/multipos/heldout/collapse/above-random。未运行。",
+        "actual_test_function_names": [
+          "test_zero_loss_on_perfect_diagonal",
+          "test_symmetric_across_directions",
+          "test_shape_mismatch_raises",
+          "test_pad_positions_excluded",
+          "test_forward_returns_two_losses",
+          "test_training_reduces_total_loss",
+          "test_make_mock_corpus_shapes"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md §9",
+          "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md §2/3",
+          "AI 算法基础/感知与多模态专题/03-多模态学习.md §3"
+        ],
+        "overlap": "CLIP/SigLIP公式、多正、梯度和mask在16/03已有；16 §9维护训练证据，LLM08 §7维护任务评测。现有17实际统一生成/码流，不应假造不存在的17视觉语言训练章节。",
+        "new": "修正实际双分支梯度图、logscale/tau、allpad和首尾批样本边界；collapse例所有score相同CE=logN，loss高但无区分，完全相同表示可梯度退化，应配retrieval与方差而非loss下降。"
+      },
+      "diagram": {
+        "static": "encoder到CLSproj contrast与memorydecoderLM分叉，须逐边追；正文梯度表改真实路径。",
+        "dynamic": "ch-infonce-diagonal→figures-capstone-h.js chInfoNCE326–364；固定4²格对角亮/非对角淡，两条预设Bezier下降curve；未计算CE/训练，sharedweights仅encoder共享，不能说全部权重两个loss。"
+      },
+      "external_verification": "源码事实已静读；模型family历史recipe当前一手未查，不作为确认事实。",
+      "lesson": "62-vision-language-pretraining",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/62-vision-language-pretraining/code/main.py",
+          "bytes": 10920,
+          "sha256": "420d394bc14059338277bbd2e6460b1b4f402051ad14918ad58aef2acde92a25",
+          "git_blob_sha": "f8963a5598669b366f7553092033b523d520b73d",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-301",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "f8963a5598669b366f7553092033b523d520b73d"
+        },
+        {
+          "path": "phases/19-capstone-projects/62-vision-language-pretraining/code/test_main.py",
+          "bytes": 4086,
+          "sha256": "73c68aa3838dd4090c167e809085ccdc14007704d1867a0282d1db215cee4177",
+          "git_blob_sha": "2e6fbe44d4093fbd4adb325d6056cbf786eb3140",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-125",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "2e6fbe44d4093fbd4adb325d6056cbf786eb3140"
+        },
+        {
+          "path": "phases/19-capstone-projects/62-vision-language-pretraining/docs/en.md",
+          "bytes": 7967,
+          "sha256": "65c7abb2249f7b7f681025a415884c4b1333da7b6f5ed89c93d4dac44bf6e9fc",
+          "git_blob_sha": "1c4db9e4e58ccdbc246f2d7d38d0f835b6b18a20",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-143",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "1c4db9e4e58ccdbc246f2d7d38d0f835b6b18a20"
+        },
+        {
+          "path": "phases/19-capstone-projects/62-vision-language-pretraining/quiz.json",
+          "bytes": 3309,
+          "sha256": "a5ef982fab8106f3227eeab2d476f3bbaa453731dec7d92eff4b4169ff261115",
+          "git_blob_sha": "d7d46a48da792458b061f97adf9a7d01560e6b06",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "d7d46a48da792458b061f97adf9a7d01560e6b06"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "双向InfoNCE训ranking、shifted CE训image-conditioned token prediction；合成demo只验局部优化意图，下降不单独证明全部梯度。"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "中文解释": "N配对对角正/N(N−1)负是单正配对协议；不同loss有不同参数路径，所有系统都需同时两个能力不是定律。"
+        },
+        {
+          "line": 23,
+          "heading": "## The Concept",
+          "中文解释": "图像CLS→projector对比textmean；同encoder全tokens→decoder LM。图已无projector到decoder边，正文却称LM影响projector，与码矛盾。"
+        },
+        {
+          "line": 43,
+          "heading": "### InfoNCE in one paragraph",
+          "中文解释": "I/T各L2 normalize，S=exp(log_scale)ITᵀ，两方向CE平均；不是matrix值对称，只换modalities转置时loss对称。"
+        },
+        {
+          "line": 47,
+          "heading": "### Temperature matters",
+          "中文解释": "cfg init_log_tau=log(1/.07)，实际是log逆温度/scale；exp=14.2857不是tau=.07。clamp[.001,100]是scale，边界外参数梯度被截。normalize后norm不影响scores，不能解释为norm长大。"
+        },
+        {
+          "line": 51,
+          "heading": "### Language modeling loss",
+          "中文解释": "inputs=text[:,:-1] targets=text[:,1:]，CE ignorepad；无BOS/EOS，第一token未预测，allpadding meanCE可NaN。"
+        },
+        {
+          "line": 55,
+          "heading": "### Combining the losses",
+          "中文解释": "真实路径contrast→encoder/projector/text_encoder/log_scale；LM→encoder/decoder，projector和text_encoder无LM路径。Total权重改变多任务平衡，不保证ranking不退化；SigLIP对比目标不自动有LM。"
+        },
+        {
+          "line": 65,
+          "heading": "### Why 50 steps is enough for a demo",
+          "中文解释": "50步随机noise/由i定ID、bias合成任务，不证明真caption、稳定训练或长期泛化；换batch首尾loss不能直接证同评估集改善。"
+        },
+        {
+          "line": 73,
+          "heading": "## Build It",
+          "中文解释": "小ViT32px2层，MLP，独立textmean与decoder，Adam全params；no model downloads/no real tokenizer。"
+        },
+        {
+          "line": 91,
+          "heading": "## Use It",
+          "中文解释": "CoCa多任务理念可借，CLIP本身非caption系统，SigLIP非必共享LM，LLaVAstage1非pair cosine；这些精确实现未本轮一手核，不能称同recipe复现。"
+        },
+        {
+          "line": 101,
+          "heading": "## Tests",
+          "中文解释": "7tests静读：对角大scale、lossmodal对称、shape异常、padCE、finiteforward、小训练、corpus shapes；没有子损失梯度归属。"
+        },
+        {
+          "line": 117,
+          "heading": "## Exercises",
+          "中文解释": "5练习含Sigmoid/难负/ITM/受控caption/权重消融；要评估多正、signal与冲突。"
+        },
+        {
+          "line": 129,
+          "heading": "## Key Terms",
+          "中文解释": "InfoNCE、temperature、hardnegative、LM、jointspace分别是目标/scale/采样/生成监督/表示，不等于每model都完整实现。"
+        },
+        {
+          "line": 139,
+          "heading": "## Further Reading",
+          "中文解释": "CLIP/CoCa/SigLIP仅来源入口未完整阅读，不从标题或动画当实测。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What two distinct capabilities does combining InfoNCE and LM loss train into one model?",
+          "source_correct_index": 0,
+          "source_answer": "Ranking (find the right image for a caption) and generation (write a caption for an image)",
+          "中文解释及核对": "源正确0；ranking与生成是目标，mock优化不证明自然图文能力。"
+        },
+        {
+          "stage": "pre",
+          "question": "In InfoNCE for a batch of N pairs, how many positive pairs and negative pairs are formed?",
+          "source_correct_index": 0,
+          "source_answer": "N positives along the diagonal of the similarity matrix and N*(N-1) negatives off-diagonal",
+          "中文解释及核对": "源正确0只适用每i唯一配对；多caption/重复图有offdiag正需multi-positive目标，不能强假负。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is the contrastive temperature usually a learned parameter?",
+          "source_correct_index": 3,
+          "source_answer": "Hand-tuning is fragile; letting tau learn allows the model to find the right softmax peakedness as the embedding scale evolves during training",
+          "中文解释及核对": "源正确3需纠正参数名：学的是log inverse-temp，经normalize无法用embeddingnorm增长解释。scale变大sharp、tau变小sharp。"
+        },
+        {
+          "stage": "check",
+          "question": "Which sub-modules receive gradient from the LM loss but not from the contrastive loss?",
+          "source_correct_index": 3,
+          "source_answer": "The cross-attention decoder",
+          "中文解释及核对": "源正确3；decoder只LM，text_encoder/projector只contrast，encoder二者；源码与正文projectorLM表矛盾。"
+        },
+        {
+          "stage": "check",
+          "question": "What does ignore_index=PAD_ID accomplish in the LM cross-entropy?",
+          "source_correct_index": 2,
+          "source_answer": "Masks padding positions out of the loss so the model is not punished for predicting tokens after the caption ends",
+          "中文解释及核对": "源正确2；ignoretargetpad不等attentionpadding mask或正确EOS训练，allignore需另处理。"
+        },
+        {
+          "stage": "post",
+          "question": "Why is a 50-step demo on synthetic data enough to call the lesson complete?",
+          "source_correct_index": 2,
+          "source_answer": "The demo proves the gradient plumbing works end to end; production training shape is identical but runs for millions of steps on real data",
+          "中文解释及核对": "源正确2过度：50step只教学demo有限检查；无逐分支grad、heldout、真实训练，不能证明大规模plumbing/dynamics相同或课已吸收验收。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Replace InfoNCE with SigLIP-style sigmoid pair loss and compare convergence on the mock corpus.",
+          "中文解释及验收边界": "Sigmoid对每pair签名y±1、softplus稳定实现，sum/N与mean N²归一化差N倍；多正图ID表达正确labels。统一数据budget与梯度尺度，不只对比rawloss。",
+          "executed": false
+        },
+        {
+          "source": "Add a hard-negative mining step: every other batch, select the hardest off-diagonal pair from the previous batch and append it. Train and inspect whether contrastive loss drops faster.",
+          "中文解释及验收边界": "根据当前模型score选择确认真负的hard pair；不把重复ID/同语义caption当negative；旧batchembedding若detach不能给encoder梯度，需重新编码/版本标记与对照随机负。",
+          "executed": false
+        },
+        {
+          "source": "Add an image-text matching binary head on top of the joint embedding (true/false: do these match?) for a third loss, replicating BLIP's three-head setup.",
+          "中文解释及验收边界": "ITM二分类需要明确融合head/正负采样，不只是joint两向量函数就BLIP完整三任务；独立检查每loss参数梯度和信息可见性。",
+          "executed": false
+        },
+        {
+          "source": "Replace the mock corpus with caption-id sequences drawn from a Markov chain whose transition matrix is conditioned on image hash. The captioning loss should drop further because there is actual learnable signal.",
+          "中文解释及验收边界": "用共享隐变量生成可学图/caption Markov信号，不以hash任意映射断言可从noise泛化；按latent或模板独立切heldout，report per tokenCE。",
+          "executed": false
+        },
+        {
+          "source": "Train the same model with `lm_weight = 0` and again with `lm_weight = 1`. Compare contrastive loss; the LM loss should not regress the ranking objective.",
+          "中文解释及验收边界": "固定初始权重/批序和独立检索eval比较LM0/1、多seed及两梯度夹角；可能负迁移，不能预定LM不伤ranking。本码LM不更新projector直接，但共享encoder会相互影响。",
+          "executed": false
+        }
+      ],
+      "status": "24文件范围内本课4文件全文静读已落盘；未写作/未验收/未运行"
+    },
+    {
+      "number": 63,
+      "code_purpose": "recall_at_k square/k bounds topk row and transpose。EM空列表0并int强制转换，未严格int类型。BLEU refs必须非空、gen空0、缺任一阶ngram0，零match custom1/(total+1)；closestref长BP。suitequestion随机无语义，answer=caption首ID；模型未QA训练，references是captionID平移不是paraphrases。evaluate eval/no_grad，全量3次encoder，greedy从PAD0开头、固定≤8步无BOS/EOS/no padfilter，未在训练预测caption首token，CPU prompts无device合同。main只print指标/deltas无基线断言。",
+      "tests": {
+        "count": 11,
+        "purpose": "R1identity/非对角高分0及k非法、EM1/.5/错长、BLEU精确> .99/无smooth disjoint0/smooth小于exact/BP<1、suite8项shape。",
+        "not_covered": "没有k=N、square/finite/bool k、ties/multipos、emptyEM/gen/refs/短句、custom平滑实际值、corpus聚合、decodeBOS/EOS、QA模型、evaluate与device、checkpoint、高于随机/独立split。未运行。",
+        "actual_test_function_names": [
+          "test_perfect_identity_matrix",
+          "test_flipped_matrix_below_top",
+          "test_rejects_invalid_k",
+          "test_all_correct",
+          "test_half_correct",
+          "test_length_mismatch_raises",
+          "test_exact_match_returns_one",
+          "test_disjoint_vocab_returns_zero_without_smoothing",
+          "test_disjoint_vocab_smoothed_is_below_match",
+          "test_brevity_penalty_applies_when_generated_short",
+          "test_build_shapes"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "LLM 工程实践/08-多模态模型工程.md §7",
+          "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md §9",
+          "AI 算法基础/感知与多模态专题/03-多模态学习.md §3.2/9"
+        ],
+        "overlap": "03已有hit-any与相关召回、独立queries与标注；16训练设计/污染；LLM08已按task分评。17统一生成与码流是连续/离散输出及共享状态，不需镜像caption评测。",
+        "new": "任务scorer合同、多正方向分母、官方VQA留一、BLEU custom与corpus区别、seed-onlynoise泄漏与无above-random断言、PAD启动未训练。"
+      },
+      "diagram": {
+        "static": "三个metric分支，不把同一分数作为所有任务能力。",
+        "dynamic": "ch-recall-window→figures-capstone-h.js chEval366–403；matchingimage从rank6移rank2，R1miss R5hit示意；EM文字/固定86宽BLEUbar动画无真实ranking/scoring，非训练改进证据。"
+      },
+      "external_verification": "2026-10-12经agent-reach Jina阅读NLTK官方bleu_score模块选定SmoothingFunction.method1/method2、corpus_bleu、modified_precision、closest_ref_length/BP，以及GT-Vision-Lab/VQA作者vqaEval evaluate/规范化关联代码；方法1epsilon=.1仅分子零加eps、不加分母；官方VQA leave-one-out再平均。实际页面有代码，不是403/导航壳；未执行这些模块。",
+      "lesson": "63-multimodal-eval",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/63-multimodal-eval/code/main.py",
+          "bytes": 11254,
+          "sha256": "425628da9c98ec7122ae2196bf7b67763ea43958f3e1821d6ca6b69d27b00935",
+          "git_blob_sha": "789e53763f95540345e98e9ad4aafbf108884045",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-339",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "789e53763f95540345e98e9ad4aafbf108884045"
+        },
+        {
+          "path": "phases/19-capstone-projects/63-multimodal-eval/code/test_main.py",
+          "bytes": 2821,
+          "sha256": "db7b44b0c3d663925d6e484ec79ecaae01ae4e1f8dca9bb1b82360c74b86398b",
+          "git_blob_sha": "5b71fcd0174b155cc8de6a2b46cbb34078115f79",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-92",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "5b71fcd0174b155cc8de6a2b46cbb34078115f79"
+        },
+        {
+          "path": "phases/19-capstone-projects/63-multimodal-eval/docs/en.md",
+          "bytes": 8831,
+          "sha256": "06f65f04096dcb862b3918002a94b9fb502fb544cddea871b20b055a6bb7fe63",
+          "git_blob_sha": "0055a6ed9631c493b8ac5d41b0f1f920a17a1f90",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-162",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "0055a6ed9631c493b8ac5d41b0f1f920a17a1f90"
+        },
+        {
+          "path": "phases/19-capstone-projects/63-multimodal-eval/quiz.json",
+          "bytes": 3425,
+          "sha256": "592ace2b74c0b754f89595de6273eff626359240df3aa377bc1b1b981ecc159c",
+          "git_blob_sha": "ecadf273e4c598ce65dc52e7f83424c2e3c83712",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "ecadf273e4c598ce65dc52e7f83424c2e3c83712"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "独立检索、单答EM与caption ngram分别评输出，不能仅loss报能力；先修58–62具体路径。"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "中文解释": "三个任务评价真值/候选/输出不同；COCO/Flickr检索与ImageNet分类不能称同R@K协议。"
+        },
+        {
+          "line": 27,
+          "heading": "## The Concept",
+          "中文解释": "embed→sim→两个方向R@K；decoderQA→EM与caption→BLEU；三评分不自动证明grounding/自然语言正确。"
+        },
+        {
+          "line": 42,
+          "heading": "### Recall@K from a similarity matrix",
+          "中文解释": "单正squareN×N约定，i2t每image行/t2i转置每caption行，以query个数为分母命中平均。多正时需集合且说明hit-any或相关项recall。N100 .6示例描述caption对应t2i。"
+        },
+        {
+          "line": 46,
+          "heading": "### VQA exact match",
+          "中文解释": "源码只predID==referenceID平均；真实VQA作者脚本做answer规范化、leave-one-annotator-out min(match/3,1)再平均，不等直接min总count/3。"
+        },
+        {
+          "line": 50,
+          "heading": "### BLEU-4",
+          "中文解释": "clipped ngram precision用各ref最大counts、BP最近长度tie取短、1–4log平均；源码零clipped变1/(total+1)是自定平滑，不是ChenCherry method1，短于4无ngram返回0。evaluate平均sentenceBLEU不是corpusBLEU。"
+        },
+        {
+          "line": 65,
+          "heading": "### Synthetic eval suite",
+          "中文解释": "seed仅改变图像noise，i决定bias/caption且eval0..49caption和train前50相同；不是语义独立heldout。随机baseline K/N仅均匀单正rank假设，QA1/vocab需均匀输出/答案协议，BLEU平滑本来可使无关词非零。"
+        },
+        {
+          "line": 89,
+          "heading": "## Build It",
+          "中文解释": "metrics函数、suite和evaluate；demo只是打印before/after/deltas没有断言指标增益或above random。"
+        },
+        {
+          "line": 108,
+          "heading": "## Use It",
+          "中文解释": "benchmark需对应split/多正/规范化/语料BLEU与官方scorer；不是替换loader就可原样公平比较，ImageNetzero-shot是class候选分类。"
+        },
+        {
+          "line": 118,
+          "heading": "## Tests",
+          "中文解释": "11测试检identity/非diag反例/k bounds，EM与异常，BLEU端点/无smooth/smooth小/BP，suite counts；无evaluate/model/heldout。"
+        },
+        {
+          "line": 135,
+          "heading": "## Exercises",
+          "中文解释": "5练习需CIDEr DF、正式VQA、empty/finite、MRRrank和冻结套件checkpoint曲线，均未执行。"
+        },
+        {
+          "line": 147,
+          "heading": "## Key Terms",
+          "中文解释": "R@K在本单正为命中率，EM为ID比较，BLEU词序代理；heldout不以seed不同定义，须实体/模板/语义split。"
+        },
+        {
+          "line": 157,
+          "heading": "## Further Reading",
+          "中文解释": "论文/COCO脚本为入口；本轮只实际选读NLTK平滑/语料聚合及VQA作者评分代码，不把引用标题算全文。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why is training loss alone an insufficient measure of a multimodal model's quality?",
+          "source_correct_index": 2,
+          "source_answer": "Training loss measures fit on the training distribution; eval surfaces (retrieval, VQA, captioning) measure whether the model generalizes to held-out tasks",
+          "中文解释及核对": "源正确2；trainfit不代表heldout能力，本suitecaption/bias泄漏使其泛化证据弱。"
+        },
+        {
+          "stage": "pre",
+          "question": "What is R@5 measuring in a 100-sample retrieval eval?",
+          "source_correct_index": 0,
+          "source_answer": "Fraction of queries whose correct match lands in the top 5 retrieved candidates out of 100",
+          "中文解释及核对": "源正确0；100queries平均每query正确项是否top5，不是分母5也非百分之五。"
+        },
+        {
+          "stage": "check",
+          "question": "Why does BLEU-4 take the geometric mean of 1- to 4-gram precisions instead of the arithmetic mean?",
+          "source_correct_index": 3,
+          "source_answer": "Geometric mean is zero if any n-gram precision is zero, which is the strict matching property BLEU wants; smoothing handles the zero case",
+          "中文解释及核对": "源正确3；无smooth任何pn0几何积0，源码自定义smooth改变此性，短gen<4仍直接0。"
+        },
+        {
+          "stage": "check",
+          "question": "What does the brevity penalty in BLEU-4 protect against?",
+          "source_correct_index": 2,
+          "source_answer": "Short captions gaming high precision by emitting only safe high-frequency tokens; BP < 1 when generated < reference length",
+          "中文解释及核对": "源正确2；g<r时BP<1，防只输出短safe片段；一词BLEU4还没有高阶ngram，不能源称无BP一定1。"
+        },
+        {
+          "stage": "check",
+          "question": "Why does multi-reference BLEU usually score higher than single-reference BLEU on the same generation?",
+          "source_correct_index": 0,
+          "source_answer": "Each n-gram in the generation can match any reference, so the clipped count is higher when more references are available",
+          "中文解释及核对": "源正确0；加入refs每gram最大counts非减，BP可能变因最近长度，故总分不保证非减；不是把refs counts加起来。"
+        },
+        {
+          "stage": "post",
+          "question": "Which eval surface uses no model embeddings and only id-level matching?",
+          "source_correct_index": 2,
+          "source_answer": "VQA exact match: a predicted answer id is compared directly to a reference id with no embedding step",
+          "中文解释及核对": "源正确2针对EM scorer确为ID比较；BLEU本身也只用ID/ngram计数无embedding，因此题称唯一noembedding含歧义。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Add CIDEr to the captioning metrics. CIDEr uses TF-IDF weighting on n-grams, which rewards informative tokens.",
+          "中文解释及验收边界": "CIDEr以跨图reference语料DF计算tf-idf多阶向量相似；tokenizer、DF来源、CIDEr/CIDEr-D clipping与length惩罚需官方版本，不能在每句临时拟IDF。",
+          "executed": false
+        },
+        {
+          "source": "Implement soft-accuracy VQA: multiple human answers per question, accuracy is `min(human_count / 3, 1)` if any matches. Replicates VQA v2.",
+          "中文解释及验收边界": "作者脚本对10annotators每次去一项再min(restmatches/3,1)平均；若匹配数1/2/3/≥4，得到.3/.6/.9/1而不是1/3,2/3,1；先规范大小写数字冠词标点，非简单IDEM。",
+          "executed": false
+        },
+        {
+          "source": "Add a NaN-safe variant of `bleu4` that handles empty generated sequences without crashing.",
+          "中文解释及验收边界": "现bleu4空generated已返回0，练习不是未实现；需补emptyrefs拒、全部空refs、短于4/smoothing、非法/非finite token合同，不把0称NaN修复完成。",
+          "executed": false
+        },
+        {
+          "source": "Compute mean reciprocal rank (MRR) alongside R@K. MRR is sensitive to where the correct item lands beyond the top K; R@K is sensitive to whether it lands in the top K.",
+          "中文解释及验收边界": "singlepositive rank从1起，MRR=mean1/rank；候选ties有明确tie策略，多个positive取首正确rank与AP/recall区分，分母是query数。",
+          "executed": false
+        },
+        {
+          "source": "Run the eval on the model at five checkpoints during training (step 0, 10, 20, 30, 40, 50) and plot the learning curve. Confirm the metric trajectories track the loss trajectory.",
+          "中文解释及验收边界": "题称five但列0/10/20/30/40/50六checkpoints；冻结真实独立suite和预处理，记录指标/CI与loss，允许不单调/负迁移，不预定tracks。",
+          "executed": false
+        }
+      ],
+      "status": "24文件范围内本课4文件全文静读已落盘；未写作/未验收/未运行"
+    }
+  ],
+  "pending_lessons": [],
+  "constraints": {
+    "source_programs_executed": 0,
+    "source_programs_imported": 0,
+    "sites_2_5_accessed": false,
+    "formal_files_modified": false,
+    "GPU_download_API_install": false
+  },
+  "primary_checks": [
+    {
+      "url": "https://www.nltk.org/_modules/nltk/translate/bleu_score.html",
+      "retrieval": "agent-reach Jina网页读取",
+      "date": "2026-10-12",
+      "local_evidence": "/tmp/study-vl-bleu-official.txt",
+      "bytes": 28072,
+      "sha256": "1d8ce8deee8ffd27578ce6d1426797700dc95e1f667e193907af047774f80c39",
+      "scope": "选读method1/method2，epsilon默认，corpus与sentence聚合，modified_precision/BP/closest_ref_length；并非整个NLTK包阅读",
+      "content_nonempty": true,
+      "navigation_only": false,
+      "executed": false
+    },
+    {
+      "url": "https://github.com/GT-Vision-Lab/VQA/blob/master/PythonEvaluationTools/vqaEvaluation/vqaEval.py",
+      "retrieval": "agent-reach Jina网页读取",
+      "date": "2026-10-12",
+      "local_evidence": "/tmp/study-vl-vqa-official.txt",
+      "bytes": 18445,
+      "sha256": "7a531d9d7f838be863cd1bca7ba4b009bcde84aab945364ebb87bb591659f3c9",
+      "scope": "选读evaluate的answer normalize、otherGTAns/matchingAns/min3/avgGTAcc及其周围上下文；未读VQA所有仓库",
+      "content_nonempty": true,
+      "navigation_only": false,
+      "executed": false
+    }
+  ],
+  "counts": {
+    "lessons": 6,
+    "read_files": 24,
+    "true_h2_h4": 81,
+    "practice": 30,
+    "quiz": 36,
+    "source_unit_test_functions_static_read": 52,
+    "source_programs_executed": 0,
+    "source_programs_imported": 0,
+    "formally_accepted_added": 0
+  },
+  "dynamic_extract": "/tmp/study-capstone-58-63-dynamic-extract.json",
+  "integration_file_rechecks": [
+    {
+      "path": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "scope": "实际无截断读§1–3、其余标题/关键词；§9全读；未将首次合并truncated output算全章阅读"
+    },
+    {
+      "path": "AI 算法基础/感知与多模态专题/17-统一多模态生成与码流实践.md",
+      "scope": "全文前100行，确认统一输入/输出与码流任务，非本批caption评测主入口"
+    },
+    {
+      "path": "AI 算法基础/感知与多模态专题/03-多模态学习.md",
+      "scope": "行1–203实际静读，核对CLIP/多正/检索评价与已建路由"
+    },
+    {
+      "path": "LLM 工程实践/08-多模态模型工程.md",
+      "scope": "行1–121实际静读；余章已有语音/视频不做全章阅读自报"
+    }
+  ],
+  "dynamic_extract_verification": {
+    "widgets": 6,
+    "provider": "site/figures-capstone-h.js",
+    "scope": "6最终注册函数全文及sharedhelpers行1–43、底部LF.register；build provider order/discovery/manifest指定片段；lesson-figures register/order loader指定片段",
+    "date": "2026-10-12",
+    "executed": false,
+    "function_hashes_checked": true,
+    "note": "无真实attention、训练、rank或指标计算；仅SMIL预设动画。"
+  },
+  "mechanical_validation": {
+    "date": "2026-10-12",
+    "source_commit_verified": true,
+    "all_24_sha256_recomputed": true,
+    "git_blob_recomputed_match_HEAD": true,
+    "actual_unit_test_function_counts_match": true,
+    "counts_match_discovery_24_81": true,
+    "practice_quiz_from_actual_source": true,
+    "source_programs_executed": 0,
+    "source_programs_imported": 0,
+    "accepted_added": 0
+  },
+  "worked_examples": [
+    {
+      "topic": "patch与二维位置",
+      "中文解释": "224×224×3=150528个标量；RGB像素50176；16×16块196；每块768标量→D维；CLS后197。32px/16patch是2×2=4，dim8时row/col各4维，行列各两频率sin/cos；CLS position零。Conv同W展平后矩阵式Xpatch[B,4,768] @ W.T[768,D]+b[D]。"
+    },
+    {
+      "topic": "InfoNCE与温度",
+      "中文解释": "4对且logits对角1、非对角0，两个方向正概率e/(e+3)，CE=log(e+3)−1≈.743668。全部同score时CE=log4；不证明representation有区分。源init exp(log_tau)=1/.07≈14.2857，是scale，真正tau=.07；scale100对应tau=.01。"
+    },
+    {
+      "topic": "双loss实际梯度",
+      "中文解释": "Lcontrast依赖projector(CLS(encoder(image)))和text_encoder(caption)、logscale；LLM依赖decoder(memory(encoder(image)),shiftedIDs)。若仅取LLM反向，projector不在图中；total变化不能推它同时收两目标梯度。"
+    },
+    {
+      "topic": "Recall/MRR分母",
+      "中文解释": "4个独立单正query的正确项排名[1,3,2,4]，R1=1/4，R2=2/4，R3=3/4，MRR=(1+1/3+1/2+1/4)/4=25/48。候选rank从1起，query数为分母，不用K或相关items数；多正改protocol。"
+    },
+    {
+      "topic": "VQA作者leave-one-out",
+      "中文解释": "10个答案中预测匹配m项，去掉匹配答案的m次有m−1匹配，其余10−m次有m匹配。平均[m min((m−1)/3,1)+(10−m) min(m/3,1)]/10；m=1/2/3/4得到.3/.6/.9/1，而非.333/.667/1/1。"
+    },
+    {
+      "topic": "BLEU clippedcount与短句",
+      "中文解释": "生成某unigram出现5次，各reference最多该词2次，clipped计2而非全5；多ref取最大count非把counts相加。g=4、最近r=8时BP=exp(−1)。源gen3词到4gram total0直接BLEU0，即使完全match。源所有阶无match却长≥4且smoothingTrue会得正分，不能据此认定above-random语义。"
+    }
+  ],
+  "worked_examples_execution": "上述为公式与手算说明，未执行源模块；没有真实训练或benchmark成绩。",
+  "root_freeze_date": "2026-10-12",
+  "root_boundary": "24实际文件字节/固定GitBlob逐项核；根已静读六动态，专业新增静读报告/一手范围与workedexample核后正式融合，不先增加485验收数。旧自报没封证据已独立恢复。"
+}

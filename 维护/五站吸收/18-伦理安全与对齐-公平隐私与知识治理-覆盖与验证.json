@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-11",
+  "status": "根从已落盘C正文/3实际CPU记录复原交付，C完整报告前额度中断；28生态/30双用由根续写",
+  "reading_report": "18-伦理安全与对齐-公平隐私与知识治理-只读准备.json",
+  "new_code_runs": [
+    {
+      "date": "2026-10-11",
+      "script": "/tmp/study-ethics-governance-runs/fairness.py",
+      "sha256": "2a94020dcffa27422dabe56ba171577604d52d367b9cddbc250de752edec3fc5",
+      "runtime": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+      "returncode": 0,
+      "stdout": "EO相同，接受率 6/25 13/25 PPV 2/3 12/13\n完美分类满足EO与预测值相等，但不同基础率仍不满足DP；无预测正类PPV未定义\n",
+      "stderr": "",
+      "kind": "本库自编标准库合成数值例；非来源程序/模型/API/攻击/真实隐私保证实验"
+    },
+    {
+      "date": "2026-10-11",
+      "script": "/tmp/study-ethics-governance-runs/privacy.py",
+      "sha256": "f6978d6c6c2a8674003c6161f17423b376277530eaa8c0a9ad105bee6cc618b8",
+      "runtime": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+      "returncode": 0,
+      "stdout": "整体裁剪后的范数 1.0 偏置导数 0.923077\n已证明机制3次保守组合 ε= 3/5 δ= 3/1000000\n未执行DP-SGD训练；未计算采样高斯机制隐私预算\n",
+      "stderr": "",
+      "kind": "本库自编标准库合成数值例；非来源程序/模型/API/攻击/真实隐私保证实验"
+    },
+    {
+      "date": "2026-10-11",
+      "script": "/tmp/study-ethics-governance-runs/watermark.py",
+      "sha256": "d51eaa2237f8888fe3c8f1d5034b607da17993206e8a92b4909b69e2010e6c95",
+      "runtime": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+      "returncode": 0,
+      "stdout": "6/9命中，z= 1.0 独立零假设单侧尾概率= 0.25390625\n90/100命中，z= 8.0 尾概率= 1.5316450877189926e-17\n自然文本相关性、重复上下文、质量与真实水印未验证\n",
+      "stderr": "",
+      "kind": "本库自编标准库合成数值例；非来源程序/模型/API/攻击/真实隐私保证实验"
+    }
+  ],
+  "formal_files": [
+    {
+      "file": "AI 算法基础/深度学习专题/13-负责任AI.md",
+      "sha256": "9e97568d95435409d98bc6edf28a122a229a7a33b72feaf194434a3d4844674c"
+    },
+    {
+      "file": "数据科学基础/01-数据科学问题框架与伦理.md",
+      "sha256": "81b8001d330202d9acde4c6c4ab08ab71c76a404fdc87b90fc42e76194eb39b0"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/20-自编码器与对抗生成实践.md",
+      "sha256": "5462ec8d83e76ea3a00167263b761bf2d9d16eb16ff4786ca9b354d2f005cd7d"
+    }
+  ],
+  "root_authority": "最终代码修正/题目落点/所有root回融后的SHA以统一覆盖为准；不冒称C完成未落盘报告",
+  "drafts_fused": "根融合记录及根续写记录",
+  "boundary": "三个数值程序实际运行不代表模型/隐私保证/真实水印实验"
+}

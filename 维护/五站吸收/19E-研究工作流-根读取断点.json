@@ -1,0 +1,1140 @@
+{
+  "date": "2026-10-12",
+  "status": "50–54根全部静读保留，55–57另组全文报告已根按实际文件SHA/Blob冻结；全8只读完成，正式融合/验收未做",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "lessons": [
+    {
+      "lesson": "50-hypothesis-generator",
+      "read_complete": true,
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/50-hypothesis-generator/code/main.py",
+          "bytes": 10404,
+          "sha256": "4ab5416d0d2de80ed89e777042c804f754e327f5086d0189d5c27c5a023e15ae",
+          "git_blob": "72fb9a7547e42933e92b1bb01c2ea74ca519476c",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原全部正文/quiz/main.py1–311/tests1–156实际完整静读，原程序未导入/执行",
+          "root_verified_git_blob_sha": "72fb9a7547e42933e92b1bb01c2ea74ca519476c"
+        },
+        {
+          "path": "phases/19-capstone-projects/50-hypothesis-generator/code/tests/test_generator.py",
+          "bytes": 6482,
+          "sha256": "429d3b4d73448093f69f080cd98bf8bea508b05ba9447be30af892b4c5035bc1",
+          "git_blob": "cdb5924a3ec33700b59107d41c4b7573d5936525",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原全部正文/quiz/main.py1–311/tests1–156实际完整静读，原程序未导入/执行",
+          "root_verified_git_blob_sha": "cdb5924a3ec33700b59107d41c4b7573d5936525"
+        },
+        {
+          "path": "phases/19-capstone-projects/50-hypothesis-generator/docs/en.md",
+          "bytes": 7502,
+          "sha256": "4ba3d9e0eef1b1436ec2f46e91c9527f07ee9f908778fa0b015d36ea35cec146",
+          "git_blob": "d943e19da4367f85301dfee7ebe5a04b0510a5c5",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原全部正文/quiz/main.py1–311/tests1–156实际完整静读，原程序未导入/执行",
+          "root_verified_git_blob_sha": "d943e19da4367f85301dfee7ebe5a04b0510a5c5"
+        },
+        {
+          "path": "phases/19-capstone-projects/50-hypothesis-generator/quiz.json",
+          "bytes": 3604,
+          "sha256": "8f4b80fb55de213f386ba4e7c444201053e70bd478e65278bbd18bfe2ca25b50",
+          "git_blob": "f2242384bf88931ea81e4aa2ad73d834e95a3ae3",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原全部正文/quiz/main.py1–311/tests1–156实际完整静读，原程序未导入/执行",
+          "root_verified_git_blob_sha": "f2242384bf88931ea81e4aa2ad73d834e95a3ae3"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 17,
+          "heading": "## Why generate, then filter"
+        },
+        {
+          "line": 25,
+          "heading": "## The Hypothesis shape"
+        },
+        {
+          "line": 48,
+          "heading": "## Architecture"
+        },
+        {
+          "line": 66,
+          "heading": "## Temperature ramp"
+        },
+        {
+          "line": 72,
+          "heading": "## Novelty filter"
+        },
+        {
+          "line": 78,
+          "heading": "## Rank score"
+        },
+        {
+          "line": 90,
+          "heading": "## Mock language model"
+        },
+        {
+          "line": 102,
+          "heading": "## Output queue"
+        },
+        {
+          "line": 108,
+          "heading": "## How to read the code"
+        },
+        {
+          "line": 114,
+          "heading": "## Where this slots in"
+        }
+      ],
+      "learning": [
+        "温度计划n=1与n=0边界、确定性mock接口与真实采样区别",
+        "有metric/variables/baseline的结构化候选及schema与语义检验区别",
+        "归一hash词袋、cos距离、按接受顺序的去重和排序需明确各自职责",
+        "有限队列/空队列的停止或重新授权扩大预算，保日志/来源和最终实验合同"
+      ],
+      "defects": [
+        "regex [a-z0-9]删除中文，空词向量norm0→cosdist1，重复中文可全接受；需Unicode/token方案与零norm显式策略",
+        "cosdist=1-dot为[0,2]非0..1；zip静默截维，有限/非零/同维验证缺失；首候选novelty1是约定而非真测",
+        "n_passes,bool/float和NaN T/threshold/weights未strict校验，负权重或权重未归一破坏rank解释",
+        "tag regex.search只提首匹配允许外围junk，variable/metric仍是任意字符串；重复vars增加specificity，baseline字符串不验证文献/同实验",
+        "mockseed取bank[seed%len]，单元素bank不同seed不变；半开bucket≠openinterval，不是实际temperature采样",
+        "与先前survivor最小距离顺序相关而非语义全局novelty；排序score不能称新颖性/事实真实性置信",
+        "固定6passes/.2/.1.2/.25权重4/3/3属教学配置，无实际最优或offtopic证据；floatroundserialization会损精度，不作为参数指纹",
+        "toyclaims包括2%loss/30%flops/18%GPUtraining只是拟定假设，无实验证据；四课compose source承诺需后续逐接口实际核"
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why does the generator produce a ranked queue instead of a single hypothesis?",
+          "options": [
+            "Because the runner needs depth so it can pop the next hypothesis when the first one fails",
+            "Because the mock model only emits lists",
+            "Because the embedding requires more than one input",
+            "Because the parser cannot read a single block"
+          ],
+          "correct": 0,
+          "explanation": "The point of generating a queue is to amortise sampling cost across the loop. When the first hypothesis fails the runner pops the next without a fresh sampling pass.",
+          "number": 1,
+          "chinese_judgment": "排名队列缓存多候选供后续选择，失败原因/重复/预算须明确；并不证明实验已运行或真实成本更低。"
+        },
+        {
+          "stage": "pre",
+          "question": "What does the temperature ramp accomplish on each pass?",
+          "options": [
+            "It widens the sampling distribution so later drafts can land further from the seed",
+            "It increases the embedding dimension",
+            "It raises the parser tolerance",
+            "It triples the seed value"
+          ],
+          "correct": 0,
+          "explanation": "Higher temperature widens the sampling distribution. The ramp encourages each pass to drift further so the novelty filter has something to do.",
+          "number": 2,
+          "chinese_judgment": "对固定logits使用softmax(logits/T)，T>0增大一般降低尖锐度，但不保证下个样本更新颖/正确；mock是桶查表而非概率采样。"
+        },
+        {
+          "stage": "check",
+          "question": "When does the novelty filter reject a draft?",
+          "options": [
+            "When its rank score is below the threshold",
+            "When its minimum cosine distance to any prior survivor falls below the novelty threshold",
+            "When its parser passes but its tag count is wrong",
+            "When its draft pass is greater than the queue length"
+          ],
+          "correct": 1,
+          "explanation": "Novelty is the minimum distance to prior survivors. If that distance is below the threshold the draft is a near duplicate and is dropped.",
+          "number": 3,
+          "chinese_judgment": "与已接受向量的最小距离小于阈值拒绝；源是<不是<=，等于阈值接受。距离不等学术新颖性，零向量/中文须拒绝或另处理。"
+        },
+        {
+          "stage": "check",
+          "question": "Which three components combine in the rank score?",
+          "options": [
+            "Latency, throughput, cost",
+            "Novelty, specificity, testability",
+            "Temperature, seed, pass index",
+            "Variables, metric, baseline length"
+          ],
+          "correct": 1,
+          "explanation": "The rank score is a weighted sum of novelty, specificity, and testability. Each sub score lives between zero and one.",
+          "number": 4,
+          "chinese_judgment": "加权novelty/specificity/testability只是启发；variables项数与有baseline字符串不是真实可检验性，需变量定义/协议/预算/可核基线。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is the mock language model keyed on a temperature bucket rather than the raw float?",
+          "options": [
+            "Because buckets make the schedule discrete so a small temperature change can pick a different scripted draft",
+            "Because the embedding requires it",
+            "Because the parser needs an integer",
+            "Because floats cannot be hashed"
+          ],
+          "correct": 0,
+          "explanation": "Buckets discretise the continuous schedule. Two adjacent temperatures can map to different buckets and pull different drafts from the scripted bank, which is how the mock simulates varied sampling.",
+          "number": 5,
+          "chinese_judgment": "固定阈区间0.35/0.65/0.95是半开分桶，不是原文所谓openinterval，邻近T未跨边界不会换桶；Pythonfloat可hash。"
+        },
+        {
+          "stage": "check",
+          "question": "What happens if every draft from the mock model fails the parser?",
+          "options": [
+            "The generator raises a hard error",
+            "The queue is empty and each pass logs a parse rejection so the failure mode is auditable",
+            "The novelty threshold is lowered automatically",
+            "The runner retries with a fresh prompt"
+          ],
+          "correct": 1,
+          "explanation": "Parser failures are recorded as logs with a parse reject reason. The queue can come back empty without crashing the loop, and the logs explain why.",
+          "number": 6,
+          "chinese_judgment": "解析失败每轮记原因，可返回空队列；必须区分预算耗尽、解析故障、全重复等原因，真实异常/embedinvalid原source未统一捕获。"
+        }
+      ],
+      "numbered_exercises": [],
+      "source_test_count": 18,
+      "tests_boundary": "原断言只证明作者拟定的测试范围，未运行。单句English向量/固定4scripts/排序并不覆盖Unicode、零norm、NaN、维差、重复变量、true研究新颖性。",
+      "dynamic": {
+        "widget": "cg-novelty-ramp",
+        "provider": "figures-capstone-g.js",
+        "function": "noveltyRamp",
+        "root_full_static_read": true,
+        "notes": "温度.7/1/1.3、半径圆和h1.91等固定动画值不同于源default，不是真实queue分数/概率；没有计算semantically novelty或真实采样",
+        "browser_runs": 0
+      },
+      "source_runs": 0,
+      "written": false,
+      "accepted": false,
+      "target_status": "等全8课读取完成后在现有研究/规划/案例/实验主入口真实定位，不以猜名新建。",
+      "primary_status": "温度/相似度基础部分可数学核；当前报告未新增外部核验，后续如写时效性结论需一手资料"
+    },
+    {
+      "lesson": "51-literature-retrieval",
+      "read_complete": true,
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/51-literature-retrieval/code/main.py",
+          "bytes": 14434,
+          "sha256": "b997a2f25d56e4c17199681a492cc26d118853729c311e27de19ca34a50b5725",
+          "git_blob": "cd0e665a378b14ecc812ee53d603b30bba924660",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–416/tests1–158完整静读，未导入/执行",
+          "root_verified_git_blob_sha": "cd0e665a378b14ecc812ee53d603b30bba924660"
+        },
+        {
+          "path": "phases/19-capstone-projects/51-literature-retrieval/code/tests/test_retrieval.py",
+          "bytes": 5851,
+          "sha256": "f0f1791d8046ccdd3bd0d2da0675a4b81fbf40f9c596207f66635853321be608",
+          "git_blob": "ad97c5bc3ca9cd7d8e47459ce66bc6fadb834f2e",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–416/tests1–158完整静读，未导入/执行",
+          "root_verified_git_blob_sha": "ad97c5bc3ca9cd7d8e47459ce66bc6fadb834f2e"
+        },
+        {
+          "path": "phases/19-capstone-projects/51-literature-retrieval/docs/en.md",
+          "bytes": 6978,
+          "sha256": "9485a01ede9c0802ce59ffdff4e728e8a766eda68d1635a3480e4c4fe313e90e",
+          "git_blob": "e1dd46eff1fe42a14881741c2b4d78ae0c370630",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–416/tests1–158完整静读，未导入/执行",
+          "root_verified_git_blob_sha": "e1dd46eff1fe42a14881741c2b4d78ae0c370630"
+        },
+        {
+          "path": "phases/19-capstone-projects/51-literature-retrieval/quiz.json",
+          "bytes": 3301,
+          "sha256": "8a7f9b49780311401f741f6f39721ee313021ac3a463f15dd4d29536a40da9c8",
+          "git_blob": "b259fdebb6230bba8e70019e046dcec2c089b66a",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–416/tests1–158完整静读，未导入/执行",
+          "root_verified_git_blob_sha": "b259fdebb6230bba8e70019e046dcec2c089b66a"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 17,
+          "heading": "## Why two retrieval passes"
+        },
+        {
+          "line": 23,
+          "heading": "## The Paper shape"
+        },
+        {
+          "line": 43,
+          "heading": "## Architecture"
+        },
+        {
+          "line": 65,
+          "heading": "## BM25 from scratch"
+        },
+        {
+          "line": 77,
+          "heading": "## Citation graph traversal"
+        },
+        {
+          "line": 83,
+          "heading": "## Dedup and ranking"
+        },
+        {
+          "line": 97,
+          "heading": "## Mock corpus"
+        },
+        {
+          "line": 103,
+          "heading": "## What lessons 52 and 53 read"
+        },
+        {
+          "line": 109,
+          "heading": "## How to read the code"
+        },
+        {
+          "line": 115,
+          "heading": "## Where this slots in"
+        }
+      ],
+      "learning": [
+        "BM25正idf、饱和tf/长度归一、N/df/dl/avgdl与候选倒排索引",
+        "有向引用与被引边的合并邻居、多源无权BFS最短hop/visited/预算",
+        "稳定文献实体ID、来源版本冲突与词汇/图分数融合及可解释feature",
+        "rank不能证明hypothesis被确认或反驳，需要原论文方法/结果/适用条件，检索先于有预算实验"
+      ],
+      "defects": [
+        "sourceindex实际title+abstract，教材/图称仅abstract；_arxiv/_s2储存未调用，_merge_paper未用，所谓双API合并实际从单corpuscopy",
+        "BM25add重复doc_id会增_n_docs/df并保旧倒排term，覆盖doc_lens导致统计不一致；缺配置k1/b/topk/finite/类型和快照保护",
+        "ASCIItokenizer删除中文，分词/stemmer不是多语言万能方案；query重复词重复计权是本实现约定",
+        "graphneighbor依外部references/citations双list手工一致；未自动从references建逆邻接，缺missingid/文献版本/来源冲突处理",
+        "无lexicalhits时graph没有seed，不支持explicitanchor；twohop只是配置，不能承诺三hop通常无价值",
+        "graph距离仅候选相关线索不是支持/反证；recency范围依当前corpus，同年都1、不等新文献更正确",
+        "100虚构论文Authors/标题/2018..2025不是真实检索或baseline证据；to_dict丢abstract而下游宣称前三句context需核接口",
+        "有限值/negativeweights/topk负slice/maxhopsbool未验证；score序sorted不保证质量，walltimeperf不是服务性能"
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why does the retrieval client run a BM25 pass and a citation graph pass?",
+          "options": [
+            "Because the mock APIs require it",
+            "Because the parser fails otherwise",
+            "Because BM25 needs the graph to build its index",
+            "Because lexical hits miss foundational papers with different vocabulary, and graph hits miss papers that share no citation with the seed"
+          ],
+          "correct": 3,
+          "explanation": "Each pass catches what the other misses. Lexical covers shared vocabulary; the graph covers ancestor and descendant papers regardless of vocabulary.",
+          "number": 1,
+          "chinese_judgment": "词汇召回与引文邻居互补，但均依候选和图覆盖；没有anchor时图不会自动找别词基础文献。"
+        },
+        {
+          "stage": "pre",
+          "question": "Why is the citation graph traversal capped at two hops?",
+          "options": [
+            "Because the Python recursion limit forbids three hops",
+            "Because beyond two hops the result set tends to drift off topic and overwhelm downstream ranking",
+            "Because BM25 only scores two hops away",
+            "Because the corpus only stores two layers of citations"
+          ],
+          "correct": 1,
+          "explanation": "Two hops is the practical ceiling. Three hops blows up the result set on a connected graph and rarely returns more on topic papers.",
+          "number": 2,
+          "chinese_judgment": "2hop是本例限制不是普遍研究结论，需节点/边/时间预算和相关性复核；代码把>2静默截2，负值/类型未核。"
+        },
+        {
+          "stage": "check",
+          "question": "What does idf evaluate to for a term that appears in every document?",
+          "options": [
+            "Negative infinity",
+            "A large positive value",
+            "Undefined; the BM25 implementation skips it",
+            "A value near zero"
+          ],
+          "correct": 3,
+          "explanation": "When df equals N the numerator and denominator inside the log are close, and the +1 keeps the term non negative but small. The contribution of universally common terms is near zero.",
+          "number": 3,
+          "chinese_judgment": "df=N时idf=log(1+0.5/(N+0.5))>0，N大趋小；N=1时log(4/3)≈.28768，不能说等于0。"
+        },
+        {
+          "stage": "check",
+          "question": "Which keys does the merge step use to dedup hits from the two passes?",
+          "options": [
+            "BM25 score bucket",
+            "Stable paper id",
+            "Year and first author",
+            "Title text"
+          ],
+          "correct": 1,
+          "explanation": "Paper id is the stable handle. Title and author are duplicated across versions, year alone is ambiguous.",
+          "number": 4,
+          "chinese_judgment": "同id消重先要真实命名空间与DOI/arXiv版本归一；sourcep001只同一个合成库，跨供应商ID不能自然同值。"
+        },
+        {
+          "stage": "check",
+          "question": "What does graph_score return for a paper that is two hops from the seed set?",
+          "options": [
+            "The BM25 score divided by ten",
+            "0.3 by default",
+            "1.0 by default",
+            "Zero"
+          ],
+          "correct": 1,
+          "explanation": "The default graph score schedule is 1.0 at zero hops, 0.6 at one hop, 0.3 at two hops, and zero beyond that.",
+          "number": 5,
+          "chinese_judgment": "本例2hop给.3只是rankfeature配置，非相关概率或论文真实性；minshortestpath来自无权BFS。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is the corpus loaded once into a RetrievalClient instead of refetched per query?",
+          "options": [
+            "Because the recency score requires it",
+            "Because the BM25 index and citation graph are built once at construction time and reused across queries",
+            "Because the mock APIs are slow on every call",
+            "Because the parser is global"
+          ],
+          "correct": 1,
+          "explanation": "Index construction is the expensive step. Reusing the index amortises that cost across every query the client handles.",
+          "number": 6,
+          "chinese_judgment": "同固定语料复用索引/图，需version/invalidation；source其实不调用mockAPIsearch/fetch，不能称外部client合并已接通。"
+        }
+      ],
+      "numbered_exercises": [],
+      "source_test_count": 18,
+      "tests_boundary": "18静读test；graph扩展数量>=无图只验数量不验相关度，两mock分别tested≠搜索入口实际调用，未跑。",
+      "dynamic": {
+        "widget": "cg-citation-hops",
+        "provider": "figures-capstone-g.js",
+        "function": "citationHops",
+        "root_full_static_read": true,
+        "notes": "p003.81/p007.66等固定动画非BM25实测；明确knownanchor可扩图但source只有toplexicalseeds；无语义确认/论文真实性证明",
+        "browser_runs": 0
+      },
+      "source_runs": 0,
+      "written": false,
+      "accepted": false,
+      "primary_status": "尚未另取新一手，写正式内容时优先复用既有BM25与研究检索第一方证据，真实API不能据mock写接入方法"
+    },
+    {
+      "lesson": "52-experiment-runner",
+      "read_complete": true,
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/code/experiments/crashing_experiment.py",
+          "bytes": 399,
+          "sha256": "7a9cfc0d8aa1ed13c4f3fc4090200c0c743f726f4e18bd24e36497067fe3c58c",
+          "git_blob": "34cc0741ff616cf347d6c519c404f050ec6f1f15",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "34cc0741ff616cf347d6c519c404f050ec6f1f15"
+        },
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/code/experiments/sparsity_experiment.py",
+          "bytes": 2286,
+          "sha256": "caffad784774b9b497cbaf440125688c12b3ad873d2e4ca5c396f3359fad6e1e",
+          "git_blob": "06bbb35a9ffb0c3de2739bf7f38c997a7afcbbd8",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "06bbb35a9ffb0c3de2739bf7f38c997a7afcbbd8"
+        },
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/code/main.py",
+          "bytes": 10990,
+          "sha256": "cf8443d377cb48199dedfc6587318294e80cd60b2d73796c7eabd8eff8b505b7",
+          "git_blob": "222d282209796833aa167db74744d3000c793439",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "222d282209796833aa167db74744d3000c793439"
+        },
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/code/tests/test_runner.py",
+          "bytes": 5177,
+          "sha256": "9f2bf718ce7a268dbe9f42b7c0c17e07eb10b519761f8f18946956230c5a7feb",
+          "git_blob": "9bae95faea4aa54eca0e5593f08f590f68a20174",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "9bae95faea4aa54eca0e5593f08f590f68a20174"
+        },
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/docs/en.md",
+          "bytes": 7720,
+          "sha256": "9d09f1f011bde76595f9f041f8cfb19e9ec1a4ff6d8dd56ebb3d53caac97c31e",
+          "git_blob": "f3611713e32d35b459b868630ae5279c19bece8b",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "f3611713e32d35b459b868630ae5279c19bece8b"
+        },
+        {
+          "path": "phases/19-capstone-projects/52-experiment-runner/quiz.json",
+          "bytes": 3888,
+          "sha256": "cec70c2289da9c0af766a659fa022facea805847b1806f4c17e58b9ffb81c5ea",
+          "git_blob": "c7b2ccb0161d932e13f35e0e9f16d85c6777c984",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "正文/quiz/main1–327/tests1–137及crashing/sparsity实验全部完整静读，原代码未运行/导入",
+          "root_verified_git_blob_sha": "c7b2ccb0161d932e13f35e0e9f16d85c6777c984"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 17,
+          "heading": "## Why a subprocess"
+        },
+        {
+          "line": 23,
+          "heading": "## The ExperimentSpec shape"
+        },
+        {
+          "line": 43,
+          "heading": "## Architecture"
+        },
+        {
+          "line": 62,
+          "heading": "## Why a soft memory cap"
+        },
+        {
+          "line": 68,
+          "heading": "## Capturing stdout and stderr"
+        },
+        {
+          "line": 74,
+          "heading": "## Ablation table"
+        },
+        {
+          "line": 85,
+          "heading": "## Determinism"
+        },
+        {
+          "line": 89,
+          "heading": "## The mock experiment script"
+        },
+        {
+          "line": 95,
+          "heading": "## Result shape"
+        },
+        {
+          "line": 113,
+          "heading": "## How to read the code"
+        },
+        {
+          "line": 121,
+          "heading": "## Where this slots in"
+        }
+      ],
+      "learning": [
+        "typed实验spec保假设ID/实际code/input/version/config/预算/metrics schema及独立raw日志",
+        "子进程地址空间/崩溃隔离与OSsandbox权限边界；deadline、RSS轮询、退出状态与unsupportedpolicy",
+        "有界并发排空stdout/stderr/JSONframes，统计输出读取与model可见预算分开",
+        "paired同seed/固定协议基线、OFAT条件效应与factorial交互，重复seed/随机化必要性"
+      ],
+      "defects": [
+        "Popen没有cwd/env限制或新processsession/资源隔离，只kill主pid非processgroup，任意script_path可读写网络；不是安全沙箱",
+        "communicate收集全部stdout/stderr，to_dict才裁400字符，内存早已无界；超时二次communicate失败返回空logs而child/管道可能继续",
+        "RSS/1024实际MiB却写MB、只主pid，ps timeout2s会让50ms轮询名不副实；unsupported日志仍继续并无result字段表示限制未生效",
+        "cap/timeout/interval/seed/ID/metrics类型有限值未核，json.loads默认接受NaN/Inf；required空可取任意dict，非空key仅存在不验证值",
+        "oom和timeout同时发生强制oom优先，需timestamp/observedreason而非称OS真实OOM；异常路径未全部清理/捕获",
+        "ablate浅copy嵌套config可跨spec互改，value字符串生成ID可碰撞/不绑定hash，单knob忽视交互",
+        "sparsity_experiment合成base5*.9^step-kterm+noise非attention训练，固定seed只模拟数值；Numpy非源码标注stdlibonly",
+        "test源没OOM或unsupportedpath测试，教材称coveredboth有误；11test实际静读计数，未执行；不存在确认文献后禁止已settled实验的真实连线"
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why does the runner spawn a subprocess instead of importing the experiment script in process?",
+          "options": [
+            "Because subprocess is faster than import",
+            "Because a separate process gives the runner a kill handle on timeout or memory limits and isolates crashes from the orchestrator",
+            "Because Python disallows nested imports",
+            "Because the metrics format requires it"
+          ],
+          "correct": 1,
+          "explanation": "A separate process is the simplest isolation the language ships. The parent retains a kill handle and an independent address space, so a crashing experiment cannot take the orchestrator with it.",
+          "number": 1,
+          "chinese_judgment": "子进程隔地址空间/崩溃和提供signal句柄，但保环境/FS/网络/子孙进程权限，不能运行不可信研究代码就宣称sandbox。"
+        },
+        {
+          "stage": "pre",
+          "question": "Why is the memory cap described as soft?",
+          "options": [
+            "Because it only applies to the heap, not the stack",
+            "Because the poller has a non zero interval, so a process can spike above the cap between polls and the runner only acts on the next observation",
+            "Because the operating system always overrides it",
+            "Because numpy ignores the cap"
+          ],
+          "correct": 1,
+          "explanation": "The cap is enforced by polling, not by an in kernel limit. The poller interval is the resolution of the cap, and short spikes can briefly exceed the cap before the next observation.",
+          "number": 2,
+          "chinese_judgment": "RSS轮询软上限会错过短峰且只单pid，unsupported需显式policy，限制整个树/输出/CPU/GPU/磁盘另管。"
+        },
+        {
+          "stage": "check",
+          "question": "Which terminal label does the runner return when stdout has the metrics but the exit code is non zero?",
+          "options": [
+            "timeout",
+            "crash",
+            "ok",
+            "oom"
+          ],
+          "correct": 1,
+          "explanation": "Terminal is ok only when exit code is zero and metrics parsed. A non zero exit code is crash even if some metrics were captured before the failure.",
+          "number": 3,
+          "chinese_judgment": "非零exit即crash即使有partial metrics，本例OOM优先timeout；unknownexit/无合法metrics也不通过。"
+        },
+        {
+          "stage": "check",
+          "question": "How does the runner identify the final metrics blob inside stdout?",
+          "options": [
+            "It scans stderr for json",
+            "It expects exactly one line of output",
+            "It reads the last json line whose keys cover the required metric_keys; earlier covering lines become intermediate metrics",
+            "It reads the first json line"
+          ],
+          "correct": 2,
+          "explanation": "Final metrics are the last line that parses as json and includes every required key. Earlier covering lines are kept as intermediate metrics for learning curves.",
+          "number": 4,
+          "chinese_judgment": "最后覆盖requiredkeys的JSON仅格式过滤，必须核finite/类型/单位/样本/输入codehash/seed/status；训练日志可伪造，不能当已证实实验。"
+        },
+        {
+          "stage": "check",
+          "question": "Why does the ablation helper sweep one knob at a time rather than a full factorial?",
+          "options": [
+            "Because one knob at a time produces a clean axis the evaluator can plot, while full factorial blows up exponentially and confuses interpretation",
+            "Because the seed only varies along one knob",
+            "Because the runner cannot launch more than one subprocess",
+            "Because numpy does not support the cartesian product"
+          ],
+          "correct": 0,
+          "explanation": "Single knob sweeps keep the result interpretable. Full factorial costs scale exponentially with the number of knobs and the resulting table is hard to read.",
+          "number": 5,
+          "chinese_judgment": "一次只动一knob便于条件比较但不能识别交互；factorial不是无法解释，应按预算选全/部分因子、随机化和blocking。"
+        },
+        {
+          "stage": "check",
+          "question": "What guarantee does forwarding spec.seed into config['__seed'] give the evaluator?",
+          "options": [
+            "Lower memory consumption",
+            "Faster wall time",
+            "A free significance test",
+            "Determinism, so a re run with the same seed produces identical metrics and the evaluator can detect real changes from random noise"
+          ],
+          "correct": 3,
+          "explanation": "The seed pins random initialisation in the experiment. Two runs with the same seed produce identical metrics, which is what lets the evaluator distinguish a real regression from a different draw.",
+          "number": 6,
+          "chinese_judgment": "seed转交只约定子程序使用它；相同seed不保证walltime/系统/并行结果，更不能用一次seed区分总体随机波动与真改进。"
+        }
+      ],
+      "numbered_exercises": [],
+      "source_test_count": 11,
+      "tests_boundary": "静读断言覆盖scan/成功/timeout/crash/ablation/两数同seed，没有真实隔离/整个进程树/内存cap/unsupported或实验真实性证明；本任务原程序全部未执行。",
+      "dynamic": {
+        "widget": "cg-runner-limits",
+        "provider": "figures-capstone-g.js",
+        "function": "runnerLimits",
+        "root_full_static_read": true,
+        "notes": "两run/3.1s/ppl31.4/oomkill全预设，不是真实限额触发；same seed same numbers不能泛化wallclock，软RSS不替权限隔离",
+        "browser_runs": 0
+      },
+      "source_runs": 0,
+      "written": false,
+      "accepted": false,
+      "primary_status": "后续写需引用现有subprocess/实验设计一手证据，真实隔离/平台resource实现不据教材想象"
+    },
+    {
+      "lesson": "53-result-evaluator",
+      "read_complete": true,
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/53-result-evaluator/code/main.py",
+          "bytes": 10985,
+          "sha256": "80555b8fd57ed735ad0c698966ef44ded8d96e7874a4cf1f643d20c273a7dc0a",
+          "git_blob": "04fc6b76019637ddc7c263789772d74214760f5b",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–327/tests1–177全文静读，未导入或执行",
+          "root_verified_git_blob_sha": "04fc6b76019637ddc7c263789772d74214760f5b"
+        },
+        {
+          "path": "phases/19-capstone-projects/53-result-evaluator/code/tests/test_evaluator.py",
+          "bytes": 6574,
+          "sha256": "57c0d7649e54afb1f3d151d2c6b7ed78aeeb65a104bb8b2ff9b32e3c161c1f7c",
+          "git_blob": "592156d7c73ca5f8feecb64a5e770e87f9aecfb2",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–327/tests1–177全文静读，未导入或执行",
+          "root_verified_git_blob_sha": "592156d7c73ca5f8feecb64a5e770e87f9aecfb2"
+        },
+        {
+          "path": "phases/19-capstone-projects/53-result-evaluator/docs/en.md",
+          "bytes": 7105,
+          "sha256": "f474a4571273b6ce7c206e8f7aecb0415109c2f0a0d60098bd40ca580eeb36e0",
+          "git_blob": "d859f1549926571f619e9f1e50b1a118b20dea8d",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–327/tests1–177全文静读，未导入或执行",
+          "root_verified_git_blob_sha": "d859f1549926571f619e9f1e50b1a118b20dea8d"
+        },
+        {
+          "path": "phases/19-capstone-projects/53-result-evaluator/quiz.json",
+          "bytes": 3825,
+          "sha256": "2504639d011a7b7eff0a294f6a7bc3c5b8590f38a13ce7622699e5af1c676731",
+          "git_blob": "436999bc83a655fdc360ef8cc46191c843eccf7d",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–327/tests1–177全文静读，未导入或执行",
+          "root_verified_git_blob_sha": "436999bc83a655fdc360ef8cc46191c843eccf7d"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 17,
+          "heading": "## Why a paired test"
+        },
+        {
+          "line": 34,
+          "heading": "## Direction aware improvement"
+        },
+        {
+          "line": 53,
+          "heading": "## Architecture"
+        },
+        {
+          "line": 69,
+          "heading": "## Log normalisation"
+        },
+        {
+          "line": 86,
+          "heading": "## Per seed paired test"
+        },
+        {
+          "line": 92,
+          "heading": "## The Verdict shape"
+        },
+        {
+          "line": 122,
+          "heading": "## How to read the code"
+        },
+        {
+          "line": 128,
+          "heading": "## Where this slots in"
+        }
+      ],
+      "learning": [
+        "方向效应、统计证据和实际效应阈值分开；相同metric/unit/data/config/seed与重复单位先绑定",
+        "paired t对差值均值与SE=s_d/sqrt(n)/df，p值不是假设正确概率/效果大小；实际数据假设需检",
+        "logPPL就是平均tokenNLL，平均log和log平均区别；几何均值ratio与PPL相对变化不能混同",
+        "从terminal/完整配对到有效有限数据、预设门槛/CI/multiplicity的结构化verdict与unknown停止"
+      ],
+      "defects": [
+        "source_pair_by_seed只取intersection，存在任意unmatched两侧时静默丢弃，教材宣称seed mismatch抛错不符；仅无交集/dup抛错",
+        "seed=int容bool/字符串/截浮点改变实验身份；metric=float含NaN/Inf/缺键异常，specID/hypothesis/data/code/units未绑定",
+        "零baseline的denom1把绝对变化伪装fraction；logmean相对率(lnbase−lncand)/abs(lnbase)不是PPL相对率或简单lnratio，阈值不可统一解释",
+        "log32−log28≈.133531但sourceimprovement要再除ln32≈3.465736约0.038529015588；教材把.133当2%比较量不符",
+        "source零方差且非零差返回p0，t的分母0实际退化；不是普通随机样本统计保证，尤其合成同差模拟不能当无噪声效果",
+        "Lentz最多200iter无nonconvergence报告；a/b/x/t/df有限domain/overflow缺核，clamp不能修正确率；reference仅2dp弱检",
+        "any baselinefailed实际也failed；文档candidateonly不完整；matchedseed也不保证随机噪声取消或因果单因素唯一",
+        "noise同时表示小effect/n不足/p未达，未给CI/功效/多重指标/多轮adaptiveevidence；loop反复用p<.05筛选膨胀falsepositive",
+        "演示值人工28/32数组无真实runner/论文接口，无literal literature_settles/runner.run_all glue实现；不能说dataclasses自动可无胶接合"
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why does the evaluator use a paired t test instead of comparing two single numbers?",
+          "options": [
+            "Because numpy requires paired arrays",
+            "Because the runner cannot emit a single number",
+            "Because pairing the same seed across candidate and baseline isolates the configuration change from random initialisation noise",
+            "Because t tests are always required by IRB"
+          ],
+          "correct": 2,
+          "explanation": "Pairing by seed cancels out random initialisation effects. The remaining difference is attributable to the configuration change, which is what the test measures.",
+          "number": 1,
+          "chinese_judgment": "同seed有助配对随机条件，不保证消除所有噪声/因果归属；d_i为独立配对差，检验差值均值、df=n−1、假设和效应区间要说明。"
+        },
+        {
+          "stage": "pre",
+          "question": "Why does the evaluator carry a direction field on every metric?",
+          "options": [
+            "Because numpy needs the direction for variance",
+            "Because accuracy and loss point in opposite ways; the sign of the improvement depends on which direction is better for the metric being compared",
+            "Because the runner requires it",
+            "Because the parser expects it"
+          ],
+          "correct": 1,
+          "explanation": "Higher is better metrics improve when they go up; lower is better metrics improve when they go down. The direction field tells the improvement function which sign convention to apply.",
+          "number": 2,
+          "chinese_judgment": "higher/lower规定好坏符号；baseline=0百分比未定义应选绝对变化，不能用denom1冒称相对率。"
+        },
+        {
+          "stage": "check",
+          "question": "What does the verdict path return when |improvement| is below the threshold even if the p value is significant?",
+          "options": [
+            "noise",
+            "regressed",
+            "failed",
+            "improved"
+          ],
+          "correct": 0,
+          "explanation": "A statistically significant change that is too small to act on is still noise from the loop's point of view. The threshold gate runs before the significance gate.",
+          "number": 3,
+          "chinese_judgment": "原label noise对应实际效应门槛不足，不等证明没有效应；分practicallysmall/notsignificant/insufficientn更清楚。"
+        },
+        {
+          "stage": "check",
+          "question": "Why does the evaluator transform log scaled metrics before computing improvement?",
+          "options": [
+            "Because the p value depends on it",
+            "Because numpy logs are faster",
+            "Because the runner only emits log scaled metrics",
+            "Because perplexity and similar metrics grow exponentially with loss; transforming to log space makes a threshold like two percent meaningful across linear and log metrics"
+          ],
+          "correct": 3,
+          "explanation": "Perplexity is exp(loss). A small loss change is a large perplexity change. Taking the log keeps relative improvements comparable to linear metrics under one threshold.",
+          "number": 4,
+          "chinese_judgment": "PPL=exp(NLL)，logPPL转NLL有解释，但logmean相对率不等PPL相对率/跨指标统一可比；需明确原单位绝对效应或logratio阈值。"
+        },
+        {
+          "stage": "check",
+          "question": "When does the paired t test helper return p_value = None?",
+          "options": [
+            "When the variance is zero",
+            "When the means are equal",
+            "When the metric scale is log",
+            "When fewer than two paired samples are available"
+          ],
+          "correct": 3,
+          "explanation": "The t distribution needs at least one degree of freedom. With n less than two there is no variance estimate and the helper returns None so the verdict path can mark the run as noise.",
+          "number": 5,
+          "chinese_judgment": "n<2缺方差估计返回None；n>=2零方差也不能把程序约定p0视常规有效t检验/稳健证据。"
+        },
+        {
+          "stage": "check",
+          "question": "What happens if even one candidate result has a terminal label other than ok?",
+          "options": [
+            "The evaluator returns a failed verdict and records the bad terminals in the rationale",
+            "The evaluator drops that seed and proceeds",
+            "The evaluator retries the run",
+            "The evaluator falls back to a one sided test"
+          ],
+          "correct": 0,
+          "explanation": "A failed run invalidates the candidate set. The evaluator short circuits the verdict path and returns failed with the offending terminals listed, so the orchestrator does not draw a conclusion from a crashed run.",
+          "number": 6,
+          "chinese_judgment": "source候选和基线任一terminal非ok都会failed（不止候选）；选择性丢失败seed会改变估计目标，失败率/性能可分别报告。"
+        }
+      ],
+      "numbered_exercises": [],
+      "source_test_count": 18,
+      "tests_boundary": "完整静读所有18test定义，具体计数以source_test_count；pair只测no_shared未测partialmismatch，zerovar断言程序约定，不证明数学有效。无源码执行。",
+      "dynamic": {
+        "widget": "cg-paired-verdict",
+        "provider": "figures-capstone-g.js",
+        "function": "pairedVerdict",
+        "root_full_static_read": true,
+        "notes": "t5.9/p<.01预设，不由柱64/58/70/61 vs52/49/60/50实际计算；spread与SE不同，sameinputs pure不替有效研究证据",
+        "browser_runs": 0
+      },
+      "source_runs": 0,
+      "written": false,
+      "accepted": false,
+      "primary_status": "根已实际选读NIST paired/meanCI与design页，具体scope在primary_sources；zeroSE数学退化是根推导；未跑来源/真实统计实验"
+    },
+    {
+      "lesson": "54-paper-writer",
+      "read_complete": true,
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/54-paper-writer/code/main.py",
+          "bytes": 10514,
+          "sha256": "1a1ac26ccc66543439e8f8324ef68f4dff33bd3f446743bdc11eba58ff2f1dc5",
+          "git_blob": "ced61293aca3fad483f387971b02c533be68659c",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–316/tests1–188完整静读；source没有编译或执行",
+          "root_verified_git_blob_sha": "ced61293aca3fad483f387971b02c533be68659c"
+        },
+        {
+          "path": "phases/19-capstone-projects/54-paper-writer/code/tests/test_paper_writer.py",
+          "bytes": 7007,
+          "sha256": "8dbca33ad887426f2017fc3321d489ece960b39c71a97cd0669faa760a226245",
+          "git_blob": "a9839b6d2d119eae01c3572592b171897470915b",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–316/tests1–188完整静读；source没有编译或执行",
+          "root_verified_git_blob_sha": "a9839b6d2d119eae01c3572592b171897470915b"
+        },
+        {
+          "path": "phases/19-capstone-projects/54-paper-writer/docs/en.md",
+          "bytes": 7021,
+          "sha256": "797c7be9dbe6e382bdba6c8015047373c86917194eb2bc6efa5c1035eaea2e9e",
+          "git_blob": "daf88f4c833df1755fae28b30db3b328e8bbed8d",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–316/tests1–188完整静读；source没有编译或执行",
+          "root_verified_git_blob_sha": "daf88f4c833df1755fae28b30db3b328e8bbed8d"
+        },
+        {
+          "path": "phases/19-capstone-projects/54-paper-writer/quiz.json",
+          "bytes": 3745,
+          "sha256": "b476522991afc153bcaada0b7983a9d802d79ac8b60e4a31111646317082cd97",
+          "git_blob": "0478b082da5ef4da71d84ce5e729e0fd89679cb2",
+          "status": "仅机械盘点；阅读状态另记",
+          "actual_read_date": "2026-10-12",
+          "read_complete": true,
+          "scope": "原docs/quiz/main1–316/tests1–188完整静读；source没有编译或执行",
+          "root_verified_git_blob_sha": "0478b082da5ef4da71d84ce5e729e0fd89679cb2"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives"
+        },
+        {
+          "line": 22,
+          "heading": "## Why a skeleton first"
+        },
+        {
+          "line": 30,
+          "heading": "## The Paper shape"
+        },
+        {
+          "line": 48,
+          "heading": "## The render contract"
+        },
+        {
+          "line": 54,
+          "heading": "## Figure injection from experiments"
+        },
+        {
+          "line": 69,
+          "heading": "## The mocked prose generator"
+        },
+        {
+          "line": 75,
+          "heading": "## The manifest output"
+        },
+        {
+          "line": 91,
+          "heading": "## Validation gates"
+        },
+        {
+          "line": 102,
+          "heading": "## How to read the code"
+        },
+        {
+          "line": 108,
+          "heading": "## Going further"
+        }
+      ],
+      "learning": [
+        "论文证据论证结构与metadata/sections/figures/bib schema不同层；先验引用/图slot唯一身份再生成再验",
+        "文本escaping与受限TeX结构分开，path/ID/width/bibkey等也要strict合同，不信任source类名Validation",
+        "manifest相对路径和实际输出工件依赖/内容hash/编译/跨refs/bib及科学证据分验",
+        "多工件immutablegeneration+单指针publish保旧version，依赖注入mock仅结构行为验证"
+      ],
+      "defects": [
+        "write先os.makedirs/fillprose改变paper后才rendervalidate；源称验证四门禁后生成不符，validater已含bib重复/ref门禁不只4",
+        "不核sectionID重复/空ID/无section或无body，测试接受空section数；bodypending非完整论文",
+        "sectionbody裸TeX/fig.path/id/width/bibkey/entrytype字段不escape或validate，rawcite/ref漏过声明表；否认shellescape仍须compiler隔离",
+        "BibEntry删除{}会破坏大写/分组语义，不是正确BibTeX转义或元数据核验，虚构Smith2020/Jones2021无真实文献依据",
+        "relpath由hostcwd解析relativeartpath，不用manifestcwd字段，demofigfiles不存在；counter身份随插入/顺序变，无真正content稳定ID",
+        "三个直接open w可因后续IO失败部分覆盖旧paper/bib，manifest非多文件事务，无hash/indexschema/readonlygenerations",
+        "manifestbibliography为声明全部keys不是实际usedcites，body_chars非内容；没有TOC命令/TeXcompile，string断言不证明可编译",
+        "fakeprose两模板+引用格式正确不证明研究新颖/假设结果真或引用支持；图与caption同data/domain须独立核"
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why does the writer declare sections, figures, and citations as data before any prose is written?",
+          "options": [
+            "Because BibTeX cannot resolve forward references",
+            "Because LaTeX requires a forward declaration",
+            "Because the model needs a system prompt",
+            "Because the structure is the contract: the harness can validate completeness before prose generation"
+          ],
+          "correct": 3,
+          "explanation": "Structure-first lets the harness validate uniqueness, citation coverage, and figure coverage before invoking the prose generator. The skeleton is the contract.",
+          "number": 1,
+          "chinese_judgment": "先定义sections/figures/bib合同便于核结构，但正文论断仍需真实证据/引用支持；source实际先fillprose后validate非严格validate-before-prose。"
+        },
+        {
+          "stage": "pre",
+          "question": "What does the figure-injection step produce from an experiment manifest?",
+          "options": [
+            "A list of Figure records with stable ids and paths normalised to the paper directory",
+            "A bibliography stub",
+            "A PDF compiled from artifacts",
+            "A model prompt with figure descriptions"
+          ],
+          "correct": 0,
+          "explanation": "read_experiment_manifest returns Figure records. Ids are deterministic, paths are normalised, captions come from the manifest.",
+          "number": 2,
+          "chinese_judgment": "产Figure记录不等实际复制/存在/内容与数据一致；relativepath应相对manifest显式basedir再转paperdir，source以进程cwd解释不符。"
+        },
+        {
+          "stage": "check",
+          "question": "Which validation failure raises PaperValidationError before any file is written?",
+          "options": [
+            "An abstract longer than 200 words",
+            "An odd number of authors",
+            "A section that cites a key not declared in the bibliography",
+            "A figure path that does not exist on disk"
+          ],
+          "correct": 2,
+          "explanation": "Missing bibliography keys, duplicate figure ids, empty title, empty abstract, and unknown figure refs all raise PaperValidationError. Existence on disk is not enforced because the LaTeX compiler enforces it later.",
+          "number": 3,
+          "chinese_judgment": "unknowncite和unknownfigref等会拦render；source不查文件存在，body内直接写cite/ref未分析，sectionID重复也未拒。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is the prose generator a callable injected into PaperWriter rather than a method on it?",
+          "options": [
+            "Because tests can swap a deterministic MockProseGenerator for a model call without touching the writer",
+            "Because LaTeX requires a callback",
+            "Because the dataclass cannot hold state",
+            "Because Python does not allow methods to take Paper as an argument"
+          ],
+          "correct": 0,
+          "explanation": "The writer takes the prose generator as a dependency. The test substitutes MockProseGenerator. Production substitutes a model call. The writer is unchanged.",
+          "number": 4,
+          "chinese_judgment": "依赖注入可独立测试writer和生成器，但generator可能副作用/改paper/maliciousTeX，真实模型替换后仍需重新验数据/证据和权限。"
+        },
+        {
+          "stage": "post",
+          "question": "What three files does PaperWriter.write emit on success?",
+          "options": [
+            "paper.tex, references.bib, manifest.json",
+            "manifest.json, prose.txt, paper.pdf",
+            "paper.tex, paper.pdf, references.bib",
+            "outline.json, paper.tex, figures.tar"
+          ],
+          "correct": 0,
+          "explanation": "paper.tex is the LaTeX source. references.bib is the bibliography. manifest.json is the structured artifact the critic loop reads next.",
+          "number": 5,
+          "chinese_judgment": "输出tex/bib/manifest，不产生PDF；source三个顺序write没有事务，IO失败可部分覆盖旧版，不是allornothing。"
+        },
+        {
+          "stage": "post",
+          "question": "Why is the manifest part of the writer's contract instead of just the LaTeX file?",
+          "options": [
+            "Because downstream tooling (critics, dashboards) reads structured manifests, not LaTeX",
+            "Because manifest.json is the only file BibTeX accepts",
+            "Because LaTeX is too large to parse",
+            "Because LaTeX compilers reject untyped sections"
+          ],
+          "correct": 0,
+          "explanation": "The manifest is a stable interface for downstream stages. Critics and dashboards inspect manifest.json. LaTeX is the human-readable artifact, not the machine interface.",
+          "number": 6,
+          "chinese_judgment": "manifest利于机器接口，但只有body_chars/keys不含原始正文/证据绑定，不能让critic仅以长度评价论文科学性；需hash/内容/来源及实际编译结果。"
+        }
+      ],
+      "numbered_exercises": [],
+      "going_further": [
+        {
+          "topic": "同Paper数据shape输出Markdown/HTML",
+          "chinese_judgment": "用独立renderer策略保相同identity/evidence/安全escaping，逐格式核引用/图/输出，不把structsame当render齐全。"
+        },
+        {
+          "topic": "通过DOI缓存补BibTeX",
+          "chinese_judgment": "核DOI与原论文实际metadata/版本/撤稿状态、来源和缓存时间，冲突不由生成器编假条目；无网络写操作授权。"
+        }
+      ],
+      "source_test_count": 15,
+      "tests_boundary": "全test定义静读，均TeXstring/filesexists/部分metadata，未真正编译/missingfigure/IOfailuretransaction/duplicateSection/semanticcitation或命令隔离；source本任务0执行。",
+      "dynamic": {
+        "widget": "ch-paper-skeleton",
+        "provider": "figures-capstone-h.js",
+        "function": "chPaper",
+        "root_full_static_read": true,
+        "shared_helpers_read": "capstone-h IIFE/sharedhelper1–44全文",
+        "notes": "结构先验证动画与source先fill后validate相反；TOC/全部引用由声明非真实正文证明，预设ok不证明compile或学术质量",
+        "browser_runs": 0
+      },
+      "source_runs": 0,
+      "written": false,
+      "accepted": false,
+      "primary_status": "后续引用与安全构建说明用现有研究/latex章或第一方格式规范，未执行编译或学术整套skill流程"
+    }
+  ],
+  "pending_lessons": [],
+  "accepted_unchanged": 455,
+  "source_programs_executed": 0,
+  "sites_2_5_read": false,
+  "primary_sources": [
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm",
+      "date": "2026-10-12",
+      "route": "web open",
+      "scope": "Purpose: paired samples一一对应/差值，与desired practical threshold；未将下面Welch unpaired formula用为paired公式"
+    },
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+      "date": "2026-10-12",
+      "route": "web click/open",
+      "scope": "Definition Confidence Interval和Hypothesis Test，SE=s/sqrt(N)、df=N−1、CI frequentist解释；配对差视单样本为root数学推导，非该页声称源代码正确"
+    },
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri33.htm",
+      "date": "2026-10-12",
+      "route": "web open",
+      "scope": "Objective selection、comparative/screening/response surface/interaction与resources；非全文手册"
+    },
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri333.htm",
+      "date": "2026-10-12",
+      "route": "web click",
+      "scope": "two level fullfactorial定义2^k与table；5因素推荐仅该经典手册情境，不强写所有任务现行阈值"
+    }
+  ],
+  "root_math_evidence": {
+    "date": "2026-10-12",
+    "method": "根独立标准库math计算，并非执行来源函数",
+    "log_32_minus_log_28": 0.13353139262452274,
+    "source_relative_log_mean_case": 0.03852901558847921,
+    "raw_ppl_relative_drop": 0.125,
+    "loss_drop_point1_implies_ppl_relative_drop": 0.09516258196404048,
+    "scope": "仅明确效应口径，不执行Lentz/p值检验或实验，不称统计显著结果"
+  },
+  "additional_reading_report": "19E-研究工作流-55至57只读准备.json",
+  "root_latest_date": "2026-10-12"
+}

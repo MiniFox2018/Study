@@ -1,0 +1,1617 @@
+{
+  "date": "2026-10-12",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "status": "静读恢复报告完成：24源文件本次实际全文、91真实标题、28练习36测验及100test函数静读均落盘；未写正式/未运行/未验收，根代理待静读融合。",
+  "counts": {
+    "lessons": 6,
+    "read_files": 24,
+    "true_h2_h4": 91,
+    "practice": 28,
+    "quiz": 36,
+    "source_unit_test_functions_static_read": 100,
+    "source_programs_executed": 0,
+    "source_programs_imported": 0,
+    "formally_accepted_added": 0
+  },
+  "lessons": [
+    {
+      "number": 64,
+      "code_purpose": "fixedwindow原文[start:end]精确；sentence/semantic join归一化空格，metadata跨度不保证text等rawslice，recursive deeperpacking用outersep也可不同。recursive无字符硬fallback；structural丢preamble/无fence层级感知。semanticelse cur_n+=1再(cur_vec*cur_n+v)/(cur_n+1)，oldweight偏多，normalize造成非真实均值；maxchars不算join空白且单长句不拆。mockhash tokenASCII、coszip未dimcheck。eval每doc新index正确docoracle、9已知substringspan任一交集算hit。",
+      "tests": {
+        "count": 16,
+        "purpose": "fixed≥2/overlap/badparams、sentence首词nonempty/noleading和3个wordcoverage、recursivelen≤200(非target80)/short、semantic低threshold≤2高更多、每header4/无headerwhole、hashdeterministic/unit、densebananafirst、evalrange/单调。",
+        "not_covered": "递归hardlimit/长无sep、真实spantextidentity/完整覆盖、preamble/fences/headerhierarchy、中文/缩写、centroid正确/longcap、全库unknowndoc/全spancontainment、tokenbudget/模型变化与semanticbench；未运行。",
+        "actual_test_function_names": [
+          "test_emits_at_least_one_chunk",
+          "test_overlap_visible",
+          "test_rejects_bad_args",
+          "test_does_not_split_mid_word",
+          "test_full_coverage",
+          "test_respects_target_when_possible",
+          "test_handles_short_input",
+          "test_low_threshold_packs_into_few_chunks",
+          "test_high_threshold_splits_more",
+          "test_one_chunk_per_header",
+          "test_returns_whole_doc_when_no_headers",
+          "test_deterministic",
+          "test_normalized",
+          "test_returns_topk",
+          "test_recall_is_a_fraction",
+          "test_recall_monotonic_in_k"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "LLM 工程实践/12-文本检索与RAG文档工程.md §4/4.1–4.4",
+          "LLM 工程实践/07-Embedding与检索模型训练.md §2/7"
+        ],
+        "overlap": "现12§4.1已经硬回退/保所有原文字符/版本跨度；§4.3已有真实向量fixture的边界与硬cap，不需再抄五套source函数。",
+        "new": "补fence-aware结构/preamble/header路径合同和centroid正确累积；比较分块用全库独立gold/fullspan与cost，保源oracle弱评估边界。"
+      },
+      "diagram": {
+        "static": "5种边界→index→eval的比较意图，图topK不证明正确span完整支持。",
+        "dynamic": "ci-chunk-boundaries→figures-capstone-i.js chunkBoundaries49–82：预设3条cutplan，gold255–335；fixedcut290穿中，popIn与warningopacity，没tokenizer/embedding/eval。fixed512-token标签与源码400字符配置不同，不能作实测。",
+        "actual_dynamic_function_static_read": "2026-10-12 本次实际全文静读提取函数并以provider原file slice/hash/blob校验；未执行。"
+      },
+      "external_verification": "未查LongRAG35百分点或最新tokenizer/provider接口；只源码静读和长效合同解释，不保存未核性能。",
+      "lesson": "64-chunking-strategies-advanced",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/64-chunking-strategies-advanced/code/main.py",
+          "bytes": 14937,
+          "sha256": "407030fcf81210ffbd276f245ac512306a94ee208f6ad5ee4e1076452fd82d29",
+          "git_blob_sha": "216978891d60553c4603109141c8fdce92617077",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-406",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "216978891d60553c4603109141c8fdce92617077"
+        },
+        {
+          "path": "phases/19-capstone-projects/64-chunking-strategies-advanced/code/tests/test_chunkers.py",
+          "bytes": 5118,
+          "sha256": "d5f8a273dba8ecd3d75788d202e8771eb77b8fb99dcb0cdf608b2b262b168192",
+          "git_blob_sha": "6912785ecb4e14df3d53f45204ccbb22fb49d7ae",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-143",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "6912785ecb4e14df3d53f45204ccbb22fb49d7ae"
+        },
+        {
+          "path": "phases/19-capstone-projects/64-chunking-strategies-advanced/docs/en.md",
+          "bytes": 9999,
+          "sha256": "0829dec00c35b086db3f44c5f0b49696a8d180d7f2c645f083be95e3fc342c01",
+          "git_blob_sha": "e535db44fc35a43bc0e1affc5adf2d8cf6b25f2f",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-159",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "e535db44fc35a43bc0e1affc5adf2d8cf6b25f2f"
+        },
+        {
+          "path": "phases/19-capstone-projects/64-chunking-strategies-advanced/quiz.json",
+          "bytes": 3613,
+          "sha256": "24063cb0ac1eb772372c2ecf27c2f2d2e51647ca6f05cca1ea4ed0f1bd61b913",
+          "git_blob_sha": "8d41283690a3478c849e89da4597f959f1f08cf7",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "8d41283690a3478c849e89da4597f959f1f08cf7"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "五策略比较与spanfixture，但目标是独立证据保留非固定胜者；本次读所有source后分析。"
+        },
+        {
+          "line": 16,
+          "heading": "## The Problem",
+          "中文解释": "块边界影响候选证据，父块/邻接扩展有时可修复，不是anycut绝对无法修复；LongRAG35个百分点未查来源，不保性能。"
+        },
+        {
+          "line": 24,
+          "heading": "## The Concept",
+          "中文解释": "五chunker→统一hashindex→spanhit，实际eval先知道正确doc，各策略未统一token/candidate成本。"
+        },
+        {
+          "line": 46,
+          "heading": "### Fixed-window",
+          "中文解释": "字符size与overlap严格参数，unicodecodepoint非bytes/token；overlap可保跨界但仍需完整span/语境。"
+        },
+        {
+          "line": 50,
+          "heading": "### Sentence",
+          "中文解释": "regex .!?后空白且下个大写/数字分句，中文/缩写/小写/代码不可靠；长句可超budget。"
+        },
+        {
+          "line": 54,
+          "heading": "### Recursive split",
+          "中文解释": "按paragraph/newline/.space/space递归，separators耗尽仍整串返回，无最终char切；正文说直到fit不符合。"
+        },
+        {
+          "line": 58,
+          "heading": "### Semantic clustering",
+          "中文解释": "逐句mockhash向量cos阈值或maxchars切，centroid计数先+1再加权多1且normalizedmovingavg非真mean。"
+        },
+        {
+          "line": 62,
+          "heading": "### Structural markdown headers",
+          "中文解释": "每一个H1–H6都切，不是到same/higher；首header前丢失，fencedcode假header会切，headeronly没过滤。"
+        },
+        {
+          "line": 66,
+          "heading": "### How recall@k measures the boundary choice",
+          "中文解释": "source任何1字符overlap即hit均query，是spanHit@K不是完整答案coverage；只正确doc内部检索。"
+        },
+        {
+          "line": 74,
+          "heading": "## Build It",
+          "中文解释": "Chunk doc/strategy/start/end/text，5alg、hashdense、9queryeval打印；没有实际学习dense/embedding模型。"
+        },
+        {
+          "line": 96,
+          "heading": "## Failure modes the table will not hide",
+          "中文解释": "orphan/code/headeronly/drift/embeddingrevision是有效风险，本实现多个未防；语义cap对单longsentence/空白计数不硬。"
+        },
+        {
+          "line": 108,
+          "heading": "## Choosing a default without running the benchmark",
+          "中文解释": "800/500/.6与recursive最强只是经验候选，独立valid/证据长度/预算评后定，不是当前普适default。"
+        },
+        {
+          "line": 122,
+          "heading": "## Use It",
+          "中文解释": "重测模型或corpusmix、保存strategy/config/revision、原文offset与transform范围，使用失效触发不是改date即核。"
+        },
+        {
+          "line": 130,
+          "heading": "## Ship It",
+          "中文解释": "69只复制recursive子集，68不同docretrievalqrels，不能称完全同metric shape可比。"
+        },
+        {
+          "line": 134,
+          "heading": "## Exercises",
+          "中文解释": "实际4练习而非5：token窗口/code注入/真embedding/summary；全部未执行。"
+        },
+        {
+          "line": 141,
+          "heading": "## Key Terms",
+          "中文解释": "源Recall是任一span交集命中率，overlap与structural/semantic/centroid用途分别明示。"
+        },
+        {
+          "line": 151,
+          "heading": "## Further Reading",
+          "中文解释": "论文和网站只是获取入口，35个百分点/current生产recommendations未核，真实接口不用旧源名代替。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why is the chunking choice an upper bound on retrieval quality and not just a hyperparameter?",
+          "source_correct_index": 2,
+          "source_answer": "Because no embedding, reranker, or LLM downstream can recover an answer span that was cut into incoherent pieces",
+          "中文解释及核对": "源正确2边界过度；保完整独立证据重要，但邻接/parentexpand可挽回碎片，并非任何切块不可修。"
+        },
+        {
+          "stage": "pre",
+          "question": "Which strategy is the strongest single-strategy default when you have no prior knowledge of the corpus?",
+          "source_correct_index": 2,
+          "source_answer": "Recursive split",
+          "中文解释及核对": "源正确2作为baseline候选，source无独立泛化实验支撑strongestdefault。"
+        },
+        {
+          "stage": "check",
+          "question": "What does recall@k measure in this lesson?",
+          "source_correct_index": 3,
+          "source_answer": "Whether any of the top-k chunks overlaps the gold answer span",
+          "中文解释及核对": "源正确3；本代码hit任何overlap且知道golddoc，不是全库检索Recall或完整可回答证据。"
+        },
+        {
+          "stage": "check",
+          "question": "Why does fixed-window chunking fail badly on code or YAML corpora?",
+          "source_correct_index": 0,
+          "source_answer": "It cuts identifiers and key-value pairs in half, producing chunks that embed to noise",
+          "中文解释及核对": "源正确0；mididentifier断裂风险不是必定hashnoise，AST/完整键值/代码块范围更适用。"
+        },
+        {
+          "stage": "check",
+          "question": "What is the centroid drift termination criterion in semantic chunking?",
+          "source_correct_index": 0,
+          "source_answer": "Cosine similarity between the running mean vector and the next sentence drops below a threshold",
+          "中文解释及核对": "源正确0；还受maxchars切，具体sourcecentroidweight有bug，无真语义模型。"
+        },
+        {
+          "stage": "post",
+          "question": "What stale-embedding failure mode does semantic chunking introduce that the other four strategies do not?",
+          "source_correct_index": 1,
+          "source_answer": "Chunk boundaries change whenever you change the chunk-model, requiring a coordinated rebuild",
+          "中文解释及核对": "源正确1；pin chunkmodel/threshold/strategy和corpusrevision，协调重建chunkIDs/source mapping/index；无需自动迁移已有原文。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Add a sixth strategy: token-window using `tiktoken` instead of character counts. Compare against fixed-window on the same fixture.",
+          "中文解释及验收边界": "tokenizer固定型号revision、codepoint/tokenoffset映射，窗口必须能定位原文/解码边界；同tokenbudget比较char，tiktoken未安装/调用。",
+          "executed": false
+        },
+        {
+          "source": "Inject a 30 percent fraction of code blocks into the prose fixture. Re-run the table. Explain why every strategy except structural markdown loses recall.",
+          "中文解释及验收边界": "30%code比例定义字符/doc/块单位，保持goldspan与结构有效；fence-aware parser/AST与其余baseline对照，不预定只有structural胜，当前structural还会误切codeheader。",
+          "executed": false
+        },
+        {
+          "source": "Replace the deterministic embedding with the one from your project's real provider. Measure the semantic-clustering recall delta. Report whether the spread between strategies widens or narrows.",
+          "中文解释及验收边界": "真实provider另授权，本任务未调用；固定modelrevision/normalization、原数据切分、boundarythreshold；测fullspan/candidateRecall/cost而非oracle正确doc内1char。",
+          "executed": false
+        },
+        {
+          "source": "Add a `summary` field per chunk: a one-sentence centroid description. Re-run the eval with the summary appended to the chunk body. Measure the recall lift.",
+          "中文解释及验收边界": "summary区分source原文与AI导出，summary支持必须核原chunk；append影响length/score，比较相同budget并以原文span为引用，防答案泄漏/编造事实。",
+          "executed": false
+        }
+      ],
+      "status": "本课4文件本次全文静读已落盘；未写作/未验收/未运行",
+      "read_status": "2026-10-12 本次4源文件全文静读，标题/所有原练习/quiz/测试分析落盘；未执行",
+      "formal_written": false,
+      "accepted": false
+    },
+    {
+      "number": 65,
+      "code_purpose": "BM25add每doc重复title3/body1，dfunique perdoc，avgdl重算；ASCIIalnum token不split camelcase语义。search仅s>0。densehashbigramnormalize、coszip无需len/finite验证，emptyvector零，unknown还returnsneighbors。rrfweights只length检查，k/weights负/nan无校验，same docID单list重复多投，by_id取最后Doc版本；跨list同id不同正文被静默覆盖。Hybrid串行计算两路，fusedtopk不校confidence，no dedupcorpus/update/delete。",
+      "tests": {
+        "count": 15,
+        "purpose": "token2、BM25literal/unknown/weight分数、dense确定/unit/d2top3、RRFbasic/tweight/mismatch/smallc、Hybrid3list/两top1包含/字面first。",
+        "not_covered": "same-listduplicates/同id不同内容覆盖、negative/nanweights/c、零vector/dimension、unknownfused拒答、fieldboostcontrolledcase/真正BM25F、全库learneddense/ANN/parallel/latency与独立metric；未运行。",
+        "actual_test_function_names": [
+          "test_lowercase_and_strip_punct",
+          "test_alnum_only",
+          "test_literal_match_ranks_first",
+          "test_unknown_term_returns_empty",
+          "test_field_weight_boost",
+          "test_deterministic",
+          "test_unit_norm_embedding",
+          "test_paraphrased_query_finds_upload_doc",
+          "test_basic_fusion",
+          "test_weights_change_ranking",
+          "test_weights_length_mismatch_raises",
+          "test_smaller_k_concentrates_score_on_top",
+          "test_search_returns_three_lists",
+          "test_fused_contains_union_of_top1s",
+          "test_literal_query_wins_in_fused"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "LLM 工程实践/12-文本检索与RAG文档工程.md §2/2.1/3",
+          "LLM 工程实践/07-Embedding与检索模型训练.md §2/7"
+        ],
+        "overlap": "现12§2/2.1已有BM25正IDF、RRF单列表去重及ranking；§13明示fieldrepetition非BM25F，07已有vector合同。",
+        "new": "weightedRRF与ID冲突拒绝/finite参数可加现同例；unknowndense与单list重复vote不是去doc级就自动解决，不重写已完整基础。"
+      },
+      "diagram": {
+        "static": "两路rankunion加权fusion，提供scores来源trace而不声称全部类赢家。",
+        "dynamic": "rrf-fusion→figures-capstone-b.js rrfFusion64–94：四条固定路径SMIL圆packet分别两路进RRF，formula只是label，无BM25/dense/rankscore计算、无真实parallel。",
+        "actual_dynamic_function_static_read": "2026-10-12 本次实际全文静读提取函数并以provider原file slice/hash/blob校验；未执行。"
+      },
+      "external_verification": "所有TREC普遍优势/当前产品defaults未核，不写已核事实；纯公式与固定源码阅读。",
+      "lesson": "65-hybrid-retrieval-bm25-dense",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/code/main.py",
+          "bytes": 9272,
+          "sha256": "e003f58be999cc73f67da9c7d96ee251630dfd076943fc33c2f5ad55232817db",
+          "git_blob_sha": "e7f699c13de285d22a5cc83c5cb3b18d38e56c83",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-254",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "e7f699c13de285d22a5cc83c5cb3b18d38e56c83"
+        },
+        {
+          "path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/code/tests/test_hybrid.py",
+          "bytes": 4948,
+          "sha256": "eae6f947d8b8cdb7c215da89754ba76d6e37f2f3d9e6c7a601c5f33e0c9498a9",
+          "git_blob_sha": "3b6c001706a30d5ff1096c69bb4e275667b0fceb",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-145",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "3b6c001706a30d5ff1096c69bb4e275667b0fceb"
+        },
+        {
+          "path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/docs/en.md",
+          "bytes": 10678,
+          "sha256": "34e8d226d78d4fdd23d0f2924df3a1b19d606912bddbda1f7a98a646f07f5a45",
+          "git_blob_sha": "b01d40e11cfc0cd2240872582f5ea0c9b18f3d9f",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-147",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "b01d40e11cfc0cd2240872582f5ea0c9b18f3d9f"
+        },
+        {
+          "path": "phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/quiz.json",
+          "bytes": 3626,
+          "sha256": "4b33ce707097c6bf37e53e46ad9c504e14eb4b2a402889be81416c0c2768e424",
+          "git_blob_sha": "504309954176a6f52757d32ef0a991fcac23fd2d",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "504309954176a6f52757d32ef0a991fcac23fd2d"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "BM25、hash-vector与weightedRRF机械可学；源fieldweight重复非BM25F，RRF胜所有queryclass不成立。"
+        },
+        {
+          "line": 16,
+          "heading": "## The Problem",
+          "中文解释": "literal/改写分布可能不同，真实语义encoder需验证；本hash由字符相似非语义同义词训练，microseconds非实测。"
+        },
+        {
+          "line": 24,
+          "heading": "## The Concept",
+          "中文解释": "两ranklist→rankfusion→topK，按稳定identity合并，不直接线性混rawscores。"
+        },
+        {
+          "line": 37,
+          "heading": "### BM25 in one paragraph",
+          "中文解释": "idf log(1+(N−df+.5)/(df+.5))、TF饱和f(k1+1)/(f+k1(1−b+b dl/avgdl))；title重复同时变tf/dl/avgdl，不是单纯乘最终score/真每fieldnorm。"
+        },
+        {
+          "line": 45,
+          "heading": "### Dense retrieval in one paragraph",
+          "中文解释": "normalized96hash+tokenbigram mockembed，每query全量cos排序；跟64无bigram版本不同，不能称字节同模型。"
+        },
+        {
+          "line": 51,
+          "heading": "### Reciprocal rank fusion, the published formula",
+          "中文解释": "RRF sum_list w/(c+rank1based)，缺list贡献0，c60是一候选，same-list duplicate必须先去。"
+        },
+        {
+          "line": 59,
+          "heading": "### Why fusion beats score-weighted interpolation",
+          "中文解释": "RRF减少原score标度问题但参数/weights仍须评；已校准scorefusion可有效，allTRECsince2010/universalbeats未经核不保。"
+        },
+        {
+          "line": 69,
+          "heading": "## Build It",
+          "中文解释": "Doc、BM25add/search(positiveonly)、Denseflat、weightedRRF、Hybrid三listtrace及7docdemo，串行非并行。"
+        },
+        {
+          "line": 88,
+          "heading": "## Tuning the knobs",
+          "中文解释": "k1/b/c/weights在独立valid调，同候选K与输出K；不以literal/dense标签决定无证据最优。"
+        },
+        {
+          "line": 100,
+          "heading": "## Failure modes the demo will hide",
+          "中文解释": "unknown BM25空但dense仍forcedneighbors且RRF仍给分，dedupdoc不会自动解决unknown；stopword/duplicatecontent/zeroembedding需合同。"
+        },
+        {
+          "line": 108,
+          "heading": "## Use It",
+          "中文解释": "no ANN此码全量sort，HNSW不是一概强制；两路parallel只是建议，RRFhash累加+sort O(M+UlogU)非constanttime。"
+        },
+        {
+          "line": 117,
+          "heading": "## Ship It",
+          "中文解释": "66消费fusedcandidate但课间代码复制形状，68pseudo不可称full真实pipelinereuse；69实际静读接线。"
+        },
+        {
+          "line": 121,
+          "heading": "## Exercises",
+          "中文解释": "实际4练习：真embedding、summary第三路、c sweep、BM25F；不模板补第五。"
+        },
+        {
+          "line": 128,
+          "heading": "## Key Terms",
+          "中文解释": "k1TF、b长度、rankc与retrievalK不混；title重复是实现trick非BM25F。"
+        },
+        {
+          "line": 139,
+          "heading": "## Further Reading",
+          "中文解释": "RRF/BM25论文引用待核；Vespa/Weaviate具体默认和API不能借旧源概括当当前规范。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why does a production RAG endpoint need both lexical and semantic retrieval at once?",
+          "source_correct_index": 3,
+          "source_answer": "The query distribution mixes literal-identifier and paraphrased queries; one modality fails on each class",
+          "中文解释及核对": "源正确3是常见动机，二者实际是否互补取决data/model，端点非必须每次两路。"
+        },
+        {
+          "stage": "pre",
+          "question": "What is the BM25 parameter b at the default 0.75?",
+          "source_correct_index": 3,
+          "source_answer": "A length-normalization knob: longer documents are penalized but not linearly",
+          "中文解释及核对": "源正确3；b0无lengthnorm，b1full；doclength影响TF分母，.75是源默认非唯一published最优。"
+        },
+        {
+          "stage": "check",
+          "question": "What does Reciprocal Rank Fusion compute for each candidate?",
+          "source_correct_index": 1,
+          "source_answer": "Sum of 1 / (k + rank) across each ranked list that contains the candidate",
+          "中文解释及核对": "源正确1；rank从1起用c+rank，不用rawscore；weighted版乘w，candidate每list一次。"
+        },
+        {
+          "stage": "check",
+          "question": "Why is rank-based fusion preferred over a linear interpolation of BM25 and cosine scores?",
+          "source_correct_index": 1,
+          "source_answer": "BM25 scores are unbounded and corpus-dependent; cosine is bounded in -1 to 1; the score scales are not comparable across corpora",
+          "中文解释及核对": "源正确1；标度不兼容需校准，RRF非无条件优于scoreinterpolation。"
+        },
+        {
+          "stage": "check",
+          "question": "What happens to RRF when you make the constant k very small?",
+          "source_correct_index": 1,
+          "source_answer": "The top-1 contribution dominates the fusion; deep ranks contribute almost nothing",
+          "中文解释及核对": "源正确1；c变小rank比更陡，deep贡献相对更小不是严格全为0。"
+        },
+        {
+          "stage": "post",
+          "question": "Which failure mode does field weighting through token repetition specifically avoid?",
+          "source_correct_index": 0,
+          "source_answer": "Adding a second score-aggregation step at query time; the math stays identical and per-field-score combination logic is not needed",
+          "中文解释及核对": "源正确0；重复fieldtoken免另scoreaggregation但变tf与doclength，非真正BM25F，titleboost效果需正确反例。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Replace `mock_embed` with a real model from your provider. Re-run the demo and report how the dense-only ranking changes on the paraphrased query.",
+          "中文解释及验收边界": "真实embedding必须query/doc同配套encoder/normalization/revision，独立paraphrase/identifier/unknown分层，不以hash近邻证明语义；本次无provider调用。",
+          "executed": false
+        },
+        {
+          "source": "Add a third modality: chunk summaries indexed separately and fused as a third ranked list. Measure the gain.",
+          "中文解释及验收边界": "summary需事实来源与原docID映射，sameentity各list一票，duplicate/correlatedsummary视角需weight/candidatebudget对照，引用不能summary代替source。",
+          "executed": false
+        },
+        {
+          "source": "Sweep RRF k across 10, 30, 60, 100, 200. Plot the recall@k curve from lesson 68. Report the value of k where the curve peaks on your corpus.",
+          "中文解释及验收边界": "c10/30/60/100/200是RRFconstant而评价Recall@K是候选cutoff另变量；valid调/test冻结、多seed/CI、候选depth一致，不选择test峰值过拟合。",
+          "executed": false
+        },
+        {
+          "source": "Implement BM25F properly (per-field length normalization rather than the multiplier trick) and compare on a corpus where symbol matches matter most.",
+          "中文解释及验收边界": "BM25F各fieldlength/avgfieldlength/fieldweight先normalizedtf再饱和与IDF，title/body重复并不复现；控制title/body长度与符号真值测试。",
+          "executed": false
+        }
+      ],
+      "status": "本课4文件本次全文静读已落盘；未写作/未验收/未运行",
+      "read_status": "2026-10-12 本次4源文件全文静读，标题/所有原练习/quiz/测试分析落盘；未执行",
+      "formal_written": false,
+      "accepted": false
+    },
+    {
+      "number": 66,
+      "code_purpose": "hashword IDs3..8191保0PAD/1SEP/2CLS，打包96后截断可能doc或末SEP全部丢；typeids加2类position。CrossEncoder64dim4head1postLNattn+FFN，PADkeymask+nonPADpool→linear，MSEtrain14人工triples默认60epochfullbatchAdam；init重置Torch+NumPy全seed。rerankeval/no_grad一次batchscore，mockBi96hash无65bigram。main3query与TRAIN_TRIPLES字符串完全相同。",
+      "tests": {
+        "count": 12,
+        "purpose": "packsep/type/maxlen，scalarshape/seedparams，40loss降<.1与trainedknownquerypos>cloud，topK/empty/allwhenKlargo，pipeline2timer与d1top3。",
+        "not_covered": "pipeline_reorders只断d1在top3，没assert实际orderchange；未知/heldoutMRR/Recall、N=K可重排序、invalidN/K/IDs/allPAD、padding invariance、longquery丢doc、truncgoldspan、finite梯度/语义SOTA、cache版本/thresholdcalibration；未运行。",
+        "actual_test_function_names": [
+          "test_packs_with_separators",
+          "test_type_ids_split_query_and_doc",
+          "test_truncates_past_max_len",
+          "test_forward_returns_scalar_per_batch_row",
+          "test_deterministic_init",
+          "test_loss_decreases",
+          "test_positive_scores_above_negative_after_training",
+          "test_returns_top_k",
+          "test_handles_empty",
+          "test_top_k_larger_than_input_returns_all",
+          "test_pipeline_reports_two_latencies",
+          "test_pipeline_reorders_bi_encoder_output"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "LLM 工程实践/12-文本检索与RAG文档工程.md §3.1.4/4.4/7.1",
+          "LLM 工程实践/07-Embedding与检索模型训练.md §3/5/7/8"
+        ],
+        "overlap": "现12§3.1.4有手设两stage候选反例，§7.1明确identity重排无joint模型；07§3/5/7/8已hardnegative、切分与记录。",
+        "new": "真实小CE可作为联合打包/attention/PADpool/学习路径增量，必须标MSEtoy而非预训语义；用N=K排序反例纠源quiz，同querytrain/eval不计泛化。"
+      },
+      "diagram": {
+        "static": "Ncandidatefunnel→K输出能重排；箭头不证明特定knee/速度。",
+        "dynamic": "rerank-funnel→figures-capstone-b.js rerankFunnel96–126：固定N8、keep{5,1,6}，循环原indexascending显示3个K，membership非模型打分/训练；batchpairwork不等必须N次Pythonforward。",
+        "actual_dynamic_function_static_read": "2026-10-12 本次实际全文静读提取函数并以provider原file slice/hash/blob校验；未执行。"
+      },
+      "external_verification": "精确modelparams、SDK与provider部署推荐未查，不作为当前已核信息；未下载weights。",
+      "lesson": "66-reranker-cross-encoder",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/66-reranker-cross-encoder/code/main.py",
+          "bytes": 11305,
+          "sha256": "945f6c0bba0481a0c071fc4ed2dcbd7f4ee3c4a9956a603b8f55c20ab8a9e026",
+          "git_blob_sha": "723c0796c6fcdf723431d7e7fe6efbd17abc1e28",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-321",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "723c0796c6fcdf723431d7e7fe6efbd17abc1e28"
+        },
+        {
+          "path": "phases/19-capstone-projects/66-reranker-cross-encoder/code/tests/test_reranker.py",
+          "bytes": 5006,
+          "sha256": "a0cf1fa039736d194c8b118a71b16a509604845260b059953a4ec6a3b8c30196",
+          "git_blob_sha": "18ec0dee44ee108e2d9dd271b57b5d0c2bb87e6d",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-140",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "18ec0dee44ee108e2d9dd271b57b5d0c2bb87e6d"
+        },
+        {
+          "path": "phases/19-capstone-projects/66-reranker-cross-encoder/docs/en.md",
+          "bytes": 9776,
+          "sha256": "78414ae722deb4fe67d9de821f8554b95c64dc2176fb1a7974d274816ced87cc",
+          "git_blob_sha": "314f2400e656bee30b12c9f6dead73dda94e1101",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-139",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "314f2400e656bee30b12c9f6dead73dda94e1101"
+        },
+        {
+          "path": "phases/19-capstone-projects/66-reranker-cross-encoder/quiz.json",
+          "bytes": 3832,
+          "sha256": "75a9c585f2ac977e647a057876c30024e305273a9063d3670bba09cebc0fd804",
+          "git_blob_sha": "bd6406eb191ae4bf578f5dd1474fca04d30056e7",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "bd6406eb191ae4bf578f5dd1474fca04d30056e7"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "两tower独立 vs query+doc联attention，真实小TorchCE仅教学相关score；候选预算N与输出K都测。"
+        },
+        {
+          "line": 16,
+          "heading": "## The Problem",
+          "中文解释": "pair联合计算无doc预缓存全部交互，长库直接全pair贵；bi不是唯一可行corpusretriever，lateinteraction/lexical存在。"
+        },
+        {
+          "line": 28,
+          "heading": "## The Concept",
+          "中文解释": "retrieverN→query-conditionedCEscore→topK，候选之外gold无法由纯rerank恢复。"
+        },
+        {
+          "line": 40,
+          "heading": "### The cross-encoder's input shape",
+          "中文解释": "CLS/SEP/typeids/pos打包；本码非CLS而maskedmean。22M/568M和典型deployment建议未当前核，不保固定推荐。"
+        },
+        {
+          "line": 46,
+          "heading": "### Why this lesson trains a tiny one",
+          "中文解释": "1个postLNattention+FFN、4heads和MSE回归，随机词hash，无预训checkpoint；具实际学习计算但本次未运行。"
+        },
+        {
+          "line": 52,
+          "heading": "### Latency vs quality",
+          "中文解释": "N增加包含机会与pairwork，toy表明确illustrative；always20–50knee不成立，8docfixture超8N没有新candidate。"
+        },
+        {
+          "line": 71,
+          "heading": "## Build It",
+          "中文解释": "tokenizer、train60epoch(非oneepoch)、rerankbatch、mockBi、pipeline timer；所有demoquery复用train文字。"
+        },
+        {
+          "line": 90,
+          "heading": "## Failure modes the demo will hide",
+          "中文解释": "N=K仍可重排改变MRR/Hit@1，保留集合Recall@K不变；至少3K不是硬条件。训练泄漏真实存在，float32memory只weights不含runtime。"
+        },
+        {
+          "line": 102,
+          "heading": "## Use It",
+          "中文解释": "缓存须含docrevision/modelrevision/tokenizer/maxlen/preprocessing/tenant权限，rawCE阈值需unknowncalibration；日志不是概率/无答案证明。"
+        },
+        {
+          "line": 110,
+          "heading": "## Ship It",
+          "中文解释": "68用了titlebooststandin，69复制CE48维+lexicalblend，不是直接import本CE64维；保持实际来源边界。"
+        },
+        {
+          "line": 114,
+          "heading": "## Exercises",
+          "中文解释": "5练习都未执行；sourceepoch建议与train默认60矛盾须按实际。"
+        },
+        {
+          "line": 122,
+          "heading": "## Key Terms",
+          "中文解释": "Ncandidatecount、Kretainedcount、bi/cross路径与maskedmean分别定，不以模型名猜param数和精度。"
+        },
+        {
+          "line": 132,
+          "heading": "## Further Reading",
+          "中文解释": "官方modelcards/SDK参数未当前核；paper入口未全文读，不传播fixedmemory或部署建议。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What is the architectural difference between a bi-encoder and a cross-encoder?",
+          "source_correct_index": 0,
+          "source_answer": "A bi-encoder embeds query and document independently; a cross-encoder reads the concatenated (query, document) sequence with full attention across both",
+          "中文解释及核对": "源正确0；联合token序列的self-attention跨query/doc，不是必用另一CrossAttentionmodule。"
+        },
+        {
+          "stage": "pre",
+          "question": "Why can a cross-encoder not be used as the primary retriever on a 10M-document corpus?",
+          "source_correct_index": 1,
+          "source_answer": "It requires one forward pass per (query, document) pair, which is 10M passes per query",
+          "中文解释及核对": "源正确1；需10M pairwork，但可batch所以并非必须10M独立forward调用，代价随paircount/L²与模型。"
+        },
+        {
+          "stage": "check",
+          "question": "What is the role of the N parameter in a two-stage retrieve-then-rerank pipeline?",
+          "source_correct_index": 3,
+          "source_answer": "It is the number of candidates returned by the bi-encoder for the cross-encoder to rescore",
+          "中文解释及核对": "源正确3；N候选上限影响覆盖与成本，批数受batchsize；rerank后的集合可选K，不超原candidatecoverage。"
+        },
+        {
+          "stage": "check",
+          "question": "Why must you pick N strictly larger than K (typically 3x or more)?",
+          "source_correct_index": 3,
+          "source_answer": "If N equals K the cross-encoder cannot reorder, only reweight; rerank lift collapses to zero",
+          "中文解释及核对": "源正确3错误：N=K仍按新score重排，goldrank4→1可提高RR/Hit1；onlysetRecall@K保持。3×K是预算候选不是必要条件。"
+        },
+        {
+          "stage": "check",
+          "question": "What does the cross-encoder's mean-pooling head do in this lesson?",
+          "source_correct_index": 2,
+          "source_answer": "Averages the last-layer outputs over non-pad positions and feeds a single linear head to produce one relevance scalar",
+          "中文解释及核对": "源正确2；nonPAD最后states平均再linear标量，CLS/SEP也属于非PAD，MSEscore不是概率。"
+        },
+        {
+          "stage": "post",
+          "question": "Which production failure mode does logging the rank-1 cross-encoder score help detect?",
+          "source_correct_index": 0,
+          "source_answer": "Out-of-domain queries: when the top-1 reranker score is below a corpus-specific threshold, the model is signalling that nothing in the corpus actually answers the query",
+          "中文解释及核对": "源正确0需校正为线索：rawscore低不证无answer；有independentunknownlabels校准后才拒答，domainshift/shorttext/trunc可低score。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Sweep N from 5 to 50 and plot recall@1 of the reranked output. Find the knee on this fixture.",
+          "中文解释及验收边界": "fixture只有8docs，N5–50在N≥8饱和是库耗尽不证明质量knee；独立queries更大库同budgetprofile，report Recallcandidate@N、MRR/Hit@1/outputK与真实batchlatency。",
+          "executed": false
+        },
+        {
+          "source": "Train the cross-encoder for ten epochs instead of one. Measure the score-margin between positive and negative pairs at each epoch.",
+          "中文解释及验收边界": "源default60epoch、main60，并非one，需将epochs曲线配置如1/10/40/60明确；同trainloss下降/posnegmargin不能替heldoutrank，更防samequery泄漏。",
+          "executed": false
+        },
+        {
+          "source": "Replace mean-pooling with a CLS-token head. Compare convergence on this fixture.",
+          "中文解释及验收边界": "CLS vs maskedmean需同initialdata/budget/labels/validsep，verifypadding invariance和gradient；不预定差别small或similarquality。",
+          "executed": false
+        },
+        {
+          "source": "Add a second cross-encoder head that predicts a binary \"is this answer in the document\" label. Use both heads at inference; one to rank, one to threshold.",
+          "中文解释及验收边界": "二headranking+answerability目标要标无answercases，独立阈值calibration/风险覆盖曲线；rankscore不能直接当confidence，jointlossweight/共享梯度检查。",
+          "executed": false
+        },
+        {
+          "source": "Replace the deterministic mock bi-encoder with the one from lesson 65 and chain the two stages. Measure the change in top-K versus bi-encoder alone.",
+          "中文解释及验收边界": "源65是BM25+hashdense+RRF非真bi模型，本课Bi另hash无bigram；chain通过候选身份/文本版本/长度合同适配，不仅dictkey，比较candidatebudget固定。",
+          "executed": false
+        }
+      ],
+      "status": "本课4文件本次全文静读已落盘；未写作/未验收/未运行",
+      "read_status": "2026-10-12 本次4源文件全文静读，标题/所有原练习/quiz/测试分析落盘；未执行",
+      "formal_written": false,
+      "accepted": false
+    },
+    {
+      "number": 67,
+      "code_purpose": "ASCII tokenize/hash+bigram normalize mockembed不是dense语义；BM25title重复3，cos zip无dim/finite校验。HyDE search_vec(hv,qtextoriginal)内部BM25original+densehyp，再rewritesoriginal hybrid BM25original+denseoriginal，外RRF使原lexical重复影响；MQ列表含原始+3，未知词无synonyms时可N重复；decomp按and切。gold multifacet只d1，不要求d3quota。全部for串行无cache/async。",
+      "tests": {
+        "count": 13,
+        "purpose": "mock table/fallback/paraphrasecount/atomic/multiclause；strategyfields；baseline runs、HyDE某query全ranking不同、gold case最小rank；RRFempty/singleorder。",
+        "not_covered": "goldpromotion best初始化baseline再min rewrites，最后best<=baseline恒真，未保证anyrewriter改善/ designatedwinner；无d1+d3facetcoverage/intent否定、多query重复vote、duplicateid、unknownirrelevant、HyDE真实embedding、并行/latency。未运行。",
+        "actual_test_function_names": [
+          "test_hyde_table_hit",
+          "test_hyde_fallback_returns_string",
+          "test_paraphrase_returns_n",
+          "test_decompose_atomic_returns_self",
+          "test_decompose_splits_on_and",
+          "test_returns_hypothetical",
+          "test_includes_original_query_plus_paraphrases",
+          "test_multi_clause_decomposes",
+          "test_no_rewrite_baseline_runs",
+          "test_hyde_changes_top_rank",
+          "test_gold_promotion_for_designated_strategies",
+          "test_rrf_empty",
+          "test_rrf_single_list_preserves_order"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "LLM 工程实践/12-文本检索与RAG文档工程.md",
+          "LLM 工程实践/07-Embedding与检索模型训练.md"
+        ],
+        "overlap": "现12§3.1.1–3已有multiquery/subquery/HyDE/stepback和4candidatebudget、错误假文反例与全部必需事实；无需另开改写主文。",
+        "new": "补原文query保存、同query重复词法票/相关列表权重、invalidfacet全覆盖、真实串行与恒真test；以例说明不会hyDE假文作citation。"
+      },
+      "diagram": {
+        "static": "三路rewrite/embedding/hybrid/RRF的意图，不能以graph推并行实施。",
+        "dynamic": "cd-hyde-vector→figures-capstone-d.js cdHyde36–74：queryvector固定指错、hyp线端SMIL摆到targetdoc并显示4行hardcodedfakepassage，无生成/embedding/retrieval，落到正确doc是示意不保证。",
+        "actual_dynamic_function_static_read": "2026-10-12 本次实际全文静读提取函数并以provider原file slice/hash/blob校验；未执行。"
+      },
+      "external_verification": "未本次读论文；具体历史归因不计核验，不调用LLM。",
+      "lesson": "67-query-rewriting-hyde",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/67-query-rewriting-hyde/code/main.py",
+          "bytes": 15326,
+          "sha256": "d389678a7e7e76cad112826804e3066eedeefec625d181adf04f51aed4efb3e6",
+          "git_blob_sha": "865a2a9692f29b9c930fa8c7a491c6b108114b75",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-431",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "865a2a9692f29b9c930fa8c7a491c6b108114b75"
+        },
+        {
+          "path": "phases/19-capstone-projects/67-query-rewriting-hyde/code/tests/test_rewriters.py",
+          "bytes": 5108,
+          "sha256": "67d75b062cb5be5bf66d71841d94c8c5fc2db576586d61514e017b9f5f506397",
+          "git_blob_sha": "d23188c6399f94760a815c9d0e5687e1f0f0412a",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-128",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "d23188c6399f94760a815c9d0e5687e1f0f0412a"
+        },
+        {
+          "path": "phases/19-capstone-projects/67-query-rewriting-hyde/docs/en.md",
+          "bytes": 11197,
+          "sha256": "557c99badab765db1ef037e774deae0aceb9e290f8bfb722f71f68aff1e8776e",
+          "git_blob_sha": "31388f30efd293623dd2838bf55a6f5157fc4b6f",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-175",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "31388f30efd293623dd2838bf55a6f5157fc4b6f"
+        },
+        {
+          "path": "phases/19-capstone-projects/67-query-rewriting-hyde/quiz.json",
+          "bytes": 3935,
+          "sha256": "fc6370c83daeed43f7edb70e50106f0f70e92cd7ea616d4da12234d08d48c4ec",
+          "git_blob_sha": "f51b5954b8222ec1162102bd791567aa2333b710",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "f51b5954b8222ec1162102bd791567aa2333b710"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "三种rewrite接口：hypdoc、同意图paraphrases、多facet subqueries，以同fixture比较，mock offline。"
+        },
+        {
+          "line": 17,
+          "heading": "## The Problem",
+          "中文解释": "改写可救candidate recall，不保证总优；真实HyDE不是语义事实证据，source巧设fixture不能推广赢率。"
+        },
+        {
+          "line": 27,
+          "heading": "## The Concept",
+          "中文解释": "图三策略→embedding→hybrid→RRF，实际代码lexical和hash向量混合且重复fusion，未并行。"
+        },
+        {
+          "line": 44,
+          "heading": "### HyDE in detail",
+          "中文解释": "hypothetical只供检索，不可当最终事实/引用；错误ID会偏移表示。长度2–3句是候选budget非普适最佳。"
+        },
+        {
+          "line": 62,
+          "heading": "### Multi-query expansion in detail",
+          "中文解释": "保原意同义多个query，source原query另加入；近重复结果会重复票，需去重/权重，速度取决真正fanout。"
+        },
+        {
+          "line": 75,
+          "heading": "### Decomposition in detail",
+          "中文解释": "子问题需覆盖全部facet及逻辑关系，source按and切不能解析not/比较/限定；原子问不强拆。"
+        },
+        {
+          "line": 89,
+          "heading": "### Why all three exist",
+          "中文解释": "策略互补但按任务验证，不必须所有一起跑；成本/intent漂移/coverage一起评。"
+        },
+        {
+          "line": 93,
+          "heading": "## The Mock LLM",
+          "中文解释": "MockLLM表内直接含fixture答案，fallback synonyms/and split，不是LLM生成或真实zero-shot。"
+        },
+        {
+          "line": 106,
+          "heading": "## Build It",
+          "中文解释": "HyDERewriter保存hyp及原query；retrieve先hypvector+originalBM25 hybrid，再originalhybrid，最后RRF。MQ原+Nparaphrase；DC不保original。"
+        },
+        {
+          "line": 127,
+          "heading": "## Failure modes the demo will hide",
+          "中文解释": "hyp错ID、多query坍同、atomic过拆/latency是实际风险，但源码无diversity/confidence/cache/async。"
+        },
+        {
+          "line": 137,
+          "heading": "## Use It",
+          "中文解释": "按querylength选择/三路并行只建议；未知/多facet约束更强，不能以长度判唯一最佳。"
+        },
+        {
+          "line": 145,
+          "heading": "## Ship It",
+          "中文解释": "67单文件重写65兼容retriever并非直接import；69接线必须核identity与实际执行。"
+        },
+        {
+          "line": 149,
+          "heading": "## Exercises",
+          "中文解释": "5练习应独立data/budget、意图一致/coverage、duplicates、真实服务授权边界，未执行。"
+        },
+        {
+          "line": 157,
+          "heading": "## Key Terms",
+          "中文解释": "HyDE假文embedding、MQparaphrase、decompositionfacet、atomic、stepback分别任务；假文不是可信语料。"
+        },
+        {
+          "line": 167,
+          "heading": "## Further Reading",
+          "中文解释": "仅来源索引；HyDE可核原论文，Microsoft/DSPy文献题名归因未本次核，不保已核事实。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "What is the core mechanism of HyDE (Hypothetical Document Embeddings)?",
+          "source_correct_index": 3,
+          "source_answer": "Generate a fake answer with an LLM, embed that hypothetical document, and retrieve against its vector instead of the query vector",
+          "中文解释及核对": "源正确3；原HyDE对hyp embedding查真实docs，本实现另保originalhybrid并融合，不是纯替换。"
+        },
+        {
+          "stage": "pre",
+          "question": "Why is it acceptable for the LLM-generated hypothetical document in HyDE to be factually wrong?",
+          "source_correct_index": 2,
+          "source_answer": "The retriever cares about the token distribution, not factual correctness; the hypothetical's vector lands near the real passage",
+          "中文解释及核对": "源正确2不等错误无害：hyp不是真值，但错entity/事实可拉向错doc；必须只以检索真实docs作回答证据，不保证近正确区域。"
+        },
+        {
+          "stage": "check",
+          "question": "What is the difference between multi-query expansion and query decomposition?",
+          "source_correct_index": 0,
+          "source_answer": "Multi-query produces N paraphrases of the same question; decomposition produces sub-questions that together cover a multi-topic question",
+          "中文解释及核对": "源正确0；MQ同意图，DC不同facet共同满足问题，不能把每facet任一doc hit算整体覆盖。"
+        },
+        {
+          "stage": "check",
+          "question": "When does query decomposition over-split and hurt retrieval?",
+          "source_correct_index": 2,
+          "source_answer": "When the query is atomic (single-topic), the decomposer invents fake sub-questions and the retrievals all return the same document with reduced rank",
+          "中文解释及核对": "源正确2；atomic误拆可能漂移/稀释，不是必然每次降低；需保约束与负对照。"
+        },
+        {
+          "stage": "check",
+          "question": "Why do the three rewriting strategies fuse with RRF rather than score interpolation?",
+          "source_correct_index": 0,
+          "source_answer": "Score interpolation requires per-corpus calibration; RRF combines rank-based contributions without calibration, which is required when fusing N retrievals from different rewrites",
+          "中文解释及核对": "源正确0；RRF免scores同标度需求，但k/weights/candidatebudget仍需选择，校准scorefusion并非非法。"
+        },
+        {
+          "stage": "post",
+          "question": "What is the latency floor when running all three rewriters in parallel?",
+          "source_correct_index": 2,
+          "source_answer": "One LLM call (the rewriters and retrievals run in parallel; the LLM call is the floor)",
+          "中文解释及核对": "源正确2只是理想并行下LLM阶段约最大call延迟，端到端还要后依赖retrieval+merge；源码串行mock无LLM latency实证。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Implement RAG-Fusion (a 2024 variant of multi-query) where the rewriter's paraphrases are intentionally diverse, then the rerank step (lesson 66) picks the final list.",
+          "中文解释及验收边界": "多样paraphrase要保实体/否定/时间/ACL语义；N个ranklists去重ID每list一次贡献，再union rerank；同candidate budget对照original避免赢在额外检索量。",
+          "executed": false
+        },
+        {
+          "source": "Add a fourth strategy: step-back prompting (ask the LLM for the more general question, retrieve on that, then narrow). Compare on the fixture.",
+          "中文解释及验收边界": "stepback抽一般机制可增coverage也会丢实体限定，retrieve general后保original narrow evidence；记录facetcoverage/成本，不预定fixture赢。",
+          "executed": false
+        },
+        {
+          "source": "Train the decomposer to recognize atomic queries by adding a \"is the question atomic\" head. Measure the over-split rate before and after.",
+          "中文解释及验收边界": "atomic标签要真实query独立切分，按false split/漏拆/多facetcoverage评；关键词and不是多facet真值。",
+          "executed": false
+        },
+        {
+          "source": "Replace the mock LLM with a real model call. Measure the latency-per-strategy on your stack.",
+          "中文解释及验收边界": "真实LLM调用需独立授权/服务配置，本任务未调用；按rewrite/retrieval/rerank/queue各阶段wall latency、P50/P95与outputschema/失败率。",
+          "executed": false
+        },
+        {
+          "source": "Add a confidence score per rewrite. Drop rewrites below the threshold. Measure the impact on recall.",
+          "中文解释及验收边界": "rewriteconfidence必须校准到保意图/引入事实/检索收益，不把LLM自报作为概率；threshold在valid选，heldout报recall/coverage/abstain及cost。",
+          "executed": false
+        }
+      ],
+      "status": "本课4文件本次全文静读已落盘；未写作/未验收/未运行",
+      "read_status": "2026-10-12 本次4源文件全文静读，标题/所有原练习/quiz/测试分析落盘；未执行",
+      "formal_written": false,
+      "accepted": false
+    },
+    {
+      "number": 68,
+      "code_purpose": "precision分母k、recall去重set、RRfirst。nDCG expgain完整goldIDCG，但retrieved没dedup/unknownfinite，duplicate相关可>1。contenttokens ASCII regexstop，not未去掉但重叠不检not逻辑。MockJudge answerq重叠，本demoanswer复制top2body极易token支持。evaluate context从本地全局12docs按id取，未知id静默drop，notactualreturnedtexts；参考answer_substring未用。variant均手写lexical启发式，不调用64–67模型。",
+      "tests": {
+        "count": 24,
+        "purpose": "precision完/partial/少候选/0，recall完/partial/emptygold，RR位置/缺及均值，nDCG理想/反转/DCG0，claimsplit/空，support3、relevance2、evalfields/两baseline改善关系。",
+        "not_covered": "duplicateID、负/boolk、nan/非法grades/空ks、qrelsbinarygraded一致、unknownidcontext、negation/错误数字/多facet/引用支持、真实各组件接线与oracle-freeheldout、abstention；未运行。",
+        "actual_test_function_names": [
+          "test_perfect",
+          "test_partial",
+          "test_k_larger_than_retrieved",
+          "test_zero_k_returns_zero",
+          "test_perfect",
+          "test_partial",
+          "test_empty_gold",
+          "test_first_position",
+          "test_second_position",
+          "test_not_found",
+          "test_mean",
+          "test_perfect_ranking",
+          "test_inverted_ranking",
+          "test_dcg_zero_when_no_relevant",
+          "test_extract_claims_split_on_sentences",
+          "test_extract_claims_empty",
+          "test_all_supported",
+          "test_none_supported",
+          "test_empty_claims",
+          "test_relevant",
+          "test_irrelevant",
+          "test_returns_all_metrics",
+          "test_hybrid_beats_baseline_on_recall_at_1",
+          "test_hybrid_plus_rerank_at_least_as_good_as_hybrid"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "LLM 工程实践/12-文本检索与RAG文档工程.md",
+          "LLM 工程实践/07-Embedding与检索模型训练.md"
+        ],
+        "overlap": "现12§2.1/7已有多相关Recall/Hit/RR/nDCG的完整gold IDCG及去重、生成支持/未知分层；§14已有judge与qrels独立真值。",
+        "new": "补precision少候选分母政策、binarygrade阈值和宏观claim/错误数字否定反例；MockJudge/手写pseudo variants不算前课接线，保持专业支持边界。"
+      },
+      "diagram": {
+        "static": "qrels→retrieval与generator→answer两类评估，不把faithfulness替代correctness。",
+        "dynamic": "ci-rag-metric-ladder→figures-capstone-i.js ragMetricLadder84–116：5rows goldrank1,4，sweep预设discrete，P2/5/R2/3/RR1固定文字；nDCG.86是hardcode，binary3gold正确ratio≈.671386，若graded需声明labels。",
+        "actual_dynamic_function_static_read": "2026-10-12 本次实际全文静读提取函数并以provider原file slice/hash/blob校验；未执行。"
+      },
+      "external_verification": "公式与源码静读，未调用judge或外部API；source历史paper/SDK未当前核不声称。",
+      "lesson": "68-rag-eval-precision-recall",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/68-rag-eval-precision-recall/code/main.py",
+          "bytes": 15420,
+          "sha256": "24cf48ce02b08dc6be183605dc0407c2375d39338e7b379b700d694c41d687b0",
+          "git_blob_sha": "56e4c5795b8f8a30c505525a87786249dddbe7bb",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-432",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "56e4c5795b8f8a30c505525a87786249dddbe7bb"
+        },
+        {
+          "path": "phases/19-capstone-projects/68-rag-eval-precision-recall/code/tests/test_eval.py",
+          "bytes": 5303,
+          "sha256": "d02bff2ad9bbfb541d53d891f8b32f537f0509a0c1b3819023757171116ec1ef",
+          "git_blob_sha": "54e6513dc8f211b7d779b49170b88973bc50c79b",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-156",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "54e6513dc8f211b7d779b49170b88973bc50c79b"
+        },
+        {
+          "path": "phases/19-capstone-projects/68-rag-eval-precision-recall/docs/en.md",
+          "bytes": 11316,
+          "sha256": "5f13a413ed47d65037cae1f68900c2fd1bbf840f668718b7b38829beb0d93ccb",
+          "git_blob_sha": "af3a7ba9be55995b7d31ae6d1c1c80df8a999daf",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-188",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "af3a7ba9be55995b7d31ae6d1c1c80df8a999daf"
+        },
+        {
+          "path": "phases/19-capstone-projects/68-rag-eval-precision-recall/quiz.json",
+          "bytes": 3565,
+          "sha256": "2a73baa400f819b19d63dcc807d1735c1da033454f02292f50e083ba05330a6c",
+          "git_blob_sha": "e460e2f55d6677d23721c87596f17e62f8700e51",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "e460e2f55d6677d23721c87596f17e62f8700e51"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "四retrieval与两answer表面分开，以qrels和stage trace定位问题，不把代理judge当真实支持。"
+        },
+        {
+          "line": 16,
+          "heading": "## The Problem",
+          "中文解释": "错误可来自边界/候选/排序/生成，合适指标先定；线上用户错误需对应数据身份，而非纯答案猜因。"
+        },
+        {
+          "line": 29,
+          "heading": "## The Concept",
+          "中文解释": "qrels给gold docs/grades/reference，pipeline返回docs和answer，retrieval分数和answer评分分别算。"
+        },
+        {
+          "line": 45,
+          "heading": "### Precision@k",
+          "中文解释": "本precision=sum相关出现/k，少于k仍除k；duplicateID会重复hit，应先唯一doc/chunk身份。"
+        },
+        {
+          "line": 49,
+          "heading": "### Recall@k",
+          "中文解释": "recall=set(topk)∩gold/gold数，空gold返回0的约定；不是至少一个gold命中。负k缺验证，source建议多无关一般无害过度。"
+        },
+        {
+          "line": 55,
+          "heading": "### MRR (Mean Reciprocal Rank)",
+          "中文解释": "RR首相关位置1基倒数，MRR均query，缺相关0；不代表所有facet覆盖。"
+        },
+        {
+          "line": 61,
+          "heading": "### nDCG@k",
+          "中文解释": "gain2^rel−1/log2(rank+1)，按完整gradedgold理想排序IDCG@k，重复ID可超1；二元/分级gold集合不一致须声明。"
+        },
+        {
+          "line": 67,
+          "heading": "### Faithfulness",
+          "中文解释": "sentence split后的claim同context token overlap≥.4即support，非语义蕴含；negation/entity/数值/引用不能靠词重叠。"
+        },
+        {
+          "line": 75,
+          "heading": "### Answer relevance",
+          "中文解释": "query内容词被answer覆盖≥.4返回binary，是topic词代理不是用户问题真正满足。"
+        },
+        {
+          "line": 81,
+          "heading": "## The fixture qrels",
+          "中文解释": "Qrel对象含qid/query/binarydocs/substring/graded；q1graded d2=1却binary只d3/d1，q2d5grade2非binary；须明示相关等级阈值。substring保存但不用评分。"
+        },
+        {
+          "line": 105,
+          "heading": "## Build It",
+          "中文解释": "24tests与纯python metric/judge/orchestrator；baseline/hybrid/rerank实为BoW/synonyms/titlebonus，非64chunker/65dense/66trainedCE接线。"
+        },
+        {
+          "line": 128,
+          "heading": "## Reading the metrics to diagnose failures",
+          "中文解释": "goodrecall lowMRR可能排序问题，highscores不能排eval污染/题错/引用不支持；diagnostic是线索非确定因果。"
+        },
+        {
+          "line": 138,
+          "heading": "## Failure modes the demo will hide",
+          "中文解释": "judge偏置、qrels变化、macroclaims与slice是合理风险；换judge家族不自动校准，quarterly是政策例。"
+        },
+        {
+          "line": 148,
+          "heading": "## Use It",
+          "中文解释": "每改复核同versionqrels和每querytrace；20/200/2000只是规模示例，按覆盖/成本与置信区间。"
+        },
+        {
+          "line": 156,
+          "heading": "## Ship It",
+          "中文解释": "69应实际导入/接线核验，不能从本PipelineFn同shape声称完整真实实现。"
+        },
+        {
+          "line": 160,
+          "heading": "## Exercises",
+          "中文解释": "5练习有hit/gradejudge/realjudge/slice/length，全部未执行。"
+        },
+        {
+          "line": 168,
+          "heading": "## Key Terms",
+          "中文解释": "precision/recall/RR/nDCG/support/relevance/qrels各分母与任务不同；术语hit不能混。"
+        },
+        {
+          "line": 180,
+          "heading": "## Further Reading",
+          "中文解释": "引用仅入口，不算全文；无需将Ragas默认judge与本阈值代理同一规范。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why is recall@k usually the headline retrieval metric in production RAG?",
+          "source_correct_index": 3,
+          "source_answer": "Generation can drop irrelevant chunks but cannot invent an answer from a chunk it never saw, so missing the right chunk is the more expensive failure",
+          "中文解释及核对": "源正确3；candidate miss不能靠rerank恢复，但过多无关有毒/分散/上下文budget风险，非rarelypoison保证。"
+        },
+        {
+          "stage": "pre",
+          "question": "What does MRR compute?",
+          "source_correct_index": 3,
+          "source_answer": "The mean of 1 / position-of-first-relevant-document across queries",
+          "中文解释及核对": "源正确3；rank1→1/rank2→.5/没找到0，query平均；topK截断则报告MRR@K。"
+        },
+        {
+          "stage": "check",
+          "question": "When should you reach for nDCG instead of recall@k?",
+          "source_correct_index": 3,
+          "source_answer": "When the gold labels carry graded relevance (e.g. doc A is 3, doc B is 2, doc C is 1) and binary metrics lose information",
+          "中文解释及核对": "源正确3；gradedgain/positiondiscount，不取代binary相关coverage，均可同报。"
+        },
+        {
+          "stage": "check",
+          "question": "What is the difference between faithfulness and answer relevance?",
+          "source_correct_index": 3,
+          "source_answer": "Faithfulness asks 'is the answer grounded in the retrieved context'; answer relevance asks 'does the answer address the question'",
+          "中文解释及核对": "源正确3；contextsupport与回答question是独立轴，支持不等来源真值。"
+        },
+        {
+          "stage": "check",
+          "question": "A pipeline shows decent recall@5 but low MRR. Which stage should you investigate first?",
+          "source_correct_index": 3,
+          "source_answer": "The reranker, because the right chunk is in the top-k but not at the top",
+          "中文解释及核对": "源正确3；先检查排序/候选含gold与budget，但还需gold标签/多facet和duplicateID，不必然只reranker。"
+        },
+        {
+          "stage": "post",
+          "question": "What production hazard makes a frozen qrels file dangerous over time?",
+          "source_correct_index": 3,
+          "source_answer": "Qrels rot: the corpus changes and a doc that was the gold answer last quarter is no longer the right answer; metrics get reported against stale labels",
+          "中文解释及核对": "源正确3；corpusrevision/删除/事实变化触发qrels重标，quarterly只是治理选择非通用期限。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Add a fifth retrieval metric: hit-rate@k. Compare it against recall@k. Explain when they differ.",
+          "中文解释及验收边界": "Hit@k每query只问任一正确，Recall@k问相关集合比例；gold3取到1则Hit1、Recall1/3，同singlegold二者等价。",
+          "executed": false
+        },
+        {
+          "source": "Implement a graded faithfulness: 0 (unsupported), 1 (partially supported), 2 (fully supported). Update the metric accordingly.",
+          "中文解释及验收边界": "claims部分support可0/1/2后除2N，需标注什么是部分/拒断和interannotatoragreement；数值错误/限定词不能按词重叠平均搪塞。",
+          "executed": false
+        },
+        {
+          "source": "Replace the mock judge with a real model call. Measure the disagreement between the mock and the real judge on the fixture.",
+          "中文解释及验收边界": "真实judge另授权，本任务未调用；拿人工标注样本比较precision/recall/误判类型、LLM间disagreement而非把realjudge作绝对truth。",
+          "executed": false
+        },
+        {
+          "source": "Add a query-class slice (\"literal\", \"paraphrased\", \"multi-topic\"). Report per-slice metrics.",
+          "中文解释及验收边界": "literal/paraphrase/multifacet标签独立定义、分母/样本数/CI和每querytrace；多facet必须全部证据coverage，不只单doc命中。",
+          "executed": false
+        },
+        {
+          "source": "Add an \"answer length\" metric and correlate it with faithfulness. Plot the curve.",
+          "中文解释及验收边界": "长度按token/claim定义，分层控制题难/证据量；关联不证长答导致幻觉，空答/拒答单独算。",
+          "executed": false
+        }
+      ],
+      "status": "本课4文件本次全文静读已落盘；未写作/未验收/未运行",
+      "read_status": "2026-10-12 本次4源文件全文静读，标题/所有原练习/quiz/测试分析落盘；未执行",
+      "formal_written": false,
+      "accepted": false
+    },
+    {
+      "number": 69,
+      "code_purpose": "真实接线同一文件：recursivechar chunk→两个listBM25/hashdense→RRF→heuristicrewrite→torchcrossencoder[MSE17人工triple80epoch]→CE+.3queryoverlap排序→extract2首句。Python无网络/模型权重加载，torch运算是真attention学习但本次未执行。Pipeline.ingestappend无replace/dedup；same docID:index可冲突，RRFby_anchor后对象覆盖。没有ACL/principal/tenant/revision/source offsets/validdate/删除传播/索引代际；非生产身份合同。训练字面queries不同但共享evalgolddocs/人工负例，四eval均MQ；HyDE字面表含eval答案但默认selector不进入。Refusal仅topscore<.05或empty，zerooverlap仍fallbackcopy，不校准unknown。faithfulness词重叠stripanchor，不核每anchor支持；goldsubstringunused；5metricsubset不含nDCG或真实68eval函数。 _REWRITE_HYDE四个key均无selector触发jargon/and，按默认pick_strategy均MQ；不仅本eval未走HyDE，查表假文默认分支不可达，除非替换selector。",
+      "tests": {
+        "count": 20,
+        "purpose": "chunkshort/anchor、indexnonempty、3strategyheuristic、generatorlow/empty/cite、docrecall/precision/mrr/nohit/refusefaith1/topic、pipelineResult/timer/citesORrefuse、threshold与demoexit0。",
+        "not_covered": "ACL/身份版本/重新ingest/duplicateanchor/索引同步、longchunk硬cap/token截断与支持span、unknownhighscore零overlap、citationresolves/support、完整事实/answerexact、independentsemantics/multifacet、actualstageablation、metricsdenominator统一、真实模型/stream/network/gpu；未运行。",
+        "actual_test_function_names": [
+          "test_one_chunk_for_short_text",
+          "test_anchor_format",
+          "test_search_returns_chunks",
+          "test_strategy_decompose_on_and",
+          "test_strategy_hyde_on_jargon",
+          "test_strategy_default_multiquery",
+          "test_refuses_when_top_score_below_threshold",
+          "test_refuses_on_empty",
+          "test_emits_citation_anchor",
+          "test_recall",
+          "test_precision",
+          "test_mrr_first_unique_doc",
+          "test_mrr_no_hit",
+          "test_faithfulness_refuse_with_empty_topk_is_one",
+          "test_answer_relevance",
+          "test_returns_result_with_top_k",
+          "test_latencies_reported_per_stage",
+          "test_answer_carries_citations",
+          "test_eval_meets_thresholds",
+          "test_run_demo_exits_zero"
+        ]
+      },
+      "integration": {
+        "targets": [
+          "LLM 工程实践/12-文本检索与RAG文档工程.md §7.1/13/14",
+          "LLM 工程实践/07-Embedding与检索模型训练.md §7/8"
+        ],
+        "overlap": "现12§7.1标准库OfflineRAG已筛有效scope/version、原文span、parentdedup、querytrace/budget、unknown/缺任一必需fact拒答与更新snapshot；§13/14维护trustedACL/代际/缓存/流终态。",
+        "new": "保持既有合同并补rawCEscore仅线索、sourcefirstsentence误答/anchorresolver/同ID重复、metricdoc/chunk预算一致和真实CE+stubscope表；source69不能作为已完成部署证据。"
+      },
+      "diagram": {
+        "static": "完整链本文件组合确有真实CPUCE运算意图，但示意所有stagecomplete不代表生产合同。",
+        "dynamic": "rag-pipeline-flow→figures-capstone-b.js ragPipeline128–155：4stage颜色动画+packet，固定answer+[chunk:42]与refuse文字出现，无runEval/CE/no confidence计算，称beatsallisolated未经实验。",
+        "actual_dynamic_function_static_read": "2026-10-12 本次实际全文静读提取函数并以provider原file slice/hash/blob校验；未执行。"
+      },
+      "external_verification": "未运行任何source；引用规范/工具不能从图和标志推当前接口，未外查事实保持待核。",
+      "lesson": "69-end-to-end-rag-system",
+      "date": "2026-10-12",
+      "files": [
+        {
+          "path": "phases/19-capstone-projects/69-end-to-end-rag-system/code/main.py",
+          "bytes": 27158,
+          "sha256": "5c1634f436963eb2a731cb3b5f1ee022482e76dc78964adce6a093c4a4eefa59",
+          "git_blob_sha": "4bf3deffb5d65ed3a0e1957ad7164e96c3df3522",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-721；初次合并输出中280–455附近省略已以nl -ba/sed 280–455逐行补读，不将截断自报计完成。",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "4bf3deffb5d65ed3a0e1957ad7164e96c3df3522"
+        },
+        {
+          "path": "phases/19-capstone-projects/69-end-to-end-rag-system/code/tests/test_pipeline.py",
+          "bytes": 5336,
+          "sha256": "5de4a300561679cc4f548a67f19ae1d935f8386562145127353a290f961e085a",
+          "git_blob_sha": "5541b2a362ad2849dfdb6181602a304c127a89a9",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-162",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "5541b2a362ad2849dfdb6181602a304c127a89a9"
+        },
+        {
+          "path": "phases/19-capstone-projects/69-end-to-end-rag-system/docs/en.md",
+          "bytes": 9284,
+          "sha256": "85311d9bd44f6624f5ff7c662f2e43357a0af46a1f073d5f9b2b375016a4ae73",
+          "git_blob_sha": "952b6fcc5b9b29127e7722888efde5c1679b65e9",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-159",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "952b6fcc5b9b29127e7722888efde5c1679b65e9"
+        },
+        {
+          "path": "phases/19-capstone-projects/69-end-to-end-rag-system/quiz.json",
+          "bytes": 3671,
+          "sha256": "c2ac745683090dabaebeef03b12eb515ed6f79ed2f93c69019d9a5fecd9b49aa",
+          "git_blob_sha": "4035f40056e9add206f24b8e197b047a2aa26fe5",
+          "reading_scope": "全文静读全部正文/注释/代码/测试/JSON；行1-78",
+          "date": "2026-10-12",
+          "execution": "未执行，未导入",
+          "root_verified_git_blob_sha": "4035f40056e9add206f24b8e197b047a2aa26fe5"
+        }
+      ],
+      "true_h2_h4": [
+        {
+          "line": 10,
+          "heading": "## Learning Objectives",
+          "中文解释": "组合各stage及引用/拒答/固定eval/退出码；只有实际检查到的局部mock可成立，不能从fixture满足阈值说systemship。"
+        },
+        {
+          "line": 16,
+          "heading": "## The Problem",
+          "中文解释": "组件交互确需integration，但stage tests仍有意义；同toyqrels端到端不是唯一/充分productiongrade。"
+        },
+        {
+          "line": 22,
+          "heading": "## The Concept",
+          "中文解释": "Source→recursivechunks→hybridindex；queryheuristicrewrite→retrieve→trueCE+lexical→extractivegen→5proxycriteria→exit。不直接import64–68而复制缩减实现。"
+        },
+        {
+          "line": 39,
+          "heading": "### Wiring choices",
+          "中文解释": "Chunk只有doc_id,index,text；Pipeline5默认对象可替同接口而generator是全局函数无inject参数。无ACL/revision/offset身份，只query stage timer。"
+        },
+        {
+          "line": 53,
+          "heading": "### Answer generator with citations",
+          "中文解释": "rankedtop1 blended rawscore阈值.05；top3按querycontent重叠选2或fallback第一，复制首句加anchor。score过阈但零重叠仍答，不是nooverlap拒答。引用存在不证满足问/当前有效事实。"
+        },
+        {
+          "line": 79,
+          "heading": "### The self-terminating demo",
+          "中文解释": "4evalquery五指标THRESHOLDSgate，run_demo返0/1再sys.exit，属程序真实行为意图；无本次运行，不报告实际pass。"
+        },
+        {
+          "line": 89,
+          "heading": "## Build It",
+          "中文解释": "Chunker只recursive，hash dense/bm25/RRF、heuristicrewriter、真实torchCE、extractivegenerator、Resulttrace及小eval；不完整复现6课全部variant/metric。"
+        },
+        {
+          "line": 110,
+          "heading": "## Failure modes the demo will hide",
+          "中文解释": "训练query字面不同但相同doc/facts/人工hardneg；改写table逐字含eval答案；selector却四eval都multiquery不触发HyDE。复制文本仍可错相关/宏观答义/错误source，nohallucination绝对说法过宽。"
+        },
+        {
+          "line": 122,
+          "heading": "## Use It",
+          "中文解释": "CIgate需独立切分/锁版本/失败trace；20query30s/nightly示例不是SLA保证。"
+        },
+        {
+          "line": 131,
+          "heading": "## Ship It",
+          "中文解释": "实现缺ingest发布/身份/ACL/update/serving/streaming/tokenbudget；retrieverhash不是真实dense，eval支持只是tokenproxy，不能称 productioncomplete。"
+        },
+        {
+          "line": 135,
+          "heading": "## Exercises",
+          "中文解释": "5练习如selector现已实现heuristics，应强化保语义/测selection，不重复说缺功能。"
+        },
+        {
+          "line": 143,
+          "heading": "## Key Terms",
+          "中文解释": "pipeline/anchor/refusal/smoke/interface是组合、定位、决策、子集和类型；anchor没有revision无法长期唯一定位。"
+        },
+        {
+          "line": 153,
+          "heading": "## Further Reading",
+          "中文解释": "URLs为入口未本轮核，无实际服务/部署或LLM调用。"
+        }
+      ],
+      "quiz": [
+        {
+          "stage": "pre",
+          "question": "Why is the integration test the only honest grade of a six-component RAG pipeline?",
+          "source_correct_index": 3,
+          "source_answer": "Each stage's isolated metric does not predict the system's metric because each stage interacts with the next; the only valid grade is the whole pipeline run end to end against the same qrels",
+          "中文解释及核对": "源正确3过度称only：integration看组合必要，局部stage也合法；生产能力需独立真实test/ACL/sourcecorrectness等。"
+        },
+        {
+          "stage": "pre",
+          "question": "What is the role of refuse-on-low-confidence in the answer generator?",
+          "source_correct_index": 1,
+          "source_answer": "It returns 'I do not know' when the reranker top-1 score sits below a corpus-specific threshold, preventing hallucinated answers when the retrieved context does not address the query",
+          "中文解释及核对": "源正确1；低score可以拒答，但MSE+lexical非confidence概率，未校准不能说模型告诉无答案或preventhallucinations。"
+        },
+        {
+          "stage": "check",
+          "question": "Why are the rerank training triples kept disjoint from the eval queries?",
+          "source_correct_index": 0,
+          "source_answer": "To prevent train-test leakage; if the eval queries overlap the rerank training set the eval looks magical and the regression test does not catch real drift",
+          "中文解释及核对": "源正确0原则；本17triple字面不含4evalquestion却同facts/docs/near paraphrase，不能称独立场景泛化。"
+        },
+        {
+          "stage": "check",
+          "question": "What is the purpose of the self-terminating demo's exit code?",
+          "source_correct_index": 3,
+          "source_answer": "It encodes pass/fail against the metric thresholds; a CI smoke test can plug the demo into the pipeline and gate the merge on a non-zero exit",
+          "中文解释及核对": "源正确3；exitcode接阈值PASSFAIL；本次没有运行不能写实际0/pass。"
+        },
+        {
+          "stage": "check",
+          "question": "What does a citation anchor look like in this pipeline?",
+          "source_correct_index": 1,
+          "source_answer": "[doc_id:chunk_index]",
+          "中文解释及核对": "源正确1；anchor[doc:index]只字符串定位意图，缺revision/offset/可信resolver，需校验真实支持非仅出现。"
+        },
+        {
+          "stage": "post",
+          "question": "Which failure mode is invisible to the mock generator and must be tested with a real LLM before shipping?",
+          "source_correct_index": 1,
+          "source_answer": "Hallucination: the mock generator only emits text from retrieved chunks and cannot invent content; a real LLM can ignore the chunks and generate ungrounded answers",
+          "中文解释及核对": "源正确1；mock只copy却仍可能答错facet/无关/错source或误引用，复制不等免hallucination和正确；真实LLM另需评估，latency也同样mock不覆盖。"
+        }
+      ],
+      "practice": [
+        {
+          "source": "Add a per-query strategy selector inside the rewriter: heuristics from lesson 67 (length, conjunctions, jargon ratio) pick HyDE, multi-query, or decomposition.",
+          "中文解释及验收边界": "源码pick_strategy已and→decompose/jargon→HyDE/defaultMQ，没length/jargonratio/学selector；设计valid上策略收益/成本与意图保留，unknown不强改，避免table答案污染。",
+          "executed": false
+        },
+        {
+          "source": "Add a real LLM call for the generator behind an env flag. Default to the mock. Measure the latency delta.",
+          "中文解释及验收边界": "真实LLM behindenv需独立授权，本任务不执行；替换后检查逐claim支持/禁止以hyp作证据、emptycontext未知、promptinjection/引用resolver与真实latency。",
+          "executed": false
+        },
+        {
+          "source": "Extend the demo to take a `--corpus path` flag that loads a real corpus. Re-run the eval and the threshold check.",
+          "中文解释及验收边界": "新corpus须revision/许可/ACL、标准doc/chunkID/offset、增量重建/duplicatehandling和新标qrels；fixture阈值不可直接复制真实资料。",
+          "executed": false
+        },
+        {
+          "source": "Add a `--strategy` flag to the chunker. Measure each strategy's contribution to end-to-end recall.",
+          "中文解释及验收边界": "chunkflag保持同sourcecover与goldspan映射，递归硬cap/字节token/位置/citationrevision；候选budget固定，对比可完整回答coverage非仅docid命中。",
+          "executed": false
+        },
+        {
+          "source": "Add a streaming generator interface and feed it into the eval. Confirm that faithfulness is computed on the final string and not on the streamed prefix.",
+          "中文解释及验收边界": "stream接口应区分prefix/已确认claim/terminal，取消/旧epoch抛弃；终态答案再eval，前缀真度只独立metric，不能结束前宣告最终faithful。",
+          "executed": false
+        }
+      ],
+      "status": "本课4文件本次全文静读已落盘；未写作/未验收/未运行",
+      "read_status": "2026-10-12 本次4源文件全文静读，标题/所有原练习/quiz/测试分析落盘；未执行",
+      "formal_written": false,
+      "accepted": false
+    }
+  ],
+  "source_programs_executed": 0,
+  "source_root": "/tmp/study-source1-ai-engineering-20261008",
+  "prior_partial_evidence": "/tmp/study-capstone-64-69-reading-before-recovery-20261012.json",
+  "pending_lessons": [],
+  "constraints": {
+    "source_programs_executed": 0,
+    "source_programs_imported": 0,
+    "sites_2_5_accessed": false,
+    "formal_files_modified": false,
+    "model_downloads": 0,
+    "installations": 0,
+    "GPU_used": false,
+    "inference_API_calls": 0,
+    "formal_files_modified_by_this_subtask": false
+  },
+  "dynamic_functions": [
+    {
+      "lesson": "64-chunking-strategies-advanced",
+      "widget": "ci-chunk-boundaries",
+      "provider": "figures-capstone-i.js",
+      "function": "chunkBoundaries",
+      "start_line": 49,
+      "end_line": 82,
+      "provider_sha256": "46fc8d99d5284ae80bc752ee8b060ec5680775758a64b4f7d128125a8d8af651",
+      "provider_git_blob": "833acb66ca31b0af8ac782f0724b0123fac00042",
+      "function_text_sha256": "b32c1b3f4983ca8611644ae03b0c08488037c5f483934a0c3f7b036597932e32",
+      "reading_scope": "实际全文静读提取函数并以固定原文件slice校验；sharedhelpers与底部register选读；未执行",
+      "date": "2026-10-12",
+      "candidate_registration_order": [
+        "figures-capstone-i.js"
+      ]
+    },
+    {
+      "lesson": "65-hybrid-retrieval-bm25-dense",
+      "widget": "rrf-fusion",
+      "provider": "figures-capstone-b.js",
+      "function": "rrfFusion",
+      "start_line": 64,
+      "end_line": 94,
+      "provider_sha256": "18b62aaa01fe8ef180f2e21b3aa82d7a852733cb5d8e09bb86d071db62a3f0ed",
+      "provider_git_blob": "d1387e6e63458cc408007b659a0c164c8f5ab22d",
+      "function_text_sha256": "163fd954f21d43f6f5a20f7716e412244c903e3bcc04b37286fb819d20369837",
+      "reading_scope": "实际全文静读提取函数并以固定原文件slice校验；sharedhelpers与底部register选读；未执行",
+      "date": "2026-10-12",
+      "candidate_registration_order": [
+        "figures-capstone-b.js"
+      ]
+    },
+    {
+      "lesson": "66-reranker-cross-encoder",
+      "widget": "rerank-funnel",
+      "provider": "figures-capstone-b.js",
+      "function": "rerankFunnel",
+      "start_line": 96,
+      "end_line": 126,
+      "provider_sha256": "18b62aaa01fe8ef180f2e21b3aa82d7a852733cb5d8e09bb86d071db62a3f0ed",
+      "provider_git_blob": "d1387e6e63458cc408007b659a0c164c8f5ab22d",
+      "function_text_sha256": "5dcab74c7bafbbdc5e6f0a976cf099efb75aea4a1aa4c665bb6b549d39b9e06a",
+      "reading_scope": "实际全文静读提取函数并以固定原文件slice校验；sharedhelpers与底部register选读；未执行",
+      "date": "2026-10-12",
+      "candidate_registration_order": [
+        "figures-capstone-b.js"
+      ]
+    },
+    {
+      "lesson": "67-query-rewriting-hyde",
+      "widget": "cd-hyde-vector",
+      "provider": "figures-capstone-d.js",
+      "function": "cdHyde",
+      "start_line": 36,
+      "end_line": 74,
+      "provider_sha256": "db396c779ea26086a5dc7324f9289d6c46da9ff0d2016b5d3d605c8cc9c5d155",
+      "provider_git_blob": "09de8dcc5bdb084eb80b89665434ab87fcc98f9a",
+      "function_text_sha256": "a6f222c391bd667f6de330ec909a831dffa132f3a855e380bfabe8daa1b168d8",
+      "reading_scope": "实际全文静读提取函数并以固定原文件slice校验；sharedhelpers与底部register选读；未执行",
+      "date": "2026-10-12",
+      "candidate_registration_order": [
+        "figures-capstone-d.js"
+      ]
+    },
+    {
+      "lesson": "68-rag-eval-precision-recall",
+      "widget": "ci-rag-metric-ladder",
+      "provider": "figures-capstone-i.js",
+      "function": "ragMetricLadder",
+      "start_line": 84,
+      "end_line": 116,
+      "provider_sha256": "46fc8d99d5284ae80bc752ee8b060ec5680775758a64b4f7d128125a8d8af651",
+      "provider_git_blob": "833acb66ca31b0af8ac782f0724b0123fac00042",
+      "function_text_sha256": "76d1d219204de6b4501d65a6c02a518f96be3b627652724d53495885e1d2ecfc",
+      "reading_scope": "实际全文静读提取函数并以固定原文件slice校验；sharedhelpers与底部register选读；未执行",
+      "date": "2026-10-12",
+      "candidate_registration_order": [
+        "figures-capstone-i.js"
+      ]
+    },
+    {
+      "lesson": "69-end-to-end-rag-system",
+      "widget": "rag-pipeline-flow",
+      "provider": "figures-capstone-b.js",
+      "function": "ragPipeline",
+      "start_line": 128,
+      "end_line": 155,
+      "provider_sha256": "18b62aaa01fe8ef180f2e21b3aa82d7a852733cb5d8e09bb86d071db62a3f0ed",
+      "provider_git_blob": "d1387e6e63458cc408007b659a0c164c8f5ab22d",
+      "function_text_sha256": "8143eb53d0d1dcbc10873fb54384c15abd36f26bfe70d137acc2cdaaf75e4f21",
+      "reading_scope": "实际全文静读提取函数并以固定原文件slice校验；sharedhelpers与底部register选读；未执行",
+      "date": "2026-10-12",
+      "candidate_registration_order": [
+        "figures-capstone-b.js"
+      ]
+    }
+  ],
+  "integration_file_rechecks": [
+    {
+      "path": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "date": "2026-10-12",
+      "scope": "实际静读1–344、410–625、833–858、977–1057；首次合并输出截断处已用211–344/410–460/461–625分别补读。其余章节未计全文。",
+      "whole_file_sha256_for_snapshot_identity_only": "47e216dda9d2bd82196b4c98bbae0e565f273c3d65c8831b04e119c3e6a30dcd",
+      "note": "全filehash作版本身份，不宣称完整阅读或重新运行已存示例。"
+    },
+    {
+      "path": "LLM 工程实践/07-Embedding与检索模型训练.md",
+      "date": "2026-10-12",
+      "scope": "实际静读1–95、138–145、231–253；不是全章阅读。",
+      "whole_file_sha256_for_snapshot_identity_only": "257a2b422f45e928a53643b4fbbce4f6e765f259aac1a8ad5b5f19cff3518f94",
+      "note": "全filehash作版本身份，不宣称完整阅读或重新运行已存示例。"
+    }
+  ],
+  "worked_examples": [
+    {
+      "topic": "span交集≠完整证据",
+      "explanation": "gold[100,130)，chunk[90,101)，交集只[100,101)一字符。本eval hit=1但gold仅1/30覆盖；全span包含/完整条件与上下文支持另验；且本source事先知道正确doc。"
+    },
+    {
+      "topic": "centroid计数",
+      "explanation": "oldn1向量v1，appendv2后cur_n先成2，source用(2v1+v2)/3；真实二样本mean应(v1+v2)/2。若v1=(1,0),v2=(0,1)，source归一方向(2,1)/sqrt5与正确(1,1)/sqrt2不同；后续还须保存未归一sum/真实count。"
+    },
+    {
+      "topic": "RRF同list去重",
+      "explanation": "c60单list[A,A,B]会给A1/61+1/62≈.032522、B1/63≈.015873，A重复投票。同list应先按版本chunkID去重，再名次[ A,B ]给1/61,1/62；跨不同retriever列表同A是合法独立信号但相关视角可权重。"
+    },
+    {
+      "topic": "N=K可重排",
+      "explanation": "候选4个且K4，gold原rank4贡献RR1/4，CE重排rank1贡献RR1。保留集合不变所以Recall@4不变，Hit@1和MRR可以提高；sourcequiz不能reorder错误。"
+    },
+    {
+      "topic": "68动态图数值",
+      "explanation": "5个候选里相关rank1/4，3个二元gold，P@5=2/5、R@5=2/3、RR=1、DCG=1+1/log2(5)、IDCG=1+1/log2(3)+1/log2(4)，nDCG≈.671386；固定.86不由所画binarytruth导出。"
+    },
+    {
+      "topic": "69多chunk指标合同",
+      "explanation": "top3chunks=[A:0,A:1,B:0] gold{A,B}：sourceRecall@2只前2chunks去doc得1/2；unique-doc前2应A/B得1。sourcePrecision@3=3/3，但unique-docP若K3可约2/3，MRR却去doc后排名。先定义预算是chunk数或unique doc数与不足K分母。"
+    },
+    {
+      "topic": "引用/回答/未知分开",
+      "explanation": "原chunk前句是“通用策略”，后句才有答案条件；按chunk总词重叠选它但仅copy首句加anchor，source存在而问答不支持。另highrawscore零overlap源码fallback答第一块，不能声明unknown安全阀已校准。"
+    }
+  ],
+  "worked_examples_execution": "上述公式/数据流/手算说明；未执行source模块或训练。",
+  "dynamic_extract": "/tmp/study-capstone-64-69-dynamic-extract.json",
+  "dynamic_register_scope": "本次6函数全文与B/D/I sharedhelpers/底LF.register选读；buildorder/discovery/runtimeLF.register覆盖与provider顺序加载已在同source58–63任务实际静读，此处复用不重执行。",
+  "mechanical_validation": {
+    "date": "2026-10-12",
+    "all_24_sha256_recomputed": true,
+    "git_blob_sha_recomputed_match_HEAD": true,
+    "actual_test_function_counts_match": true,
+    "counts_match_discovery_24_91": true,
+    "actual_practice_quiz_extraction": true,
+    "six_widget_functions_hash_slice_verified": true,
+    "source_programs_executed": 0,
+    "source_programs_imported": 0,
+    "accepted_added": 0
+  },
+  "primary_checks": [],
+  "primary_checks_boundary": "此批未另取在线论文/API；长效公式与固定源码、当前本地主章合同已静读。LongRAG35个百分点/allTRECsince2010/当前模型规格或provider界面不计已核，弃绝对性能与默认推荐；必要当前接口留root核实。",
+  "root_freeze_date": "2026-10-12",
+  "root_boundary": "24actualfile实际字节/固定GitBlob核；6最后实际动态root另全文静读，原partial经恢复补齐，正式融合/验收未完成，当前493保持。"
+}

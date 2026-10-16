@@ -196,3 +196,7 @@ Profiler / 指标
 **核对**：其他条件相同则翻倍；仍要访问可见历史 K/V，因此缓存省去重算旧状态，并没有消除长上下文注意力成本。
 
 核验依据（2026-10-02）：[PEFT LoRA](https://huggingface.co/docs/peft/main/en/conceptual_guides/lora)、[Transformers 缓存说明](https://huggingface.co/docs/transformers/main/en/kv_cache)。所链 main 文档是开发分支；运行时应切换到实际安装版本。
+
+## 缓存正确性与采样等价检查
+
+上述容量估算是K/V有效载荷。完整/缓存输出一致、非方形causal mask、Flash在线归一化和严格推测采样详见[Transformer推理与规模设计](../LLM%20工程实践/14-Transformer推理与规模设计.md)。部署中的页/工作区、权重量化和吞吐需另测，不能把bytes减少直接当成固定加速倍数。

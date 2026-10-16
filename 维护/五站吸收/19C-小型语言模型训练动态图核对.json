@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-12",
+  "scope": "Phase19/30-41全部实际最后注册动态函数静态完整回读，依赖共享helper此前已回读",
+  "counts": {
+    "widgets": 12,
+    "browser_runs": 0,
+    "source_programs_executed": 0
+  },
+  "registration_method": "按build.js provider顺序和额外脚本排序取最后注册，未执行source build/JS",
+  "review_boundary": "预设曲线/图值不冒称真实训练、协议或评测结果；读取≠融合验收",
+  "entries": [
+    {
+      "lesson": "30-bpe-tokenizer-from-scratch",
+      "widget": "cap-bpe-merge",
+      "provider": "figures-capstone-a.js",
+      "function": "bpeMerge",
+      "start_line": 36,
+      "end_line": 72,
+      "provider_sha256": "1efa266880eb75c55723ffea967e137eb7576fdbad3c18f6353c0f520bbd88ba",
+      "candidate_registration_order": [
+        "figures-capstone-a.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "字节扫描/est为固定动画，不是训练频数结果；预分词、merge优先级、UTF8与specialID边界需实际算法说明。"
+    },
+    {
+      "lesson": "31-tokenized-dataset-sliding-window",
+      "widget": "cap-sliding-window",
+      "provider": "figures-capstone-a.js",
+      "function": "slidingWindow",
+      "start_line": 74,
+      "end_line": 101,
+      "provider_sha256": "1efa266880eb75c55723ffea967e137eb7576fdbad3c18f6353c0f520bbd88ba",
+      "candidate_registration_order": [
+        "figures-capstone-a.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "输入T与右移1的目标T需T+1原窗，stride=T共享边界token；动画discrete仅起终位置，不是完整窗口枚举；overlap不制造独立数据。"
+    },
+    {
+      "lesson": "32-token-positional-embeddings",
+      "widget": "cc-embedding-lookup",
+      "provider": "figures-capstone-c.js",
+      "function": "embeddingLookup",
+      "start_line": 36,
+      "end_line": 78,
+      "provider_sha256": "89114897dc7dec5f5a4bb3964afd71406aef5b87f1d9b9b3cc45bb1e3b311b42",
+      "candidate_registration_order": [
+        "figures-capstone-c.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "id是查表索引非大小序；token+可学习绝对位置只是一种方案，RoPE/ALiBi不同；固定颜色非实际embedding向量。"
+    },
+    {
+      "lesson": "33-multihead-self-attention",
+      "widget": "cap-multihead-attention",
+      "provider": "figures-capstone-a.js",
+      "function": "multiHead",
+      "start_line": 103,
+      "end_line": 141,
+      "provider_sha256": "1efa266880eb75c55723ffea967e137eb7576fdbad3c18f6353c0f520bbd88ba",
+      "candidate_registration_order": [
+        "figures-capstone-a.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "QKV投影D→3D与H分头说明形状；专门化并非训练必然结果，causal/scale/softmax条件和dropout后行和另讲。"
+    },
+    {
+      "lesson": "34-transformer-block",
+      "widget": "cc-transformer-block",
+      "provider": "figures-capstone-c.js",
+      "function": "transformerBlock",
+      "start_line": 80,
+      "end_line": 127,
+      "provider_sha256": "89114897dc7dec5f5a4bb3964afd71406aef5b87f1d9b9b3cc45bb1e3b311b42",
+      "candidate_registration_order": [
+        "figures-capstone-c.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "preLN残差加法需同形状；norm在计算分支内，无需warmup并非无条件保证，图第二残差add省略，不证明实际训练稳定。"
+    },
+    {
+      "lesson": "35-gpt-model-assembly",
+      "widget": "cc-gpt-assembly",
+      "provider": "figures-capstone-c.js",
+      "function": "gptAssembly",
+      "start_line": 129,
+      "end_line": 172,
+      "provider_sha256": "89114897dc7dec5f5a4bb3964afd71406aef5b87f1d9b9b3cc45bb1e3b311b42",
+      "candidate_registration_order": [
+        "figures-capstone-c.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "12blocks/124M/绑定head为特定GPT2示意，不能认定源码默认共享参数；独立head多VD，要核实际对象与state。"
+    },
+    {
+      "lesson": "36-training-loop-eval",
+      "widget": "cap-training-loop",
+      "provider": "figures-capstone-a.js",
+      "function": "trainingLoop",
+      "start_line": 143,
+      "end_line": 186,
+      "provider_sha256": "1efa266880eb75c55723ffea967e137eb7576fdbad3c18f6353c0f520bbd88ba",
+      "candidate_registration_order": [
+        "figures-capstone-a.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "循环与指数下降曲线为预设动画，不是训练loss结果；train/eval模式恢复、全token计权、update计数需源码核。"
+    },
+    {
+      "lesson": "37-loading-pretrained-weights",
+      "widget": "cc-weight-remap",
+      "provider": "figures-capstone-c.js",
+      "function": "weightRemap",
+      "start_line": 174,
+      "end_line": 206,
+      "provider_sha256": "89114897dc7dec5f5a4bb3964afd71406aef5b87f1d9b9b3cc45bb1e3b311b42",
+      "candidate_registration_order": [
+        "figures-capstone-c.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "名称/shape映射只约束结构，方阵错误transpose仍同形；完整映射、tokenizer和前向logits数值parity缺一不可。"
+    },
+    {
+      "lesson": "38-classifier-finetuning",
+      "widget": "cap-classifier-head-swap",
+      "provider": "figures-capstone-a.js",
+      "function": "headSwap",
+      "start_line": 188,
+      "end_line": 228,
+      "provider_sha256": "1efa266880eb75c55723ffea967e137eb7576fdbad3c18f6353c0f520bbd88ba",
+      "candidate_registration_order": [
+        "figures-capstone-a.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "两logits/frozenbody只是选择之一；lastvalidtoken/meanpooling适配mask/padding，解冻不保证准确率提升。"
+    },
+    {
+      "lesson": "39-instruction-tuning-sft",
+      "widget": "cc-sft-loss-mask",
+      "provider": "figures-capstone-c.js",
+      "function": "sftMasking",
+      "start_line": 208,
+      "end_line": 247,
+      "provider_sha256": "89114897dc7dec5f5a4bb3964afd71406aef5b87f1d9b9b3cc45bb1e3b311b42",
+      "candidate_registration_order": [
+        "figures-capstone-c.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "ignore_index只屏蔽该位置直接CE，prompt隐状态仍经response注意力获梯度；标签shift需对齐首回答/EOS/pad。"
+    },
+    {
+      "lesson": "40-dpo-from-scratch",
+      "widget": "cap-dpo-preference",
+      "provider": "figures-capstone-a.js",
+      "function": "dpoPreference",
+      "start_line": 230,
+      "end_line": 267,
+      "provider_sha256": "1efa266880eb75c55723ffea967e137eb7576fdbad3c18f6353c0f520bbd88ba",
+      "candidate_registration_order": [
+        "figures-capstone-a.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "DPO优化相对reference的logratio gap，chosen绝对概率增/rejected减非每步保证；KL锚不是硬偏移上限。"
+    },
+    {
+      "lesson": "41-eval-pipeline",
+      "widget": "cg-eval-quadrant",
+      "provider": "figures-capstone-g.js",
+      "function": "evalQuadrant",
+      "start_line": 221,
+      "end_line": 263,
+      "provider_sha256": "fc5f3b5718b8fb48a687a9e867e39556767a2f6d407254926b835b5b9d535582",
+      "candidate_registration_order": [
+        "figures-capstone-g.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "PPL/EM/F1/judge预设值非结果；tokenoverlap不保证paraphrase语义，mockjudge不是真实裁判；聚合须同向归一/缺项规则。"
+    }
+  ]
+}

@@ -1,0 +1,2701 @@
+{
+  "date": "2026-10-12",
+  "status": "6既有正文增量融合与本组验证完成，root统一验收待续",
+  "reading_report": "/tmp/study-capstone-30-41-reading.json",
+  "reading_report_sha256": "32f63b731ba0411f74860a05d196ed82fc773a18a971dc9b13e47a46d562c35c",
+  "writing_checkpoint": "/tmp/study-capstone-30-41-writing-checkpoint.json",
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "formal_files": [
+    {
+      "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+      "sha256": "4e7404802125af5c38dda90afe224a2be7cfa583cf99a31b0237d937b4111fe4",
+      "bytes": 36393,
+      "baseline_sha256": "f1eea4fd3aa416e2b1e8541ef4987e212c546129e2ba1eeee610a941f59ae936",
+      "old_python": 8,
+      "new_python": 0
+    },
+    {
+      "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+      "sha256": "64f693d02fa28c3532a292d579a57b459787a6f26aa878b7638e40aa82efe55f",
+      "bytes": 27436,
+      "baseline_sha256": "bc08c785e62d7e9a761c3350e485b25decbc111955fc61b8238bd353baf41c10",
+      "old_python": 2,
+      "new_python": 0
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+      "sha256": "c1ca431abb26d33b65f2c6892ce2467d1365c0c4cdf92c8a01df2005a335510b",
+      "bytes": 47139,
+      "baseline_sha256": "f583dfd5d1667fb9e90d30027a4aac9ab64ea0b13d70b33ad3f9d39f37886d3d",
+      "old_python": 2,
+      "new_python": 1
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "sha256": "75feb65a7dd738fd3a362aa0c4ff090d8dc0d4aa30cfa40bbe4bd3df4046ea74",
+      "bytes": 70890,
+      "baseline_sha256": "478694f8df704a260441283bcb93250b9f03545d18e1e8f31a353a200c94f129",
+      "old_python": 7,
+      "new_python": 1
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "sha256": "1a4f2a718ba598ee27b8dba364257bd22a52d24f14277b49edef35f31e328bb9",
+      "bytes": 69455,
+      "baseline_sha256": "e41697047c3bb789c7786c7f103f5be2442116754c123e92a3dca5cf472dcc74",
+      "old_python": 7,
+      "new_python": 0
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "sha256": "53aa18be2edac19329d6a4e06318f1f3c2d47b7cf45040e3ac974905b2695634",
+      "bytes": 138403,
+      "baseline_sha256": "cd224133752e59756a68b0be6c944c764fab704aa375cc43ef6b9c5fc558271c",
+      "old_python": 17,
+      "new_python": 0
+    }
+  ],
+  "new_code_runs": [
+    {
+      "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+      "block": 3,
+      "script": "/tmp/study-capstone-30-41-new/load_preflight.py",
+      "sha256": "b7b160d90dbdb6e5e1c5bc152e73da3dd447172b1ac56e162272e5e8b2d9919d",
+      "exit_code": 0,
+      "stdout": "缺失/未知/形状/非有限/布尔维度预检拒绝且未部分加载；方阵转置、共享别名、旧代际通过\n仅二维标量元数据一致性，不加载实际checkpoint、验证来源签名或运行模型\n映射值列表/布尔类型明确拒绝，已提交模型保持原样\n",
+      "stderr": "",
+      "date": "2026-10-12",
+      "python": "3.12.13",
+      "previous_run": {
+        "script": "/tmp/study-capstone-30-41-new/load_preflight.py",
+        "sha256": "d3fbf1d16231039433d0380309a0c58e0cc567fc307469cb75888390499d00e6",
+        "exit_code": 0,
+        "stdout": "缺失/未知/形状/非有限/布尔维度预检拒绝且未部分加载；方阵转置、共享别名、旧代际通过\n仅二维标量元数据一致性，不加载实际checkpoint、验证来源签名或运行模型\n映射值列表/布尔类型明确拒绝，已提交模型保持原样\n",
+        "stderr": "",
+        "date": "2026-10-12",
+        "python": "3.12.13",
+        "previous_run": {
+          "script": "/tmp/study-capstone-30-41-new/load_preflight.py",
+          "sha256": "b5246e5587b767a0d1f1b3d3679bbf0054dd9a7acac4429b069d7228c39b380c",
+          "exit_code": 0,
+          "stdout": "缺失/未知/形状/非有限/布尔维度预检拒绝且未部分加载；方阵转置、共享别名、旧代际通过\n仅二维标量元数据一致性，不加载实际checkpoint、验证来源签名或运行模型\n",
+          "stderr": "",
+          "date": "2026-10-12",
+          "python": "3.12.13"
+        },
+        "reason": "补映射值类型与过大整数finite负例"
+      },
+      "reason": "补实际10**400权重finite负例，只有加载探针新块改变后重跑"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "block": 8,
+      "script": "/tmp/study-capstone-30-41-new/supervision_context.py",
+      "sha256": "6424e800fa071908afff97b3105788fd998333b0dbc9f8dd774d3c9bf0fedc46",
+      "exit_code": 0,
+      "stdout": "标签只shift一次、首回答目标、空监督/非法类型拒绝；偏好对同prompt与生成预留通过\n只查token合同，不计算模型梯度、运行SFT或DPO；prompt梯度沿用既有CPU证据\n",
+      "stderr": "",
+      "date": "2026-10-12",
+      "python": "3.12.13"
+    }
+  ],
+  "unchanged_old_python_blocks": [
+    {
+      "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+      "block": 1,
+      "sha256": "b245ced210333ceb8cdb4ec8dad69ef54e7b73b6764dc8557939030268fc91aa",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+      "block": 2,
+      "sha256": "4942312861de0982f1905e29d0e218770e7902bdbf8e987a738381d8a6fb41b0",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+      "block": 3,
+      "sha256": "b348a1312a6bffe1e4d19fee9ab22a430c99061f5b0e25054e7f1f88b75b9d94",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+      "block": 4,
+      "sha256": "2b8c8c7e7721608609824e3cabf54d5eb34ef3a4d5b71915a4cb191f1706e3c4",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+      "block": 5,
+      "sha256": "e7442845a7df05b2e42f3a8bc903af1bddc383418423f12bbad1f702801ba9e9",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+      "block": 6,
+      "sha256": "4ac4bb64d91c03e20654ebb87d154e0183de0b18d84b8299b4b696e140cfd0d5",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+      "block": 7,
+      "sha256": "66e2c53a01674bdd0999a2def43c43292e7ddbf73c92ba8a409246b004e80592",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+      "block": 8,
+      "sha256": "ad5882cf831e5fa19bf1ec45d2ba15db7eb16717940f2f2c911d9fba3758e2d7",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+      "block": 1,
+      "sha256": "5c5089151df05e840481291f2d8c3248fcc79f3768f5b318e9a0dc733e1b1930",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+      "block": 2,
+      "sha256": "4f744856920e87b21227e2dd9fa0ca65084fc83ac3bc42d41e106bdde7e1bafd",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+      "block": 1,
+      "sha256": "62c678faa0069de80624760ee6332ae3779157ba6595fe719d00ba21b176f316",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+      "block": 2,
+      "sha256": "05e1fa15cdae26c40b80950213e335ed84ad43cfa11873cc9bd601f12564ae1c",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "block": 1,
+      "sha256": "480d7f302201df8c24aae0458fc7e5fbe487255cc406f1229fe2db11412b95b8",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "block": 2,
+      "sha256": "9cc7f0e6434a1579adfb8f3c54baa490f7d9e429a15de6e1ebed153c09d56338",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "block": 3,
+      "sha256": "a2b51268214c03b69349686c53c9d6da1a39249eac8dccff900193f2847477f2",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "block": 4,
+      "sha256": "56386f1ae1481f2ca71252c7c6321c605d596685e2b2912616d492ec3f8bc019",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "block": 5,
+      "sha256": "1b5e618f36d761ffa69151b76bb055bf5d3486af4f0d0650460b4a0722afe367",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "block": 6,
+      "sha256": "e371b7e691f2a1ccea46421694fa5403a95368b6afe550d58d7c27bb78e70c6c",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "block": 7,
+      "sha256": "3cd0c8de7b9390400f83b74c777407c53199def7823a1804bc31537563ddab01",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 1,
+      "sha256": "57dc231ea2e7e893c4ab2d192a4910447ff38fed73a209cac055ed22fbfec93d",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 2,
+      "sha256": "3e8fc3be281af87afaff909cf4fc8efe3a69a22566ed87670ec5b8b84d58564a",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 3,
+      "sha256": "95711080a194baad4d27ccaccaa8e81d17fbf19360b982d69a41026c97735ce4",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 4,
+      "sha256": "1c50cc3d08a9dce5b5d6b874ac2774a09936fd7ade088e79ff141a5bbb86fe5e",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 5,
+      "sha256": "0f7e9ebb62e282b2576c75053bd44616718e1944e4e4cac9ca6abbfae81a1b5b",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 6,
+      "sha256": "41e5687eb206f65a5a544751446b9c5d50502a2614ed1d3166ff9cccd9ff27bf",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 7,
+      "sha256": "e396cbc637f817e1caba1eeacb078b1c4b1dd72b13115b1db60cb814d365346c",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 1,
+      "sha256": "e2f89258edeaeb4606303306397f15554dd3245505a2fe1c734e9cd452e01831",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 2,
+      "sha256": "9f4f8949a3ebe38720f1b3cd346a1935b1aee92ecdb046a5946e0bf0bfcc03d7",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 3,
+      "sha256": "7371892023f57add389d5e2fd6f0f8c8c59f460c4a3060e29f1bcbd86784da0e",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 4,
+      "sha256": "758b1a0f42793d02a0b41f2381e3ad5d7bfca98465235549362aea80d7c75f33",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 5,
+      "sha256": "3d28607b7a7a888b11fb8c491103daaaa255669f97e22e99ee525f3aa81b3ef2",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 6,
+      "sha256": "522922c1fac771f42e8cb07d7e50d2b723852f9520dfb0de5ff910dd3c5f1be8",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 7,
+      "sha256": "9499c3be814f1930d719ec226968e3ff88ab193f6609ecd54711fbed402fff7a",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 8,
+      "sha256": "0cd04367f63738a0a8521be1fd7aa9b21fdd2f2d497a61bc9f765593ec7f2b85",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 9,
+      "sha256": "0b129a31b656b7af29c2d660dde1f042f0ed06b8f226b180d501f00763b21a7b",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 10,
+      "sha256": "7e7f4da4845a06de534ff350819f1642e5ac947fd48d87826a7d18a4bd5d02a2",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 11,
+      "sha256": "d47efb4763948dcad426d13008020de82bef75894dd441cc2172868c1a52866c",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 12,
+      "sha256": "f3781f1d7d6a4c6a61e7fe63b09a7ccfddd3563abb761f1a9cedfcd5f66a24c0",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 13,
+      "sha256": "2edbabb3373e139e83241871144aa63e3b874e594da18735f7967a5865b78de5",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 14,
+      "sha256": "531c55905042c1f5109d978303f83350741bbd87133af1b1342558314d58eb13",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 15,
+      "sha256": "f080f9c81b0ce10d96454b97b7831b70041463f23ce882f0ca7997ae6d7f1bf0",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 16,
+      "sha256": "d495bec04a3324328fd31d47fe194b64426457e8ab9ec7e841dfbcd054993943",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "block": 17,
+      "sha256": "c3393def72569473eec192931b3d44a07f0447f0307e5dbc4d7a00bf81afe70d",
+      "status": "原字节保留，未重跑；历史成功证据由root统一关联"
+    }
+  ],
+  "pandoc": [
+    {
+      "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml": 49,
+      "date": "2026-10-12"
+    },
+    {
+      "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml": 0,
+      "date": "2026-10-12"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml": 3,
+      "date": "2026-10-12"
+    },
+    {
+      "file": "LLM 工程实践/04-微调与参数高效适配.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml": 3,
+      "date": "2026-10-12"
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml": 40,
+      "date": "2026-10-12"
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "exit_code": 0,
+      "stderr": "",
+      "mathml": 37,
+      "date": "2026-10-12"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "30-bpe-tokenizer-from-scratch",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+        "heading": "### 5.3 合并表持久化与控制Token的独立身份",
+        "line": 381
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+            "heading": "### 5.3 合并表持久化与控制Token的独立身份",
+            "line": 381
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The frame",
+          "source_line": 21,
+          "formal_locator": {
+            "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+            "heading": "### 5.3 合并表持久化与控制Token的独立身份",
+            "line": 381
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The pipeline",
+          "source_line": 29,
+          "formal_locator": {
+            "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+            "heading": "### 5.3 合并表持久化与控制Token的独立身份",
+            "line": 381
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The byte alphabet",
+          "source_line": 47,
+          "formal_locator": {
+            "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+            "heading": "### 5.3 合并表持久化与控制Token的独立身份",
+            "line": 381
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The training loop",
+          "source_line": 53,
+          "formal_locator": {
+            "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+            "heading": "### 5.3 合并表持久化与控制Token的独立身份",
+            "line": 381
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Encoding fresh text",
+          "source_line": 72,
+          "formal_locator": {
+            "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+            "heading": "### 5.3 合并表持久化与控制Token的独立身份",
+            "line": 381
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Special tokens",
+          "source_line": 78,
+          "formal_locator": {
+            "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+            "heading": "### 5.3 合并表持久化与控制Token的独立身份",
+            "line": 381
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Round-trip guarantee",
+          "source_line": 87,
+          "formal_locator": {
+            "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+            "heading": "### 5.3 合并表持久化与控制Token的独立身份",
+            "line": 381
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## What this lesson does not do",
+          "source_line": 93,
+          "formal_locator": {
+            "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+            "heading": "### 5.3 合并表持久化与控制Token的独立身份",
+            "line": 381
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 99,
+          "formal_locator": {
+            "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+            "heading": "### 第30课的实践核对与中文自检",
+            "line": 393
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+          "heading": "### 第30课的实践核对与中文自检",
+          "line": 393
+        }
+      },
+      "stretch_goals": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+          "heading": "### 第30课的实践核对与中文自检",
+          "line": 393
+        }
+      },
+      "unnumbered_practice": {
+        "count": 1,
+        "locator": {
+          "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+          "heading": "### 第30课的实践核对与中文自检",
+          "line": 393
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+          "heading": "### 第30课的实践核对与中文自检",
+          "line": 393
+        }
+      },
+      "widget": {
+        "key": "cap-bpe-merge",
+        "formal_locator": {
+          "file": "AI 算法基础/语言与文本专题/02-词向量与子词建模.md",
+          "heading": "### 第30课的实践核对与中文自检",
+          "line": 393
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数16不是已通过测试数",
+      "new_run_file": null
+    },
+    {
+      "lesson": "31-tokenized-dataset-sliding-window",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+        "heading": "## 16. 从编码快照到训练窗口",
+        "line": 304
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 16. 从编码快照到训练窗口",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The frame",
+          "source_line": 21,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 16. 从编码快照到训练窗口",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The shape contract",
+          "source_line": 27,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 16. 从编码快照到训练窗口",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Why a sliding window",
+          "source_line": 49,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 16. 从编码快照到训练窗口",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Dataset class",
+          "source_line": 55,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 16. 从编码快照到训练窗口",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Deterministic shuffle",
+          "source_line": 76,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 16. 从编码快照到训练窗口",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Batch sampler",
+          "source_line": 82,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 16. 从编码快照到训练窗口",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Counting examples",
+          "source_line": 88,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 16. 从编码快照到训练窗口",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## What this lesson does not do",
+          "source_line": 92,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 16. 从编码快照到训练窗口",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 98,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "### 第31课的实践核对与中文自检",
+            "line": 316
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+          "heading": "### 第31课的实践核对与中文自检",
+          "line": 316
+        }
+      },
+      "stretch_goals": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+          "heading": "### 第31课的实践核对与中文自检",
+          "line": 316
+        }
+      },
+      "unnumbered_practice": {
+        "count": 1,
+        "locator": {
+          "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+          "heading": "### 第31课的实践核对与中文自检",
+          "line": 316
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+          "heading": "### 第31课的实践核对与中文自检",
+          "line": 316
+        }
+      },
+      "widget": {
+        "key": "cap-sliding-window",
+        "formal_locator": {
+          "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+          "heading": "### 第31课的实践核对与中文自检",
+          "line": 316
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数17不是已通过测试数",
+      "new_run_file": null
+    },
+    {
+      "lesson": "32-token-positional-embeddings",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+        "heading": "## 17. 输入位置表的形状、频率与更新范围",
+        "line": 336
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 17. 输入位置表的形状、频率与更新范围",
+            "line": 336
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The frame",
+          "source_line": 21,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 17. 输入位置表的形状、频率与更新范围",
+            "line": 336
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The shape contract",
+          "source_line": 29,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 17. 输入位置表的形状、频率与更新范围",
+            "line": 336
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The token embedding matrix",
+          "source_line": 47,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 17. 输入位置表的形状、频率与更新范围",
+            "line": 336
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The learned positional embedding",
+          "source_line": 55,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 17. 输入位置表的形状、频率与更新范围",
+            "line": 336
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The sinusoidal positional embedding",
+          "source_line": 61,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 17. 输入位置表的形状、频率与更新范围",
+            "line": 336
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The composition",
+          "source_line": 77,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 17. 输入位置表的形状、频率与更新范围",
+            "line": 336
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Contrastive analysis",
+          "source_line": 96,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 17. 输入位置表的形状、频率与更新范围",
+            "line": 336
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## What this lesson does not do",
+          "source_line": 104,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "## 17. 输入位置表的形状、频率与更新范围",
+            "line": 336
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 110,
+          "formal_locator": {
+            "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+            "heading": "### 第32课的实践核对与中文自检",
+            "line": 346
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+          "heading": "### 第32课的实践核对与中文自检",
+          "line": 346
+        }
+      },
+      "stretch_goals": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+          "heading": "### 第32课的实践核对与中文自检",
+          "line": 346
+        }
+      },
+      "unnumbered_practice": {
+        "count": 1,
+        "locator": {
+          "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+          "heading": "### 第32课的实践核对与中文自检",
+          "line": 346
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+          "heading": "### 第32课的实践核对与中文自检",
+          "line": 346
+        }
+      },
+      "widget": {
+        "key": "cc-embedding-lookup",
+        "formal_locator": {
+          "file": "LLM 基础/02-文本-Tokenizer与Embedding.md",
+          "heading": "### 第32课的实践核对与中文自检",
+          "line": 346
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数21不是已通过测试数",
+      "new_run_file": null
+    },
+    {
+      "lesson": "33-multihead-self-attention",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+        "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+        "line": 239
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The frame",
+          "source_line": 21,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The shape contract",
+          "source_line": 29,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The QKV split",
+          "source_line": 49,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The head reshape",
+          "source_line": 55,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Scaling",
+          "source_line": 61,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The causal mask",
+          "source_line": 65,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The output projection",
+          "source_line": 86,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Attention weight inspection",
+          "source_line": 90,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The training demo",
+          "source_line": 96,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## What this lesson does not do",
+          "source_line": 102,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.1 多头矩阵、掩码与检查用权重",
+            "line": 239
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## How to read the code",
+          "source_line": 110,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 第33课的实践核对与中文自检",
+            "line": 257
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第33课的实践核对与中文自检",
+          "line": 257
+        }
+      },
+      "stretch_goals": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第33课的实践核对与中文自检",
+          "line": 257
+        }
+      },
+      "unnumbered_practice": {
+        "count": 1,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第33课的实践核对与中文自检",
+          "line": 257
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第33课的实践核对与中文自检",
+          "line": 257
+        }
+      },
+      "widget": {
+        "key": "cap-multihead-attention",
+        "formal_locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第33课的实践核对与中文自检",
+          "line": 257
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数16不是已通过测试数",
+      "new_run_file": null
+    },
+    {
+      "lesson": "34-transformer-block",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+        "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+        "line": 247
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Problem",
+          "source_line": 18,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Concept",
+          "source_line": 24,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### Causal multi head attention",
+          "source_line": 60,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### The MLP",
+          "source_line": 64,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### Residual connections do two things",
+          "source_line": 68,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Build It",
+          "source_line": 76,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Stack",
+          "source_line": 94,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Production patterns in the wild",
+          "source_line": 99,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Use It",
+          "source_line": 109,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Exercises",
+          "source_line": 115,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 第34课的实践核对与中文自检",
+            "line": 276
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Key Terms",
+          "source_line": 122,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 第34课的实践核对与中文自检",
+            "line": 276
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Further Reading",
+          "source_line": 132,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 7.2 pre/post-LN、MLP与梯度对照的条件",
+            "line": 247
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 4,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第34课的实践核对与中文自检",
+          "line": 276
+        }
+      },
+      "stretch_goals": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第34课的实践核对与中文自检",
+          "line": 276
+        }
+      },
+      "unnumbered_practice": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第34课的实践核对与中文自检",
+          "line": 276
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第34课的实践核对与中文自检",
+          "line": 276
+        }
+      },
+      "widget": {
+        "key": "cc-transformer-block",
+        "formal_locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第34课的实践核对与中文自检",
+          "line": 276
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数10不是已通过测试数",
+      "new_run_file": null
+    },
+    {
+      "lesson": "35-gpt-model-assembly",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+        "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+        "line": 304
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Problem",
+          "source_line": 18,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Concept",
+          "source_line": 24,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### Weight tying",
+          "source_line": 45,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### Position embedding is learned, not sinusoidal",
+          "source_line": 49,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### Generation: temperature, top-k, multinomial",
+          "source_line": 53,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Build It",
+          "source_line": 76,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Stack",
+          "source_line": 96,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Production patterns in the wild",
+          "source_line": 101,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Use It",
+          "source_line": 111,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Exercises",
+          "source_line": 118,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 第35课的实践核对与中文自检",
+            "line": 314
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Key Terms",
+          "source_line": 126,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 第35课的实践核对与中文自检",
+            "line": 314
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Further Reading",
+          "source_line": 136,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 8. GPT尺寸、绑定与生成的可核对账本",
+            "line": 304
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 5,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第35课的实践核对与中文自检",
+          "line": 314
+        }
+      },
+      "stretch_goals": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第35课的实践核对与中文自检",
+          "line": 314
+        }
+      },
+      "unnumbered_practice": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第35课的实践核对与中文自检",
+          "line": 314
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第35课的实践核对与中文自检",
+          "line": 314
+        }
+      },
+      "widget": {
+        "key": "cc-gpt-assembly",
+        "formal_locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第35课的实践核对与中文自检",
+          "line": 314
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数11不是已通过测试数",
+      "new_run_file": null
+    },
+    {
+      "lesson": "36-training-loop-eval",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+        "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+        "line": 344
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Problem",
+          "source_line": 19,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Concept",
+          "source_line": 25,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### Loss alignment",
+          "source_line": 47,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### AdamW decay split",
+          "source_line": 51,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### Warmup plus cosine schedule",
+          "source_line": 55,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### Held out evaluation",
+          "source_line": 59,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### Qualitative sampling as an early signal",
+          "source_line": 63,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Build It",
+          "source_line": 71,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Stack",
+          "source_line": 92,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Production patterns in the wild",
+          "source_line": 97,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Use It",
+          "source_line": 107,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Exercises",
+          "source_line": 113,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 第36课的实践核对与中文自检",
+            "line": 356
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Key Terms",
+          "source_line": 121,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 第36课的实践核对与中文自检",
+            "line": 356
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Further Reading",
+          "source_line": 131,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 9. 训练迭代、验证采样与恢复分别记录",
+            "line": 344
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 5,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第36课的实践核对与中文自检",
+          "line": 356
+        }
+      },
+      "stretch_goals": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第36课的实践核对与中文自检",
+          "line": 356
+        }
+      },
+      "unnumbered_practice": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第36课的实践核对与中文自检",
+          "line": 356
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第36课的实践核对与中文自检",
+          "line": 356
+        }
+      },
+      "widget": {
+        "key": "cap-training-loop",
+        "formal_locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第36课的实践核对与中文自检",
+          "line": 356
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数14不是已通过测试数",
+      "new_run_file": null
+    },
+    {
+      "lesson": "37-loading-pretrained-weights",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+        "heading": "## 10. 预训练权重映射：全部预检后再提交",
+        "line": 386
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Problem",
+          "source_line": 18,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Concept",
+          "source_line": 24,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### The GPT-2 naming convention",
+          "source_line": 41,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### The local naming convention",
+          "source_line": 66,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "### The stub fixture",
+          "source_line": 91,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Build It",
+          "source_line": 99,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Stack",
+          "source_line": 117,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Production patterns in the wild",
+          "source_line": 123,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Use It",
+          "source_line": 133,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Exercises",
+          "source_line": 139,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 第37课的实践核对与中文自检",
+            "line": 502
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Key Terms",
+          "source_line": 147,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "### 第37课的实践核对与中文自检",
+            "line": 502
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Further Reading",
+          "source_line": 157,
+          "formal_locator": {
+            "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+            "heading": "## 10. 预训练权重映射：全部预检后再提交",
+            "line": 386
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 5,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第37课的实践核对与中文自检",
+          "line": 502
+        }
+      },
+      "stretch_goals": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第37课的实践核对与中文自检",
+          "line": 502
+        }
+      },
+      "unnumbered_practice": {
+        "count": 0,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第37课的实践核对与中文自检",
+          "line": 502
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第37课的实践核对与中文自检",
+          "line": 502
+        }
+      },
+      "widget": {
+        "key": "cc-weight-remap",
+        "formal_locator": {
+          "file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+          "heading": "### 第37课的实践核对与中文自检",
+          "line": 502
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数11不是已通过测试数",
+      "new_run_file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md"
+    },
+    {
+      "lesson": "38-classifier-finetuning",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "LLM 工程实践/04-微调与参数高效适配.md",
+        "heading": "## 18. 分类head、冻结策略与可比较实验",
+        "line": 864
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 18. 分类head、冻结策略与可比较实验",
+            "line": 864
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Problem",
+          "source_line": 18,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 18. 分类head、冻结策略与可比较实验",
+            "line": 864
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Concept",
+          "source_line": 28,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 18. 分类head、冻结策略与可比较实验",
+            "line": 864
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Pooling Question",
+          "source_line": 50,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 18. 分类head、冻结策略与可比较实验",
+            "line": 864
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Data",
+          "source_line": 69,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 18. 分类head、冻结策略与可比较实验",
+            "line": 864
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Metrics",
+          "source_line": 75,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 18. 分类head、冻结策略与可比较实验",
+            "line": 864
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Architecture",
+          "source_line": 96,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 18. 分类head、冻结策略与可比较实验",
+            "line": 864
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## What you will build",
+          "source_line": 113,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 18. 分类head、冻结策略与可比较实验",
+            "line": 864
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Why the comparison matters",
+          "source_line": 127,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 18. 分类head、冻结策略与可比较实验",
+            "line": 864
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Stretch goals",
+          "source_line": 133,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "### 第38课的实践核对与中文自检",
+            "line": 874
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 工程实践/04-微调与参数高效适配.md",
+          "heading": "### 第38课的实践核对与中文自检",
+          "line": 874
+        }
+      },
+      "stretch_goals": {
+        "count": 3,
+        "locator": {
+          "file": "LLM 工程实践/04-微调与参数高效适配.md",
+          "heading": "### 第38课的实践核对与中文自检",
+          "line": 874
+        }
+      },
+      "unnumbered_practice": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 工程实践/04-微调与参数高效适配.md",
+          "heading": "### 第38课的实践核对与中文自检",
+          "line": 874
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "LLM 工程实践/04-微调与参数高效适配.md",
+          "heading": "### 第38课的实践核对与中文自检",
+          "line": 874
+        }
+      },
+      "widget": {
+        "key": "cap-classifier-head-swap",
+        "formal_locator": {
+          "file": "LLM 工程实践/04-微调与参数高效适配.md",
+          "heading": "### 第38课的实践核对与中文自检",
+          "line": 874
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数16不是已通过测试数",
+      "new_run_file": null
+    },
+    {
+      "lesson": "39-instruction-tuning-sft",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "LLM 工程实践/04-微调与参数高效适配.md",
+        "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+        "line": 900
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+            "line": 900
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Problem",
+          "source_line": 18,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+            "line": 900
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Concept",
+          "source_line": 32,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+            "line": 900
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Data",
+          "source_line": 48,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+            "line": 900
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Tokenisation and Padding",
+          "source_line": 63,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+            "line": 900
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Training",
+          "source_line": 91,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+            "line": 900
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Generation",
+          "source_line": 107,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+            "line": 900
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Exact-Match Evaluation",
+          "source_line": 116,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+            "line": 900
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## What you will build",
+          "source_line": 126,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+            "line": 900
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Why the mask matters",
+          "source_line": 140,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "## 19. 监督跨度、生成前缀与偏好条件共同维护",
+            "line": 900
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Stretch goals",
+          "source_line": 144,
+          "formal_locator": {
+            "file": "LLM 工程实践/04-微调与参数高效适配.md",
+            "heading": "### 第39课的实践核对与中文自检",
+            "line": 990
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 工程实践/04-微调与参数高效适配.md",
+          "heading": "### 第39课的实践核对与中文自检",
+          "line": 990
+        }
+      },
+      "stretch_goals": {
+        "count": 4,
+        "locator": {
+          "file": "LLM 工程实践/04-微调与参数高效适配.md",
+          "heading": "### 第39课的实践核对与中文自检",
+          "line": 990
+        }
+      },
+      "unnumbered_practice": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 工程实践/04-微调与参数高效适配.md",
+          "heading": "### 第39课的实践核对与中文自检",
+          "line": 990
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "LLM 工程实践/04-微调与参数高效适配.md",
+          "heading": "### 第39课的实践核对与中文自检",
+          "line": 990
+        }
+      },
+      "widget": {
+        "key": "cc-sft-loss-mask",
+        "formal_locator": {
+          "file": "LLM 工程实践/04-微调与参数高效适配.md",
+          "heading": "### 第39课的实践核对与中文自检",
+          "line": 990
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数14不是已通过测试数",
+      "new_run_file": "LLM 工程实践/04-微调与参数高效适配.md"
+    },
+    {
+      "lesson": "40-dpo-from-scratch",
+      "source_read_date": "2026-10-11",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+        "heading": "## 15. 同prompt概率、截断和reference缓存的交付合同",
+        "line": 691
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+            "heading": "## 15. 同prompt概率、截断和reference缓存的交付合同",
+            "line": 691
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Problem",
+          "source_line": 18,
+          "formal_locator": {
+            "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+            "heading": "## 15. 同prompt概率、截断和reference缓存的交付合同",
+            "line": 691
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Concept",
+          "source_line": 26,
+          "formal_locator": {
+            "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+            "heading": "## 15. 同prompt概率、截断和reference缓存的交付合同",
+            "line": 691
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Sign of the Gradient",
+          "source_line": 86,
+          "formal_locator": {
+            "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+            "heading": "## 15. 同prompt概率、截断和reference缓存的交付合同",
+            "line": 691
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Data",
+          "source_line": 96,
+          "formal_locator": {
+            "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+            "heading": "## 15. 同prompt概率、截断和reference缓存的交付合同",
+            "line": 691
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Reference Invariance",
+          "source_line": 102,
+          "formal_locator": {
+            "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+            "heading": "## 15. 同prompt概率、截断和reference缓存的交付合同",
+            "line": 691
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Architecture",
+          "source_line": 120,
+          "formal_locator": {
+            "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+            "heading": "## 15. 同prompt概率、截断和reference缓存的交付合同",
+            "line": 691
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## What you will build",
+          "source_line": 139,
+          "formal_locator": {
+            "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+            "heading": "## 15. 同prompt概率、截断和reference缓存的交付合同",
+            "line": 691
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Why DPO works",
+          "source_line": 152,
+          "formal_locator": {
+            "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+            "heading": "## 15. 同prompt概率、截断和reference缓存的交付合同",
+            "line": 691
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Stretch goals",
+          "source_line": 156,
+          "formal_locator": {
+            "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+            "heading": "### 第40课的实践核对与中文自检",
+            "line": 705
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "heading": "### 第40课的实践核对与中文自检",
+          "line": 705
+        }
+      },
+      "stretch_goals": {
+        "count": 4,
+        "locator": {
+          "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "heading": "### 第40课的实践核对与中文自检",
+          "line": 705
+        }
+      },
+      "unnumbered_practice": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "heading": "### 第40课的实践核对与中文自检",
+          "line": 705
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "heading": "### 第40课的实践核对与中文自检",
+          "line": 705
+        }
+      },
+      "widget": {
+        "key": "cap-dpo-preference",
+        "formal_locator": {
+          "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "heading": "### 第40课的实践核对与中文自检",
+          "line": 705
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数19不是已通过测试数",
+      "new_run_file": null
+    },
+    {
+      "lesson": "41-eval-pipeline",
+      "source_read_date": "2026-10-12",
+      "write_date": "2026-10-12",
+      "main_locator": {
+        "file": "LLM 工程实践/06-评测与实验管理.md",
+        "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+        "line": 1421
+      },
+      "headings": [
+        {
+          "source_heading": "## Learning Objectives",
+          "source_line": 10,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Problem",
+          "source_line": 18,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## The Concept",
+          "source_line": 26,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Perplexity, properly counted",
+          "source_line": 43,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Exact-match, with normalisation",
+          "source_line": 52,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Token F1, the right way",
+          "source_line": 63,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Local Mock LLM-as-Judge",
+          "source_line": 74,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Aggregation",
+          "source_line": 95,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Architecture",
+          "source_line": 110,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## What you will build",
+          "source_line": 131,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Reading the report",
+          "source_line": 146,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "## 26. 多指标报告先证明数据独立与分母一致",
+            "line": 1421
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        },
+        {
+          "source_heading": "## Stretch goals",
+          "source_line": 152,
+          "formal_locator": {
+            "file": "LLM 工程实践/06-评测与实验管理.md",
+            "heading": "### 第41课的实践核对与中文自检",
+            "line": 1437
+          },
+          "disposition": "有效原理和流程接既有主章/本节工程合同；源码差异、无依据保证在正文修正，不复制同基础算法"
+        }
+      ],
+      "exercises": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 工程实践/06-评测与实验管理.md",
+          "heading": "### 第41课的实践核对与中文自检",
+          "line": 1437
+        }
+      },
+      "stretch_goals": {
+        "count": 4,
+        "locator": {
+          "file": "LLM 工程实践/06-评测与实验管理.md",
+          "heading": "### 第41课的实践核对与中文自检",
+          "line": 1437
+        }
+      },
+      "unnumbered_practice": {
+        "count": 0,
+        "locator": {
+          "file": "LLM 工程实践/06-评测与实验管理.md",
+          "heading": "### 第41课的实践核对与中文自检",
+          "line": 1437
+        }
+      },
+      "quiz": {
+        "count": 6,
+        "locator": {
+          "file": "LLM 工程实践/06-评测与实验管理.md",
+          "heading": "### 第41课的实践核对与中文自检",
+          "line": 1437
+        }
+      },
+      "widget": {
+        "key": "cg-eval-quadrant",
+        "formal_locator": {
+          "file": "LLM 工程实践/06-评测与实验管理.md",
+          "heading": "### 第41课的实践核对与中文自检",
+          "line": 1437
+        },
+        "evidence": "维护/五站吸收/19C-小型语言模型训练动态图核对.json，root静态完整读最终注册函数；sourceJS未执行"
+      },
+      "source_code_tests": "全部只读，测试定义计数20不是已通过测试数",
+      "new_run_file": null
+    }
+  ],
+  "primary_sources": [
+    {
+      "key": "hf-logits",
+      "repo": "huggingface/transformers",
+      "source_file": "src/transformers/generation/logits_process.py",
+      "commit": "55c3cc9f03cd4fbf2d27d382dcc8fcc544631f8e",
+      "url": "https://github.com/huggingface/transformers/blob/55c3cc9f03cd4fbf2d27d382dcc8fcc544631f8e/src/transformers/generation/logits_process.py",
+      "bytes": 152549,
+      "sha256": "1d432521e418821b3bd7c0dd0985a2b2acd370e928d95190691e7392ce3118f9",
+      "exit": 0,
+      "cache_path": "/tmp/study-capstone-30-41-primary/hf-logits.txt",
+      "cache_sha256": "1d432521e418821b3bd7c0dd0985a2b2acd370e928d95190691e7392ce3118f9",
+      "actual_read_scope": "固定源码RepetitionPenaltyLogitsProcessor的负/正logits处理，TopK阈值/ties与TopP累计/min1实现；实际选读类段，未读整152KB文件，未调用generate/API",
+      "read_date": "2026-10-12",
+      "method": "agent-reach GitHub gh API pinned commit，纯只读；safeTensors repo URL已迁safetensors/safetensors但此旧URL重定向同commit",
+      "cache_bytes": 152549,
+      "git_blob_from_raw_bytes": "33df056755a129361e002cd5ac1c68b1f50c20ec",
+      "selected_ranges": [
+        {
+          "start_line": 306,
+          "end_line": 422,
+          "fragment_sha256": "32e882653f342e6e0e009a934d7778911d10385b52b35b13bfb4991ee4a700a6",
+          "status": "实际工具输出选段已读；片段可能以类/后续节部分结束，不称整模块"
+        },
+        {
+          "start_line": 558,
+          "end_line": 654,
+          "fragment_sha256": "106d81b65a856e20df1fb71dc362e7828de17f6ca928d5917dd736a9fe302916",
+          "status": "实际工具输出选段已读；片段可能以类/后续节部分结束，不称整模块"
+        },
+        {
+          "start_line": 489,
+          "end_line": 608,
+          "fragment_sha256": "c18de4b74a2b8326a40ce999eb4faa8f63b7efc7a5edc4b4baa378072b938364",
+          "status": "实际工具输出选段已读；片段可能以类/后续节部分结束，不称整模块"
+        }
+      ]
+    },
+    {
+      "key": "hf-gpt2-model",
+      "repo": "huggingface/transformers",
+      "source_file": "src/transformers/models/gpt2/modeling_gpt2.py",
+      "commit": "55c3cc9f03cd4fbf2d27d382dcc8fcc544631f8e",
+      "url": "https://github.com/huggingface/transformers/blob/55c3cc9f03cd4fbf2d27d382dcc8fcc544631f8e/src/transformers/models/gpt2/modeling_gpt2.py",
+      "bytes": 50615,
+      "sha256": "f7eee865bfac4f0d636dd174c435e50fb6d3728d3a7f194c1ebd941e8d49829a",
+      "exit": 0,
+      "cache_path": "/tmp/study-capstone-30-41-primary/hf-gpt2-model.txt",
+      "cache_sha256": "f7eee865bfac4f0d636dd174c435e50fb6d3728d3a7f194c1ebd941e8d49829a",
+      "actual_read_scope": "GPT2Attention Conv1D初始化/float32 upcast片段、GPT2LMHeadModel类的transformer wrapper/tied_keys及labels内部shift说明，未全读50KB模块",
+      "read_date": "2026-10-12",
+      "method": "agent-reach GitHub gh API pinned commit，纯只读；safeTensors repo URL已迁safetensors/safetensors但此旧URL重定向同commit",
+      "cache_bytes": 50615,
+      "git_blob_from_raw_bytes": "c5f8a1fdfdcf5ba91a3f6c18659b37d751da589e",
+      "selected_ranges": [
+        {
+          "start_line": 636,
+          "end_line": 678,
+          "fragment_sha256": "8f8f58ecf545a9d5f366cc56496266a279e06328b159096ecef4221df806f978",
+          "status": "实际工具输出选段已读；片段可能以类/后续节部分结束，不称整模块"
+        },
+        {
+          "start_line": 91,
+          "end_line": 124,
+          "fragment_sha256": "70e3fc0d687081e101cb3aa4c3df2e2cbd56d6d92d270969ec37f668acad3027",
+          "status": "实际工具输出选段已读；片段可能以类/后续节部分结束，不称整模块"
+        }
+      ]
+    },
+    {
+      "key": "safetensors-readme",
+      "repo": "huggingface/safetensors",
+      "source_file": "README.md",
+      "commit": "e246a2560645b7525f5775669ed816eb57c5bcc8",
+      "url": "https://github.com/huggingface/safetensors/blob/e246a2560645b7525f5775669ed816eb57c5bcc8/README.md",
+      "bytes": 10630,
+      "sha256": "0a932f120de5c2477b286cae5517b6fec5e1d3ed64a19b99ccfc0a8504db7b13",
+      "exit": 0,
+      "cache_path": "/tmp/study-capstone-30-41-primary/safetensors-readme.txt",
+      "cache_sha256": "0a932f120de5c2477b286cae5517b6fec5e1d3ed64a19b99ccfc0a8504db7b13",
+      "actual_read_scope": "固定README Format完整段/Notes与Benefits选读：dtype/shape/offsets、重复keys、NaN/Inf并不校验、lazy loading边界；未安装/打开模型权重",
+      "read_date": "2026-10-12",
+      "method": "agent-reach GitHub gh API pinned commit，纯只读；safeTensors repo URL已迁safetensors/safetensors但此旧URL重定向同commit",
+      "cache_bytes": 10630,
+      "git_blob_from_raw_bytes": "ccc910722eae29543526dc231186a699f71b3182",
+      "selected_ranges": [
+        {
+          "start_line": 74,
+          "end_line": 137,
+          "fragment_sha256": "c21e1eec7893832158e72dfac70530ea3f6dbb51986d82247e60e9bb7ace002d",
+          "status": "实际工具输出选段已读；片段可能以类/后续节部分结束，不称整模块"
+        },
+        {
+          "start_line": 166,
+          "end_line": 194,
+          "fragment_sha256": "5036f9932a82f3e23e256e1149e1ad332a6c5fd4a4cfbf56a0b49feebffdf1d9",
+          "status": "实际工具输出选段已读；片段可能以类/后续节部分结束，不称整模块"
+        }
+      ]
+    },
+    {
+      "key": "squad2-raw",
+      "repo": "rajpurkar/SQuAD-explorer",
+      "source_file": "evaluate-v2.0.py",
+      "commit": "eee5fdbf62f8613a7812b03419e6b29617b74fd1",
+      "url": "https://github.com/rajpurkar/SQuAD-explorer/blob/eee5fdbf62f8613a7812b03419e6b29617b74fd1/evaluate-v2.0.py",
+      "bytes": 10547,
+      "sha256": "710840ce2c2c61716334c056777032f24660b83eb9869a451036e6a24d8103c4",
+      "exit": 0,
+      "cache_path": "/tmp/study-capstone-30-41-primary/squad2-raw.txt",
+      "cache_sha256": "710840ce2c2c61716334c056777032f24660b83eb9869a451036e6a24d8103c4",
+      "actual_read_scope": "固定evaluate-v2.0.py的normalize_answer/get_tokens/compute_exact/compute_f1/get_raw_scores max-over-gold段，未运行或全读后续阈值/plots",
+      "read_date": "2026-10-12",
+      "method": "agent-reach GitHub gh API pinned commit，纯只读；safeTensors repo URL已迁safetensors/safetensors但此旧URL重定向同commit",
+      "cache_bytes": 10547,
+      "git_blob_from_raw_bytes": "21f52c179c8c6547ae5999215f8afd36038f20ca",
+      "selected_ranges": [
+        {
+          "start_line": 45,
+          "end_line": 105,
+          "fragment_sha256": "66db42986c0b601e26a09e89516f74167e99593842f8e3dcfa6eff9c30210533",
+          "status": "实际工具输出选段已读；片段可能以类/后续节部分结束，不称整模块"
+        }
+      ]
+    },
+    {
+      "key": "torch-ce",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html",
+      "bytes": 10968,
+      "exit": 0,
+      "cache_path": "/tmp/study-capstone-30-41-primary/torch-ce.md",
+      "cache_sha256": "7530c830b105ae79c125aefea1256ba023293c666c2f5e2a9aa2c85eea890e8f",
+      "actual_read_scope": "Jina正文全文读取；当前官方链接源2.14，class-index target/ignore_index/有效分母/soft-target不自动valid；未安装PyTorch2.14",
+      "read_date": "2026-10-12",
+      "method": "agent-reach Jina official文档，下载范围与实际选读范围分开",
+      "cache_bytes": 10968,
+      "selected_ranges": [
+        {
+          "start_line": 1,
+          "end_line": 131,
+          "fragment_sha256": "7530c830b105ae79c125aefea1256ba023293c666c2f5e2a9aa2c85eea890e8f",
+          "status": "正文输出全文实际读"
+        }
+      ]
+    },
+    {
+      "key": "torch-embedding",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.Embedding.html",
+      "bytes": 73653,
+      "exit": 0,
+      "cache_path": "/tmp/study-capstone-30-41-primary/torch-embedding.md",
+      "cache_sha256": "0aa2c7a76147e73115646038bb1454a1769dd8e21303cf8b7f9fe3364ab12ac2",
+      "actual_read_scope": "实际正文class Embedding及Parameters/shape/padding_idx/max_norm/示例/from_pretrained开头选读；前导航与其余末文不当全文证据",
+      "read_date": "2026-10-12",
+      "method": "agent-reach Jina official文档，下载范围与实际选读范围分开",
+      "cache_bytes": 73653,
+      "selected_ranges": [
+        {
+          "start_line": 659,
+          "end_line": 763,
+          "fragment_sha256": "c3cea4d6d35646ba21685fd761da572df317ab62fca0aefdb71812d7fa63f058",
+          "status": "实际工具输出选段已读；片段可能以类/后续节部分结束，不称整模块"
+        }
+      ]
+    },
+    {
+      "key": "torch-serialization",
+      "url": "https://docs.pytorch.org/docs/stable/notes/serialization.html",
+      "bytes": 36601,
+      "exit": 0,
+      "cache_path": "/tmp/study-capstone-30-41-primary/torch-serialization.md",
+      "cache_sha256": "56737e6b333ffa4d1c9df26d255176df7902c7f8c68072a9ebcb95f917f8d487",
+      "actual_read_scope": "torch.load weights_only=True/2.6默认、安全界限、allowlist与troubleshooting selected段实际读，未加载任意checkpoint",
+      "read_date": "2026-10-12",
+      "method": "agent-reach Jina official文档，下载范围与实际选读范围分开",
+      "cache_bytes": 36601,
+      "selected_ranges": [
+        {
+          "start_line": 223,
+          "end_line": 302,
+          "fragment_sha256": "2a8be5107f0cb04b6874d992a6508947fc82695b6ff37c3eea65b3d5cfd06cd8",
+          "status": "实际工具输出选段已读；片段可能以类/后续节部分结束，不称整模块"
+        }
+      ]
+    }
+  ],
+  "failed_or_unread_primary": [
+    {
+      "url": "https://huggingface.co/docs/transformers/model_doc/gpt2",
+      "cache_path": "/tmp/study-capstone-30-41-primary/hf-gpt2-doc.md",
+      "status": "Jina403 AbuseAlleviation，未读该网页，不做事实证据；固定官方GitHub模块仅核所述范围替代",
+      "read_date": "2026-10-12"
+    },
+    {
+      "cache_path": "/tmp/study-capstone-30-41-primary/squad2.md",
+      "status": "网页只下载，未全文；实际使用已选读固定raw作者代码，不重复算官网全文读取"
+    }
+  ],
+  "structural_check": {
+    "path": "/tmp/study-capstone-30-41-structure.json",
+    "status": "结构检查成功；在补12动态图说明之前的实际检查，root最终全批再统一检查",
+    "scope": "624MD/main311/local4033/93valid+1registeredemptyNB/395SVG/969sourceSHA，非专业或真实模型验证"
+  },
+  "totals": {
+    "source_lessons": 12,
+    "source_files": 50,
+    "headings_h2_h4": 139,
+    "original_exercises": 19,
+    "stretch_goals": 15,
+    "unnumbered_practice": 4,
+    "quiz": 72,
+    "test_definitions_static_only": 185,
+    "formal_files": 6,
+    "old_python_same_bytes_not_rerun": 43,
+    "new_python_actual_runs": 2,
+    "python_total": 45,
+    "source_python_or_tests_runs": 0,
+    "mathml": 132,
+    "pandoc_warnings": 0,
+    "svg_in_source_group": 0,
+    "widgets": 12
+  },
+  "verification_boundary": [
+    "新增仅Python3.12.13标准库的标量元数据/监督合同，无Tensor库或真实loader",
+    "加载例不是Safetensors parser或密码签名，内存替换不是真实多设备事务",
+    "监督例不算模型概率/梯度/真实SFT或DPO；prompt梯度与算法重用既有未改程序证据",
+    "source models/tests、安装、checkpoint下载/读取、GPU/模型/API/服务0",
+    "普通strings/shape/bytes与source代码hash不证明数据许可/外部事实或模型质量"
+  ],
+  "root_remaining": [
+    "统一专业复核新增正文与2实跑例",
+    "绑定43旧块历史证据/实际日期，不重跑同字节",
+    "合并48/49评测draft须更新LLM06最终SHA，而非复用本次文件SHA",
+    "全库导航/中文更新/来源总账/master累计只由root统一验收后递增",
+    "Git提交/推送/PR仍由root处理"
+  ],
+  "reuse_notes": [
+    "源码30的新增碰撞反例为静态手核；BPE训练/EncodingContract已有8+2块原字节保，不新增重复训练器",
+    "源码33–36基础训练/生成/权重绑定复用既有Transformer程序；新增加载预检仅与37的合同相关",
+    "源码38分类真实训练未新增或跑；39新增只查监督/同prompt/输出预算，梯度已有SFT程序原证据",
+    "源码40回链04的新输入合同而不重复DPO/IPO；源码41回链原06权重/失败/PPL/F1程序，不再生成metric算法"
+  ],
+  "root_snapshot_note": "保原实际报告SHA/日期/临时路径和原核验阶段；根已润中文/合案例18与评测27/大int修正等。最终正式SHA与locators以19BCD-综合构建覆盖与代码核对.json为准，不将原snapshot当当前验收。"
+}

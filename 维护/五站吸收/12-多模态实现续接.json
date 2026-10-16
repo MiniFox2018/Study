@@ -1,0 +1,412 @@
+{
+  "日期": "2026-10-08",
+  "性质": "多模态主题正文实现进度与局部检查；不是Phase12统一验收",
+  "固定来源提交": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "已验收标准课仍为": 223,
+  "已写入": [
+    {
+      "文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "范围": "原01–09主要有效机制与45练习；原10的联合训练/V2PE/错误前提和5题条件",
+      "正文组织": "表示/读出、MAC、真实图文梯度、query/mask、外部媒体双gate、变长序列和冻结反向、packing、预算、时空位置、消融与答案",
+      "新的完整CPU块": 8
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "范围": "原17/18的采样/时间区间、长视频/Ring/检索与10题判据",
+      "新的完整CPU块": 1
+    }
+  ],
+  "最终新程序实际执行": [
+    {
+      "program_key": "0",
+      "sha256": "5f92daa2a8deb03bf364a3bb4af8be21ae8d98cd99819ed7e2f6cc6f30184375",
+      "exit_code": 0,
+      "stdout": "ViT标准dense参数(不含head) 85798656\nMAC {'attention': 524391936, 'mlp': 929562624} 乘加各算一次时FLOPs {'attention': 1048783872, 'mlp': 1859125248}\n1024→H→H带bias MLP 4096 20979712\n1024→H→H带bias MLP 5120 31467520\n有效patch/填充patch须分开；像素标量不是序列长度\n",
+      "stderr": "",
+      "execution_date": "2026-10-08",
+      "environment": {
+        "Python": "3.12.13",
+        "torch": "2.14.1",
+        "numpy": "2.4.6",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "device": "CPU"
+      },
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "block": 1
+    },
+    {
+      "program_key": "1",
+      "sha256": "877b734c2bf5b4c885b56317a187b0a8a41c8834f9b365a887d86b6682bbe805",
+      "exit_code": 0,
+      "stdout": "CLIP/SigLIP 0.975186 2.007381 两种归一化比 3.0\n双塔/scale/bias真实梯度通过；多正对数 5\n",
+      "stderr": "",
+      "execution_date": "2026-10-08",
+      "environment": {
+        "Python": "3.12.13",
+        "torch": "2.14.1",
+        "numpy": "2.4.6",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "device": "CPU"
+      },
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "block": 2
+    },
+    {
+      "program_key": "2",
+      "sha256": "25cb59168a493f830f2df3da9cfc55dcd074aa41e1a6eee824ba71800ec941fd",
+      "exit_code": 0,
+      "stdout": "ITC/ITG/ITM可见性与未来扰动通过；query形状 (2, 3, 8)\nITC max相似度/ITM mean-logits (2, 2) (2, 2)\n",
+      "stderr": "",
+      "execution_date": "2026-10-08",
+      "environment": {
+        "Python": "3.12.13",
+        "torch": "2.14.1",
+        "numpy": "2.4.6",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "device": "CPU"
+      },
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "block": 3
+    },
+    {
+      "program_key": "3",
+      "sha256": "cdccee6bee5834af6a97876531c2a514bf9aa410994d79f0fafcbeb7d35afa78",
+      "exit_code": 0,
+      "stdout": "resampler固定latent (2, 3, 8) 双gate零初始化/梯度/最近媒体隔离通过\n",
+      "stderr": "",
+      "execution_date": "2026-10-08",
+      "environment": {
+        "Python": "3.12.13",
+        "torch": "2.14.1",
+        "numpy": "2.4.6",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "device": "CPU"
+      },
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "block": 4
+    },
+    {
+      "program_key": "4",
+      "sha256": "063c579a4dd7542e7e23481a060210dabd1127038db0d69867f6f79b2a378fb2",
+      "exit_code": 0,
+      "stdout": "变长序列/有效长度 (2, 14, 8) [14, 6] 冻结LM下桥接loss 3.416888\nassistant右移labels、冻结权重/桥接更新、未来图/padding隔离、联合视觉梯度通过\n",
+      "stderr": "",
+      "execution_date": "2026-10-08",
+      "environment": {
+        "Python": "3.12.13",
+        "torch": "2.14.1",
+        "numpy": "2.4.6",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "device": "CPU"
+      },
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "block": 5
+    },
+    {
+      "program_key": "5",
+      "sha256": "93443404700e713896166491539b5e60518d994ceaa87997f022d418858149a8",
+      "exit_code": 0,
+      "stdout": "实际patch与offset [6, 8] [0, 6, 14] attention合法项 100\ndenseN²/各图n²和 196 100 逐图等价/跨图梯度为零/paddingpool通过\n",
+      "stderr": "",
+      "execution_date": "2026-10-08",
+      "environment": {
+        "Python": "3.12.13",
+        "torch": "2.14.1",
+        "numpy": "2.4.6",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "device": "CPU"
+      },
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "block": 6
+    },
+    {
+      "program_key": "6",
+      "sha256": "0a28c026b4e67ec4068058dff3f9ccf8baa53299b0e290e4e1570110fd0c92cf",
+      "exit_code": 0,
+      "stdout": "输入grid/bilinear/average 24 (12, 12) (12, 12)\n输入grid/bilinear/average 27 (14, 14) (13, 13)\n含文本/输出/newline的教学预算 {'status': 'ok', 'frames': 16, 'total': 3928} 不是processor实测token\n",
+      "stderr": "",
+      "execution_date": "2026-10-08",
+      "environment": {
+        "Python": "3.12.13",
+        "torch": "2.14.1",
+        "numpy": "2.4.6",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "device": "CPU"
+      },
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "block": 7
+    },
+    {
+      "program_key": "7",
+      "sha256": "b12a34cf9770bf02571ced74d38c953e1b1387c17949b7b0457070b43c91ecfb",
+      "exit_code": 0,
+      "stdout": "每head三轴/1D退化/范数通过；真实采样秒与教学timeIDs [0.0, 1.2, 3.7] [0.0, 12.0, 37.0]\nV2PE视觉δ=.25累计位置增量 6.25 实际token数仍 13\n",
+      "stderr": "",
+      "execution_date": "2026-10-08",
+      "environment": {
+        "Python": "3.12.13",
+        "torch": "2.14.1",
+        "numpy": "2.4.6",
+        "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+        "device": "CPU"
+      },
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "block": 8,
+      "修订复跑理由": "将末端游标/累计增量与max−min跨度区分；最终打印字段改变后复核"
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "block": 14,
+      "sha256": "a03e3bf669407441819bfa28411bd7891e4444633a80a9577a91b415e6d754e2",
+      "exit_code": 0,
+      "stdout": "12帧预算 [0, 0, 2, 3, 2, 0, 0, 1, 2, 2] 人工PTS被保留 [0.22, 0.5, 0.91] 一预测不重复命中两个GT {'hits': 1, 'precision': 1.0, 'recall': 0.5, 'false_positive': 0, 'missed': 1}\n",
+      "stderr": "",
+      "execution_date": "2026-10-08",
+      "environment": "Python3.12.13标准库；人工PTS/区间fixture，未真实视频解码/模型/多卡"
+    }
+  ],
+  "代码SHA定义": "最终Python围栏正文加末尾LF，与实际临时执行文件同字节",
+  "原旧代码保留": [
+    {
+      "文件": "AI 算法基础/感知与多模态专题/03-多模态学习.md",
+      "旧Python块数": 2,
+      "旧块索引与代码不变": true,
+      "基线提交": "c27fe1b",
+      "核对方式": "各旧围栏正文逐字与基线一致；没有重跑或改写其历史执行日期",
+      "旧块SHA256": [
+        "6944f7c9490f02def33b200e99f5c3fdca543563ea4c541144ecfa69033cf238",
+        "2b81e9fc3eeeff98bb44c8e097e5a6169872bc0f8cb064026d9a5226ef002b95"
+      ]
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/05-图像表征卷积与视觉训练.md",
+      "旧Python块数": 10,
+      "旧块索引与代码不变": true,
+      "基线提交": "c27fe1b",
+      "核对方式": "各旧围栏正文逐字与基线一致；没有重跑或改写其历史执行日期",
+      "旧块SHA256": [
+        "4e3621e9ba52bd06b2c332499d74b501a03212f70509bff7bebc210dcc8192cc",
+        "2d869bf12697135d5d39ebe06695da5d987bc0faccc7d7ddccb83e883e3bfbe1",
+        "243b08fd4295c38024771449b589462021954ff197125d368f4047f3c4f75940",
+        "fee9558eaea5e96ae510cc1cf1af1c29204b6f1a89bebfb9799ed4cdfd93c95f",
+        "fc79560efc2d033a7214a2e74666801aa934b2c90ed743298743ad584fd2fed4",
+        "caf068a170b4e94b82570fda84e50c2601d884473d1149319a1ad43def2b94e5",
+        "3930c0f09c4eb73d1cc4214d8a506e79bb04d3f494759b30c52f93dc1bc02882",
+        "ad5716e36f832033649e783532d6e137c5c0f5c5cb648e8e6450c25238946dc6",
+        "428d2a2407cdc1383d1c6bcba93b7df7dca1238cb09bc80cd6f86e238a2fc3ab",
+        "86d0107f896f8579d3a11514b6ca5540ad07b296346f3ece8c253d139b06a7c4"
+      ]
+    },
+    {
+      "文件": "AI 算法基础/深度学习专题/04-注意力机制与Transformer.md",
+      "旧Python块数": 8,
+      "旧块索引与代码不变": true,
+      "基线提交": "c27fe1b",
+      "核对方式": "各旧围栏正文逐字与基线一致；没有重跑或改写其历史执行日期",
+      "旧块SHA256": [
+        "0fc9048cee361c1a36d5ce9288e62fb0b3d2445900ec9e8ca362f41d0801658e",
+        "97421f1680c7c151e8bf45888654f0222fa999d729c9d19c8b9cd3a95601d524",
+        "457cf27f66cbed655b30e3f47ac608e0453ab1e3686fc4e5cc82300f94eb9e79",
+        "4f5b212d89de7893b2a78d156fb8ffe6d8378ee293dab710499c33aa2ae72088",
+        "251e6fcadf338b61ea157967502b9f33fb7fa38efc0b595bc5504a9912590335",
+        "a6e7a16212c8590cd5fd40e6dcb0fc907f25727bedb35486be9abbb3a4c9152c",
+        "16a61dc2651abbb35f18beb4f0b5e7ee4541d6e0b6d40ac72a26a35b6932efbf",
+        "99bf1f4a6924585d47ecdb47bd938fa29fc63106e4e84597f94d5dc0b1b20db8"
+      ]
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "旧Python块数": 13,
+      "旧块索引与代码不变": true,
+      "基线提交": "c27fe1b",
+      "核对方式": "各旧围栏正文逐字与基线一致；没有重跑或改写其历史执行日期",
+      "旧块SHA256": [
+        "8d242ed4e8650650b64f16898a0b7495317b8e68923878b4f7a788e1545f93a1",
+        "26a1b7ace965b18cda9ee0f73eb29680283bdccd2a327a96f964bfc91682836c",
+        "b6dcd29ccd7d0570829485416e802162139ff3fed5a4a3b2a00ada6cafee5f0e",
+        "7a196f82db7db3c2e5915df5fc3b86801071f7573836e62c510ebba089b74eca",
+        "4e8639fed8db0417a2d1b364aa7c750ed496d20e3bb7ed0e2d4f3a90e39102c5",
+        "6f835868f004f56469b6f89d22bd91d5f29d6cac53f1c809ad882430e173fe6f",
+        "f7c9a7b9350fbc9da0996b7da06634912a81ddae3fba97d7270ae456f1de7a2f",
+        "1bc344a035a638e3a1a33d2b183d837f031fa2772f73bc6ba45a78bc3531eee0",
+        "4f89bf274aabbcac65821bcd1d78d0c723a478ef8881acc43f83aa5577857e8d",
+        "e7f41e45b2814ce438164df1f2cb4e87c2251c077b6cf6b39837a5ca611dab6d",
+        "220bde5696e6c8a1bffc69640b9b1796dbf6cc5b6bd0bcc988ef551591c4a3dc",
+        "41732f6f8bbe11fe7e2b8e673ca83a3c4342fbcf230892f7ceaf407119923513",
+        "7b2702381df6c2afa2b08077d9b7a36c63f9c591c07e7ae7ee1c00bf9f92a193"
+      ]
+    }
+  ],
+  "专业复查重点": [
+    "像素标量/patch/CLS/readout/merger后LLM token不同；模型特殊token与读出不能统一假设",
+    "SigLIP sum/N与N²mean、双塔/scale/bias独立梯度与多正对",
+    "QFormer三任务可见性、隔层cross/sharedself独立FFN、ITC max与ITM mean",
+    "Flamingo固定latent、最近媒体mask实际生效、零gate参数/分支梯度分别检查",
+    "assistant labels右移、多图变长、padding与冻结LLM参数/输入梯度",
+    "真实像素packing/逐图等价/跨图零梯度、densemask不等稀疏kernel",
+    "Oddgrid bilinear14×14与average13×13反例、context不可行不悄悄超额",
+    "每head三轴RoPE、text三轴同i、时间IDs、V2PE累计增量不等实际max-min跨度",
+    "frame预算总量/容量、人工PTS、source/revision与有限区间、一对一GT匹配防重复",
+    "资料/图意/数值fixture与真实任务、CPU算法与GPU通信/速度严格区分"
+  ],
+  "根新增一手定点读取": [
+    {
+      "URL": "https://arxiv.org/html/2408.11039v1",
+      "范围": "§2.2/3及§4.1推理训练；DDPMε、cosine、同图双向/跨图因果、当前noisy block覆盖、BOI输入不算下个patch的CE、λ5和250steps",
+      "用于": "统一生成后续写作的校对，未写成当前17章完成"
+    },
+    {
+      "URL": "https://arxiv.org/html/2507.08128v1",
+      "范围": "§3.1和作者特征提取片段；AFWhisper/16k/128mel/30s/50Hz+stride2，论文layers/head数字不沿用",
+      "用于": "音频后续写作；本轮未完成音频14正式融合"
+    },
+    {
+      "URL": "https://github.com/illuin-tech/colpali",
+      "范围": "README deprecation和MultiVectorEncoder迁移片段",
+      "用于": "工程07/12后续；未安装/运行或称完整迁移验证"
+    },
+    {
+      "URL": "https://arxiv.org/html/2504.10479v3",
+      "范围": "Table11及对照说明，非全部论文实验",
+      "用于": "当前16中条件化解释，不说零遗忘"
+    },
+    {
+      "URL": "https://arxiv.org/html/2311.10122v3",
+      "范围": "§3.1.1–3.2.2方法文本，非完整论文/消融",
+      "用于": "09原17-4参考，LanguageBind预对齐图/视频再共projector"
+    },
+    {
+      "URL": "https://arxiv.org/html/2309.16588v2",
+      "范围": "Abstract及§2.1–2.2的高范数局部/全局信息、方法假设；非完整§3实验",
+      "用于": "16 register解释与条件，未复制成绩"
+    }
+  ],
+  "资料阶段": "25课100非空/25空、392正文H2–H4读取记录已冻结；两种图区分实际注册和运行。",
+  "尚未完成": [
+    "17统一生成主入口的正文及共享骨干/离散AR/DDPM混合/Mask采样/流式状态程序",
+    "音频14 AF3、机器人04 VLA/FAST、OCR08结构证据、工程07/12多向量和跨模态、Computer Use交互03的正式深入融合与程序",
+    "逐课正文/输出/原练习/静态动态语义到最终标题完整映射及全25课整体验收",
+    "第1来源其他300主课程中的未验收单元、67认证/197项目及辅助69/外围236；未验收数含当前25课",
+    "第2至5站、五站最终全局融合、真实语料/权重/GPU/多卡/模型API/SDK服务/真实外部动作与个人学习效果"
+  ],
+  "续接": "先读此文件、12-多模态准备阶段检查.json及三组只读记录；从已经落盘的16/09继续，不重建摘要。三个写作代理在本轮额度错误退出，根代理已接手，不能假定仍在并行执行。",
+  "本次代理阻碍": "子代理额度错误不等于用户撤回同站并行许可；未更换当前模型或配置。根继续已授权写作。",
+  "数学渲染": [
+    {
+      "文件": "AI 算法基础/README.md",
+      "返回码": 0,
+      "数学元素": 0,
+      "警告": ""
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/03-多模态学习.md",
+      "返回码": 0,
+      "数学元素": 6,
+      "警告": ""
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/05-图像表征卷积与视觉训练.md",
+      "返回码": 0,
+      "数学元素": 57,
+      "警告": ""
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "返回码": 0,
+      "数学元素": 35,
+      "警告": ""
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "返回码": 0,
+      "数学元素": 3,
+      "警告": ""
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/README.md",
+      "返回码": 0,
+      "数学元素": 0,
+      "警告": ""
+    },
+    {
+      "文件": "AI 算法基础/深度学习专题/04-注意力机制与Transformer.md",
+      "返回码": 0,
+      "数学元素": 50,
+      "警告": ""
+    },
+    {
+      "文件": "学习指南.md",
+      "返回码": 0,
+      "数学元素": 0,
+      "警告": ""
+    },
+    {
+      "文件": "更新记录.md",
+      "返回码": 0,
+      "数学元素": 0,
+      "警告": ""
+    },
+    {
+      "文件": "维护/五站吸收/进度与续接.md",
+      "返回码": 0,
+      "数学元素": 0,
+      "警告": ""
+    }
+  ],
+  "最终结构检查": {
+    "命令": "python3 tools/check_knowledge.py",
+    "返回码": 0,
+    "输出": "检查文档 610 篇（主库 297 篇），本地链接 3571 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。"
+  },
+  "差异检查": {
+    "命令": "git diff --check",
+    "返回码": 0,
+    "输出": ""
+  },
+  "最终修改MarkdownSHA256": [
+    {
+      "文件": "AI 算法基础/README.md",
+      "SHA256": "ac360d16c90e68305e62e0da90e8cacb881d8209a9f0c9f8de6f866e45667ad1"
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/03-多模态学习.md",
+      "SHA256": "34ec62206ff2ef0e253fff5376443de617d4d96646d931e407ae9f965bc32377"
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/05-图像表征卷积与视觉训练.md",
+      "SHA256": "8f607ce47d7eb6b75d1370848e1e5f3938c4a9419814581977119755f5f54495"
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "SHA256": "12a8233c833c3f454dd99919c1497ca019cf02749a3a716411c1fe972adfa6b6"
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "SHA256": "87672980bfc8a3dd2cfb313af2da9633c2713a2378395ed14c7f389d2e37b97a"
+    },
+    {
+      "文件": "AI 算法基础/感知与多模态专题/README.md",
+      "SHA256": "dfb337d665ecbb1b736878ebf7069069592299636076b85727d38f72e54a9582"
+    },
+    {
+      "文件": "AI 算法基础/深度学习专题/04-注意力机制与Transformer.md",
+      "SHA256": "6d34aac0ac3b4a06aad51f873669c2bb1900ff129fbced1d56f75d4e65aa244e"
+    },
+    {
+      "文件": "学习指南.md",
+      "SHA256": "522621935e260b840ce85304b697f93aa24d1674648c8d6c1a65bade8583f697"
+    },
+    {
+      "文件": "更新记录.md",
+      "SHA256": "665e82c67e632501d7a15fad0568719ec9e5bb3ff90f0963e1902a6db0b92d03"
+    },
+    {
+      "文件": "维护/五站吸收/进度与续接.md",
+      "SHA256": "88bee656f0b2c2b9c80f2cbbd8ff2930903a7c963dfdbb95053171bc3463c66c"
+    }
+  ],
+  "收尾检查顺序修复": "初次结构检查发现续接JSON尚未写入的两条链接，已调整保存顺序；最终通过。知识代码不变，更新记录未重复追加。",
+  "对应历史提交": "ac1090d1fba43c6cda162fcf0fdb6890f037cfb0",
+  "后续统一验收": "已由12-多模态统一检查.json和五组覆盖报告接续；本文件保留局部阶段的旧代码SHA/输出与原未完成状态，不当当前最终代码。",
+  "后续代码修订": "16第3/5块改非均匀扰动与mask关闭对照，新的最终SHA/实跑在视觉覆盖报告；原成功结果仅表示当时那组弱fixture执行，不沿用为充分隔离证明。"
+}

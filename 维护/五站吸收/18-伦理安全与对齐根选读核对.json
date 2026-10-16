@@ -1,0 +1,55 @@
+{
+  "日期": "2026-10-11",
+  "alignment_faking": {
+    "URL": "https://arxiv.org/abs/2412.14093",
+    "实际范围": "摘要及文本59–73、119–128、206–215相关段；Figure1/page2图像完整视觉阅读",
+    "PDF_SHA256": "f448dfe38f2144f0fe61bd78ceab01e44a17b363df1cb6df6c6c1bbea9568abc",
+    "图像_SHA256": "4366f5d8ff61d9c4791f86e51a01c2842ddd37f8fa92587976842d02161e90ca",
+    "根确认": "虚构重训/free-paid场景；12%是alignment-faking scratchpad，不是harmfulcompliance；free86%拒绝/paid97%拒绝对应14/3%行为，不能当默认部署基础率"
+  },
+  "control": {
+    "URL": "https://arxiv.org/abs/2312.06942",
+    "实际范围": "已保存control HTML/markdown通过rg返回的正文指定段：方法场景、usefulness/safety定义、APPS5000、2%H预算；未声称阅读全文",
+    "根确认": "对抗攻击policy替代U和真实U用途分开；safety为整个序列无一次后门，不是逐任务平均；固定审计能力预算与威胁模型下解释对照",
+    "cache_SHA256": "97bab57b2529820cca440d27c2b63807dc69e71d94ec9a697664dbf9bf0bd64e",
+    "cache_file": "control.md"
+  },
+  "watermark_math": {
+    "实际范围": "原widget显示6/9 green，在gamma=.5近似z检验下独立手算z=(6−4.5)/1.5=1",
+    "根确认": "单此固定例无法宣布检测成功；null独立/重复context/选择检测器/显著性须另核"
+  },
+  "动态与范围": "30实际最终注册函数静态全文已读，含alignment3/4helper；sourceJS不执行；论文/主源全文范围以各组实际记录为准",
+  "artprompt": {
+    "实际范围": "PDF page7:Table3/Fig3/Fig4与该页邻近解释完整视觉阅读",
+    "PDF_SHA256": "16bc0a8d90599c880fb39fc6e1de7f50a3382842c8eaac3ed6fd1a37efc45c15",
+    "图像_SHA256": "4e8bb8127d93210fb8f649cd7e3eab4779f31a6b38ad0635b80524b37d4c9869",
+    "根确认": "模型/ensemble分开，平均52%、GPT4 32%、Llama2 20%不能改写全>75%；访问能力/效率定义分别报告"
+  },
+  "wmdp": {
+    "实际范围": "PDF page10:Algorithm1/5.1/Table1/Fig8完整视觉阅读",
+    "PDF_SHA256": "7eaf67dee3b58b308b6fa65d512e59e1b3d6fba9194c483a92267cd9abeef323",
+    "图像_SHA256": "14a8dcf9aeebfe2c447547454e5433e9ca7c6c21e4d86a92ed8ff818d7e7e037",
+    "根确认": "Bio/Cyber遗忘范围，不包括Chem；Zephyr31.2/28.2非25随机，MMLU58.1→57.1非恒定；u均匀positiveentries后归一化，不是unit sphere均匀方向"
+  },
+  "法律补核": {
+    "日期": "2026-10-11",
+    "cache_SHA256": "127f45681deb8fce4420c4cf21be294f9841099eb582e411e35270b165003ead",
+    "来源": [
+      {
+        "URL": "https://oag.ca.gov/system/files/attachments/press-docs/Legal%20Advisory%20-%20Application%20of%20Existing%20CA%20Laws%20to%20Artificial%20Intelligence.pdf",
+        "名称": "California DOJ/OAG LegalAdvisory",
+        "范围": "page6/lines230–236及footnote12 lines263–265实际选读",
+        "确认": "AB2013法律生效2025-01-01与训练数据网站摘要披露on/before2026-01-01操作日期分开；不将摘要冒称全法/各豁免全文",
+        "未采用": "同PDF其他条例现状未在本批逐条核验，不由下载/网页展开推定已核当前"
+      },
+      {
+        "URL": "https://www.msit.go.kr/eng/bbs/view.do?bbsSeqNo=42&mId=4&mPid=2&nttSeqNo=1214&sCode=eng",
+        "名称": "MSIT AI Basic Act Comes into Force",
+        "范围": "官网搜索结果及成功open120–199行主要发布摘要，canonical400后带session缓存路径可读",
+        "确认": "2026-01-22 Act/Decree施行，grace至少一年及例外；high-impact/生成透明度与较高阶安全义务不同条件",
+        "限制": "主管部门公布说明不是已读韩文法全文、每个定义/豁免或完整法律审查"
+      }
+    ],
+    "失败": "LeginfoAB2013原页面403仍如实保留，不据此判法律失效；MSIT canonical400也不是内容不存在"
+  }
+}

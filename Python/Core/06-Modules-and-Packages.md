@@ -80,7 +80,7 @@ python -m venv .venv
 source .venv/bin/activate
 
 # Windows PowerShell
-.venvScriptsActivate.ps1
+.\.venv\Scripts\Activate.ps1
 ~~~
 
 随后：
@@ -235,3 +235,6 @@ print(mean([10, 20, 30]))
 
 **练习 3**：什么时候仍会看见 setup.py？  
 **答案**：既有项目、兼容性场景或某些构建工具内部仍可能使用；但现代新项目的标准元数据入口优先 pyproject.toml。
+## 17. 开发工作台的完整实践
+
+解释器、编辑器、Notebook内核、uv锁定与conda边界的完整操作与排错见[开发环境与依赖复现](../实践/01-开发环境编辑器与依赖复现.md)。先在同一个解释器确认包能导入，再核对任务结果；不以锁文件替代数据/驱动/模型版本。

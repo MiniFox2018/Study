@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-12",
+  "scope": "Phase19/42-49全部实际最后注册动态函数静态完整回读，依赖共享helper此前已回读",
+  "counts": {
+    "widgets": 8,
+    "browser_runs": 0,
+    "source_programs_executed": 0
+  },
+  "registration_method": "按build.js provider顺序和额外脚本排序取最后注册，未执行source build/JS",
+  "review_boundary": "预设曲线/图值不冒称真实训练、协议或评测结果；读取≠融合验收",
+  "entries": [
+    {
+      "lesson": "42-large-corpus-downloader",
+      "widget": "cap-corpus-downloader",
+      "provider": "figures-capstone-a.js",
+      "function": "corpusStream",
+      "start_line": 269,
+      "end_line": 313,
+      "provider_sha256": "1efa266880eb75c55723ffea967e137eb7576fdbad3c18f6353c0f520bbd88ba",
+      "candidate_registration_order": [
+        "figures-capstone-a.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "HTTPRange/压缩偏移/LSH均预设；碰撞仅候选不等相似度达标，恢复要对象标识与durable已提交offset。"
+    },
+    {
+      "lesson": "43-hdf5-tokenized-corpus",
+      "widget": "cc-hdf5-corpus",
+      "provider": "figures-capstone-c.js",
+      "function": "hdf5Buffer",
+      "start_line": 249,
+      "end_line": 296,
+      "provider_sha256": "89114897dc7dec5f5a4bb3964afd71406aef5b87f1d9b9b3cc45bb1e3b311b42",
+      "candidate_registration_order": [
+        "figures-capstone-c.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "HDF5chunk/hyperslab不是NumPy直接mmap；尾块有效长度/索引/分隔符须严格合同，图mmap说法有误。"
+    },
+    {
+      "lesson": "44-cosine-lr-warmup",
+      "widget": "cap-cosine-warmup",
+      "provider": "figures-capstone-a.js",
+      "function": "cosineWarmup",
+      "start_line": 315,
+      "end_line": 353,
+      "provider_sha256": "1efa266880eb75c55723ffea967e137eb7576fdbad3c18f6353c0f520bbd88ba",
+      "candidate_registration_order": [
+        "figures-capstone-a.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "连续cosine参数固定，不证明离散optimizer按同index使用；首步0与末lrmin是否真正update取决约定。"
+    },
+    {
+      "lesson": "45-gradient-clipping-amp",
+      "widget": "grad-clip-monitor",
+      "provider": "figures-capstone-b.js",
+      "function": "gradClip",
+      "start_line": 35,
+      "end_line": 62,
+      "provider_sha256": "18b62aaa01fe8ef180f2e21b3aa82d7a852733cb5d8e09bb86d071db62a3f0ed",
+      "candidate_registration_order": [
+        "figures-capstone-b.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "固定clip+NaN动画非AMP运行；全grad范数共享系数非逐元素clamp；BF16与FP16/scaler策略不同。"
+    },
+    {
+      "lesson": "46-gradient-accumulation",
+      "widget": "cc-grad-accumulation",
+      "provider": "figures-capstone-c.js",
+      "function": "gradAccum",
+      "start_line": 298,
+      "end_line": 338,
+      "provider_sha256": "89114897dc7dec5f5a4bb3964afd71406aef5b87f1d9b9b3cc45bb1e3b311b42",
+      "candidate_registration_order": [
+        "figures-capstone-c.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "四个等大小microbatch平均示意；不等validtoken尾窗要总有效token加权，dropout/BN可破坏与大batch严格同值。"
+    },
+    {
+      "lesson": "47-checkpoint-save-resume",
+      "widget": "cc-atomic-checkpoint",
+      "provider": "figures-capstone-c.js",
+      "function": "atomicCheckpoint",
+      "start_line": 340,
+      "end_line": 386,
+      "provider_sha256": "89114897dc7dec5f5a4bb3964afd71406aef5b87f1d9b9b3cc45bb1e3b311b42",
+      "candidate_registration_order": [
+        "figures-capstone-c.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "write/fsync/replace只原子可见性示意，不保证内容alwaysvalid/断电durability或全训练状态齐备；需文件+目录fsync/resume合同。"
+    },
+    {
+      "lesson": "48-distributed-fsdp-ddp",
+      "widget": "cg-allreduce-ring",
+      "provider": "figures-capstone-g.js",
+      "function": "allreduceRing",
+      "start_line": 265,
+      "end_line": 308,
+      "provider_sha256": "fc5f3b5718b8fb48a687a9e867e39556767a2f6d407254926b835b5b9d535582",
+      "candidate_registration_order": [
+        "figures-capstone-g.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "名allreduceRing实际画中心Σ/N星形，不能声称ring实现；共同梯度不足保证optimizer/RNG/步数同状态；FSDP实际分片非clone示意。"
+    },
+    {
+      "lesson": "49-lm-eval-harness",
+      "widget": "eval-harness-matrix",
+      "provider": "figures-frontier.js",
+      "function": "evalHarnessMatrix",
+      "start_line": 280,
+      "end_line": 331,
+      "provider_sha256": "57f3d12c4781c8a5ec8f80ef88cff0361a2ca6cd699891f1f85e36190bfc1aeb",
+      "candidate_registration_order": [
+        "figures-frontier.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "P/F三网格为预设数据，非lm-eval-harness实测；清空builtins不是沙箱，官方framework需固定task/version/model/tokenizer。"
+    }
+  ]
+}

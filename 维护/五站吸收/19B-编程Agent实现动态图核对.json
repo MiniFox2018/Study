@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-11",
+  "scope": "Phase19/20–29共10实际最后注册动态组件与capstone-g共享helper静态全文复核",
+  "counts": {
+    "widgets": 10,
+    "browser_runs": 0,
+    "source_programs_executed": 0
+  },
+  "registration_method": "读取build.js FIGURE_PROVIDER_ORDER与额外figures脚本排序，按最后注册选取；没有运行源码build",
+  "review_boundary": "实际函数与必要共享helper静读；动画预设值/交互算式不冒称服务/集成运行",
+  "entries": [
+    {
+      "lesson": "20-agent-harness-loop-contract",
+      "widget": "cf-loop-contract",
+      "provider": "figures-capstone-f.js",
+      "function": "loopContract",
+      "start_line": 283,
+      "end_line": 318,
+      "provider_sha256": "a44511524c62729a7e6855263e739368c2cb5a69d27328044aa3318f0b8ced2c",
+      "candidate_registration_order": [
+        "figures-capstone-f.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "状态图是预设轨迹和预算刻度，不证明源码可回放/恢复一致或真实完成。正文需绑定run/step/call/event与持久化预算。"
+    },
+    {
+      "lesson": "21-tool-registry-schema-validation",
+      "widget": "cf-registry-validate",
+      "provider": "figures-capstone-f.js",
+      "function": "registryValidate",
+      "start_line": 320,
+      "end_line": 361,
+      "provider_sha256": "a44511524c62729a7e6855263e739368c2cb5a69d27328044aa3318f0b8ced2c",
+      "candidate_registration_order": [
+        "figures-capstone-f.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "错误路径示意只展示integer失败，不是完整JSON Schema2020-12；schema须固定而非后续可改引用。"
+    },
+    {
+      "lesson": "22-jsonrpc-stdio-transport",
+      "widget": "cf-jsonrpc-frames",
+      "provider": "figures-capstone-f.js",
+      "function": "jsonrpcFrames",
+      "start_line": 363,
+      "end_line": 392,
+      "provider_sha256": "a44511524c62729a7e6855263e739368c2cb5a69d27328044aa3318f0b8ced2c",
+      "candidate_registration_order": [
+        "figures-capstone-f.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "一行一帧request/notification/parseerror需区分；动画不是MCP全协议，非法UTF8/序列化失败/帧上限/慢写背压另处理。"
+    },
+    {
+      "lesson": "23-function-call-dispatcher",
+      "widget": "cf-dispatch-retry",
+      "provider": "figures-capstone-f.js",
+      "function": "dispatchRetry",
+      "start_line": 394,
+      "end_line": 436,
+      "provider_sha256": "a44511524c62729a7e6855263e739368c2cb5a69d27328044aa3318f0b8ced2c",
+      "candidate_registration_order": [
+        "figures-capstone-f.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "三次重试动画不证明source的inflight去重原子性、同步函数timeout有效；idempotency须绑定主体/工具/参数。"
+    },
+    {
+      "lesson": "24-plan-execute-control-flow",
+      "widget": "cg-plan-replan",
+      "provider": "figures-capstone-g.js",
+      "function": "planReplan",
+      "start_line": 45,
+      "end_line": 88,
+      "provider_sha256": "fc5f3b5718b8fb48a687a9e867e39556767a2f6d407254926b835b5b9d535582",
+      "candidate_registration_order": [
+        "figures-capstone-g.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "规划图显示失败游标替换后缀与step/replan上限；必须约定已完成前缀、副作用receipt和失败动作计数，不能只信动画。"
+    },
+    {
+      "lesson": "25-verification-gates-observation-budget",
+      "widget": "cg-gate-chain",
+      "provider": "figures-capstone-g.js",
+      "function": "gateChain",
+      "start_line": 90,
+      "end_line": 134,
+      "provider_sha256": "fc5f3b5718b8fb48a687a9e867e39556767a2f6d407254926b835b5b9d535582",
+      "candidate_registration_order": [
+        "figures-capstone-g.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "gate链首DENY短路，ledger展示是预设宽度；真正硬观察预算需执行前预留和执行中有界读取，刷新read不应被误拒绝。"
+    },
+    {
+      "lesson": "26-sandbox-runner-denylist",
+      "widget": "cg-path-jail",
+      "provider": "figures-capstone-g.js",
+      "function": "pathJail",
+      "start_line": 136,
+      "end_line": 184,
+      "provider_sha256": "fc5f3b5718b8fb48a687a9e867e39556767a2f6d407254926b835b5b9d535582",
+      "candidate_registration_order": [
+        "figures-capstone-g.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "projectroot路径前缀动画只表达意图；实际应按路径分量检查而非字符串prefix，且cwd/realpath/denylist不构成OS沙箱；截图宣称truncation/kill不证明实现。"
+    },
+    {
+      "lesson": "27-eval-harness-fixture-tasks",
+      "widget": "pass-at-k",
+      "provider": "figures-frontier.js",
+      "function": "passAtK",
+      "start_line": 244,
+      "end_line": 278,
+      "provider_sha256": "57f3d12c4781c8a5ec8f80ef88cff0361a2ca6cd699891f1f85e36190bfc1aeb",
+      "candidate_registration_order": [
+        "figures-frontier.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "1-(1-p)^k是已知独立单次成功概率模型；不直接等价有限n,c的HumanEval无偏估计。bestofk还需要选择器/验证成本。"
+    },
+    {
+      "lesson": "28-observability-otel-traces",
+      "widget": "trace-spans",
+      "provider": "figures-frontier.js",
+      "function": "traceSpans",
+      "start_line": 367,
+      "end_line": 419,
+      "provider_sha256": "57f3d12c4781c8a5ec8f80ef88cff0361a2ca6cd699891f1f85e36190bfc1aeb",
+      "candidate_registration_order": [
+        "figures-frontier.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "时间线为固定数据，depth=缩进无真实parentID证明；子span时间相加会双算，示例不存在OTLP导出证明。"
+    },
+    {
+      "lesson": "29-end-to-end-coding-task-demo",
+      "widget": "cg-harness-weave",
+      "provider": "figures-capstone-g.js",
+      "function": "harnessWeave",
+      "start_line": 186,
+      "end_line": 219,
+      "provider_sha256": "fc5f3b5718b8fb48a687a9e867e39556767a2f6d407254926b835b5b9d535582",
+      "candidate_registration_order": [
+        "figures-capstone-g.js"
+      ],
+      "root_static_full_read": true,
+      "root_notes": "四层gate/sandbox/otel/eval织线和PASS是预设演示；原endtoend无真实eval集成/外部模型修复证明，需真实终态与证据绑定。"
+    }
+  ]
+}

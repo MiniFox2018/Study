@@ -1,0 +1,871 @@
+# Agent Skills：目录包、运行时与可验证交付
+
+Skill 把可重复的方法、分支知识、确定性脚本与输出合同组成一个可发现目录包。它适合“收集同一类证据、作判断、交付有验收标准的产物”，例如只读检查一个已经准备的发布候选。仅有“Kubernetes 技能”这样的主题名，还没有输入、触发边界或完成证据。先修是[工具调用合同](../01-核心章节/05-工具使用.md)、[结构验证](../../LLM%20工程实践/13-结构化输出与对话状态.md)与[安全模式](../01-核心章节/18-安全模式.md)。本页不要求安装宿主或执行来源包，三个完整标准库例子只处理自己创建的临时 fixture。
+
+**第一次读法**：先在第1～5节说明包何时触发、它包含什么、权限在哪里检查，以及什么工件算完成；再做已有标准库小例。跨宿主与发布按需读6～10，已有本地包升级看11，纠正记录形成候选规则看12；无需为了理解这些合同先安装来源包。
+
+## 1. 按职责选择：一次提示还是可复用包
+
+先问真实工作何时开始、相似但不该触发的任务是什么、证据从哪来、哪些判断随输入变化、哪些步骤可确定计算、产物怎样验收。把稳定的判断流程写进 Skill，把解析、计数和完整性检查交给普通代码；不要让模型手工模拟解析，也不要把主观架构判断隐藏成一个 opaque script。
+
+| 需要 | 合适单元 | 必须另外解决 |
+|---|---|---|
+| 一次生成或改写 | Prompt | 本轮输出核对 |
+| 仓库长期约定 | AGENTS.md | 适用目录、指令优先级 |
+| 多次使用的任务方法 | Skill | 发现、调用资格、工具权限、产物验收 |
+| 读取外部服务或执行 typed 操作 | 普通工具/MCP | 身份、对象范围、副作用、返回合同 |
+| 每次事件必须发生的检查 | Hook/应用程序 | 事件时点、失败阻断、可靠执行 |
+| 固定格式转换和验证 | 普通代码 | 输入边界、错误和测试 |
+| 已授权的独立上下文或所有权 | Subagent | 委派范围、合并、消息和退出合同 |
+| 分发复合能力 | Plugin | 安装、依赖、版本、目标宿主适配 |
+
+这些单元可组合。发布检查 Skill 可以用 MCP 读取候选状态，用仓库约定找到测试入口，用 Hook 强制某事件检查，用普通程序核哈希；命名一个工具不创造能力，装一个 Skill 不创造权限。研究中的“学到的 skill library”常指成功轨迹、策略或环境程序，它与 authored `SKILL.md` 目录有不同创建、检索和评价合同，不能因为同名就共享效果结论。
+
+## 2. 可移植核心、伴随资源与宿主扩展
+
+```text
+release-review/
+  SKILL.md                    身份、触发、核心流程、分支与失败出口
+  references/contract.md      所选分支的领域规则
+  scripts/inspect.py          独立可测的确定性计算
+  assets/report-template.md   产物材料
+  evals/cases.json            包作者的评价用例，非通用必需目录
+```
+
+目录是部署、校验、升级和移除的单元。只复制入口、丢掉脚本和 reference 会使流程无法复现。可移植标准要求 frontmatter `name/description`，name 与父目录一致；optional license、compatibility、字符串 metadata、实验性 allowed-tools 各有自己的格式。正文没有统一模板限制，伴随文件和目录也不是只有上面几种。三级披露、入口少于500行和直接 reference 是组织建议；某课程的一层物理深度、suffix allowlist、10K字符或1MB限制是发布政策。[Agent Skills Specification](https://agentskills.io/specification)（2026-10-08 全文核对，未运行标准验证库）。
+
+入口应让人加载后就能开始：范围、默认步骤、分支条件、直接资源路径、工具/脚本合同、输出与失败行为。不要为了缩短入口把核心流程藏进“相关 reference”。每个 resource 有明确加载条件，例如 Python 包才读 python-release，容器候选才读 container-release，公共报告模板由所有分支使用。reference 负责知识，script 负责计算，asset 负责产物材料；这些目录名不会自动产生执行能力。
+
+前置元数据会在正文加载之前影响路由。把它当配置代码审查：模糊 description 可能过度触发，名字冲突造成误选，未知 extension 可能被忽略或拒绝。Claude Code 的 user-invocable 与 disable-model-invocation 是两个宿主维度，不是核心字段；前者 false 影响用户显式入口，后者 true 抑制模型调用。其它运行时不能自动继承意义。[Claude Code Skills](https://code.claude.com/docs/en/skills)（只核 frontmatter 与跨产品边界）。
+
+2026-10-08 的 Codex 官方说明：CLI/IDE 用 `/skills` 或 `$` 明确选择，隐式由 description 匹配；项目发现从当前目录的 `.agents/skills` 向仓库根扫描，加用户、管理员和内置位置；同名不合并，支持 symlink 目录。`agents/openai.yaml` 的 allow_implicit_invocation false 仍保留显式调用。初始列表的2%预算与窗口未知时8000字符 fallback 是两种条件，且只约束目录，不约束选中正文。[OpenAI Build skills](https://learn.chatgpt.com/docs/build-skills) 本次仅核文档，不改当前配置；普通文本命名是否被当明确选择，仍应查看宿主可观察记录。
+
+## 3. 发现、选择、执行和完成是不同状态
+
+```mermaid
+flowchart LR
+    A[显式作用域] --> B[浅层候选与物理树检查]
+    B --> C[身份/元数据与来源]
+    C --> D[碰撞政策与目录预算]
+    D --> E[按actor过滤资格]
+    E --> F{相关性/阈值/领先差}
+    F -->|无匹配| G[弃答或普通推理]
+    F -->|有歧义| H[请求澄清]
+    F -->|明确| I[加载入口与所需分支]
+    I --> J[宿主能力/授权/隔离下执行]
+    J --> K[产物与独立核验]
+```
+
+Discovery 找候选；validation 检身份、大小和树；catalog 把 name/description/scope/source 交给模型；selection 选相关方法；activation 只让正文进入上下文；execution 才涉及工具/模型工作；completed 要以输出合同核验。一个 `skill_used=true` 会遮蔽失败位置，不能用发现、激活或 fluent report 代替执行证据。
+
+### 碰撞政策与两种上下文预算
+
+同名可保留全部、用声明的作用域优先级选一、拒绝重复或用 source 限定身份。各有取舍：workspace override 可帮助定制，也可能影子覆盖可信包；保留全部有歧义；拒重会阻止合理覆盖。优先级不是标准规定，也不能由修改时间、目录遍历顺序或名字猜出。同优先级重复要报 ambiguous，shadowed/rejected 候选留诊断。浅发现不把包内 examples 的 SKILL.md 误当独立安装包。
+
+令 `c_i` 是目录条目的实际序列化成本，`b_j` 是激活正文成本，`r_k` 是确实读入模型的资源成本：catalog=Σc_i，active=Σb_j+Σr_k。单位必须注明，不能把字符或 UTF-8 bytes 直接当 tokens。缩 description 可能删掉排除条件，缩目录不自动缩已激活900行正文；拆 reference 也只有按分支加载才省上下文。宿主为了校验读取文件与文件进入模型上下文是不同事件。
+
+资源先检查相对规范路径，再查 root 内真实目标、regular file、symlink 政策与大小。`references/../../secret`、`./SKILL.md`、反斜线、绝对路径和通向外部的 symlink 不应混入同一可移植地址。先限读取，再验内容；stat 后 open 仍可能有竞态，强执行器需文件描述符绑定。路径在包内并不证明内容可信。加载日志记录 skill/resource/reason/bytes，不写秘密正文。
+
+### 调用资格在相关性排名之前
+
+人类可显式调用与模型可隐式选择组成2×2；application、skill composition、harness 有额外精确身份、caller、target allowlist 和深度合同。最高词面分数被禁用时应先移出集合，再选可用者。例：incident-triage=.90但禁 model，incident-review=.55且许可，应考虑后者。资格决定可选集，相关性决定集内排序，二者不能合成一个不透明分数。先独立验证阈值与margin政策；过滤后才读取、检查可用候选的分数。禁用项缺score或NaN不应阻止合法候选，全部禁用应直接返回 none_eligible。
+
+阈值不足返回 abstain；第一和第二名差距不足返回 ask 或正常推理，不能靠字母顺序伪装明确结果。positive、paraphrase、clear negative、near miss、竞争技能和否定/引文任务分别测。问“为什么 build 失败”不应自动执行发布评估，即使含 package/release。英文词面 Jaccard 只是解释基线，不证明中文语义或模型路由效果。
+
+调用另一个 Skill 是运行时依赖边，非语言 import。传 target identity、bounded task、输入路径、输出合同、fallback、visited chain 与最大深度；A→B→A 不会被“只禁止自己调自己”挡住。用户文字经 host parser/quoting、bound values、Skill 上下文，再到 typed tool argv，每跨一界都重新验证；文字不能插值成 shell 代码。中断后重读持久 artifact、重验候选版本和效果状态，不能因压缩忘记某外部写入已提交但结果未知。
+
+### 完整离线例一：目录、预算、资格、歧义和路径
+
+下面创建独立 `/tmp` fixture scope，项目与用户有同名包。解析器仅支持两个单行字符串字段，是明确的教学子集；正式 YAML 需安全解析库与类型/大小策略。目录预算按完整 JSON 的 UTF-8 字节计算。路由分数人工给定，host eligibility 人工政策；不能把输出当真实宿主或模型的选择记录。
+
+```python
+import json
+import math
+import re
+import tempfile
+from pathlib import Path, PurePosixPath
+
+NAME = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+
+def clean_relative(value):
+    if type(value) is not str or not value or "\\" in value:
+        raise ValueError("path_shape")
+    path = PurePosixPath(value)
+    if path.is_absolute() or ".." in path.parts or path.as_posix() != value:
+        raise ValueError("path_not_canonical")
+    return path
+
+def bounded_resource(bundle, relative, limit=4096):
+    if type(limit) is not int or limit < 1:
+        raise ValueError("size_policy")
+    rel = clean_relative(relative)
+    target = bundle
+    for part in rel.parts:
+        target /= part
+        if target.is_symlink():
+            raise ValueError("symlink")
+    root, resolved = bundle.resolve(), target.resolve()
+    if resolved == root or root not in resolved.parents or not target.is_file():
+        raise ValueError("resource_boundary")
+    if target.stat().st_size > limit:
+        raise ValueError("resource_size")
+    data = target.read_bytes()
+    if len(data) > limit:
+        raise ValueError("resource_size")
+    return data
+
+def discover(scopes):
+    # scopes由调用方按高到低排序；这是课例政策，并非某产品默认。
+    candidates, names_at_rank, ranks = [], set(), {}
+    for scope, root in scopes:
+        rank = ranks.setdefault(scope, len(ranks))
+        if root.is_symlink() or not root.is_dir():
+            raise ValueError("scope_boundary")
+        for bundle in sorted(root.iterdir()):
+            if bundle.is_symlink():
+                raise ValueError("package_symlink")
+            if not bundle.is_dir() or not (bundle / "SKILL.md").exists():
+                continue
+            text = bounded_resource(bundle, "SKILL.md").decode("utf-8")
+            parts = text.split("---\n", 2)
+            if len(parts) != 3 or parts[0] != "":
+                raise ValueError("frontmatter")
+            fields = {}
+            # 此例只接收name/description单行字符串；不声称完整YAML解析。
+            for line in parts[1].splitlines():
+                key, sep, value = line.partition(": ")
+                if not sep or key in fields or key not in {"name", "description"}:
+                    raise ValueError("metadata")
+                fields[key] = value
+            name, desc = fields.get("name", ""), fields.get("description", "")
+            if (not NAME.fullmatch(name) or len(name) > 64 or name != bundle.name
+                    or not desc.strip() or len(desc) > 1024 or not parts[2].strip()):
+                raise ValueError("identity")
+            if (rank, name) in names_at_rank:
+                raise ValueError("equal_precedence_duplicate")
+            names_at_rank.add((rank, name))
+            candidates.append({"name": name, "description": desc, "scope": scope,
+                               "path": str(bundle), "rank": rank})
+    return candidates
+
+def catalog(candidates, max_entries=10, max_bytes=6000):
+    if any(type(v) is not int or v < 1 for v in (max_entries, max_bytes)):
+        raise ValueError("catalog_budget")
+    winners, shadowed = {}, []
+    for item in sorted(candidates, key=lambda x: (x["rank"], x["name"])):
+        if item["name"] in winners:
+            shadowed.append(item)
+        else:
+            winners[item["name"]] = item
+    entries, omitted = [], []
+    for item in winners.values():
+        entry = {key: item[key] for key in ("name", "description", "scope", "path")}
+        candidate = entries + [entry]
+        size = len(json.dumps(candidate, ensure_ascii=False, separators=(",", ":")).encode())
+        if len(candidate) > max_entries or size > max_bytes:
+            omitted.append(item["name"])
+        else:
+            entries = candidate
+    used = len(json.dumps(entries, ensure_ascii=False, separators=(",", ":")).encode())
+    if used > max_bytes:
+        raise ValueError("empty_catalog_does_not_fit")
+    return {"entries": entries, "shadowed": shadowed, "omitted": omitted,
+            "catalog_bytes": used, "unit": "UTF-8 bytes"}
+
+def route(entries, eligibility, score_by_name, threshold=0.3, margin=0.1):
+    # 分数是显式fixture；不是模型输出，不称生产分类准确率。
+    if any(type(v) not in (int, float) or not math.isfinite(v) or not 0 <= v <= 1
+           for v in (threshold, margin)):
+        raise ValueError("score_policy")
+    allowed = [e for e in entries if eligibility.get(e["name"]) is True]
+    if not allowed:
+        return {"status": "abstain", "reason": "none_eligible"}
+    # 被禁项不读score：缺分数或NaN不能压住合法候选。
+    scores = [score_by_name[e["name"]] for e in allowed]
+    if any(type(v) not in (int, float) or not math.isfinite(v) or not 0 <= v <= 1 for v in scores):
+        raise ValueError("score_policy")
+    scored = sorted([(score_by_name[e["name"]], e) for e in allowed],
+                    key=lambda x: (-x[0], x[1]["name"]))
+    best, entry = scored[0]
+    if best < threshold:
+        return {"status": "abstain", "reason": "below_threshold"}
+    if len(scored) > 1 and best - scored[1][0] < margin:
+        return {"status": "ask", "reason": "ambiguous"}
+    return {"status": "selected", "entry": entry}
+
+def compose(caller, target, visited, maximum=2):
+    return target != caller and target not in visited and len(visited) < maximum
+
+def make(root, name, desc):
+    bundle = root / name
+    (bundle / "references").mkdir(parents=True)
+    (bundle / "SKILL.md").write_text(
+        f"---\nname: {name}\ndescription: {desc}\n---\n\nRead references/contract.md.\n")
+    (bundle / "references" / "contract.md").write_text("只读检查；返回有证据的结论。\n")
+    return bundle
+
+with tempfile.TemporaryDirectory(prefix="study-skill-fixture-") as td:
+    base = Path(td).resolve()  # 由本程序创建的可信临时根。
+    project, user = base / "project", base / "user"
+    make(project, "release-review", "核验已准备发布包；不处理构建失败。")
+    make(user, "release-review", "通用发布检查。")
+    other = make(user, "incident-review", "解释故障证据。")
+    candidates = discover([("project", project), ("user", user)])
+    cat = catalog(candidates)
+    assert len(cat["shadowed"]) == 1
+    assert next(e for e in cat["entries"] if e["name"] == "release-review")["scope"] == "project"
+    try: discover([("project", project), ("project", project)])
+    except ValueError as error: assert str(error) == "equal_precedence_duplicate"
+    else: raise AssertionError("equal_rank")
+    assert len(catalog(candidates, max_entries=1)["omitted"]) == 1
+    assert cat["catalog_bytes"] <= 6000
+    policy = {"release-review": False, "incident-review": True}
+    chosen = route(cat["entries"], policy, {"release-review": .9, "incident-review": .55})
+    assert chosen["entry"]["name"] == "incident-review"
+    assert route(cat["entries"], policy, {"incident-review": .55})["entry"]["name"] == "incident-review"
+    assert route(cat["entries"], policy, {"release-review": float("nan"), "incident-review": .55})["entry"]["name"] == "incident-review"
+    assert route(cat["entries"], dict.fromkeys(policy, False), {}) == {"status": "abstain", "reason": "none_eligible"}
+    try: route(cat["entries"], policy, {"incident-review": float("nan")})
+    except ValueError as error: assert str(error) == "score_policy"
+    else: raise AssertionError("eligible_score")
+    try: route(cat["entries"], dict.fromkeys(policy, False), {}, threshold=float("nan"))
+    except ValueError as error: assert str(error) == "score_policy"
+    else: raise AssertionError("threshold_policy")
+    assert route(cat["entries"], dict.fromkeys(policy, True),
+                 {"release-review": .55, "incident-review": .52})["status"] == "ask"
+    assert route(cat["entries"], policy,
+                 {"release-review": .9, "incident-review": .1})["status"] == "abstain"
+    assert not compose("a", "a", ["a"]) and not compose("b", "a", ["a", "b"])
+    loaded = bounded_resource(other, "references/contract.md")
+    assert len(loaded) > len(loaded.decode())  # 中文bytes和chars不等。
+    for rel in ("../secret", "./SKILL.md", "references/../SKILL.md", "/etc/passwd"):
+        try: bounded_resource(other, rel)
+        except ValueError: pass
+        else: raise AssertionError("escape_or_noncanonical")
+    (other / "references" / "linked.md").symlink_to(other / "SKILL.md")
+    try: bounded_resource(other, "references/linked.md")
+    except ValueError as error: assert str(error) == "symlink"
+    else: raise AssertionError("symlink")
+    try: bounded_resource(other, "references/contract.md", limit=1)
+    except ValueError as error: assert str(error) == "resource_size"
+    else: raise AssertionError("size")
+print("目录身份/碰撞/字节预算/资格先过滤再检查可用分数（禁用项缺score或NaN不阻断）/歧义弃答/循环/路径反例通过；未安装或执行Skill")
+```
+
+程序读取 entry 以校验，但只把精简目录发布；正文/参考的模型准入应另记三级日志。symlink 示例指向包内文件也拒绝，说明这是本例保守政策，不能据此声称所有 host 都拒绝 symlink。文件读取与本地索引无需安装 Skill；本例没有加载它为本次指令。
+
+## 4. 激活不授予动作权限
+
+五层要分别回答：capability 是否暴露操作；policy 是否许可该 actor/目标；approval 谁接受这项后果；sandbox 进程可到哪里；verification 结果是否满足合同。Skill/reference 影响程序选择，但本轮用户目标与硬政策仍约束它；网页、issue、email、image、tool result 是资料或观察，不能发出当前用户的授权。
+
+动作提案应先成为数据：actor、operation、argv、cwd、read/write targets、HTTPS origins、credential scopes、side effects、reason。脚本合同还应写参数、输入格式、输出路径、独立验收、时间/输出上限、exit codes 与失败后的状态。实际执行证据需要 **已解析 script path、target path、cwd、argv、exit 与产物**；`scripts/check.py` 的相对拼接依赖 cwd，不能拿“已运行 checker”代替这几个观察。许可集合和真实 executor 独立于 Skill 内容，来源 canonical SKILL/AGENTS 在阅读任务中只是数据。
+
+| 控制 | 能约束什么 | 仍不能证明 |
+|---|---|---|
+| 不注册 shell | 模型不能通过该能力请求 shell | 其它已注册工具安全 |
+| 按对象限制读写 | 操作范围 | 业务判断正确 |
+| 针对候选/目标的批准记录 | 具体后果授权 | 代码执行隔离 |
+| 限文件/网络/环境/资源的执行器 | 可达后果 | 修改是用户所需 |
+| 输出/差异/回读验收 | 已观察结果 | 后续新动作授权 |
+
+`allowed-tools` 不建立 OS 隔离；`shell=False` 也不阻止解释器运行任意代码。python、package manager、tests 可能执行仓库受控 hooks；只允一个 bare executable 或 argv prefix 仍不足。应固定真实 executable、被审脚本/参数、cwd、环境 allowlist、凭据、deadline、输出/进程/内存限制和 egress。对未知代码的真实隔离见[安全模式](../01-核心章节/18-安全模式.md)，这里的 reviewer 没有 launch 路径。
+
+HTTPS origin 包含 scheme、规范 host 与 effective port；默认443和显式443等价，8443另需许可。拒 userinfo，redirect 每一跳重新审查目标与可发送资料；文件沙箱不限制 DNS/HTTP 外传。秘密 regex 只能提供信号，不能证明任意文字无敏感内容。hash 证明 bytes 一致，signature/attestation 证明某身份认可一个声明，仍要检查声明含义及认可者职责。
+
+### 完整离线例二：只决定，不启动命令或网络
+
+该例检查精确 argv、cwd/target 作用域、origin、可能秘密及与请求摘要绑定的模拟批准。批准记录由调用方代表 host 提供，不能由 Skill 自写；改 target 后旧批准失效。`allow/ask/deny` 均保持 executed=false，没有任何 subprocess、URL 请求或目标文件写入。根由程序自己创建，校核根之下的组件；未证明宿主任意祖先目录或 TOCTOU 竞态安全。
+
+```python
+import hashlib
+import ipaddress
+import json
+import re
+import tempfile
+from pathlib import Path
+from urllib.parse import urlsplit
+
+def origin(url):
+    if type(url) is not str:
+        raise ValueError("url_type")
+    p = urlsplit(url)
+    if p.scheme != "https" or not p.hostname or p.username is not None or p.password is not None:
+        raise ValueError("https_origin")
+    host = p.hostname.rstrip(".").lower()
+    try:
+        address = ipaddress.ip_address(host)
+        host = f"[{address.compressed}]" if address.version == 6 else address.compressed
+    except ValueError:
+        host = host.encode("idna").decode("ascii")
+        if not all(re.fullmatch(r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?", label) for label in host.split(".")):
+            raise ValueError("hostname")
+    port = 443 if p.port is None else p.port
+    if not 1 <= port <= 65535:
+        raise ValueError("port")
+    return f"https://{host}:{port}"
+
+def contained(root, raw):
+    if type(raw) is not str:
+        raise ValueError("path_type")
+    root = root.resolve()
+    candidate = Path(raw) if Path(raw).is_absolute() else root / raw
+    resolved = candidate.resolve()
+    if resolved != root and root not in resolved.parents:
+        raise ValueError("outside_scope")
+    # 校核配置根之下每个已存在的组件；本例固定根由自身创建。
+    relative = candidate.relative_to(root)
+    current = root
+    for part in relative.parts:
+        if part == "..":
+            raise ValueError("parent_segment")
+        current /= part
+        if current.is_symlink():
+            raise ValueError("symlink")
+    return str(resolved)
+
+def action_digest(request):
+    return hashlib.sha256(json.dumps(request, ensure_ascii=False, sort_keys=True,
+                                    separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+
+def review(request, root, allowed_argv, origins, approved_digests=frozenset()):
+    fields = {"actor", "kind", "target", "cwd", "argv", "url", "payload"}
+    if type(request) is not dict or set(request) != fields:
+        return {"verdict": "deny", "reason": "request_shape", "executed": False}
+    def result(verdict, reason):
+        return {"verdict": verdict, "reason": reason, "executed": False}
+    if (request["actor"] != "skill:release-review" or type(request["kind"]) is not str
+            or request["kind"] not in {"read", "write", "command", "network"}
+            or type(request["argv"]) is not list
+            or any(type(v) is not str for v in request["argv"])
+            or type(request["payload"]) is not str):
+        return result("deny", "closed_request_contract")
+    if re.search(r"(?i)(api_key|password|access_token)\s*[:=]", request["payload"]):
+        return result("deny", "possible_secret")  # 不回显秘密。
+    try:
+        contained(root, request["cwd"])
+        if request["kind"] in {"read", "write"}:
+            contained(root, request["target"])
+        elif request["kind"] == "command":
+            if tuple(request["argv"]) != allowed_argv:
+                return result("deny", "argv_identity")
+        elif origin(request["url"]) not in origins:
+            return result("deny", "origin_allowlist")
+    except (ValueError, UnicodeError):
+        return result("deny", "target_boundary")
+    if request["kind"] != "read" and action_digest(request) not in approved_digests:
+        return result("ask", "exact_action_approval")
+    return result("allow", "bounded_policy")
+
+with tempfile.TemporaryDirectory(prefix="study-action-review-") as td:
+    base = Path(td).resolve()
+    root = base / "workspace"; root.mkdir()
+    outside = base / "outside"; outside.mkdir()
+    argv = ("/Users/wangshuiqing/codex-tools/bin/python3", "-I", str(root / "inspect.py"))
+    req = {"actor": "skill:release-review", "kind": "read", "target": "report.json",
+           "cwd": str(root), "argv": [], "url": None, "payload": "public fixture"}
+    assert review(req, root, argv, set())["verdict"] == "allow"
+    write = dict(req, kind="write")
+    assert review(write, root, argv, set())["verdict"] == "ask"
+    approvals = frozenset({action_digest(write)})  # 模拟宿主针对精确请求的记录。
+    assert review(write, root, argv, set(), approvals)["verdict"] == "allow"
+    assert review(dict(write, target="different.json"), root, argv, set(), approvals)["verdict"] == "ask"
+    assert review(dict(req, target="../secret"), root, argv, set())["verdict"] == "deny"
+    assert review(dict(write, payload="api_key=fixture"), root, argv, set(), approvals)["verdict"] == "deny"
+    cmd = dict(req, kind="command", argv=list(argv))
+    assert review(cmd, root, argv, set())["verdict"] == "ask"
+    assert review(dict(cmd, argv=["python3", "-c", "anything"]), root, argv, set())["verdict"] == "deny"
+    assert origin("https://BÜCHER.example") == origin("https://xn--bcher-kva.example:443/path")
+    net = dict(req, kind="network", url="https://api.example.test:8443/data")
+    assert review(net, root, argv, {"https://api.example.test:443"})["verdict"] == "deny"
+    for url in ("https://user:pass@api.example.test", "https://api.example.test:0"):
+        try: origin(url)
+        except ValueError: pass
+        else: raise AssertionError("origin")
+    (root / "link").symlink_to(root / "report.json")
+    assert review(dict(req, target="link"), root, argv, set())["verdict"] == "deny"
+    (root / "escape").symlink_to(outside, target_is_directory=True)
+    assert review(dict(req, target="escape/file"), root, argv, set())["verdict"] == "deny"
+print("动作摘要绑定目标/argv/cwd/作用域/HTTPS有效端口/秘密与symlink审查通过；executed始终False")
+```
+
+approval 的文字应展示候选 hash、操作、目标、stage/prod、影响和回滚条件。已授权的可逆范围可直接执行，局部 hard deny 不能靠“用户点过 allow”变 allow。实际 executor 启动前重新核相同归一目标/命令/批准身份，独立施加 isolation；批准不能关闭 sandbox，也不授权下一个对象。容器会共享 kernel，mount home/socket 或带 production secrets 可破坏限制；微虚拟机也要管 mounts、credentials 和 egress。本次不拉镜像或运行容器 probe。
+
+## 5. 六层评测：目录正确还不是工作有效
+
+先定义产物、验证方法、采证工具和决策图，再写 entry 与 description。评价按层保留，不能让 prose 得分抵消 authority failure：
+
+| 层 | 测量 | 失败时修哪一层 |
+|---|---|---|
+| 结构 | 入口、核心字段、直接引用、物理树、大小、类型、输出/失败合同 | 包结构与 parser |
+| Trigger routing | 正负/近邻/竞争、弃答、raw TP/FP/TN/FN、重复稳定性 | description、eligibility、router |
+| Artifact behavior | 同任务 baseline/treatment 的事实、覆盖、证据、范围、恢复、人工修正 | procedure、reference、tool合同 |
+| Scripts | 空/坏输入、Unicode/空格路径、重跑、partial output、timeout/exit | 确定性程序 |
+| Safety/authority | 注入、路径/网络/凭据、越权、循环、重复副作用 | policy、approval、真实sandbox |
+| Install/portability | clean destination、manifest、逐宿主能力/adapter/fallback | installer、版本与host adapter |
+
+precision=TP/(TP+FP)，recall=TP/(TP+FN)，F1为二者调和平均。8TP/2FP 的 precision=.8；不知道 FN 就不知道 recall。报告原始数和每次预测，不只一个平均；十次与一百次全对的证据量不同，重复同一人工答案也不产生一百个独立任务证据。先分 development/validation，再改 description；重要门禁还保留 held-out。真实 trigger 要通过目标 host/model/catalog/policy，精确 harness activation 用于隔离程序行为，不能替代生产路由。
+
+baseline/treatment 用同任务、工具、模型、采样政策、预算与输入；唯一差异是可用 Skill 或包版本。比较 correctness、completeness、tool calls/time/tokens、证据、scope、恢复及人类修正。每任务重复，保留 regressions 和分层失败。assertion 必须指真实产物证据：标题出现不等有实质内容，关键词出现不等结论正确。开发迭代可以修评价器，最终决定前冻结合同和留出集，不能按失败结果改 gold。[Agent Skills Evaluating output quality](https://agentskills.io/skill-creation/evaluating-skills)（本次全文核方法，未启动模型实验）。
+
+### Manifest、独立采集与可信声明
+
+manifest 用规范相对 POSIX path→原始 bytes SHA-256；拒 `./`、absolute、backslash、parent，以及 missing/unexpected/mismatched。`assets/manifest.json` 保留为元数据，排除自身哈希域，真实性由外层可信渠道确认。相同文义的 LF/CRLF 变化也应报 drift，不先规范化再冒称原 bytes。
+
+source、clean installed copy 与真实 host probe 是三个对象。source 程序过了不证明 installer 复制了 references/scripts、保留 mode 或清掉旧文件；给定目录 hash 匹配也不证明它曾安装或被 host 发现。先物理树 preflight，再读配置；根据配置根检查 package 路径组件。来源 evaluator 的包内 symlink 拒绝不等显式验证包路径外每个祖先。
+
+原课六层 evaluator 可接受传入的 `passed:true` 与非空 evidence 字符串；这些是 fixture 数据，未必来自运行。分开三种结论：
+
+1. **fixturePassed**：人工夹具能演示门禁逻辑。
+2. **localEvidenceReady**：所称 captured mode、非空 source、完整 raw sequences/两个 artifacts/checks/host matrix 与摘要一致。
+3. **productionReady**：分层效果与完整性通过，且独立可信采集/验收渠道认可 evidenceRoot。
+
+包作者能改 mode、source 标签、观测和所有本地摘要，所以第二项不证明真实采集。原课 production 路径还要求包外 attestation JSON 绑定完整 evidenceRoot，并用 out-of-band 的 exact-bytes digest 校验；如果期望 digest 也由同一包作者随手提供，就没有独立信任。attester 需要审核采集环境、运行身份、原 traces 与门禁政策。禁止把“生成一个 attestation”当制造完成证据。
+
+### 完整离线例三：原 bytes、分层失败与移除范围
+
+下面只验证机制：固定 trigger 观测、固定两标题产物、SHA 与本地升级计划。没有独立采集者，因此 productionReady 与 passed 始终 false。改变参考文件换行仍会报 mismatched；重复预测顺序变化会改变证据摘要；移除只提出旧 manifest 所有且当前仍是原 bytes 的路径，modified resource 留待审查，未列入旧所有权的其它文件不在移除集合。没有发布、安装、升级或执行删除。
+
+```python
+import hashlib
+import json
+import tempfile
+from pathlib import Path, PurePosixPath
+
+RESERVED = "assets/manifest.json"
+
+def sha(data):
+    return "sha256:" + hashlib.sha256(data).hexdigest()
+
+def canonical(value):
+    return json.dumps(value, ensure_ascii=False, sort_keys=True,
+                      separators=(",", ":"), allow_nan=False).encode("utf-8")
+
+def preflight(root):
+    if root.is_symlink() or not root.is_dir():
+        raise ValueError("bundle_root")
+    for path in root.rglob("*"):
+        if path.is_symlink() or not (path.is_dir() or path.is_file()):
+            raise ValueError("symlink_or_special_file")
+
+def manifest(root):
+    preflight(root)
+    # 摘要覆盖原始bytes；不改变换行/空格/编码，不包含manifest自身。
+    return {p.relative_to(root).as_posix(): sha(p.read_bytes())
+            for p in sorted(root.rglob("*")) if p.is_file()
+            and p.relative_to(root).as_posix() != RESERVED}
+
+def verify_tree(root, expected):
+    if type(expected) is not dict or not expected:
+        raise ValueError("manifest_shape")
+    for key, value in expected.items():
+        if type(key) is not str or not key or "\\" in key:
+            raise ValueError("manifest_path")
+        rel = PurePosixPath(key)
+        if (rel.is_absolute() or ".." in rel.parts or rel.as_posix() != key
+                or key == RESERVED):
+            raise ValueError("manifest_path")
+        if (type(value) is not str or not value.startswith("sha256:")
+                or len(value) != 71 or any(c not in "0123456789abcdef" for c in value[7:])):
+            raise ValueError("manifest_digest")
+    actual = manifest(root)
+    missing, extra = sorted(expected.keys() - actual.keys()), sorted(actual.keys() - expected.keys())
+    changed = sorted(k for k in expected.keys() & actual.keys() if expected[k] != actual[k])
+    return {"passed": not (missing or extra or changed),
+            "missing": missing, "unexpected": extra, "mismatched": changed}
+
+def trigger_metrics(cases):
+    counts = dict(tp=0, fp=0, tn=0, fn=0)
+    seen = set()
+    for case in cases:
+        cid, expected, observed = case["id"], case["expected"], case["observed"]
+        if (type(cid) is not str or not cid or cid.strip() != cid or cid in seen
+                or type(expected) is not bool or type(observed) is not list or not observed
+                or any(type(x) is not bool for x in observed)):
+            raise ValueError("trigger_shape")
+        seen.add(cid)
+        for got in observed:
+            key = "tp" if expected and got else "fn" if expected else "fp" if got else "tn"
+            counts[key] += 1
+    if not cases or not any(c["expected"] for c in cases) or all(c["expected"] for c in cases):
+        raise ValueError("needs_positive_and_negative")
+    tp, fp, fn = counts["tp"], counts["fp"], counts["fn"]
+    return dict(counts, precision=tp / (tp + fp) if tp + fp else 0,
+                recall=tp / (tp + fn) if tp + fn else 0)
+
+def artifact_check(text):
+    # 只验证两个固定标题；值/逻辑质量由任务专用检查另验。
+    return "# Decision\n" in text and "# Evidence\n" in text
+
+def gate(layers, evidence):
+    required = {"structure", "routing", "behavior", "scripts", "safety", "portability"}
+    if type(layers) is not dict or set(layers) != required or any(type(v) is not bool for v in layers.values()):
+        raise ValueError("closed_layer_verdicts")
+    if type(evidence) is not dict or set(evidence) != {"mode", "source", "cases", "baseline", "treatment", "hosts"}:
+        raise ValueError("evidence_shape")
+    if evidence["mode"] not in {"fixture", "claimed_capture"}:
+        raise ValueError("evidence_mode")
+    if type(evidence["hosts"]) is not list or not evidence["hosts"]:
+        raise ValueError("hosts_required")
+    root_digest = sha(canonical({"layers": layers, "evidence": evidence}))
+    checks = all(layers.values())
+    # 此教学程序没有独立采集者的真实性核验，不能生成production verdict。
+    return {"checksPassed": checks,
+            "fixturePassed": checks and evidence["mode"] == "fixture",
+            "evidenceRoot": root_digest, "captureObserved": False,
+            "productionReady": False, "passed": False,
+            "failedLayers": [k for k, v in layers.items() if not v]}
+
+def upgrade_plan(old_manifest, installed_manifest, new_manifest, old_files):
+    # 不删除任何文件。只有旧manifest所有、且仍是原bytes的路径才可提出移除。
+    obsolete = sorted(old_manifest.keys() - new_manifest.keys())
+    removable, preserve = [], []
+    for key in obsolete:
+        if (installed_manifest.get(key) == old_manifest[key]
+                and old_files.get(key) == old_manifest[key]):
+            removable.append(key)
+        else:
+            preserve.append(key)
+    return {"proposedRemove": removable, "preserveForReview": preserve,
+            "executed": False}
+
+cases = [{"id": "positive", "expected": True, "observed": [True] * 5},
+         {"id": "near-miss", "expected": False, "observed": [False] * 5}]
+metrics = trigger_metrics(cases)
+assert metrics["tp"] == metrics["tn"] == 5 and metrics["precision"] == 1
+reordered = [dict(cases[0], observed=[True, False, True]), cases[1]]
+changed_order = [dict(cases[0], observed=[True, True, False]), cases[1]]
+assert sha(canonical(reordered)) != sha(canonical(changed_order))
+base, treatment = "Looks fine.", "# Decision\nNeeds review.\n# Evidence\nFixture paths."
+assert not artifact_check(base) and artifact_check(treatment)
+evidence = {"mode": "fixture", "source": "teaching-fixture", "cases": cases,
+            "baseline": base, "treatment": treatment, "hosts": [{"name": "simulated-host"}]}
+layers = dict.fromkeys(("structure", "routing", "behavior", "scripts", "safety", "portability"), True)
+assert gate(layers, evidence)["fixturePassed"]
+assert not gate(layers, dict(evidence, mode="claimed_capture"))["productionReady"]
+assert gate(dict(layers, safety=False), evidence)["failedLayers"] == ["safety"]
+with tempfile.TemporaryDirectory(prefix="study-skill-integrity-") as td:
+    root = Path(td).resolve() / "demo-skill"; (root / "references").mkdir(parents=True)
+    (root / "SKILL.md").write_bytes(b"demo\n")
+    ref = root / "references" / "contract.md"; ref.write_bytes(b"policy\n")
+    expected = manifest(root)
+    assert verify_tree(root, expected)["passed"]
+    ref.write_bytes(b"policy\r\n")  # 文义相同但bytes变化，仍须检测。
+    assert verify_tree(root, expected)["mismatched"] == ["references/contract.md"]
+    (root / "user-notes.txt").write_bytes(b"unowned user file\n")
+    installed = manifest(root)
+    new = {"SKILL.md": expected["SKILL.md"]}
+    plan = upgrade_plan(expected, installed, new, installed)
+    assert plan["preserveForReview"] == ["references/contract.md"] and not plan["executed"]
+    assert "user-notes.txt" not in plan["proposedRemove"] + plan["preserveForReview"]
+    assert upgrade_plan(expected, expected, new, expected)["proposedRemove"] == ["references/contract.md"]
+    (root / "linked.md").symlink_to(ref)
+    try: manifest(root)
+    except ValueError as error: assert str(error) == "symlink_or_special_file"
+    else: raise AssertionError("symlink")
+    (root / "linked.md").unlink()
+    try: verify_tree(root, {"./SKILL.md": expected["SKILL.md"]})
+    except ValueError as error: assert str(error) == "manifest_path"
+    else: raise AssertionError("canonical")
+print("六层fixture/逐run摘要/原bytes漂移/symlink/升级移除只作计划通过；productionReady始终False")
+```
+
+此例的 artifact 标题检查很窄，不能判定内容正确；来源的 `artifactImprovement` 也只是 baseline fail/treatment pass，不能比较两者都过形状但质量或效率不同的情况。例中 evidenceRoot 仅覆盖传入的层判定与fixture；生产证据根还需绑定包manifest、全部配置、阈值、采集环境和版本，并由独立渠道验真。真实业务需要独立值/覆盖/来源 checks 与人工 rubric 校准。脚本测试是普通软件测试，script/safety 结果不能靠输入布尔值自证；安全 required cases 全过是 hard gate，而非平均得分。
+
+## 6. 跨宿主能力、更新与移除怎样验收
+
+不要只问“支持 skills 吗”。对每个 required capability 记录 native、adapter、degraded with acceptable fallback 或 unsupported：核心目录、body activation、companions、process tool、explicit/implicit、human/model policy、argument binding、delegated context、hooks、persistent resume、scope与uninstall。缺 required 行为且 fallback 不满足时不能发布给该宿主；支持字段而未观察行为标 unverified。SDK 可以封装调用和追踪，但这张机制矩阵仍需实际故障测试，不能由品牌或包下载量替代。
+
+后续真实宿主 checkpoint 的操作合同如下。本阶段仅记录，不安装：
+
+1. 固定 source revision、包 SHA、host/version/date、选定 project/user scope和干净 target；查看预期文件列表及冲突，先 review 整包 tree，不覆盖其它包。
+2. 安装整目录后记录实际 installed root，rescan/新会话依 host 当前文档；显式调用使用宿主真正语法，再用无名称同任务和一个 near miss 测隐式。没有可见选择记录就 unverified，不从 fluent reply 推断。
+3. 要求读取 installed reference，运行被审 helper 时展示绝对 script/target、cwd、精确 argv，记录 exit/stdout/artifact hash。未观察任一字段就标未观察；相对路径按 installed root 或目标 workspace 哪个基准解释要明确。
+4. 检验 authority：只评估请求不发布；若用户确已授权外部动作，再核具体对象/后果与当前 policy。记录控制来自 Skill 指令、host policy、approval、缺 capability或sandbox，不能统称“安全保证”。
+5. 第二 host 重做同一 probes；不可用则标 unverified/unsupported 与可行 fallback，一台成功不叫 universal portable。
+6. 升级先看 old/new tree、metadata、invocation policy、required capabilities与 resource diff；旧 manifest 所有的未修改文件可列计划，修改文件、unknown文件、symlink或模糊所有权先保留。移除只限该 installed bundle，不用宽 glob、不移除兄弟scope包。重建目录，重试显式调用确认不再发现；残留 catalog 是另一个失效状态。
+
+持续状态应记录候选 commit、已完成 check、效果未知动作、idempotency key与下一步；中断不能重复外部写入。发布流程、host配置和新费用仍由当前具体授权范围约束。这里没有执行 source installer、npx、SDK、真实 host、容器或 API。
+
+## 7. 原课程练习与参考判据
+
+下面覆盖原22、24–27的全部32项 Exercises。它们是可选实践题和答案标准，未执行的真实宿主/模型题不会记成个人经历。工具与结构输出课的另外25题分别见[工具使用](../01-核心章节/05-工具使用.md)与[发票核验](../../LLM%20工程实践/13-结构化输出与对话状态.md)。
+
+### 练习组22：Agent Skills: Portable Contract and Runtime Boundary
+
+| 原题 | 问题 | 答案或判据 |
+|---|---|---|
+| 22.1 | 用TaskShape分类五个实际workflow，可否组合单元？ | 5个团队真实workflow以职责选择，组合逐项有理由；可由模拟任务讲规则，不记用户团队实际经历。 |
+| 22.2 | compatibility500/501边界应怎样检查？ | compatibility500通过501拒绝是标准边界；现源tests已有该测试，未来新增自己的实现才能记实跑。 |
+| 22.3 | 允许一个宿主扩展后是否仍是portable-only？ | 扩展allowlist使结构加载可用但报告仍标runtime_extensions，未知宿主不可默认赋义。 |
+| 22.4 | 如何把400行prompt拆为入口/reference/script/template？ | 400行prompt分离核心workflow、分支reference、确定性script接口和output模板；不能仅为短入口搬走必要动作。 |
+| 22.5 | Skill引用不存在的MCP工具怎样失败？ | 缺MCP工具返回missing_dependency与未完成步骤，禁止换更宽权限工具；Skill名称不创造capability。 |
+| 22.6 | 逐句标routing/procedure/policy/pointer/output怎样整理？ | 逐句labelrouting/procedure/policy/pointer/output；政策不扩授权，正文保留核心流程及错误出口。 |
+
+### 练习组24：Skill Discovery and Progressive Disclosure
+
+| 原题 | 问题 | 答案或判据 |
+|---|---|---|
+| 24.1 | 新增plugin scope，优先级依据是什么？ | 新增plugin rank在user与builtin之间，碰撞预期不由文件mtime决定；不能称Codex默认优先级。 |
+| 24.2 | 改为qualified identity时如何保留两个同名包？ | qualified identity保留scope/source并显式invocation，不依同名随机选择；diagnostic保留shadowed。 |
+| 24.3 | reference字节limit与limit+1怎样测试？ | byte size与chars不同，UTF8边界limit/limit+1测试且先限读取；现main只有chars后检查。 |
+| 24.4 | 如何重写两个近似description并验证？ | 近邻description按触发/输出/排除拆分，再用paraphrase+near miss验证，不能只看文字不同。 |
+| 24.5 | manifest怎样发现resource漂移？ | manifest覆盖reference/script，加载前核比对；哈希匹配只证明未漂移，不证明安全或来源。 |
+| 24.6 | 怎样分别报告L1/L2/L3实际成本？ | 分别记L1 exact serialization/L2 body/L3实际资源成本，注明bytes/chars/tokens单位与计数器。 |
+
+### 练习组25：Skill Invocation and Routing
+
+| 原题 | 问题 | 答案或判据 |
+|---|---|---|
+| 25.1 | 人类/模型四象限各有什么例子？ | 四象限给各自场景，disabled/app-only是否可用另看app policy；不会自动获得工具权限。 |
+| 25.2 | 怎样实现application-only调用？ | app-only许可精确name，human/model均拒；app target allowlist不扩大filesystem/network。 |
+| 25.3 | 为deployment写十个near misses。 | 10个deploymentnear misses包括解释、构建失败、发布说明、引用他人请求、反对部署和只问方案，标gold先分development/holdout。 |
+| 25.4 | top1/top2歧义margin如何决定？ | margin=top1-top2不足返回ask/abstain而非字母赢家；验证禁用top1后重新排名。 |
+| 25.5 | A→B→A与最大调用深度怎样检测？ | visited调用链+maxdepth防A→B→A与selfcycle；原代码只实现self+depth，标新增需写。 |
+| 25.6 | 同集core与extension adapter为什么可能不同？ | 同集core/extension比较，记录哪个宿主字段改变eligibility；禁止把词面simulator数字当宿主准确率。 |
+
+### 练习组26：Skill Permissions, Sandboxes, and Trust
+
+| 原题 | 问题 | 答案或判据 |
+|---|---|---|
+| 26.1 | 同路径read/create/overwrite/delete怎样分权？ | 按read/create/overwrite/delete分别same target检查，并验已有/不存在/父symlink/TOCTOU；真实强边界需fd绑定，不只resolve一次。 |
+| 26.2 | 443/8443与redirect怎样做origin policy？ | allow registry443和8443分开，redirect到undeclared deny；本代码没有实际redirect网络执行，不记通过。 |
+| 26.3 | package manager lifecycle hooks应如何处理？ | package manager lifecycle hooks需代码信任/隔离执行，review argvprefix不够；审批不替代sandbox。 |
+| 26.4 | 外部写入为什么要idempotency key？ | 外部写必须idempotency key与效果状态，retry以回读优先，重复key不能重复扣款/发布。 |
+| 26.5 | stage/prod发布批准分别要展示什么？ | 批准文案写候选hash、版本、stage/prod目标、动作、风险、回滚；授权范围新后果不可继承。 |
+| 26.6 | 网页读取到PR评论的trust边界在哪里？ | webpage→model→comment边界：网页仅资料，输出评论需人类直接授权，限制secret与egress且回读记录；本任务没有评论发布。 |
+
+### 练习组27：Skill Evals, Packaging, and Portability
+
+| 原题 | 问题 | 答案或判据 |
+|---|---|---|
+| 27.1 | 三类各十题怎样分development/holdout？ | 10positive/10negative/10near miss在修描述前分dev/validation，手工gold与competitors明确；数量不是质量标准，固定simulator不能替targethost。 |
+| 27.2 | 五次baseline/treatment怎样报告退步？ | 五次paired每任务保持同模型/工具/预算，保留raw predictions和每case regressions；未做真实API实验。 |
+| 27.3 | human rubric怎样校准？ | 人类rubric需五example校准judge/human一致与failureboundaries，不把任何LLM“感觉好”作机械通过。 |
+| 27.4 | 新增hostcapability如何给四种兼容结果？ | 加hostcapability明确native/adapter/degraded/unsupported与fallback是否满足required；没有hostprobe仅fixture。 |
+| 27.5 | 安装后reference改变应怎样拒绝？ | manifest后改reference，应mismatched并在activation前挡；manifest本身由外围渠道auth，不能recompute后冒称未改。 |
+| 27.6 | body过lint而script坏artifact是谁阻发布？ | bodylint过scriptartifact失败应scripts/behavior阻发布，各层并列不能加权抵消。 |
+| 27.7 | 升级怎样比invocation policy与capabilities？ | 升级diff invocationpolicy/required capabilities及新resource，重新验目标host/权限，避免silent degradation。 |
+| 27.8 | 兼容报告怎样避免一个portable badge掩盖未知？ | compatibility report含version/date/evidence/未验证；本次未publish、install、upgrade、uninstall，模拟passed不记录用户技能。 |
+
+
+## 8. 原30道 quiz 的核对答案
+
+保留原题知识判断而用中文提问；选项字母对应源 `quiz.json` 的0=A、1=B、2=C、3=D。题目能核对概念，不能证明答题者实际跑过 host、具有能力或完成课程。关于一层 reference、六层阈值与 attestation 的题目按题设发布政策回答，不能升级成 Agent Skills 全局规范。
+
+### Quiz组22
+
+| 题号 | 核对问题 | 原选项与答案 |
+|---|---|---|
+| 22.Q1 | 复用审查方法和已存在API怎样分工？ | A：Skill放方法，MCP tool暴露API。 |
+| 22.Q2 | 为什么name与目录名必须一致？ | B：发现/打包只有一致身份；不授权限。 |
+| 22.Q3 | 只有一宿主认识的字段如何解释？ | B：宿主扩展由明确adapter解释，不升格核心标准。 |
+| 22.Q4 | 每次tool call后必须执行检查选什么？ | D：Hook；要求是事件时点，非概率路由。 |
+| 22.Q5 | 何时AGENTS.md比Skill合适？ | C：仓库全程惯例/命令/边界放AGENTS；稀有任务方法放Skill。 |
+| 22.Q6 | 有效目录包自身授予什么？ | B：可发现的方法说明；是否执行由host控制。 |
+
+### Quiz组24
+
+| 题号 | 核对问题 | 原选项与答案 |
+|---|---|---|
+| 24.Q1 | 项目/用户有同名包，什么决定胜出？ | A：host声明的scope政策，非mtime/长正文。 |
+| 24.Q2 | 初始catalog应该装什么？ | B：compact name/description/identity，不预运行script。 |
+| 24.Q3 | 渐进披露的正确顺序？ | D：catalog→选中body→该分支所需reference。 |
+| 24.Q4 | 同优先级重复为什么要报歧义？ | A：相同rank按偶然顺序选会不可复现，应明确冲突。 |
+| 24.Q5 | 题设只允一层，references/archive/schema.md怎样处理？ | C：拒绝违反题设的深度政策；标准推荐浅链不等普遍禁nested目录。 |
+| 24.Q6 | catalog超预算怎样处理最可核对？ | A：确定性截短/遗漏报告，再用窄发现找未列项。 |
+
+### Quiz组25
+
+| 题号 | 核对问题 | 原选项与答案 |
+|---|---|---|
+| 25.Q1 | 从host看，什么是programmatic activation？ | A：应用或harness按精确身份编排；UI人选与语义路由是其它通道。 |
+| 25.Q2 | user-invocable:false怎样写可移植说明？ | C：host extension，经adapter验证；非文件权限或required核心字段。 |
+| 25.Q3 | near miss低于threshold怎样处理？ | D：abstain，普通推理或澄清，不私降threshold。 |
+| 25.Q4 | human=true/model=false什么意思？ | B：人类可显式选择，model不可隐式；不代表tool authority。 |
+| 25.Q5 | harness为什么精确指定名字？ | C：隔离技能本体行为与routing方差，另作trigger eval。 |
+| 25.Q6 | 怎样分开activation与action authority？ | C：先按host政策加载说明，再逐动作检查scope/permission。 |
+
+### Quiz组26
+
+| 题号 | 核对问题 | 原选项与答案 |
+|---|---|---|
+| 26.Q1 | 入口写“可写任意磁盘”得到什么权限？ | A：无新增权限；文字不变host policy。 |
+| 26.Q2 | workspace jail为什么resolve symlink？ | D：词面包内路径可能link到包外，需真实目标与operation检查。 |
+| 26.Q3 | 网页要求关闭approval怎样处理？ | B：不可信资料不能成为批准或新policy。 |
+| 26.Q4 | 教育例如何演示破坏命令审查？ | C：parse argv返回deny且不执行；有execute=false证据。 |
+| 26.Q5 | 用户调用过Skill，未许可HTTPSorigin能用吗？ | D：deny越界origin；activation不是网络授权。 |
+| 26.Q6 | 疑似秘密写入没有合规权限路径怎么办？ | D：拒绝且不回显秘密；如确有需求另走已授权secret workflow。 |
+
+### Quiz组27
+
+| 题号 | 核对问题 | 原选项与答案 |
+|---|---|---|
+| 27.Q1 | 什么样trigger集最能看到过度触发？ | A：positives和语义近邻negatives，不能只一个demo或同名prompt。 |
+| 27.Q2 | 8TP/2FP的precision是多少？ | B：.8；recall缺FN无法算。 |
+| 27.Q3 | baseline/treatment为何用相同断言？ | D：测产物实际改进，不能只测被激活。 |
+| 27.Q4 | host只装入口却丢必须companions怎么办？ | B：adapter-required并列companions/process能力缺口；无可行adapter才unsupported。 |
+| 27.Q5 | 重复run率比一次成功多证明什么？ | C：每case重复一致性；不是结构、权限或host普适证明。 |
+| 27.Q6 | 按本课发布政策完整gate包含什么？ | D：六层效果、localcaptured完整摘要、独立可信包外attestation；这是本课生产门禁，非所有Skill统一标准。 |
+
+
+## 9. 图意、来源与验证边界
+
+来源静态 skills-stack 把 AGENTS、Skills、MCP分层，但旧生态数量、SDK品牌/UI标签不作为当前事实。19幅动态 Skills 图的有效含义已融入上面的目录树、生命周期、资格/参数、authority链、六层门禁与升级流程：它们强调分层与分支，不是模型或host运行。入口的动画步骤/固定 host profiles、prediction、passed与示例artifact都是教学数据；未验证真宿主、SDK或容器行为。
+
+2026-10-08 吸收[AI Engineering from Scratch Phase13 22、24–27](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/13-tools-and-protocols)，源 commit `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`。完整读取原文、代码/tests/quiz、5个 bundle及全部 companion bytes；source SHA/GitBlob、标题、图builder/helper和 primary 指定范围记录在正式覆盖报告。GitSkills论文没有阅读全文，生态数量与所有性能百分比不吸收为质量或当前效果结论。本文三个新程序从最终 Markdown 提取在Python3.12.13标准库 CPU运行，只证明明确的本地反例和政策机制，不证明真实 capture、productionReady、跨宿主或用户掌握。
+
+## 10. 宿主的工具批准授予与任务授权仍须分开
+
+前文“激活不授予动作权限”指Skill内容不能自行扩大用户目标、组织policy或OS可达范围。还须区分宿主的**自动批准授予**：2026-10-14实际选读[Claude Code Skills](https://code.claude.com/docs/en/skills)的工具批准、调用作用域和路径替换段，`allowed-tools`可以为该Skill调用授予本轮自动批准，下一条用户消息时清除；它不会因此把未列工具从能力池移除。`disallowed-tools`承担移除工具的不同职责，Skill指令内容的可见性/持续时间也与本轮grant不同。
+
+这个区别能解释两个反例：列表只写Read，并不自动形成只读工具池；列表授予Bash，也不等用户批准脚本访问任意对象/出站。所读官方段还明确，workspace trust不门控 `allowed-tools`的该类授予，包括未信任文件夹中的相应非交互路径；不能只审“用户是否点了信任”，随后默认frontmatter不影响权限。产品版本与组织托管政策另核，本次只核所列内容，没有运行当前客户端验证。
+
+包审查同时检查元数据、入口、全部required companions、直接引用、脚本合同和调用策略。简单按冒号拆frontmatter不等完整YAML；只拒精确 `Bash(*)`不识别其它宽grant。`${CLAUDE_SKILL_DIR}`的正文和Bash规则替换是该宿主的路径机制，跨宿主不能自动继承。脚本路径相对cwd拼接、PurePosixPath词面拒parent，都不能代替真实解析路径、symlink/祖先、argv、deadline、环境和出站边界检查。
+
+**实践判据**：取两个结构相同的包，一包仅入口，一包含所需reference/helper；前者应报告缺能力而非通过。再保持方法不变改工具grant，要求审查观察自动批准变化、工具池、用户/组织授权与实际执行范围四层，不能用“已激活”代替任何一层。最后检查重复业务意图、引用漂移、安装副本漏文件、升级时unknown/已修改文件与卸载所有权：前文三个自有合同已有局部反例，本批不重复生成或运行它们，更不执行来源Skill。
+
+正文新增2026-10-14；认证19目录及所有伴随文件在2026-10-14静读完成，源[固定课程提交](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/certifications/claude/lessons/19-claude-code-skills-hooks-and-team-extension)。宿主官方仅上述选读，不冒全文、安装或实跑；旧三个Python程序与2026-10-08成功证据保留。
+
+
+### 课堂变式练习：把条件改动落实到证据
+
+先按[练习方法](../../学习指南.md#每次学习只留下可检查的结果)预测，再核对下表；表中原题的判断不代表本轮已运行。
+
+| 原课堂/项 | 练习方法与参考判断 |
+|---|---|
+| 19/练习1 | onepagerouter保canonicalsource/commands/security+refs，前后同cases覆盖/维护，字数不是完整性。 |
+| 19/练习2 | 三globspositive/negativefixturepath实际loader+scope/date，regex或MD声称loads不证。 |
+| 19/练习3 | 200lineprocedure→Skilldescription/near-miss/ref/script/output/safetyscope多file，currentallowed-tools只grant，安装授权与手动运行另有边界。 |
+| 19/练习4 | agentreadonlyactualpool/maxturn+真实blockedreason/evidence/nextstep，description不豁免Bashwrites，未创建sourceagent。 |
+| 19/练习5 | PreToolUse vsPermissionRequest事件-specificJSON/exit及timeoutonFailure基于当前安装版本，引用15selected明确日期；未runhooks。 |
+| 19/练习6 | plugin/marketplacepublisher/pin/权限/managedsource/update/rollback需具体artifactreview，不部署或费用。 |
+| 19/练习7 | cleanheadlessinputcommit/scope/readonlytokens/schema/findingIDs/currentdiff/remediationstatus，no rawsecret，不发表PR comments。 |
+
+迁到自己的任务时，重核输入、权限与评价条件；来源版本及未验证范围沿本章各节记录。
+
+
+## 11. 把本地包合同接到可审查的升级
+
+本节在现有发现、资格、权限、manifest 和可信采集合同上补充实现边界。一个包可通过 parser、被 router 选中、在扫描器中低分、成功写入某宿主目录，却仍没有证明它被真实宿主加载或正确完成任务。下面四类组件各交付自己的结果，不合并成一个含糊的“SkillManager 已支持”。
+
+### 11.1 可解释路由：去重、路径和依赖的单位
+
+`SKILL.md` 的 name/description 是入口元数据；源 routing.json 的 keywords/paths/priority/requires/permissions 是**本地路由扩展**，不是可移植标准必需字段。源按匹配关键词加 2、每个不同输入路径加 3，再按 score、priority、id 排序。这些是可调政策，不是概率。对 release review 两个关键词、一个匹配的 deploy 文件，分数为 2×2+3=7；同一路径重复输入不能变 10，大小写相同查询词也不应重复计分。
+
+去重必须与计分单位一致。源把完整 keyword 字符串做规范化/去重，再判断它拆出的任一词是否在 query；`review` 和 `review!` 仍是不同字符串，可能共同命中同一个 review 词。若意图“每个词只计一次”，需以实际命中 token 去重；若每条规则独立加分，则应把它明写成规则权重，不能以“词项去重”掩盖放大。文件路径的斜线规范化/字符串去重同样不代表 `./a`、真实路径别名、大小写或 symlink 已合并。
+
+glob 需要明确语法：`*` 匹配单个路径分量，`**` 可跨目录且包括零层；`a+b` 的 + 是字面符号，不能不经转义就进入 regex。拒绝 absolute/drive/parent 是输入合同，字符串模式匹配不访问文件系统，不提供 containment。源码 tests 覆盖这些典型匹配，但 CLI 对真实文件的安全打开、TOCTOU 与 Unicode/case 身份仍是另一层。
+
+依赖计划用 active 集合查当前 DFS 路径的环，用 visited 避免菱形依赖重复，按后序使依赖先于使用者，缺依赖/重复 id/越权依赖明确失败。四个返回状态应可解释：no-match 没有相关候选，ambiguous 前两名分差不足，blocked 首选的计划/权限受阻，ready 得到候选与计划。source margin=0 时同分可能按 priority/id 选出 ready；这只是本地 tie 政策。本库仍保持调用资格先于相关性排名和歧义弃答，不能因有稳定排序就把同分当语义确定。ready 不运行 Skill，也不绑定未来时刻的权限；实际 executor 仍重核候选版本、动作和批准。
+
+### 11.2 小语法和渐进披露：拒绝歧义比猜 YAML 更可维护
+
+一个明确的 frontmatter 子集，可以只接受单行 plain scalar 与 JSON 兼容的双引号字符串，拒绝重复键、alias、tag、flow collection、多行 block 等未支持形式。这样 `description: "say \"review\""` 中的引号必须经相应转义规则处理，而不是简单去首尾引号。词法解析、字段语义与目录身份是三道门；解析成功不等于非空描述、合法长度或 name=folder。固定源 Rust validator 的 ASCII 名称政策允许数字开头；它是该 loader 的受限 profile，不能把它当所有标准/宿主的完整名称语法。
+
+双引号解码还要核 escape、控制字符与 Unicode surrogate pair；JSON 字符串能表述换行不代表入口支持多行 YAML。解析时重组 body 会改变 CRLF/末尾换行，故 parser 输出用于加载解释，不能拿它替原 bytes 做完整性证据。已有 manifest 继续对原字节计算，不先 normalize 后声称没有漂移。
+
+披露预算按**最终拼接文本**计算。若 metadata 80 字符、body 120、分隔符 2，激活需要 202；预算 200 应整体拒绝，不能截掉两字符约束。reference 若追加，还要加它的分隔符与完整正文。Rust `.chars().count()` 的 Unicode 标量数与 UTF-8 bytes、UTF-16 code units 和模型 token 不同；先声明计数器，再比较边界。metadata-only 可以只把元数据送入上下文，但源 CLI 仍读完整 SKILL 文件，不能把“少披露”说成“完全没有 I/O 读取正文”。`activated:true` 仅表示将正文纳入上下文，绝不表示脚本已执行或任务完成。
+
+引用路径先拒绝不允许的组件，再对已存在 root/target canonicalize，并按路径组件核目标仍在 root 下。还需确保目标是所需文件类型。这个快照检查不能防对抗性的检查后替换；实际读取应绑定安全打开的对象与祖先政策。CLI 单个文件 100KB 上限也不等于所有资源总预算、文件数或总耗时。
+
+### 11.3 安装候选的身份必须覆盖转换输入
+
+应把四个身份并列记录：源 envelope、源文件树、转换后的文件树、实际 installed tree。转换器若根据外层 name/description 重建 SKILL.md，目录也由 name 决定，那么只对 files 计算 digest 就漏掉会改变结果的输入。固定源 installer 恰有这个缺口：name/description 改变、files 不变，expected source digest 仍可匹配。可信摘要应覆盖完整候选以及转换器版本、目标 adapter 和必要政策；“inspect 算出的 digest”只说明当前不可信输入的自洽结果，不自动认证发布者。
+
+排序也属于摘要合同。源用 localeCompare 排序 path/content 对，仅有普通 ASCII 插入顺序测试；跨语言/locale/Unicode 等价键若无明确全序，不宜称规范化跨平台身份。生产合同需声明路径编码、规范形式、重复/大小写冲突与确定性序列化，再 hash 原 bytes；不同原始文件换行应按原本的漂移政策处理。
+
+转换应展示损失。源会重新生成带 JSON 引号的 name/description，移除它识别的 LF 前置头并 trim body；这并非任意 YAML/CRLF/BOM 的无损迁移。quoted subset 能与所示 Rust loader 的正常 Unicode 样例互通，不等于所有字符串都获验证。body 边界空白、未知宿主字段、mode、required capabilities 和 references 的实际字节都要纳入转换/安装 diff；不能只看到“同一套说明”就判无变化。
+
+目标路径同样要预检整棵树：文件/目录前缀冲突、保留 receipt 的子路径、大小写/Unicode 碰撞、未知宿主、最大文件数/总 bytes 与原始值类型。源拒绝基本 parent/absolute/backslash/NUL，但 `.installed.json/child` 可过早期校验后在 staging 写入失败；普通对象积累文件时 `__proto__` 等键还有语言对象语义，不宜用 Record 类型注解当运行时保证。晚期失败若尚未发布，仍比覆盖真实目标安全，但不等于预检合同完整。
+
+### 11.4 升级是有提交点的状态机
+
+新安装可在 sibling staging 准备完整树，再单次 rename 到原本不存在的目标。覆盖旧安装则不同：源先 dest→backup，再 staging→dest，中间目标路径不存在，第二次 rename 的原子性不能覆盖两步整体。若 final rename 失败，恢复 backup 只是尽力而为，也可能再次失败；若 final rename 已成功，随后 backup 清理失败会抛错，此时新版已在位。需要返回或持久记录提交阶段，而非一个真假布尔值；调用方回读当前 generation 与树，避免误以为旧版未动而重复升级。
+
+沿用本库冻结、manifest 和权限合同，可将升级理解为：固定完整候选→核当前所有权/编辑→准备完整新代→在明示提交点发布→验证当前代→清理旧代。不可变代与一个受控指针有助于缩小可见性切换；它本身仍不自动提供 fsync 耐久、并发 writer 协调或安全路径打开。应用异常模拟不能当断电和恶意并发实验。本节没有另造或运行安装器。
+
+本地 receipt 仅当其信任假设成立才有用。源会比较旧 tracked 文件与摘要，并拒绝 unmanaged 文件，但 receipt 与文件都可编辑时可共同伪造；receipt 还需要严格形状/路径/身份检查。unmanaged 空目录若只靠递归文件列表判断会被漏掉，随后 backup 清理可丢失它；“保护所有本地编辑”因此比当前实现更强。升级/卸载必须展示文件、目录、改动、unknown 和所有权，不使用宽 glob；未管理内容保留并交人工选择，不能以 receipt 自报消除冲突。
+
+### 11.5 十六阶段练习：预测、静态证据与未运行边界
+
+下面都是可核对的实践题与评价方法，当前只完成源静读与正文推导；没有执行所列 Skill、CLI 或安装流程。带真实宿主或文件操作的验证仍需按任务授权单独开展，表格不是通过记录。
+
+| 项目/阶段 | 练习及参考判据 |
+|---|---|
+| router 01 catalog | 缺 keywords/permissions、非字符串 keyword、unsafe id 分别拒绝；目录名与 SKILL name 不同不能悄悄取一个。源局部 regex 会转换非字符串，真实 schema 还要严格类型。 |
+| router 02 score | 重复 query token 与重复文件不能放大；测零层/多层 globstar、反斜线规范化和 a+b。对 review/review! 说明是词权重还是规则权重，不能混称去重。 |
+| router 03 dependencies | A→B→A 报环；A→B/C→D 只安排 D 一次且先于 B/C；缺依赖和依赖缺权限均失败，不能只看根节点。 |
+| router 04 route | 分别构造 no-match、ambiguous、blocked、ready。修改 margin=0、禁用高分候选，解释现有资格优先政策与源首选受阻政策的差别。输出计划不代表执行成功。 |
+| validator 01 parser | 对冒号、双引号/转义、é、损坏引号、重复键、alias 明确接受或拒绝；只声明支持的小语法，不猜全 YAML。 |
+| validator 02 metadata | 名称/目录一致、非空说明、长度与字符政策分别测；源码对 uppercase、double-hyphen 与 mismatch 的五例不证明全部标准字段。 |
+| validator 03 path | existing、missing、absolute、parent、backslash、symlink-outside 分开判；canonicalize 比 raw starts_with 强，但不覆盖检查后替换。 |
+| validator 04 disclose | metadata/body/separator/reference 全量计数；202 对 200 应 Limit。比较 é 的 bytes/scalars 与实际 tokenizer，未调用 tokenizer 不报 tokens。 |
+| scanner 01 spans | `café\n.env`、CRLF、空文件及限额+1；每个区间必须对应原 bytes，并保留字面 quote。 |
+| scanner 02 rules | 善意文档也可命中，改写可漏报；同一行的不同规则分别保留。不得执行规则所引用的指令或命令。 |
+| scanner 03 scoring | 同一证据重复不加分，不同规则可相加；冲突 severity 交换顺序不应改变结论，需拒绝或按冻结规则重算，源首项获胜不是完整合同。 |
+| scanner 04 review | threshold 只决定 review-required/below-threshold；验证 findings 数、字节边界、line/quote 一致和报告总量。源 CLI 未调用 review，不自动继承它的 max_findings。 |
+| installer 01 bundle | 在建目录前核所有路径、保留 metadata、大小及整树冲突；Windows 风格输入在 macOS 也不能被当普通资源名带过。 |
+| installer 02 translate | 引号说明往返、source/translated 摘要不同应可解释；保持 files 不变改外层 name/description，检查候选身份是否仍被完整绑定。 |
+| installer 03 install | digest 不符不建目标；staging 未完成前原目标不变。分别审新安装与升级、祖先 symlink 与检查后替换、候选源与实际 installed tree。 |
+| installer 04 upgrades | 修改 tracked 文件或新增 unmanaged 文件应保留并拒绝覆盖；再考虑空目录、共同篡改 receipt、final-rename 失败与 committed-but-cleanup-failed，回读提交点后状态。 |
+
+源测试定义分别为 router 30、validator 24、scanner 20、installer 23，共 97，未执行；validator 的 symlink 案例带平台条件。作者 run GIF 分别显示旧 24、24、20、22：router 当前新增 6 个路径/发现案例，installer 当前新增 1 个 CLI 集成案例，旧录屏不能证明这些增量已过。router 图用 Unicode words、简化 deploy 路径和额外 competitor 状态，不等于 ASCII/通用 glob 源实现；validator 图不实际解析/读文件；scanner 图不遍历或计算升级 diff；installer 图的 digest 复选框不做真实 hash/rename。六项目共 25 个图示注册及最终 provider/必要 helpers 已静读，图是推理辅具，不是能力验证。
+
+2026-10-15 回融自同一固定提交的 [skill-router](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-router)、[skill-validator](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-validator)、[skill-scanner](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-scanner)、[skill-installer](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-installer)。全课内文件、所有媒体帧、最终 provider/必要 helpers 在 10-15 完整静读；本文是主题解释和缺口分析，不声称最新产品发现路径、全 YAML/全 MCP 合规或真实宿主激活。此前五个围栏与原 CPU success 证据保持原字节/原日期，本批未重跑或新增自有程序。
+
+## 12. 从纠正记录到可审查的规则候选
+
+前文六层评价与安装状态机回答包能否被可信交付。本节解决另一个问题：反复出现的错误怎样转成候选行为，而不是把一次纠正直接固化成长期规则。先修是开发集/保留集、精确内容身份与既有发布授权合同。案例用透明关键词路由，输入是带 ID、文本、标签、群组和来源的支持工单；它不训练模型，也不执行生成的 Skill。改进分成收集证据、提议候选、独立门控、审阅批准和发布，任一前层成功都不能代替后层。
+
+### 12.1 先按内容与群组建立不泄漏的分区
+
+不同 ID 仍可能是同一消息。案例的内容指纹先作 Unicode NFKC、casefold、空白折叠，再对 UTF-8 取 SHA-256；`Invoice wrong` 和 `INVOICE   wrong` 应相同。相同规范内容却标签冲突，先停下来审标注，不把矛盾分散到两个分区。保留原文本、原标签与来源；指纹是用于约定下的关联，不是无损替换或语义等价证明。
+
+再把“内容指纹相同”和“group 相同”两种边放入并查集，按传递闭包形成组件。例如 a 与 b 同线程，b 与 c 内容相同，即使 a/c 的文本和直接 group 不同，三者也不能分开。自动 split 应整组件选择 development 或 holdout；显式指定两集时则检查内容和群组交集并拒绝泄漏。ID 唯一、非空文本/标签和内容标签一致性仍须另验，单独的 audit 交集函数没有完成这些检查。
+
+源码阶段开头提到按稳定 ID 哈希，但最终实现实际使用**组件内最小内容指纹**的前 32 位除以 2 的 32 次方，再与 holdout_fraction 比较。它与文件顺序无关，却不保证标签均衡或两集非空；添加连通记录还可能改变组件最小值与分区。不能据“确定性”就不断重算最终测试集。正确工作流在候选生成前冻结组件、分区成员、规范化政策和摘要，后续新增数据按明示迁移政策处理。
+
+**防跨集泄漏不等于获得独立支持。** 此实现把重复消息留在同一分区，并没有删除重复记录。两个不同 ID、相同退款消息仍会给提案提供两次 case 计数；同线程中的不同消息也不天然独立。支持门槛应声明以唯一规范内容、独立群组还是任务为单位，按来源去重/加权并保重复关系。单靠 split 不能兑现“至少两个独立证据”的承诺。语义近重复和未知群组还需要另外的方法，不由 SHA 碰撞检查解决。
+
+### 12.2 有序合取路由与只从开发错误提案
+
+透明 Skill 在这里是一串有序规则：每条 terms 是合取，输入词集包含所有 terms 才匹配；第一条命中即返回 label，无匹配返回 unknown。`[password, reset]` 能匹配 `password reset expired`，不能匹配只有 `password rejected`；空 terms 不得变成全匹配。第一命中意味着规则顺序属于候选身份，宽规则在前会遮蔽后面的精细规则。
+
+来源输入用 casefold 加 Unicode 正则 `\w+` 分词，不做与数据指纹相同的 NFKC；规则 terms 本身也不被统一规范化。实际系统应冻结分词/词形/Unicode 政策并验证 terms，不因 Python set 能比较就假定大小写、组合字符与跨语言一致。评价逐 case 保存 expected、predicted 和错误，再计算汇总，不用总准确率掩盖谁退化。
+
+候选提议只接收 development，不能拿 holdout 内容来挑词。先在所有开发案例中逐 case 对词去重并统计关联标签；然后只从当前错误案例的词生成候选，要求该词关联唯一标签且达到支持数，排除指定 stopwords，最后把新规则追加到原规则后。统计支持包括已正确案例，提议触发来自错误案例；这两步不能笼统说成“只统计错误”。每 case 重复单词不多计，却仍存在前述重复 case 虚增支持的问题。
+
+公开例中两个 invoice 工单都标 billing，两个 password/reset 工单都标 access，从空规则可提 invoice、password、reset 三条规则。混用两标签的词不应成为单标签提案，单次姓名或 rare 词不达默认支持 2。候选不是立即生效的政策。源 append 方式也不能修复旧宽规则遮蔽：旧规则先命中，新规则永远到不了；删除、重排或收窄是新候选变更，须重新核逐题回退。显式输入顺序还会影响首次遇到候选的顺序，不能把 dict 键排序摘要误当规则列表无序。
+
+### 12.3 同题门控能发现回退，不能制造泛化证据
+
+门控在同一非空保留集比较 baseline 与 candidate：候选准确率减基线准确率达到预定 min_gain，并且原先正确的 case 里没有任何一题变错，才 eligible。归约以 case ID 对应逐题正确/错误；不可先各删失败项再比较两个自身均值。原正确集合与新错误集合的交集就是 regressions，哪怕总分上升也要明确阻断政策是否允许这些损失。
+
+一个能手算的反例：四题 baseline 正确向量为 1/0/0/0，candidate 为 0/1/1/1。总体从 1/4 到 3/4，增加 0.5，但第一题回退，按此零回退政策仍不得晋升。若 candidate 为 1/1/0/0，则提高 0.25、没有回退，在 min_gain=0.05 的合同下 eligible；这个阈值是政策示例，不是统计显著性结论。零观测回退也不能推出未来无回退。
+
+原公开 fixture 只有 4 条开发和 2 条保留数据，空 baseline 得 0、候选得 1，只说明给定路由样例能通过。重复调试这些工单后，它们已经是开发/回归材料；不能称未见 benchmark。下轮在改 Skill 前冻结新的时间窗/实体群组、标签来源、分区摘要、baseline、指标、支持单位和停止准则，记录哪些 holdout 已被消费。若结果已经反馈给候选选择者，就另取真正未见的最终集；发布门控仍沿前文完整支持、独立采集和授权关系。
+
+### 12.4 精确批准、草稿导出与可回滚发布
+
+候选摘要应覆盖实际序列化规则内容，包括规则及 terms 的列表顺序。来源用固定 Python JSON sort_keys 输出取 SHA，再在 promote 前重算，要求批准值、当前规则值与 passing gate 的 candidate_sha256 一致。错误摘要拒绝而不创建目标，这能防止审阅内容与拟写内容意外漂移；摘要本身不是身份认证，也不证明批准者、范围和有效期。
+
+更强的发布合同还要绑定 baseline、数据与指标/门槛、完整 case 结果、采集身份、目标宿主/作用域、当前安装代、权限及回滚条件。来源 promote 直接信任可变 result 中的 gate 布尔与摘要，不重算评测或认证其来源；改 gate 的调用者可以构造自洽字典。因此本库已有独立证据根、候选/转换输入身份和提交状态机继续保留，不能倒退成“分数好且传了 hash 就可发布”。实际写入点重核当前代，授权未变的既有范围可按原授权继续，规则文本不能自己批准额外动作。
+
+`--dataset-audit` 只把外部 version-1、usable=true 的 train/test 记录接到 development/holdout，并在本地重审重复/内容/群组。保标签和 source 有助追溯，却不认证它们真实，也不自动继承外部所有保证。适配器的版本与字段应严格核型，不能依赖 `True == 1` 或非空字符串的 truthiness。
+
+`--export-skill` 写新的 draft 目录、SKILL.md 和 references/rules.json，不安装、不激活，也不要求门控已经通过；草稿可以保失败候选供审查，不能因此当 ready。入口说明要求先读规则、按顺序合取并人工审阅；实际宿主能否发现/执行仍由前文跨宿主能力合同验证。多文件写入中途失败可能留下不完整草稿，应标 partial 并按所有权处理，不能只看目录存在。
+
+本地 promote 在单写者假设下，先把旧目标保存为 `.previous`，再 temp/write/fsync/replace 新 rules；它没有锁/CAS、目录 fsync 或两个文件的事务。保存 backup 后发布失败、新版已提交但响应失败、重复发布覆盖 previous 都要分别核。`.previous` 只保上一份文件，不是无限版本史或已经验证的回滚；真正回滚还要检查目标当前代、权限和回滚后运行证据。沿第 11.4 节状态机处理，不另造一个弱安装器。
+
+### 12.5 四项纠正闭环实践与参考判据
+
+| 原阶段问题 | 方法、预期结果和失败判据 |
+|---|---|
+| 同客户线程的不同消息能作独立例吗？ | 不能默认。group 与规范内容边取传递组件、整组件分区，再按明示独立单位计支持/评价；构造 a—group—b—content—c，三者不可跨集。保同内容异标签冲突和群组未知，不能只检查 ID。 |
+| 宽规则在前遮蔽精细规则会怎样？ | first-match 让后规则不可达；同一重叠输入仍按旧宽规则返回。重排/收窄是候选变更，保规则顺序摘要并重跑同题门控；只 append 不能假称已修。这里给静态预期，未运行来源 Skill。 |
+| 反复复制同一开发消息为何危险？ | 两 ID 可使 min_support2 看似满足。先保指纹/群组及来源，以唯一内容或独立群组计支持，比较重复前后计数不得虚增；分到同一集不等已经去重。 |
+| 下次修改前怎样冻结新 holdout？ | 先定新样本边界、标签与来源、组件/分区、baseline、指标、门槛、摘要和消费轮次，再提候选；holdout 不进入 propose。门控通过后独立审阅确切候选与完整证据，草稿/安装/发布状态分开，旧版本可按合同回滚。 |
+
+2026-10-16 回融固定提交 [Self-Improving Skill Loop](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/self-improving-skill-loop)。30 文件、四阶段、25 测试定义、57 GIF 帧和两 PNG 全部静读。实际测试包括传递分组、路由合取、歧义/支持、同题回退、错误/精确摘要写入与显式泄漏；不覆盖独立支持去重、完整证据认证、并发发布、previous 内容/回滚或真实宿主。作者输出明确 promotion not requested；2/2 和历史通过不是本次运行或用户能力证明。
+
+四个图注册同用一个计算器：只比较两条规范文本/两个 group、两串等长 0/1 正确性向量，按回退与 gain 决策；approved 是用户复选框，没有真实 candidate digest、并查集、规则提案、文件发布或宿主执行。JS lowercase 也不等 Python casefold 的所有 Unicode 行为。本文保三个旧 Python 例、两个其它围栏和原成功日期/输出类型；没有执行来源、导出/安装 Skill、调用模型或产生同义新程序。完整 case 分母继续见[评测账本](../../LLM%20工程实践/06-评测与实验管理.md#2712-完整cpu例计划矩阵协议身份与共同案例)，实际效果未知的恢复见[异常恢复](../01-核心章节/12-异常处理和恢复.md#持久任务的租约效果与完成记录)。

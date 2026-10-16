@@ -151,12 +151,16 @@ def run() -> int:
             issue(ROOT/name, 1, '来源未登记', '新增保全文件需要记录来源和校验值')
 
     result = {'说明': '结构检查不替代语义、外链在线状态和实验运行验证', 'Markdown总数': len(docs),
-              '主库Markdown': sum(main_doc(p) for p in docs), '本地链接检查次数': link_count,
+              '主库Markdown': sum(main_doc(p) for p in docs),
+              '学习与导航Markdown': sum(main_doc(p) and '维护' not in p.relative_to(ROOT).parts for p in docs),
+              '维护Markdown': sum(main_doc(p) and '维护' in p.relative_to(ROOT).parts for p in docs),
+              '统计口径': '主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。',
+              '本地链接检查次数': link_count,
               '有效Notebook': notebooks, '已登记上游空Notebook': empty_notebooks,
               '来源文件校验数': checked_sources, '有效SVG': svg_count, '错误': errors, '提示': notices}
     if args.json_path:
         Path(args.json_path).write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
-    print(f'检查文档 {len(docs)} 篇（主库 {result["主库Markdown"]} 篇），本地链接 {link_count} 处。')
+    print(f'检查文档 {len(docs)} 篇（学习与导航 {result["学习与导航Markdown"]} 篇，维护 {result["维护Markdown"]} 篇），本地链接 {link_count} 处。')
     print(f'Notebook：{notebooks} 个结构有效，{empty_notebooks} 个已登记空文件；SVG：{svg_count} 个有效；来源校验：{checked_sources} 个。')
     for item in errors[:50]:
         print(f'错误：{item["文件"]}:{item["行"]} [{item["类型"]}] {item["说明"]}')

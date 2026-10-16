@@ -1,0 +1,379 @@
+{
+  "reused_old_code": [
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 1,
+      "sha256": "5f92daa2a8deb03bf364a3bb4af8be21ae8d98cd99819ed7e2f6cc6f30184375",
+      "old_block": 1,
+      "proof": {
+        "program_key": "0",
+        "sha256": "5f92daa2a8deb03bf364a3bb4af8be21ae8d98cd99819ed7e2f6cc6f30184375",
+        "exit_code": 0,
+        "stdout": "ViT标准dense参数(不含head) 85798656\nMAC {'attention': 524391936, 'mlp': 929562624} 乘加各算一次时FLOPs {'attention': 1048783872, 'mlp': 1859125248}\n1024→H→H带bias MLP 4096 20979712\n1024→H→H带bias MLP 5120 31467520\n有效patch/填充patch须分开；像素标量不是序列长度\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 1,
+        "block_index_1_based": 1,
+        "final_block_line": 40,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 1
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 2,
+      "sha256": "877b734c2bf5b4c885b56317a187b0a8a41c8834f9b365a887d86b6682bbe805",
+      "old_block": 2,
+      "proof": {
+        "program_key": "1",
+        "sha256": "877b734c2bf5b4c885b56317a187b0a8a41c8834f9b365a887d86b6682bbe805",
+        "exit_code": 0,
+        "stdout": "CLIP/SigLIP 0.975186 2.007381 两种归一化比 3.0\n双塔/scale/bias真实梯度通过；多正对数 5\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 2,
+        "block_index_1_based": 2,
+        "final_block_line": 103,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 2
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 3,
+      "sha256": "e849e7f86129a5443cacf1047b94176c7e6832ab6bb083cee65182400699608a",
+      "old_block": 3,
+      "proof": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 3,
+        "sha256": "e849e7f86129a5443cacf1047b94176c7e6832ab6bb083cee65182400699608a",
+        "exit_code": 0,
+        "stdout": "ITC/ITG/ITM可见性与未来扰动通过；query形状 (2, 3, 8)\nITC max相似度/ITM mean-logits (2, 2) (2, 2)\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "device": "CPU",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime"
+        },
+        "prior_sha256": "25cb59168a493f830f2df3da9cfc55dcd074aa41e1a6eee824ba71800ec941fd",
+        "修订依据": "同站独立复查发现全通道平移可被LayerNorm抵消；改非均匀扰动并增加关闭mask的检测力对照",
+        "block_index_1_based": 3,
+        "final_block_line": 164,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/tmp/study-visual-visibility-final-runs.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": "25cb59168a493f830f2df3da9cfc55dcd074aa41e1a6eee824ba71800ec941fd",
+        "old_visibility_evidence_not_reused_for_new_SHA": true,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 3
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 4,
+      "sha256": "cdccee6bee5834af6a97876531c2a514bf9aa410994d79f0fafcbeb7d35afa78",
+      "old_block": 4,
+      "proof": {
+        "program_key": "3",
+        "sha256": "cdccee6bee5834af6a97876531c2a514bf9aa410994d79f0fafcbeb7d35afa78",
+        "exit_code": 0,
+        "stdout": "resampler固定latent (2, 3, 8) 双gate零初始化/梯度/最近媒体隔离通过\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 4,
+        "block_index_1_based": 4,
+        "final_block_line": 255,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 4
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 5,
+      "sha256": "8f7dde3215229b59844d8393e597af1170bb7de7a50f57f1db42ff33fc3190e2",
+      "old_block": 5,
+      "proof": {
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 5,
+        "sha256": "8f7dde3215229b59844d8393e597af1170bb7de7a50f57f1db42ff33fc3190e2",
+        "exit_code": 0,
+        "stdout": "变长序列/有效长度 (2, 14, 8) [14, 6] 冻结LM下桥接loss 3.416888\nassistant右移labels、冻结权重/桥接更新、未来图/padding隔离、联合视觉梯度通过\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "device": "CPU",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime"
+        },
+        "prior_sha256": "063c579a4dd7542e7e23481a060210dabd1127038db0d69867f6f79b2a378fb2",
+        "修订依据": "同站独立复查发现全通道平移可被LayerNorm抵消；改非均匀扰动并增加关闭mask的检测力对照",
+        "block_index_1_based": 5,
+        "final_block_line": 333,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/tmp/study-visual-visibility-final-runs.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": "063c579a4dd7542e7e23481a060210dabd1127038db0d69867f6f79b2a378fb2",
+        "old_visibility_evidence_not_reused_for_new_SHA": true,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 5
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 6,
+      "sha256": "93443404700e713896166491539b5e60518d994ceaa87997f022d418858149a8",
+      "old_block": 6,
+      "proof": {
+        "program_key": "5",
+        "sha256": "93443404700e713896166491539b5e60518d994ceaa87997f022d418858149a8",
+        "exit_code": 0,
+        "stdout": "实际patch与offset [6, 8] [0, 6, 14] attention合法项 100\ndenseN²/各图n²和 196 100 逐图等价/跨图梯度为零/paddingpool通过\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 6,
+        "block_index_1_based": 6,
+        "final_block_line": 446,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 6
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 7,
+      "sha256": "0a28c026b4e67ec4068058dff3f9ccf8baa53299b0e290e4e1570110fd0c92cf",
+      "old_block": 7,
+      "proof": {
+        "program_key": "6",
+        "sha256": "0a28c026b4e67ec4068058dff3f9ccf8baa53299b0e290e4e1570110fd0c92cf",
+        "exit_code": 0,
+        "stdout": "输入grid/bilinear/average 24 (12, 12) (12, 12)\n输入grid/bilinear/average 27 (14, 14) (13, 13)\n含文本/输出/newline的教学预算 {'status': 'ok', 'frames': 16, 'total': 3928} 不是processor实测token\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 7,
+        "block_index_1_based": 7,
+        "final_block_line": 504,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 7
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "final_block": 8,
+      "sha256": "b12a34cf9770bf02571ced74d38c953e1b1387c17949b7b0457070b43c91ecfb",
+      "old_block": 8,
+      "proof": {
+        "program_key": "7",
+        "sha256": "b12a34cf9770bf02571ced74d38c953e1b1387c17949b7b0457070b43c91ecfb",
+        "exit_code": 0,
+        "stdout": "每head三轴/1D退化/范数通过；真实采样秒与教学timeIDs [0.0, 1.2, 3.7] [0.0, 12.0, 37.0]\nV2PE视觉δ=.25累计位置增量 6.25 实际token数仍 13\n",
+        "stderr": "",
+        "execution_date": "2026-10-08",
+        "environment": {
+          "Python": "3.12.13",
+          "torch": "2.14.1",
+          "numpy": "2.4.6",
+          "PYTHONPATH": "/tmp/study-source1-multimodal-runtime",
+          "device": "CPU"
+        },
+        "file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "block": 8,
+        "修订复跑理由": "将末端游标/累计增量与max−min跨度区分；最终打印字段改变后复核",
+        "block_index_1_based": 8,
+        "final_block_line": 556,
+        "final_sha_matches_persistent_success": true,
+        "evidence_record_path": "/Users/wangshuiqing/MyObsidianNote/OFAnote/learn/Study/维护/五站吸收/12-多模态实现续接.json",
+        "executed_by_this_agent": false,
+        "historical_previous_SHA": null,
+        "old_visibility_evidence_not_reused_for_new_SHA": false,
+        "根核对SHA定义": "围栏正文加末尾LF",
+        "根最终文件": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+        "根最终块": 8
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "final_block": 2,
+      "sha256": "1535646ac7e52b10dd96f7ace549e9d77f33cf9e44e7463ebd2467dff3de128d",
+      "old_block": 1,
+      "proof": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "lesson": "03",
+        "script": "/tmp/study-capstone-c-runs/voice.py",
+        "sha256": "1535646ac7e52b10dd96f7ace549e9d77f33cf9e44e7463ebd2467dff3de128d",
+        "exit_code": 0,
+        "stdout": "epoch隔离通过；非法epoch拒绝且状态不变；旧轮320/820/900ms；新轮未播放=None；已听历史960ms\n",
+        "stderr": "",
+        "date": "2026-10-11",
+        "python": "Python 3.12.13",
+        "execution": "该精确新增标准库程序已由exec实际运行；源码程序未运行",
+        "block": 1,
+        "prior_versions": [
+          {
+            "sha256": "c0863f357117addf8d880b4fc90413771e8f923c99865ac60bee89bea0fc372f",
+            "exit_code": 0,
+            "stdout": "epoch隔离通过；旧轮320/820/900ms；新轮未播放=None；已听历史960ms\n",
+            "date": "2026-10-11",
+            "superseded_reason": "root静态反例发现bool epoch/公开envelope改动后仍消费旧hash"
+          }
+        ],
+        "repair": "bool epoch入口/初始epoch strict validation"
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    },
+    {
+      "file": "LLM 工程实践/08-多模态模型工程.md",
+      "final_block": 3,
+      "sha256": "d49d68850884d2ce2141b105052c6bc7c69de543d7ffb83a6bdc72b50fab32fe",
+      "old_block": 2,
+      "proof": {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "lesson": "12",
+        "script": "/tmp/study-capstone-c-runs/video.py",
+        "sha256": "d49d68850884d2ce2141b105052c6bc7c69de543d7ffb83a6bdc72b50fab32fe",
+        "exit_code": 0,
+        "stdout": "局部[2,12)s→原视频[94,104)s；tIoU=3/7；越界拒绝；跨镜头词保同word_id\n",
+        "stderr": "",
+        "date": "2026-10-11",
+        "python": "Python 3.12.13",
+        "execution": "该精确新增标准库程序已由exec实际运行；源码程序未运行",
+        "block": 2
+      },
+      "executed_this_round": false,
+      "byte_identical": true
+    }
+  ],
+  "new_code": {
+    "file": "LLM 工程实践/08-多模态模型工程.md",
+    "final_block": 1,
+    "sha256": "ba65691c5c77c377672fd71becf84c7b3f505781305e75df078c251a083fb75b",
+    "script": "/tmp/study-vl-metric-contract.py",
+    "exit_code": 0,
+    "stdout": "单正R2=1/2、MRR=25/48；多正Hit2=1、Recall2=1/3；固定tie与K=N通过\nVQA十人留一分0/.3/.6/.9/1；strict ID、空集合、重复ID、非有限值负例通过\nNone/字典/score行/维度失配拒绝且输入不变；10**400有限整数精确排序通过\n",
+    "stderr": "",
+    "date": "2026-10-12",
+    "environment": {
+      "Python": "3.12.13",
+      "executable": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "machine": "arm64",
+      "system": "Darwin",
+      "device": "CPU",
+      "dependencies": "Python标准库"
+    },
+    "execution": "仅实际执行修订后的新增标准库精确代码块；来源模块/测试、旧10块均未执行",
+    "prior_versions": [
+      {
+        "file": "LLM 工程实践/08-多模态模型工程.md",
+        "final_block": 1,
+        "sha256": "45242039c230b68b2ca58f7b6d02569d52dee2dec7a450955a12d591a2500129",
+        "script": "/tmp/study-vl-metric-contract-45242039.py",
+        "exit_code": 0,
+        "stdout": "单正R2=1/2、MRR=25/48；多正Hit2=1、Recall2=1/3；固定tie与K=N通过\nVQA十人留一分0/.3/.6/.9/1；strict ID、空集合、重复ID、非有限值负例通过\n",
+        "stderr": "",
+        "date": "2026-10-12",
+        "environment": {
+          "Python": "3.12.13",
+          "executable": "/Users/wangshuiqing/codex-tools/bin/python3",
+          "machine": "arm64",
+          "device": "CPU",
+          "dependencies": "Python标准库"
+        },
+        "execution": "只执行该精确新增代码块；来源模块与测试、旧10代码未执行",
+        "superseded_reason": "根静读发现消费型容器入口与巨大整数有限值处理不足；追加拒绝输入不变反例"
+      }
+    ]
+  }
+}

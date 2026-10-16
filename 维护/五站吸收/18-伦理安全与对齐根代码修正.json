@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-11",
+  "scope": "两新增块必要数值/输入合同修正；来源程序0执行",
+  "runs": [
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 6,
+      "date": "2026-10-11",
+      "script": "/tmp/study-ethics-root-runs/05-block6-final.py",
+      "sha256": "41e5687eb206f65a5a544751446b9c5d50502a2614ed1d3166ff9cccd9ff27bf",
+      "previous_sha256": "a7e6bb807057cf529b3c8e5452eda87cd8bca063537bce934a0e451555f25e7f",
+      "exit_code": 0,
+      "stdout": "IPO与BPO两分支数值梯度吻合；目标非硬界；chosen下降仍可相对改善。\n",
+      "stderr": "",
+      "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "reason": "ref归一化与IPO目标/损失/梯度派生溢出反例；只重跑此新增改变块",
+      "prior_versions": [
+        {
+          "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+          "block": 6,
+          "date": "2026-10-11",
+          "script": "/tmp/study-ethics-root-runs/05-block6-final.py",
+          "sha256": "a7e6bb807057cf529b3c8e5452eda87cd8bca063537bce934a0e451555f25e7f",
+          "previous_sha256": "37bf9e0247e71e8287b21780746cec193039e62f4d84ee8478db8f29bc936da7",
+          "exit_code": 0,
+          "stdout": "IPO与BPO两分支数值梯度吻合；目标非硬界；chosen下降仍可相对改善。\n",
+          "stderr": "",
+          "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+          "reason": "ref归一化和有限输入派生score溢出反例；只实际重跑改变的新增块，旧代码不运行"
+        }
+      ]
+    },
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "block": 7,
+      "date": "2026-10-11",
+      "script": "/tmp/study-ethics-root-runs/05-block7-final.py",
+      "sha256": "e396cbc637f817e1caba1eeacb078b1c4b1dd72b13115b1db60cb814d365346c",
+      "previous_sha256": "1f98f3adf826ae99078e28b0721b72b12aa6df5933eda3a085994dcf1d860a9a",
+      "exit_code": 0,
+      "stdout": "弱tilt错误赞同下降，强tilt因稀有高分反转；mean gap不可推广任意优化强度。\n源reward下错误赞同概率可低于uniform，奖励agreement不等于必然放大。\n",
+      "stderr": "",
+      "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "reason": "ref归一化和有限输入派生score溢出反例；只实际重跑改变的新增块，旧代码不运行"
+    },
+    {
+      "file": "AI 算法基础/深度学习专题/13-负责任AI.md",
+      "block": 2,
+      "date": "2026-10-11",
+      "script": "/tmp/study-ethics-root-runs/13-privacy-final.py",
+      "sha256": "afa3e31692b3a67fd67ea54998c89c507fc7a9e8f71ed273015fab50ff93bfd9",
+      "previous_sha256": "f6978d6c6c2a8674003c6161f17423b376277530eaa8c0a9ad105bee6cc618b8",
+      "exit_code": 0,
+      "stdout": "整体裁剪后的范数 1.0 偏置导数 0.923077\n已证明机制3次保守组合 ε= 3/5 δ= 3/1000000\n未执行DP-SGD训练；未计算采样高斯机制隐私预算\n",
+      "stderr": "",
+      "python": "/Users/wangshuiqing/codex-tools/bin/python3",
+      "reason": "有限分量整体hypot超表示范围不能默默归零；只重跑改变新增块"
+    }
+  ]
+}

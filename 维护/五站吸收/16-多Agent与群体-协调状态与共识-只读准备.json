@@ -1,0 +1,2527 @@
+{
+  "source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "date": "2026-10-10",
+  "phase": 16,
+  "lesson_range": [
+    9,
+    16
+  ],
+  "status": "完整课内只读；正文尚未写入；原程序未执行",
+  "source_program_runs": 0,
+  "study_mutations": 0,
+  "lessons": [
+    {
+      "id": "09-parallel-swarm-networks",
+      "files": [
+        {
+          "path": "phases/16-multi-agent-and-swarms/09-parallel-swarm-networks/assets/swarm-topology.svg",
+          "bytes": 4383,
+          "sha256": "fe7a5ecac32a0548713251fe19c50de409fc76733d0683eeb09a4fc1498b860e",
+          "git_blob": "5fb9c6819ad8518f5390b56ad69edd6028ea86fd",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 68,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/09-parallel-swarm-networks/code/main.py",
+          "bytes": 4544,
+          "sha256": "4bef7907a6a0d58306b2f90a875cbb7b6dc567a509c89a891be3ceef0544df0f",
+          "git_blob": "42b62d6b374a03c7712f38724805a93bfcdfe816",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 135,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/09-parallel-swarm-networks/docs/en.md",
+          "bytes": 8227,
+          "sha256": "2dde437ce309db7e43e69e34bb091b8ca019d5e4c55293e582f7497776dd21c9",
+          "git_blob": "aac9a2084e59f45d829baf583bdbe3e21abcb969",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 133,
+          "headings": [
+            {
+              "line": 10,
+              "level": 2,
+              "title": "Problem"
+            },
+            {
+              "line": 16,
+              "level": 2,
+              "title": "Concept"
+            },
+            {
+              "line": 18,
+              "level": 3,
+              "title": "The shape"
+            },
+            {
+              "line": 36,
+              "level": 3,
+              "title": "When swarm fits"
+            },
+            {
+              "line": 42,
+              "level": 3,
+              "title": "When swarm fails"
+            },
+            {
+              "line": 48,
+              "level": 3,
+              "title": "Matrix (arXiv:2511.21686)"
+            },
+            {
+              "line": 54,
+              "level": 3,
+              "title": "Swarm in graph frameworks"
+            },
+            {
+              "line": 58,
+              "level": 3,
+              "title": "Failure mode: starvation and hot-spotting"
+            },
+            {
+              "line": 67,
+              "level": 3,
+              "title": "The content-based routing link"
+            },
+            {
+              "line": 75,
+              "level": 2,
+              "title": "Build It"
+            },
+            {
+              "line": 93,
+              "level": 2,
+              "title": "Use It"
+            },
+            {
+              "line": 97,
+              "level": 2,
+              "title": "Ship It"
+            },
+            {
+              "line": 107,
+              "level": 2,
+              "title": "Exercises"
+            },
+            {
+              "line": 115,
+              "level": 2,
+              "title": "Key Terms"
+            },
+            {
+              "line": 128,
+              "level": 2,
+              "title": "Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/09-parallel-swarm-networks/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "semantic_read": "空占位已确认",
+          "line_count": 0,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/09-parallel-swarm-networks/outputs/skill-swarm-fit.md",
+          "bytes": 1854,
+          "sha256": "147f236a42db233575c97d890cc8e8ba058225da7cdb1a1f0121cb7bf6a241ff",
+          "git_blob": "ecab9bdee4391db29ea84361ba91ca6413f6c8e9",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 34,
+          "headings": []
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Problem"
+        },
+        {
+          "line": 16,
+          "level": 2,
+          "title": "Concept"
+        },
+        {
+          "line": 18,
+          "level": 3,
+          "title": "The shape"
+        },
+        {
+          "line": 36,
+          "level": 3,
+          "title": "When swarm fits"
+        },
+        {
+          "line": 42,
+          "level": 3,
+          "title": "When swarm fails"
+        },
+        {
+          "line": 48,
+          "level": 3,
+          "title": "Matrix (arXiv:2511.21686)"
+        },
+        {
+          "line": 54,
+          "level": 3,
+          "title": "Swarm in graph frameworks"
+        },
+        {
+          "line": 58,
+          "level": 3,
+          "title": "Failure mode: starvation and hot-spotting"
+        },
+        {
+          "line": 67,
+          "level": 3,
+          "title": "The content-based routing link"
+        },
+        {
+          "line": 75,
+          "level": 2,
+          "title": "Build It"
+        },
+        {
+          "line": 93,
+          "level": 2,
+          "title": "Use It"
+        },
+        {
+          "line": 97,
+          "level": 2,
+          "title": "Ship It"
+        },
+        {
+          "line": 107,
+          "level": 2,
+          "title": "Exercises"
+        },
+        {
+          "line": 115,
+          "level": 2,
+          "title": "Key Terms"
+        },
+        {
+          "line": 128,
+          "level": 2,
+          "title": "Further Reading"
+        }
+      ],
+      "targets": [
+        "Agentic Design Patterns/01-核心章节/03-并行化.md",
+        "Agentic Design Patterns/01-核心章节/07-多智能体协作.md"
+      ],
+      "knowledge": [
+        "共享任务队列是pull调度，与每worker本地队列之间steal不同；依赖任务可借就绪队列/DAG满足顺序，不因并行就必然无计划。",
+        "工作总量W、worker数m、最大任务pmax给下界max(W/m,pmax)，list scheduling不是总保证最优。固定示例慢0.4*4+快0.1*4=2.0、固定瓶颈1.6+0.1=1.7、共享四worker先四慢再四快理想0.5，速度比4.0/3.4是算术而非实测。",
+        "任务率/调度策略/预取/服务时间方差/故障恢复定义收益；10units/s不是通用门槛。FIFO不是最快优先，因此源starvation论证不适用当前queue；priority连续输入可饥饿，aging和容量/背压可以缓解。",
+        "队列持久性不自动包含ack、claim lease、fence、目的端去重或日志；以taskID关联trace，在下游先commit后ack，重试同payload/id。",
+        "Matrix v2 §3每个input有可序列化orchestrator实例，actor传递状态/控制，可接LangGraph并配Grafana/log；无中心进程不等于无编排对象/无trace。"
+      ],
+      "errors": [
+        "所谓fixed最坏分配worker0实际上也拿一个fast；源输出概述漏算0.1。",
+        "queue.Queue无故障lease/恢复，线程异常不传播、counts无result去重、duration/nworkers不验证。",
+        "没有中央log不是swarm必然；监管/audit也不天然禁swarm。",
+        "source09说全都独立、任何ordered拒绝过绝对；应只将无依赖队列用于就绪任务。"
+      ],
+      "answers": [
+        "原脚本未执行。手算总量2.0秒、固定worker0=1.7秒、共享调度理想0.5秒；理想4.0倍/3.4倍。若真实运行需用monotonic/perf_counter、冷热运行、多重复和分位数，线程启动/系统抖动额外计入。",
+        "把priority、等待时间、稳定序号作为排序依据；持续注入高优先级任务构造低优先级长期等待负对照。动态aging需重新算/重排，入队时一次算分不是aging；设置容量与超时退路。",
+        "三倍任务数差可能只是fast任务较多，不能直接判故障/热点；同时看服务总时间、字节/Token、队列年龄、失败/重试率及按任务类别分组。小样本分母0要定义。",
+        "Matrix v2 §3收益是去中心执行调度与服务独立扩展；代价是队列/序列化/网络与分布式资源管理。论文有orchestrator状态、Grafana与日志，不应说必放弃trace或定序。报告2–15倍仅其固定硬件/任务实验，非通用。",
+        "每类一个就绪队列或broker routing key；类型schema白名单与授权先验，worker仅订阅获准类别；依赖完成后入队、跨类trace/taskID，未支持类别入dead-letter，不由worker盲取再塞回无限循环。"
+      ],
+      "exercises": [
+        {
+          "id": "09.E1",
+          "original_line": 109,
+          "original": "1. Run `code/main.py`. How much faster is swarm than sequential on the variable-duration workload? How much faster than fixed assignment?",
+          "chinese_answer": "原脚本未执行。手算总量2.0秒、固定worker0=1.7秒、共享调度理想0.5秒；理想4.0倍/3.4倍。若真实运行需用monotonic/perf_counter、冷热运行、多重复和分位数，线程启动/系统抖动额外计入。"
+        },
+        {
+          "id": "09.E2",
+          "original_line": 110,
+          "original": "2. Add a priority queue variant (use `queue.PriorityQueue`). Assign priority by task \"importance\" field. Observe whether low-priority tasks ever starve under continuous load.",
+          "chinese_answer": "把priority、等待时间、稳定序号作为排序依据；持续注入高优先级任务构造低优先级长期等待负对照。动态aging需重新算/重排，入队时一次算分不是aging；设置容量与超时退路。"
+        },
+        {
+          "id": "09.E3",
+          "original_line": 111,
+          "original": "3. Implement a hot-spot detector: log when any worker processes 3× more tasks than the slowest worker. What does that indicate about task-duration distribution?",
+          "chinese_answer": "三倍任务数差可能只是fast任务较多，不能直接判故障/热点；同时看服务总时间、字节/Token、队列年龄、失败/重试率及按任务类别分组。小样本分母0要定义。"
+        },
+        {
+          "id": "09.E4",
+          "original_line": 112,
+          "original": "4. Read the Matrix paper (arXiv:2511.21686) abstract and Section 3. Identify one specific tradeoff Matrix accepts (scalability gain) and one it gives up (traceability, determinism).",
+          "chinese_answer": "Matrix v2 §3收益是去中心执行调度与服务独立扩展；代价是队列/序列化/网络与分布式资源管理。论文有orchestrator状态、Grafana与日志，不应说必放弃trace或定序。报告2–15倍仅其固定硬件/任务实验，非通用。"
+        },
+        {
+          "id": "09.E5",
+          "original_line": 113,
+          "original": "5. Convert the swarm demo to use a `queue.Queue` of (task_type, payload) tuples, with workers subscribing only to specific types. What routing rules make sense when tasks are heterogeneous?",
+          "chinese_answer": "每类一个就绪队列或broker routing key；类型schema白名单与授权先验，worker仅订阅获准类别；依赖完成后入队、跨类trace/taskID，未支持类别入dead-letter，不由worker盲取再塞回无限循环。"
+        }
+      ],
+      "quiz": {
+        "count": 0,
+        "reason": "本8课均无quiz.json；不编造原quiz"
+      },
+      "coverage_strategy": "逐原标题映射已有主章增量，最终落点由根代理定稿后回填；每项知识/练习及图示有内容，非只目录"
+    },
+    {
+      "id": "10-group-chat-speaker-selection",
+      "files": [
+        {
+          "path": "phases/16-multi-agent-and-swarms/10-group-chat-speaker-selection/assets/groupchat.svg",
+          "bytes": 4907,
+          "sha256": "36d699e85dd91aad228949a573116b2fa09e5a59b8370635bfe0fddedc09543b",
+          "git_blob": "21425c5e7514cd773a5e6f534517f7a60ffe61e0",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 73,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/10-group-chat-speaker-selection/code/main.py",
+          "bytes": 4100,
+          "sha256": "42d376baf077dcab0c296ed63efff3117baec103ad9ff2799ebb88c46280104e",
+          "git_blob": "810b8291a71f69c70d5e92447797500d9f1c85fa",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 134,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/10-group-chat-speaker-selection/docs/en.md",
+          "bytes": 8437,
+          "sha256": "cb20c86f615eac8c5d965b4469eb737401e21b92e94ad8360fdac07d144a0c03",
+          "git_blob": "0e4377897c22a5d21adce07cd9d1efc49ff36b87",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 149,
+          "headings": [
+            {
+              "line": 10,
+              "level": 2,
+              "title": "Problem"
+            },
+            {
+              "line": 16,
+              "level": 2,
+              "title": "Concept"
+            },
+            {
+              "line": 18,
+              "level": 3,
+              "title": "The shape"
+            },
+            {
+              "line": 35,
+              "level": 3,
+              "title": "The three selector flavors"
+            },
+            {
+              "line": 43,
+              "level": 3,
+              "title": "The ConversableAgent API"
+            },
+            {
+              "line": 57,
+              "level": 3,
+              "title": "Termination"
+            },
+            {
+              "line": 65,
+              "level": 3,
+              "title": "Lineage: forks and mergers"
+            },
+            {
+              "line": 71,
+              "level": 3,
+              "title": "When GroupChat fits"
+            },
+            {
+              "line": 77,
+              "level": 3,
+              "title": "When it fails"
+            },
+            {
+              "line": 84,
+              "level": 3,
+              "title": "Group chat vs supervisor"
+            },
+            {
+              "line": 97,
+              "level": 2,
+              "title": "Build It"
+            },
+            {
+              "line": 109,
+              "level": 2,
+              "title": "Use It"
+            },
+            {
+              "line": 113,
+              "level": 2,
+              "title": "Ship It"
+            },
+            {
+              "line": 123,
+              "level": 2,
+              "title": "Exercises"
+            },
+            {
+              "line": 131,
+              "level": 2,
+              "title": "Key Terms"
+            },
+            {
+              "line": 144,
+              "level": 2,
+              "title": "Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/10-group-chat-speaker-selection/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "semantic_read": "空占位已确认",
+          "line_count": 0,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/10-group-chat-speaker-selection/outputs/skill-groupchat-selector.md",
+          "bytes": 1845,
+          "sha256": "c9a40ff93109cce3166127ed4b2ae21d69a63c1bdd69a00544e93de66c2bab6c",
+          "git_blob": "85f9315a23efa2121efabf7a5e583db50d28de3c",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 33,
+          "headings": []
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Problem"
+        },
+        {
+          "line": 16,
+          "level": 2,
+          "title": "Concept"
+        },
+        {
+          "line": 18,
+          "level": 3,
+          "title": "The shape"
+        },
+        {
+          "line": 35,
+          "level": 3,
+          "title": "The three selector flavors"
+        },
+        {
+          "line": 43,
+          "level": 3,
+          "title": "The ConversableAgent API"
+        },
+        {
+          "line": 57,
+          "level": 3,
+          "title": "Termination"
+        },
+        {
+          "line": 65,
+          "level": 3,
+          "title": "Lineage: forks and mergers"
+        },
+        {
+          "line": 71,
+          "level": 3,
+          "title": "When GroupChat fits"
+        },
+        {
+          "line": 77,
+          "level": 3,
+          "title": "When it fails"
+        },
+        {
+          "line": 84,
+          "level": 3,
+          "title": "Group chat vs supervisor"
+        },
+        {
+          "line": 97,
+          "level": 2,
+          "title": "Build It"
+        },
+        {
+          "line": 109,
+          "level": 2,
+          "title": "Use It"
+        },
+        {
+          "line": 113,
+          "level": 2,
+          "title": "Ship It"
+        },
+        {
+          "line": 123,
+          "level": 2,
+          "title": "Exercises"
+        },
+        {
+          "line": 131,
+          "level": 2,
+          "title": "Key Terms"
+        },
+        {
+          "line": 144,
+          "level": 2,
+          "title": "Further Reading"
+        }
+      ],
+      "targets": [
+        "Agentic Design Patterns/01-核心章节/07-多智能体协作.md",
+        "Agentic Design Patterns/01-核心章节/02-路由.md"
+      ],
+      "knowledge": [
+        "共享message pool、选择器、参与者响应、终止是四个不同职责；RR确定而可能无效turn，LLM selector增加每轮一次调用，自定义选择需allowlist和状态约束。",
+        "角色可读取投影而非必读全部；截断/摘要保留出处和未决项，读取与工具权限分别控制。",
+        "只需下一成员回应时群聊可以顺序执行，底层event bus不证明本群聊并发。",
+        "停止是结构化verified状态加轮数/预算；任意消息末尾TERMINATE或approved子串不能授予执行。"
+      ],
+      "errors": [
+        "llm_style_selector是关键词规则无LLM；源RR同轮3角色与8上限不保证等回合，终止前为coder2/reviewer2/manager2。",
+        "manager找approved子串会误认not approved和陈旧批准；coder自己输出TERMINATE可绕过review。",
+        "stable Core教程的GroupChatManager是用户定义RoutedAgent而非v0.2 ConversableAgent API的同一个默认对象。",
+        "5–6成员、10条消息、10–20轮是经验初值不可当禁用门禁；静态graph也不保证生成确定或真实audit。"
+      ],
+      "answers": [
+        "源RR静态路径coder/reviewer/manager/coder/reviewer/manager，共6；context-style manager/coder/reviewer/coder/reviewer/manager共6，均每角色2次而非有成员主导；代码无真实LLM费用。真实比较记录selector成本、无效turn、验证通过率。",
+        "选择前从允许next角色中排除达到配额者；无候选时明确budget_exhausted而不是跳过必需验证直接成功。计数应覆盖每次调用、失败重试，不用公平性覆盖角色依赖。",
+        "绑定当前candidate ID/hash且状态为reviewer_verified的结构化批准可提前停止；源例第5响应reviewer approved，若授权规则成立可在manager第6响应前结束。把not approved、旧candidate批准、非reviewer同词设负对照。",
+        "2026-10-10 Core教程示例用LLM选择并排除上次成员，非全产品唯一default；同教程用户批准检测和APPORVED文字/代码差异只能作为示例，不当正式批准协议。",
+        "event-driven Core用typed messages/topics/subscriptions和runtime调度，可组合组件与取消；具体throughput、进程容错、持久性都要部署测试，不能由actor重写一概保证。v0.2/AG2对象名和Core教程分别固定版本。"
+      ],
+      "exercises": [
+        {
+          "id": "10.E1",
+          "original_line": 125,
+          "original": "1. Run `code/main.py`. Compare the conversation under round-robin vs LLM-selected. Which agent dominates under each?",
+          "chinese_answer": "源RR静态路径coder/reviewer/manager/coder/reviewer/manager，共6；context-style manager/coder/reviewer/coder/reviewer/manager共6，均每角色2次而非有成员主导；代码无真实LLM费用。真实比较记录selector成本、无效turn、验证通过率。"
+        },
+        {
+          "id": "10.E2",
+          "original_line": 126,
+          "original": "2. Add a \"max-speaks-per-agent\" rule in the selector. How does it affect the transcript?",
+          "chinese_answer": "选择前从允许next角色中排除达到配额者；无候选时明确budget_exhausted而不是跳过必需验证直接成功。计数应覆盖每次调用、失败重试，不用公平性覆盖角色依赖。"
+        },
+        {
+          "id": "10.E3",
+          "original_line": 127,
+          "original": "3. Implement a goal-reached termination: stop when the reviewer returns \"approved.\" How often does it trigger before the round cap?",
+          "chinese_answer": "绑定当前candidate ID/hash且状态为reviewer_verified的结构化批准可提前停止；源例第5响应reviewer approved，若授权规则成立可在manager第6响应前结束。把not approved、旧candidate批准、非reviewer同词设负对照。"
+        },
+        {
+          "id": "10.E4",
+          "original_line": 128,
+          "original": "4. Read the AutoGen stable docs on GroupChat (https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/group-chat.html). Identify the default selector used by `GroupChatManager`.",
+          "chinese_answer": "2026-10-10 Core教程示例用LLM选择并排除上次成员，非全产品唯一default；同教程用户批准检测和APPORVED文字/代码差异只能作为示例，不当正式批准协议。"
+        },
+        {
+          "id": "10.E5",
+          "original_line": 129,
+          "original": "5. Read the AG2 repo (https://github.com/ag2ai/ag2) and compare its v0.2 GroupChat to the v0.4 event-driven version. What concrete property (throughput, fault-tolerance, composability) does v0.4 add?",
+          "chinese_answer": "event-driven Core用typed messages/topics/subscriptions和runtime调度，可组合组件与取消；具体throughput、进程容错、持久性都要部署测试，不能由actor重写一概保证。v0.2/AG2对象名和Core教程分别固定版本。"
+        }
+      ],
+      "quiz": {
+        "count": 0,
+        "reason": "本8课均无quiz.json；不编造原quiz"
+      },
+      "coverage_strategy": "逐原标题映射已有主章增量，最终落点由根代理定稿后回填；每项知识/练习及图示有内容，非只目录"
+    },
+    {
+      "id": "11-handoffs-and-routines",
+      "files": [
+        {
+          "path": "phases/16-multi-agent-and-swarms/11-handoffs-and-routines/assets/handoff.svg",
+          "bytes": 4351,
+          "sha256": "98aa2dee89fa018518069b266b5d2cc0e3d2bf53586525d586a159885ac2c0f2",
+          "git_blob": "68ab5ff5f673872f04e25afd295e1669172c2a86",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 66,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/11-handoffs-and-routines/code/main.py",
+          "bytes": 4939,
+          "sha256": "bd9341ca885b77cdb6a614ff39b0c1fa55f5087b7f640e9aa865000c6cf852bd",
+          "git_blob": "a5512cc312d181081db3d2fade03267a54c63868",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 156,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/11-handoffs-and-routines/docs/en.md",
+          "bytes": 7988,
+          "sha256": "87bf3b0e0988f7b46dfb666e546210d339b7cd640e840cb49152a19e1521674b",
+          "git_blob": "16e8ab21e217b325bc84c51d01890e4a615eda87",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 139,
+          "headings": [
+            {
+              "line": 10,
+              "level": 2,
+              "title": "Problem"
+            },
+            {
+              "line": 16,
+              "level": 2,
+              "title": "Concept"
+            },
+            {
+              "line": 18,
+              "level": 3,
+              "title": "Two primitives"
+            },
+            {
+              "line": 39,
+              "level": 3,
+              "title": "Why it is viral"
+            },
+            {
+              "line": 45,
+              "level": 3,
+              "title": "The stateless trade"
+            },
+            {
+              "line": 51,
+              "level": 3,
+              "title": "When Swarm/handoffs fit"
+            },
+            {
+              "line": 57,
+              "level": 3,
+              "title": "When Swarm struggles"
+            },
+            {
+              "line": 63,
+              "level": 3,
+              "title": "OpenAI Agents SDK (March 2025)"
+            },
+            {
+              "line": 74,
+              "level": 3,
+              "title": "Swarm vs GroupChat"
+            },
+            {
+              "line": 87,
+              "level": 2,
+              "title": "Build It"
+            },
+            {
+              "line": 99,
+              "level": 2,
+              "title": "Use It"
+            },
+            {
+              "line": 103,
+              "level": 2,
+              "title": "Ship It"
+            },
+            {
+              "line": 113,
+              "level": 2,
+              "title": "Exercises"
+            },
+            {
+              "line": 121,
+              "level": 2,
+              "title": "Key Terms"
+            },
+            {
+              "line": 134,
+              "level": 2,
+              "title": "Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/11-handoffs-and-routines/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "semantic_read": "空占位已确认",
+          "line_count": 0,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/11-handoffs-and-routines/outputs/skill-handoff-designer.md",
+          "bytes": 2044,
+          "sha256": "7ee3b237199497fdc0c3aa806b87029757d862dcac2955fdeaee5fa6bedee3d6",
+          "git_blob": "5993f2e9098e5e180d67da99854e86a92a37e128",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 34,
+          "headings": []
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Problem"
+        },
+        {
+          "line": 16,
+          "level": 2,
+          "title": "Concept"
+        },
+        {
+          "line": 18,
+          "level": 3,
+          "title": "Two primitives"
+        },
+        {
+          "line": 39,
+          "level": 3,
+          "title": "Why it is viral"
+        },
+        {
+          "line": 45,
+          "level": 3,
+          "title": "The stateless trade"
+        },
+        {
+          "line": 51,
+          "level": 3,
+          "title": "When Swarm/handoffs fit"
+        },
+        {
+          "line": 57,
+          "level": 3,
+          "title": "When Swarm struggles"
+        },
+        {
+          "line": 63,
+          "level": 3,
+          "title": "OpenAI Agents SDK (March 2025)"
+        },
+        {
+          "line": 74,
+          "level": 3,
+          "title": "Swarm vs GroupChat"
+        },
+        {
+          "line": 87,
+          "level": 2,
+          "title": "Build It"
+        },
+        {
+          "line": 99,
+          "level": 2,
+          "title": "Use It"
+        },
+        {
+          "line": 103,
+          "level": 2,
+          "title": "Ship It"
+        },
+        {
+          "line": 113,
+          "level": 2,
+          "title": "Exercises"
+        },
+        {
+          "line": 121,
+          "level": 2,
+          "title": "Key Terms"
+        },
+        {
+          "line": 134,
+          "level": 2,
+          "title": "Further Reading"
+        }
+      ],
+      "targets": [
+        "Agentic Design Patterns/01-核心章节/02-路由.md",
+        "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md"
+      ],
+      "knowledge": [
+        "handoff改变当前会话责任角色，agent-as-tool委派通常把结果返回原owner；共享queue swarms又是不同调度概念。",
+        "routine是指令与可用tools；handoff历史示意Agent返回值与当前SDK专门handoff实现分开，graph状态转移依然存在。",
+        "数据转移最小投影、source/tag/owner/未决项和权限边界；incoming context不是授权。SDK已有input_filter只变数据，input_type是handoff模型参数。",
+        "handoff前核权、bounded hops、循环检测、失败/未知role明示；敏感效果仍具体approve后宿主commit，不以specialist名称授权。"
+      ],
+      "errors": [
+        "源码scripted router关键词代替模型，每scenario一次输入内切换即响应；没实现跨调用persistent session/轮询/parallel。",
+        "refund缺订单默认为42、不核owner/balance、文字Refund processed非实际receipt；sales固定99不是价格知识。",
+        "有session/tracing不保证每调用都会持久成功、敏感数据默认处理需另核；不得把input/outputguard当自动每handoffguard。",
+        "静态graph也不能保证生成确定或exact replay；current角色在多条输入后不回triage会把buy当refund。"
+      ],
+      "answers": [
+        "一条refund输入在run loop内先triage→refund，再用同输入产生假退款文本；不是第二次用户消息。核对trace的from/to/active、订单parsed source，缺订单应request_input而非42。",
+        "记录边与hop；A→B→A循环或达到max_hops返回blocked/escalated，携当前owner和未决问题。缺目标或权限拒绝不得默默落到有写权限fallback。",
+        "摘要形成数据候选，字段goal/evidence_refs/uncertainty/open_items，最小授权投影转交。摘要校验引用/数字/否定并保留原始哈希链接；input_filter不代替on_handoff核权，源码filter无法作为自动权限门。",
+        "不能泛称handoff比群聊更危险：比较谁读外来数据、selector可选名单、目标tool权限、授权是否由宿主核查。两者均会被注入误路由，最小数据、权限不提升、独立验证和受限效果边界决定风险。",
+        "历史Swarm stateless/caller传history，当前Agents SDK有session/tracing/guardrails并保留handoff概念；用既有Phase14已核的缓存说明具体scope，不重复安装或真实请求。"
+      ],
+      "exercises": [
+        {
+          "id": "11.E1",
+          "original_line": 115,
+          "original": "1. Run `code/main.py`, triage to the refund agent. Confirm the second turn's active agent is refund.",
+          "chinese_answer": "一条refund输入在run loop内先triage→refund，再用同输入产生假退款文本；不是第二次用户消息。核对trace的from/to/active、订单parsed source，缺订单应request_input而非42。"
+        },
+        {
+          "id": "11.E2",
+          "original_line": 116,
+          "original": "2. Add a loop-detection rule: if the same two agents have handed off 3 times in a row, force an exit. Design the fallback.",
+          "chinese_answer": "记录边与hop；A→B→A循环或达到max_hops返回blocked/escalated，携当前owner和未决问题。缺目标或权限拒绝不得默默落到有写权限fallback。"
+        },
+        {
+          "id": "11.E3",
+          "original_line": 117,
+          "original": "3. Read the OpenAI Agents SDK docs on handoff filters. Implement a \"summarize-on-handoff\" version: the outgoing agent compresses context to a bullet summary before the incoming agent takes over.",
+          "chinese_answer": "摘要形成数据候选，字段goal/evidence_refs/uncertainty/open_items，最小授权投影转交。摘要校验引用/数字/否定并保留原始哈希链接；input_filter不代替on_handoff核权，源码filter无法作为自动权限门。"
+        },
+        {
+          "id": "11.E4",
+          "original_line": 118,
+          "original": "4. Compare the Swarm handoff to a GroupChatManager selector. Which pattern makes prompt injection worse, and why?",
+          "chinese_answer": "不能泛称handoff比群聊更危险：比较谁读外来数据、selector可选名单、目标tool权限、授权是否由宿主核查。两者均会被注入误路由，最小数据、权限不提升、独立验证和受限效果边界决定风险。"
+        },
+        {
+          "id": "11.E5",
+          "original_line": 119,
+          "original": "5. Read the Swarm cookbook (https://developers.openai.com/cookbook/examples/orchestrating_agents). Identify one explicit design decision Swarm makes that OpenAI Agents SDK changed or kept.",
+          "chinese_answer": "历史Swarm stateless/caller传history，当前Agents SDK有session/tracing/guardrails并保留handoff概念；用既有Phase14已核的缓存说明具体scope，不重复安装或真实请求。"
+        }
+      ],
+      "quiz": {
+        "count": 0,
+        "reason": "本8课均无quiz.json；不编造原quiz"
+      },
+      "coverage_strategy": "逐原标题映射已有主章增量，最终落点由根代理定稿后回填；每项知识/练习及图示有内容，非只目录"
+    },
+    {
+      "id": "12-a2a-protocol",
+      "files": [
+        {
+          "path": "phases/16-multi-agent-and-swarms/12-a2a-protocol/assets/a2a-flow.svg",
+          "bytes": 3544,
+          "sha256": "dd24ae0f9279671fa3075273607a812bb04a719dbbaa02945dd8ab4024c48741",
+          "git_blob": "fca4e0409ace19575db3118edee9df0ea599cfdb",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 55,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/12-a2a-protocol/code/main.py",
+          "bytes": 5650,
+          "sha256": "f72d999fd305c8d33d5cc9da8236e9eac5e4b3f408ab168407c840ae02892072",
+          "git_blob": "7ebe8250b0d8c5160c1b6d73b439548bcc90a91f",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 168,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/12-a2a-protocol/docs/en.md",
+          "bytes": 8382,
+          "sha256": "88e30cad22423a230c73859d2151de5eaddc78936b5a11c840ddf753d2fa284c",
+          "git_blob": "71856a6306d09768047264187f7513c31cd36aff",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 169,
+          "headings": [
+            {
+              "line": 10,
+              "level": 2,
+              "title": "Problem"
+            },
+            {
+              "line": 16,
+              "level": 2,
+              "title": "Concept"
+            },
+            {
+              "line": 18,
+              "level": 3,
+              "title": "The four elements"
+            },
+            {
+              "line": 41,
+              "level": 3,
+              "title": "The MCP/A2A split"
+            },
+            {
+              "line": 48,
+              "level": 3,
+              "title": "Discovery flow"
+            },
+            {
+              "line": 64,
+              "level": 3,
+              "title": "Auth"
+            },
+            {
+              "line": 74,
+              "level": 3,
+              "title": "150+ organizations by April 2026"
+            },
+            {
+              "line": 78,
+              "level": 3,
+              "title": "Where A2A wins"
+            },
+            {
+              "line": 85,
+              "level": 3,
+              "title": "Where A2A struggles"
+            },
+            {
+              "line": 91,
+              "level": 3,
+              "title": "A2A vs ACP, ANP, NLIP"
+            },
+            {
+              "line": 105,
+              "level": 2,
+              "title": "Build It"
+            },
+            {
+              "line": 129,
+              "level": 2,
+              "title": "Use It"
+            },
+            {
+              "line": 133,
+              "level": 2,
+              "title": "Ship It"
+            },
+            {
+              "line": 143,
+              "level": 2,
+              "title": "Exercises"
+            },
+            {
+              "line": 151,
+              "level": 2,
+              "title": "Key Terms"
+            },
+            {
+              "line": 164,
+              "level": 2,
+              "title": "Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/12-a2a-protocol/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "semantic_read": "空占位已确认",
+          "line_count": 0,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/12-a2a-protocol/outputs/skill-a2a-integrator.md",
+          "bytes": 2064,
+          "sha256": "90819035d8b4304d8e0e6a633ac2de48ba2ffb8a2c567de38375838d508e4c9a",
+          "git_blob": "2c31209c7d92c82b7426a65ab250024eea154e68",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 35,
+          "headings": []
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Problem"
+        },
+        {
+          "line": 16,
+          "level": 2,
+          "title": "Concept"
+        },
+        {
+          "line": 18,
+          "level": 3,
+          "title": "The four elements"
+        },
+        {
+          "line": 41,
+          "level": 3,
+          "title": "The MCP/A2A split"
+        },
+        {
+          "line": 48,
+          "level": 3,
+          "title": "Discovery flow"
+        },
+        {
+          "line": 64,
+          "level": 3,
+          "title": "Auth"
+        },
+        {
+          "line": 74,
+          "level": 3,
+          "title": "150+ organizations by April 2026"
+        },
+        {
+          "line": 78,
+          "level": 3,
+          "title": "Where A2A wins"
+        },
+        {
+          "line": 85,
+          "level": 3,
+          "title": "Where A2A struggles"
+        },
+        {
+          "line": 91,
+          "level": 3,
+          "title": "A2A vs ACP, ANP, NLIP"
+        },
+        {
+          "line": 105,
+          "level": 2,
+          "title": "Build It"
+        },
+        {
+          "line": 129,
+          "level": 2,
+          "title": "Use It"
+        },
+        {
+          "line": 133,
+          "level": 2,
+          "title": "Ship It"
+        },
+        {
+          "line": 143,
+          "level": 2,
+          "title": "Exercises"
+        },
+        {
+          "line": 151,
+          "level": 2,
+          "title": "Key Terms"
+        },
+        {
+          "line": 164,
+          "level": 2,
+          "title": "Further Reading"
+        }
+      ],
+      "targets": [
+        "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md"
+      ],
+      "knowledge": [
+        "复用已有A2A v1.0.0正文、proto、任务归属/取消与同messageID重放例；A2A可返回message或task，不是全都异步。",
+        "Agent Card discovery支持目录/显式配置，wellknown agent-card.json；技能描述不是通用顶层skill参数；supportedInterfaces固定binding/version。",
+        "Message/Part/Task/status/Artifact分别约束；跨trust远端权限、输入URL/文件出站与artifact业务校验均不由协议自动保证。",
+        "JSON-RPC SendMessage/GetTask/CancelTask、HTTP+JSON映射与MCP tools/list不能混称；MCP server可有会话/Tasks，并非本质无状态。"
+      ],
+      "errors": [
+        "source /agent.json + POST/tasks + 简写skills/endpoints/auth是自制REST示意，不能称a2a-0.3或A2A-minimal兼容；label错误须说明。",
+        "没有card签名验证/认证/owner/租户/idempotency、Task/Artifact结构不合、8charuuid碰撞风险、ContentLength/schema不校验、get泄漏全payload且浅dict引用。",
+        "HMAC signed request非所有版A2A固定认证列表；150+和mostadopted不是学习必要或最新排序。",
+        "source11并发handoff vs A2A opaquepeer与MCPtool是语义而非部署上下层唯一分类。"
+      ],
+      "answers": [
+        "原服务不运行；读流发现→提交→轮询→结果只证明自定义教学协议，使用现有离线v1.0.0 fixture检查Message/Task形状、输入补充、owner边界、完成/取消竞争及持久重放。",
+        "增加抽取/摘要业务能力时同时更新skills描述和媒体类型、schema与服务路由；不把skills字符串列表或顶层skill参数当v1调用方法。输出仍附证据，skill发现不授予权限。",
+        "固定版SendStreamingMessage/SubscribeToTask返回协议流事件，处理TaskStatusUpdate/ArtifactUpdate、final与message响应、丢线后的GetTask再恢复；示例/tasks/id/events是自制路由非泛A2A规范。",
+        "至少核well-known agent-card.json与supportedInterfaces/protocolVersion、SendMessage及ProtoJSON角色/Parts、status.state和artifactId/parts；还核必要headers/errors与任务归属、context匹配、终态不能追加。源不是只少三个feature而是整体wire不合。",
+        "Card发现先描述不透明服务能力/安全需求，MCP经initialize能力协商后tools/list枚举可调用tools；同服务两者可组合。Card是声明非执行授权，MCP不是listTools wire名，列表pagination/版本固定。"
+      ],
+      "exercises": [
+        {
+          "id": "12.E1",
+          "original_line": 145,
+          "original": "1. Run `code/main.py`. Confirm the client discovers the server and receives the correct artifact.",
+          "chinese_answer": "原服务不运行；读流发现→提交→轮询→结果只证明自定义教学协议，使用现有离线v1.0.0 fixture检查Message/Task形状、输入补充、owner边界、完成/取消竞争及持久重放。"
+        },
+        {
+          "id": "12.E2",
+          "original_line": 146,
+          "original": "2. Add a second skill to the server (e.g., \"summarize\"). Update the Agent Card. Write a client that picks the skill based on task type.",
+          "chinese_answer": "增加抽取/摘要业务能力时同时更新skills描述和媒体类型、schema与服务路由；不把skills字符串列表或顶层skill参数当v1调用方法。输出仍附证据，skill发现不授予权限。"
+        },
+        {
+          "id": "12.E3",
+          "original_line": 147,
+          "original": "3. Implement an SSE streaming endpoint: `/tasks/{id}/events` that emits state changes. What does the client need to do differently?",
+          "chinese_answer": "固定版SendStreamingMessage/SubscribeToTask返回协议流事件，处理TaskStatusUpdate/ArtifactUpdate、final与message响应、丢线后的GetTask再恢复；示例/tasks/id/events是自制路由非泛A2A规范。"
+        },
+        {
+          "id": "12.E4",
+          "original_line": 148,
+          "original": "4. Read the A2A spec (https://a2a-protocol.org/latest/specification/). Identify three things the spec mandates that this demo does not implement.",
+          "chinese_answer": "至少核well-known agent-card.json与supportedInterfaces/protocolVersion、SendMessage及ProtoJSON角色/Parts、status.state和artifactId/parts；还核必要headers/errors与任务归属、context匹配、终态不能追加。源不是只少三个feature而是整体wire不合。"
+        },
+        {
+          "id": "12.E5",
+          "original_line": 149,
+          "original": "5. Compare A2A (Agent Card discovery) to MCP (server-side capability listing via `listTools`). What is the tradeoff between self-describing agents and capability-probing?",
+          "chinese_answer": "Card发现先描述不透明服务能力/安全需求，MCP经initialize能力协商后tools/list枚举可调用tools；同服务两者可组合。Card是声明非执行授权，MCP不是listTools wire名，列表pagination/版本固定。"
+        }
+      ],
+      "quiz": {
+        "count": 0,
+        "reason": "本8课均无quiz.json；不编造原quiz"
+      },
+      "coverage_strategy": "逐原标题映射已有主章增量，最终落点由根代理定稿后回填；每项知识/练习及图示有内容，非只目录"
+    },
+    {
+      "id": "13-shared-memory-blackboard",
+      "files": [
+        {
+          "path": "phases/16-multi-agent-and-swarms/13-shared-memory-blackboard/assets/shared-memory.svg",
+          "bytes": 6309,
+          "sha256": "d895cfa0383aa51449b2e9135e75faef1145d3aa479c694fb0ef8e39d10a6a24",
+          "git_blob": "e3bfb45b7a0d55aa3e59ea025db29ee20a64f609",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 105,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/13-shared-memory-blackboard/code/main.py",
+          "bytes": 7895,
+          "sha256": "31c5ce942a878fdbdc068659a424fbd9dbb21ba4abf9c477e672b5638dda259e",
+          "git_blob": "eac8921458ca9efa3fa2cb19fb836981783b6501",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 226,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/13-shared-memory-blackboard/docs/en.md",
+          "bytes": 12276,
+          "sha256": "7e7a61e06f94de6a99a218705ffcb297058136ace1c363d03e0dce8896a9b8e8",
+          "git_blob": "3f14a5a87c3b4e82447a7c80422fae8dd6b45e9c",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 169,
+          "headings": [
+            {
+              "line": 10,
+              "level": 2,
+              "title": "Problem"
+            },
+            {
+              "line": 18,
+              "level": 2,
+              "title": "Concept"
+            },
+            {
+              "line": 20,
+              "level": 3,
+              "title": "The two main topologies"
+            },
+            {
+              "line": 44,
+              "level": 3,
+              "title": "When each wins"
+            },
+            {
+              "line": 51,
+              "level": 3,
+              "title": "Memory poisoning, in one scenario"
+            },
+            {
+              "line": 63,
+              "level": 3,
+              "title": "Why this is structural"
+            },
+            {
+              "line": 73,
+              "level": 3,
+              "title": "Blackboard precedent (Hayes-Roth, 1985)"
+            },
+            {
+              "line": 77,
+              "level": 3,
+              "title": "Projection vs full view"
+            },
+            {
+              "line": 83,
+              "level": 3,
+              "title": "Write-contention patterns"
+            },
+            {
+              "line": 93,
+              "level": 3,
+              "title": "The unwritable verifier"
+            },
+            {
+              "line": 108,
+              "level": 2,
+              "title": "Build It"
+            },
+            {
+              "line": 128,
+              "level": 2,
+              "title": "Use It"
+            },
+            {
+              "line": 132,
+              "level": 2,
+              "title": "Ship It"
+            },
+            {
+              "line": 142,
+              "level": 2,
+              "title": "Exercises"
+            },
+            {
+              "line": 150,
+              "level": 2,
+              "title": "Key Terms"
+            },
+            {
+              "line": 163,
+              "level": 2,
+              "title": "Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/13-shared-memory-blackboard/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "semantic_read": "空占位已确认",
+          "line_count": 0,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/13-shared-memory-blackboard/outputs/skill-memory-auditor.md",
+          "bytes": 3052,
+          "sha256": "e0ebf4705b65aec5639ca5659d4503666b6a166ae7d46bbc8d163175cabdc5fc",
+          "git_blob": "198996bf7ad597f81a08a58b1179980008d317f0",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 33,
+          "headings": []
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Problem"
+        },
+        {
+          "line": 18,
+          "level": 2,
+          "title": "Concept"
+        },
+        {
+          "line": 20,
+          "level": 3,
+          "title": "The two main topologies"
+        },
+        {
+          "line": 44,
+          "level": 3,
+          "title": "When each wins"
+        },
+        {
+          "line": 51,
+          "level": 3,
+          "title": "Memory poisoning, in one scenario"
+        },
+        {
+          "line": 63,
+          "level": 3,
+          "title": "Why this is structural"
+        },
+        {
+          "line": 73,
+          "level": 3,
+          "title": "Blackboard precedent (Hayes-Roth, 1985)"
+        },
+        {
+          "line": 77,
+          "level": 3,
+          "title": "Projection vs full view"
+        },
+        {
+          "line": 83,
+          "level": 3,
+          "title": "Write-contention patterns"
+        },
+        {
+          "line": 93,
+          "level": 3,
+          "title": "The unwritable verifier"
+        },
+        {
+          "line": 108,
+          "level": 2,
+          "title": "Build It"
+        },
+        {
+          "line": 128,
+          "level": 2,
+          "title": "Use It"
+        },
+        {
+          "line": 132,
+          "level": 2,
+          "title": "Ship It"
+        },
+        {
+          "line": 142,
+          "level": 2,
+          "title": "Exercises"
+        },
+        {
+          "line": 150,
+          "level": 2,
+          "title": "Key Terms"
+        },
+        {
+          "line": 163,
+          "level": 2,
+          "title": "Further Reading"
+        }
+      ],
+      "targets": [
+        "Agentic Design Patterns/01-核心章节/08-记忆管理.md",
+        "Agentic Design Patterns/01-核心章节/18-安全模式.md"
+      ],
+      "knowledge": [
+        "事实链需source URI+获取字节哈希/定位+writer身份+prompt/tooltrace+parents+revision，而不是只有字符串引用；claim/verified/retracted分层。",
+        "append-only更正用supersedes与依赖parent；读者查询current且verified，不把历史已撤销版回取。",
+        "topic subscription节省context不是读授权；读前按actor/scope过滤，深复制或不可变snapshot；写入CAS/version和owner，回调失败隔离。",
+        "readonly verifier降低写风险但仍可能受读取污染；独立来源/验证channel、可信publisher把验证决策落状态，保证analyst/commit查询有效验证。",
+        "LangGraph reducer是key current/update合并；角色projection/schema不等同访问控制，PrivateState不是sandbox。CA-MCP v2 SCS中央黑板+planner/reactors属hybrid扩展非core MCP保证。"
+      ],
+      "errors": [
+        "源verifierflag之后analyst仍Recommend adoption，原预期retraction不实现；verifier只能检查带URI且完全字符串不相等，漏派生/参数化数据。",
+        "pool entries公有，read_all/read_topic返回同Entry对象浅副本，flags可变且原地flag与append-only承诺矛盾；未检查supersedes存在/作者权限。",
+        "topic callback异常中断后续而publish已committed；无订阅补读、取消、持久。",
+        ".split(\".\")[0]会把真实4.2%截为4，十进制丢失；记忆污染不因少于3agent就低危，tests并非一概不能捕捉。",
+        "MAST没有正式“memory poisoning第二多家族”保证；只读无法免疫污染。"
+      ],
+      "answers": [
+        "源码flag只显示告警，analyst不看flags，因此第二运行仍引用42%。正确验收需上游错误和所有依赖被隔离，最终结果held/retracted且无副作用；否则仅发现未阻止。",
+        "将claim类型化为(metric,value,unit,source_id,span,parents)，verifier从独立来源表抽数字/样本数并比较归一化值；测试4.2→42、12500→125000、未带source、错误后代，不能用针对42的硬编码检验所有事实。",
+        "topic隔离减少无关读取/横向扩散，但summary/analysis仍订阅或依赖prices时污染继续；需访问授权、parents、验证state和撤销传播，不能topic名即可信。",
+        "Hayes-Roth 1985官方页遇机器人挑战，未宣称读全文或归纳该文具体两个模式。独立教学判据可比较触发条件/候选动作agenda与机会主义优先级重排，并用可重放控制决策/冲突解决示例评估；将原论文特有内容列待核，不伪造。",
+        "CA-MCP v2 §2 SCS是中心blackboard，中央LLM先planner后summary，stateful servers监控触发/写中间结果。加入goal/constraint初始上下文、reactor readiness与终结汇总；并未自动提供CAS、权限、通用verify，且core MCP不规定这种订阅SCS。"
+      ],
+      "exercises": [
+        {
+          "id": "13.E1",
+          "original_line": 144,
+          "original": "1. Run `code/main.py`. Confirm run 1 propagates the hallucination and run 2 catches it.",
+          "chinese_answer": "源码flag只显示告警，analyst不看flags，因此第二运行仍引用42%。正确验收需上游错误和所有依赖被隔离，最终结果held/retracted且无副作用；否则仅发现未阻止。"
+        },
+        {
+          "id": "13.E2",
+          "original_line": 145,
+          "original": "2. Add a second hallucination: agent B invents a dataset size. The verifier should catch both without being hand-tuned for either.",
+          "chinese_answer": "将claim类型化为(metric,value,unit,source_id,span,parents)，verifier从独立来源表抽数字/样本数并比较归一化值；测试4.2→42、12500→125000、未带source、错误后代，不能用针对42的硬编码检验所有事实。"
+        },
+        {
+          "id": "13.E3",
+          "original_line": 146,
+          "original": "3. Switch the full pool to a blackboard with topic partitions (`prices`, `summaries`, `analyses`). Which poisoning scenarios does topic partitioning make harder to pull off, and which does it not help with?",
+          "chinese_answer": "topic隔离减少无关读取/横向扩散，但summary/analysis仍订阅或依赖prices时污染继续；需访问授权、parents、验证state和撤销传播，不能topic名即可信。"
+        },
+        {
+          "id": "13.E4",
+          "original_line": 147,
+          "original": "4. Read Hayes-Roth (1985, \"A Blackboard Architecture for Control\"). Identify two control patterns from the paper not discussed in this lesson that 2026 systems would benefit from.",
+          "chinese_answer": "Hayes-Roth 1985官方页遇机器人挑战，未宣称读全文或归纳该文具体两个模式。独立教学判据可比较触发条件/候选动作agenda与机会主义优先级重排，并用可重放控制决策/冲突解决示例评估；将原论文特有内容列待核，不伪造。"
+        },
+        {
+          "id": "13.E5",
+          "original_line": 148,
+          "original": "5. Read CA-MCP (arXiv:2601.11595). Map its Shared Context Store to either the MessagePool or Blackboard class in `code/main.py`. Which primitives does CA-MCP add on top?",
+          "chinese_answer": "CA-MCP v2 §2 SCS是中心blackboard，中央LLM先planner后summary，stateful servers监控触发/写中间结果。加入goal/constraint初始上下文、reactor readiness与终结汇总；并未自动提供CAS、权限、通用verify，且core MCP不规定这种订阅SCS。"
+        }
+      ],
+      "quiz": {
+        "count": 0,
+        "reason": "本8课均无quiz.json；不编造原quiz"
+      },
+      "coverage_strategy": "逐原标题映射已有主章增量，最终落点由根代理定稿后回填；每项知识/练习及图示有内容，非只目录"
+    },
+    {
+      "id": "14-consensus-and-bft",
+      "files": [
+        {
+          "path": "phases/16-multi-agent-and-swarms/14-consensus-and-bft/assets/bft.svg",
+          "bytes": 4830,
+          "sha256": "8102ab18a5e9c9e16a7d136fc84eeffef628cc9a55c5c61331ad48c67e5ba250",
+          "git_blob": "eb88e0c9873ae6072c7ad0224a367574191737ba",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 70,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/14-consensus-and-bft/code/main.py",
+          "bytes": 5409,
+          "sha256": "eb927ed06ae7eb8850f3ea12c1ba86811b7b0a6ab6ac3368d3fa80d467e3aeb6",
+          "git_blob": "187120ea85044e3739c0f6dc1c6d7b10d3d4b994",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 159,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/14-consensus-and-bft/docs/en.md",
+          "bytes": 11581,
+          "sha256": "6dc4dab48994111b84688ebf3d53c594380464634f725fe46f09aa4ce2b745bd",
+          "git_blob": "ce9e9ed6bd1f5b23734a7aa9c8750dbfc0090ff1",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 155,
+          "headings": [
+            {
+              "line": 10,
+              "level": 2,
+              "title": "Problem"
+            },
+            {
+              "line": 18,
+              "level": 2,
+              "title": "Concept"
+            },
+            {
+              "line": 20,
+              "level": 3,
+              "title": "What classical BFT gives you"
+            },
+            {
+              "line": 32,
+              "level": 3,
+              "title": "The three LLM-specific attacks"
+            },
+            {
+              "line": 40,
+              "level": 3,
+              "title": "The 2025-2026 responses"
+            },
+            {
+              "line": 48,
+              "level": 3,
+              "title": "Empirical: \"Can AI Agents Agree?\" (arXiv:2603.01213)"
+            },
+            {
+              "line": 58,
+              "level": 3,
+              "title": "The core protocol, stripped down"
+            },
+            {
+              "line": 76,
+              "level": 3,
+              "title": "Threshold tuning"
+            },
+            {
+              "line": 80,
+              "level": 3,
+              "title": "Where consensus does not help"
+            },
+            {
+              "line": 90,
+              "level": 2,
+              "title": "Build It"
+            },
+            {
+              "line": 114,
+              "level": 2,
+              "title": "Use It"
+            },
+            {
+              "line": 118,
+              "level": 2,
+              "title": "Ship It"
+            },
+            {
+              "line": 128,
+              "level": 2,
+              "title": "Exercises"
+            },
+            {
+              "line": 136,
+              "level": 2,
+              "title": "Key Terms"
+            },
+            {
+              "line": 149,
+              "level": 2,
+              "title": "Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/14-consensus-and-bft/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "semantic_read": "空占位已确认",
+          "line_count": 0,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/14-consensus-and-bft/outputs/skill-consensus-designer.md",
+          "bytes": 2959,
+          "sha256": "c49bb1f15f7335bbd5add3a0f7539891daf53d47777b03f97393290787cf6008",
+          "git_blob": "e5d3543147f43cba1f31b551679cd677ec5c5294",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 35,
+          "headings": []
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Problem"
+        },
+        {
+          "line": 18,
+          "level": 2,
+          "title": "Concept"
+        },
+        {
+          "line": 20,
+          "level": 3,
+          "title": "What classical BFT gives you"
+        },
+        {
+          "line": 32,
+          "level": 3,
+          "title": "The three LLM-specific attacks"
+        },
+        {
+          "line": 40,
+          "level": 3,
+          "title": "The 2025-2026 responses"
+        },
+        {
+          "line": 48,
+          "level": 3,
+          "title": "Empirical: \"Can AI Agents Agree?\" (arXiv:2603.01213)"
+        },
+        {
+          "line": 58,
+          "level": 3,
+          "title": "The core protocol, stripped down"
+        },
+        {
+          "line": 76,
+          "level": 3,
+          "title": "Threshold tuning"
+        },
+        {
+          "line": 80,
+          "level": 3,
+          "title": "Where consensus does not help"
+        },
+        {
+          "line": 90,
+          "level": 2,
+          "title": "Build It"
+        },
+        {
+          "line": 114,
+          "level": 2,
+          "title": "Use It"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "title": "Ship It"
+        },
+        {
+          "line": 128,
+          "level": 2,
+          "title": "Exercises"
+        },
+        {
+          "line": 136,
+          "level": 2,
+          "title": "Key Terms"
+        },
+        {
+          "line": 149,
+          "level": 2,
+          "title": "Further Reading"
+        }
+      ],
+      "targets": [
+        "Agentic Design Patterns/01-核心章节/07-多智能体协作.md",
+        "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+      ],
+      "knowledge": [
+        "agreement/validity/liveness不同于事实truth，PBFT用于确定状态机命令一致与合法性。阈值保证依赖身份、消息认证、轮次与故障数。",
+        "PBFT至少3f+1副本；two 2f+1 quorums交集至少f+1，所以至少一诚实副本。安全不依赖时限，活性需及时通信假设；允许恶意节点串通。",
+        "多数和自报加权toy无广播/签名/prepare/commit，不具PBFT保证；高置信恶意、共因错、Sybil与平票都要负对照。",
+        "CP-WBFT v2：PCP结构自报；HCP隐藏state池化→PCA→线性probe，需正确性label/留出校准。邻居高confidence refine后按平均confidence挑答案、人数破平票，实验10精选题7nodes6bad，是受限经验非任意恶意容错定理。",
+        "DecentLLMs v1：worker独立提案、evaluator五维质量评分、可靠广播、每答案评分向量几何中位数再选择最优，不是对文本或置信簇做median。评估多数/同步/密码学/评分可靠性条件重要。",
+        "WBFT v1 W=alpha*A+beta*B (sum weights=1) 非quality*trust，HSC只CCNs参与、leader prepare/commit，不是简单allvote sum。Can AI Agents Agree v2 no-stake[0,50]标量同步alltoall，majority stop+诚实同值/来自初始范围，主要timeout非Mixture-of-Agents拉偏40pp。"
+      ],
+      "errors": [
+        "source PBFT“Byzantines do not coordinate”误译：原文强调独立node failure以限制fault预算同时strongadversarycan coordinate，非恶意不串通。",
+        "source DecentLLMs toy len(cluster)*(1-dist)不是GM且3wrong置信接近得分2.92>2right1.94仍wrong；prose claimedmitigate不成立。",
+        "源plurality空list max报错，平票先见顺序；canonical删空白导致不同数字/单位可能碰撞；NaN/confidence负数/bool、重复agent没校验。",
+        "cp_wbft threshold .5用<意味着平票.5可accept（文述max>），total0改1或highconfidenceattacker皆问题；不能用BFT品牌误导。",
+        "confidence低于0.7不足：wrong3×0.68=2.04仍>right0.85+0.82=1.67。"
+      ],
+      "answers": [
+        "源自报sum-weight被错误簇3个0.70/0.68/0.72=2.10压过正确0.85+0.82=1.67；toy所谓Decent同样选错。不是阈值0.7普适分界；必要时拒答/独立核证，保持单答基线与错误共识率。",
+        "abstain用结构字段不作字符串答案簇、不给自信权重；固定eligible voters分母还是有效票分母需合同，另设minimum coverage+独立验证；全部弃权返回held，缺席不能让唯一恶意者100%票强制通过。",
+        "embedding只反映相似不保证语义等价；4.2%/42%、否定、单位/时段/对象设对照，先typed结构规范化、低确定归组保留差异；改变cluster会改变attack效果但不凭模型名证明。",
+        "PCP结构自报与HCP标签监督probe分开，留出数据评校准/Brier/ECE及wrong-highconfidence；HCP含隐藏layer/池化/PCA训练，源没有实现，不把虚拟加权当复现。限制精选10题和强弱设置，真实accuracy gain未运行未知。",
+        "原论文v2两Qwen模型、no-stake共识，不是判断某数学值truth。按固定初始值、network/stop/validity模拟协议，记录valid/invalid/timeout比例；真实LLM/恶意prompt实验仍需独立运行，不能从已知答案toy宣称CP/Decent能抓。"
+      ],
+      "exercises": [
+        {
+          "id": "14.E1",
+          "original_line": 130,
+          "original": "1. Run `code/main.py`. Confirm plurality fails the monoculture attack but CPWBFT partially mitigates it when the monoculture confidence is below 0.7.",
+          "chinese_answer": "源自报sum-weight被错误簇3个0.70/0.68/0.72=2.10压过正确0.85+0.82=1.67；toy所谓Decent同样选错。不是阈值0.7普适分界；必要时拒答/独立核证，保持单答基线与错误共识率。"
+        },
+        {
+          "id": "14.E2",
+          "original_line": 131,
+          "original": "2. Add a fourth attack pattern: **silent abstention** — one agent refuses to answer (\"I don't know\"). How should each aggregator treat abstentions? Implement your choice.",
+          "chinese_answer": "abstain用结构字段不作字符串答案簇、不给自信权重；固定eligible voters分母还是有效票分母需合同，另设minimum coverage+独立验证；全部弃权返回held，缺席不能让唯一恶意者100%票强制通过。"
+        },
+        {
+          "id": "14.E3",
+          "original_line": 132,
+          "original": "3. Swap the semantic clustering from string canonicalization to embedding-similarity (use any open-source embedding model). What happens to the sycophancy attack?",
+          "chinese_answer": "embedding只反映相似不保证语义等价；4.2%/42%、否定、单位/时段/对象设对照，先typed结构规范化、低确定归组保留差异；改变cluster会改变attack效果但不凭模型名证明。"
+        },
+        {
+          "id": "14.E4",
+          "original_line": 133,
+          "original": "4. Read CP-WBFT (arXiv:2511.10400). Implement the confidence-probe calibration step (a separate calibration model checks each agent's self-reported confidence). Measure the accuracy gain on the monoculture scenario.",
+          "chinese_answer": "PCP结构自报与HCP标签监督probe分开，留出数据评校准/Brier/ECE及wrong-highconfidence；HCP含隐藏layer/池化/PCA训练，源没有实现，不把虚拟加权当复现。限制精选10题和强弱设置，真实accuracy gain未运行未知。"
+        },
+        {
+          "id": "14.E5",
+          "original_line": 134,
+          "original": "5. Read \"Can AI Agents Agree?\" (arXiv:2603.01213). Reproduce a simplified scalar-agreement experiment: three agents, one scalar question, the deceptive-persona prompt. Does CPWBFT or DecentLLMs catch it?",
+          "chinese_answer": "原论文v2两Qwen模型、no-stake共识，不是判断某数学值truth。按固定初始值、network/stop/validity模拟协议，记录valid/invalid/timeout比例；真实LLM/恶意prompt实验仍需独立运行，不能从已知答案toy宣称CP/Decent能抓。"
+        }
+      ],
+      "quiz": {
+        "count": 0,
+        "reason": "本8课均无quiz.json；不编造原quiz"
+      },
+      "coverage_strategy": "逐原标题映射已有主章增量，最终落点由根代理定稿后回填；每项知识/练习及图示有内容，非只目录"
+    },
+    {
+      "id": "15-voting-debate-topology",
+      "files": [
+        {
+          "path": "phases/16-multi-agent-and-swarms/15-voting-debate-topology/assets/topologies.svg",
+          "bytes": 5007,
+          "sha256": "d30ad19d1326b18e57cac4058a6e412ff5abac236f616c4f65483b295d453cff",
+          "git_blob": "8d1e7ae6861db1d2cbd17e92ae46f1ef3529ac43",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 82,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/15-voting-debate-topology/code/main.py",
+          "bytes": 5659,
+          "sha256": "689a54ceebcf999922360a4af4885e2a277092fc0d4c9855daa18ff487b88835",
+          "git_blob": "b85e0d8146c5797407e5e11a5eff05963a33bfaf",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 150,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/15-voting-debate-topology/docs/en.md",
+          "bytes": 11471,
+          "sha256": "d7696a6e00496b73229ba5b9344d386a790acfccf4211aab16f5acf433af2f1e",
+          "git_blob": "0ac0095f951511247dd51b728cbf718a2ec6f581",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 166,
+          "headings": [
+            {
+              "line": 10,
+              "level": 2,
+              "title": "Problem"
+            },
+            {
+              "line": 21,
+              "level": 2,
+              "title": "Concept"
+            },
+            {
+              "line": 23,
+              "level": 3,
+              "title": "Self-consistency, the single-model baseline"
+            },
+            {
+              "line": 29,
+              "level": 3,
+              "title": "Multi-agent vote, the heterogeneous extension"
+            },
+            {
+              "line": 35,
+              "level": 3,
+              "title": "The four topologies"
+            },
+            {
+              "line": 52,
+              "level": 3,
+              "title": "The coordination tax (MultiAgentBench)"
+            },
+            {
+              "line": 63,
+              "level": 3,
+              "title": "Multi-Agent Debate Strategies (\"Should we be going MAD?\")"
+            },
+            {
+              "line": 67,
+              "level": 3,
+              "title": "AgentVerse emergent patterns"
+            },
+            {
+              "line": 76,
+              "level": 3,
+              "title": "Heterogeneity: the actual knob that moves accuracy"
+            },
+            {
+              "line": 82,
+              "level": 3,
+              "title": "Jury methods"
+            },
+            {
+              "line": 86,
+              "level": 3,
+              "title": "When vote-with-debate dominates"
+            },
+            {
+              "line": 93,
+              "level": 3,
+              "title": "When vote-with-debate hurts"
+            },
+            {
+              "line": 104,
+              "level": 2,
+              "title": "Build It"
+            },
+            {
+              "line": 123,
+              "level": 2,
+              "title": "Use It"
+            },
+            {
+              "line": 127,
+              "level": 2,
+              "title": "Ship It"
+            },
+            {
+              "line": 137,
+              "level": 2,
+              "title": "Exercises"
+            },
+            {
+              "line": 145,
+              "level": 2,
+              "title": "Key Terms"
+            },
+            {
+              "line": 159,
+              "level": 2,
+              "title": "Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/15-voting-debate-topology/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "semantic_read": "空占位已确认",
+          "line_count": 0,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/15-voting-debate-topology/outputs/skill-topology-picker.md",
+          "bytes": 2932,
+          "sha256": "c298f34fdea00c7d7fe76a39b92a54d4e507cab450785be27ed8721956483d9f",
+          "git_blob": "f6e688f787491f6456b31db04f13f55ed3bb6971",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 39,
+          "headings": []
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Problem"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "title": "Concept"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "title": "Self-consistency, the single-model baseline"
+        },
+        {
+          "line": 29,
+          "level": 3,
+          "title": "Multi-agent vote, the heterogeneous extension"
+        },
+        {
+          "line": 35,
+          "level": 3,
+          "title": "The four topologies"
+        },
+        {
+          "line": 52,
+          "level": 3,
+          "title": "The coordination tax (MultiAgentBench)"
+        },
+        {
+          "line": 63,
+          "level": 3,
+          "title": "Multi-Agent Debate Strategies (\"Should we be going MAD?\")"
+        },
+        {
+          "line": 67,
+          "level": 3,
+          "title": "AgentVerse emergent patterns"
+        },
+        {
+          "line": 76,
+          "level": 3,
+          "title": "Heterogeneity: the actual knob that moves accuracy"
+        },
+        {
+          "line": 82,
+          "level": 3,
+          "title": "Jury methods"
+        },
+        {
+          "line": 86,
+          "level": 3,
+          "title": "When vote-with-debate dominates"
+        },
+        {
+          "line": 93,
+          "level": 3,
+          "title": "When vote-with-debate hurts"
+        },
+        {
+          "line": 104,
+          "level": 2,
+          "title": "Build It"
+        },
+        {
+          "line": 123,
+          "level": 2,
+          "title": "Use It"
+        },
+        {
+          "line": 127,
+          "level": 2,
+          "title": "Ship It"
+        },
+        {
+          "line": 137,
+          "level": 2,
+          "title": "Exercises"
+        },
+        {
+          "line": 145,
+          "level": 2,
+          "title": "Key Terms"
+        },
+        {
+          "line": 159,
+          "level": 2,
+          "title": "Further Reading"
+        }
+      ],
+      "targets": [
+        "Agentic Design Patterns/01-核心章节/07-多智能体协作.md",
+        "Agentic Design Patterns/01-核心章节/19-评估和监控.md"
+      ],
+      "knowledge": [
+        "单模型self-consistency sampled paths+答案聚合是基线；独立初始化是程序不互看，不保证统计错独立。",
+        "star/chain/tree/generalgraph是控制/数据连线，需注明方向、rounds、消息字节/Token/关键路径；已有边计数例复用。",
+        "MARBLE v1§4.3 Research实验graph表现好，star相近，tree差；3%是planning策略不应移给topology。没有“所有任务4Agent后下降”或“three models>fivecopies”普遍定理。",
+        "MAD v3实证当前debate不稳定优于selfconsistency，tuning可改变排名；高参设置须validation/tune，保留heldout防selectionleak。",
+        "异构模型/source/role可能更多覆盖又带新错误/成本；独立judge不是完美oracle。按同budget+同输入+相同eval比较单答、独立vote、有限critique、toolcheck。"
+      ],
+      "errors": [
+        "source fakeagents独立rng Bernoulli用指定wrong_bias不表示真实LLM相关性；star charges hub却不调用hub.answer，只plurality workers；tree两组平票总先left。",
+        "graph只是0.4概率复制当前多票，没有研究task/理由/工具/真实Token/latency；make_agents seed生成rng不使用；graph/N7=5600 vsstar/N3=1200仅4.667倍不是7。",
+        "源输出steps虚拟次数不是wallclock，rounds=0仍初始化、n=0/trials=0未处理；不能plot准确曲线宣称复现MARBLE。",
+        "A-HMAD非“canonical 2026通用名”，sourcepolicy拒绝starresearch和同model不能是multi-agent过武断；架构定义不由模型身份决定。"
+      ],
+      "answers": [
+        "源码无真实coordination-tax曲线或研究子任务，tokens=N*400*rounds硬编码线性，N3/5/7不能推断通用拐点。先定义read_edges/calls/bytes/token计量、关键路径与holdout准确，根已有CPU边计数可以复用。",
+        "设置不同sources/models/prompts只构造异构条件，需多同题重复与预算对齐，测错误相关性、单agent能力、错误共识；同wrongbias toy只模拟错误答案重合，非真实异构结论。",
+        "judge不投票仍需独立证据/rubric并有hold/escalate权限；只事后评分不改变前面从众，输入给同错共识也可被骗。评价初始到最终修订、correct→wrong事件、judge误判率。",
+        "源script没语言/角色prompt，不能诱发AgentVerse volunteer/conformity；graph0.4复制只事先设定conformity。真实实验需阅读消息/协作任务、反事实prompt、行为标签与盲评分，不能将动画当行为。",
+        "论文v1§4.3比较真实Research环境/任务/CS/TS与tokens，当前script无这些，因此未复现。复现按同模型/任务与iteration/settings固定，保存toolresult/source及milestone rubric、graph/star相近的差异及不确定性，不强制得到graphwin。"
+      ],
+      "exercises": [
+        {
+          "id": "15.E1",
+          "original_line": 139,
+          "original": "1. Run `code/main.py`. Plot the coordination-tax curve for graph topology: accuracy vs N, tokens vs N. At what N does the curve inflect?",
+          "chinese_answer": "源码无真实coordination-tax曲线或研究子任务，tokens=N*400*rounds硬编码线性，N3/5/7不能推断通用拐点。先定义read_edges/calls/bytes/token计量、关键路径与holdout准确，根已有CPU边计数可以复用。"
+        },
+        {
+          "id": "15.E2",
+          "original_line": 140,
+          "original": "2. Implement A-HMAD: three agents with deliberately different biases. How does the all-same-bias baseline compare to A-HMAD on the monoculture attack from Lesson 14?",
+          "chinese_answer": "设置不同sources/models/prompts只构造异构条件，需多同题重复与预算对齐，测错误相关性、单agent能力、错误共识；同wrongbias toy只模拟错误答案重合，非真实异构结论。"
+        },
+        {
+          "id": "15.E3",
+          "original_line": 141,
+          "original": "3. Add a \"judge\" role to the graph topology that does not vote, only scores the final consensus. Does this change the emergent conformity behavior?",
+          "chinese_answer": "judge不投票仍需独立证据/rubric并有hold/escalate权限；只事后评分不改变前面从众，输入给同错共识也可被骗。评价初始到最终修订、correct→wrong事件、judge误判率。"
+        },
+        {
+          "id": "15.E4",
+          "original_line": 142,
+          "original": "4. Read the AgentVerse paper (ICLR 2024). Identify which emergent behavior your implementation exhibits most strongly. Can you elicit the opposite behavior by a prompt change?",
+          "chinese_answer": "源script没语言/角色prompt，不能诱发AgentVerse volunteer/conformity；graph0.4复制只事先设定conformity。真实实验需阅读消息/协作任务、反事实prompt、行为标签与盲评分，不能将动画当行为。"
+        },
+        {
+          "id": "15.E5",
+          "original_line": 143,
+          "original": "5. Read MultiAgentBench (arXiv:2503.01935) Section 4 (topology experiments). Reproduce the \"graph-wins-research\" result on one task from the paper using your harness.",
+          "chinese_answer": "论文v1§4.3比较真实Research环境/任务/CS/TS与tokens，当前script无这些，因此未复现。复现按同模型/任务与iteration/settings固定，保存toolresult/source及milestone rubric、graph/star相近的差异及不确定性，不强制得到graphwin。"
+        }
+      ],
+      "quiz": {
+        "count": 0,
+        "reason": "本8课均无quiz.json；不编造原quiz"
+      },
+      "coverage_strategy": "逐原标题映射已有主章增量，最终落点由根代理定稿后回填；每项知识/练习及图示有内容，非只目录"
+    },
+    {
+      "id": "16-negotiation-bargaining",
+      "files": [
+        {
+          "path": "phases/16-multi-agent-and-swarms/16-negotiation-bargaining/assets/bargaining.svg",
+          "bytes": 4604,
+          "sha256": "fb374bc6e7b7b40fbbc3b4d5099855cc7e4e112cd2c57c091e2b07cb8f9d58fb",
+          "git_blob": "8d4f134b8be2c32005d65496fb80874ea6d4ab63",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 72,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/16-negotiation-bargaining/code/main.py",
+          "bytes": 7224,
+          "sha256": "9a1e50ee3fb716971c1a0172cd0802c3daf45907dd1bfcdd420c1bfbb2490467",
+          "git_blob": "b1855ea6f22c57d9dc9de8574cf8de0ab269c9cc",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 180,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/16-negotiation-bargaining/docs/en.md",
+          "bytes": 12312,
+          "sha256": "82443b4ceb00092856951f3fd422664295b574470a9f87704df1076b8724c41c",
+          "git_blob": "d3fb74c406a2cad118d9639b96be26630b1abad1",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 169,
+          "headings": [
+            {
+              "line": 10,
+              "level": 2,
+              "title": "Problem"
+            },
+            {
+              "line": 18,
+              "level": 2,
+              "title": "Concept"
+            },
+            {
+              "line": 20,
+              "level": 3,
+              "title": "Contract Net, in one paragraph"
+            },
+            {
+              "line": 24,
+              "level": 3,
+              "title": "Why OG-Narrator wins"
+            },
+            {
+              "line": 50,
+              "level": 3,
+              "title": "NegotiationArena findings"
+            },
+            {
+              "line": 60,
+              "level": 3,
+              "title": "Chain-of-thought concealment"
+            },
+            {
+              "line": 71,
+              "level": 3,
+              "title": "Bhattacharya et al. 2025 — model rankings"
+            },
+            {
+              "line": 81,
+              "level": 3,
+              "title": "Task allocation via Contract Net + LLM"
+            },
+            {
+              "line": 93,
+              "level": 3,
+              "title": "LLM-Stakeholders Interactive Negotiation"
+            },
+            {
+              "line": 97,
+              "level": 3,
+              "title": "The narration-vs-mechanism rule"
+            },
+            {
+              "line": 109,
+              "level": 2,
+              "title": "Build It"
+            },
+            {
+              "line": 127,
+              "level": 2,
+              "title": "Use It"
+            },
+            {
+              "line": 131,
+              "level": 2,
+              "title": "Ship It"
+            },
+            {
+              "line": 142,
+              "level": 2,
+              "title": "Exercises"
+            },
+            {
+              "line": 150,
+              "level": 2,
+              "title": "Key Terms"
+            },
+            {
+              "line": 163,
+              "level": 2,
+              "title": "Further Reading"
+            }
+          ]
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/16-negotiation-bargaining/notebook/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "semantic_read": "空占位已确认",
+          "line_count": 0,
+          "headings": []
+        },
+        {
+          "path": "phases/16-multi-agent-and-swarms/16-negotiation-bargaining/outputs/skill-bargainer-designer.md",
+          "bytes": 3152,
+          "sha256": "fa2971db165e05cc969aac81291fd7717dafe4f43dba4e3f6d8ba35518b52a0a",
+          "git_blob": "894d6468be9e34ac8f734538f7c54dfa88198dba",
+          "semantic_read": "完整正文/源码/输出与图示结构已读",
+          "line_count": 36,
+          "headings": []
+        }
+      ],
+      "headings": [
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Problem"
+        },
+        {
+          "line": 18,
+          "level": 2,
+          "title": "Concept"
+        },
+        {
+          "line": 20,
+          "level": 3,
+          "title": "Contract Net, in one paragraph"
+        },
+        {
+          "line": 24,
+          "level": 3,
+          "title": "Why OG-Narrator wins"
+        },
+        {
+          "line": 50,
+          "level": 3,
+          "title": "NegotiationArena findings"
+        },
+        {
+          "line": 60,
+          "level": 3,
+          "title": "Chain-of-thought concealment"
+        },
+        {
+          "line": 71,
+          "level": 3,
+          "title": "Bhattacharya et al. 2025 — model rankings"
+        },
+        {
+          "line": 81,
+          "level": 3,
+          "title": "Task allocation via Contract Net + LLM"
+        },
+        {
+          "line": 93,
+          "level": 3,
+          "title": "LLM-Stakeholders Interactive Negotiation"
+        },
+        {
+          "line": 97,
+          "level": 3,
+          "title": "The narration-vs-mechanism rule"
+        },
+        {
+          "line": 109,
+          "level": 2,
+          "title": "Build It"
+        },
+        {
+          "line": 127,
+          "level": 2,
+          "title": "Use It"
+        },
+        {
+          "line": 131,
+          "level": 2,
+          "title": "Ship It"
+        },
+        {
+          "line": 142,
+          "level": 2,
+          "title": "Exercises"
+        },
+        {
+          "line": 150,
+          "level": 2,
+          "title": "Key Terms"
+        },
+        {
+          "line": 163,
+          "level": 2,
+          "title": "Further Reading"
+        }
+      ],
+      "targets": [
+        "Agentic Design Patterns/01-核心章节/07-多智能体协作.md",
+        "Agentic Design Patterns/01-核心章节/16-资源感知优化.md"
+      ],
+      "knowledge": [
+        "两方保留价与BATNA、ZOPA是模型前提；buyerseller各自仅知自身限制，不得将双方私值全给offer generator。ZOPA空时no-deal可正确，out-ZOPA早报价不一定错误/禁收。",
+        "OG-Narrator v3预算B、t≤tmax，p=(.5+.5*t/tmax)*B；Action数字由规则、Talk由LLM并对一致性/泄漏校验；与Zeuthen/Rubinstein equilibrium不是同算法。",
+        "成交率、个体效用/联合剩余、规则/预算违规、validity、未成交/timeout不同指标；成交不必胜过BATNA，紧限额价格/数量/币种程序验证。",
+        "Contract Net cfp/propose/refuse/accept/reject后需executioninform/done/failure；先eligibility(permission/taskversion/deadline/budget/bidvalidity)、再公开评价/适当留出性能而非自报confidence/price。",
+        "外部公共offer与自有策略状态由宿主在数据访问上隔离；XML标签/提示private不构成权限。180k比赛v3GPT4omini特定prompt,社会warmth等因素限制，不导出欺骗/泄漏通用规律。"
+      ],
+      "errors": [
+        "源码allLLM全是random没有LLM/narration/persona/privatechannel，两方互知seller_min/buyer_max，漏no-ZOPA无重试proof；不叫OGpaperreplication。",
+        "sourceContractNet receive不核roster/taskid/期限/version、负价/NaN可win、同bidder重复、多次award不幂等、报价未reserved可能双接任务；需要safecontractstate。",
+        "source86%/95%expected与main“everytrial”内部冲突，未运行不认数字；noZOPA与unknownopponent不得硬保证converge。",
+        "source所有报价必须inZOPA要求对手秘密，不可落实；报价parse/legal validation≠可接受性。",
+        "Bhattacharya无实际引用入口；旧Llama3/Claude3/GPT4排名与widelyproductionCNP无足证删，20%仅NegotiationArena特定80pairgames非普遍。"
+      ],
+      "answers": [
+        "原程序未执行，其deal比由随机naive和确定已知双保留价组成，不能判LLM改进。实际验收需要不同ZOPA/no-ZOPA、对手隐藏值、预算边界、同randomscenario对齐、记录deal/payoff/validity，不复用论文headline作toy输出。",
+        "源offer与seller_response都不读narration，保持价格相同换persona将没有影响；若真实LLM对手会受表达影响，分别操纵style/offer并多次配对对照，合法/公平规则始终宿主验。",
+        "宿主只向counterparty投影public_offer/action+必要text，把private state保存在对手不可读存储；模拟漏保留价比较对手行为，trace/log也最小化。所谓XML私有标签只是输出format，不能替代边界。",
+        "可行先核authorized roster/currenttask/version/deadline以及finite positive price/eta/capacity/reserve，然后按任务predeclared rubric综合历史可核质量与费用；无可行bid=不授标。只price最低无法证明quality，conf/price不是通用优化。",
+        "Bhattacharya入口缺失，未伪称读论文；可自行定义aggressive高锚/小让步、fair按已定义效用规则，用相同task/opponent和seed做对照，并记录mean/variance/impasse/constraintfail。这些为教学策略，不是新modelranking或已运行真实实验。"
+      ],
+      "exercises": [
+        {
+          "id": "16.E1",
+          "original_line": 144,
+          "original": "1. Run `code/main.py`. Confirm OG-Narrator beats naive-LLM on deal rate. By how much?",
+          "chinese_answer": "原程序未执行，其deal比由随机naive和确定已知双保留价组成，不能判LLM改进。实际验收需要不同ZOPA/no-ZOPA、对手隐藏值、预算边界、同randomscenario对齐、记录deal/payoff/validity，不复用论文headline作toy输出。"
+        },
+        {
+          "id": "16.E2",
+          "original_line": 145,
+          "original": "2. Implement **persona-based payoff improvement** (arXiv:2402.05863) — the buyer adopts a \"desperate to buy this week\" persona in the narration only, offer generator unchanged. Does the deal rate or payoff change?",
+          "chinese_answer": "源offer与seller_response都不读narration，保持价格相同换persona将没有影响；若真实LLM对手会受表达影响，分别操纵style/offer并多次配对对照，合法/公平规则始终宿主验。"
+        },
+        {
+          "id": "16.E3",
+          "original_line": 146,
+          "original": "3. Implement chain-of-thought **concealment**: maintain a private scratchpad string that is not passed to the counterpart. What happens if you accidentally leak it (simulate by swapping the channels)?",
+          "chinese_answer": "宿主只向counterparty投影public_offer/action+必要text，把private state保存在对手不可读存储；模拟漏保留价比较对手行为，trace/log也最小化。所谓XML私有标签只是输出format，不能替代边界。"
+        },
+        {
+          "id": "16.E4",
+          "original_line": 147,
+          "original": "4. Extend Contract Net to N-bidder auction with reserve price. When bids all exceed reserve, how does the manager decide between lowest-price and highest-quality? Which award rule do you pick and why?",
+          "chinese_answer": "可行先核authorized roster/currenttask/version/deadline以及finite positive price/eta/capacity/reserve，然后按任务predeclared rubric综合历史可核质量与费用；无可行bid=不授标。只price最低无法证明quality，conf/price不是通用优化。"
+        },
+        {
+          "id": "16.E5",
+          "original_line": 148,
+          "original": "5. Read Bhattacharya et al. 2025 on Harvard Negotiation Project metrics. Implement two bargainers with different styles (aggressive vs fair). Measure payoff variance under symmetric and asymmetric pairings.",
+          "chinese_answer": "Bhattacharya入口缺失，未伪称读论文；可自行定义aggressive高锚/小让步、fair按已定义效用规则，用相同task/opponent和seed做对照，并记录mean/variance/impasse/constraintfail。这些为教学策略，不是新modelranking或已运行真实实验。"
+        }
+      ],
+      "quiz": {
+        "count": 0,
+        "reason": "本8课均无quiz.json；不编造原quiz"
+      },
+      "coverage_strategy": "逐原标题映射已有主章增量，最终落点由根代理定稿后回填；每项知识/练习及图示有内容，非只目录"
+    }
+  ],
+  "totals": {
+    "lessons": 8,
+    "files": 40,
+    "bytes": 183931,
+    "nonempty_files": 32,
+    "empty_files": 8,
+    "true_h2_h4": 127,
+    "exercises": 40,
+    "quiz": 0,
+    "source_program_runs": 0
+  },
+  "dynamic_figures": [
+    {
+      "id": "sw-work-stealing",
+      "path": "site/figures-swarms3.js",
+      "lines": [
+        77,
+        106
+      ],
+      "sha256": "ec91b7293300c54791cdec77e3c76ec85ad1f5ec0c2550b79bb0b07a4426ace4",
+      "assessment": "固定6tokens按j%3给3worker、6s循环；是共享queue pull图并非localdeque工作窃取/最优调度性能。",
+      "executed": false
+    },
+    {
+      "id": "swarm-speaker",
+      "path": "site/figures-swarms2.js",
+      "lines": [
+        303,
+        346
+      ],
+      "sha256": "d5da37787c6e1121822b9e7ebddd9bc3903c0f6690d09c9840488467c2c0cb3a",
+      "assessment": "5点7.5s token定序[0,1,2,3,4,2]；不调用selector/model，无真实fairness。",
+      "executed": false
+    },
+    {
+      "id": "sw-handoff-routing",
+      "path": "site/figures-swarms3.js",
+      "lines": [
+        107,
+        140
+      ],
+      "sha256": "ec91b7293300c54791cdec77e3c76ec85ad1f5ec0c2550b79bb0b07a4426ace4",
+      "assessment": "3role 9s预设0→1→2→0循环；未用实handoff/权限/loopstop；不能证明无状态机。",
+      "executed": false
+    },
+    {
+      "id": "sw-agent-card-discovery",
+      "path": "site/figures-swarms3.js",
+      "lines": [
+        141,
+        179
+      ],
+      "sha256": "ec91b7293300c54791cdec77e3c76ec85ad1f5ec0c2550b79bb0b07a4426ace4",
+      "assessment": "8s预设discover+submitted/working/completed，无协议序列化/授权或网络；当前v1补状态形状。",
+      "executed": false
+    },
+    {
+      "id": "swarm-blackboard",
+      "path": "site/figures-swarms2.js",
+      "lines": [
+        262,
+        302
+      ],
+      "sha256": "d5da37787c6e1121822b9e7ebddd9bc3903c0f6690d09c9840488467c2c0cb3a",
+      "assessment": "2writers5readers颜色8s预设poison；没有readACL/验证/实状态撤销。",
+      "executed": false
+    },
+    {
+      "id": "swarm-consensus-wave",
+      "path": "site/figures-swarms2.js",
+      "lines": [
+        36,
+        70
+      ],
+      "sha256": "d5da37787c6e1121822b9e7ebddd9bc3903c0f6690d09c9840488467c2c0cb3a",
+      "assessment": "8point环其中byz5固定WARN，其他8s预设变色；无quorum/签名/PBFT，没有accuracy证据。",
+      "executed": false
+    },
+    {
+      "id": "sw-debate-topology",
+      "path": "site/figures-swarms3.js",
+      "lines": [
+        180,
+        222
+      ],
+      "sha256": "ec91b7293300c54791cdec77e3c76ec85ad1f5ec0c2550b79bb0b07a4426ace4",
+      "assessment": "5点12s切换4组4/4/4/7无向边；不是全连通，caption4agent上限不可引为原论文。",
+      "executed": false
+    },
+    {
+      "id": "a5-og-narrator",
+      "path": "site/figures-autoswarm5.js",
+      "lines": [
+        338,
+        382
+      ],
+      "sha256": "1e753d9f7c4aae1afadcf85c97a333387a404067e7e7efb4b1f339e7fe170b20",
+      "assessment": "8s画确定bars29/98及26.7/88.9标签；无买卖agent或成交计算，比例不是模拟运行。",
+      "executed": false
+    }
+  ],
+  "primary_sources": [
+    {
+      "key": "2511.21686",
+      "version": "v2",
+      "path": "/tmp/study-swarms-09-16-primary/2511.21686.txt",
+      "bytes": 90606,
+      "sha256": "8aff1947f797ed09f9dac4c1f0b75bd05260ba8a3a45651155c2019d1402ab75",
+      "scope": "abstract、§3.1–3.2及Algorithm1（text153–280选读；258–280待细读）",
+      "finding": "message-driven Matrix有可序列化orchestrator和logs，取消无trace误解",
+      "entire_work_read": false
+    },
+    {
+      "key": "2601.11595",
+      "version": "v2",
+      "path": "/tmp/study-swarms-09-16-primary/2601.11595.md",
+      "bytes": 54978,
+      "sha256": "0d0d0814ff1d1d93c86723625c21374c87814132c8d0859ea064ed62023c13a4",
+      "scope": "§2.1–2.2 lines32–69",
+      "finding": "中央planner/SCS/reactor混合，非MCP core原生pubsub",
+      "entire_work_read": false
+    },
+    {
+      "key": "2511.10400",
+      "version": "v2",
+      "path": "/tmp/study-swarms-09-16-primary/2511.10400.md",
+      "bytes": 77169,
+      "sha256": "2559f4b488c2b437df059ba2452f930f1b65894539acfcbec1c89fbba3923cda",
+      "scope": "Introduction/Preliminary/Methods+Eq4/ExperimentSetting lines1–160",
+      "finding": "PCP/HCP与邻居refine/平均confidence；实验非任意恶意保证",
+      "entire_work_read": false
+    },
+    {
+      "key": "2507.14928",
+      "version": "v1",
+      "path": "/tmp/study-swarms-09-16-primary/2507.14928.txt",
+      "bytes": 69630,
+      "sha256": "5f80289449a5545baaf000db0dd7f89cd541e6045a90e6fdb3a5959fd4151090",
+      "scope": "§III–IV text154–272，p4视觉核对",
+      "finding": "可靠广播+worker/evaluator五维评分GM，非toy簇置信公式",
+      "entire_work_read": false
+    },
+    {
+      "key": "2505.05103",
+      "version": "v1",
+      "path": "/tmp/study-swarms-09-16-primary/2505.05103.md",
+      "bytes": 83075,
+      "sha256": "89551c92900f001be8773e9f4ecfca5af56983af5b90772b0ee97559ed6cdfde",
+      "scope": "Abstract、§IV-A/B lines160–257",
+      "finding": "W=alphaA+betaB，CCN leader prepare/commit，非乘积trust",
+      "entire_work_read": false
+    },
+    {
+      "key": "2603.01213",
+      "version": "v2",
+      "path": "/tmp/study-swarms-09-16-primary/2603.01213.txt",
+      "bytes": 37406,
+      "sha256": "1411d1ead915783ad9f3500ddc24e1203c91360067202adcc6266823f6082516",
+      "scope": "abstract、§3、§4.1–4.2 text1–31/140–199/259–289",
+      "finding": "无stakeScalar/restrictedByz/主要liveness失败",
+      "entire_work_read": false
+    },
+    {
+      "key": "2503.01935",
+      "version": "v1",
+      "path": "/tmp/study-swarms-09-16-primary/2503.01935.txt",
+      "bytes": 219357,
+      "sha256": "1e618195c341e9894dd1ceeee53d77df8f240d4b2bf4ccdf00b9c23ac624664a",
+      "scope": "abstract、§4.1–4.3 text1–40/383–470",
+      "finding": "只Research拓扑、star与graph近似；3%planning不拓扑",
+      "entire_work_read": false
+    },
+    {
+      "key": "2311.17371",
+      "version": "v3",
+      "path": "/tmp/study-swarms-09-16-primary/2311.17371.txt",
+      "bytes": 193305,
+      "sha256": "7ad3e8d75ca407e722b646bdfd9834539e271ebe6b4984574a60e9a1ec52a33a",
+      "scope": "abstract及intro text1–45",
+      "finding": "MAD不稳定优于SC且tuning改变比较",
+      "entire_work_read": false
+    },
+    {
+      "key": "2402.15813",
+      "version": "v3",
+      "path": "/tmp/study-swarms-09-16-primary/2402.15813.txt",
+      "bytes": 113370,
+      "sha256": "11097792427c778295d736a52c9d7694cecee532eda753580a36857b500721ff",
+      "scope": "abstract、Table2/4、§6.1–6.3 text497–602及PDFp6/p8视觉",
+      "finding": "线性预算报价，不把26.67/88.88泛化全部model",
+      "entire_work_read": false
+    },
+    {
+      "key": "2402.05863",
+      "version": "v1",
+      "path": "/tmp/study-swarms-09-16-primary/2402.05863.txt",
+      "bytes": 110997,
+      "sha256": "682cb7cd4ee436e0d50602ada240ea0aa1447d6c05aee92d4be1c293b7efb988",
+      "scope": "abstract、framework私有reason段及§4 text1–55/169–206/382–424",
+      "finding": "20%特定persona/opponent，private data非LLM自动",
+      "entire_work_read": false
+    },
+    {
+      "key": "2503.06416",
+      "version": "v3",
+      "path": "/tmp/study-swarms-09-16-primary/2503.06416.txt",
+      "bytes": 287588,
+      "sha256": "0c2633655e89d36a40382bc91906bccca72d1b53351eb9bb32624138205b1085",
+      "scope": "abstract、conceal段text850–906、limitations1030–1170；不是全文",
+      "finding": "warmth/180k特定GPT4omini、xml输出parser机制非宿主ACL",
+      "entire_work_read": false
+    },
+    {
+      "key": "2203.11171",
+      "version": "v4",
+      "path": "/tmp/study-swarms-09-16-primary/2203.11171.txt",
+      "bytes": 121504,
+      "sha256": "53d07cf81660c634579c1cc0529cd2e2f0e595965683ae250970886e955c057b",
+      "scope": "abstract与方法intuition text1–70",
+      "finding": "同模型采样paths后答案marginalization，不等于每个prompt角色独立",
+      "entire_work_read": false
+    },
+    {
+      "key": "autogen-groupchat",
+      "version": "stable获取2026-10-10",
+      "path": "/tmp/study-swarms-09-16-primary/autogen-groupchat.md",
+      "bytes": 43978,
+      "sha256": "76d8523b542a9c5b981c4d96f5aa33a98750110501b7935f636e771fc92ca748",
+      "scope": "intro1–16、GroupChatManager232–319",
+      "finding": "用户自定义Core manager例，非AG2/v0.2默认API；仍群聊顺序",
+      "entire_work_read": false
+    },
+    {
+      "key": "langgraph-state",
+      "version": "当前文档获取2026-10-10",
+      "path": "/tmp/study-swarms-09-16-primary/langgraph-state.md",
+      "bytes": 33779,
+      "sha256": "b710a31e280c011ca8eea26c8f62c021ea9d9b4c76eee81e38334f49ab045009",
+      "scope": "State/Schema/MultipleSchema/Reducers lines24–85",
+      "finding": "reducer合并而非角色projection/ACL",
+      "entire_work_read": false
+    },
+    {
+      "key": "langgraph-workflows",
+      "version": "当前文档获取2026-10-10",
+      "path": "/tmp/study-swarms-09-16-primary/langgraph-workflows.md",
+      "bytes": 45120,
+      "sha256": "6b58f72db84324116a78ff499c08fd553570c5329d376a37d42591dee5e16d50",
+      "scope": "已获取未据此采纳事实",
+      "finding": "不标全文读",
+      "entire_work_read": false
+    },
+    {
+      "key": "pbft-mit",
+      "version": "OSDI1999",
+      "path": "/tmp/study-swarms-09-16-primary/pbft-mit.txt",
+      "bytes": 96202,
+      "sha256": "4b418d384cd04b0070d481bfa58c72be61c5868af3f0393447e1548382626936",
+      "scope": "§2–§3 text80–132；全文未读",
+      "finding": "独立失效部署减少共同故障但允许strongadversary协调，安全/活性不同",
+      "entire_work_read": false
+    }
+  ],
+  "primary_reuse": [
+    {
+      "path": "/tmp/study-protocols-official/a2a.txt",
+      "bytes": 220187,
+      "sha256": "f21718d7efb467fc13b2ec29af9ee6a5eea60fd315e1af0c437b129312318f6d",
+      "scope": "既有Phase13已验收A2Av1固定Proto/规范，当前只选读既有正文与规范overview；不再次运行旧fixture"
+    },
+    {
+      "path": "/tmp/study-protocols-official/a2a-v1.0.0.proto",
+      "bytes": 34461,
+      "sha256": "4b74c0baa923ae0acb55474e548f1d6e5d3f83b80d757b65f8bf3e99a3c2257f",
+      "scope": "既有Phase13已验收A2Av1固定Proto/规范，当前只选读既有正文与规范overview；不再次运行旧fixture"
+    }
+  ],
+  "bad_cache": [
+    {
+      "path": "/tmp/study-swarms-09-16-primary/2511.21686.md",
+      "reason": "Jina未带版本HTML仅标题/图注，PDFfallback已取得，不能据此假装读论文"
+    },
+    {
+      "path": "/tmp/study-swarms-09-16-primary/2507.14928.md",
+      "reason": "Jina未带版本HTML仅标题/图注，PDFfallback已取得，不能据此假装读论文"
+    },
+    {
+      "path": "/tmp/study-swarms-09-16-primary/2603.01213.md",
+      "reason": "Jina未带版本HTML仅标题/图注，PDFfallback已取得，不能据此假装读论文"
+    },
+    {
+      "path": "/tmp/study-swarms-09-16-primary/2503.01935.md",
+      "reason": "Jina未带版本HTML仅标题/图注，PDFfallback已取得，不能据此假装读论文"
+    },
+    {
+      "path": "/tmp/study-swarms-09-16-primary/2311.17371.md",
+      "reason": "Jina未带版本HTML仅标题/图注，PDFfallback已取得，不能据此假装读论文"
+    },
+    {
+      "path": "/tmp/study-swarms-09-16-primary/2402.15813.md",
+      "reason": "Jina未带版本HTML仅标题/图注，PDFfallback已取得，不能据此假装读论文"
+    },
+    {
+      "path": "/tmp/study-swarms-09-16-primary/2402.05863.md",
+      "reason": "Jina未带版本HTML仅标题/图注，PDFfallback已取得，不能据此假装读论文"
+    },
+    {
+      "path": "/tmp/study-swarms-09-16-primary/2503.06416.md",
+      "reason": "Jina未带版本HTML仅标题/图注，PDFfallback已取得，不能据此假装读论文"
+    },
+    {
+      "path": "/tmp/study-swarms-09-16-primary/2203.11171.md",
+      "reason": "Jina未带版本HTML仅标题/图注，PDFfallback已取得，不能据此假装读论文"
+    },
+    {
+      "path": "/tmp/study-swarms-09-16-primary/hayes-roth-abstract.md",
+      "reason": "112998B机器人挑战+scripts，无Abstract/正文；仅search检索到题名/入口，不作为论文具体控制模式依据"
+    },
+    {
+      "url": "https://pmg.csail.mit.edu/papers/osdi99.pdf",
+      "reason": "Jina422及directSSL失败，不判论文失效；成功fallback至作者MIT教学官方PDF"
+    }
+  ],
+  "unverified": [
+    "所有真实LLM/API/框架SDK并发部署与精确trace/persistence",
+    "真实谈判persona/benchmark replication/事实检测抽样coverage",
+    "Hayes-Roth1985全文和其两项特有控制模式",
+    "Bhattacharya2025未给实际入口的模型排名",
+    "AgentVerse全文未读；不把source脚本模拟变成论文行为复现",
+    "旧OpenAIhandoff已经Phase14固定证据，本组未重复联网或执行；现有授权边界保持"
+  ]
+}

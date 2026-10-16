@@ -143,3 +143,7 @@ Multi-Head Latent Attention 的核心思路是：
 **核对**：不能，`exp(0)=1` 仍有正权重；需要在归一化前屏蔽。权重是中间计算量，不能单独代替干预实验或完整的模型解释。
 
 原理依据：[Transformer 原论文](https://arxiv.org/abs/1706.03762)、[FlashAttention](https://arxiv.org/abs/2205.14135)。它们用于解释机制，不提供当前硬件性能保证。
+
+## 从手算进入完整注意力实现
+
+张量轴、全遮罩边界、多头拆分、RoPE与完整encoder-decoder实现进入[深度学习04/19](../AI%20算法基础/深度学习专题/README.md#transformer的计算目标与资源路线)。GQA、线性/局部变体、在线softmax与缓存的可运行比较由[推理与规模设计](../LLM%20工程实践/14-Transformer推理与规模设计.md)维护，基础手算和具体实现各有学习入口。
