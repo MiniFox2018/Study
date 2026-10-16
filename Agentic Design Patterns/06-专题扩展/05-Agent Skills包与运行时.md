@@ -810,3 +810,60 @@ glob 需要明确语法：`*` 匹配单个路径分量，`**` 可跨目录且包
 源测试定义分别为 router 30、validator 24、scanner 20、installer 23，共 97，未执行；validator 的 symlink 案例带平台条件。作者 run GIF 分别显示旧 24、24、20、22：router 当前新增 6 个路径/发现案例，installer 当前新增 1 个 CLI 集成案例，旧录屏不能证明这些增量已过。router 图用 Unicode words、简化 deploy 路径和额外 competitor 状态，不等于 ASCII/通用 glob 源实现；validator 图不实际解析/读文件；scanner 图不遍历或计算升级 diff；installer 图的 digest 复选框不做真实 hash/rename。六项目共 25 个图示注册及最终 provider/必要 helpers 已静读，图是推理辅具，不是能力验证。
 
 2026-10-15 回融自同一固定提交的 [skill-router](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-router)、[skill-validator](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-validator)、[skill-scanner](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-scanner)、[skill-installer](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/skill-installer)。全课内文件、所有媒体帧、最终 provider/必要 helpers 在 10-15 完整静读；本文是主题解释和缺口分析，不声称最新产品发现路径、全 YAML/全 MCP 合规或真实宿主激活。此前五个围栏与原 CPU success 证据保持原字节/原日期，本批未重跑或新增自有程序。
+
+## 12. 从纠正记录到可审查的规则候选
+
+前文六层评价与安装状态机回答包能否被可信交付。本节解决另一个问题：反复出现的错误怎样转成候选行为，而不是把一次纠正直接固化成长期规则。先修是开发集/保留集、精确内容身份与既有发布授权合同。案例用透明关键词路由，输入是带 ID、文本、标签、群组和来源的支持工单；它不训练模型，也不执行生成的 Skill。改进分成收集证据、提议候选、独立门控、审阅批准和发布，任一前层成功都不能代替后层。
+
+### 12.1 先按内容与群组建立不泄漏的分区
+
+不同 ID 仍可能是同一消息。案例的内容指纹先作 Unicode NFKC、casefold、空白折叠，再对 UTF-8 取 SHA-256；`Invoice wrong` 和 `INVOICE   wrong` 应相同。相同规范内容却标签冲突，先停下来审标注，不把矛盾分散到两个分区。保留原文本、原标签与来源；指纹是用于约定下的关联，不是无损替换或语义等价证明。
+
+再把“内容指纹相同”和“group 相同”两种边放入并查集，按传递闭包形成组件。例如 a 与 b 同线程，b 与 c 内容相同，即使 a/c 的文本和直接 group 不同，三者也不能分开。自动 split 应整组件选择 development 或 holdout；显式指定两集时则检查内容和群组交集并拒绝泄漏。ID 唯一、非空文本/标签和内容标签一致性仍须另验，单独的 audit 交集函数没有完成这些检查。
+
+源码阶段开头提到按稳定 ID 哈希，但最终实现实际使用**组件内最小内容指纹**的前 32 位除以 2 的 32 次方，再与 holdout_fraction 比较。它与文件顺序无关，却不保证标签均衡或两集非空；添加连通记录还可能改变组件最小值与分区。不能据“确定性”就不断重算最终测试集。正确工作流在候选生成前冻结组件、分区成员、规范化政策和摘要，后续新增数据按明示迁移政策处理。
+
+**防跨集泄漏不等于获得独立支持。** 此实现把重复消息留在同一分区，并没有删除重复记录。两个不同 ID、相同退款消息仍会给提案提供两次 case 计数；同线程中的不同消息也不天然独立。支持门槛应声明以唯一规范内容、独立群组还是任务为单位，按来源去重/加权并保重复关系。单靠 split 不能兑现“至少两个独立证据”的承诺。语义近重复和未知群组还需要另外的方法，不由 SHA 碰撞检查解决。
+
+### 12.2 有序合取路由与只从开发错误提案
+
+透明 Skill 在这里是一串有序规则：每条 terms 是合取，输入词集包含所有 terms 才匹配；第一条命中即返回 label，无匹配返回 unknown。`[password, reset]` 能匹配 `password reset expired`，不能匹配只有 `password rejected`；空 terms 不得变成全匹配。第一命中意味着规则顺序属于候选身份，宽规则在前会遮蔽后面的精细规则。
+
+来源输入用 casefold 加 Unicode 正则 `\w+` 分词，不做与数据指纹相同的 NFKC；规则 terms 本身也不被统一规范化。实际系统应冻结分词/词形/Unicode 政策并验证 terms，不因 Python set 能比较就假定大小写、组合字符与跨语言一致。评价逐 case 保存 expected、predicted 和错误，再计算汇总，不用总准确率掩盖谁退化。
+
+候选提议只接收 development，不能拿 holdout 内容来挑词。先在所有开发案例中逐 case 对词去重并统计关联标签；然后只从当前错误案例的词生成候选，要求该词关联唯一标签且达到支持数，排除指定 stopwords，最后把新规则追加到原规则后。统计支持包括已正确案例，提议触发来自错误案例；这两步不能笼统说成“只统计错误”。每 case 重复单词不多计，却仍存在前述重复 case 虚增支持的问题。
+
+公开例中两个 invoice 工单都标 billing，两个 password/reset 工单都标 access，从空规则可提 invoice、password、reset 三条规则。混用两标签的词不应成为单标签提案，单次姓名或 rare 词不达默认支持 2。候选不是立即生效的政策。源 append 方式也不能修复旧宽规则遮蔽：旧规则先命中，新规则永远到不了；删除、重排或收窄是新候选变更，须重新核逐题回退。显式输入顺序还会影响首次遇到候选的顺序，不能把 dict 键排序摘要误当规则列表无序。
+
+### 12.3 同题门控能发现回退，不能制造泛化证据
+
+门控在同一非空保留集比较 baseline 与 candidate：候选准确率减基线准确率达到预定 min_gain，并且原先正确的 case 里没有任何一题变错，才 eligible。归约以 case ID 对应逐题正确/错误；不可先各删失败项再比较两个自身均值。原正确集合与新错误集合的交集就是 regressions，哪怕总分上升也要明确阻断政策是否允许这些损失。
+
+一个能手算的反例：四题 baseline 正确向量为 1/0/0/0，candidate 为 0/1/1/1。总体从 1/4 到 3/4，增加 0.5，但第一题回退，按此零回退政策仍不得晋升。若 candidate 为 1/1/0/0，则提高 0.25、没有回退，在 min_gain=0.05 的合同下 eligible；这个阈值是政策示例，不是统计显著性结论。零观测回退也不能推出未来无回退。
+
+原公开 fixture 只有 4 条开发和 2 条保留数据，空 baseline 得 0、候选得 1，只说明给定路由样例能通过。重复调试这些工单后，它们已经是开发/回归材料；不能称未见 benchmark。下轮在改 Skill 前冻结新的时间窗/实体群组、标签来源、分区摘要、baseline、指标、支持单位和停止准则，记录哪些 holdout 已被消费。若结果已经反馈给候选选择者，就另取真正未见的最终集；发布门控仍沿前文完整支持、独立采集和授权关系。
+
+### 12.4 精确批准、草稿导出与可回滚发布
+
+候选摘要应覆盖实际序列化规则内容，包括规则及 terms 的列表顺序。来源用固定 Python JSON sort_keys 输出取 SHA，再在 promote 前重算，要求批准值、当前规则值与 passing gate 的 candidate_sha256 一致。错误摘要拒绝而不创建目标，这能防止审阅内容与拟写内容意外漂移；摘要本身不是身份认证，也不证明批准者、范围和有效期。
+
+更强的发布合同还要绑定 baseline、数据与指标/门槛、完整 case 结果、采集身份、目标宿主/作用域、当前安装代、权限及回滚条件。来源 promote 直接信任可变 result 中的 gate 布尔与摘要，不重算评测或认证其来源；改 gate 的调用者可以构造自洽字典。因此本库已有独立证据根、候选/转换输入身份和提交状态机继续保留，不能倒退成“分数好且传了 hash 就可发布”。实际写入点重核当前代，授权未变的既有范围可按原授权继续，规则文本不能自己批准额外动作。
+
+`--dataset-audit` 只把外部 version-1、usable=true 的 train/test 记录接到 development/holdout，并在本地重审重复/内容/群组。保标签和 source 有助追溯，却不认证它们真实，也不自动继承外部所有保证。适配器的版本与字段应严格核型，不能依赖 `True == 1` 或非空字符串的 truthiness。
+
+`--export-skill` 写新的 draft 目录、SKILL.md 和 references/rules.json，不安装、不激活，也不要求门控已经通过；草稿可以保失败候选供审查，不能因此当 ready。入口说明要求先读规则、按顺序合取并人工审阅；实际宿主能否发现/执行仍由前文跨宿主能力合同验证。多文件写入中途失败可能留下不完整草稿，应标 partial 并按所有权处理，不能只看目录存在。
+
+本地 promote 在单写者假设下，先把旧目标保存为 `.previous`，再 temp/write/fsync/replace 新 rules；它没有锁/CAS、目录 fsync 或两个文件的事务。保存 backup 后发布失败、新版已提交但响应失败、重复发布覆盖 previous 都要分别核。`.previous` 只保上一份文件，不是无限版本史或已经验证的回滚；真正回滚还要检查目标当前代、权限和回滚后运行证据。沿第 11.4 节状态机处理，不另造一个弱安装器。
+
+### 12.5 四项纠正闭环实践与参考判据
+
+| 原阶段问题 | 方法、预期结果和失败判据 |
+|---|---|
+| 同客户线程的不同消息能作独立例吗？ | 不能默认。group 与规范内容边取传递组件、整组件分区，再按明示独立单位计支持/评价；构造 a—group—b—content—c，三者不可跨集。保同内容异标签冲突和群组未知，不能只检查 ID。 |
+| 宽规则在前遮蔽精细规则会怎样？ | first-match 让后规则不可达；同一重叠输入仍按旧宽规则返回。重排/收窄是候选变更，保规则顺序摘要并重跑同题门控；只 append 不能假称已修。这里给静态预期，未运行来源 Skill。 |
+| 反复复制同一开发消息为何危险？ | 两 ID 可使 min_support2 看似满足。先保指纹/群组及来源，以唯一内容或独立群组计支持，比较重复前后计数不得虚增；分到同一集不等已经去重。 |
+| 下次修改前怎样冻结新 holdout？ | 先定新样本边界、标签与来源、组件/分区、baseline、指标、门槛、摘要和消费轮次，再提候选；holdout 不进入 propose。门控通过后独立审阅确切候选与完整证据，草稿/安装/发布状态分开，旧版本可按合同回滚。 |
+
+2026-10-16 回融固定提交 [Self-Improving Skill Loop](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/self-improving-skill-loop)。30 文件、四阶段、25 测试定义、57 GIF 帧和两 PNG 全部静读。实际测试包括传递分组、路由合取、歧义/支持、同题回退、错误/精确摘要写入与显式泄漏；不覆盖独立支持去重、完整证据认证、并发发布、previous 内容/回滚或真实宿主。作者输出明确 promotion not requested；2/2 和历史通过不是本次运行或用户能力证明。
+
+四个图注册同用一个计算器：只比较两条规范文本/两个 group、两串等长 0/1 正确性向量，按回退与 gain 决策；approved 是用户复选框，没有真实 candidate digest、并查集、规则提案、文件发布或宿主执行。JS lowercase 也不等 Python casefold 的所有 Unicode 行为。本文保三个旧 Python 例、两个其它围栏和原成功日期/输出类型；没有执行来源、导出/安装 Skill、调用模型或产生同义新程序。完整 case 分母继续见[评测账本](../../LLM%20工程实践/06-评测与实验管理.md#2712-完整cpu例计划矩阵协议身份与共同案例)，实际效果未知的恢复见[异常恢复](../01-核心章节/12-异常处理和恢复.md#持久任务的租约效果与完成记录)。
