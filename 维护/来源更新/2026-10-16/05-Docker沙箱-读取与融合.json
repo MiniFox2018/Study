@@ -7,7 +7,7 @@
   "official_tree": "/tmp/study-update-20261016/target-tree.json",
   "Study_baseline_HEAD": "70b185f39b21ff2246b12cc99b53643c6ac38780",
   "scope": "仅manuals/docker-sandboxes-101全部有效内容及必要直接helpers；当前Docker09/新10独占，旧32冻结",
-  "status": "411完整语义读+6cassette字段闭合/草稿排除；7聚合待审，未完成手册",
+  "status": "412全文语义读+6cassette字段闭合/草稿排除；6聚合待审，未整体验收",
   "files": [
     {
       "path": "manuals/docker-sandboxes-101/README.md",
@@ -10395,7 +10395,91 @@
       "git_blob": "f7e3104f96ad62ad96145db356945e37896be428",
       "official_tree_verified": true,
       "discovered": true,
-      "semantic_read_complete": false
+      "semantic_read_complete": true,
+      "actual_read_date": "2026-10-18",
+      "read_ranges": [
+        [
+          1,
+          2414
+        ]
+      ],
+      "read_mode": "8页全文语义读，1–360/361–700/701–1040/1041–1380/1381–1720/1721–2060/2061–2414无截断；全部代码/表/配置/预期转录静态读，无SDK/服务/CLI执行",
+      "semantic_notes": "统一14.1补DMR auth/CORS/协议alias边界、冷热/运行context/KV容量、引擎格式不保证性能、WebUI配置风险、CI超时/弱断言/清理/输入通道、调试留存；Compose04/硬件09/现14.1已讲原理不另造8网站笔记。远程UI图未取：过期菜单和显示状态，正文已有流程；不声称视觉全读。",
+      "source_executed": false,
+      "page_review": [
+        {
+          "url": "https://docs.docker.com/ai/model-runner/",
+          "lines": [
+            3,
+            181
+          ],
+          "status": "全文语义读及去重处置",
+          "meaning": "架构/平台/引擎/缓存/安全/无认证与遥测已读；全部支持表只固定版本，非硬件普遍事实，local遥测与本地日志分开"
+        },
+        {
+          "url": "https://docs.docker.com/ai/model-runner/api-reference/",
+          "lines": [
+            182,
+            620
+          ],
+          "status": "全文语义读及去重处置",
+          "meaning": "管理/推理/3API/图片/hostcontainer/socket/SDK全部静态读；Anthropic表与示例路径不一，未实核所有alias不冒支持；dummykey不保护无authAPI"
+        },
+        {
+          "url": "https://docs.docker.com/ai/model-runner/configuration/",
+          "lines": [
+            621,
+            924
+          ],
+          "status": "全文语义读及去重处置",
+          "meaning": "context运行vsmax、rough memory无通用保证、threadbatchGPU/rope等参数/默认值不同作用，旧参数/安装不作当前处方；回接09KVcache"
+        },
+        {
+          "url": "https://docs.docker.com/ai/model-runner/examples/",
+          "lines": [
+            925,
+            1115
+          ],
+          "status": "全文语义读及去重处置",
+          "meaning": "hello-genai入口与完整CI YAML全读：124当成功/curl0及hello字符串/清理容错/原始输入shell插值不足以验收；没有clone/run CI"
+        },
+        {
+          "url": "https://docs.docker.com/ai/model-runner/get-started/",
+          "lines": [
+            1116,
+            1341
+          ],
+          "status": "全文语义读及去重处置",
+          "meaning": "Desktop/Engine安装/UI/pull/run/config/package/publish/log/requests全读，易失安装/UI/模型/旧下载链接不复制；管理与推理验证分层"
+        },
+        {
+          "url": "https://docs.docker.com/ai/model-runner/ide-integrations/",
+          "lines": [
+            1342,
+            1713
+          ],
+          "status": "全文语义读及去重处置",
+          "meaning": "全部IDE/框架JSON/TS/Python/PowerShell/命令与排错/模型表全读；baseURL路径与模型namespace不一致，型号表不收，协议兼容非全功能"
+        },
+        {
+          "url": "https://docs.docker.com/ai/model-runner/inference-engines/",
+          "lines": [
+            1714,
+            2122
+          ],
+          "status": "全文语义读及去重处置",
+          "meaning": "三引擎/格式/量化/platform表/参数/包/多引擎/API/排错全读；ARM/WSL/support表与README及实际版本有冲突，不当上游普遍限制；资源理论复用09"
+        },
+        {
+          "url": "https://docs.docker.com/ai/model-runner/openwebui-integration/",
+          "lines": [
+            2123,
+            2414
+          ],
+          "status": "全文语义读及去重处置",
+          "meaning": "WebUI全部Compose/HTMLUI/环境/卷/depends/setup/Socket/HTTP/CORS全读；authfalse+ports全接口+floatingmain不收为正式部署模板；CLI镜像有无model插件另核，服务/用户/后端auth分别验"
+        }
+      ]
     },
     {
       "path": "manuals/docker-sandboxes-101/research/sources/docs-sandboxes-api.md",
@@ -15835,6 +15919,12 @@
       "url": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/profiles/",
       "scope": "官方全文现核OAuth凭据跨profile共享、分享不带凭据；不当本地配置实核",
       "source_runs": 0
+    },
+    {
+      "date": "2026-10-18",
+      "url": "https://docs.docker.com/ai/model-runner/#networking",
+      "scope": "官方现核DMR API未认证；接口可达即可调用，dummykey与前端auth/CORS不同，未实测本机监听",
+      "source_runs": 0
     }
   ],
   "accepted": false,
@@ -15872,7 +15962,7 @@
     "rerun": false
   },
   "checkpoint": {
-    "read_complete_files": 411,
+    "read_complete_files": 412,
     "next": [
       "sections1.1–2.5",
       "sections3.1–4.5",
@@ -15884,9 +15974,9 @@
       "去重融合Docker09/新10"
     ],
     "written": true,
-    "next_actual_read": "7聚合：3release、docs DMR2414行/Agent21284/SBXAPI5036/SBX15279。MCP10页全读回融14.4，下一DMR8页；不扫描首页代全文",
+    "next_actual_read": "余6聚合：3release（Agent6814/Desktop5994/SBX1319行）与docs Agent21284/SBXAPI5036/SBX15279。MCP10页/DMR8页全读已回融；下一先按版本/重复性审release，再保有效知识，不用目录代完成",
     "protocol_cassettes_closed_with_exclusion": 6,
-    "remaining_unreviewed_files": 7,
+    "remaining_unreviewed_files": 6,
     "formal_status": "主体/Kit/模型MCP/Agent与RAG/环境计划已部分回融，8聚合研究文件待审及最终整合"
   },
   "source_recoveries": [
@@ -16793,6 +16883,34 @@
         "维护Markdown": 54,
         "统计口径": "主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。",
         "本地链接检查次数": 4523,
+        "有效Notebook": 93,
+        "已登记上游空Notebook": 1,
+        "来源文件校验数": 969,
+        "有效SVG": 395,
+        "错误": [],
+        "提示": [
+          "第 19 课解答 Notebook 是已登记的上游空文件；不能运行。"
+        ]
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "scope": "DMR8页有效知识回融10§14.1、复用04/09",
+      "file": "计算机科学基础/07-容器化与Docker/10-Docker沙箱与Agent工作台.md",
+      "sha256": "12b0ff3be4e63b348e12dc2191cdd9c6126e5c007b7b1460a3bb17148a236099",
+      "pandoc_full_json_html": "通过0警告",
+      "source_runs": 0,
+      "old_reruns": 0,
+      "new_programs": 0,
+      "accepted_manual": false,
+      "structure": {
+        "说明": "结构检查不替代语义、外链在线状态和实验运行验证",
+        "Markdown总数": 658,
+        "主库Markdown": 345,
+        "学习与导航Markdown": 291,
+        "维护Markdown": 54,
+        "统计口径": "主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。",
+        "本地链接检查次数": 4524,
         "有效Notebook": 93,
         "已登记上游空Notebook": 1,
         "来源文件校验数": 969,
