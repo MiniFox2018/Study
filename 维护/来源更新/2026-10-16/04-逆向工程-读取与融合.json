@@ -3,7 +3,7 @@
   "baseline_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
   "target_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
   "Study_baseline": "70b185f39b21ff2246b12cc99b53643c6ac38780",
-  "source_root": "/tmp/study-update-20261016/source/ai-engineering-from-scratch-1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "source_root": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-update-source1-20261016/ai-engineering-from-scratch-1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
   "scope": "新14程序分析/逆向课32–45+binary-inspector/mini-decompiler两项目+198file手册+路线与源Skill及同SHA副本；原Skill/命令只资料不执行。正式仅新专题目录所有权。",
   "accepted": false,
   "source_execution_import_compiler_test_SDK_REA_service_API_unknown_binary": 0,
@@ -5036,7 +5036,7 @@
       "actual_read_date": "2026-10-16",
       "semantic_notes": [
         "全结构所有值经无损子树排重视图完整静读（tmpcompact44行中1–16）；25profile/14asm/3CFG/21pcode/20defuse/全部限制，rawvalue=normalized精确结构复用，不以仅下载当理解。",
-        "native_api calling_convention显示__stdcall与该ELF SysV fixture背景不一致，仅provider默认观测不采为目标真实ABI；所有21pcode is_dead true同时block_membership member，limitations明确is_dead为JavaAST标志，不能当指令/值无效或死代码证明。",
+        "2026-10-16续38后纠正原疑点：native_api __stdcall是Ghidra x86-64-gcc.cspec内部SysV默认模型名称，并非Microsoft调用约定；官方源码input为RDI/RSI等及stack8已核，不能仅按名称判错误；所有21pcode is_dead true同时block_membership member，limitations明确is_dead为JavaAST标志，不能当指令/值无效或死代码证明。",
         "rangebody end为inclusive，而basicblock end halfopen，必须读字段契约不能统一减法；complete relationship只涵已解析引用，空callers无全域不存在证明。"
       ],
       "source_execution": 0,
@@ -5065,7 +5065,7 @@
       "actual_read_date": "2026-10-16",
       "semantic_notes": [
         "所有字段/9asm/3CFG/17pcode/16defuse/3低confidence参数/16B返回/refs/limits，经compact17–32所有值完整静读；_elfSectionHeaders引用并非运行caller；no runtime验证。",
-        "RDX低置信signature+__stdcall属于provider推断；pcode全部is_dead且member，同样不能靠该flag证无效；raw与normalized结构重复有明确引用。"
+        "RDX低置信signature属于provider推断；__stdcall经38与官方gcc.cspec核是内部SysV模型名称，名称本身并非错误；pcode全部is_dead且member，同样不能靠该flag证无效；raw与normalized结构重复有明确引用。"
       ],
       "source_execution": 0,
       "structured_read_method": {
@@ -7345,11 +7345,28 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 1822,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "structured_complete_value_read",
+      "actual_read_ranges": [
+        [
+          1,
+          1822
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部原始capture字段/指令/ESIL或Pcode/CFG/typed edge/decompiled/refs静读，author2026-10-14，非本轮运行。",
+        "grade switchD分0x62块与0x74jmp块，9blocks/12edges；fullswitch6–10可见。dataReferences的负offset来自stack等非默认空间，Java只导getOffset丢space，不可都当程序VA；label/source字段仍保推断出处。"
+      ],
+      "source_execution": 0,
+      "structured_read_method": {
+        "view": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-re37-remaining-values.txt",
+        "view_sha256": "ef9399db22afea3b5cc3d324f59d417d0f7ce620b6d8a655ced0f1008e64ff40",
+        "view_lines": [
+          33,
+          112
+        ],
+        "scope": "全部值，精确相同子树复用已读9capture；截断26–28已补读；无源程序import/run。"
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/37-the-reverse-engineering-landscape/code/fixtures/ledger-x86_64-O0.o",
@@ -7376,11 +7393,19 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 101,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "exact_body_semantic_reuse",
+      "actual_read_ranges": [
+        [
+          2,
+          2
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "已实际读新header；除第2行显示artifact路径，其余全部bytes同34已完整读oracle，包含3textrelocs。33版本缺reloc不拿来冒完整复用。"
+      ],
+      "source_execution": 0,
+      "reused_from": "phases/13-tools-and-protocols/34-lifting-to-pseudocode/code/fixtures/ledger-x86_64-O0.objdump.txt"
     },
     {
       "source_file": "phases/13-tools-and-protocols/37-the-reverse-engineering-landscape/code/fixtures/ledger-x86_64-O0.radare2.json",
@@ -7390,11 +7415,28 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 1943,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "structured_complete_value_read",
+      "actual_read_ranges": [
+        [
+          1,
+          1943
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部原始capture字段/指令/ESIL或Pcode/CFG/typed edge/decompiled/refs静读，author2026-10-14，非本轮运行。",
+        "grade size118/realsz82，3blocks/2edges/25instructions；case8insn36B未走到，falseflow从未应用reloc LEA出现；grade_label call仍零占位disp导致自next目标，正确grade符号在reloc元数据。"
+      ],
+      "source_execution": 0,
+      "structured_read_method": {
+        "view": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-re37-remaining-values.txt",
+        "view_sha256": "ef9399db22afea3b5cc3d324f59d417d0f7ce620b6d8a655ced0f1008e64ff40",
+        "view_lines": [
+          1,
+          18
+        ],
+        "scope": "全部值，精确相同子树复用已读9capture；截断26–28已补读；无源程序import/run。"
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/37-the-reverse-engineering-landscape/code/fixtures/ledger-x86_64-O0.rizin.json",
@@ -7404,11 +7446,28 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 2363,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "structured_complete_value_read",
+      "actual_read_ranges": [
+        [
+          1,
+          2363
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部原始capture字段/指令/ESIL或Pcode/CFG/typed edge/decompiled/refs静读，author2026-10-14，非本轮运行。",
+        "grade8blocks中switch_op5case4target（0..4），max_val/min_val/def_val元数据0不能取代逐case值；aflj edges字段7而main重建含switch边11，统计层定义不同。"
+      ],
+      "source_execution": 0,
+      "structured_read_method": {
+        "view": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-re37-remaining-values.txt",
+        "view_sha256": "ef9399db22afea3b5cc3d324f59d417d0f7ce620b6d8a655ced0f1008e64ff40",
+        "view_lines": [
+          19,
+          32
+        ],
+        "scope": "全部值，精确相同子树复用已读9capture；截断26–28已补读；无源程序import/run。"
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/37-the-reverse-engineering-landscape/code/fixtures/ledger-x86_64-O1.angr.json",
@@ -7497,11 +7556,19 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 71,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "exact_body_semantic_reuse",
+      "actual_read_ranges": [
+        [
+          2,
+          2
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "已实际读新header；除第2行显示artifact路径，其余全部bytes同34已完整读oracle，包含3textrelocs。33版本缺reloc不拿来冒完整复用。"
+      ],
+      "source_execution": 0,
+      "reused_from": "phases/13-tools-and-protocols/34-lifting-to-pseudocode/code/fixtures/ledger-x86_64-O1.objdump.txt"
     },
     {
       "source_file": "phases/13-tools-and-protocols/37-the-reverse-engineering-landscape/code/fixtures/ledger-x86_64-O1.radare2.json",
@@ -7573,11 +7640,28 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 974,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "structured_complete_value_read",
+      "actual_read_ranges": [
+        [
+          1,
+          974
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部原始capture字段/指令/ESIL或Pcode/CFG/typed edge/decompiled/refs静读，author2026-10-14，非本轮运行。",
+        "total41指令/10blocks/13edges正确形状不等伪C正确：double返回/uint128_t*、v6/v7未初始化、scalar循环只inc无load/sum均为可见推断失真，未本轮编译执行验证。"
+      ],
+      "source_execution": 0,
+      "structured_read_method": {
+        "view": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-re37-remaining-values.txt",
+        "view_sha256": "ef9399db22afea3b5cc3d324f59d417d0f7ce620b6d8a655ced0f1008e64ff40",
+        "view_lines": [
+          113,
+          134
+        ],
+        "scope": "全部值，精确相同子树复用已读9capture；截断26–28已补读；无源程序import/run。"
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/37-the-reverse-engineering-landscape/code/fixtures/ledger-x86_64-O2.ghidra.json",
@@ -7587,11 +7671,28 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 1993,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "structured_complete_value_read",
+      "actual_read_ranges": [
+        [
+          1,
+          1993
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部原始capture字段/指令/ESIL或Pcode/CFG/typed edge/decompiled/refs静读，author2026-10-14，非本轮运行。",
+        "total140B向量8lane累加+shuffle0xee/0x55水平求和+scalar尾，Pcode完整展开lanes，结果仍是provider推导，不是实际host运行。"
+      ],
+      "source_execution": 0,
+      "structured_read_method": {
+        "view": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-re37-remaining-values.txt",
+        "view_sha256": "ef9399db22afea3b5cc3d324f59d417d0f7ce620b6d8a655ced0f1008e64ff40",
+        "view_lines": [
+          167,
+          208
+        ],
+        "scope": "全部值，精确相同子树复用已读9capture；截断26–28已补读；无源程序import/run。"
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/37-the-reverse-engineering-landscape/code/fixtures/ledger-x86_64-O2.o",
@@ -7618,10 +7719,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 99,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          99
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部84insn/3relocs/两padding静读；total SSE2两4lane每次8元素，八lane水平相加后尾循环；oracle不是动态证明。"
+      ],
       "source_execution": 0
     },
     {
@@ -7632,11 +7740,28 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 2209,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "structured_complete_value_read",
+      "actual_read_ranges": [
+        [
+          1,
+          2209
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部原始capture字段/指令/ESIL或Pcode/CFG/typed edge/decompiled/refs静读，author2026-10-14，非本轮运行。",
+        "total解码41指令/10blocks/13edges，但PADDD/PSHUFD的ESIL为空，不能据mnemonic或CFG存在声称仿真语义完整；pdc仅伪语法输出。"
+      ],
+      "source_execution": 0,
+      "structured_read_method": {
+        "view": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-re37-remaining-values.txt",
+        "view_sha256": "ef9399db22afea3b5cc3d324f59d417d0f7ce620b6d8a655ced0f1008e64ff40",
+        "view_lines": [
+          135,
+          152
+        ],
+        "scope": "全部值，精确相同子树复用已读9capture；截断26–28已补读；无源程序import/run。"
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/37-the-reverse-engineering-landscape/code/fixtures/ledger-x86_64-O2.rizin.json",
@@ -7646,11 +7771,28 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 2038,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "structured_complete_value_read",
+      "actual_read_ranges": [
+        [
+          1,
+          2038
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部原始capture字段/指令/ESIL或Pcode/CFG/typed edge/decompiled/refs静读，author2026-10-14，非本轮运行。",
+        "total猜出xmm2为arg9第三参数是误推断；PXOR ESIL错误写普通flags，MOVDQU ESIL还改rcx并循环（把mandatoryF3误按REP风险），与SSE语义不符；空PADDD/PSHUFD表明此emulation不完整。"
+      ],
+      "source_execution": 0,
+      "structured_read_method": {
+        "view": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-re37-remaining-values.txt",
+        "view_sha256": "ef9399db22afea3b5cc3d324f59d417d0f7ce620b6d8a655ced0f1008e64ff40",
+        "view_lines": [
+          153,
+          166
+        ],
+        "scope": "全部值，精确相同子树复用已读9capture；截断26–28已补读；无源程序import/run。"
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/37-the-reverse-engineering-landscape/code/fixtures/ledger.c",
@@ -7759,11 +7901,14 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 19,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "same_byte_semantic_reuse",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "同SHA复用33已读完整trap oracle，无执行。"
+      ],
+      "source_execution": 0,
+      "reused_from": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/sweep-trap.objdump.txt"
     },
     {
       "source_file": "phases/13-tools-and-protocols/37-the-reverse-engineering-landscape/code/fixtures/sweep-trap.radare2.json",
@@ -8195,10 +8340,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 20,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          20
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。"
+      ],
       "source_execution": 0
     },
     {
@@ -8209,10 +8361,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 13,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。"
+      ],
       "source_execution": 0
     },
     {
@@ -8223,10 +8382,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 21,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "仅静读：CFGFast force_complete_scan=False与CompleteCallingConventions(recover_variables,analyze_callsites)启发式，打印7函数/原型；不importSDK。"
+      ],
       "source_execution": 0
     },
     {
@@ -8237,10 +8404,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 53,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          53
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。"
+      ],
       "source_execution": 0
     },
     {
@@ -8251,10 +8425,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 52,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "3框架capture只7/9选定函数，不含call_mixed/pair/big全部，r2显式bin.relocs.apply=true但rizin没有；r2/rizin/angr有无由shell探测，exit success不证全provider完备。"
+      ],
       "source_execution": 0
     },
     {
@@ -8265,11 +8447,81 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-aarch64-linux-O0.o",
+        "sha256": "89e05f0dbe38234e5a219a3777ce17ec4338697da4cd334206551f9b1b8f3352",
+        "format": "ELF64",
+        "architecture": "arm",
+        "sections": [
+          {
+            "name": "",
+            "offset": 0,
+            "size": 0,
+            "type": 0
+          },
+          {
+            "name": ".strtab",
+            "offset": 1886,
+            "size": 239,
+            "type": 3
+          },
+          {
+            "name": ".text",
+            "offset": 64,
+            "size": 980,
+            "type": 1
+          },
+          {
+            "name": ".rela.text",
+            "offset": 1688,
+            "size": 192,
+            "type": 4
+          },
+          {
+            "name": ".rodata.cst16",
+            "offset": 1048,
+            "size": 16,
+            "type": 1
+          },
+          {
+            "name": ".comment",
+            "offset": 1064,
+            "size": 47,
+            "type": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "offset": 1111,
+            "size": 0,
+            "type": 1
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 1880,
+            "size": 6,
+            "type": 1879002115
+          },
+          {
+            "name": ".symtab",
+            "offset": 1112,
+            "size": 576,
+            "type": 2
+          }
+        ],
+        "text_size": 980,
+        "listing": "convention-aarch64-linux-O0.objdump.txt",
+        "listed_instructions": 245,
+        "listed_byte_coverage": 980,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-aarch64-linux-O0.objdump.txt",
@@ -8279,10 +8531,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 281,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          281
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文12函数/每条作者objdump指令/重定位/填充实际静读；源语义与ABI/frame/variadic/caller不执行。",
+        "ARM listing8hex为32位word显示，静态绑定按little-endian转换；FP/noredzone objdump使用-d无-r不代表源对象无重定位。"
+      ],
       "source_execution": 0
     },
     {
@@ -8293,10 +8553,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 27,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "全部12定义与6extern/section/COMDAT/flags/大小实际读；MachO无标准st_size而有局部ltmp及外部_别名，COFF多个.rdata同名不同section不可只按name覆盖。"
+      ],
       "source_execution": 0
     },
     {
@@ -8307,10 +8575,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 175,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          175
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "完整CIE+12FDE逐PC规则读：x86CFAentrySP+8/RIP保存，ARMentrySP及x29 frame，advance/restore阶段改变；源码parse只聚合max/savemap不足完整unwind机。"
+      ],
       "source_execution": 0
     },
     {
@@ -8321,11 +8597,107 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。",
+        "实际发现ARM O2-eh借用baseO2 listing有12处word mismatch；是不同编译flag产物调度重排，未假称samebytes。源eh_frame_cross_check回退另一listing错误绑定，聚合字段巧合一致不替代同对象逐PC交叉核。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-aarch64-linux-O2-eh.o",
+        "sha256": "429ddeaa500e243a670b855f41de11075859caaf5a99c56cc34bda1c55428a9a",
+        "format": "ELF64",
+        "architecture": "arm",
+        "sections": [
+          {
+            "name": "",
+            "offset": 0,
+            "size": 0,
+            "type": 0
+          },
+          {
+            "name": ".strtab",
+            "offset": 2112,
+            "size": 254,
+            "type": 3
+          },
+          {
+            "name": ".text",
+            "offset": 64,
+            "size": 540,
+            "type": 1
+          },
+          {
+            "name": ".rela.text",
+            "offset": 1632,
+            "size": 192,
+            "type": 4
+          },
+          {
+            "name": ".rodata.cst16",
+            "offset": 608,
+            "size": 16,
+            "type": 1
+          },
+          {
+            "name": ".comment",
+            "offset": 624,
+            "size": 47,
+            "type": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "offset": 671,
+            "size": 0,
+            "type": 1
+          },
+          {
+            "name": ".eh_frame",
+            "offset": 672,
+            "size": 336,
+            "type": 1
+          },
+          {
+            "name": ".rela.eh_frame",
+            "offset": 1824,
+            "size": 288,
+            "type": 4
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 2112,
+            "size": 0,
+            "type": 1879002115
+          },
+          {
+            "name": ".symtab",
+            "offset": 1008,
+            "size": 624,
+            "type": 2
+          }
+        ],
+        "text_size": 540,
+        "listing": "convention-aarch64-linux-O2.objdump.txt",
+        "listed_instructions": 135,
+        "listed_byte_coverage": 540,
+        "mismatched_instruction_addresses": [
+          308,
+          312,
+          320,
+          472,
+          476,
+          480,
+          504,
+          508,
+          512,
+          516,
+          524,
+          528
+        ],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-aarch64-linux-O2.o",
@@ -8335,11 +8707,81 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-aarch64-linux-O2.o",
+        "sha256": "3adc88f31a3c8d60b3015c093ff995f76fa5fe529925eeef7112aaea6e14b2e2",
+        "format": "ELF64",
+        "architecture": "arm",
+        "sections": [
+          {
+            "name": "",
+            "offset": 0,
+            "size": 0,
+            "type": 0
+          },
+          {
+            "name": ".strtab",
+            "offset": 1440,
+            "size": 239,
+            "type": 3
+          },
+          {
+            "name": ".text",
+            "offset": 64,
+            "size": 540,
+            "type": 1
+          },
+          {
+            "name": ".rela.text",
+            "offset": 1248,
+            "size": 192,
+            "type": 4
+          },
+          {
+            "name": ".rodata.cst16",
+            "offset": 608,
+            "size": 16,
+            "type": 1
+          },
+          {
+            "name": ".comment",
+            "offset": 624,
+            "size": 47,
+            "type": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "offset": 671,
+            "size": 0,
+            "type": 1
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 1440,
+            "size": 0,
+            "type": 1879002115
+          },
+          {
+            "name": ".symtab",
+            "offset": 672,
+            "size": 576,
+            "type": 2
+          }
+        ],
+        "text_size": 540,
+        "listing": "convention-aarch64-linux-O2.objdump.txt",
+        "listed_instructions": 135,
+        "listed_byte_coverage": 540,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-aarch64-linux-O2.objdump.txt",
@@ -8349,10 +8791,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 171,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          171
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文12函数/每条作者objdump指令/重定位/填充实际静读；源语义与ABI/frame/variadic/caller不执行。",
+        "ARM listing8hex为32位word显示，静态绑定按little-endian转换；FP/noredzone objdump使用-d无-r不代表源对象无重定位。"
+      ],
       "source_execution": 0
     },
     {
@@ -8363,10 +8813,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 27,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "全部12定义与6extern/section/COMDAT/flags/大小实际读；MachO无标准st_size而有局部ltmp及外部_别名，COFF多个.rdata同名不同section不可只按name覆盖。"
+      ],
       "source_execution": 0
     },
     {
@@ -8377,11 +8835,42 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-arm64-macos-O2.o",
+        "sha256": "74507494c7af6d4ba1db379d353d66294554a375f4df64ccfd239679625e69f5",
+        "format": "MachO64",
+        "architecture": "arm",
+        "sections": [
+          {
+            "name": "__TEXT,__text",
+            "offset": 488,
+            "size": 456
+          },
+          {
+            "name": "__TEXT,__literal16",
+            "offset": 952,
+            "size": 16
+          },
+          {
+            "name": "__LD,__compact_unwind",
+            "offset": 968,
+            "size": 384
+          }
+        ],
+        "text_size": 456,
+        "listing": "convention-arm64-macos-O2.objdump.txt",
+        "listed_instructions": 114,
+        "listed_byte_coverage": 456,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-arm64-macos-O2.objdump.txt",
@@ -8391,10 +8880,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 150,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          150
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文12函数/每条作者objdump指令/重定位/填充实际静读；源语义与ABI/frame/variadic/caller不执行。",
+        "ARM listing8hex为32位word显示，静态绑定按little-endian转换；FP/noredzone objdump使用-d无-r不代表源对象无重定位。"
+      ],
       "source_execution": 0
     },
     {
@@ -8405,10 +8902,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 26,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "全部12定义与6extern/section/COMDAT/flags/大小实际读；MachO无标准st_size而有局部ltmp及外部_别名，COFF多个.rdata同名不同section不可只按name覆盖。"
+      ],
       "source_execution": 0
     },
     {
@@ -8419,11 +8924,93 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-x86_64-linux-O0-noredzone.o",
+        "sha256": "e4500569903bb22fd5239a07266913c27792ce87df4ecdcf06a90e727e770991",
+        "format": "ELF64",
+        "architecture": "x86",
+        "sections": [
+          {
+            "name": "",
+            "offset": 0,
+            "size": 0,
+            "type": 0
+          },
+          {
+            "name": ".strtab",
+            "offset": 1886,
+            "size": 299,
+            "type": 3
+          },
+          {
+            "name": ".text",
+            "offset": 64,
+            "size": 944,
+            "type": 1
+          },
+          {
+            "name": ".rela.text",
+            "offset": 1640,
+            "size": 240,
+            "type": 4
+          },
+          {
+            "name": ".rodata.cst8",
+            "offset": 1008,
+            "size": 8,
+            "type": 1
+          },
+          {
+            "name": ".rodata.cst4",
+            "offset": 1016,
+            "size": 4,
+            "type": 1
+          },
+          {
+            "name": ".rodata.cst16",
+            "offset": 1024,
+            "size": 16,
+            "type": 1
+          },
+          {
+            "name": ".comment",
+            "offset": 1040,
+            "size": 47,
+            "type": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "offset": 1087,
+            "size": 0,
+            "type": 1
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 1880,
+            "size": 6,
+            "type": 1879002115
+          },
+          {
+            "name": ".symtab",
+            "offset": 1088,
+            "size": 552,
+            "type": 2
+          }
+        ],
+        "text_size": 944,
+        "listing": "convention-x86_64-linux-O0-noredzone.objdump.txt",
+        "listed_instructions": 239,
+        "listed_byte_coverage": 934,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-x86_64-linux-O0-noredzone.objdump.txt",
@@ -8433,10 +9020,19 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 268,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          268
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文12函数/每条作者objdump指令/重定位/填充实际静读；源语义与ABI/frame/variadic/caller不执行。",
+        "ARM listing8hex为32位word显示，静态绑定按little-endian转换；FP/noredzone objdump使用-d无-r不代表源对象无重定位。",
+        "leaf增加pushrax+addrsp8、eightargs sub48、sumvarargs sub256对比基线128，移出当前SP以下；这不是性能高低结论。"
+      ],
       "source_execution": 0
     },
     {
@@ -8447,11 +9043,93 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-x86_64-linux-O0.o",
+        "sha256": "a93903cf630d4907d5f4ac850977ef4b6d3ad9facec959fb092255c3a4a0c5a5",
+        "format": "ELF64",
+        "architecture": "x86",
+        "sections": [
+          {
+            "name": "",
+            "offset": 0,
+            "size": 0,
+            "type": 0
+          },
+          {
+            "name": ".strtab",
+            "offset": 1886,
+            "size": 299,
+            "type": 3
+          },
+          {
+            "name": ".text",
+            "offset": 64,
+            "size": 944,
+            "type": 1
+          },
+          {
+            "name": ".rela.text",
+            "offset": 1640,
+            "size": 240,
+            "type": 4
+          },
+          {
+            "name": ".rodata.cst8",
+            "offset": 1008,
+            "size": 8,
+            "type": 1
+          },
+          {
+            "name": ".rodata.cst4",
+            "offset": 1016,
+            "size": 4,
+            "type": 1
+          },
+          {
+            "name": ".rodata.cst16",
+            "offset": 1024,
+            "size": 16,
+            "type": 1
+          },
+          {
+            "name": ".comment",
+            "offset": 1040,
+            "size": 47,
+            "type": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "offset": 1087,
+            "size": 0,
+            "type": 1
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 1880,
+            "size": 6,
+            "type": 1879002115
+          },
+          {
+            "name": ".symtab",
+            "offset": 1088,
+            "size": 552,
+            "type": 2
+          }
+        ],
+        "text_size": 944,
+        "listing": "convention-x86_64-linux-O0.objdump.txt",
+        "listed_instructions": 229,
+        "listed_byte_coverage": 924,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-x86_64-linux-O0.objdump.txt",
@@ -8461,10 +9139,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 269,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          269
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文12函数/每条作者objdump指令/重定位/填充实际静读；源语义与ABI/frame/variadic/caller不执行。",
+        "ARM listing8hex为32位word显示，静态绑定按little-endian转换；FP/noredzone objdump使用-d无-r不代表源对象无重定位。"
+      ],
       "source_execution": 0
     },
     {
@@ -8475,10 +9161,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 26,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "全部12定义与6extern/section/COMDAT/flags/大小实际读；MachO无标准st_size而有局部ltmp及外部_别名，COFF多个.rdata同名不同section不可只按name覆盖。"
+      ],
       "source_execution": 0
     },
     {
@@ -8489,10 +9183,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 170,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          170
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "完整CIE+12FDE逐PC规则读：x86CFAentrySP+8/RIP保存，ARMentrySP及x29 frame，advance/restore阶段改变；源码parse只聚合max/savemap不足完整unwind机。"
+      ],
       "source_execution": 0
     },
     {
@@ -8503,11 +9205,99 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-x86_64-linux-O2-eh.o",
+        "sha256": "a30a9d42be41d115a69e20174a05ce6b52aa06efac6585afc5d87ec7a87e7336",
+        "format": "ELF64",
+        "architecture": "x86",
+        "sections": [
+          {
+            "name": "",
+            "offset": 0,
+            "size": 0,
+            "type": 0
+          },
+          {
+            "name": ".strtab",
+            "offset": 2120,
+            "size": 278,
+            "type": 3
+          },
+          {
+            "name": ".text",
+            "offset": 64,
+            "size": 637,
+            "type": 1
+          },
+          {
+            "name": ".rela.text",
+            "offset": 1640,
+            "size": 192,
+            "type": 4
+          },
+          {
+            "name": ".rodata.cst8",
+            "offset": 704,
+            "size": 8,
+            "type": 1
+          },
+          {
+            "name": ".rodata.cst4",
+            "offset": 712,
+            "size": 4,
+            "type": 1
+          },
+          {
+            "name": ".comment",
+            "offset": 716,
+            "size": 47,
+            "type": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "offset": 763,
+            "size": 0,
+            "type": 1
+          },
+          {
+            "name": ".eh_frame",
+            "offset": 768,
+            "size": 320,
+            "type": 1879048193
+          },
+          {
+            "name": ".rela.eh_frame",
+            "offset": 1832,
+            "size": 288,
+            "type": 4
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 2120,
+            "size": 0,
+            "type": 1879002115
+          },
+          {
+            "name": ".symtab",
+            "offset": 1088,
+            "size": 552,
+            "type": 2
+          }
+        ],
+        "text_size": 637,
+        "listing": "convention-x86_64-linux-O2.objdump.txt",
+        "listed_instructions": 177,
+        "listed_byte_coverage": 627,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-x86_64-linux-O2-fp.o",
@@ -8517,11 +9307,87 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-x86_64-linux-O2-fp.o",
+        "sha256": "1776e5c8e7c8febab1903f6c609640f95ae33e70ff483473643b9bdaaf2e47e8",
+        "format": "ELF64",
+        "architecture": "x86",
+        "sections": [
+          {
+            "name": "",
+            "offset": 0,
+            "size": 0,
+            "type": 0
+          },
+          {
+            "name": ".strtab",
+            "offset": 1584,
+            "size": 263,
+            "type": 3
+          },
+          {
+            "name": ".text",
+            "offset": 64,
+            "size": 736,
+            "type": 1
+          },
+          {
+            "name": ".rela.text",
+            "offset": 1392,
+            "size": 192,
+            "type": 4
+          },
+          {
+            "name": ".rodata.cst8",
+            "offset": 800,
+            "size": 8,
+            "type": 1
+          },
+          {
+            "name": ".rodata.cst4",
+            "offset": 808,
+            "size": 4,
+            "type": 1
+          },
+          {
+            "name": ".comment",
+            "offset": 812,
+            "size": 47,
+            "type": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "offset": 859,
+            "size": 0,
+            "type": 1
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 1584,
+            "size": 0,
+            "type": 1879002115
+          },
+          {
+            "name": ".symtab",
+            "offset": 864,
+            "size": 528,
+            "type": 2
+          }
+        ],
+        "text_size": 736,
+        "listing": "convention-x86_64-linux-O2-fp.objdump.txt",
+        "listed_instructions": 208,
+        "listed_byte_coverage": 706,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-x86_64-linux-O2-fp.objdump.txt",
@@ -8531,10 +9397,19 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 239,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          239
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文12函数/每条作者objdump指令/重定位/填充实际静读；源语义与ABI/frame/variadic/caller不执行。",
+        "ARM listing8hex为32位word显示，静态绑定按little-endian转换；FP/noredzone objdump使用-d无-r不代表源对象无重定位。",
+        "keeps RBP/R15/R14/RBX+RAX对齐push、所有framepointer变回；sum_varargs只有一个ret但原O2两ret，可观察首ret扫描掩路径风险。"
+      ],
       "source_execution": 0
     },
     {
@@ -8545,11 +9420,87 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-x86_64-linux-O2.o",
+        "sha256": "10faa8dd688c08e9d2b3cc10f60780751a4f0f2df18b35a3147d3072b04d0d8e",
+        "format": "ELF64",
+        "architecture": "x86",
+        "sections": [
+          {
+            "name": "",
+            "offset": 0,
+            "size": 0,
+            "type": 0
+          },
+          {
+            "name": ".strtab",
+            "offset": 1488,
+            "size": 263,
+            "type": 3
+          },
+          {
+            "name": ".text",
+            "offset": 64,
+            "size": 637,
+            "type": 1
+          },
+          {
+            "name": ".rela.text",
+            "offset": 1296,
+            "size": 192,
+            "type": 4
+          },
+          {
+            "name": ".rodata.cst8",
+            "offset": 704,
+            "size": 8,
+            "type": 1
+          },
+          {
+            "name": ".rodata.cst4",
+            "offset": 712,
+            "size": 4,
+            "type": 1
+          },
+          {
+            "name": ".comment",
+            "offset": 716,
+            "size": 47,
+            "type": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "offset": 763,
+            "size": 0,
+            "type": 1
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 1488,
+            "size": 0,
+            "type": 1879002115
+          },
+          {
+            "name": ".symtab",
+            "offset": 768,
+            "size": 528,
+            "type": 2
+          }
+        ],
+        "text_size": 637,
+        "listing": "convention-x86_64-linux-O2.objdump.txt",
+        "listed_instructions": 177,
+        "listed_byte_coverage": 627,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-x86_64-linux-O2.objdump.txt",
@@ -8559,10 +9510,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 214,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          214
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文12函数/每条作者objdump指令/重定位/填充实际静读；源语义与ABI/frame/variadic/caller不执行。",
+        "ARM listing8hex为32位word显示，静态绑定按little-endian转换；FP/noredzone objdump使用-d无-r不代表源对象无重定位。"
+      ],
       "source_execution": 0
     },
     {
@@ -8573,10 +9532,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 25,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "全部12定义与6extern/section/COMDAT/flags/大小实际读；MachO无标准st_size而有局部ltmp及外部_别名，COFF多个.rdata同名不同section不可只按name覆盖。"
+      ],
       "source_execution": 0
     },
     {
@@ -8587,11 +9554,62 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-x86_64-windows-O0.o",
+        "sha256": "bc9b1f7693a1f1847a60fa576d1ad2f450902bfd67058adac4fdd38a8be6b218",
+        "format": "COFF",
+        "architecture": "x86",
+        "sections": [
+          {
+            "name": ".text",
+            "offset": 300,
+            "size": 813
+          },
+          {
+            "name": ".data",
+            "offset": 1213,
+            "size": 0
+          },
+          {
+            "name": ".bss",
+            "offset": 0,
+            "size": 0
+          },
+          {
+            "name": ".rdata",
+            "offset": 1213,
+            "size": 8
+          },
+          {
+            "name": ".rdata",
+            "offset": 1221,
+            "size": 4
+          },
+          {
+            "name": ".rdata",
+            "offset": 1225,
+            "size": 16
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 1241,
+            "size": 6
+          }
+        ],
+        "text_size": 813,
+        "listing": "convention-x86_64-windows-O0.objdump.txt",
+        "listed_instructions": 177,
+        "listed_byte_coverage": 813,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-x86_64-windows-O0.objdump.txt",
@@ -8601,10 +9619,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 215,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          215
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文12函数/每条作者objdump指令/重定位/填充实际静读；源语义与ABI/frame/variadic/caller不执行。",
+        "ARM listing8hex为32位word显示，静态绑定按little-endian转换；FP/noredzone objdump使用-d无-r不代表源对象无重定位。"
+      ],
       "source_execution": 0
     },
     {
@@ -8615,10 +9641,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 42,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "全部12定义与6extern/section/COMDAT/flags/大小实际读；MachO无标准st_size而有局部ltmp及外部_别名，COFF多个.rdata同名不同section不可只按name覆盖。"
+      ],
       "source_execution": 0
     },
     {
@@ -8629,11 +9663,77 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-x86_64-windows-O2-seh.o",
+        "sha256": "2a77b884fa98e18ba3b1cdb5d81ead8cb80a3b9e2895fff6ae669e909abc250b",
+        "format": "COFF",
+        "architecture": "x86",
+        "sections": [
+          {
+            "name": ".text",
+            "offset": 420,
+            "size": 781
+          },
+          {
+            "name": ".data",
+            "offset": 1301,
+            "size": 0
+          },
+          {
+            "name": ".bss",
+            "offset": 0,
+            "size": 0
+          },
+          {
+            "name": ".rdata",
+            "offset": 1301,
+            "size": 16
+          },
+          {
+            "name": ".xdata",
+            "offset": 1317,
+            "size": 52
+          },
+          {
+            "name": ".rdata",
+            "offset": 1369,
+            "size": 8
+          },
+          {
+            "name": ".rdata",
+            "offset": 1377,
+            "size": 4
+          },
+          {
+            "name": ".rdata",
+            "offset": 1381,
+            "size": 16
+          },
+          {
+            "name": ".pdata",
+            "offset": 1397,
+            "size": 72
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 1649,
+            "size": 0
+          }
+        ],
+        "text_size": 781,
+        "listing": "convention-x86_64-windows-O2-seh.objdump.txt",
+        "listed_instructions": 204,
+        "listed_byte_coverage": 781,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-x86_64-windows-O2-seh.objdump.txt",
@@ -8643,11 +9743,35 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 242,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "complete_delta_read_with_exact_common_line_reuse",
+      "actual_read_ranges": [
+        [
+          2,
+          2
+        ],
+        [
+          79,
+          79
+        ],
+        [
+          84,
+          95
+        ],
+        [
+          192,
+          195
+        ],
+        [
+          215,
+          218
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部新增差异实际读，所有common行逐字相等复用已完整读WinO2；SEH改变sum早返jmp共享epilog及2caller加nop，无源执行。"
+      ],
+      "source_execution": 0,
+      "reused_from": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-x86_64-windows-O2.objdump.txt"
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-x86_64-windows-O2-seh.relocs.txt",
@@ -8657,10 +9781,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 36,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          36
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "SEH原始xdata52B/pdata72B=6runtime entries/18ADDR32NB及10textREL32，原dump数据非本轮objdump/编译。"
+      ],
       "source_execution": 0
     },
     {
@@ -8671,10 +9803,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 15,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "SEH原始xdata52B/pdata72B=6runtime entries/18ADDR32NB及10textREL32，原dump数据非本轮objdump/编译。"
+      ],
       "source_execution": 0
     },
     {
@@ -8685,10 +9825,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 7,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "SEH原始xdata52B/pdata72B=6runtime entries/18ADDR32NB及10textREL32，原dump数据非本轮objdump/编译。"
+      ],
       "source_execution": 0
     },
     {
@@ -8699,11 +9847,67 @@
       "official_blob_matches": true,
       "text": false,
       "line_count": null,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
+      "status": "static_header_sections_listing_byte_binding",
       "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "自有stdlib安全读取header/所有section范围和.text，对每条已读作者listing指令按offset/长度/bytes比较，未知binary0执行；coverage是列出的实际字节，不称全部binary数据/运行已理解。"
+      ],
+      "source_execution": 0,
+      "static_binary_details": {
+        "file": "convention-x86_64-windows-O2.o",
+        "sha256": "597d4d8d1ed507bdb3848adc21e73a53bd86c6c12f32024133dba261fa1b09bb",
+        "format": "COFF",
+        "architecture": "x86",
+        "sections": [
+          {
+            "name": ".text",
+            "offset": 340,
+            "size": 781
+          },
+          {
+            "name": ".data",
+            "offset": 1221,
+            "size": 0
+          },
+          {
+            "name": ".bss",
+            "offset": 0,
+            "size": 0
+          },
+          {
+            "name": ".rdata",
+            "offset": 1221,
+            "size": 16
+          },
+          {
+            "name": ".rdata",
+            "offset": 1237,
+            "size": 8
+          },
+          {
+            "name": ".rdata",
+            "offset": 1245,
+            "size": 4
+          },
+          {
+            "name": ".rdata",
+            "offset": 1249,
+            "size": 16
+          },
+          {
+            "name": ".llvm_addrsig",
+            "offset": 1265,
+            "size": 0
+          }
+        ],
+        "text_size": 781,
+        "listing": "convention-x86_64-windows-O2.objdump.txt",
+        "listed_instructions": 203,
+        "listed_byte_coverage": 781,
+        "mismatched_instruction_addresses": [],
+        "execution": 0
+      }
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/code/fixtures/convention-x86_64-windows-O2.objdump.txt",
@@ -8713,10 +9917,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 241,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          241
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文12函数/每条作者objdump指令/重定位/填充实际静读；源语义与ABI/frame/variadic/caller不执行。",
+        "ARM listing8hex为32位word显示，静态绑定按little-endian转换；FP/noredzone objdump使用-d无-r不代表源对象无重定位。"
+      ],
       "source_execution": 0
     },
     {
@@ -8727,10 +9939,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 45,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "全部12定义与6extern/section/COMDAT/flags/大小实际读；MachO无标准st_size而有局部ltmp及外部_别名，COFF多个.rdata同名不同section不可只按name覆盖。"
+      ],
       "source_execution": 0
     },
     {
@@ -8741,10 +9961,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 55,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          55
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。",
+        "12函数签名/4type数据:pair16/big32/i64longlong跨LP64LLP64稳定；leaf/sum/seed递增有C signed溢出定义域，variadic须实参类型/数量正确，ext未实现，object不能任意执行。README声称手动memcpy/strncpy声明但此源并无这两声明，应以实际源为准。"
+      ],
       "source_execution": 0
     },
     {
@@ -8755,10 +9983,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 3,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源编译/capture/helper/SHA命令仅教材不执行。"
+      ],
       "source_execution": 0
     },
     {
@@ -8769,10 +10004,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 29,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "GP/FP独立序列被原型打印GP先FP，错误源顺序；pair两整数载体不能据此称源两参数，ARMbig_ret误double/漏x8、variadic把savearea当16参数；BOT是未知非真类型。"
+      ],
       "source_execution": 0
     },
     {
@@ -8783,10 +10026,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 29,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "GP/FP独立序列被原型打印GP先FP，错误源顺序；pair两整数载体不能据此称源两参数，ARMbig_ret误double/漏x8、variadic把savearea当16参数；BOT是未知非真类型。"
+      ],
       "source_execution": 0
     },
     {
@@ -8797,10 +10048,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 29,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "GP/FP独立序列被原型打印GP先FP，错误源顺序；pair两整数载体不能据此称源两参数，ARMbig_ret误double/漏x8、variadic把savearea当16参数；BOT是未知非真类型。"
+      ],
       "source_execution": 0
     },
     {
@@ -8811,10 +10070,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 399,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          399
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "ELFO2 eight_args漏LEAindexRCX，Win漏R9，leaf_add只识一个输入、mixed scratch当arg、sumvarargs把保存区与LEAoverflowargarea误参；Win工具frame计数含40B约定，不能直接等本函数实际allocation。原capture有invalid memory错误/skipmap提示，main摘要丢弃这类诊断。"
+      ],
       "source_execution": 0
     },
     {
@@ -8825,10 +10092,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 424,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          424
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "ELFO2 eight_args漏LEAindexRCX，Win漏R9，leaf_add只识一个输入、mixed scratch当arg、sumvarargs把保存区与LEAoverflowargarea误参；Win工具frame计数含40B约定，不能直接等本函数实际allocation。原capture有invalid memory错误/skipmap提示，main摘要丢弃这类诊断。"
+      ],
       "source_execution": 0
     },
     {
@@ -8839,10 +10114,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 383,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          383
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "ELFO2 eight_args漏LEAindexRCX，Win漏R9，leaf_add只识一个输入、mixed scratch当arg、sumvarargs把保存区与LEAoverflowargarea误参；Win工具frame计数含40B约定，不能直接等本函数实际allocation。原capture有invalid memory错误/skipmap提示，main摘要丢弃这类诊断。"
+      ],
       "source_execution": 0
     },
     {
@@ -8853,10 +10136,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 380,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          380
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "ELFO2 eight_args漏LEAindexRCX，Win漏R9，leaf_add只识一个输入、mixed scratch当arg、sumvarargs把保存区与LEAoverflowargarea误参；Win工具frame计数含40B约定，不能直接等本函数实际allocation。原capture有invalid memory错误/skipmap提示，main摘要丢弃这类诊断。"
+      ],
       "source_execution": 0
     },
     {
@@ -8867,10 +10158,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 4,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          4
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "ELFO2 eight_args漏LEAindexRCX，Win漏R9，leaf_add只识一个输入、mixed scratch当arg、sumvarargs把保存区与LEAoverflowargarea误参；Win工具frame计数含40B约定，不能直接等本函数实际allocation。原capture有invalid memory错误/skipmap提示，main摘要丢弃这类诊断。"
+      ],
       "source_execution": 0
     },
     {
@@ -8881,10 +10180,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 330,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          330
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "COFF仍amd64默认，Win mixed猜xmm0/1而实际xmm1/3，keeps把保存RDI/RSI当参；Win afvl实际第5–8四stack槽都有，源正文说three/missing0x40与原capture冲突应纠正。ARMwarn unhandledreloc275/skipmap，save区与指针LEA误参；O0栈offset是工具stack基坐标需换算。"
+      ],
       "source_execution": 0
     },
     {
@@ -8895,10 +10202,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 421,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          421
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "COFF仍amd64默认，Win mixed猜xmm0/1而实际xmm1/3，keeps把保存RDI/RSI当参；Win afvl实际第5–8四stack槽都有，源正文说three/missing0x40与原capture冲突应纠正。ARMwarn unhandledreloc275/skipmap，save区与指针LEA误参；O0栈offset是工具stack基坐标需换算。"
+      ],
       "source_execution": 0
     },
     {
@@ -8909,10 +10224,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 339,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          339
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "COFF仍amd64默认，Win mixed猜xmm0/1而实际xmm1/3，keeps把保存RDI/RSI当参；Win afvl实际第5–8四stack槽都有，源正文说three/missing0x40与原capture冲突应纠正。ARMwarn unhandledreloc275/skipmap，save区与指针LEA误参；O0栈offset是工具stack基坐标需换算。"
+      ],
       "source_execution": 0
     },
     {
@@ -8923,10 +10246,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 333,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          333
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "COFF仍amd64默认，Win mixed猜xmm0/1而实际xmm1/3，keeps把保存RDI/RSI当参；Win afvl实际第5–8四stack槽都有，源正文说three/missing0x40与原capture冲突应纠正。ARMwarn unhandledreloc275/skipmap，save区与指针LEA误参；O0栈offset是工具stack基坐标需换算。"
+      ],
       "source_execution": 0
     },
     {
@@ -8937,10 +10268,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 1,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部tool记录/命令块/警告/error/afi字段/afc/profile/arguments/locals/prototypes逐行静读；版本作者2026-10-14，仅历史capture非本轮run。",
+        "COFF仍amd64默认，Win mixed猜xmm0/1而实际xmm1/3，keeps把保存RDI/RSI当参；Win afvl实际第5–8四stack槽都有，源正文说three/missing0x40与原capture冲突应纠正。ARMwarn unhandledreloc275/skipmap，save区与指针LEA误参；O0栈offset是工具stack基坐标需换算。"
+      ],
       "source_execution": 0
     },
     {
@@ -8951,10 +10290,27 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 1537,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          1537
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部1560余行实际静读：ELF/COFF/MachO符号parser→listing→x86/ARM effect→singlewalk→expected fixedsignatures→ABIchecks→SEH/CFI→toolcapture→framecells/providerdata/CLI。无sourceimport/run。",
+        "default demo实际调用run_tools，若装r2/rizin会启动外部工具；测试test_live_tools_are_optional与demo同样会运行，故不能按“仅静态deterministic”直接执行，本任务已0执行。",
+        "单走地址顺序到首ret/tail，没有CFG路径敏感reachingdefs/stackdelta合并；不同分支、后续早返、循环/动态alloca/shrinkwrap/尾调用可漏状态。检查489是硬编码12签名的有限fixture checks，不是ABI全覆盖。",
+        "expected_locations只模拟int/float/pair/big、GP/SSE简单列表，不完整eightbyte分类（mixedaggregate/HFA/HVA/向量/__int128/alignment、寄存器不足回滚、AAPCS分裂/NSAA与自然对齐）；不能冒称任意C签名分配器。",
+        "callee检查把寄存器当set，不能检测独立GP/FP类源顺序颠倒；variadicSaveArea按源码先验加入所有剩余register，不证明实际有这么多参数；caller逐指令liveoutgoing删除已读regs及boolalzero非完整数据流。",
+        "x86 partialaliases全并族忽略16/8写保留高位；cmov不读flags、SSE转换dst高位preservation并非全写；ARMindexedaddress中registeroffset丢失、conditionalselect flags/implicitreads未建；未知opcode默认猜effect而非拒绝。",
+        "_hidden_pointer x86通过firstargstore+copyrax启发式可把普通“返回传入指针”误判sret；别名未追任意重命名/clobber；返回寄存器lastwrite也会把scratch误认、调用结果仅rax或xmm0未知，不替代caller use验证。",
+        "Winshadow仅depth>=32未证底部32未被saved/locals占用；framepointer强限rbpsaved-8/-8会拒合法biased/不同prolog；_restores_match只查reg名set/order未核每槽值/地址/条件路径，ARMlow64保留与高位callerclobber被wholevreg混淆。",
+        "parse_eh_frame将跨PC阶段CFI合并成最大offset/最后savemap，忽略remember/restore/expressions/CIE规则等；seh未完整version/flags/slotbounds/handler/chain合法性，pdataRELA只按sectionoffsetfixture假设，未知unwindop只记info不拒绝。",
+        "_read_elf不验证class/endian/各表范围/符号section归属，COFF不同section同value排序及重复sectionfirst覆盖、MachO只section1externals当func均fixture限定；不能给任意未知文件可靠判别。",
+        "实际静态核ARM O2-eh的.text有12个word与load_fixture借baseO2 listing不同，当前CFI交叉核并未绑定相同对象逐PC；聚合savemap/maxdepth可巧合一致。"
+      ],
       "source_execution": 0
     },
     {
@@ -8965,11 +10321,209 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 350,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          350
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部test定义/assert静读（含本轮不得执行的run_tools/demo），原489checks与24FDE/6SEH是源码预期而非本轮结果。",
+        "覆盖header4目标/12符号、reloc与ARM立即数/LEA和zero/conversion、prepostSP、3prolog+Apple、redzone/fp、8args/mixed/struct/varargs/callers、SEH/CFI/工具fixture/provider/CLI。",
+        "缺多CFG路径、部分寄存器、复杂aggregateclass/大向量/HFA、空或损坏unwind、错误sret/保存槽覆盖、缺capture及未知instructionfailclosed反例，不能用check总数推通用正确性。"
+      ],
+      "source_execution": 0,
+      "test_definitions": [
+        {
+          "name": "test_object_headers_pick_the_abi",
+          "line": 34,
+          "end_line": 43,
+          "assert_calls": 1
+        },
+        {
+          "name": "test_symbol_tables_list_the_same_twelve_functions",
+          "line": 45,
+          "end_line": 49,
+          "assert_calls": 1
+        },
+        {
+          "name": "test_listing_parser_keeps_relocation_targets_and_arm_immediates",
+          "line": 51,
+          "end_line": 61,
+          "assert_calls": 6
+        },
+        {
+          "name": "test_x86_register_aliases_canonicalize_to_the_full_register",
+          "line": 65,
+          "end_line": 70,
+          "assert_calls": 5
+        },
+        {
+          "name": "test_lea_reads_address_registers_without_loading",
+          "line": 72,
+          "end_line": 77,
+          "assert_calls": 4
+        },
+        {
+          "name": "test_zero_idiom_and_conversions_are_write_only",
+          "line": 79,
+          "end_line": 87,
+          "assert_calls": 5
+        },
+        {
+          "name": "test_arm_pre_and_post_index_move_the_stack_pointer_at_the_right_time",
+          "line": 89,
+          "end_line": 98,
+          "assert_calls": 6
+        },
+        {
+          "name": "test_sysv_keeps_prologue_is_three_pushes_and_no_frame_pointer",
+          "line": 102,
+          "end_line": 110,
+          "assert_calls": 7
+        },
+        {
+          "name": "test_win64_keeps_prologue_pushes_then_allocates_the_shadow_space",
+          "line": 112,
+          "end_line": 118,
+          "assert_calls": 5
+        },
+        {
+          "name": "test_aarch64_keeps_frame_record_sits_at_the_bottom_of_the_frame",
+          "line": 120,
+          "end_line": 126,
+          "assert_calls": 5
+        },
+        {
+          "name": "test_apple_keeps_puts_the_frame_record_at_the_top_of_the_frame",
+          "line": 128,
+          "end_line": 132,
+          "assert_calls": 3
+        },
+        {
+          "name": "test_frame_pointer_present_at_o0_and_omitted_at_o2_on_linux",
+          "line": 134,
+          "end_line": 140,
+          "assert_calls": 4
+        },
+        {
+          "name": "test_leaf_functions_at_o0_use_the_red_zone_only_under_sysv",
+          "line": 142,
+          "end_line": 153,
+          "assert_calls": 9
+        },
+        {
+          "name": "test_epilogues_mirror_prologues_in_every_fixture",
+          "line": 155,
+          "end_line": 159,
+          "assert_calls": 2
+        },
+        {
+          "name": "test_eight_args_registers_and_stack_slots_per_abi",
+          "line": 163,
+          "end_line": 173,
+          "assert_calls": 6
+        },
+        {
+          "name": "test_mixed_shows_independent_sequences_versus_positional_slots",
+          "line": 175,
+          "end_line": 181,
+          "assert_calls": 5
+        },
+        {
+          "name": "test_sixteen_byte_struct_in_two_registers_or_by_reference",
+          "line": 183,
+          "end_line": 190,
+          "assert_calls": 4
+        },
+        {
+          "name": "test_thirty_two_byte_struct_returns_through_a_hidden_pointer",
+          "line": 192,
+          "end_line": 199,
+          "assert_calls": 4
+        },
+        {
+          "name": "test_varargs_callee_reads_al_homes_registers_or_saves_them",
+          "line": 201,
+          "end_line": 213,
+          "assert_calls": 8
+        },
+        {
+          "name": "test_caller_side_setup_per_abi",
+          "line": 215,
+          "end_line": 230,
+          "assert_calls": 11
+        },
+        {
+          "name": "test_caller_passes_the_result_buffer_address_for_big_structs",
+          "line": 232,
+          "end_line": 238,
+          "assert_calls": 5
+        },
+        {
+          "name": "test_every_inference_agrees_with_its_rule",
+          "line": 240,
+          "end_line": 247,
+          "assert_calls": 2
+        },
+        {
+          "name": "test_seh_unwind_codes_match_the_prologue_parse",
+          "line": 251,
+          "end_line": 259,
+          "assert_calls": 5
+        },
+        {
+          "name": "test_unwind_info_decoder_reads_the_header_fields",
+          "line": 261,
+          "end_line": 266,
+          "assert_calls": 3
+        },
+        {
+          "name": "test_eh_frame_cfi_matches_saved_registers_and_depth",
+          "line": 268,
+          "end_line": 279,
+          "assert_calls": 6
+        },
+        {
+          "name": "test_tool_captures_record_what_each_tool_said",
+          "line": 283,
+          "end_line": 297,
+          "assert_calls": 11
+        },
+        {
+          "name": "test_live_tools_are_optional",
+          "line": 299,
+          "end_line": 302,
+          "assert_calls": 1
+        },
+        {
+          "name": "test_figure_data_is_derived_from_the_analysis",
+          "line": 306,
+          "end_line": 320,
+          "assert_calls": 9
+        },
+        {
+          "name": "test_site_figure_module_embeds_the_same_data",
+          "line": 322,
+          "end_line": 330,
+          "assert_calls": 2
+        },
+        {
+          "name": "test_cli_commands_run",
+          "line": 332,
+          "end_line": 338,
+          "assert_calls": 2
+        },
+        {
+          "name": "test_demo_reports_every_object_with_full_agreement",
+          "line": 340,
+          "end_line": 346,
+          "assert_calls": 3
+        }
+      ],
+      "test_execution": 0
     },
     {
       "source_file": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/docs/en.md",
@@ -8979,10 +10533,22 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 407,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          407
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文正文/3ABI+Apple/12functions/7build/SEH与DWARF/4Lab/第4target与canary扩展/489自述检查/全部失败表和refs静读，未读实现/fixtures/tests/provider，不把自述当已复核。",
+        "重要纠错：对象header只能给默认ABI候选，函数可ms_abi/sysv_abi/自定义/FFI thunk，不是格式无条件决定唯一调用规则；readbeforewrite只识载体，不能在独立GP/FP序列下唯一还原源参数交织顺序。",
+        "SysV6GP+8SSE独立，Win四positional+32Bshadow/entry40stack，AArch64x0–7/v0–7/x8hidden返回、callee低64v8–15；Applex18保留、varargsstack/redzone等应以官方版定点核后采入。",
+        "源表callee-saved不是任意源码参数返回类型，hiddenreturn需上下文；redzone只用户ABI受约束叶区，不能用于kernel/异步覆写/跨call持久局部。",
+        "SysV CFI CFA entryRSP+8与ARMentrySP坐标不同；Windows pushrax可只分配stack，不是保存callee-nonvolatile；headers+disasm+unwind同源compiler相关，不能称三个独立真值。",
+        "Darwin总保framepointer等源practice过强需按compilerflag/leaf/tailcalling差异限定；AAPCS从stack后不再寄存器的C.13只NGRN类，SSE/FP NSRN独立，不能一概所有后续参数均stack。"
+      ],
       "source_execution": 0
     },
     {
@@ -8993,10 +10559,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 71,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          71
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文仅教材数据，保先rulebook/载体/entrySP坐标/数据与地址读/同版本unwind交叉核，纠正format=唯一ABI、lastwrite=返回类型、深度>=32=home合法、仅一条路径等过强硬规则。"
+      ],
       "source_execution": 0
     },
     {
@@ -9007,11 +10580,68 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 102,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          102
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "实际8题（非模板6）全部题干/4options/key/rationale完整读。"
+      ],
+      "source_execution": 0,
+      "quiz_notes": [
+        {
+          "index": 0,
+          "correct_zero_based": 1,
+          "all_options_explanation_actually_read": true,
+          "meaning": "B：GP/SSE独立vs四位置槽，都是相应默认CABI而非所有同ISA调用。"
+        },
+        {
+          "index": 1,
+          "correct_zero_based": 3,
+          "all_options_explanation_actually_read": true,
+          "meaning": "D：entryRSP0返回8B+shadow32→第5参40=0x28；caller call前坐标还需减8。"
+        },
+        {
+          "index": 2,
+          "correct_zero_based": 0,
+          "all_options_explanation_actually_read": true,
+          "meaning": "A：entryRSP+8对齐，push24后call前RSP对齐；不是每push都保持16。"
+        },
+        {
+          "index": 3,
+          "correct_zero_based": 1,
+          "all_options_explanation_actually_read": true,
+          "meaning": "B：preindexSP-48，x29/-48 x30/-40，FP指记录低地址；Apple可不同位置。"
+        },
+        {
+          "index": 4,
+          "correct_zero_based": 0,
+          "all_options_explanation_actually_read": true,
+          "meaning": "A：leaf在当前RSP下128byte红区，不能跨另call保局部/不能套kernel。"
+        },
+        {
+          "index": 5,
+          "correct_zero_based": 1,
+          "all_options_explanation_actually_read": true,
+          "meaning": "B：32B普通aggregate sret寄存器rdi/rcx/x8，并看源类型/class，不把大小规则套HFA等特殊类。"
+        },
+        {
+          "index": 6,
+          "correct_zero_based": 0,
+          "all_options_explanation_actually_read": true,
+          "meaning": "A：LEA indexRCX也是读取，变量恢复漏不能当参数不存在；源8参作独立先验。"
+        },
+        {
+          "index": 7,
+          "correct_zero_based": 3,
+          "all_options_explanation_actually_read": true,
+          "meaning": "D：UNWIND_INFO version1/prolog7，0x32→op2/info3→32B，逆序pushRBX/RDI/RSI；不要把显示逆序当执行顺序。"
+        }
+      ]
     },
     {
       "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/README.md",
@@ -9021,10 +10651,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 24,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          24
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源脚本/SDK/编译/capture命令仅资料，不执行。"
+      ],
       "source_execution": 0
     },
     {
@@ -9035,10 +10672,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 34,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源脚本/SDK/编译/capture命令仅资料，不执行。"
+      ],
       "source_execution": 0
     },
     {
@@ -9175,10 +10819,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 10,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          10
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源脚本/SDK/编译/capture命令仅资料，不执行。",
+        "with_canary strncpy63+buf63=0后只返回buf0，protect强度不等内存安全证明；plain_leaf a*b+1signedUB；unsigned long声明仅此LinuxLP64目标，不能套Windowssize_t。"
+      ],
       "source_execution": 0
     },
     {
@@ -9189,10 +10841,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 50,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源脚本/SDK/编译/capture命令仅资料，不执行。"
+      ],
       "source_execution": 0
     },
     {
@@ -9203,10 +10862,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 34,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源脚本/SDK/编译/capture命令仅资料，不执行。",
+        "固定.text offset0x40及两函数start/end硬编码，只capstone/pypcode作者capture用，不是通用ELFloader；SDK未import。"
+      ],
       "source_execution": 0
     },
     {
@@ -9301,10 +10968,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 12,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源脚本/SDK/编译/capture命令仅资料，不执行。",
+        "16case外部f0..15tailcall，default−1，未实现callee；不能执行/不推真实外部行为。"
+      ],
       "source_execution": 0
     },
     {
@@ -9931,10 +11606,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 106,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          106
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源脚本/SDK/编译/capture命令仅资料，不执行。",
+        "25函数完整读；call_switch函数指针可能null/有副作用、sum_n n<=0返回0但正n需有效数组、copy memcpy不重叠且长度、abs/sum/poly/mul溢出定义域；digest quotient同源shared后switch×16+remcap，负rem不强行夹0。"
+      ],
       "source_execution": 0
     },
     {
@@ -9945,10 +11628,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 2,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          2
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源脚本/SDK/编译/capture命令仅资料，不执行。"
+      ],
       "source_execution": 0
     },
     {
@@ -9959,11 +11649,44 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 2159,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
-      "source_execution": 0
+      "status": "partial_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          1060
+        ]
+      ],
+      "actual_read_date": "2026-10-17",
+      "semantic_notes": [
+        "截至1060实际静读ELF64/RELA parser、Magic正向与逆向、Val仿射/文本表示、register/memory/分支、近邻loop筛查、Evaluator单遍CFG/merge/seed、regex源构造抽取/reductions、divisionmatcher起始。1061以后未读。",
+        "Evaluator不是sound解释器：寄存器宽度/模运算未建，单遍无fixedpoint回边；分歧状态seed名称优先会掩值差，flag只取最后可用前驱（fallthrough列表条件p+0==p恒真）无merge；x86zero/add/and等flag副作用缺漏，call无volatile/内存clobber。",
+        "test(a,b)无条件当a vs0，非同一operand时应按a&b；signed/unsigned条件输出都是相同比较符无显式cast，无法保证原bits意义；slot按文本key不追SPdelta/别名，ARMmovk只拼16位并不读取lsl实际位置，未知instruction常退opaque但旧memory等事实未全失效。",
+        "is_loop按地址顺序首unconditional局部判，不完整CFG可达或支配/irreducible识别，docstring“eachbackedge closes loop”早于过滤规则不能当全域定义。",
+        "源parser regex不处理注释/字符串/宏/复杂C类型，balanced无词法状态；verified拟后续读，不能先把37种形状存在说正确。"
+      ],
+      "source_execution": 0,
+      "actual_read_sessions": [
+        {
+          "date": "2026-10-16",
+          "ranges": [
+            [
+              1,
+              340
+            ]
+          ],
+          "registration_note": "上轮实际已读，限额前未及时写入；本次据连续工具上下文补登记，不冒今天新读。"
+        },
+        {
+          "date": "2026-10-17",
+          "ranges": [
+            [
+              341,
+              1060
+            ]
+          ],
+          "source_execution": 0
+        }
+      ]
     },
     {
       "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/tests/test_main.py",
@@ -9987,10 +11710,22 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 457,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          457
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全文实际静读；源脚本/SDK/编译/capture命令仅资料，不执行。",
+        "全部magic unsigned10/7addfix/signed3、modulo、5switchlowering、vector/SLP/unroll/memcpy/memset/tail/inline/select/strength/canary/CET、4Lab+popcount/ctz/rotl实践/失败表/18build373自述report完整读。main/test/全部outputs/quiz/provider尚未读不冒验证。",
+        "魔数需width/signed/shift/修正完整链与误差前提，32bit倒数乘法只是充分算法家族并非任意constantdivision所有变种；有限edge test不等所有32bit输入穷尽。",
+        "verify来自源parser发现同divisor/case/调用形状，只验证有限已知构造标签；形状match或失去call并不能唯一证明inline，源构造可能优化删除或等价代码本就存在。",
+        "所谓“objdump是边界oracle”须保33sweepdata反例；5way特定LLVM/clange17/flags，目标costmodel/版本可变不写成普遍固定规则。",
+        "abs_int(INT_MIN)与signedmul/sum/poly有CUB，位移要定义宽度，rotl shift0/width及ctz(0)等practice需明确；CET landingpad不代表系统真的启用IBT/SHSTK。"
+      ],
       "source_execution": 0
     },
     {
@@ -16725,15 +18460,36 @@
       "source_file": "site/figures-re-37.js",
       "bytes": 27752,
       "sha256": "79b98eeae7dbec7a02cd47f92af7994f0713b2c5fd1c6e10f82c44e92362132f",
-      "status": "需按实际最终注册与必要helper完整静读，尚未读",
-      "actual_read_ranges": []
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          336
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部DATA+UI代码读：43datedevents/8stages/6tools及4capturedtool evidence固定数据；选择工具点亮timeline/terms，键盘Enter/Space与aria，没有实际工具调用/CFG分析；counts是作者已生成数据。",
+        "最终LF.register re-37-field-map；ran=true指作者capture，不能说本轮实跑；docs-only两工具保界。"
+      ]
     },
     {
       "source_file": "site/figures-re-38.js",
       "bytes": 22984,
       "sha256": "4d2754fa344ce65f720b9553021e130a6cba14f271b116a2c07294ff111d93bd",
-      "status": "需按实际最终注册与必要helper完整静读，尚未读",
-      "actual_read_ranges": []
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          249
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "semantic_notes": [
+        "全部DATA和渲染代码实际读：2函数×2优化级×3ABI共12frames固定作者分析数据；按钮切换重画entrySP/currentSP/FP/保存/参数/shadow/redzone，offset按8B行比例；没有现场ABI分析或binary执行。",
+        "regs来自expected_locations源签名先验，不能把图示源顺序当readbeforewrite唯一推断；agree是固定作者checks，未本轮跑489。",
+        "最终LF.register re-38-three-frames；redzone外框与spill重叠是区域包含，Wincaller home与callee own home需区别。"
+      ]
     },
     {
       "source_file": "site/figures-re-39.js",
@@ -16817,12 +18573,12 @@
   "proposed_topic_directory": "计算机科学基础/10-程序分析与逆向工程",
   "formal_writes": [],
   "checkpoint": {
-    "at_utc": "2026-10-16T10:27:47.487580+00:00",
-    "stage": "37 captures view1–183全部实际读；next184 O0radare2",
-    "full_text_primaries": 70,
+    "at_utc": "2026-10-16T22:19:12.013078+00:00",
+    "stage": "39main实际至1060，next1061",
+    "full_text_primaries": 146,
     "source_execution": 0,
     "formal_writes": 0,
-    "detail": "37已完整按实际span：trap4+O1四工具+O0angr=9 captureJSON；184–391余7capture未读，4oracle/provider未读。38–45/两项目/manual仍未读。源0exec，正式0write。"
+    "detail": "日期保16原读；17续main341–1060。39测试/quiz/Skill/18build.s与objdump/18对象/5工具capture/provider仍未读，40–45/两项目/manual未读；正式0写，源0run/import/compiler/tests。"
   },
   "proposed_body_topics": [
     "01-二进制布局与装载地址.md",
@@ -16846,6 +18602,34 @@
       "actual_scope": "官方页面必要段落选读，非外链全文扩大任务",
       "finding": "JCS要求IEEE754/ECMAScript数字表达、UTF16键排序、拒重复属性及非法Unicode；只禁float+sort_keys不充分。",
       "method": "agent-reach网页路线先前Jina受代理失败后官方web direct；本次direct官方页选读。"
+    },
+    {
+      "date": "2026-10-16",
+      "url": "https://cdrdv2-public.intel.com/782151/253667-sdm-vol-2b.pdf",
+      "publication": "253667-080US June2023",
+      "actual_scope": "PXOR legacy128和MOVDQU legacy编码/operation必要段选读，不声称744页全文",
+      "finding": "66 0F EF为SSE2 PXOR，F3 0F 6F为MOVDQU 128bit复制，不具有REP计数RCX循环；本fixture Rizin ESIL改flags/rcx需纠正。"
+    },
+    {
+      "date": "2026-10-16",
+      "url": "https://raw.githubusercontent.com/NationalSecurityAgency/ghidra/master/Ghidra/Processors/x86/data/languages/x86-64-gcc.cspec",
+      "scope": "官方源default_proto/输入输出/stack与MSABI区别必要段",
+      "finding": "__stdcall只是Ghidra gcc模型内部名称，注释及RDI/RSI/RDX/RCX/R8/R9/stack8确定为SysV；纠正35初读时名称疑点，master当前源并非冒称固定12.1.4同字节。"
+    }
+  ],
+  "source_recovery_events": [
+    {
+      "date": "2026-10-16",
+      "reason": "tmp被环境清空，Root恢复固定7989Blob副本；已读9JSON不重读，仅新未读7capture；原tmpview丢失不伪恢复同字节。",
+      "root": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-update-source1-20261016/ai-engineering-from-scratch-1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e"
+    }
+  ],
+  "continuation_sessions": [
+    {
+      "date": "2026-10-17",
+      "start_utc": "2026-10-16 22:18:41 UTC",
+      "stage": "39实现续读",
+      "preserve_prior_dates": true
     }
   ]
 }
