@@ -278,3 +278,41 @@ docker compose down
 把 db 的 healthcheck 删除而保留 `condition: service_healthy`，依赖条件就失去依据；不能用 `sleep 10` 替代真正就绪检测。即使启动时健康，后续数据库也可能断开，业务仍需连接超时、有限重试和失败处理。
 
 `docker compose config` 只做配置解析/规范化，不能证明镜像存在、密码有效、网络连通或数据库可用。真正验收还需看到查询输出，并通过实际数据读写验证持久化。
+
+## 15. AI模型依赖与外部provider
+
+普通service通常描述容器。AI模型则可以作为顶层`models`声明，再由service显式引用，平台负责把模型的连接信息注入应用。**声明模型、应用知道地址、推理后端可用、业务生成正确**仍是四个检查。
+
+2026-10-18核对[Compose Models官方参考](https://docs.docker.com/reference/compose-file/models/)：此能力要求Compose 2.38.0及以上，并需要实施该模型机制的平台。`model`指定模型OCI资产，`context_size`指定上下文配置，`runtime_flags`传给实际推理引擎；不同平台/引擎不保证接受同一组参数。
+
+下面是**结构示例**，`your-app:VERSION`和`ai/your-model:VERSION`是待替换资产，未拉取、未运行，不属于前面已验过的数据库实验：
+
+```yaml
+services:
+  app:
+    image: your-app:VERSION
+    models:
+      assistant:
+        endpoint_var: AI_BASE_URL
+        model_var: AI_MODEL_ID
+models:
+  assistant:
+    model: ai/your-model:VERSION
+    context_size: 2048
+```
+
+应用读取`AI_BASE_URL`与`AI_MODEL_ID`，再按后端实际API构造请求。模型声明键`assistant`是配置内逻辑名，OCI引用是资产名，API请求model字段由平台注入的标识决定，三者不能猜成同一个字符串。
+
+短语法以模型逻辑名生成变量：例如`embedding-model`对应`EMBEDDING_MODEL_URL`、`EMBEDDING_MODEL_MODEL`。长语法显式命名更适合复用已有应用；不要在代码里假定容器的localhost就是宿主模型服务。API base URL是否已包含`/v1`或引擎路径也须核对，避免重复拼接。
+
+**资源与结果条件**：上下文越大通常需要更多KV缓存，不能只看权重能否放入内存；线程数也不等于支持的并发请求数。来源“concurrent”示例只调threads/mlock，没有展示排队或并发服务合同。temperature=0与top-k=1可减少采样随机性，不能保证跨硬件/后端/版本逐字节一致；embeddings还需模型与端点、引擎模式真正匹配。原理参见[AI容器与硬件边界](09-AI容器与硬件运行边界.md)。
+
+### 外部provider为何多了一条宿主执行路径
+
+Compose的`provider` service代表由第三方组件管理的能力，不必对应一个普通容器。其type可指Docker CLI插件、PATH二进制或脚本路径；`compose up`可能因此调用宿主程序来配置资源。配置文件来源与插件实现都需要审阅，不能因为YAML里没有shell service就认定只有容器内执行。
+
+依赖它的service通常通过`<PROVIDER_SERVICE>_<VARIABLE>`收到连接信息。例如名为database的provider返回URL/token，应用可能收到`DATABASE_URL`与`DATABASE_TOKEN`。这些变量提供连接能力，未证明资源只读、可用或无费用；`depends_on`也不能替代请求超时、鉴权和实际就绪检查。
+
+[Provider官方说明](https://docs.docker.com/compose/how-tos/provider-services/)目前标注Compose 2.36.0及以上，并建议AI模型优先使用顶层models。它与models支持版本不同，不能拿一台支持普通Compose的机器就假定两者都支持。跨平台可移植指声明机制，供应商生命周期、收费、清理和权限仍由具体实现决定。
+
+本节来源为第一来源固定`1a8c4fd…`中三页Compose资料，整理2026-10-18；两页上述官方参考同日现核。只做正文审阅与静态配置说明，未启动provider/模型/Compose，不改变原数据库实验的历史验证日期。
