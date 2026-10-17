@@ -2048,3 +2048,23 @@ heldout目录名是历史名，六题和poisoned drafts全公开，demo正好复
 补充读懂12份安全语料：denylist不替隔离；容器共享宿主内核，资源cgroups、daemon控制权、挂载、capabilities分别审；用户态应用内核、microVM/虚拟化容器与远端会话是不同边界；密钥代理不把key交Agent，仍需可信目的与出站限制；会话生命周期controller不自行实现隔离；临时任务结束还要撤销凭据/状态。这些原理接到[安全模式](../Agentic%20Design%20Patterns/01-核心章节/18-安全模式.md)。作者安全笔记中的泛RFC链接不充分支撑每个具体产品机制，不能用seccomp文档替用户态内核架构；已另核[Docker daemon控制面](https://docs.docker.com/engine/security/#docker-daemon-attack-surface)、[gVisor应用内核](https://gvisor.dev/docs/architecture_guide/intro/)和[Firecracker设计](https://github.com/firecracker-microvm/firecracker/blob/main/docs/design.md)指定段（2026-10-15），保“隔离不自动执行出站过滤/不保护已授权数据”边界，不收录旧型号、性能与安装流程。
 
 来源：[Research Report Agent](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/research-report-agent)，固定commit与其余本次来源相同，2026-10-15完整读后主题融合。原source/CLI/tests/grader/Rust/Node/模型/API/网络/安装均0执行；原11个Python示例保持字节及持久实际成功原日期，不重复运行。
+
+## 21. 框架化检索配置：索引就绪、候选预算与原文版本
+
+前面的算法和证据合同不依赖某个框架；当它们进入Agent配置，需要再核一层实际执行。第一来源Docker Agent1.149.0的schema提供BM25、chunked-embeddings与semantic-embeddings三类策略，以及候选、融合、重排和全文返回字段。本节按2026-10-18读到的固定快照解释配置含义，没有运行框架或模型。
+
+共享docs与每策略docs共同决定输入，respect_vcs还可以在策略级覆盖。遵守.gitignore只是采集规则，不是用户权限；被忽略文件未进索引，不证明其它filesystem工具不可读。semantic-embeddings可能额外调用chat model生成语义表示，除embedding还要记录模型、提示、并发、费用和派生版本；生成的摘要须回接原文，不能直接充当原文主张。
+
+chunk size/overlap在该配置中是字符单位，vector_dimensions须和真实embedding输出一致；仅模型名称相同不能保证维度、归一化和预处理一致。代码感知分块可回退普通文本，勾一个code_aware不证明每种语言都完成AST解析。
+
+每策略limit控制进入融合的候选数，最终results.limit不能凭空补回没召回的证据。例如两个策略各只取5条，设置最终top15不保证能得到15条，去重后可能更少。RRF按排名融合，原始加权分数要统一尺度；BM25阈值与余弦阈值不可照抄同一个数字。重排的top_k可能限制参与重排范围，不能误作总召回；criteria在原生重排后端不一定被采用。
+
+索引初始化超时、单次索引任务上限与查询timeout分开。来源配置说明索引可在短启动等待后继续后台工作，工具就绪前不应把查询空结果记为语料无答案；保留building/ready/failed、代际与文件进度。并发索引/embedding/摘要会放大资源与限流压力，不能把三个concurrency字段当同一个总并发上限。
+
+return_full_content按文件系统重新读全文时尤其要检查：用于召回的旧chunk与返回的新文件可能不是同一revision。按照第13节冻结代际和权限，在组装上下文前核原文版本/摘要/跨度，变化则重新索引或明确拒绝混用；再增加全文大小与上下文预算，不能无限展开。
+
+Agent response cache的“相同问题重放答案”也不替本章第14节的权限/版本缓存合同。配置存在、schema接受、索引Ready、召回有分、出处精确、主张被支持和当前主体获准读取，必须分别留下证据。
+
+参考判断：一个问题返回0条，后台仍在建索引，能否标“知识库没有相关资料”？**不能**，这是就绪状态未满足。索引记录A版本、全文读取变成B版本，能否给A的偏移配B正文？**不能**，应核版本并保持同代读取。
+
+来源：第一来源固定`1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e`的Docker手册附属schema，对应[Docker Agent固定1.149.0配置](https://github.com/docker/docker-agent/blob/bf4169cdd31229d52385410c52c3dcc59b497858/agent-schema.json)，2026-10-18经官方GitHub API核字节相同。这里复用本章已有BM25/RRF、分块、评价、代际和权限程序，不重跑旧例；供应商型号、价格和临时默认不作为当前选型建议。
