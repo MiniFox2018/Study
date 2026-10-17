@@ -1,0 +1,559 @@
+{
+  "date": "2026-10-16",
+  "target_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "status": "四阶段完整语义静读/媒体视读/主动纠错/主题融合及局部验证，未标全版本完成",
+  "formal_file": "计算机科学基础/05-生产级软件工程.md §18",
+  "scope": "signed-webhook-inbox整个项目、4stage正文/tests/starter、完整solution、4图provider、全部28帧+2PNG；共享helper同SHA复用",
+  "source_runs": 0,
+  "source_tests_static": 26,
+  "media_author_run_date": "2026-10-09T14:35:15Z",
+  "media_author_output_date": "2026-10-09T14:35:16Z",
+  "own_run": {
+    "date": "2026-10-16",
+    "environment": "CPython3.12.13 -I",
+    "program_sha256": "2bb2713e1b2e5fd65c4417f0331bbefb012239241f0bbd12b996a1b7a44d69cd",
+    "exit_code": 0,
+    "stdout": "点分隔不同字段同签名反例成立；长度前缀区分ID/正文，原字节和时间窗边界通过\n",
+    "scope": "自有有限CPU，不执行Go/原程序/服务/收件箱/实际密钥"
+  },
+  "finding": "v1点分隔但deliveryID允许点；同时间(a,1.23)和(a.1,23)编码相同；两个ID合法且body均合法JSON数值。自有长度前缀修正边界已实证。",
+  "validation": {
+    "formal_sha256": "c6ad811d7a7602854a12b6d57b2f5f75010b413c9d100678903848d3553bd78c",
+    "pandoc_json_html_full": true,
+    "warnings": 0,
+    "old_exact_prefix": true,
+    "new_cpu_bytes_equal_actual_run": true,
+    "structure": {
+      "说明": "结构检查不替代语义、外链在线状态和实验运行验证",
+      "Markdown总数": 657,
+      "主库Markdown": 344,
+      "学习与导航Markdown": 290,
+      "维护Markdown": 54,
+      "统计口径": "主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。",
+      "本地链接检查次数": 4480,
+      "有效Notebook": 93,
+      "已登记上游空Notebook": 1,
+      "来源文件校验数": 969,
+      "有效SVG": 395,
+      "错误": [],
+      "提示": [
+        "第 19 课解答 Notebook 是已登记的上游空文件；不能运行。"
+      ]
+    }
+  },
+  "source_files": [
+    {
+      "source_file": "projects/signed-webhook-inbox/README.md",
+      "bytes": 3894,
+      "sha256": "b1ed35dec7ed4ef6659e9eb031b15ae4c439cbbca8d7bbb189aa393318969499",
+      "git_blob": "8f6a7db27e4d9e06fc4e9ed775fd71fc4910766f",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          55
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/media/output.gif",
+      "bytes": 55000,
+      "sha256": "81a7aaccf914586ceae81ad722dfa77400d3173e73e8241939357265e02e6694",
+      "git_blob": "3d08385caeccf200c724446796655f295da80021",
+      "source_execution": 0,
+      "reading": "全部帧接触表视读，非本机重新运行",
+      "frames": 10
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/media/output.json",
+      "bytes": 980,
+      "sha256": "a25a720e2cd13dc1d589234187892f8447ba53f3547405946ad6f4353e8ea9a1",
+      "git_blob": "eeb396f91f3ef1820b9671bb343f700d535f1401",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/media/output.png",
+      "bytes": 47724,
+      "sha256": "d80acdad4dc5c825b706df584edfc64bf09d7bf5d981c92b17586b585f76c433",
+      "git_blob": "3010990d252b945b765910d222d834e4cc1fe44e",
+      "source_execution": 0,
+      "reading": "1120x630原图独立视读"
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/media/run.gif",
+      "bytes": 229975,
+      "sha256": "1f5d74273b070c215ca1df0da7843f4c6821c24d0ae8483cd8d78f5c5816e150",
+      "git_blob": "191223f3644df2c0023b37339831f211bd3995e6",
+      "source_execution": 0,
+      "reading": "全部帧接触表视读，非本机重新运行",
+      "frames": 18
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/media/run.json",
+      "bytes": 2140,
+      "sha256": "2e8fe55330a18e529f155ae62a99e6a241b27d99a00d0a9582f24f0a229b66e5",
+      "git_blob": "3f6d28fb4ed2c9fc21ac36b50f45dd18cbcc4b6d",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/media/run.png",
+      "bytes": 91840,
+      "sha256": "70d26dd8e2103161146125e5971d38ea2de8da908d060d00e617420a935ee6a4",
+      "git_blob": "28d4f0dd64f3a697952030478a5de6dce0669a15",
+      "source_execution": 0,
+      "reading": "1120x630原图独立视读"
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/project.json",
+      "bytes": 3203,
+      "sha256": "d520ed7a6f32e8cc220a0cd5ff418c9150ea601ba795e1597d8b1e4a8b8b0e6f",
+      "git_blob": "f654f507f4f4779ac797a6afd53bbdb6e28e08ce",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          106
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/solution/fixtures/event.json",
+      "bytes": 67,
+      "sha256": "3c948129f1ae45f92e99d6d6a2defbd771c329cc9e53e655549e1aad12e41d99",
+      "git_blob": "01607a395b5a1f7617266c53a80e323ceb60d91e",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/solution/go.mod",
+      "bytes": 29,
+      "sha256": "b74bb7bc42eb20e97a3f5324839e63aebf8ec874c5c77d57d484b6d3682b8407",
+      "git_blob": "14f082283e2adf905501edcd77a66864b6e55990",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/solution/main.go",
+      "bytes": 11148,
+      "sha256": "6e4442f159c9687f6b147289e770b3641e041abc5e7f798ad0fd8a92da1fcd54",
+      "git_blob": "97f666922037030f8ae36914d3a2a87b8a015487",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          385
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/01-preserve-delivery/docs/en.md",
+      "bytes": 2092,
+      "sha256": "56e963e98e1e6f79b2d70c86beeedcd5d2114440704fc7f44d291e30cfb0d502",
+      "git_blob": "81edb9c956ac206a9da1e985e22726f4a5946179",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          42
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/01-preserve-delivery/starter/fixtures/event.json",
+      "bytes": 67,
+      "sha256": "3c948129f1ae45f92e99d6d6a2defbd771c329cc9e53e655549e1aad12e41d99",
+      "git_blob": "01607a395b5a1f7617266c53a80e323ceb60d91e",
+      "source_execution": 0,
+      "reading": "同字节别名复用本批完整静读",
+      "alias_of": "projects/signed-webhook-inbox/solution/fixtures/event.json"
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/01-preserve-delivery/starter/go.mod",
+      "bytes": 29,
+      "sha256": "b74bb7bc42eb20e97a3f5324839e63aebf8ec874c5c77d57d484b6d3682b8407",
+      "git_blob": "14f082283e2adf905501edcd77a66864b6e55990",
+      "source_execution": 0,
+      "reading": "同字节别名复用本批完整静读",
+      "alias_of": "projects/signed-webhook-inbox/solution/go.mod"
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/01-preserve-delivery/starter/main.go",
+      "bytes": 8123,
+      "sha256": "2403ae9bb3b051de541f32a69649e08a53ada04cbd9b86649821ed79aaf0379a",
+      "git_blob": "c77d858eb7ddfdd09d539b57eb4bc5f77f6e96b2",
+      "source_execution": 0,
+      "reading": "完整参考解+完整starter差分；equal字节精确复用，不冒充另行全文重读",
+      "regions": [
+        {
+          "kind": "equal",
+          "solution_lines": [
+            1,
+            33
+          ],
+          "starter_lines": [
+            1,
+            33
+          ]
+        },
+        {
+          "kind": "replace",
+          "solution_lines": [
+            34,
+            54
+          ],
+          "starter_lines": [
+            34,
+            34
+          ]
+        },
+        {
+          "kind": "equal",
+          "solution_lines": [
+            55,
+            62
+          ],
+          "starter_lines": [
+            35,
+            42
+          ]
+        },
+        {
+          "kind": "replace",
+          "solution_lines": [
+            63,
+            78
+          ],
+          "starter_lines": [
+            43,
+            43
+          ]
+        },
+        {
+          "kind": "equal",
+          "solution_lines": [
+            79,
+            175
+          ],
+          "starter_lines": [
+            44,
+            140
+          ]
+        },
+        {
+          "kind": "replace",
+          "solution_lines": [
+            176,
+            198
+          ],
+          "starter_lines": [
+            141,
+            141
+          ]
+        },
+        {
+          "kind": "equal",
+          "solution_lines": [
+            199,
+            200
+          ],
+          "starter_lines": [
+            142,
+            143
+          ]
+        },
+        {
+          "kind": "replace",
+          "solution_lines": [
+            201,
+            241
+          ],
+          "starter_lines": [
+            144,
+            144
+          ]
+        },
+        {
+          "kind": "equal",
+          "solution_lines": [
+            242,
+            385
+          ],
+          "starter_lines": [
+            145,
+            288
+          ]
+        }
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/01-preserve-delivery/tests/stage_test.go",
+      "bytes": 1195,
+      "sha256": "f9b79532882e1d7b098c0c42cec3b45b0ef6e88b4e35f4ca1478f91086060afe",
+      "git_blob": "2f74b9384acdaec40def044a4474ca8b262a93dc",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/02-verify-authenticity/docs/en.md",
+      "bytes": 2067,
+      "sha256": "00703467f00a3fc1c33bc93140febb87afbf3ed16b30c28b334f2e141f0bd164",
+      "git_blob": "38c0ef08f3a2e683d204e5cc7adc1a2db169864e",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          42
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/02-verify-authenticity/starter/STAGE-2.md",
+      "bytes": 343,
+      "sha256": "5cb6a910a2a31ab5e1bc4e2f3389c3bb641e15f8a4b0fe10e8be08cfdca736ea",
+      "git_blob": "0eaa4328284911b5ed4424cc6c93ce7b8d2aa976",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/02-verify-authenticity/tests/stage_test.go",
+      "bytes": 1334,
+      "sha256": "d7221008f9a91db062d3edd626badeb4646fe6d65387cb42f8693757c2c621fc",
+      "git_blob": "5b3375f52b49058c67c04073efc0bdff3520c00f",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          51
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/03-durable-deduplication/docs/en.md",
+      "bytes": 2300,
+      "sha256": "6b688538b8d96ff283784d7bf611e662293e4424a234b1f2b493a89507fc2e82",
+      "git_blob": "65188a8b714c010b5ab42c6a15c4cb08220e27c9",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          42
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/03-durable-deduplication/starter/STAGE-3.md",
+      "bytes": 307,
+      "sha256": "429e82fc40ca6aed0b4f25fd78d09d4aa94ecb1908b3e0353573d6cfae0a272a",
+      "git_blob": "38adebe96bc191a25e5ffbfde911d07622792ba3",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/03-durable-deduplication/tests/stage_test.go",
+      "bytes": 1760,
+      "sha256": "d644057134324fd814bf46e421eec177a76b010be29d9548eab23cbc4048dbb1",
+      "git_blob": "c678769e45945baddde8bde0e9d6b270f70f130a",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          75
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/04-replay-receipts/docs/en.md",
+      "bytes": 2283,
+      "sha256": "ad90644afd0059b993a27438a9bd8531a4ee8d8312a2afd313dcf24de9f3d589",
+      "git_blob": "aa843b583f072e1541b24071015dc234a2bd026b",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          42
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/04-replay-receipts/starter/STAGE-4.md",
+      "bytes": 392,
+      "sha256": "3f93097315597b86ed77e3ef724f4d3dca3b96d6fa32b074a1f1e6f5471015e5",
+      "git_blob": "166ad11ad8dc7b13133131a49bf4d6fafa785813",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "source_file": "projects/signed-webhook-inbox/stages/04-replay-receipts/tests/stage_test.go",
+      "bytes": 3158,
+      "sha256": "2c74b63900f22012981f7e7f40f1774bd3d74511a0f708051e7ef6781e3ba0df",
+      "git_blob": "285940439fb9a4b96e1050d8f5d9acac5f64c40d",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          114
+        ]
+      ]
+    },
+    {
+      "source_file": "site/figures/projects/signed-webhook-inbox.js",
+      "bytes": 4788,
+      "sha256": "ebbde9f3f26803aaf31c0c74b5d0f799854f324b4db1b1b8386d549e917cc59e",
+      "git_blob": "97e68ae708c2d42ddee57366e79f7c29005ac9fa",
+      "source_execution": 0,
+      "reading": "完整语义静读",
+      "line_ranges": [
+        [
+          1,
+          181
+        ]
+      ]
+    }
+  ],
+  "counts": {
+    "scope_files": 26,
+    "project_stages": 4,
+    "source_tests_static": 26,
+    "figures": 4,
+    "source_runs": 0,
+    "old_reruns": 0,
+    "new_own_cpu_actual_success": 1
+  },
+  "stages": [
+    {
+      "stage": 1,
+      "tests_static": 6,
+      "destination": "§18.1 原字节、规范方法/ID/秒/1..65536字节，JSON后解释"
+    },
+    {
+      "stage": 2,
+      "tests_static": 6,
+      "destination": "§18.2 编码非单射纠错、HMAC安全比较、闭区间、密钥"
+    },
+    {
+      "stage": 3,
+      "tests_static": 6,
+      "destination": "§18.3/18.4 文件/目录同步、原子无覆盖发布、重试冲突、失败未知"
+    },
+    {
+      "stage": 4,
+      "tests_static": 8,
+      "destination": "§18.5/18.6 三身份/显式重放、回执绑定、外部效果/业务合同"
+    }
+  ],
+  "professional_corrections": [
+    "v1点分隔字段编码歧义不等HMAC破解；两个合法ID+两个有效JSON数值可同编码",
+    "签名、持久接收、业务完成及外部效果分别验收；时间窗不阻止窗内重复",
+    "源Sign不单独核key长，Verify/CLI有，不能把Sign名当完整认证",
+    "原子link后Sync失败可能已落盘，500不是未接收；本地FS条件不能推广任意网络盘",
+    "MkdirAll不收紧已有目录；hash文件名不核可信祖先/符号链接；base64非脱敏或加密",
+    "普通摘要仅检损坏，不防同改body+摘要；源Entry无完整原验签信封，重放依赖可信存储",
+    "json.Compact只去空白不定义键序无关语义；data:null/重复键等需业务schema",
+    "本地receipt只写JSON，不能证明外部exactly-once"
+  ],
+  "figure_semantics": [
+    "1 UTF8字节计数非HMAC",
+    "2 age<=window只算旧值未含未来/签名/时钟",
+    "3字面body==same非实际存储/字节比对",
+    "4 Set run IDs非完整(delivery,run)原子回执"
+  ],
+  "media": {
+    "run_recordedAt": "2026-10-09T14:35:15Z",
+    "output_recordedAt": "2026-10-09T14:35:16Z",
+    "frames_seen": 28,
+    "png_seen": 2,
+    "content": "starter6项失败，solution6/6/6/8成功；demo202/200/401及同run不再建；processedAt2026-02-02是固定fixture不等录制日",
+    "source_runs": 0
+  },
+  "official_selected": [
+    {
+      "url": "https://pkg.go.dev/crypto/hmac",
+      "scope": "168–176/193–202，概述与Equal"
+    },
+    {
+      "url": "https://pkg.go.dev/os#Link",
+      "scope": "953–957，Link"
+    },
+    {
+      "url": "https://pkg.go.dev/os#File.Sync",
+      "scope": "1749–1753，Sync"
+    },
+    {
+      "url": "https://pkg.go.dev/os#MkdirAll",
+      "scope": "1027–1031，已有目录不改权限"
+    }
+  ],
+  "temp_recovery": "原tmp被清空，已按固定1a8官方7989Blob全核恢复；本批已读内容不重复生成或重新执行",
+  "shared_reuse": [
+    {
+      "source_file": "site/figures/projects/runtime.js",
+      "sha256": "233d9784654b37028abe604652b36f81d32722bb51221b6c8b92a05318c4470a",
+      "reuse": "同字节复用35根复核与09流恢复记录，非新读"
+    },
+    {
+      "source_file": "site/lesson-figures.js",
+      "sha256": "843871fd2942cdfa905476097a4b8833bf2dbc1be99b4d61f19091295753b3a9",
+      "reuse": "同字节复用35根复核与09流恢复记录，非新读"
+    }
+  ]
+}
