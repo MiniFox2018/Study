@@ -1850,14 +1850,20 @@
       "path": "manuals/a2a-101/research/conformance-tools.md",
       "scope": "manuals/a2a-101",
       "status": "added",
-      "actual_read_status": "pending; mechanical hashes only",
-      "actual_read_ranges": [],
+      "actual_read_status": "complete actual text read; Root有界18块批次，语义已融合核心15，非实际SDK/TCK执行",
+      "actual_read_ranges": [
+        {
+          "start": 1,
+          "end": 209
+        }
+      ],
       "target": {
         "bytes": 45308,
         "sha256": "b8f1eea21f4c16a5811c6668661d629ba02746ec72594a4ccb85c404e669a24d",
         "git_blob": "95dba4f0932a9265dceb5e36f3e81c92ac043a86",
         "lines": 209
-      }
+      },
+      "actual_read_date": "2026-10-19"
     },
     {
       "path": "manuals/a2a-101/research/extensions-grpc-tenant.md",
@@ -1889,14 +1895,20 @@
       "path": "manuals/a2a-101/research/sdk-splits.md",
       "scope": "manuals/a2a-101",
       "status": "added",
-      "actual_read_status": "pending; mechanical hashes only",
-      "actual_read_ranges": [],
+      "actual_read_status": "complete actual text read; Root有界18块批次，语义已融合核心15，非实际SDK/TCK执行",
+      "actual_read_ranges": [
+        {
+          "start": 1,
+          "end": 279
+        }
+      ],
       "target": {
         "bytes": 70271,
         "sha256": "bf9fca26c6680515e2f3831ddf4d38b46a0040eb456f5cd7503d0d4e3e44a41c",
         "git_blob": "992d17bd66473c0415477873401f874db7dfd7cf",
         "lines": 279
-      }
+      },
+      "actual_read_date": "2026-10-19"
     },
     {
       "path": "manuals/a2a-101/research/sources/LICENSE",
@@ -1999,27 +2011,39 @@
       "path": "manuals/a2a-101/research/tck-run.md",
       "scope": "manuals/a2a-101",
       "status": "added",
-      "actual_read_status": "pending; mechanical hashes only",
-      "actual_read_ranges": [],
+      "actual_read_status": "complete actual text read; Root有界18块批次，语义已融合核心15，非实际SDK/TCK执行",
+      "actual_read_ranges": [
+        {
+          "start": 1,
+          "end": 200
+        }
+      ],
       "target": {
         "bytes": 34034,
         "sha256": "9fca1fa82f54b1e835ac838112924a6f96cf12a7a9460c9d76f79250a669996a",
         "git_blob": "d01579451ad3388617d698b3ffe16b288069074f",
         "lines": 200
-      }
+      },
+      "actual_read_date": "2026-10-19"
     },
     {
       "path": "manuals/a2a-101/research/tck-summary.txt",
       "scope": "manuals/a2a-101",
       "status": "added",
-      "actual_read_status": "pending; mechanical hashes only",
-      "actual_read_ranges": [],
+      "actual_read_status": "complete actual text read; Root有界18块批次，语义已融合核心15，非实际SDK/TCK执行",
+      "actual_read_ranges": [
+        {
+          "start": 1,
+          "end": 129
+        }
+      ],
       "target": {
         "bytes": 6616,
         "sha256": "674522f65adb1106f6e9a849ce095da3ad3acf51405099c3e57324595a18b8ab",
         "git_blob": "34c6c6e0966da35fae98c00f0fc33c3bf1c9e627",
         "lines": 129
-      }
+      },
+      "actual_read_date": "2026-10-19"
     },
     {
       "path": "manuals/a2a-101/sections/1-1-what-a2a-standardizes.md",
@@ -4018,6 +4042,47 @@
       "source": "a2a_ref.py335–341/agents.py172–179",
       "static_inference": "Event.wait10seconds return ignored; after no approval timeout behavior generator resumes and yields fixedapproved+completed; not actualrun",
       "formal_action": "保现有强审批binding/unknown-effect合同，明确fixture不是有效批准/真实部署证据"
+    },
+    "research_compatibility_b1": {
+      "date": "2026-10-19",
+      "files": [
+        "manuals/a2a-101/research/sdk-splits.md",
+        "manuals/a2a-101/research/conformance-tools.md",
+        "manuals/a2a-101/research/tck-run.md",
+        "manuals/a2a-101/research/tck-summary.txt"
+      ],
+      "record": "38-A2A兼容性与测试证据续接.json",
+      "primary_scope": [
+        {
+          "url": "https://github.com/a2aproject/a2a-tck/blob/29063fe95e903cddac5d8ff811ab94df1ad6ef86/tck/reporting/aggregator.py",
+          "sha256": "4edf04e7c7a1869c179494f8390989f56d2ce3c54e6d2dfff1b652ca85f1d936",
+          "bytes": 7114,
+          "scope": "88–130/154–208，any failure/last transport/未测与分母/空集100",
+          "date": "2026-10-19",
+          "method": "gh官方raw readonly，不import不执行"
+        },
+        {
+          "url": "https://github.com/a2aproject/a2a-tck/blob/29063fe95e903cddac5d8ff811ab94df1ad6ef86/tests/compatibility/conftest.py",
+          "sha256": "2e26eed2941ba6d07af7fb26345539355ae95c12cc15cb20cbf70ce22e510297",
+          "bytes": 11401,
+          "scope": "251–298，call-phase passed判断后未排除skip，实际只读到collector.record调用字段",
+          "date": "2026-10-19",
+          "method": "gh官方raw readonly，不import不执行"
+        }
+      ],
+      "meaning": [
+        "14行为的具体验收/正负前置/观察范围",
+        "上下文错配不能用已终态对象验证，需活跃任务合法对照",
+        "缺失historyLength/0/正数与分页token不透明和一致快照限制",
+        "仅messageId/history去重/同taskId不保证handler效果幂等",
+        "跨主体资源与extendedcard认证、接口声明不等当前权限",
+        "MIME/头字段兼容适配显式按对端限定，不无条件接受所有内容",
+        "Inspector/CLI/TCK/ITK证据不同；CLI退出0不等Task成功",
+        "requirements/transport/testcase计分不混，skipped/not tested不代表pass，空计分集100不得验收",
+        "TCK源skip hook和lasttransport显示静核、作者结果62/93与重分类62/72分母不同",
+        "原始完整pytest/抓包目录缺失，作者“无剩MUST”非本次验证且还存在已发现approvaltimeout缺口"
+      ],
+      "not_author_run_reproduction": true
     }
   },
   "completed": [
@@ -4087,15 +4152,18 @@
     "manuals/a2a-101/capture/out/17-signed-card.txt",
     "manuals/a2a-101/capture/out/18-extended-card.http",
     "manuals/a2a-101/capture/out/19-planner.log",
-    "manuals/a2a-101/capture/out/19-planner.http"
+    "manuals/a2a-101/capture/out/19-planner.http",
+    "manuals/a2a-101/research/sdk-splits.md",
+    "manuals/a2a-101/research/conformance-tools.md",
+    "manuals/a2a-101/research/tck-run.md",
+    "manuals/a2a-101/research/tck-summary.txt"
   ],
   "deferred": [
-    "manual remaining142 files incl spec3610 lines, capture/research/35sections/figures+builders",
-    "phase dynamic providers/helpers and complete white-background visual",
-    "official0.3 selected normative migration verification",
-    "old proof lookup and thematic core15 writing"
+    "剩76手册原项：4eventJSON、32SVG与32JS、8research/source/license，原章节与固定Proto/spec全文证明复用",
+    "整手册去重/源码与实际binding冲突/图表/新知识最终融合验收；未完成不计已吸收",
+    "原SDK/HTTP/TCK/服务/依赖安装保持0执行；原始完整作者run目录缺失范围明确"
   ],
-  "checkpoint": "manual actual completed=67/147; latest=capture/out/19-planner.http; remaining capturedoutputs/research/figures/providers/formal not complete; source0exec",
+  "checkpoint": "manual actual text completed71/147；4研究文件/18块已融核心15，余76原项（4eventJSON、32SVG、32JS、8research/source/license）与整手册最终融合/验收未完；source0exec",
   "network_failures": [
     {
       "date": "2026-10-16",
@@ -4120,6 +4188,13 @@
       "scope": "三课程相关修改与staticSVG、tool01/skill27及其它多Agent旧差异已由Root融合/验收，见34；原手册读取断点仍保留，不计147全完成",
       "source_exec": 0,
       "formal_file": "Agentic Design Patterns/01-核心章节/15-智能体间通信-A2A.md"
+    },
+    {
+      "date": "2026-10-19",
+      "previous_checkpoint": "manual actual completed=67/147; latest=capture/out/19-planner.http; remaining capturedoutputs/research/figures/providers/formal not complete; source0exec",
+      "new_checkpoint": "manual actual text completed71/147；4研究文件/18块已融核心15，余76原项（4eventJSON、32SVG、32JS、8research/source/license）与整手册最终融合/验收未完；source0exec",
+      "formal": "核心15追加14类具体验收/正负对照、工具证据、分母/覆盖与作者未测边界",
+      "record": "38-A2A兼容性与测试证据续接.json"
     }
   ]
 }
