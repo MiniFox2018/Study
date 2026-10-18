@@ -7,7 +7,7 @@
   "official_tree": "/tmp/study-update-20261016/target-tree.json",
   "Study_baseline_HEAD": "70b185f39b21ff2246b12cc99b53643c6ac38780",
   "scope": "仅manuals/docker-sandboxes-101全部有效内容及必要直接helpers；当前Docker09/新10独占，旧32冻结",
-  "status": "413全文语义读+6cassette有效字段闭合/草稿排除+2发布资料分类闭合，3大聚合正文待审，整手册未验收",
+  "status": "414全文语义读+6cassette字段闭合/草稿排除+2发布资料分类闭合，2聚合正文待审，整手册仍未验收",
   "files": [
     {
       "path": "manuals/docker-sandboxes-101/README.md",
@@ -13163,7 +13163,590 @@
       "git_blob": "f325dac71e4584a2728d7ad8ec5a0e06604a1f1a",
       "official_tree_verified": true,
       "discovered": true,
-      "semantic_read_complete": false
+      "semantic_read_complete": true,
+      "actual_read_date": "2026-10-18",
+      "read_ranges": [
+        [
+          1,
+          5036
+        ]
+      ],
+      "read_mode": "44页全文含全部TS/REST/表格/展开complete examples，原1–225+chunk1余226–253、chunk2–17完整有界静读无截断；不是只首页目录",
+      "semantic_notes": "统一回融10§19，身份/请求/状态/进程/传输/恢复/清理及示例边界完整；与既有Kit v3、CLI cloud卷/TTL及SDKinlinev2/exclusive文档差异分记不硬统一。current官方概念/errors/storage现核，未运行SDK/登录/云/SSH/文件/模型API。",
+      "historical_partial_checkpoint": {
+        "partial_actual_read_date": "2026-10-18",
+        "partial_read_ranges": [
+          [
+            1,
+            2163
+          ]
+        ],
+        "partial_read_chunks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "partial_semantic_notes": "SDK云端identity/PAT/短token/沙箱scopedtoken/SDKsignin不同CLI；close不删除/登出，fileOAuthstore明文且不共享多进程；running不等kitsetupReady，acceptedwaitfail仍有资源；image vs imageRef、displayName vsname、SDKbundledlaunch不同registryref与v2inline。volumes文档exclusive/1且memorysnapshot不可附，与CLIlast-exit-wins须分API版本核；配置clone不含数据/kit/policy；DELETE202/204/notfound+UID/version/刷新新key，force不保证任意状态。公网portURL不由Dockeraccount认证也非通用TCP隧道；serverseq不等消费者ACK；MCPgatewayReady与serverOAuthauthorized不同，sharedgateway不可经本sandbox写，SDKmethods存在不等account可用。所有代码静读，未授权/运行/计费操作。"
+      },
+      "page_review": [
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/",
+          "lines": [
+            3,
+            53
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "接口/SDKexperimental/付费账号分别，REST/CLI/SDK角色"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/authentication/",
+          "lines": [
+            54,
+            204
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "PAT管理token/scoped沙箱token/模型key和permissions，不继承CLI"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/concepts/",
+          "lines": [
+            205,
+            400
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "Kit/imageRef/image、资源name/UID/etag/endpoint和running≠setupReady，SDKinlinev2/bundled不等CLIregv3"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/",
+          "lines": [
+            401,
+            533
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "全部cookbook目录价值与下游页面关联，不以目录代正文"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/add-a-docker-credential-for-cloud-sandboxes/",
+          "lines": [
+            534,
+            574
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "OIDC一次性exchangeDockerCredential与应用账号认证分开，替换secrets/docker，未知不套普通重试"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/add-tools-with-kits/",
+          "lines": [
+            575,
+            720
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "Kit bundledlist/launch/agenttask三步骤，Ready四层、资源账号权，预期非实跑"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/attach-persistent-storage/",
+          "lines": [
+            721,
+            856
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "独立volume/一项exclusive/内存snapshot不附，与CLI云snapshotlastwriter差异保留"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/clone-a-cloud-sandbox/",
+          "lines": [
+            857,
+            960
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "配置clone只镜像/环境非文件/kit/policy/secret/volume/process，源目标独立"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/connect-to-cloud-with-a-bearer-token/",
+          "lines": [
+            961,
+            1157
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "OAuthmemory/fileplaintext/clientclose不撤权或删云对象；PAT/bearer/provider与baseoverride范围"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/control-what-a-sandbox-can-reach/",
+          "lines": [
+            1158,
+            1272
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "account/attached/effectivepolicy/log最近活动，empty不等可达"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/copy-a-file-into-a-cloud-sandbox/",
+          "lines": [
+            1273,
+            1381
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "目录/小文本/上传bytes/mode/partialstat，guest路径，未做磁盘API"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/create-your-first-sandbox/",
+          "lines": [
+            1382,
+            1534
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "创建接受/wait/process3step/统一deadline与新的cleanup deadline；withSandbox只attemptcleanup，UID替换防止误删"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/delete-a-cloud-sandbox/",
+          "lines": [
+            1535,
+            1591
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "DELETE handleetag/refresh/newkey/异步终态，force有界，附属独立"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/expose-a-port-from-a-cloud-sandbox/",
+          "lines": [
+            1592,
+            1695
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "端口HTTProute不通用TCP、不受Docker账号保护；取消pub不kill进程"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/find-a-process-you-lost-track-of/",
+          "lines": [
+            1696,
+            1801
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "processidentity/sessiontag/自动recovery30s/最后已交付与业务ACK不同，emptyrunning不证明没启动"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/get-a-stored-secret-into-a-sandbox/",
+          "lines": [
+            1802,
+            1894
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "secret metadata与resourceid/attachedtime/modelcred不同"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/get-an-ssh-certificate/",
+          "lines": [
+            1895,
+            1944
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "SSHcertificate只送publickey，TTL/hostkeys/privatekey不进入源码，不实际连"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/get-image-pull-urls/",
+          "lines": [
+            1945,
+            1982
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "getPullSpec敏感短授权只信息未下载，image/digest/client认证另核"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/give-a-sandbox-an-mcp-gateway/",
+          "lines": [
+            1983,
+            2178
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "MCPmanaged/shared gateway/create/ready/server/OAuthauthorized独立，hostrecoverydeadline、shared不可改"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/handle-errors-and-degradation/",
+          "lines": [
+            2179,
+            2277
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "请求拒绝/资源转移失败/命令非零/未知过程保身份code与typed details，不按errtext"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/keep-a-cloud-sandbox-running/",
+          "lines": [
+            2278,
+            2384
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "TTL/stop/delete/alwayson/restart/renew从接受时起非加量，时钟独立"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/let-a-stopped-sandbox-resume-on-demand/",
+          "lines": [
+            2385,
+            2485
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "autoResume absence未知、读effective不证明请求可实际恢复"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/manage-cloud-secrets/",
+          "lines": [
+            2486,
+            2631
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "secret rotate全替换/etag与metadata只读、删除存储非供应商revoke"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/manage-network-policies/",
+          "lines": [
+            2632,
+            2699
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "personalpolicy不是orgadmin；ACTIVE类型optional服务却required，replace非append，demo finally删ID"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/page-through-and-filter-lists/",
+          "lines": [
+            2700,
+            2768
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "分页token稳定filter/order/pagesize，collect内存、短页不停、invalidfilter不删重试"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/read-files-out-of-a-sandbox/",
+          "lines": [
+            2769,
+            2973
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "文件list/stat/readmaxBytes/download close/partial/move/removefailedpath；stat非reserve"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/recover-when-the-endpoint-moves/",
+          "lines": [
+            2974,
+            3054
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "endpoint.refresh新handle核nameUID、地址变不代表新工作，不重跑未知命令"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/register-and-manage-an-image/",
+          "lines": [
+            3055,
+            3195
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "imagecreate→uploadtarget→push→PREPARING/COMPLETED；initialtarget过期、get不再发credential"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/retry-without-creating-duplicates/",
+          "lines": [
+            3196,
+            3315
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "同key+同payload/IfMatch重试/进程start幂等不包括stdin signal filewrite；有限deadline并关SDK重复层"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/run-a-complete-example/",
+          "lines": [
+            3316,
+            3417
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "完整hello代码finally cleanup新signal与有handle前丢回执缺口，不运行/不登录"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/run-an-interactive-shell-in-a-cloud-sandbox/",
+          "lines": [
+            3418,
+            3630
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "PTY输入/流chunk/exited/seqBigInt/重连不重放输入/close非kill；default0须按协议核"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/run-something-that-produces-real-output/",
+          "lines": [
+            3631,
+            3734
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "captured与stream终态，默认无总连接期限，callbackACK业务自存"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/run-work-across-many-sandboxes/",
+          "lines": [
+            3735,
+            3853
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "fanout有限batch allSettled不是业务全pass，默取所有running需先限任务ownership"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/run-your-first-command/",
+          "lines": [
+            3854,
+            3958
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "argv非shell，success结果非command0，execincomplete及缺省语义另核"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/run-your-own-container-image/",
+          "lines": [
+            3959,
+            4012
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "rawimage与managedimage互斥/资源/平台floor/Ready/复现digest"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/send-values-the-api-accepts/",
+          "lines": [
+            4013,
+            4115
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "missing false zero、秒ms、nativebigints/effectiveunknown，不因TS type过编辑器就runtime接受"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/snapshot-and-fork-a-sandbox/",
+          "lines": [
+            4116,
+            4280
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "snapshotdisk/all/ready/restore新UID，源/快照/恢复对象独立生命周期，secret可能含内存"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/stop-and-restart-a-sandbox/",
+          "lines": [
+            4281,
+            4353
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "stop/start etag新handle与连接重新绑定、等待不取消远端操作"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/what-your-workload-starts-with/",
+          "lines": [
+            4354,
+            4482
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "env可含secret/值换行解析不可靠/仅processoverride不改sandboxfuture"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/cookbook/work-within-the-limits/",
+          "lines": [
+            4483,
+            4653
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "shapes配对/accountwidequota≠visiblecount/reservation、alwayson保slot/SDKretry乘积/backoff未知delayguard"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/errors/",
+          "lines": [
+            4654,
+            4792
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "code/details/202failure/24hkey+exactpayload+IfMatch、SDK2additional/412/428/timeout不kill"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/get-started/",
+          "lines": [
+            4793,
+            4913
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "完整quickstart有业务exitcheck/cleanup非finally all/creationwaitunknown回收缺口，无实跑"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/install/",
+          "lines": [
+            4914,
+            4951
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "SDK安装只是原操作资料，未运行/npm/账号；Node20/未固定pkgversion不作永久流程"
+        },
+        {
+          "url": "https://docs.docker.com/ai/sandboxes-api/limits/",
+          "lines": [
+            4952,
+            5036
+          ],
+          "status": "全文语义读取及主题处置",
+          "meaning": "支持shapepair/账账号配额/速率区别/已stop仍存储、重试capacity需条件，不固定价格限额"
+        }
+      ],
+      "read_chunks": [
+        {
+          "chunk": 1,
+          "source_lines": [
+            1,
+            253
+          ],
+          "sha256": "b5c70b3b0ca3dc4e925cf64f0b6ad59da3fe9743e9c5254b0f085189ded924f3",
+          "bytes": 10492
+        },
+        {
+          "chunk": 2,
+          "source_lines": [
+            254,
+            459
+          ],
+          "sha256": "3a18d60840ce5e787ef89fcfc806b71ba47f4ec947ca67b6f12fe9b9e323056a",
+          "bytes": 10482
+        },
+        {
+          "chunk": 3,
+          "source_lines": [
+            460,
+            633
+          ],
+          "sha256": "c2450ce5cc446866be61788aae46358d509d5b54ed8565078a97db5d17c2305c",
+          "bytes": 10302
+        },
+        {
+          "chunk": 4,
+          "source_lines": [
+            634,
+            952
+          ],
+          "sha256": "75c0bbaa0e5e3e6ad2f2e4b119d05125fa0e8e306f42c7956a77d11d8cebf28f",
+          "bytes": 10497
+        },
+        {
+          "chunk": 5,
+          "source_lines": [
+            953,
+            1221
+          ],
+          "sha256": "424fa2d38fe4312e2e3b9011f956107caca3d16bd766fc31e24d32b24d475aee",
+          "bytes": 10502
+        },
+        {
+          "chunk": 6,
+          "source_lines": [
+            1222,
+            1539
+          ],
+          "sha256": "c253dd964f460037323602a012cf2a792d3fd16c3dbde9cabbb3c777828286af",
+          "bytes": 10371
+        },
+        {
+          "chunk": 7,
+          "source_lines": [
+            1540,
+            1840
+          ],
+          "sha256": "e37d6775d205eef680c87d485bd3818936c2d5e75ceb2738d172f66f4fc5b755",
+          "bytes": 10499
+        },
+        {
+          "chunk": 8,
+          "source_lines": [
+            1841,
+            2163
+          ],
+          "sha256": "e81353711f437f8215c4e8be1a9672978345b9b698ac580bf39e7e006bbdbe66",
+          "bytes": 10499
+        },
+        {
+          "chunk": 9,
+          "source_lines": [
+            2164,
+            2463
+          ],
+          "sha256": "df61765b63ee510ff3415b14c4c6f15ca613b5feeb639a82beeec5fdd33203f3",
+          "bytes": 10488
+        },
+        {
+          "chunk": 10,
+          "source_lines": [
+            2464,
+            2790
+          ],
+          "sha256": "1b6e5a421e4d3a9dc507221c436d275f99987e2ea3eb026b599b13127adc10af",
+          "bytes": 10500
+        },
+        {
+          "chunk": 11,
+          "source_lines": [
+            2791,
+            3195
+          ],
+          "sha256": "bd91b6706e83aae6c878953e08ebd63a4ae27c295d3550ddb0de8bf651fd4aea",
+          "bytes": 10434
+        },
+        {
+          "chunk": 12,
+          "source_lines": [
+            3196,
+            3487
+          ],
+          "sha256": "be0cfbb3840ed62c47dd3e1a715580e3a876dccd1bb790eb460edcc68f9279e4",
+          "bytes": 10499
+        },
+        {
+          "chunk": 13,
+          "source_lines": [
+            3488,
+            3816
+          ],
+          "sha256": "9f2a30daaf86a6ceffcd333925ec29a9890609432af82757b920e9c76fe18ff6",
+          "bytes": 10489
+        },
+        {
+          "chunk": 14,
+          "source_lines": [
+            3817,
+            4122
+          ],
+          "sha256": "5216f80ea561e4f34bd6ac4c6f488f803205ca89460f3066041fc5344461eeab",
+          "bytes": 10460
+        },
+        {
+          "chunk": 15,
+          "source_lines": [
+            4123,
+            4493
+          ],
+          "sha256": "ded29040aca300c2da1a4918c0f2da1fd8eeeaed04eab76b686147d4f16af941",
+          "bytes": 10464
+        },
+        {
+          "chunk": 16,
+          "source_lines": [
+            4494,
+            4756
+          ],
+          "sha256": "cbcb4c54453b445b93b70584c5f66d410ed42aeb7eac6c17a1c84d45bf9e20b4",
+          "bytes": 10413
+        },
+        {
+          "chunk": 17,
+          "source_lines": [
+            4757,
+            5036
+          ],
+          "sha256": "750c3a9d81b58f03516247e0b723636af908bf63a1a0b32a7576faaadf206baf",
+          "bytes": 9992
+        }
+      ],
+      "source_executed": false
     },
     {
       "path": "manuals/docker-sandboxes-101/research/sources/docs-sandboxes.md",
@@ -18706,6 +19289,16 @@
       ],
       "read_scope": "只读相关判定/结果结构，未全读types其余段",
       "source_executed": false
+    },
+    {
+      "date": "2026-10-18",
+      "urls": [
+        "https://docs.docker.com/ai/sandboxes-api/concepts/",
+        "https://docs.docker.com/ai/sandboxes-api/errors/",
+        "https://docs.docker.com/ai/sandboxes-api/cookbook/attach-persistent-storage/"
+      ],
+      "scope": "官方原文现核running与setupReady、SDKv2inline/名称目录与CLI差异、IfMatch/idempotency/timeout不kill和volumeexclusive/账户前提；未实际发云API",
+      "source_runs": 0
     }
   ],
   "accepted": false,
@@ -18743,7 +19336,7 @@
     "rerun": false
   },
   "checkpoint": {
-    "read_complete_files": 413,
+    "read_complete_files": 414,
     "next": [
       "sections1.1–2.5",
       "sections3.1–4.5",
@@ -18755,9 +19348,9 @@
       "去重融合Docker09/新10"
     ],
     "written": true,
-    "next_actual_read": "余3大正文聚合：docs DockerAgent21284行/108页、SBXAPI5036行/44页、SBX15279行/79页。发布史已有效处置（Desktop非全文：选段+历史正文排除，Agent全部技术正文读+PR索引排除）；不能把全部424都报全文。",
+    "next_actual_read": "余2大聚合正文：docs DockerAgent21284行/108页、SBX15279行/79页。SBXAPI44页全读回融10§19，留v2SDK/CLI v3及云卷差异；随后整手册全局去重与覆盖/冲突验收。",
     "protocol_cassettes_closed_with_exclusion": 6,
-    "remaining_unreviewed_files": 3,
+    "remaining_unreviewed_files": 2,
     "formal_status": "主体/Kit/模型MCP/Agent与RAG/环境计划已部分回融，8聚合研究文件待审及最终整合",
     "research_closed_with_exclusion": 2
   },
@@ -19789,6 +20382,35 @@
         "维护Markdown": 54,
         "统计口径": "主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。",
         "本地链接检查次数": 4526,
+        "有效Notebook": 93,
+        "已登记上游空Notebook": 1,
+        "来源文件校验数": 969,
+        "有效SVG": 395,
+        "错误": [],
+        "提示": [
+          "第 19 课解答 Notebook 是已登记的上游空文件；不能运行。"
+        ]
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "scope": "云API/SDK44页主题融合10§19（8子节、完整任务账本示意/参考判断）",
+      "file": "计算机科学基础/07-容器化与Docker/10-Docker沙箱与Agent工作台.md",
+      "sha256": "6c63331cc1d9ba9dfea531b37fd1d3912668ead65a8c483051e316d128a91717",
+      "pandoc_full_json_html": "通过0警告",
+      "new_programs": 0,
+      "new_flow_pseudocode": 1,
+      "source_runs": 0,
+      "old_reruns": 0,
+      "accepted_manual": false,
+      "structure": {
+        "说明": "结构检查不替代语义、外链在线状态和实验运行验证",
+        "Markdown总数": 658,
+        "主库Markdown": 345,
+        "学习与导航Markdown": 291,
+        "维护Markdown": 54,
+        "统计口径": "主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。",
+        "本地链接检查次数": 4527,
         "有效Notebook": 93,
         "已登记上游空Notebook": 1,
         "来源文件校验数": 969,
