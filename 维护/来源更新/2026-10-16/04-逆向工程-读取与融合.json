@@ -11649,20 +11649,27 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 2159,
-      "status": "partial_text_read",
+      "status": "full_text_read",
       "actual_read_ranges": [
         [
           1,
-          1060
+          2159
         ]
       ],
-      "actual_read_date": "2026-10-17",
+      "actual_read_date": "2026-10-19",
       "semantic_notes": [
         "截至1060实际静读ELF64/RELA parser、Magic正向与逆向、Val仿射/文本表示、register/memory/分支、近邻loop筛查、Evaluator单遍CFG/merge/seed、regex源构造抽取/reductions、divisionmatcher起始。1061以后未读。",
         "Evaluator不是sound解释器：寄存器宽度/模运算未建，单遍无fixedpoint回边；分歧状态seed名称优先会掩值差，flag只取最后可用前驱（fallthrough列表条件p+0==p恒真）无merge；x86zero/add/and等flag副作用缺漏，call无volatile/内存clobber。",
         "test(a,b)无条件当a vs0，非同一operand时应按a&b；signed/unsigned条件输出都是相同比较符无显式cast，无法保证原bits意义；slot按文本key不追SPdelta/别名，ARMmovk只拼16位并不读取lsl实际位置，未知instruction常退opaque但旧memory等事实未全失效。",
         "is_loop按地址顺序首unconditional局部判，不完整CFG可达或支配/irreducible识别，docstring“eachbackedge closes loop”早于过滤规则不能当全域定义。",
-        "源parser regex不处理注释/字符串/宏/复杂C类型，balanced无词法状态；verified拟后续读，不能先把37种形状存在说正确。"
+        "源parser regex不处理注释/字符串/宏/复杂C类型，balanced无词法状态；verified拟后续读，不能先把37种形状存在说正确。",
+        "1061–2159已补全部静读；前条截至1060描述仅历史检查点。完整源码2159行已读，未导入/执行。",
+        "近邻matcher不是语义证明：_bounds_check的register形参未用，没有核支配/相同索引/flags或clobber；_table_base把PC32加4写死，只适合指令布局。",
+        "ARM常量回扫未全核movk shift/覆盖；hardware除法/乘回modulo未充分核相同被除数、寄存器未改与宽度，x86除数倒查可能继续被更早mov覆盖；pow2 matcher缺严格flags/dataflow。",
+        "verified常是源码出现常数/有switch/有loop或调用名称的形状匹配：selectchain只用case数<=3，comparisontree仅tested子集，inline只需一个形状match，stackprotector与CET甚至直接True；不能称行为等价或安全机制已启用。",
+        "find_vector_loops的步长/guard/mask与索引未完整绑定，loop地址启发式不代自然循环；unroll按连续load偏移+source.has_loop不能证明复制循环体次数；未知source/verified=None未由unverified()列出，列表空不保证都True。",
+        "listing_identity只遍历first的函数、指令文本及相对branch，不检查second额外函数、机器字节/重定位/常量表等，所以identical不是整对象或行为相同。",
+        "memcpy16 pattern只局部loadstore，不完整核指针/重叠/全部效果；tailcall检测少数relocation形式，未证明栈恢复/ABI/外部目标行为；三遍evaluator种子不修复无fixedpoint/flags合流的上游问题。"
       ],
       "source_execution": 0,
       "actual_read_sessions": [
@@ -11686,6 +11693,24 @@
           ],
           "source_execution": 0
         }
+      ],
+      "read_sessions_preserved": [
+        {
+          "date": "2026-10-16/17",
+          "range": [
+            1,
+            1060
+          ],
+          "policy": "原日期/读取语义不重写为当天"
+        },
+        {
+          "date": "2026-10-19",
+          "range": [
+            1061,
+            2159
+          ],
+          "scope": "五段全部实际输出静读，非执行"
+        }
       ]
     },
     {
@@ -11696,10 +11721,19 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 347,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          347
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "全部30个test定义及每个assert全文静读，0源测试运行。覆盖固定18build的parser/magic/除法mod/switch/向量unroll/调用select/SSP/CET/source/figure数据。",
+        "多数断言验证matcher输出和作者快照，未将程序实际执行行为逐函数作差分；test_every_idiom...调用unverified只筛False，不拒None；无错寄存器/clobber/flags/空对照/额外second函数等普遍负例。",
+        "magic边界样本验证是有限集，不能用方法名identity当全32位证明；sourceparser/shapeverified不是行为等价。SITE_MODULE缺失会skip，其断言与嵌入源数据相等不证明浏览器交互/可视化效果。"
+      ],
       "source_execution": 0
     },
     {
@@ -11736,10 +11770,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 68,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          68
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "源Skill全文仅教材数据，不激活/安装/执行。",
+        "源“source有loop/常数即verified”、Nload即N展开、出现SIMD即vectorized、RIPaddend总加4、尾跳即合法tailcall均需范围与数据流/ABI前提，不采为通用硬规则。"
+      ],
       "source_execution": 0
     },
     {
@@ -11750,10 +11792,20 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 90,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          90
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "全部7题题干/4选项/key/rationale完整静读；无quiz执行。",
+        "Q2重建magic相同常数/shift只证明该规范算术模式，仍需位宽/符号修正/到达数据流和全定义域前提；不是任意代码反编译证明。",
+        "末题称angr signed伪C与Ghidra输出“Both correct”过强：v1类型/乘法宽度/>>63等须单独核，不因整数魔数正确就保证工具伪C正确；原字符串只是作者观察。",
+        "表边界cmp6+ja、表基址add4、8lane主循环/尾循环均限对应固定指令上下文，不机械当所有架构模板。"
+      ],
       "source_execution": 0
     },
     {
@@ -18590,12 +18642,18 @@
   ],
   "checkpoint": {
     "at_utc": "2026-10-16T22:19:12.013078+00:00",
-    "stage": "39main实际至1060，next1061",
+    "stage": "39 main1–2159全文、test/quiz/Skill完成；next18builds汇编/objdump/对象及5工具capture",
     "full_text_primaries": 146,
     "source_execution": 0,
     "formal_writes": 0,
-    "detail": "日期保16原读；17续main341–1060。39测试/quiz/Skill/18build.s与objdump/18对象/5工具capture/provider仍未读，40–45/两项目/manual未读；正式0写，源0run/import/compiler/tests。",
-    "root_continuation": "布局主题正文已写并验证自写header教学函数；原39实现next1061保留，图示及整组验收未完"
+    "detail": "保留原16/17已读日期；19补39实现1099行尾及3文件4块。39主要fixtures/capture、图/主题融合仍未完；40–45/两项目/manual未读；源0执行。",
+    "root_continuation": "44布局正文已提交；45续读原断点，14课/逆向手册仍未验收",
+    "newly_full_text_paths_20261019": [
+      "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/main.py",
+      "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/tests/test_main.py",
+      "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/outputs/skill-compiler-idioms-and-optimization.md",
+      "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/quiz.json"
+    ]
   },
   "proposed_body_topics": [
     "01-二进制布局与装载地址.md",
@@ -18656,5 +18714,13 @@
     "lesson32_final_complete": false,
     "all14_complete": false,
     "source_exec": 0
-  }
+  },
+  "root_continuations": [
+    {
+      "date": "2026-10-19",
+      "record": "45-逆向第39课实现续读.json",
+      "new_full_text_paths": 4,
+      "whole_group_complete": false
+    }
+  ]
 }

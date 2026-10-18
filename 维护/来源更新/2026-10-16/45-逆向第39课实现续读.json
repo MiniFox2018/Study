@@ -1,0 +1,447 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "scope": "39实现1061–2159及测试/Skill/quiz全文续读",
+  "source_files": [
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/main.py",
+      "sha256": "d5ec023e6f42005c4cf00cf9df581979e073a820be4cb98bafb7163764b43d0f",
+      "new_read_ranges": [
+        [
+          1061,
+          2159
+        ]
+      ],
+      "full_scope_reused": [
+        [
+          1,
+          1060
+        ]
+      ]
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/tests/test_main.py",
+      "sha256": "b544af69d9ca3c20b474343ecb7476f38404707ce70dbde08fe5793b807770cd",
+      "new_read_ranges": [
+        [
+          1,
+          347
+        ]
+      ]
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/outputs/skill-compiler-idioms-and-optimization.md",
+      "sha256": "e50e3ff5769249e78b9ddfab6e6bf766d5b938612f5a9a340efbe3cceb092508",
+      "new_read_ranges": [
+        [
+          1,
+          68
+        ]
+      ]
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/quiz.json",
+      "sha256": "172383c11fce4ba2e63193cc4bf111fe0d1c4e92ef404681fd69c5fe51cac573",
+      "new_read_ranges": [
+        [
+          1,
+          90
+        ]
+      ]
+    }
+  ],
+  "tail_review_chunks": [
+    {
+      "chunk": 1,
+      "chars": 9970,
+      "sha256": "57ae1e111a4e9c0ed0bb10a122805d36947335dbebdaa7ef13b0a7b5c51d7a47"
+    },
+    {
+      "chunk": 2,
+      "chars": 9962,
+      "sha256": "f10ff7fa3da8b5cc88b1187307a46d10ef18838305f0a5f6868a6d7f9afc9fe7"
+    },
+    {
+      "chunk": 3,
+      "chars": 9956,
+      "sha256": "f6f3ab4662096db5843d73c83cca46e4a2bd8568318e5030cb2424eddb5a49f0"
+    },
+    {
+      "chunk": 4,
+      "chars": 6814,
+      "sha256": "76f18ada03cf1ec7b64b54070681eba229e1fdd5867063f13975407dac4c827c"
+    }
+  ],
+  "main_full_text_complete": true,
+  "professional_findings": [
+    "1061–2159已补全部静读；前条截至1060描述仅历史检查点。完整源码2159行已读，未导入/执行。",
+    "近邻matcher不是语义证明：_bounds_check的register形参未用，没有核支配/相同索引/flags或clobber；_table_base把PC32加4写死，只适合指令布局。",
+    "ARM常量回扫未全核movk shift/覆盖；hardware除法/乘回modulo未充分核相同被除数、寄存器未改与宽度，x86除数倒查可能继续被更早mov覆盖；pow2 matcher缺严格flags/dataflow。",
+    "verified常是源码出现常数/有switch/有loop或调用名称的形状匹配：selectchain只用case数<=3，comparisontree仅tested子集，inline只需一个形状match，stackprotector与CET甚至直接True；不能称行为等价或安全机制已启用。",
+    "find_vector_loops的步长/guard/mask与索引未完整绑定，loop地址启发式不代自然循环；unroll按连续load偏移+source.has_loop不能证明复制循环体次数；未知source/verified=None未由unverified()列出，列表空不保证都True。",
+    "listing_identity只遍历first的函数、指令文本及相对branch，不检查second额外函数、机器字节/重定位/常量表等，所以identical不是整对象或行为相同。",
+    "memcpy16 pattern只局部loadstore，不完整核指针/重叠/全部效果；tailcall检测少数relocation形式，未证明栈恢复/ABI/外部目标行为；三遍evaluator种子不修复无fixedpoint/flags合流的上游问题。"
+  ],
+  "remaining39_source_items": [
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/canary-arm64-ssp-O2.o",
+      "bytes": 1240,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/canary-arm64-ssp-O2.objdump.txt",
+      "bytes": 1605,
+      "lines": 39,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/canary-arm64-ssp-O2.s",
+      "bytes": 1363,
+      "lines": 48,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/canary-x86_64-cet-O2.o",
+      "bytes": 1056,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/canary-x86_64-cet-O2.objdump.txt",
+      "bytes": 988,
+      "lines": 23,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/canary-x86_64-cet-O2.s",
+      "bytes": 1149,
+      "lines": 46,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/canary-x86_64-ssp-O2.o",
+      "bytes": 1016,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/canary-x86_64-ssp-O2.objdump.txt",
+      "bytes": 1248,
+      "lines": 27,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/canary-x86_64-ssp-O2.s",
+      "bytes": 1143,
+      "lines": 42,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/dispatch-arm64-O2.o",
+      "bytes": 2024,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/dispatch-arm64-O2.objdump.txt",
+      "bytes": 2676,
+      "lines": 67,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/dispatch-arm64-O2.s",
+      "bytes": 1596,
+      "lines": 92,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/dispatch-x86_64-O2.o",
+      "bytes": 2424,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/dispatch-x86_64-O2.objdump.txt",
+      "bytes": 3361,
+      "lines": 64,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/dispatch-x86_64-O2.s",
+      "bytes": 2231,
+      "lines": 91,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O0.o",
+      "bytes": 3960,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O0.objdump.txt",
+      "bytes": 25823,
+      "lines": 609,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O0.s",
+      "bytes": 21098,
+      "lines": 854,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O1.o",
+      "bytes": 2840,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O1.objdump.txt",
+      "bytes": 9479,
+      "lines": 259,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O1.s",
+      "bytes": 12316,
+      "lines": 465,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O2.o",
+      "bytes": 3040,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O2.objdump.txt",
+      "bytes": 12391,
+      "lines": 323,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O2.s",
+      "bytes": 13463,
+      "lines": 534,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O3.o",
+      "bytes": 3032,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O3.objdump.txt",
+      "bytes": 12356,
+      "lines": 322,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-O3.s",
+      "bytes": 13451,
+      "lines": 533,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-jt4-O2.o",
+      "bytes": 3040,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-jt4-O2.objdump.txt",
+      "bytes": 12395,
+      "lines": 323,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-arm64-jt4-O2.s",
+      "bytes": 13463,
+      "lines": 534,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O0.o",
+      "bytes": 4256,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O0.objdump.txt",
+      "bytes": 29458,
+      "lines": 530,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O0.s",
+      "bytes": 18618,
+      "lines": 776,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O1.o",
+      "bytes": 2952,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O1.objdump.txt",
+      "bytes": 14018,
+      "lines": 280,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O1.s",
+      "bytes": 13506,
+      "lines": 482,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.angr.json",
+      "bytes": 8084,
+      "lines": 135,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.lifts.json",
+      "bytes": 9153,
+      "lines": 285,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.lldb.txt",
+      "bytes": 1687,
+      "lines": 31,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.o",
+      "bytes": 3360,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.objdump.txt",
+      "bytes": 19380,
+      "lines": 366,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.radare2.txt",
+      "bytes": 4957,
+      "lines": 119,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.rizin.txt",
+      "bytes": 2911,
+      "lines": 51,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.s",
+      "bytes": 15362,
+      "lines": 573,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O3.o",
+      "bytes": 3360,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O3.objdump.txt",
+      "bytes": 19380,
+      "lines": 366,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O3.s",
+      "bytes": 15362,
+      "lines": 573,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-nobuiltin-O2.o",
+      "bytes": 3456,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-nobuiltin-O2.objdump.txt",
+      "bytes": 21488,
+      "lines": 400,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-nobuiltin-O2.s",
+      "bytes": 16324,
+      "lines": 618,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-nofastisel-O0.o",
+      "bytes": 4392,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-nofastisel-O0.objdump.txt",
+      "bytes": 33882,
+      "lines": 602,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-nofastisel-O0.s",
+      "bytes": 21181,
+      "lines": 863,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-nojt-O2.o",
+      "bytes": 2920,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-nojt-O2.objdump.txt",
+      "bytes": 22868,
+      "lines": 428,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-nojt-O2.s",
+      "bytes": 15391,
+      "lines": 642,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-novec-O2.o",
+      "bytes": 3312,
+      "lines": null,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-novec-O2.objdump.txt",
+      "bytes": 18693,
+      "lines": 356,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-novec-O2.s",
+      "bytes": 14969,
+      "lines": 565,
+      "status": "仅机械定位/字节核对，未读全文或媒体内容"
+    }
+  ],
+  "formal_changed": [],
+  "reason_no_final_lesson_acceptance": "18build asm/listing/objects与5工具capture/provider尚需实际读取/静态绑定；图示与主题正文仍未完",
+  "source_exec": 0,
+  "new_programs": 0,
+  "old_reruns": 0,
+  "whole_update_complete": false
+}
