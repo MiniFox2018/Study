@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "scope": "复用32–38已读语义与补齐39读取材料，第二主题正文融合",
+  "formal_files": [
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/02-指令ABI与编译惯用法.md",
+      "sha256": "5c1eb5ffa0b1ddb84c979cd34c1e154fce193d67199e0f0359e40819bb9dd410"
+    },
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+      "sha256": "ff2de722d38ee01dc474438566cf4742b9636dfbc22ee8abed04d90f2a5cac2e"
+    }
+  ],
+  "selected_primaries": [
+    {
+      "url": "https://gitlab.com/x86-psABIs/x86-64-ABI/-/raw/master/x86-64-ABI/low-level-sys-info.tex",
+      "date": "2026-10-19",
+      "scope": "仅450–545、690–722、807–829行寄存器/栈/redzone/参数/返回必要段完整实际读，非2471+行全文",
+      "sha256": "2d42f2ab76b99a3b8456e6bc07e18314e85991119f72db90ca1175328e27b705",
+      "fixed_commit": false
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/cpp/build/x64-calling-convention?view=msvc-170",
+      "date": "2026-10-19",
+      "scope": "默认/参数/返回/保存/对齐和unwind必要段实际读，非所有vectorcall/扩展全读"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MicrosoftDocs/cpp-docs/main/docs/build/stack-usage.md",
+      "date": "2026-10-19",
+      "scope": "49行官方原Markdown实际取得，逐段读stackallocation/home/alloca/leaf；远端PNG未像素视读，原prose日期2018非本轮系统观察"
+    },
+    {
+      "url": "https://github.com/ARM-software/abi-aa/blob/f44acc9198335c8a4fe0d8b0ade3ec3df328c0ad/aapcs64/aapcs64.rst",
+      "date": "2026-10-19",
+      "scope": "官方main元数据解析到f44，固定原文件取得；寄存器/低64保留/SP16/NGRN与NSRN独立/StageC/x8返回必要条款实际选读，不声称整份当前Beta扩展全读",
+      "sha256": "7f4e6a9c02bd88184f92d5309e062539babccc1fa90c4e4676d26b58df965dbd"
+    },
+    {
+      "url": "https://developer.apple.com/documentation/xcode/writing-arm64-code-for-apple-platforms",
+      "data_url": "https://developer.apple.com/tutorials/data/documentation/xcode/writing-arm64-code-for-apple-platforms.json",
+      "date": "2026-10-19",
+      "scope": "官方DocC JSON只读提取ABI正文，补保codeVoice标识符后二次核x18/x29/redzone/窄参数/stack/variadic差异；未执行页面JS/代码、未把DIT后半篇称全文已吸收",
+      "sha256": "28ce5b25cfcceb6a793fdbb83d602240f270a8da0050b370a811b5ff884d6e81"
+    },
+    {
+      "url": "https://cdrdv2-public.intel.com/782151/253667-sdm-vol-2b.pdf",
+      "scope": "复用04中16日原真实selectedofficial PXOR/MOVDQU固定253667-080US June2023必要段核验，未重读744页或执行IR"
+    }
+  ],
+  "validation": {
+    "date": "2026-10-19",
+    "scope": "本库新章节独立整数/Fraction推导核查，不执行原识别器或机器指令",
+    "arithmetic": {
+      "unsigned_div10_error": 2,
+      "unsigned_fraction_bound": "r/10+error<37/40<1",
+      "unsigned_boundary_samples": [
+        0,
+        1,
+        9,
+        10,
+        11,
+        99,
+        100,
+        2147483648,
+        4294967295
+      ],
+      "signed_div10_error": 6,
+      "signed_fraction_bound": "r/10+error<=39/40<1",
+      "signed_boundary_samples": [
+        -2147483648,
+        -10001,
+        -100,
+        -99,
+        -11,
+        -10,
+        -9,
+        -1,
+        0,
+        1,
+        9,
+        10,
+        11,
+        99,
+        2147483647
+      ],
+      "signed_mod8_samples": [
+        -2147483648,
+        -9,
+        -8,
+        -7,
+        -1,
+        0,
+        1,
+        7,
+        8,
+        9,
+        2147483647
+      ],
+      "proof_policy": "正文推导给明确全定义域前提；样本仅核实现算术，不称有限测试代全域证明",
+      "instruction_manual_decode": "48 8b 44 8f 10逐字段断言及f0有符号−16",
+      "windows_stack_coordinate": "entry+40，push8+sub32后为current+80"
+    },
+    "renders": [
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/02-指令ABI与编译惯用法.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "55625f905365baa9637cb7674090c383be2d07b2c0736d79d8a340198bab8291"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/02-指令ABI与编译惯用法.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "c0b23bde8e2c693135cef71a88f59248941fe6abc5db7150f11cdf3cb97e7c14"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "1c9ed520e16acf5275b0ae2293e73fded5e7ade7ce71212ad18a777358a47961"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "209f1e73a44c8b516a8c518fb05b6454d29ac9de5e3f5591ab45dff9e7b9be74"
+      }
+    ],
+    "old_readme_fences_preserved": true,
+    "source_execution": 0,
+    "source_program_import": 0,
+    "old_examples_rerun": 0,
+    "whole_re_complete": false
+  },
+  "professional_corrections": [
+    "指令字节与SIB/disp位宽逐字段推，mandatoryF3不当REP",
+    "AX与EAX写入不同，ABI多余高位不因某caller写32而普遍确定",
+    "文件格式不决定唯一函数ABI，独立GP/FP载体不唯一恢复参数交织顺序",
+    "Windows四位置vsSysV/AAPCS64独立类；shadow+返回地址/栈调整坐标明确",
+    "X8间接返回、V8–15低64保存、Apple平台差异限定；非任意聚合分配器",
+    "PC敏感unwind，不把maxdepth/savemap与跨对象listing聚合一致作逐PC证明",
+    "无符号除10误差界37/40、有符号39/40，先扩64再乘；负余数不等mask",
+    "source.const/hasloop/有相似shape的verified不等行为证明，None漏列保留",
+    "尾调用/向量/展开/SSP/CET模式须保数据流/ABI/运行环境前提"
+  ],
+  "read_reuse": "04逐项32–38证据/45–48第39课补读与4530条字节绑定，不重跑原识别器或旧示例",
+  "formal_topic_count": 2,
+  "new14_final_acceptance_count": 0,
+  "not_yet_closed": [
+    "32–39相关图示/控制流SSA/证据与重建/工具主题完整融合",
+    "40–45主课/逆向手册/两项目",
+    "其他新项目/配套及全局验收"
+  ],
+  "source_exec": 0,
+  "old_programs_rerun": 0,
+  "new_chapter_embedded_executable_programs": 0,
+  "new_integer_fraction_checks": 35,
+  "whole_update_complete": false
+}
