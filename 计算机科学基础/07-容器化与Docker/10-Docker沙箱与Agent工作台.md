@@ -467,6 +467,10 @@ max_tokens是一次输出预算，context_size是上下文容量；thinking/task
 
 来源将5xx/408/网络超时列为同模型重试候选，将429/其它4xx作为切换候选的条件。这是框架固定版本的策略，不是协议要求；鉴权失败、无权限或组织预算拒绝不能被自动切换成另一个未经批准的账号/服务。alloy在多模型间交替也不同于故障回退，必须记录每次实际模型，不能把多服务的混合结果标成单模型试验。
 
+内容路由也不自动等于语义理解或负载均衡。来源routing页先说明Bleve全文检索匹配最后一条用户消息，后又称semantic similarity；应按有词项/样例匹配的已描述机制解释，不能凭这句话认定使用embedding。两个相似请求可能总进同一后端，没有队列/健康/随机分配就不能保证均衡；忽略前文的短句也可能误路由。保fallback、实际选中模型与越界样例，模型本身的质量仍独立评测。
+
+变量展开按字段核：prompt/HTTP模板支持的表达式不能直接放到working_dir；hook/script env有时只展开${env.X}并只读OS进程环境，不取secret-provider/dotenv。token_key命名凭据变量，本身不是可展开的秘密字符串。多层YAML anchor/merge、flavor、provider继承与CLI覆盖后，检查最终端点、参数和工具集合；兼容某种语法不代表所有section允许重复键。来源overview的version15/字段速记与同仓schema更新存在差别，不能把速记当当前完整验证器。
+
 ### 15.3 预算中的零值与时间含义必须明确
 
 此固定schema的run预算零值通常表示无限；max_iterations的零值也可能不设限，而max_consecutive_tool_calls的零值取默认5。这些字段不能按“0就是禁用”统一解释。重复调用检测针对连续相同调用，不代替任务总预算或语义进展判据。
@@ -506,6 +510,10 @@ MCP命令/remote/ref、自动安装、工作目录、环境、OAuth和监督生�
 来源示例还把注释直接接在`!public.key`后面。按[Git官方语法](https://git-scm.com/docs/gitignore)，注释行须以#起头，不能据此行推断排除了后半注释并正确重新包含public.key；应把注释放单独一行。Git忽略父目录后，还不能只靠子文件例外重新遍历它。
 
 也不能照抄“与.dockerignore完全相同”：Docker对首尾斜杠的处理、相对构建context和匹配方式另有[官方合同](https://docs.docker.com/build/concepts/context/#dockerignore-files)。例如Git的无斜杠名称可匹配更深层，Docker构建上下文的模式有自己的根目录规则。真实agentsignore使用哪个库与版本，本轮未读其实现，不能以教程自述“same library”代为证明。
+
+自动安装又是独立副作用。[官方tools页](https://docs.docker.com/ai/docker-agent/configuration/tools/)在2026-10-18仍说明：命令不在PATH/工具缓存时可按aqua元数据下载或构建；只在存在支持的强校验清单时拒绝不匹配，弱/未知算法或缺清单可能警告后继续安装。因而“使用curated registry”不能证明每件工具都做了强校验。固定版本、实际下载地址、完整性、构建路径及运行权限分别审阅，配置只读工具也不自动禁止加载期下载/执行。
+
+来源permissions页的示例注释说ask能覆盖allow，但同页明确求值顺序deny→allow→ask，二者矛盾。按固定schema/帮助与细则保留allow可能短路普通ask的边界，并单独看session ask及安全前置guard；不能靠示例注释保证“总会询问”。restricted只是没有匹配其它规则时的默认拒绝行为，显式allow仍可能放行，不是操作系统隔离。
 
 ### 16.2 先改写参数，再做不能被普通allow跳过的检查
 
@@ -554,6 +562,10 @@ before_agent_run可以在模型选择与response cache之前路由；after_agent
 slash命令的同名行为还随前端不同：来源full TUI优先处理URL/Agent切换，lean TUI可能只发已展开文本；CLI/API也有各自支持范围。URL-only命令在不打开浏览器的前端仍可能触发模型turn，不能写成无操作。模板中的工具插值会实际调用工具，URL支持自定义scheme可能启动外部应用，都不只是字符串格式化。
 
 HCL只是另一种配置语法，不提供Terraform的模块、函数库或执行计划合同。file()和可选模板参数有自己的目录限制；HCL模板、Agent环境/工具展开、shell解释是不同阶段。被前一层转义成字面值的${...}还可能被后一层解释，必须按最终消费者检查；本章未运行这些模板或loader。flavor在验证前叠加，数组部分匹配删除可移走多条工具，未知flavor只记录日志可能使预期限制失效。
+
+Docker Agent自身的--sandbox路径也不等于只手写一份最小sbx配置。来源描述auto-kit会将发现的宿主skills及workspace之外的prompt复制到只读staging；项目内文件仍由live工作区挂载可见。其文本脱敏只覆盖识别模式，不能推断没有复制秘密；--no-kit只跳过这项staging，不等于关掉项目配置/其它共享来源。
+
+接线还会推导工具下载与模型gateway出口，解析失败可能使用较宽fallback集合。打印allowlist、manifest或cache hash不是授权；须审阅真正的输入、挂载与出口。复用sandbox保留旧状态，mount集合改变又可能删除旧sandbox重建；Kit cache被运行中挂载引用时不能随手删除。来源“退出不停止VM”与通用sbx空闲停止行为也可能受不同创建模式影响，本轮未运行，不以任一页面推定所有模式相同。
 
 ## 18. 声明环境：计划批准的是哪些真实效果
 
