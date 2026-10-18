@@ -11214,10 +11214,21 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 530,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          530
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "x86 O0的25函数全部listing/汇编原文已读；O1所有改后行完整读并精确复用O0共同与删除父行；非来源工具执行。",
+        "O0四个简单除法用硬件div/idiv但digest已有signed magic10，不可把O0理解为没有任何指令选择变换；重定位零字段保符号表达式。",
+        "O1基本帧/栈局部消失，除法魔数含有符号/无符号与补偿；mod8需按负数截零；switch可成值表/线性式/比较树/间接尾跳，不由C表面形状唯一确定。",
+        "sum_n/sum4/poly8在O1仍标量循环，fill可变为memset尾跳，copy16变单16B loadstore；digest表含16/32/64/128/128折叠后乘16，源码/ABI/外部库行为需保前提。",
+        "listing裸地址需结合relocations及section坐标；此处只读并理解文本，未将对象逐条bytes绑定，后续还须检查。"
+      ],
       "source_execution": 0
     },
     {
@@ -11228,10 +11239,21 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 776,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          776
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "x86 O0的25函数全部listing/汇编原文已读；O1所有改后行完整读并精确复用O0共同与删除父行；非来源工具执行。",
+        "O0四个简单除法用硬件div/idiv但digest已有signed magic10，不可把O0理解为没有任何指令选择变换；重定位零字段保符号表达式。",
+        "O1基本帧/栈局部消失，除法魔数含有符号/无符号与补偿；mod8需按负数截零；switch可成值表/线性式/比较树/间接尾跳，不由C表面形状唯一确定。",
+        "sum_n/sum4/poly8在O1仍标量循环，fill可变为memset尾跳，copy16变单16B loadstore；digest表含16/32/64/128/128折叠后乘16，源码/ABI/外部库行为需保前提。",
+        "listing裸地址需结合relocations及section坐标；此处只读并理解文本，未将对象逐条bytes绑定，后续还须检查。"
+      ],
       "source_execution": 0
     },
     {
@@ -11256,10 +11278,310 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 280,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "complete_delta_read_with_exact_common_line_reuse",
+      "actual_read_ranges": [
+        {
+          "scope": "父原文已完整实际读；改后全部新增行与context实际读，删除/相同行按精确范围hash复用",
+          "parent": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O0.objdump.txt",
+          "parent_sha256": "b1c1eb8728b4a5ddb070dec315e1fce5c6c34c14e6310a3a7f24a3db439109c9",
+          "delta_ranges": [
+            {
+              "op": "replace",
+              "parent_lines": [
+                2,
+                2
+              ],
+              "target_lines": [
+                2,
+                2
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                7,
+                16
+              ],
+              "target_lines": [
+                7,
+                11
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                18,
+                28
+              ],
+              "target_lines": [
+                13,
+                21
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                30,
+                40
+              ],
+              "target_lines": [
+                23,
+                32
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                42,
+                52
+              ],
+              "target_lines": [
+                34,
+                42
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                54,
+                65
+              ],
+              "target_lines": [
+                44,
+                55
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                67,
+                78
+              ],
+              "target_lines": [
+                57,
+                64
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                80,
+                87
+              ],
+              "target_lines": [
+                66,
+                69
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                89,
+                121
+              ],
+              "target_lines": [
+                71,
+                78
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                123,
+                155
+              ],
+              "target_lines": [
+                80,
+                89
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                157,
+                191
+              ],
+              "target_lines": [
+                91,
+                106
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                193,
+                232
+              ],
+              "target_lines": [
+                108,
+                132
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                234,
+                255
+              ],
+              "target_lines": [
+                134,
+                143
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                257,
+                273
+              ],
+              "target_lines": [
+                145,
+                150
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                275,
+                290
+              ],
+              "target_lines": [
+                152,
+                157
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                292,
+                302
+              ],
+              "target_lines": [
+                159,
+                164
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                304,
+                316
+              ],
+              "target_lines": [
+                166,
+                170
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                318,
+                327
+              ],
+              "target_lines": [
+                172,
+                175
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                329,
+                343
+              ],
+              "target_lines": [
+                177,
+                181
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                345,
+                367
+              ],
+              "target_lines": [
+                183,
+                197
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                369,
+                389
+              ],
+              "target_lines": [
+                199,
+                208
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                391,
+                411
+              ],
+              "target_lines": [
+                210,
+                223
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                413,
+                431
+              ],
+              "target_lines": [
+                225,
+                233
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                433,
+                448
+              ],
+              "target_lines": [
+                235,
+                238
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                450,
+                463
+              ],
+              "target_lines": [
+                240,
+                244
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                465,
+                530
+              ],
+              "target_lines": [
+                246,
+                280
+              ]
+            }
+          ]
+        }
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "x86 O0的25函数全部listing/汇编原文已读；O1所有改后行完整读并精确复用O0共同与删除父行；非来源工具执行。",
+        "O0四个简单除法用硬件div/idiv但digest已有signed magic10，不可把O0理解为没有任何指令选择变换；重定位零字段保符号表达式。",
+        "O1基本帧/栈局部消失，除法魔数含有符号/无符号与补偿；mod8需按负数截零；switch可成值表/线性式/比较树/间接尾跳，不由C表面形状唯一确定。",
+        "sum_n/sum4/poly8在O1仍标量循环，fill可变为memset尾跳，copy16变单16B loadstore；digest表含16/32/64/128/128折叠后乘16，源码/ABI/外部库行为需保前提。",
+        "listing裸地址需结合relocations及section坐标；此处只读并理解文本，未将对象逐条bytes绑定，后续还须检查。"
+      ],
       "source_execution": 0
     },
     {
@@ -11270,10 +11592,552 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 482,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "complete_delta_read_with_exact_common_line_reuse",
+      "actual_read_ranges": [
+        {
+          "scope": "父原文已完整实际读；改后全部新增行与context实际读，删除/相同行按精确范围hash复用",
+          "parent": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O0.s",
+          "parent_sha256": "d3b4ba2828a90a3420e47776a8c3b82ab170008be0e3b92dfab0672a3ca659ac",
+          "delta_ranges": [
+            {
+              "op": "replace",
+              "parent_lines": [
+                8,
+                15
+              ],
+              "target_lines": [
+                8,
+                12
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                25,
+                32
+              ],
+              "target_lines": [
+                22,
+                28
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                42,
+                49
+              ],
+              "target_lines": [
+                38,
+                45
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                59,
+                66
+              ],
+              "target_lines": [
+                55,
+                61
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                76,
+                84
+              ],
+              "target_lines": [
+                71,
+                80
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                94,
+                102
+              ],
+              "target_lines": [
+                90,
+                96
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                112,
+                116
+              ],
+              "target_lines": [
+                106,
+                107
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                126,
+                165
+              ],
+              "target_lines": [
+                117,
+                122
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                169,
+                178
+              ],
+              "target_lines": [
+                126,
+                125
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                180,
+                180
+              ],
+              "target_lines": [
+                127,
+                126
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                186,
+                202
+              ],
+              "target_lines": [
+                132,
+                138
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                204,
+                225
+              ],
+              "target_lines": [
+                140,
+                139
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                229,
+                238
+              ],
+              "target_lines": [
+                143,
+                142
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                240,
+                240
+              ],
+              "target_lines": [
+                144,
+                143
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                246,
+                264
+              ],
+              "target_lines": [
+                149,
+                155
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                266,
+                268
+              ],
+              "target_lines": [
+                157,
+                156
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                270,
+                271
+              ],
+              "target_lines": [
+                158,
+                162
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                273,
+                274
+              ],
+              "target_lines": [
+                164,
+                164
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                276,
+                282
+              ],
+              "target_lines": [
+                166,
+                166
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                284,
+                285
+              ],
+              "target_lines": [
+                168,
+                167
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                292,
+                292
+              ],
+              "target_lines": [
+                174,
+                174
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                304,
+                311
+              ],
+              "target_lines": [
+                186,
+                209
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                313,
+                316
+              ],
+              "target_lines": [
+                211,
+                212
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                318,
+                321
+              ],
+              "target_lines": [
+                214,
+                215
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                323,
+                326
+              ],
+              "target_lines": [
+                217,
+                217
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                328,
+                351
+              ],
+              "target_lines": [
+                219,
+                218
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                361,
+                384
+              ],
+              "target_lines": [
+                228,
+                234
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                394,
+                410
+              ],
+              "target_lines": [
+                244,
+                246
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                420,
+                435
+              ],
+              "target_lines": [
+                256,
+                258
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                445,
+                448
+              ],
+              "target_lines": [
+                268,
+                269
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                450,
+                452
+              ],
+              "target_lines": [
+                271,
+                270
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                462,
+                471
+              ],
+              "target_lines": [
+                280,
+                281
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                480,
+                486
+              ],
+              "target_lines": [
+                290,
+                292
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                496,
+                506
+              ],
+              "target_lines": [
+                302,
+                305
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                516,
+                539
+              ],
+              "target_lines": [
+                315,
+                330
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                549,
+                553
+              ],
+              "target_lines": [
+                340,
+                342
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                555,
+                570
+              ],
+              "target_lines": [
+                344,
+                348
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                580,
+                584
+              ],
+              "target_lines": [
+                358,
+                360
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                586,
+                601
+              ],
+              "target_lines": [
+                362,
+                370
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                611,
+                630
+              ],
+              "target_lines": [
+                380,
+                386
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                640,
+                652
+              ],
+              "target_lines": [
+                396,
+                396
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                661,
+                671
+              ],
+              "target_lines": [
+                405,
+                406
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                681,
+                707
+              ],
+              "target_lines": [
+                416,
+                434
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                709,
+                709
+              ],
+              "target_lines": [
+                436,
+                451
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                711,
+                759
+              ],
+              "target_lines": [
+                453,
+                452
+              ]
+            },
+            {
+              "op": "insert",
+              "parent_lines": [
+                763,
+                762
+              ],
+              "target_lines": [
+                456,
+                457
+              ]
+            },
+            {
+              "op": "replace",
+              "parent_lines": [
+                765,
+                771
+              ],
+              "target_lines": [
+                460,
+                479
+              ]
+            },
+            {
+              "op": "delete",
+              "parent_lines": [
+                775,
+                776
+              ],
+              "target_lines": [
+                483,
+                482
+              ]
+            }
+          ]
+        }
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "x86 O0的25函数全部listing/汇编原文已读；O1所有改后行完整读并精确复用O0共同与删除父行；非来源工具执行。",
+        "O0四个简单除法用硬件div/idiv但digest已有signed magic10，不可把O0理解为没有任何指令选择变换；重定位零字段保符号表达式。",
+        "O1基本帧/栈局部消失，除法魔数含有符号/无符号与补偿；mod8需按负数截零；switch可成值表/线性式/比较树/间接尾跳，不由C表面形状唯一确定。",
+        "sum_n/sum4/poly8在O1仍标量循环，fill可变为memset尾跳，copy16变单16B loadstore；digest表含16/32/64/128/128折叠后乘16，源码/ABI/外部库行为需保前提。",
+        "listing裸地址需结合relocations及section坐标；此处只读并理解文本，未将对象逐条bytes绑定，后续还须检查。"
+      ],
       "source_execution": 0
     },
     {
@@ -18683,18 +19547,19 @@
   ],
   "checkpoint": {
     "at_utc": "2026-10-16T22:19:12.013078+00:00",
-    "stage": "39 main/test/quiz/Skill及5capture已读；next18builds36texts的47块，从1开始；18对象只读绑定待做",
+    "stage": "39构建材料b9v2已读1–4/28，next5；x86 O0/O1两套4文本闭合，O2 listing从第5块继续",
     "full_text_primaries": 146,
     "source_execution": 0,
     "formal_writes": 0,
-    "detail": "46记工具输出不是行为真值；36汇编/listing完整基础+差分47块已准备但0块已读，读取量不提前计入。39图/主题、40–45/两项目/manual继续未完。",
+    "detail": "原b9 1–8已读；去掉重复展示已读父版本删除行后改用b9v2。后续只读v2第5–28，再做18对象静态字节绑定；不得将准备或部分读计全组完成。",
     "root_continuation": "44布局正文已提交；45续读原断点，14课/逆向手册仍未验收",
     "newly_full_text_paths_20261019": [
       "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/main.py",
       "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/tests/test_main.py",
       "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/outputs/skill-compiler-idioms-and-optimization.md",
       "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/quiz.json"
-    ]
+    ],
+    "legacy_full_text_primaries_note": "原full_text_primaries146为16/17历史计数未沿用作当前全量，当前细粒度状态以files及续接报告为准"
   },
   "proposed_body_topics": [
     "01-二进制布局与装载地址.md",
@@ -18768,6 +19633,30 @@
       "record": "46-逆向第39课工具观察核对.json",
       "new_full_text_paths": 5,
       "whole_group_complete": false
+    },
+    {
+      "date": "2026-10-19",
+      "record": "47-逆向第39课构建读取断点.json",
+      "newly_closed_text_paths": 4,
+      "next_view": "b9v2",
+      "next_chunk": 5
     }
-  ]
+  ],
+  "current_status_counts": {
+    "同SHA源Skill副本复用，不独立重复读取": 1,
+    "全文实际静读，待专业交叉与主题映射": 5,
+    "仅机械定位/字节核对，未读全文或媒体内容": 710,
+    "同SHA全文读取副本复用；未重复呈现": 6,
+    "全文实际静读，待官方/主题融合与图核": 27,
+    "静态字节/header已观察，指令与效果语义待33等关联核；原binary未执行": 5,
+    "static_binary_header_only": 1,
+    "full_text_read": 116,
+    "same_byte_static_binary_header_reuse": 8,
+    "same_byte_semantic_reuse": 6,
+    "structured_complete_value_read": 23,
+    "static_binary_tables_and_code_bytes_read": 8,
+    "exact_body_semantic_reuse": 2,
+    "static_header_sections_listing_byte_binding": 12,
+    "complete_delta_read_with_exact_common_line_reuse": 3
+  }
 }
