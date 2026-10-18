@@ -881,7 +881,7 @@ CLI自动装配keyring不代表SDK也自动持久token；keyring注册晚于懒�
 
 嵌入式Send返回的事件通道需要消费到结束，保Err与Done的不同终态、tool完成的错误标记及明确的确认范围。取消/超时不是可直接当成功返回的用户结果，退出前还要清资源和停止UI tick订阅；Restart会话也不撤销先前外部动作。SDK示例里忽略错误、盲取最后消息等简写不迁移为完整应用程序。
 
-HTTP transport wrapper应委托原instrumented transport，避免丢失代理、解压与观测；它在gateway逐请求重建、direct只在client创建时调用，不能把wrapper工厂调用数当网络请求数。来源还说wrapper可使Vertex回退到另一backend，这会改变凭据/端点和数据路径，不能作为无行为变化的监控开关。本章未编译或调用原SDK。
+HTTP transport wrapper应委托原instrumented transport，避免丢失代理、解压与观测；它在gateway逐请求重建、direct只在client创建时调用，不能把wrapper工厂调用数当网络请求数。来源还说wrapper可使Vertex回退到另一backend，这会改变凭据/端点和数据路径，不能作为无行为变化的监控开关。本章未编译或调用原SDK。 工具具体工作目录、LSP单位、网络匹配、异步任务和生成API沿[工具使用专题](../../Agentic%20Design%20Patterns/01-核心章节/05-工具使用.md#工具工作目录异步回执与生成接口的实际边界)学习；计划的版本/批准/状态沿[规划专题](../../Agentic%20Design%20Patterns/01-核心章节/06-规划.md#共享计划的版本批准与任务状态不能混用)学习，避免本章重复维护独立工具参考。
 
 headless也有独立陷阱。来源说明--on-event在--exec下不装配，普通交互路径又异步启动子进程且退出不等待；它不能作为“通知/清理必定完成”的唯一证据。NDJSON只规定事件编码，不证明模型终答符合schema或任务成功；下游应保存终态并同步验证必要操作回执。shell pipeline还需确保保留上游失败码，不能只看tee成功。
 
@@ -892,6 +892,6 @@ headless也有独立陷阱。来源说明--on-event在--exec下不装配，普�
 ## 来源与当前验证范围
 
 - 第一来源：[AI Engineering from Scratch](https://github.com/rohitg00/ai-engineering-from-scratch)，固定提交`1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e`，源提交2026-10-15 13:58:42北京时间；本章2026-10-18整理。手册的CLI案例主要为作者2026-10-08环境，不能当成读者当前环境。
-- 本章目前融合已完整读的手册主体与已核对的隔离/工作区/网络/秘密/MCP/回放边界。Kit的v3结构/20类能力合同/两类符合性已局部融合，Agent schema/帮助关键合同已回融第15–17节，sbx声明环境与状态/规则边界回融第18节，SBX79页研究正文已全读并回融本章及11策略与审计，Docker Agent108页研究正文仍在本次增量审查中，整个手册和整个来源尚未验收完成；进度与逐项来源见[05覆盖记录](../../维护/来源更新/2026-10-16/05-Docker沙箱-读取与融合.json)。
+- 本章目前融合已完整读的手册主体与已核对的隔离/工作区/网络/秘密/MCP/回放边界。Kit的v3结构/20类能力合同/两类符合性已局部融合，Agent schema/帮助关键合同已回融第15–17节，sbx声明环境与状态/规则边界回融第18节，SBX79页研究正文已全读并回融本章及11策略与审计，Docker Agent108页研究正文也已全读并按主题回融工具05/规划06/观测19、RAG12/结构化13/交互18及本章；现待整手册跨章去重与最终验收，整个手册和整个来源尚未验收完成；进度与逐项来源见[05覆盖记录](../../维护/来源更新/2026-10-16/05-Docker沙箱-读取与融合.json)。
 - Kit专节依据[固定主分支规范](https://github.com/docker/sandbox-kit-spec/blob/4be7f4dff4d647f10c51dcdb392ce3fa18dc3e96/docs/spec/SPEC-v3.md)、其20页能力合同与符合性说明，并对比`v3.0.0-m.8`。2026-10-18经GitHub API复核该固定提交的规范、总schema字节及skills合同正文；不代表当前最新版本或运行器实际支持。
 - 本轮没有启动Docker、microVM、模型、服务或原capture程序，也没有运行原测试/安装。实际作者转录、静态解析、正文审阅和本机运行的证据层次分开记录；这不是用户已部署或掌握的经历。

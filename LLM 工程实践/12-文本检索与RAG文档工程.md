@@ -2073,3 +2073,11 @@ Agent response cache的“相同问题重放答案”也不替本章第14节的�
 ### 嵌入式构建通过不等于解析器可用
 
 第一来源Docker Agent Go SDK正文（2026-10-08固定快照，2026-10-18整理）说明，关闭cgo后tree-sitter可用stub编译通过，但第一次解析才返回运行错误；从registry移除RAG又可能仅产生load warning。因而编译、配置加载、依赖Ready、文档解析、索引完成与可检索是不同验收点。消费者应读取warning，要求必需路径实际可用，不能在检索缺失时默默把空结果当“文档没有答案”。该限制为来源固定实现说明，本轮未编译SDK/加载parser，沿用本章已有合同例，不重跑旧程序。
+
+### 永久停用策略可能把一次限流变成长期降级
+
+同一来源Docker Agent RAG独立工具页把429与400/401/404一起作为该版permanent model error：索引中止，reranker可在manager存活期内持续关闭。429通常是资源/窗口限制，不能因此写成“模型配置永久无效”的通用结论。实际服务按错误code、Retry-After/配额、总deadline与任务幂等决定恢复；检索返回未重排结果时应显式报告degraded与生效版本，不能仍标“重排成功”。
+
+来源还笼统声称LLM语义摘要embedding质量更高，实际需在相同任务/语料与代价下评测。摘要可能遗漏精确标识符，BM25与向量分数尺度不同，weighted/max不能无校准混比；RRF按rank融合不等业务相关性已验证。chunking.size在该配置按字符而非token，cosine也不普遍限0–1；threshold默认值不能跨策略当概率门。索引/候选/重排/final limit与return_full_content的已有合同继续在本节主干维护，避免再复制一套配置。
+
+以上来自2026-10-08固定文档，2026-10-18静态对照；没有调用embedding/reranker或重跑旧例，不把作者的支持/质量标签当当前原厂验收。
