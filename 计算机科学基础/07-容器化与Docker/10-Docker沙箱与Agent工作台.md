@@ -61,7 +61,7 @@
 
 ### 4.1 直接读写挂载
 
-优点是Agent立刻看到真实代码、修改可直接在宿主审阅；代价是权限也真实生效。它可能改源码、`.git`、CI配置、依赖脚本或其它可见文件。一次Git diff不能说明没读过秘密、没触发外部请求或没修改非Git管理内容。
+优点是Agent立刻看到真实代码、修改可直接在宿主审阅；代价是权限也真实生效。它可能改源码、`.git`、CI配置、依赖脚本或其它可见文件。一次Git diff不能说明没读过秘密、没触发外部请求或没修改非Git管理内容。 `.git/hooks`等通常不在普通diff里，CI、IDE任务、包管理脚本及项目Agent配置也可能在以后由宿主触发。路径隔离还要考虑硬链接：挂载内的路径若指向与外部路径相同的inode，通过前者写入仍会改变同一文件；不跟随越界符号链接不等于处理了硬链接。
 
 ### 4.2 只读挂载
 
@@ -70,6 +70,8 @@
 ### 4.3 私有clone或无宿主挂载
 
 私有clone让Agent在guest文件系统修改，产物取回后再审阅；mountless适合不需原仓库的独立工作。来源clone还将宿主源目录只读暴露于`/run/sandbox/source`，所以未跟踪敏感文件仍可能被读到。宿主CLI为建立取回路径还会改Git remote/refspec等配置，不能笼统称宿主完全没有变化。
+
+来源同时说整个Git根只读可见，又称.git/config中的凭据留在宿主。这里按更窄的可支持结论处理：私有clone有自己的config，但不能由此推断原只读挂载里的.git/config不可读；remote URL中嵌入的令牌也须审查。只读保护完整性，不保证保密。
 
 取回commit只证明拿到了一个Git产物；仍须检查差异、来源、依赖、生成脚本和验证结果。后续在宿主执行构建或hooks是另一条信任边界。
 
@@ -94,6 +96,8 @@ guest服务监听、宿主端口映射和访问者认证分别核。回环绑定
 代理凭据方案可以让guest持占位值，实际请求到指定目标时由外部代理替换。它减少直接把密钥放入VM的需要；但Agent若能触发真实API，仍可能产生读写与费用。密钥未进入VM，不等于没有获得使用该密钥的能力。
 
 来源自定义秘密的替换依代理路径与目标绑定，普通环境变量、磁盘文件、透明隧道和显式header配置不能混为同一机制。host secret import是显式读取；`-e KEY`一类明文环境传递也不是自动的secret管理。保密、认证、授权与目标绑定分别解释，不能用“安全注入”四字替代。
+
+不同Agent和接入方式也不保证相同隔离。来源Kiro认证数据库在guest中；[官方Claude Desktop连接说明](https://docs.docker.com/ai/sandboxes/integrations/claude-desktop/)在2026-10-18仍提示SSH接入会向guest中的Claude Code进程传凭据。不能把代理管理API-key的保证推广到所有登录协议或桌面客户端。
 
 SSH agent转发通常不是复制私钥，但能请求签名认证；共享skills、剪贴板或远程控制也会打开额外数据/执行通道。它们不是主文件挂载权限能够统一约束的对象。
 
@@ -714,9 +718,45 @@ SDK当前[存储说明](https://docs.docker.com/ai/sandboxes-api/cookbook/attach
 
 参考练习：将NO_PROXY加进终端后调用成功，是否证明旧沙箱已换路由？不够，先查使用的是CLI还是guest请求、daemon是否还持旧env、沙箱proxy是否重建及命中的scope。把主workspace设clone是否保护另一直接挂载目录？不能，应逐个列出mount与读写权限。
 
+## 21. 连接编辑器、MCP与取回成果
+
+### 21.1 SSH连接与SSH agent转发是两个方向
+
+本地编辑器连接的目标是宿主daemon提供的沙箱入口。来源通过SSH ProxyCommand接本地socket/命名管道，由daemon认证并转发，不需要在guest开一个常驻sshd。它与guest借宿主SSH agent去签名/登录远端，是不同方向和权限。
+
+连接停止的本地沙箱可能自动唤醒，因此SSH连通检查不是“保持停止”的观察。连接成功也未必选到了主workspace：远程文件选择器可能先到/home/agent，须核真实路径。来源还说明SSH env请求被接受但值不转发，不能因客户端SendEnv配置存在就推断远端已有变量。
+
+端口转发有两端：guest目标可能被限定到回环，但宿主监听地址由客户端决定。宿主绑定到非回环会扩大可访问者，不能用“目标是localhost”推定仅本机可见。普通sbx发布端口还要求服务监听guest可转发接口，SSH隧道则可以到guest loopback；两条路径不可混淆。
+
+编辑器首次接入可能安装远程server/扩展，改变guest内容。某些集成需要原生构建工具链；看到远程server未Ready，应看真正安装日志、磁盘和编译依赖，不以一个EBADENGINE warning替代根因。同一上层错误可先后包含多个原因。旧UI菜单与一次特定版本workaround不做永久步骤，桌面端权限模式也不能由沙箱模板默认推断。
+
+### 21.2 MCP注册、加载、认证与运行进程分别管理
+
+sbx网关的host注册不是给当前沙箱自动附加。静态模式预加载列表并不暴露动态发现工具，但宿主仍可能显式load；动态模式可搜索后附加已注册服务器。这里与14.4的MCP Toolkit会话动态工具不同：sbx的部分attach可跨沙箱restart保存，而生成code-mode工具只活到当前gateway被替换/停止，不能混用存活期。
+
+custom header占位符指向host秘密库中特定服务器的记录，不读取同名shell env。它还用endpoint/identity元数据约束目标变更；换URL不能只沿用旧秘密便称安全。header秘密、OAuth client secret、access/refresh token、注册记录各自清理；删除注册可能保留前两类元数据/值，auth rm也不等于供应商端撤权。既有连接可能保留旧header值，修改值后需核网关重连时机。
+
+OAuth显式scope、已存默认、资源要求和服务器advertised fallback有先后关系；显式选择不一定自动附offline_access，已有无refresh token的grant也不因此升级。检查requested与granted，不能把no-scope当空权限。声明URL、registered、authorized、loaded、tools visible和调用成功应分别记录；confidential client缺secret还可能出现注册成功但没授权。
+
+本地stdio或从OCI元数据解析的local服务器在宿主运行。元数据存在、注册成功、某type被schema接受，不证明当前gateway能实际启动该type。远端URL/重定向的SSRF检查在来源版本是警告继续，DNS后来改变也可能绕过一次解析观察；不能把注册过程当已阻断内网访问的保证。策略与审计的完整学习入口见[下一章](./11-Agent沙箱策略与审计.md)。
+
+### 21.3 取回代码、保存模板与清理前先盘点唯一数据
+
+clone是独立Git仓库，不自动给每个并行任务隔离工作树。不同branch在同一工作树来回切换仍会影响其它进程；需要真正独立worktree或工作副本。宿主worktree挂载只含.git指针时，guest可能无法解析外部Git目录；不要用该现象推断仓库损坏，也不为了“修复”挂载整个含秘密的父目录。
+
+来源clone只跟创建时已检出的ref，不自动建任务分支。取回remote可能仅在沙箱运行时可用，restart还可能换端口。先保存commits/未提交文件，再删除；fetch只传Git对象和引用，不自动把未提交工作区一起救回，也不等于已合并。签名证明密钥使用与提交绑定，不证明人类逐行审阅；重签名会改提交ID，不能作为默认修复步骤。
+
+保存template是容器文件系统快照，不含所有挂载、私有Engine存储或活进程。Kit仍决定运行配置，受管理的Agent配置可能在创建时重写。模板还可能捕获手动写入的真实secret。要长期复现环境，用有来源、版本与能力声明的构建配方；要保存成果，分别导出代码、数据库/卷内容和必要账本。
+
+CLI升级、模板更新和已有guest中的Agent升级是三个对象。拉了新模板不自动替换旧运行环境，cache fallback也可能继续用旧镜像。记录实际digest与二进制版本，不能用模板tag或安装器版本替代。
+
+CI样例中的登录、secret import、attach和rm仅是接线示意。无人值守流程还需要有界命令、业务退出码、总deadline、失败也尝试的定向清理，以及唯一名称和资源账本。source --rm也受会话断连等条件限制，不能代替云端按ID回收。诊断上传会收集日志，自动脱敏不保证没有用户内容，上传与保留范围应另核。本章未采用来源的批量reset、prune、改签历史或安装探测命令。
+
+参考判断：SSH连上了、listTools有工具、Git fetch成功，是否可以说Agent任务完成？不能，分别只证明接入、可发现性和Git传输；还需目标目录正确、授权与实际调用回执、预期产物和业务验收。
+
 ## 来源与当前验证范围
 
 - 第一来源：[AI Engineering from Scratch](https://github.com/rohitg00/ai-engineering-from-scratch)，固定提交`1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e`，源提交2026-10-15 13:58:42北京时间；本章2026-10-18整理。手册的CLI案例主要为作者2026-10-08环境，不能当成读者当前环境。
-- 本章目前融合已完整读的手册主体与已核对的隔离/工作区/网络/秘密/MCP/回放边界。Kit的v3结构/20类能力合同/两类符合性已局部融合，Agent schema/帮助关键合同已回融第15–17节，sbx声明环境与状态/规则边界回融第18节，其它研究附属仍在本次增量审查中，整个手册和整个来源尚未验收完成；进度与逐项来源见[05覆盖记录](../../维护/来源更新/2026-10-16/05-Docker沙箱-读取与融合.json)。
+- 本章目前融合已完整读的手册主体与已核对的隔离/工作区/网络/秘密/MCP/回放边界。Kit的v3结构/20类能力合同/两类符合性已局部融合，Agent schema/帮助关键合同已回融第15–17节，sbx声明环境与状态/规则边界回融第18节，SBX79页研究正文已全读并回融本章及11策略与审计，Docker Agent108页研究正文仍在本次增量审查中，整个手册和整个来源尚未验收完成；进度与逐项来源见[05覆盖记录](../../维护/来源更新/2026-10-16/05-Docker沙箱-读取与融合.json)。
 - Kit专节依据[固定主分支规范](https://github.com/docker/sandbox-kit-spec/blob/4be7f4dff4d647f10c51dcdb392ce3fa18dc3e96/docs/spec/SPEC-v3.md)、其20页能力合同与符合性说明，并对比`v3.0.0-m.8`。2026-10-18经GitHub API复核该固定提交的规范、总schema字节及skills合同正文；不代表当前最新版本或运行器实际支持。
 - 本轮没有启动Docker、microVM、模型、服务或原capture程序，也没有运行原测试/安装。实际作者转录、静态解析、正文审阅和本机运行的证据层次分开记录；这不是用户已部署或掌握的经历。
