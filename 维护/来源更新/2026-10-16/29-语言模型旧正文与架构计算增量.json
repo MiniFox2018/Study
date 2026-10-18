@@ -1,0 +1,333 @@
+{
+  "date": "2026-10-19",
+  "old_source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "target_source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "scope": "旧Phase10共17修改正文及1架构计算源码，98处差分",
+  "accepted_delta": true,
+  "source_files": [
+    {
+      "source_file": "phases/10-llms-from-scratch/03-data-pipelines/docs/en.md",
+      "old_sha256": "75ed5890977f72a36387b7cbea1db9b67a90ca4ba784223ec2f69e4b8cd37a44",
+      "new_sha256": "38bf88d7c4a73bd3b6ca0e581adc12e8b0433319c11713b99bbd066174ab749f",
+      "old_git_blob": "65217651947a36a0b0696806ce11d58441277833",
+      "new_git_blob": "547f8c56d2902afd66990e6200441d7257089e59",
+      "hunks": 3,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/16-预训练数据与模型交付实践.md",
+      "disposition": "数据族划分/去重/LSH候选最坏情况、D/N预算拟合条件；不照搬平方根或nearlinear为普遍保证",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/04-pre-training-mini-gpt/docs/en.md",
+      "old_sha256": "5c3f2214d795c44638f037e6b2493e3190516a5bf89202060467298dc2f39dbb",
+      "new_sha256": "f8cbf984738f5c7f998f6c52ee0bd680b1aab57a2127a64409b6fd0ee8904d96",
+      "old_git_blob": "86ca3b1cb084bc1b8835fb0541835cfb42771dcc",
+      "new_git_blob": "92af587db7fc958d314dbfa60ef455d3f4b520a4",
+      "hunks": 7,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md",
+      "disposition": "真实训练移位/形状/softmax缩放条件保留，KV完整合同在工程14；GELU变换不保证500步更好",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/07-rlhf/docs/en.md",
+      "old_sha256": "0e599cb378e8f0291f17d037d75f07cde24451c27ac335a1dbfa49f026524090",
+      "new_sha256": "30a1fc49e095627252b51e3760eaa1b3ddccd18f22d591978df6acab13f2eaf6",
+      "old_git_blob": "d558aaf1216ce4249888a4e25b711103a8d086db",
+      "new_git_blob": "dd95ddb3246db1c3d9d4f951e1b3ee9c8f67eb7a",
+      "hunks": 9,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "disposition": "BT/softKL/oldref/response mask与有效样本既有完整实现；不保固定beta或多目标必优，PPO clip不当概率硬限",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/08-dpo/docs/en.md",
+      "old_sha256": "a295d8092c3cba3c2595bbddb731802cc062d9e9cb686b6a5e7196e2eba4d4ed",
+      "new_sha256": "8ed68c9a1735cf8873001c591ef2ad0af65a18c376b9e1e082f54de00e48862d",
+      "old_git_blob": "029d4b48e2539b6be844afd6953384392587b7ff",
+      "new_git_blob": "b20dd36e3dd342e4ab883f6b0cc464165b7f6348",
+      "hunks": 12,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "disposition": "DPO原含歧义logpi/piref改为log(pi/piref)是表达澄清；主干本已正确，保同prompt/可归一Z/支持条件与实际更新",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/09-constitutional-ai-self-improvement/docs/en.md",
+      "old_sha256": "df41ca148d4abf46b736a89e1bd5391248dcccd7267acb8e0fafc3b3213b18d4",
+      "new_sha256": "af0f34ce409d3d83826fc41709188800bf84cf85318afb30884fa064752543ab",
+      "old_git_blob": "cca7f22e55b8e40f3e8f50a06726ca0c66d82ba0",
+      "new_git_blob": "13dab810933dfebbbf6327988cd956b70e74266b",
+      "hunks": 4,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "disposition": "GRPO组std零/有效答案、tokenratio/oldref/聚合；CAI原则生成不等真相与安全证明",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/10-evaluation/docs/en.md",
+      "old_sha256": "46ea04b305ea7d7d7072fc2b28c1eb662230ee8bb9739d2245fa50a80472163f",
+      "new_sha256": "89c01fff0229f0f8c3d7bfc6aa3ce18b66785b5961b1dbff1ca775d72c841eae",
+      "old_git_blob": "23b215f2dff287d66101d4bf6e2e57efd43bc949",
+      "new_git_blob": "48857434ab3f6920e185d198add39efc6684cf64",
+      "hunks": 2,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/06-评测与实验管理.md",
+      "disposition": "固定tokenizer/真实logits的有效target全局NLL后exp；长度随机fixture不称模型PPL",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/11-quantization/docs/en.md",
+      "old_sha256": "7b089b523500e3a6948d1265e174f1c59cbc890f31faeba9549e5a9de95180bf",
+      "new_sha256": "859b9d5f9cdb89478daeb224e8e4f6eb20d506bcc36213abf5723190f10217ed",
+      "old_git_blob": "fbb6d27921e1c5e9dde90c5533b8f7ab4f2699f9",
+      "new_git_blob": "90a77c826d035a1669327f5734a03e2741fb09f8",
+      "hunks": 2,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/15-训练资源与数值量化实现.md",
+      "disposition": "正常数与subnormal/FP16 BF16精度范围、round与累加实际模式；不接受everytrainingBF16或给定数四舍五入就真BF16",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/13-building-complete-llm-pipeline/docs/en.md",
+      "old_sha256": "4e36ed61b55f577852709ebd4b3ea3988e47ebe5daf7355ec55a06391de26b96",
+      "new_sha256": "8b040d977ac562106f2a65dc13d5a9e092e7768c8e89a0cc0ea5c4e5b6d7cac3",
+      "old_git_blob": "898365177e8f44d4de8aaef88f4248ce7643610c",
+      "new_git_blob": "66e1490ce3d6f8032868564d1069114e7e99db6a",
+      "hunks": 1,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/16-预训练数据与模型交付实践.md",
+      "disposition": "阶段版本/数据/回归/回退，跨不同reference KL不能任意累计当通用安全闸",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/14-open-models-architecture-walkthroughs/code/main.py",
+      "old_sha256": "7a7cab05eebcc9401d45db50588ab57ac4c8ec3d042e1f62157c13cdd7ce41e8",
+      "new_sha256": "56965956f62a23b35a7d8edbb8622eb5197ba6d0e9ac3546ceb9cecead353259",
+      "old_git_blob": "16f50c7defafa7df64ca69177d729f3f69a3189a",
+      "new_git_blob": "4b1784a4745d6e080e4b4f3aca1194f731686ec0",
+      "hunks": 24,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 基础/09-现代语言模型架构与生成.md",
+      "disposition": "14.2新增非方QKV/GeGLU/可学norm/输出门/共享head唯一计数、逐层窗口与GBGiB算例；作者Spark固定revision配置与模块定点静核，Gemma配置401不冒核验",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/14-open-models-architecture-walkthroughs/docs/en.md",
+      "old_sha256": "3786ce2336c30cb590bc56bb9d3b04b6ba937121d3de4a4fe20cefad9c6d286c",
+      "new_sha256": "a8ed03076dc6b94ead65d2f1b2ca1103c9caef23e22620254f4e47863ea9ac5c",
+      "old_git_blob": "33c09c0b639c4af3ddfd097813322b6e8ead0b3b",
+      "new_git_blob": "e434fd4cebf4e38e2ff21574f10aee939a5f9055",
+      "hunks": 10,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 基础/09-现代语言模型架构与生成.md",
+      "disposition": "14.2新增非方QKV/GeGLU/可学norm/输出门/共享head唯一计数、逐层窗口与GBGiB算例；作者Spark固定revision配置与模块定点静核，Gemma配置401不冒核验",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/15-speculative-decoding-eagle3/docs/en.md",
+      "old_sha256": "e7ccc1f2140d91351e1990b1556e97a2f6375b05ad1d7b36d5c852e1cec66ef5",
+      "new_sha256": "60e2c6ad68167b79a2dea85fcfdd05d45df33ee71cb80ca0db5ed131fab6270b",
+      "old_git_blob": "d0791b2eea163b1f637e898f5ea4c5a009d6be89",
+      "new_git_blob": "59adc942bef0f7d1dde2238c2db40039625db7f7",
+      "hunks": 1,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/14-Transformer推理与规模设计.md",
+      "disposition": "几何和是输出含bonus而非只draftaccepted，有限N/alpha1边界和真实成本，保EAGLE3版本合同",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/16-differential-attention-v2/docs/en.md",
+      "old_sha256": "89705e3112b66cdf2bb5444d632cafb5c4b168fe4693e534c92fb0d1051ae5df",
+      "new_sha256": "fa962c2cd11ebfd1d9ac00516dd75945a750d4e84eee4aa7dbdf955c76506cf4",
+      "old_git_blob": "eca0a58a9d9a2017b713beeab0d548729d23a0d7",
+      "new_git_blob": "46a3bddc42c2dc22127de323d61be280c5f5b9f8",
+      "hunks": 7,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/04-注意力机制与Transformer.md",
+      "disposition": "§21 V2作者相邻双Q/共享KV/输入sigmoidlambda去RMS，新增参数预算，不照搬源V1V2lambda相同或自动借FFN无成本",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/17-native-sparse-attention/docs/en.md",
+      "old_sha256": "ad7929f9d22e8abedc598a0c9779ac28461ac789d853787ac047a172a04d0755",
+      "new_sha256": "3b9e728207f324d13a63af2a9fb1fa519eddf18b129225fef32a38086c8a0b4c",
+      "old_git_blob": "a9da7bbff12f101df7a7db8cc6b282bf9874ff0a",
+      "new_git_blob": "631af318b43097f3ccfc5300ae3b4b7a26f82cfe",
+      "hunks": 2,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/14-Transformer推理与规模设计.md",
+      "disposition": "压缩/选择/滑窗三分支门组合，真实选块和因果/内核/forward验证，块均值toy非原NSA",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/18-multi-token-prediction/docs/en.md",
+      "old_sha256": "5147945b9cea6351169e38c9bea631ed9769807fa4858f257b4e0f789139472d",
+      "new_sha256": "390909f35b47294d57064a5663d646b6625ee4519723edc6d9e40861cd0b6983",
+      "old_git_blob": "9d9e7f05f6f12587218e0c7d437b2b56ce7c03f5",
+      "new_git_blob": "f695537e68b87e4d8dca908dcd5138f7e57e04ec",
+      "hunks": 6,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 基础/09-现代语言模型架构与生成.md",
+      "disposition": "§17 MTP module后预测移一位目标、原最后module未进loss/concat参数缺D²不重新引入，valid分母与论文固定T区别保留",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/20-deepseek-v3-walkthrough/docs/en.md",
+      "old_sha256": "04d8e96b26fd1cbfe18298e60320deff1339f9b052572b7144379ee59717d2e3",
+      "new_sha256": "dfd1e6bd1868266e470ed5c232da1c4cc0cb515fa1e02f7a23d840c8cb5fde13",
+      "old_git_blob": "3a489e2458d126f4416743dad889edd8113a1be5",
+      "new_git_blob": "a9e56befaec4493b51aa12307bb55da82df1eaf9",
+      "hunks": 1,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 基础/09-现代语言模型架构与生成.md",
+      "disposition": "V3 MTP非免费draft、head共享≠输入输出互绑，MLA/路由/模块预算分开",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/21-jamba-hybrid-ssm-transformer/docs/en.md",
+      "old_sha256": "cc5b0d19b7cb44011c94c603517e7a8eb659df2e2b58043e5d89cd1299191ab8",
+      "new_sha256": "5bcf30d8629682e1a779be3a6ca438788e8ab7a0c91f59d1191b79f7d1dfdb9f",
+      "old_git_blob": "a4a3529e1d00d243e1ef79438ddf3443baf8b759",
+      "new_git_blob": "e26342da4e9fe0ddad5a5460b9bc244f7238edbe",
+      "hunks": 2,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 基础/09-现代语言模型架构与生成.md",
+      "disposition": "递推state常量仅对序列长/固定维，训练激活、SSM选择性/混全局attention cache与纯SSM分开",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/25-speculative-decoding/docs/en.md",
+      "old_sha256": "dba09da1fd8d377afcef9e7197e9c80cfcf8bcef10ab9de547905a900301edd0",
+      "new_sha256": "d51b4648a1ae71114397ce34c64a33f39a2db8bd7fd06e4333073ac3d20703cb",
+      "old_git_blob": "b9fb955e1dff324e722bce054bafb2d98028f2eb",
+      "new_git_blob": "3b87ea3f627150c9b68c7d0ff4dc44764f80e7d7",
+      "hunks": 2,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/14-Transformer推理与规模设计.md",
+      "disposition": "有限几何和不当wallclock/不含成本的K最优题需补成本，拒绝残差与cache/EOS合同复用",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/10-llms-from-scratch/34-gradient-checkpointing/docs/en.md",
+      "old_sha256": "efc28421256a26be194a1965242bb8413888167b4bcfbfdb9daa3e541368d9f8",
+      "new_sha256": "fe5666fbf27ab94e5d6bb37dac9556988a7d83364ad4b5ecf0550542cc7b66c0",
+      "old_git_blob": "de2b8f0087d00b0bc91e24a779f56d90652242bb",
+      "new_git_blob": "ee7532a54bca310c874fb294da078427eba91184",
+      "hunks": 3,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/15-训练资源与数值量化实现.md",
+      "disposition": "层数L与序列T不混，checkpoint保留/重计算成本需按图/预算，不把贵算子必重算称最省FLOPs",
+      "source_executed": false
+    }
+  ],
+  "hunks_read": 98,
+  "read_review_chunks": [
+    {
+      "chunk": 1,
+      "chars": 10373,
+      "sha256": "52b67c0da9d9fa81f59d6042a1630dad043242c6a4573ec0a56823057c9302d7"
+    },
+    {
+      "chunk": 2,
+      "chars": 10437,
+      "sha256": "158b9722e040e706bcc644ec22e849528bbb1b10b453e01f89d43e45d266e80e"
+    },
+    {
+      "chunk": 3,
+      "chars": 10466,
+      "sha256": "33f7e276dfa1614294f948e560e89858bdccb3a106ce183d7a4766e45d820e1c"
+    },
+    {
+      "chunk": 4,
+      "chars": 4928,
+      "sha256": "89abed06346957386b13cad252e692bf275f2146a54f332c92645e0080b5fb14"
+    }
+  ],
+  "classification": "架构14正文与源码有实质补充，已融合LLM基础09新14.2；其余数学排版/歧义式正规化复用正确主干。架构新main374行完整静读，不执行，不能把新增代码未运行说成测试通过",
+  "formal_changed": [
+    "LLM 基础/09-现代语言模型架构与生成.md"
+  ],
+  "existing_formal_sha256": {
+    "LLM 工程实践/16-预训练数据与模型交付实践.md": "9b4a39ca761783cc14939aaa26108a0ecfefc8f712bc2b614f761ecbb751c20c",
+    "AI 算法基础/深度学习专题/19-Transformer实现与训练实践.md": "74857be433fe231ac17539ddddede97357bbf8138f85a13613e9aff32e6218f7",
+    "LLM 工程实践/05-偏好优化与强化学习.md": "293ddecbab29325e47e79370787d83af87baaa14d4e9f21611a29930556fb147",
+    "LLM 工程实践/06-评测与实验管理.md": "a661bf9b475ba5fdcae3831f679a11d036f400ee03f325f13eebfa4939525fa9",
+    "LLM 工程实践/15-训练资源与数值量化实现.md": "bc217cdd2e0ab5032b62a8bb5f37d8403b1d24ef6bf7935140519c430e7068dc",
+    "LLM 基础/09-现代语言模型架构与生成.md": "1b9b9b763137af53ec426098ca4c423803ecd4664f15312092f4c355021af023",
+    "LLM 工程实践/14-Transformer推理与规模设计.md": "e3006b8832cb5479b360ffb4907038a9063617bc00967e6b191eda456b259329",
+    "AI 算法基础/深度学习专题/04-注意力机制与Transformer.md": "ec2ab1a122c83fd13118712ca4704e5cff4ce040741e0ea687b6d7d6b3fcf412"
+  },
+  "preserved_stricter_cases": [
+    "显式head_dim不等D/Hq、fused不改变总参数",
+    "GeGLU三矩阵/每头输出门与FFN门不同",
+    "embedding与lm_head共享按唯一参数计数/untied另加",
+    "混合缓存逐层求和且需真实淘汰，非由mask断言已省显存",
+    "作者Spark4B唯一参数4112079360及理论KV38711328768字节有限算术核对",
+    "新source已修的旧问题注明原3be基线，不冒称新target仍错",
+    "MLA特殊缓存不套普通双KV头、GPT2bias/position与Qwenbias仍需核",
+    "其他排版复用DPO/PPL/MTP/DIFF/SSM/checkpoint的原严谨边界"
+  ],
+  "render_policy": "修改正式章全文Pandoc JSON/HTML0警告；原围栏与历史运行日期保留，未重跑旧例；其余未修改正式文件复用原验证",
+  "new_programs": 0,
+  "source_program_runs": 0,
+  "old_example_reruns": 0,
+  "whole_update_complete": false,
+  "formal_validation": {
+    "file": "LLM 基础/09-现代语言模型架构与生成.md",
+    "before_sha256": "2afecbb42a164e837dc153f12aaa3d2e743606eabb3d15ff245fd768b8d6bfc5",
+    "after_sha256": "1b9b9b763137af53ec426098ca4c423803ecd4664f15312092f4c355021af023",
+    "all_old_fences_preserved": true,
+    "old_run_dates_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "returncode": 0,
+        "warnings": "",
+        "sha256": "6356e1fc4c9ef37a22d97a2d438da7d00003d25f4a9267f4267e55f12422f574"
+      },
+      {
+        "format": "html",
+        "returncode": 0,
+        "warnings": "",
+        "sha256": "77b06b8aa9843b627a89a6508d02dd242ef92be8bc9675f8ceb2824dd8969b10"
+      }
+    ],
+    "arithmetic": {
+      "D": 2560,
+      "Hq": 16,
+      "Hkv": 4,
+      "head_dim": 256,
+      "attention_with_gate": 26255360,
+      "ffn": 78643200,
+      "norm": 5120,
+      "total": 4112079360,
+      "cache_bytes": 38711328768,
+      "all_full_bytes": 154618822656,
+      "ratio": "2051/8192"
+    },
+    "method": "自有有限整数/Fraction算术，未导入/执行来源程序或作者模块，未重跑原例"
+  },
+  "primary_verification": {
+    "date": "2026-10-19",
+    "spark_fixed_receipts": [
+      {
+        "url": "https://huggingface.co/XHToken/Spark-X2.5-4B/raw/0bcb35678590218655dff3765b9e61c83b35e9c4/config.json",
+        "path": "spark-fixed-config.json",
+        "bytes": 2035,
+        "sha256": "767161ece8ed2891e44345afdf98d29c1cacb964116cb6db7d20dc1c757490ad"
+      },
+      {
+        "url": "https://huggingface.co/XHToken/Spark-X2.5-4B/raw/0bcb35678590218655dff3765b9e61c83b35e9c4/modeling_spark.py",
+        "path": "spark-fixed-modeling_spark.py",
+        "bytes": 19418,
+        "sha256": "9cf0d1ad2b54b9f7088792779ddd8b5cb4d4fe63bfea054da7f2dd16362bcaf4"
+      }
+    ],
+    "read_scope": "config2035字节全文、modeling_spark.py96–263/286–302/407–418相关模块，不称整模块全文已审",
+    "gemma_config": "google/gemma-2-9b raw config401，API可读仅证明元数据/手动门禁，不称配置当前已核",
+    "source_main": "1a8 Phase10/14 main374行/13318字节全文静读，原差分24hunks逐行核验，未执行或import",
+    "calculator_remaining_limits": "MLA仍用近似式且遗漏特殊位置维；GPT2bias/位置与Qwenbias未全部计入；source内置配置字段是教材适配并非作者通用schema"
+  }
+}
