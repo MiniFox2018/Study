@@ -11284,10 +11284,19 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 135,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          135
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "全部20个function伪C/地址/块数与工具版本/analysis字段全文静读；作者angr10.0.3历史capture，不是本库运行。",
+        "div10s/mod10s虽然v1为unsigned long long，但a0与1717986919先按int相乘再赋值，宽度/溢出语义不等原signextend64机器乘，不能采信quiz“两者都正确”。",
+        "sum_n打印double返回、uint128_t指针、v6/v7未初始化，scalar尾循环仅增加index无求和；copy16猜double返回及fill未初始化返回、tail_caller漏实际参数；digest g_400434[4]配0..4访问等都需核真实指令与表。"
+      ],
       "source_execution": 0
     },
     {
@@ -11298,10 +11307,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 285,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          285
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "Capstone5.0.7两函数逐条bytes/text/groups，pypcode4.0.1两函数每条IR/flags/宽度/返回完整实际读，未执行SDK。",
+        "div10s保sext32→64及64乘、sar34/sign63补偿、add32清高；mod8s保test flags/cmov条件/andmask/sub32与ret语义。IR存在不证明作者更上层伪C自动正确。"
+      ],
       "source_execution": 0
     },
     {
@@ -11312,10 +11329,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 31,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "3函数每条lldb作者反汇编全文静读，只有targetcreate/disassemble无run/launch轨迹；它不是动态执行观察。",
+        "table_switch LEA原零位移显示临近地址，需结合对象重定位，不以裸disassemble文本猜表位置；与其他工具要换算各自地址坐标。"
+      ],
       "source_execution": 0
     },
     {
@@ -11354,10 +11379,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 119,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          119
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "完整命令/25函数afl、所选pdf/pdc及invalidmemory警告全读；relocsnotapplied明确，source0调用。",
+        "pdc文本是寄存器式伪语法非可编译或已验证C；tablebranch将无符号比较简化、clamp_max/mod10s return载体及签名等可能失真，不能由函数列表/数目相同证明语义。"
+      ],
       "source_execution": 0
     },
     {
@@ -11368,10 +11401,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 51,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          51
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "完整rizin版本/25afl/所选pdf/RzIL及skipmap/peekmemory错误全读；仅历史capture。",
+        "RzIL只展一条imul，不能称全部指令语义齐全；LEA relocation应用与r2未应用不同，字节/地址显示应分原文件与装载后内存，不拿两套base直接比较。"
+      ],
       "source_execution": 0
     },
     {
@@ -18642,11 +18683,11 @@
   ],
   "checkpoint": {
     "at_utc": "2026-10-16T22:19:12.013078+00:00",
-    "stage": "39 main1–2159全文、test/quiz/Skill完成；next18builds汇编/objdump/对象及5工具capture",
+    "stage": "39 main/test/quiz/Skill及5capture已读；next18builds36texts的47块，从1开始；18对象只读绑定待做",
     "full_text_primaries": 146,
     "source_execution": 0,
     "formal_writes": 0,
-    "detail": "保留原16/17已读日期；19补39实现1099行尾及3文件4块。39主要fixtures/capture、图/主题融合仍未完；40–45/两项目/manual未读；源0执行。",
+    "detail": "46记工具输出不是行为真值；36汇编/listing完整基础+差分47块已准备但0块已读，读取量不提前计入。39图/主题、40–45/两项目/manual继续未完。",
     "root_continuation": "44布局正文已提交；45续读原断点，14课/逆向手册仍未验收",
     "newly_full_text_paths_20261019": [
       "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/main.py",
@@ -18720,6 +18761,12 @@
       "date": "2026-10-19",
       "record": "45-逆向第39课实现续读.json",
       "new_full_text_paths": 4,
+      "whole_group_complete": false
+    },
+    {
+      "date": "2026-10-19",
+      "record": "46-逆向第39课工具观察核对.json",
+      "new_full_text_paths": 5,
       "whole_group_complete": false
     }
   ]
