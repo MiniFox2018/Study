@@ -503,6 +503,27 @@ context: fork隔离的是会话历史，默认仍继承父工具；allowed_tools
 
 Skill模型override解析失败可能回退到当前模型并只警告，子任务结果应记录实际模型。所谓恢复父模型还需避免覆盖运行期间用户作的新选择。Skill正文只是待执行工作流，元数据发现、读入、fork启动与完成回执是不同状态；不应为检查Skill而执行其脚本。
 
+### 15.6 Provider是协议适配，不是能力保证
+
+来源各provider页重复的有效骨架可统一为四步：解析模型引用 → 选择适配器/目标URL → 解析凭据与参数 → 发送实际协议。`adapter/vendor/model`只在第一斜杠分框架provider，其余路径可属于上游模型ID；网关别名也可能与原厂ID不同。名称含某厂商前缀不证明请求真的到原厂。
+
+| 接入方式 | 必须一起核对的合同 |
+|---|---|
+| 原生provider | 协议、模型支持参数、凭据来源、实际响应model/usage |
+| 兼容API/网关 | Chat Completions、Responses、Messages等具体格式，路由前缀、两层认证、参数/多模态差异 |
+| 云平台托管 | 区域、项目/IAM/ADC或角色、publisher对应协议与实际数据路径 |
+| 本地engine | 调用者位置、监听/认证、模型/后端、context与资源、工具/日志是否仍联网 |
+
+例如网关自己的认证header与底层模型provider的Bearer key可能不同。适配器只发后一种而没发前一种时，应改用受支持且保持认证的接线，不能把关闭网关认证当标准修复。provider_opts.http_headers是否展开env也可能不同于remote MCP headers；`${env.TOKEN}`作为字面header发送并不会自动认证。多段system消息被适配器合成一段后，也要保角色/来源界限，不能假定所有chat template都等价处理。
+
+同一个thinking_budget可能映射为每请求参数、engine configure、adaptive，或被忽略/强制改写；配置被接受与后端采用分开。none/0、遗漏字段和隐藏thinking显示并不通用等价；不显示推理也不证明没计费。旧型号、effort支持矩阵、beta header与价格随服务变化，本章不照抄为当前产品清单，也不把“更高effort必更准确”当保证。
+
+DMR的输出max_tokens、engine总context_size、推理预算、idle keep_alive和switch时unload分别控制不同对象。configure是共享后端状态，可能影响其它会话；某些后端忽略选项，不能从YAML字段存在推断显存/推理上限实际实施。speculative decoding还需兼容draft、实际接受率及额外资源，不采固定比例/速度宣传。模型别名每次解析到“当时最新”也不构成跨日可复现，须保实际版本与digest。
+
+短期身份联合的长期价值是避免到处存长期key：工作负载从文件、env、命令或受控URL取identity token，经服务端联合规则换取有期限凭据；刷新、audience、主体/组织/服务账号和目标绑定分别核。命令/URL获取本身仍有执行与SSRF边界，失败应保未知/拒绝，不回退泄漏旧key。source的账号订阅登录、PAT、API key、云IAM与联合凭据是不同授权/计费体系，不能互换推断；未按当前原厂核验的私有后端/套餐入口不写成操作教程。
+
+来源“本地=永不外发/免费”“区域前缀=合规”“API兼容=支持全部功能”的说法都过宽。本地还可能外发搜索/MCP/遥测/标题或fallback；硬件与运维有成本。跨区域路由前缀不说明日志/存储/备份位置，协议兼容也不证明工具、schema、媒体和usage一致。验收用目标能力的小任务与回执，采购/迁移再按当日原厂合同核。本节未发任何provider请求，也未更换当前任务模型或配置。
+
 ## 16. 权限规则、hooks与工具进程各自在哪层生效
 
 ### 16.1 按工具名过滤不等于操作系统隔离
@@ -819,6 +840,10 @@ OAuth显式scope、已存默认、资源要求和服务器advertised fallback有
 remote MCP的请求header还可能按每次请求读OS env或转发调用者header。该能力须与入口认证、允许的目标和header集合绑定，不能把进入网关的所有凭据都复制给上游。Unix socket也可能转发这些header；本地传输不代表内容没有秘密。OAuth metadata对MCP host的header转发与向第三方issuer发送是不同路径。
 
 OAuth接线有运行器驱动PKCE/code exchange与客户端直接回传token两种信任模式。state只用于关联/防伪，泄漏仍有风险；公开redirect中转会接触code/state，应核受信目标与回调绑定，不把HTTPS本身当接收方可信。刷新后重放原MCP请求也可能重复外部写入，须按错误是否发生在执行前、请求幂等和业务回执判断，不能将“自动恢复token”泛化为安全重试保证。此处与sbx注册器不同，Docker Agent OAuth helper默认拒私有地址；不要为了消除警告把两者统一放开。
+
+简单API tool也有独立参数合同。GET模板替换不会天然URL编码，应按path segment或query value的位置编码，避免用户值改变预定URL结构；POST JSON body与URL模板不要混为一个字符串拼接。output_schema可能只是给MCP/CodeMode消费者的说明，返回模型的仍是原字符串，不能据此宣称响应已校验。
+
+默认非公网IP拨号限制与一次DNS预检查不同，放开内部地址还要核重定向与目标边界。固定endpoint只能在host/路径结构不被任意模板值改变时收窄目标，不能据“配置里有URL”保证无SSRF。debug日志中的展开header可能含秘密；用env避开硬编码，并不保证日志脱敏。具体timeout/响应字节上限按该工具版本核，不与HTTP入口body上限混淆。
 
 ### 21.3 取回代码、保存模板与清理前先盘点唯一数据
 
