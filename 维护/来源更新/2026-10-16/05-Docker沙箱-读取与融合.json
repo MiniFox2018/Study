@@ -7,7 +7,7 @@
   "official_tree": "/tmp/study-update-20261016/target-tree.json",
   "Study_baseline_HEAD": "70b185f39b21ff2246b12cc99b53643c6ac38780",
   "scope": "仅manuals/docker-sandboxes-101全部有效内容及必要直接helpers；当前Docker09/新10独占，旧32冻结",
-  "status": "412全文语义读+6cassette字段闭合/草稿排除；6聚合待审，未整体验收",
+  "status": "413完整语义读+6cassette闭合；5聚合待审；SBX32stable有效变化已回融，整个手册未完成",
   "files": [
     {
       "path": "manuals/docker-sandboxes-101/README.md",
@@ -10220,7 +10220,14 @@
       "git_blob": "e4493b395b2868b840c0516fa44554c2993789f0",
       "official_tree_verified": true,
       "discovered": true,
-      "semantic_read_complete": false
+      "semantic_read_complete": false,
+      "partial_actual_read_date": "2026-10-18",
+      "partial_read_ranges": [
+        [
+          1,
+          190
+        ]
+      ]
     },
     {
       "path": "manuals/docker-sandboxes-101/research/sources/docker-agent-README.md",
@@ -10266,7 +10273,14 @@
       "git_blob": "b866ebdf08eec68e18816067d799aa8af636bf77",
       "official_tree_verified": true,
       "discovered": true,
-      "semantic_read_complete": false
+      "semantic_read_complete": false,
+      "partial_actual_read_date": "2026-10-18",
+      "partial_read_ranges": [
+        [
+          1,
+          100
+        ]
+      ]
     },
     {
       "path": "manuals/docker-sandboxes-101/research/sources/docs-docker-agent.md",
@@ -12288,7 +12302,51 @@
       "git_blob": "326a1469ca0dc49801d6ea228c0556de83d457ed",
       "official_tree_verified": true,
       "discovered": true,
-      "semantic_read_complete": false
+      "semantic_read_complete": true,
+      "actual_read_date": "2026-10-18",
+      "read_ranges": [
+        [
+          1,
+          1319
+        ]
+      ],
+      "read_mode": "32stable版本1319行全文静读；171–770首次输出截断，240–320/430–476/650–687完整补读，末771–950/951–1130/1131–1319完整；不把RC省略清单冒所有发布",
+      "semantic_notes": "最新稳定0.47：longrunning仅local、cloud与kitadd必需拒optional跳；TCP修复不覆盖UDP多hostname相关case；TLS不完整buffer/timeout failclosed、blob解压计数界。云旧已存0/0规则不被升级自动改，secret删除需验证proxy撤权。0.43 readonlyskills与0.37 RW冲突按较新CLI处理；旧runtime目录有迁移记录，反证C17绝对nothingmigrates。gitkit可信bytes/本地缓存manifest及环境注入，clone fetchedrefs/未提交丢失、旧漏洞/CVE/安装UI与废弃flags不复制成正式教程，只保当前合同/边界；已回融10§18的local-only/修复与存量状态边界，14.3纠正无迁移绝对说法。",
+      "source_executed": false,
+      "release_versions": [
+        "v0.47.0",
+        "v0.46.0",
+        "v0.45.1",
+        "v0.45.0",
+        "v0.43.0",
+        "v0.42.1",
+        "v0.42.0",
+        "v0.39.0",
+        "v0.38.0",
+        "v0.37.1",
+        "v0.37.0",
+        "v0.35.0",
+        "v0.34.0",
+        "v0.33.0",
+        "v0.32.0",
+        "v0.31.3",
+        "v0.31.2",
+        "v0.31.1",
+        "v0.31.0",
+        "v0.30.0",
+        "v0.29.0",
+        "v0.28.3",
+        "v0.28.2",
+        "v0.28.1",
+        "v0.28.0",
+        "v0.27.0",
+        "v0.26.1",
+        "v0.25.0",
+        "v0.24.2",
+        "v0.24.1",
+        "v0.23.0",
+        "v0.21.0"
+      ]
     },
     {
       "path": "manuals/docker-sandboxes-101/sections/1-1-sbx-and-docker-agent.md",
@@ -15962,7 +16020,7 @@
     "rerun": false
   },
   "checkpoint": {
-    "read_complete_files": 412,
+    "read_complete_files": 413,
     "next": [
       "sections1.1–2.5",
       "sections3.1–4.5",
@@ -15974,9 +16032,9 @@
       "去重融合Docker09/新10"
     ],
     "written": true,
-    "next_actual_read": "余6聚合：3release（Agent6814/Desktop5994/SBX1319行）与docs Agent21284/SBXAPI5036/SBX15279。MCP10页/DMR8页全读已回融；下一先按版本/重复性审release，再保有效知识，不用目录代完成",
+    "next_actual_read": "余5文件：Agent CHANGELOG先前原1–190已读，现26个有限字数语义正文chunk待读，PR链接/版本引用索引单独判重复；Desktop1–100已读；Agent/SBXAPI/SBX docs未完。",
     "protocol_cassettes_closed_with_exclusion": 6,
-    "remaining_unreviewed_files": 6,
+    "remaining_unreviewed_files": 5,
     "formal_status": "主体/Kit/模型MCP/Agent与RAG/环境计划已部分回融，8聚合研究文件待审及最终整合"
   },
   "source_recoveries": [
@@ -16898,6 +16956,34 @@
       "scope": "DMR8页有效知识回融10§14.1、复用04/09",
       "file": "计算机科学基础/07-容器化与Docker/10-Docker沙箱与Agent工作台.md",
       "sha256": "12b0ff3be4e63b348e12dc2191cdd9c6126e5c007b7b1460a3bb17148a236099",
+      "pandoc_full_json_html": "通过0警告",
+      "source_runs": 0,
+      "old_reruns": 0,
+      "new_programs": 0,
+      "accepted_manual": false,
+      "structure": {
+        "说明": "结构检查不替代语义、外链在线状态和实验运行验证",
+        "Markdown总数": 658,
+        "主库Markdown": 345,
+        "学习与导航Markdown": 291,
+        "维护Markdown": 54,
+        "统计口径": "主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。",
+        "本地链接检查次数": 4524,
+        "有效Notebook": 93,
+        "已登记上游空Notebook": 1,
+        "来源文件校验数": 969,
+        "有效SVG": 395,
+        "错误": [],
+        "提示": [
+          "第 19 课解答 Notebook 是已登记的上游空文件；不能运行。"
+        ]
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "scope": "SBX32stable发布史有效条件回融10§18及14.3",
+      "file": "计算机科学基础/07-容器化与Docker/10-Docker沙箱与Agent工作台.md",
+      "sha256": "7c38ce9fe64a27ea5fca33006f0d36d0168ca6baecccd12e418fa2a4993a28ab",
       "pandoc_full_json_html": "通过0警告",
       "source_runs": 0,
       "old_reruns": 0,
