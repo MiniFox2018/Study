@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-19",
+  "old_source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "target_source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "scope": "旧Phase12多模态10修改正文27差分",
+  "accepted_delta": true,
+  "source_files": [
+    {
+      "source_file": "phases/12-multimodal-ai/02-clip-contrastive-pretraining/docs/en.md",
+      "old_sha256": "802bc398424324f3a203a4f8f468f1e21d327372a1a273db23dbe2d675d6d07d",
+      "new_sha256": "26a13c6ef7e688f621db264252ed4b2f08b80508090b0e56edc74e6cadbde02e",
+      "old_git_blob": "d2a222f47fdb10018efaf5d8d86d0b65a65a1470",
+      "new_git_blob": "bb4a506ed5a750dc1e2812673a58b19efe99dc98",
+      "hunks": 5,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "disposition": "§2 sigmoid真实scale+bias梯度、sum/N非N²mean、正负采样/通信与全配对成本分开，不接受SigLIP2只学bias不学scale推广",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/12-multimodal-ai/04-flamingo-gated-cross-attention/docs/en.md",
+      "old_sha256": "ee025c471f27b129edbaa5930c75688306a349f57658b4d4bcf4059cd9919b8f",
+      "new_sha256": "5917fe42a98c809241907ec4926f26805d6a70aaa85566c0b6965745674d8461",
+      "old_git_blob": "fb786272154efb078a36ac30cfaeb0207dbda013",
+      "new_git_blob": "fc8fd57de51211d4cc94b77f0153ce7616afe645",
+      "hunks": 6,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "disposition": "§4原Flamingo每image/video64latent非每帧64；resampler KV含latent/视觉、双门控/最近前置媒体mask，固定M4不当整个家族常数",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/12-multimodal-ai/06-any-resolution-patch-n-pack/docs/en.md",
+      "old_sha256": "3bcfd1048342a65895d7fc37058bd969df102f9a0cdec1c07320c3f4ca185f52",
+      "new_sha256": "350ebe112b4ae4c8fb7147905b46b9a47de37e8393e26cebb2e2f871a0ff737b",
+      "old_git_blob": "877ceafc5d966c47790d1d6db1eb1f756f05fcc5",
+      "new_git_blob": "215356690169d2204e994c767f8d97b566b08f1a",
+      "hunks": 1,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "disposition": "§6 native/AnyRes/packing/MRoPE处不同层，MRoPE不减少token或规定单图forward；物理稀疏内核另验",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/12-multimodal-ai/08-llava-onevision-single-multi-video/docs/en.md",
+      "old_sha256": "d29e9d9d7f178eb2514a51dbe3324382c5eaad609613ab0f9f1c932bb5c64830",
+      "new_sha256": "a8f4b1ec8e3970391bda32ba8b77cf5bf65fc85cd47fef0b92c3048e5bc700ce",
+      "old_git_blob": "445ce6d9d6b619290d7b5157e07e15312b7a2759",
+      "new_git_blob": "85f0a6c39a98d3299185c20b4a7b9ee77b06fa8c",
+      "hunks": 1,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "disposition": "§7具体canvas/crop/去pad/newline/全图token与多图视频预算，不把k4/9当普遍接口",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/12-multimodal-ai/09-qwen-vl-family-dynamic-fps/docs/en.md",
+      "old_sha256": "9591f7b9c113bd233f066804f4ba79127cac3a1aaef1bf99db613b7c75e5dd54",
+      "new_sha256": "cc35b7c50ac6789d3b47b99aec1aca6d6596df2d682f1524dc02c0ff4e86d854",
+      "old_git_blob": "30459133254b5f57440549c0ed5cd3561e6b133c",
+      "new_git_blob": "ded0d9ebfd0501daa4ad79ecf896d01c7d86b89e",
+      "hunks": 1,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md",
+      "disposition": "§8每头旋转分配time/h/w与真实时间、图像grid/merger/shape合同，FPS改变不冒均匀位置",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/12-multimodal-ai/13-transfusion-autoregressive-diffusion/docs/en.md",
+      "old_sha256": "fe6e5c16f8fed7f6f61f68dd6f0bda20200527ee585f3faee80fcc779116bfe0",
+      "new_sha256": "a70a419b525b222b0bc17dab1d3e23742b84adf6f887b212b06d837121915cb1",
+      "old_git_blob": "151bda1fd0fec8837d274df0d2554aa586c0350a",
+      "new_git_blob": "c7bd916901750c01a265e80739477a14f3b7f054",
+      "hunks": 1,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/17-统一多模态生成与码流实践.md",
+      "disposition": "§3原Transfusion预测DDPM epsilon，source的flow示意非作者原目标；sameimage双向/跨image因果与pack隔离、去噪状态覆盖不追加",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/12-multimodal-ai/14-show-o-discrete-diffusion-unified/docs/en.md",
+      "old_sha256": "c87e6d0054f7b3244a92d39902938128f154c59f5e5aecbc3d1c27055b7e2091",
+      "new_sha256": "15a1547e6db363fe53067ab51a3e22198af5c56cb247a1e3b71a2a60913c3e53",
+      "old_git_blob": "4d4cbd0c48897187b318b8cb2ad5b01fe7c5b0d0",
+      "new_git_blob": "f47869cdcaa7d50c889813bfb6ed3f333930ca03",
+      "hunks": 3,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/17-统一多模态生成与码流实践.md",
+      "disposition": "§4绝对U cosine剩余数/取整/已知区域/再掩码和实际模型条件；原K8192/256²对应256码，rawpixel/码流不同阶段压缩不能当模型质量比较",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/12-multimodal-ai/19-audio-language-whisper-to-af3/docs/en.md",
+      "old_sha256": "e804554df688d4902e1d44d47afde4440c7189f55ac0cf9d93d352b37ce9b43f",
+      "new_sha256": "49c01d68f46738759c50c28f2b094f9328924f9cd37ba0cc497f975b3079b2eb",
+      "old_git_blob": "f8dffbda581fe4f92b61a9e829539a22a0d64833",
+      "new_git_blob": "fabb986fe7b7ae8aa4960c83e4252b483c778300",
+      "hunks": 1,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/13-语音识别与流式交互.md",
+      "disposition": "§10 Whisper实际log10/floor/clip/rescale，源通用log1p不代替具体模型前端，80/128与STFT边界复用",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/12-multimodal-ai/20-omni-models-thinker-talker/docs/en.md",
+      "old_sha256": "6a61e636804224bc4c0a1530b3f0f26bfdabb46bdf6b31f92f72e5f1d7ebe8c4",
+      "new_sha256": "c7a7970bac12cc04c3f159157f1bbf66312c5ca59d56e21d49cdee55604d93df",
+      "old_git_blob": "7fa24835b1c3b677b0c849cccc22aea262c86dfe",
+      "new_git_blob": "10fb203a62cdcc19452bb27e1f096f34cfcd5096",
+      "hunks": 2,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/17-统一多模态生成与码流实践.md",
+      "disposition": "§6.1 Talker接hidden/embedding/history、codec因果/时钟/包buffer与首音频不同于首字；t_i不对应固定数s_i/毫秒先后需调度实测",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/12-multimodal-ai/23-colpali-vision-native-rag/docs/en.md",
+      "old_sha256": "3e21fa1908caa13e3fd34a6f7ec5e07b208ea4e03a2e18864045bc620bb94a08",
+      "new_sha256": "338f436cee994225bb436383248340ccb2ca366a8f90a1713b3c964db96fb98a",
+      "old_git_blob": "b719f53297d2b461eead735fc4d31de9103f0ae2",
+      "new_git_blob": "1438beae10359cdc4e9ae03e14ead9e797dcaab3",
+      "hunks": 6,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "LLM 工程实践/12-文本检索与RAG文档工程.md",
+      "disposition": "§8多向量MaxSim/归一化/有效mask/候选范围与存储、页面检索后证据定位/回答分开；压缩或多向量不保证召回必改善",
+      "source_executed": false
+    }
+  ],
+  "hunks_read": 27,
+  "read_review_chunks": [
+    {
+      "chunk": 1,
+      "chars": 9992,
+      "sha256": "c61a1fe58d1883602873299058977488eba69bbc1b7130605f29e4eb89f1573b"
+    }
+  ],
+  "classification": "全部为公式围栏/符号/下标排版；既有视觉接入16、统一生成17、语音识别13与检索12已经按作者方法纠错，正式内容不重复生成",
+  "formal_changed": [],
+  "existing_formal_sha256": {
+    "AI 算法基础/感知与多模态专题/16-视觉编码与语言接入实践.md": "bb16f922681ce12de9b915217ec48de36d12828eb1cc61f16ed8edc487a44ee6",
+    "AI 算法基础/感知与多模态专题/17-统一多模态生成与码流实践.md": "d817652e9a1a6874aedd371cd760a5ccfeed3bed51b3b8d36b09aa1247d53f68",
+    "AI 算法基础/感知与多模态专题/13-语音识别与流式交互.md": "7aa03bea4af7bb7b30d9592e355e2c3b9f27bfc20b70af31a60b443b337d033a",
+    "LLM 工程实践/12-文本检索与RAG文档工程.md": "9589d6c146e366e371525cb9ac0d8cd75fbad9b061d6225c2891b389c8864937"
+  },
+  "preserved_stricter_cases": [
+    "SigLIP求和归约/scale bias/分布式pair成本",
+    "Flamingo每视频64不是帧数乘64且直接最近媒体可见性",
+    "MRoPE不是动态分辨率分块算法/缓存位置不乱改",
+    "Transfusion原DDPM不是flow/当前图双向不等未来资料可见",
+    "Show-o离散原版与continuous新版本及absolute remask区别",
+    "Whisper log10不是通用log1p，真实时间/前端版本分开",
+    "Thinker Talker耦合hidden/历史与codec解码因果时钟",
+    "MaxSim多token与多文档成本/存储/页引用不保证事实"
+  ],
+  "render_policy": "正式正文未改，不重渲染/重运行旧例；维护JSON/路径和全库结构另校验",
+  "new_programs": 0,
+  "source_program_runs": 0,
+  "old_example_reruns": 0,
+  "whole_update_complete": false
+}
