@@ -14039,10 +14039,20 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 1837,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "partial_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          434
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "当前仅开头至434行实际静读；尚余实现/测试/Skill/题和fixtures未读，不导入源模块。",
+        "cstring无offset/NUL边界并replace解码；ULEB无最大长度/bitrange/截止边界；ELF未完整验证尺寸/数量/extendednumber/machine/引用记录，基础parser非健壮通用。",
+        "vaddrread仅核起点，不保证整段filebacked；DT_NEEDED字符串从全文件而非DT_STRSZ限界；jump_slots固定RELA24不核DT_PLTREL，linked字段仍依赖sectiondynsym，剥节表无法全恢复。",
+        "PLT固定经典16B布局，不覆盖IBT/plt.sec等；linkplan按所有definedname集合解析，忽略local/weak/visibility/preemption/version；动态64/GOT项与rela.dyn size统计不全，n=0仍算PLT/GOT结构；只固定fixture规划而非真实链接器。"
+      ],
       "source_execution": 0
     },
     {
@@ -14067,10 +14077,22 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 495,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          495
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "495行正文全部实际静读：三格式外部引用/ELFPLTGOT/COFF及PE/chainfixups/exports/strip/startfinding/FLIRT形状、LabA–D和practice/失败表/全部refs；引用原图/远端图片未等同实际视读，作者命令0执行。",
+        "专业待核范围：PLT32既可call也可tailjmp，定义符号是否direct还依binding/visibility/preemption；R64不能一概relative；R32/32S PIE错误须按引用/范围条件，不作普遍断言。",
+        "PT_INTERP不能套所有动态共享映像；RELRO需range/flags/loader落实，-znow不单独证明fullRELRO；strip按工具/选项/格式/构建保留内容，不采用everyallocatedstays、comment必删、PE从无sym/PDB必外部等绝对句。",
+        "PE普通IAT eager不推出没有delayimports或stub，forwarder应核exportdirectory范围不是整个section；RVA文件支撑/zerofill/headers/特殊目录需分别核。",
+        "MachO chainword不能直接当运行指针；pointerformat/stride/page+segment坐标/addends须逐规则核；LC_FUNCTION_STARTS只候选范围非所有程序必完整，BL目标不普遍全是函数入口。",
+        "FLIRT形状前缀/CRC/tail/name关系用于识别，不证明行为或唯一源码；原版本/许可证/商用能力表属作者快照未全官方核，不当当前推荐。"
+      ],
       "source_execution": 0
     },
     {
@@ -19942,11 +19964,11 @@
   ],
   "checkpoint": {
     "at_utc": "2026-10-16T22:19:12.013078+00:00",
-    "stage": "39范围正文/实现/测试/题/Skill/capture/18builds原项读取及18对象静态绑定闭合；next主题回融/图与40课",
+    "stage": "40核心b13已实际读1–8/19，next9；正文495行全读，实现至434行；原39读取已闭合",
     "full_text_primaries": 146,
     "source_execution": 0,
     "formal_writes": 0,
-    "detail": "48核36text基础/全变化行、4530指令记录16302B零错配，仅静态数据。39图示与主干写作/整课验收仍未完；40–45/两项目/manual未读，源0运行。",
+    "detail": "52保存当前范围与需官方核的过强概括；40后续核心/fixtures/对象/图与主题未完，41–45/手册/两项目继续未读；源0执行。",
     "root_continuation": "44布局正文已提交；45续读原断点，14课/逆向手册仍未验收",
     "newly_full_text_paths_20261019": [
       "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/main.py",
@@ -20061,6 +20083,13 @@
         "计算机科学基础/10-程序分析与逆向工程/05-静态与动态证据.md",
         "计算机科学基础/10-程序分析与逆向工程/06-差分重建与符号执行.md"
       ],
+      "whole_group_complete": false
+    },
+    {
+      "date": "2026-10-19",
+      "record": "52-逆向第40课读取断点.json",
+      "view": "re40-core-b13",
+      "next_chunk": 9,
       "whole_group_complete": false
     }
   ],
