@@ -491,6 +491,14 @@ max_cost只累计运行器能定价的响应，未知模型缺价格应标未知
 
 缓存文件的原子发布与内容有效性也不同。来源描述store时持独立.lock锁、锁内重载合并、临时文件fsync/rename与目录同步；这可减少半文件或并发丢更新，不能修复过窄的缓存键。不要清掉仍被进程使用的锁文件，否则可能各自锁住不同inode。mtime触发重载的缓存一致性也不应提升成跨主机线性一致性保证。以上为文档静态语义，未运行该缓存实现。
 
+### 15.5 Skill发现、子会话工具与实际授权
+
+Docker Agent的Skill来源与Kit发现目录是不同配置层。该框架按多个global/project目录发现同名Skill，靠近当前目录的版本可覆盖远处版本；name filter拼错可能仅警告，inline skills又不受文件/URL名称过滤而始终暴露。名称相同不能证明内容或发布者相同，读取时记录实际来源与版本。
+
+context: fork隔离的是会话历史，默认仍继承父工具；allowed_tools只过滤继承部分，Skill自己引用的top-level toolsets会额外加入并绕过该过滤。不能从“allowed_tools只有read_*”推断子会话最终只有读权限。审阅有效工具、外部服务与操作范围，Skill声明不扩大用户授权；inline与文件frontmatter字段拼写也有差别，不能随意互换。
+
+Skill模型override解析失败可能回退到当前模型并只警告，子任务结果应记录实际模型。所谓恢复父模型还需避免覆盖运行期间用户作的新选择。Skill正文只是待执行工作流，元数据发现、读入、fork启动与完成回执是不同状态；不应为检查Skill而执行其脚本。
+
 ## 16. 权限规则、hooks与工具进程各自在哪层生效
 
 ### 16.1 按工具名过滤不等于操作系统隔离
@@ -545,6 +553,16 @@ evaluator可输出boolean/choice/score，policy再把结果映射为allow/ask/de
 
 before_agent_run可以在模型选择与response cache之前路由；after_agent_complete只在真正成功完成的事件后运行，错误、取消或预算停止不触发。路由图需限定目标并防环；force_handoff与hook路由的冲突条件另查。缓存命中也可能触发“成功完成”，因此这个事件不证明本轮模型真的运行，更不证明所有业务操作完成。
 
+### 16.4 Code Mode与外部harness改变了准入检查的位置
+
+2026-10-18现核[Docker Agent Code Mode官方说明](https://docs.docker.com/ai/docker-agent/features/code-mode/)：模型对运行器提交的是run_tools_with_javascript这一个包装调用，脚本内部逐个工具调用不再走第二轮同样的权限/批准链。此前按工具名写的ask/deny不能直接推定覆盖脚本内部路径。它与Docker MCP网关的code-mode以及本书一般批处理概念不同，要逐层找实际authorizer。
+
+内嵌JS没有直接Node文件/网络接口，不表示没有效果：被注入的工具仍能读写、联网或启动进程。若需要可靠禁止某动作，应在暴露集合中移除该能力，并在真实服务端/执行环境约束；不能先批准宽泛包装器，再以内部deny规则声称全部受控。脚本失败返回先前调用轨迹，也不撤销已成功的副作用，重试应基于回执与幂等。
+
+该页还说明todo类可保持直接调用，handoff/transfer_task虽然出现在包装接口中却缺可用handler，force_handoff则由运行器在自然结束后执行。不要把“模型不能从脚本主动委派”写成“不会发生任何运行器转交”，也不要把同步工具函数语法套成通用async JavaScript执行器。
+
+外部harness是另一条绕开模型/工具管线的路径。来源harness页说明自身toolsets被忽略、外部CLI自行带工具与登录；Claude Code适配还使用跳过其确认的非交互启动。Docker Agent调用前/返回后的hook不等于覆盖CLI内部每次工具调用。单独worktree减少共享索引冲突，不隔离宿主凭据/网络；--sandbox也不自动供应CLI和登录。实际使用前核所选适配器、CLI参数与工具策略，不将一次父层批准扩展成新业务授权。本章未启动任何harness。
+
 ## 17. 用命令帮助检查几个容易越过边界的动作
 
 - **debug tool**：此版本直接执行工具，没有模型turn；帮助明确普通审批检查被绕过，默认只运行部分输入/结果变换及post hooks，`--no-hook`还可跳过这些。它适合有意识的调用调试，绝不是纯读取schema或“安全dry run”。
@@ -566,6 +584,10 @@ HCL只是另一种配置语法，不提供Terraform的模块、函数库或执�
 Docker Agent自身的--sandbox路径也不等于只手写一份最小sbx配置。来源描述auto-kit会将发现的宿主skills及workspace之外的prompt复制到只读staging；项目内文件仍由live工作区挂载可见。其文本脱敏只覆盖识别模式，不能推断没有复制秘密；--no-kit只跳过这项staging，不等于关掉项目配置/其它共享来源。
 
 接线还会推导工具下载与模型gateway出口，解析失败可能使用较宽fallback集合。打印allowlist、manifest或cache hash不是授权；须审阅真正的输入、挂载与出口。复用sandbox保留旧状态，mount集合改变又可能删除旧sandbox重建；Kit cache被运行中挂载引用时不能随手删除。来源“退出不停止VM”与通用sbx空闲停止行为也可能受不同创建模式影响，本轮未运行，不以任一页面推定所有模式相同。
+
+工具表还应对账真实暴露顺序：同名工具可能由第一个toolset胜出，新增配置不一定启用了你以为的实现。instruction省略默认占位时可能替换工具原有提示；增加约束文字不是减少执行权限。defer只改变启动/可发现时机，search_tool的字符顺序模糊匹配也不是语义或权限判断。发现、激活、成功调用各自验收。
+
+工具结果转换成TOON或摘要后，格式大小的减少不保证语义无损、token按同比例下降或模型质量改善，来源30–60%的宣传区间不当通用指标。toolset上的model在该版是下一turn的一次性覆盖，多工具中首个带override者影响选择；不能把它误读成由那个模型执行工具本身。界面隐藏结果/usage也不阻止保存、导出或真实调用。
 
 ## 18. 声明环境：计划批准的是哪些真实效果
 
@@ -790,6 +812,10 @@ OAuth显式scope、已存默认、资源要求和服务器advertised fallback有
 
 本地stdio或从OCI元数据解析的local服务器在宿主运行。元数据存在、注册成功、某type被schema接受，不证明当前gateway能实际启动该type。远端URL/重定向的SSRF检查在来源版本是警告继续，DNS后来改变也可能绕过一次解析观察；不能把注册过程当已阻断内网访问的保证。策略与审计的完整学习入口见[下一章](./11-Agent沙箱策略与审计.md)。
 
+remote MCP的请求header还可能按每次请求读OS env或转发调用者header。该能力须与入口认证、允许的目标和header集合绑定，不能把进入网关的所有凭据都复制给上游。Unix socket也可能转发这些header；本地传输不代表内容没有秘密。OAuth metadata对MCP host的header转发与向第三方issuer发送是不同路径。
+
+OAuth接线有运行器驱动PKCE/code exchange与客户端直接回传token两种信任模式。state只用于关联/防伪，泄漏仍有风险；公开redirect中转会接触code/state，应核受信目标与回调绑定，不把HTTPS本身当接收方可信。刷新后重放原MCP请求也可能重复外部写入，须按错误是否发生在执行前、请求幂等和业务回执判断，不能将“自动恢复token”泛化为安全重试保证。此处与sbx注册器不同，Docker Agent OAuth helper默认拒私有地址；不要为了消除警告把两者统一放开。
+
 ### 21.3 取回代码、保存模板与清理前先盘点唯一数据
 
 clone是独立Git仓库，不自动给每个并行任务隔离工作树。不同branch在同一工作树来回切换仍会影响其它进程；需要真正独立worktree或工作副本。宿主worktree挂载只含.git指针时，guest可能无法解析外部Git目录；不要用该现象推断仓库损坏，也不为了“修复”挂载整个含秘密的父目录。
@@ -800,9 +826,23 @@ clone是独立Git仓库，不自动给每个并行任务隔离工作树。不同
 
 CLI升级、模板更新和已有guest中的Agent升级是三个对象。拉了新模板不自动替换旧运行环境，cache fallback也可能继续用旧镜像。记录实际digest与二进制版本，不能用模板tag或安装器版本替代。
 
-CI样例中的登录、secret import、attach和rm仅是接线示意。无人值守流程还需要有界命令、业务退出码、总deadline、失败也尝试的定向清理，以及唯一名称和资源账本。source --rm也受会话断连等条件限制，不能代替云端按ID回收。诊断上传会收集日志，自动脱敏不保证没有用户内容，上传与保留范围应另核。本章未采用来源的批量reset、prune、改签历史或安装探测命令。
+CI样例中的登录、secret import、attach和rm仅是接线示意。无人值守流程还需要有界命令、业务退出码、总deadline、失败也尝试的定向清理，以及唯一名称和资源账本。source --rm也受会话断连等条件限制，不能代替云端按ID回收。诊断上传会收集日志，自动脱敏不保证没有用户内容，上传与保留范围应另核。本章未采用来源的批量reset、prune、改签历史或安装探测命令。 snapshot undo只改所覆盖的磁盘文件，不删会话文字、外部提交或服务动作；新大文件/忽略文件可能不在shadow检查点里。恢复了文件也应继续对账未回滚的资源。
 
 参考判断：SSH连上了、listTools有工具、Git fetch成功，是否可以说Agent任务完成？不能，分别只证明接入、可发现性和Git传输；还需目标目录正确、授权与实际调用回执、预期产物和业务验收。
+
+### 21.4 原生API、聊天兼容层与交互控制面分开部署
+
+Docker Agent的原生API保session/批准/运行事件；chat server把Agent名字当“模型名”提供兼容聊天入口；交互run的listen控制面用于驱动已有会话。它们与19的**云沙箱资源API**也不同。请求凭据、工作目录根限制、请求大小上限、会话存储与默认安全模式分别查，不能因同为HTTP就复用一种部署判断。
+
+来源原生API默认可接受任意合规宿主工作目录；session-workingdir-root才限定解析后路径。UUID只是标识，不是对象级访问权限，共用Bearer token也不等于多租户隔离。原生agent参数还分配置文件标识与内部Agent名字，chat model又是Agent名字；路由错了可能选中另一组工具。
+
+listen在固定快照中没有内置Bearer认证、请求体上限固定；原生API与chat各有独立可调上限/认证选项。loopback减少网络暴露，不能防同机其它有权限的进程。CORS只控制浏览器跨源，不认证curl等客户端。诊断pprof另有监听与信息暴露范围，不因API加了token就自动受保护。
+
+413要按实际返回层找原因：反向代理、框架入口、模型provider均可能拒绝；JSON转义/base64增加的是wire bytes，不是原文件大小或context tokens。入口先做大小检查时，413也不能证明身份验证通过。API model字段的覆盖还会保存在session，省略/空值可能不清旧override；一次请求的看似临时选择应在后续状态中核对。
+
+chat会话缓存可在成功turn后才提交更新，但失败时已发生的工具副作用不会因clone会话被丢弃而撤销。重用Conversation-ID只能定位缓存，不能代替请求幂等或身份隔离；TTL/容量驱逐又会丢服务端上下文。远程图片URL也可能透传给provider而非框架抓取，缺模态支持时不能称模型已经读图。
+
+A2A、ACP和MCP暴露层还各有安全默认与能力支持，不能照搬原生API模式。来源A2A“Full features”与其artifacts/memory等尚有限制的列表冲突，应按具体支持项；ACP示意用一次stdout data就JSON.parse，缺分帧/缓冲处理，不能直接作为真实客户端。本章只解释固定来源合同，不发布这些旧端点的无版本部署脚本。
 
 ## 来源与当前验证范围
 
