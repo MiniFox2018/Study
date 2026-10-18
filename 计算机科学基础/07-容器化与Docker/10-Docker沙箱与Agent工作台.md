@@ -310,7 +310,7 @@ agent-skills声明发现目录。宿主共享与镜像自带是独立来源：�
 
 运行器未必实施规范的全部格式。2026-10-18官方sbx说明仍要求v3 API-key显式header/format，不使用inject.scheme；OAuth仅支持该页规定的JSON与refresh_token形式，不能把Kit规范允许的TOML或字段映射直接当已可运行。它还按目标域名/合并后的runtime声明处理阶段凭据，需核实际有效配置，而非仅看install-only标签。
 
-credential按(service, phase)区分，重复所有者可能冲突。代理管理时容器可见占位值；inject-only可连占位变量都没有；OAuth的passthrough则可能把真实令牌送入容器，必须单列。install-only凭据在入口启动前撤销，不能只隐藏初始env却仍让后续请求继续借用。
+下面这些是固定Kit规范的义务；10.4已经列出的云实现限制须另外保留，不能据规范推定已实施。credential按(service, phase)区分，重复所有者可能冲突。代理管理时容器可见占位值；inject-only可连占位变量都没有；OAuth的passthrough则可能把真实令牌送入容器，必须单列。install-only凭据在入口启动前撤销，不能只隐藏初始env却仍让后续请求继续借用。
 
 当前官方sbx页还明确v3 Kit须请求对应阶段的ssh-agent能力，默认允许转发开关本身不代表每个v3沙箱都收到socket。
 
@@ -332,7 +332,7 @@ mixin最终只贡献它新增或改变的文件，不能假定大型基础镜像
 
 Kit lifecycle位于**guest内部**，和环境文件`sbxenv.yaml`的宿主`initialize`不是同一信任平面。install在create时一次，startup每次启动都跑且应幂等；后台hook不自动保证最后客户端断开后继续运行，需要long-running合同。install授权应在主入口前结束。
 
-就当前[官方编写指南](https://docs.docker.com/ai/sandboxes/customize/author/)而言，sbx的startup hook与Agent并行启动，Agent可能先开始工作。一次性初始化放install；每次入口前必须完成的步骤放workload entrypoint，且失败时不得放行。声明startup不等于存在Ready屏障。install接收过滤后的基础/proxy/证书环境，所需WORKSPACE_DIR等应显式列入；startup接收沙箱环境。它们均不因此继承宿主全部变量。
+就当前[官方编写指南](https://docs.docker.com/ai/sandboxes/customize/author/)而言，本地sbx的startup hook与Agent并行启动，Agent可能先开始工作。一次性初始化放install；每次入口前必须完成的步骤放workload entrypoint，且失败时不得放行。声明startup不等于存在Ready屏障。install接收过滤后的基础/proxy/证书环境，所需WORKSPACE_DIR等应显式列入；startup接收沙箱环境。它们均不因此继承宿主全部变量。
 
 卷挂到路径后会遮住镜像该位置原有文件。要首次初始化，把默认值放另一镜像路径，install时只在目标不存在时复制，另外设置属主；重启不覆盖用户修改。持久块卷的mode字段不能替代chown，文档把该mode限定到tmpfs。生命周期files在install后写，容器环境引用只在创建时展开一次；普通$VAR在文件内容中保持字面值，文件路径也不能假定展开$HOME。
 
@@ -892,6 +892,6 @@ headless也有独立陷阱。来源说明--on-event在--exec下不装配，普�
 ## 来源与当前验证范围
 
 - 第一来源：[AI Engineering from Scratch](https://github.com/rohitg00/ai-engineering-from-scratch)，固定提交`1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e`，源提交2026-10-15 13:58:42北京时间；本章2026-10-18整理。手册的CLI案例主要为作者2026-10-08环境，不能当成读者当前环境。
-- 本章目前融合已完整读的手册主体与已核对的隔离/工作区/网络/秘密/MCP/回放边界。Kit的v3结构/20类能力合同/两类符合性已局部融合，Agent schema/帮助关键合同已回融第15–17节，sbx声明环境与状态/规则边界回融第18节，SBX79页研究正文已全读并回融本章及11策略与审计，Docker Agent108页研究正文也已全读并按主题回融工具05/规划06/观测19、RAG12/结构化13/交互18及本章；现待整手册跨章去重与最终验收，整个手册和整个来源尚未验收完成；进度与逐项来源见[05覆盖记录](../../维护/来源更新/2026-10-16/05-Docker沙箱-读取与融合.json)。
+- 本章目前融合已完整读的手册主体与已核对的隔离/工作区/网络/秘密/MCP/回放边界。Kit的v3结构/20类能力合同/两类符合性已局部融合，Agent schema/帮助关键合同已回融第15–17节，sbx声明环境与状态/规则边界回融第18节，SBX79页研究正文已全读并回融本章及11策略与审计，Docker Agent108页研究正文也已全读并按主题回融工具05/规划06/观测19、RAG12/结构化13/交互18及本章；2026-10-18已完成本手册跨章去重与知识融合验收，整个来源的其它增量仍未完成；进度与逐项来源见[05覆盖记录](../../维护/来源更新/2026-10-16/05-Docker沙箱-读取与融合.json)。
 - Kit专节依据[固定主分支规范](https://github.com/docker/sandbox-kit-spec/blob/4be7f4dff4d647f10c51dcdb392ce3fa18dc3e96/docs/spec/SPEC-v3.md)、其20页能力合同与符合性说明，并对比`v3.0.0-m.8`。2026-10-18经GitHub API复核该固定提交的规范、总schema字节及skills合同正文；不代表当前最新版本或运行器实际支持。
 - 本轮没有启动Docker、microVM、模型、服务或原capture程序，也没有运行原测试/安装。实际作者转录、静态解析、正文审阅和本机运行的证据层次分开记录；这不是用户已部署或掌握的经历。
