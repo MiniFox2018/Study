@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "scope": "复用33/34/37/39逐项读取证据，第三主题控制流IR/SSA融合",
+  "formal_files": [
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+      "sha256": "3202e663fadbb20397132320096e8ff5f6a3cb569979c1b4248630d1668f2c1a"
+    },
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+      "sha256": "33146bd939e34a21f7ebf46cc941ed808f895d7b8981c65b8d23844da654b180"
+    }
+  ],
+  "selected_primaries": [
+    {
+      "url": "https://llvm.org/docs/LangRef.html#phi-instruction",
+      "date": "2026-10-19",
+      "actual_scope": "phi必须块首与incominguse视为前驱边语义必要段实际读；不称17011行LangRef全文或所有优化规则核完"
+    },
+    {
+      "url": "https://llvm.org/docs/MemorySSA.html",
+      "date": "2026-10-19",
+      "actual_scope": "MemoryDef/MemoryUse/MemoryPhi模型与clobber/alias walker必要段实际读，非全LLVM/源码执行"
+    }
+  ],
+  "network_boundary": "Rice原论文PDFweb取失败，未冒称原论文已全读/实验已复核；正文不依赖其性能数字，基础集合算法以明确数学定义与独立oracle核",
+  "validation": {
+    "date": "2026-10-19",
+    "new_own_program": {
+      "file": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+      "code_sha256": "6bca460d9d479d3d938635aff8ad8bc76ced90f4f00a370ac3e622aed5939de9",
+      "ast_valid": true,
+      "finite_graph_checks": 1536,
+      "graph_domain": "3节点全512有向图含selfloop，各3入口共1536；另示例菱形/循环、多入口不可约/不可达、无显式目标key",
+      "independent_oracle": "删去候选支配点后重新可达性，按支配定义核对，不复刻固定点实现",
+      "mermaid": "8节点9边与程序g邻接表逐边相等；未运行远端JS渲染器",
+      "static_bytes_example": "10字节分支目标6及EAX清高/RAX保高差异用整数核，未执行这些机器码"
+    },
+    "renders": [
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "922f42b97ab19e28f9408c48fcfcfcc6430413170f92aceb9a372b91b3102f99"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "2e2bd949142cd528324803fecb9d5309c6bd320d49a8fdcd6a547e3156f4a473"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "d61b01e3ed011294c2b56c9a0dd3bcdb5253e4da14c9e2a3ea1f51d688d3b14d"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "5edf6d163eb6ef68a073ef927dca8ef13120de82bef9b2ed034b9e965d45fbb0"
+      }
+    ],
+    "old_readme_fences_preserved": true,
+    "source_execution": 0,
+    "old_programs_rerun": 0,
+    "all14_complete": false
+  },
+  "professional_corrections": [
+    "线性扫描/递归候选可达/实际执行与未覆盖数据分开",
+    "函数首RET/地址顺序不等全CFG，间接/异常/noreturn保unknown",
+    "支配只对入口可达子图，固定点不误称单遍",
+    "自然回边需支配关系，不可约/完全展开另核",
+    "IR保部分寄存器/flags/内存/callclobber/异常",
+    "phi按前驱边选择与并行copy，rename栈/边界/活跃性不能盲union",
+    "寄存器SSA不自动消除内存别名，未使用load/idiv仍可能可观察",
+    "结构化失败保label/goto未知，不美化改变路径"
+  ],
+  "source_reuse": "04早前33/34/37实际完整阅读与45–48补39，原scope/日期/代码不重置",
+  "formal_topic_count": 3,
+  "new14_final_acceptance_count": 0,
+  "remaining": [
+    "数据类型、静态/动态证据、差分重建、工具/AI主题和原图示",
+    "40–45、逆向手册198原项、两个RE项目14stage",
+    "26其余项目104stage、新配套与全局验收"
+  ],
+  "source_exec": 0,
+  "own_new_programs": 1,
+  "old_programs_rerun": 0,
+  "whole_update_complete": false
+}
