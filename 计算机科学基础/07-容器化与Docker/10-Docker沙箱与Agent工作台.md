@@ -95,6 +95,10 @@ guest服务监听、宿主端口映射和访问者认证分别核。回环绑定
 
 代理凭据方案可以让guest持占位值，实际请求到指定目标时由外部代理替换。它减少直接把密钥放入VM的需要；但Agent若能触发真实API，仍可能产生读写与费用。密钥未进入VM，不等于没有获得使用该密钥的能力。
 
+凭据发现链的优先级也与sbx秘密库分开。来源Docker Agent依次查进程env、Compose secret文件、Agent env文件、credential helper和Desktop；旧值可遮住后面刚更新的值。Agent env文件0600仅是访问权限，内容仍为明文；op://解析还依赖宿主CLI登录，失败可变空值并缓存，不能把reference已配置当secret已可用。helper必须核真实执行用户/位置及是否触发外部获取。
+
+来源把Compose secrets概括为tmpfs过宽。[2026-10-18官方说明](https://docs.docker.com/compose/how-tos/use-secrets/)明确单文件bind mount到容器，不能推定宿主来源加密、只在内存或容器内进程读不到。秘密作为文件能减少环境输出泄露，但仍要管源文件、挂载范围、应用日志与持有者权限；与Swarm或sbx代理占位机制分开。
+
 来源自定义秘密的替换依代理路径与目标绑定，普通环境变量、磁盘文件、透明隧道和显式header配置不能混为同一机制。host secret import是显式读取；`-e KEY`一类明文环境传递也不是自动的secret管理。保密、认证、授权与目标绑定分别解释，不能用“安全注入”四字替代。
 
 不同Agent和接入方式也不保证相同隔离。来源Kiro认证数据库在guest中；[官方Claude Desktop连接说明](https://docs.docker.com/ai/sandboxes/integrations/claude-desktop/)在2026-10-18仍提示SSH接入会向guest中的Claude Code进程传凭据。不能把代理管理API-key的保证推广到所有登录协议或桌面客户端。
@@ -843,6 +847,22 @@ listen在固定快照中没有内置Bearer认证、请求体上限固定；原�
 chat会话缓存可在成功turn后才提交更新，但失败时已发生的工具副作用不会因clone会话被丢弃而撤销。重用Conversation-ID只能定位缓存，不能代替请求幂等或身份隔离；TTL/容量驱逐又会丢服务端上下文。远程图片URL也可能透传给provider而非框架抓取，缺模态支持时不能称模型已经读图。
 
 A2A、ACP和MCP暴露层还各有安全默认与能力支持，不能照搬原生API模式。来源A2A“Full features”与其artifacts/memory等尚有限制的列表冲突，应按具体支持项；ACP示意用一次stdout data就JSON.parse，缺分帧/缓冲处理，不能直接作为真实客户端。本章只解释固定来源合同，不发布这些旧端点的无版本部署脚本。
+
+### 21.5 嵌入SDK与无人值守运行要补齐宿主责任
+
+来源Go SDK页的完整样例只作接线资料。直接创建runtime、用teamloader、嵌入embeddedchat与CLI默认装配的功能不同：某些可选provider/build tag、工具registry、JS命令求值器及keyring token store须在正确阶段注册。编译成功不证明RAG解析器、OAuth持久化或具体provider可用；缺工具还可能只有load warning，调用者须读取并决定是否能降级。
+
+CLI自动装配keyring不代表SDK也自动持久token；keyring注册晚于懒加载store还可能panic。JS evaluator未注册时模板可保持未展开并只警告。不要为方便复制完整OS env给shell工具，也不要照搬样例在每次confirmation都自动批准整session。自定义tool handler仍要在运行时校验类型、范围、溢出和业务权限，生成参数schema不会代它完成全部检查。
+
+嵌入式Send返回的事件通道需要消费到结束，保Err与Done的不同终态、tool完成的错误标记及明确的确认范围。取消/超时不是可直接当成功返回的用户结果，退出前还要清资源和停止UI tick订阅；Restart会话也不撤销先前外部动作。SDK示例里忽略错误、盲取最后消息等简写不迁移为完整应用程序。
+
+HTTP transport wrapper应委托原instrumented transport，避免丢失代理、解压与观测；它在gateway逐请求重建、direct只在client创建时调用，不能把wrapper工厂调用数当网络请求数。来源还说wrapper可使Vertex回退到另一backend，这会改变凭据/端点和数据路径，不能作为无行为变化的监控开关。本章未编译或调用原SDK。
+
+headless也有独立陷阱。来源说明--on-event在--exec下不装配，普通交互路径又异步启动子进程且退出不等待；它不能作为“通知/清理必定完成”的唯一证据。NDJSON只规定事件编码，不证明模型终答符合schema或任务成功；下游应保存终态并同步验证必要操作回执。shell pipeline还需确保保留上游失败码，不能只看tee成功。
+
+大输入要核本地读入、HTTP wire body、provider context/media三层。source远端首条消息可能丢本地附件，后续steering又可能传附件；client prompt-file不转发，server配置的prompt-file从服务器读。界面只剩一个@文件名时不能推定内容已传。RAG又是索引/检索路径，不能用“请求没413”证明整个资料集被读取。
+
+来源CI范例下载latest二进制、自动允许shell并上传轨迹；它依赖特定runner与凭据前提，不是可直接执行的安全基线。短期VM结束并不撤销已外发秘密或模型费用，工作区上的PR脚本也可能恶意。固定被测资产、最小输入和有效凭据，明确业务终态与定向回收；本章未安装、启动CI或发送通知。
 
 ## 来源与当前验证范围
 
