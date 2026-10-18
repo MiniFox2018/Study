@@ -13755,7 +13755,49 @@
       "git_blob": "b02c959cfe2d2020dcf08e2ae7bf107eb9b7f7c4",
       "official_tree_verified": true,
       "discovered": true,
-      "semantic_read_complete": false
+      "semantic_read_complete": false,
+      "partial_actual_read_date": "2026-10-18",
+      "partial_read_ranges": [
+        [
+          1,
+          8372
+        ]
+      ],
+      "partial_read_chunks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "partial_semantic_notes": "全读79页聚合chunk1–8至configuration开头：11agent配置/启动/认证不统一，模板高自治不是本任务批准；首argflag追加/裸词替换、droid/OpenCode无隐式flags，host-userconfig不自动shared、project与skills例外；Gemini auth支持Googleacct vs base禁OAuth内部矛盾，不下统一结论。Kiro凭据SQLite在guest反驳全secret永不VM；local/cloud/DAP三store互不通用；cloudcredentials与modelprovider不混；move非live/disk/filessecrets/shapeplatform/source最佳努力stop已复用。policyinit保旧rules、denydefault仍可被显式kitallow、cloudls非完整effective、log非org永久audit；CLIcloudvolume最后exit覆盖/volume-backed不能stop只能delete vsSDKexclusive语义待核。重要knownlimitation：云guest内docker exec/compose exec/healthcheck可能读VM FS而非目标容器，即使0也错；主进程路径正确非通用恢复，需当前官方现核后入笔记。没有任何sourceCLI/secret/model/VM/cloud执行。 续chunk9–32至getstarted：凭据Linux明文文件fallback/动态helper宿主依赖、requiredwarn不拒、v3scheme未用/JSONrefresh限制与分阶段域名实际支持；env预解析YAML类型、多文件merge/clone+额外直挂/hostlifecycle继承/全service prune；GPU VFIO特定host驱动非云/macGPU；llmman host共享缓存/内存/hostedbackend与超限远端路由；镜像mirror pull与guestEngine path/loopback/CA/生效差异；settings env>override>default/JSON整体替换/代理scope+重建/NO_PROXY不授出口；Kit exceptions/旧签名范围；v3 author全部原理/代码读取，FROM不继承capability、mixin只增改文件、startup并行非Ready/filteredinstallenv、volume遮蔽与属主；set dependencies/digest/参数固定和层碰撞vs运行期拒；v2全字段/旧setup3种WORKDIR语义/命令启动顺序/保用户配置/旧v1迁移分类；v3 use正文称不能kit add但其它页有支持差异，当前官方0.48支持表已现核取代旧统一判断。FAQ日志遥测/clipboard/认证与权限不能当安全证明。未执行任何原命令/模型/安装/服务。"
     },
     {
       "path": "manuals/docker-sandboxes-101/research/sources/help-desktop-4.94.md",
@@ -19299,6 +19341,19 @@
       ],
       "scope": "官方原文现核running与setupReady、SDKv2inline/名称目录与CLI差异、IfMatch/idempotency/timeout不kill和volumeexclusive/账户前提；未实际发云API",
       "source_runs": 0
+    },
+    {
+      "date": "2026-10-18",
+      "urls": [
+        "https://docs.docker.com/ai/sandboxes/cloud/usage/#docker-exec-and-healthchecks",
+        "https://docs.docker.com/ai/sandboxes/configuration/credentials/",
+        "https://docs.docker.com/ai/sandboxes/customize/author/",
+        "https://docs.docker.com/ai/sandboxes/customize/author/capabilities/",
+        "https://docs.docker.com/ai/sandboxes/customize/author/kit-sets/",
+        "https://docs.docker.com/ai/sandboxes/configuration/settings/"
+      ],
+      "scope": "当前官方公开文档现核云内exec错FS、required缺bindingwarn不拒、v3 credential格式/阶段SSH、sbx0.48能力表及groups/云phase保留/tmpfs普通disk/unsupported、启动并行、set碰撞与配置优先级；文档不代运行验证",
+      "source_runs": 0
     }
   ],
   "accepted": false,
@@ -19348,10 +19403,10 @@
       "去重融合Docker09/新10"
     ],
     "written": true,
-    "next_actual_read": "余2大聚合正文：docs DockerAgent21284行/108页、SBX15279行/79页。SBXAPI44页全读回融10§19，留v2SDK/CLI v3及云卷差异；随后整手册全局去重与覆盖/冲突验收。",
+    "next_actual_read": "SBX79页已静读1–8372（32/61有界块），续33–61；当前官方能力支持表0.48与来源0.47分层，新增10.4/11.5/20并改required/云exec边界。Agent108页未完，整手册未验收。",
     "protocol_cassettes_closed_with_exclusion": 6,
     "remaining_unreviewed_files": 2,
-    "formal_status": "主体/Kit/模型MCP/Agent与RAG/环境计划已部分回融，8聚合研究文件待审及最终整合",
+    "formal_status": "主体/Kit/模型MCP/Agent/RAG/云API及SBX正文前32块已局部融合；SBX余29块、Agent108页与最终全局验收仍待办",
     "research_closed_with_exclusion": 2
   },
   "source_recoveries": [
@@ -20420,6 +20475,31 @@
           "第 19 课解答 Notebook 是已登记的上游空文件；不能运行。"
         ]
       }
+    },
+    {
+      "date": "2026-10-18",
+      "scope": "SBX79页前32块续读与跨版本合同纠正/Kit编写/宿主配置学习解释",
+      "files": [
+        {
+          "file": "计算机科学基础/07-容器化与Docker/10-Docker沙箱与Agent工作台.md",
+          "sha256": "dff956d5900fa4dc551c5103977b47debc8371071546c62b8fa2f945b2f31ef2",
+          "pandoc_full_json_html": "通过0警告",
+          "old_fences": "逐字相同",
+          "new_programs": 0,
+          "source_runs": 0,
+          "old_reruns": 0
+        },
+        {
+          "file": "计算机科学基础/07-容器化与Docker/04-Compose与多容器应用.md",
+          "sha256": "cdfe5aeca974be0448ef1e9795b598603bf42e6619019556cba93d8a65198c51",
+          "pandoc_full_json_html": "通过0警告",
+          "old_fences": "逐字相同",
+          "new_programs": 0,
+          "source_runs": 0,
+          "old_reruns": 0
+        }
+      ],
+      "accepted_manual": false
     }
   ]
 }

@@ -315,4 +315,6 @@ Compose的`provider` service代表由第三方组件管理的能力，不必对�
 
 [Provider官方说明](https://docs.docker.com/compose/how-tos/provider-services/)目前标注Compose 2.36.0及以上，并建议AI模型优先使用顶层models。它与models支持版本不同，不能拿一台支持普通Compose的机器就假定两者都支持。跨平台可移植指声明机制，供应商生命周期、收费、清理和权限仍由具体实现决定。
 
+迁移到云guest里的嵌套Docker时还需核运行器限制：2026-10-18官方仍列出exec/healthcheck可能访问错误文件系统的情况，详见[沙箱工作台19.3](10-Docker沙箱与Agent工作台.md)。这不改变前面本地数据库实验的历史配置结果，但不能把该结果推广为云环境已实跑。
+
 本节来源为第一来源固定`1a8c4fd…`中三页Compose资料，整理2026-10-18；两页上述官方参考同日现核。只做正文审阅与静态配置说明，未启动provider/模型/Compose，不改变原数据库实验的历史验证日期。

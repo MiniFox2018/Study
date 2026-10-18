@@ -197,6 +197,8 @@ SSH agent转发通常不是复制私钥，但能请求签名认证；共享skill
 
 必需能力不能满足，就在启动前拒绝；optional不能满足时跳过并记录。拼错字段、错误类型、非法参数仍需校验，不能因为该项将被跳过就允许畸形声明通过。
 
+这里先读规范合同，再核实现。2026-10-18[官方凭据说明](https://docs.docker.com/ai/sandboxes/configuration/credentials/#first-run-approval)仍承认：sbx在无人交互、第三方Kit缺binding时会扣留凭据，但即使声明required也只警告后创建沙箱。它没有实现规范所要求的这条启动拒绝保证；任务必须另核凭据就绪。Docker Agent的工具Lifecycle.required又是另一配置对象，其未实施限制见16.1。不要把这三个“required”互相当作实际成功证据。
+
 group用于耦合一个功能的多项请求。例如“一个卷＋初始化该卷的hook”：所有成员接受才选择整组；optional组缺一项就全跳过，必需组缺一项就拒绝。成员不能自己再标optional，也不能嵌套组。
 
 **选择原子性不等于事务回滚**。全部选择与冲突检查应先完成，才应用文件和hooks；已接受hook执行失败，是执行失败，不能事后改记为“optional正常跳过”。它也不自动撤销hook已经做过的事。restart沿用已存选择；recreate重新判断，二者不是同一实验。
@@ -208,6 +210,22 @@ group用于耦合一个功能的多项请求。例如“一个卷＋初始化该
 新版本比较的是规范化的有效授权集合，不是YAML行数。新增出口、凭据、端口、共享路径、签名目的地，或把skills从只读升为可写，都扩大权限；**删除deny也扩大权限**。
 
 例：旧配置允许`api.example.com`但拒绝DELETE，新配置仅删掉DELETE deny。diff看起来只有删除，实际可做的事更多。反过来，改显示名称不扩大权限。规范将资源限额、guest内部生命周期/上下文/会话启动行为列为非跨边界授权；这不免除组织预算、收费、业务操作批准，也不意味着这些内容天然可信。
+
+### 10.4 规范快照与运行器支持矩阵分别保存
+
+2026-10-18现查[官方能力支持表](https://docs.docker.com/ai/sandboxes/customize/author/capabilities/)，其范围明确到sbx0.48.0，与来源作者0.47.0案例不同。重要差异如下，不能拿上一节规范表直接当部署清单：
+
+| 能力 | 文档所述实施边界 |
+|---|---|
+| group | 从0.48.0支持整体选择，前提仍含宿主Git身份/SSH agent可用性 |
+| agent-sessions / interactive-sessions | 前者接受声明但不执行命令；后者不支持 |
+| host-mount / usb-device | 本地和云均不支持 |
+| agent-skill / git-identity / ssh-agent | 从0.48.0支持本地；云不支持，bundled skill还需发现目标 |
+| privileged | 从0.48.0本地接受；不等于越过VM取得宿主特权 |
+| 云network / credential | install阶段权限仍可能留到运行期；@2不实施HTTP方法/路径约束 |
+| 云volume / port / resources | volume路径是普通磁盘，tmpfs也不保证临时性；只开放TCP；GPU字段不选GPU且必需云GPU请求被拒 |
+
+因而，“install-only秘密必定撤销”“tmpfs停机必定消失”是应验证的合同，不能在云实现上直接下结论。先选实际运行器、版本和能力组合，再决定实验能证明什么。Kit add也不能给现存沙箱补上所有创建期设置；涉及凭据、卷、资源、端口、生成文件或host级deny时，应先保存成果、核对重建范围。
 
 ## 11. 按功能理解20类能力合同
 
@@ -282,15 +300,33 @@ agent-skills声明发现目录。宿主共享与镜像自带是独立来源：�
 
 ### 11.4 凭据、Git归属与SSH签名分开
 
+运行器未必实施规范的全部格式。2026-10-18官方sbx说明仍要求v3 API-key显式header/format，不使用inject.scheme；OAuth仅支持该页规定的JSON与refresh_token形式，不能把Kit规范允许的TOML或字段映射直接当已可运行。它还按目标域名/合并后的runtime声明处理阶段凭据，需核实际有效配置，而非仅看install-only标签。
+
 credential按(service, phase)区分，重复所有者可能冲突。代理管理时容器可见占位值；inject-only可连占位变量都没有；OAuth的passthrough则可能把真实令牌送入容器，必须单列。install-only凭据在入口启动前撤销，不能只隐藏初始env却仍让后续请求继续借用。
+
+当前官方sbx页还明确v3 Kit须请求对应阶段的ssh-agent能力，默认允许转发开关本身不代表每个v3沙箱都收到socket。
 
 SSH私钥留在外部不妨碍Agent借助socket签名。此快照`unrestricted`默认true；有界声明需显式false，并列出签名命名空间或认证目的地。`sign: [git]`可以只允许Git提交/标签签名；它不是远程登录能力。受限登录还要验证session binding、目的地主机key与用户名，信任的host key来自沙箱外部，不能信任guest自己递交的“这是GitHub”。网络出口仍另行控制。
 
 git-identity只物化name/email，不导入宿主credential helper、aliases、includes、hooks或签名程序，也不共享原配置文件。署名、认证成功、Verified签名、用户批准、代码正确性分别需要证据。
 
+### 11.5 编译镜像、合成set和应用Kit是三步
+
+`FROM`继承镜像内容与config，不继承其Kit能力声明。若直接用旧Agent镜像做新workload，须重新声明网络、凭据、存储和hooks；若希望保留原声明并叠加工具，选择set。普通docker run也不会替sbx应用这些能力。
+
+mixin最终只贡献它新增或改变的文件，不能假定大型基础镜像的所有文件都随mixin进入workload。多阶段构建可把编译器留在build stage，但复制出的二进制仍须匹配目标架构、动态库和workload运行用户。文件存在不等于目标环境可执行。
+
+[官方set说明](https://docs.docker.com/ai/sandboxes/customize/author/kit-sets/)指出两个容易混淆的冲突路径：发布set时按依赖顺序合层，同路径后层可能覆盖；运行时用独立mixin组合时，碰撞可能被拒绝。交换列表顺序不能替代依赖和路径设计。set对外只暴露自己声明的参数，组件构建参数已固定，改变安装版本须重建组件。发布产物记录组件digest，但下一次重建若仍只用可变tag，仍可能得到不同内容。
+
+运行器的v3构建使用Buildx前端；来源旧pack/push/pull及spec.yaml/files签名范围属于旧格式，不能混用。发布镜像可签名，v3本地/Git源不能因此推定已经可签名；签名也不会自动固定Kit命令以后下载的内容。
+
 ## 12. 生命周期和会话参数容易在哪些地方出错
 
 Kit lifecycle位于**guest内部**，和环境文件`sbxenv.yaml`的宿主`initialize`不是同一信任平面。install在create时一次，startup每次启动都跑且应幂等；后台hook不自动保证最后客户端断开后继续运行，需要long-running合同。install授权应在主入口前结束。
+
+就当前[官方编写指南](https://docs.docker.com/ai/sandboxes/customize/author/)而言，sbx的startup hook与Agent并行启动，Agent可能先开始工作。一次性初始化放install；每次入口前必须完成的步骤放workload entrypoint，且失败时不得放行。声明startup不等于存在Ready屏障。install接收过滤后的基础/proxy/证书环境，所需WORKSPACE_DIR等应显式列入；startup接收沙箱环境。它们均不因此继承宿主全部变量。
+
+卷挂到路径后会遮住镜像该位置原有文件。要首次初始化，把默认值放另一镜像路径，install时只在目标不存在时复制，另外设置属主；重启不覆盖用户修改。持久块卷的mode字段不能替代chown，文档把该mode限定到tmpfs。生命周期files在install后写，容器环境引用只在创建时展开一次；普通$VAR在文件内容中保持字面值，文件路径也不能假定展开$HOME。
 
 hook环境按声明的变量与平台基线构成，不应复制宿主整个env。字符串command会经shell，argv列表按参数执行。files在入口前写入，`overwrite`默认true：要保留卷内用户设置，应明确是否只在不存在时初始化，避免每次启动覆盖；不同贡献写同一文件路径应报错。
 
@@ -573,6 +609,8 @@ PAT用来交换账号访问令牌，不应直接当那个JWT；需要对应云�
 | 输出连接结束但没有终态 | 观察不完整，先找原进程和回执，不立刻重启命令 |
 | delete请求接受，尚未确认不存在 | 清理pending/unknown，保恢复记录，不标已回收 |
 
+还必须核执行位置。[Docker云沙箱已知限制](https://docs.docker.com/ai/sandboxes/cloud/usage/#docker-exec-and-healthchecks)在2026-10-18现核仍注明：云guest里进一步运行Docker时，docker exec、compose exec及Docker healthcheck可能读写VM文件系统，而非目标容器文件系统；命令甚至可退出0，却操作了错误文件。容器主进程启动路径不受同一问题影响，适合时可把一次准备/就绪检查设计为主命令，但这不恢复exec或持续健康监控。此限制针对该云运行路径，不是普通本地Docker的一般语义；Compose依赖也要据真实运行条件验，不能只看service_healthy标签。
+
 [官方错误说明](https://docs.docker.com/ai/sandboxes-api/errors/)明确客户端等待超时/取消不杀远端进程。因此总任务deadline、单请求timeout、初始化探针、进程终止和清理deadline要独立设计。取消了工作用的signal后，清理应有新时限；记录原故障与清理故障，不能让finally里的一次异常吞掉前面的业务错误。
 
 错误处理依code及typed details，不匹配自由文本。invalidArgument修输入，unauthenticated换有效身份，permissionDenied核授权；failedPrecondition核状态/版本；resourceExhausted可能是速率、容量、配额或请求大小；unimplemented不靠重试变成支持；notFound还可能是未提供的路由。未知detail保留，未知错误不能默认“请求没发生”。
@@ -643,6 +681,38 @@ SDK当前[存储说明](https://docs.docker.com/ai/sandboxes-api/cookbook/attach
 练习：进程修改完成，返回时断网，任务已超时；是否立刻新建另一沙箱重跑？**先恢复/回读原工作和产物，未知不当未发生。** 另一次上传只收到一半字节却stat到相同最终大小，是否足够验收？**不足**，还需本次完整传输结束与内容/版本证据。最后，关闭client后计数仍有资源，是否SDK清理bug？**不能据此判断**，关闭本地客户端与删除云资源原本就是不同合同。
 
 来源：第一来源固定`1a8c4fd…`保存的Sandboxes API/SDK 44页共5036行，含完整TypeScript与REST示例，2026-10-18全部静读后按主题融合。保留认证、资源、请求、进程、文件、恢复等长期方法，旧安装/价格/配额数字和未固定SDK版本的操作模板不作当前承诺。当前仅正文与必要官方页面核验，没有SDK/账号/云/SSH/模型/文件API或原测试实跑。
+
+## 20. 宿主设置、代理与模型服务的生效范围
+
+### 20.1 保存的配置不等于进程的有效配置
+
+本节从来源固定文档提取配置诊断方法。现查[官方settings页](https://docs.docker.com/ai/sandboxes/configuration/settings/)仍说明：同一设置优先取对应环境变量，再取持久override，最后默认值。set写成功可能只是改了被env遮住的值；unset仅删override，不清进程环境。JSON数组/对象通常整体替换，不能省略仍要保留的条目。
+
+例如终端A启动daemon时带了代理变量，终端B后来unset变量再重连，并不会修改旧daemon的环境。应对账CLI本次环境、daemon启动环境、持久值、最终SOURCE及重建时机。模板、磁盘、skills挂载等创建期设置也不会因保存新值自动改旧沙箱。只读skills允许内容被宿主更新，不能充当固定版本快照。
+
+上游代理决定允许流量怎样出去，network policy决定能去哪。NO_PROXY排除不授予出口，SOCKS5h的远端DNS不等于网络策略绕过。sandbox和daemon有各自scope；范围专用排除列表替换共享列表，非追加。来源将代理支持标为experimental，应按使用版本核验。CLI可能下一调用生效，daemon须重启，既有沙箱proxy也可能须由daemon重建；仅重启Agent不够。操作时先核影响范围，不以全局重启作为默认排错动作。
+
+### 20.2 来源与签名策略要查例外
+
+允许来源、允许本地Kit、强制签名、可信签名者和提取出的内置Agent例外，是独立开关。来源前缀按路径段边界比较；添加一项不要意外删掉原列表，也不要用全放行代替查明发布者。允许本地来源不自动豁免签名，配置可信签名者也不自动启用强制签名。
+
+来源settings对某些固定内置Agent引用设有来源/签名例外；“requireSignature=true”不能单独证明所有加载内容都验签。旧v2签名覆盖spec.yaml与files，而v3发布镜像按其制品合同验证。均应另管外部下载、可变tag与动态启动脚本。私有签名关闭透明日志验证还需要相应时间戳合同，不能把少查一项写成同等证明。
+
+### 20.3 本地模型服务与GPU不自动受每个VM限额约束
+
+来源的llmman是宿主管理的服务，与Docker Model Runner分别命名、分别查状态。共享模型缓存、宿主推理内存和后台下载不能由某个沙箱CPU/内存配置代为限制。即使没有选模型，启动模型管理服务也可能下载其运行组件；本章没有执行这些动作。
+
+本地模型与hosted backend的路由还可能分出溢出路径：超过本地上下文阈值时转到远端，会改变发送数据的边界和费用。标签写“本地模型”不能代替查最终请求端点。后端凭据可能来自daemon启动环境，并非自动来自sbx秘密库；换CLI环境也未必改了已运行服务。修改providers对象还要核整体替换和旧条目保留。
+
+来源GPU直通描述的是特定Linux x86主机、可独占设备、IOMMU与匹配guest内核/驱动的VFIO路径，与macOS宿主Metal推理、普通容器GPU共享、云GPU供应是不同能力。不能把“声明gpu字段”当这些条件已满足，也不照搬旧驱动包链接和root安装脚本。
+
+### 20.4 环境文件的清理范围要回到共享对象
+
+多环境文件深合map、连接list、覆盖scalar；引用值在YAML解码前替换时，未加引号的1.20或false可能改变类型，这与v3 Kit的结构化参数替换不同。additionalWorkspaces仍可能直接挂宿主目录，即使主workspace用了clone，也不能推断其它仓库免受写入。
+
+环境文件里的普通env不自动提供给宿主lifecycle或secret helper；宿主命令继承启动sbx的进程环境。批准只对本次调用生效与rememberHostCommands是不同策略。环境删除默认保留可共享的MCP注册/全局绑定；显式prune-bindings还可能删除整个service绑定，影响其它环境，而非只撤本文件增加的域名。清理失败后保存同一组有序文件、身份和journal，对账各资源，避免以重复create掩盖遗留项。
+
+参考练习：将NO_PROXY加进终端后调用成功，是否证明旧沙箱已换路由？不够，先查使用的是CLI还是guest请求、daemon是否还持旧env、沙箱proxy是否重建及命中的scope。把主workspace设clone是否保护另一直接挂载目录？不能，应逐个列出mount与读写权限。
 
 ## 来源与当前验证范围
 
