@@ -1,0 +1,578 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "status": "9日志4块原文全读，9binary3新窄核6范围复用；56JSON语义投影与38图未完",
+  "raw_text_files": [
+    {
+      "source_file": "manuals/reverse-engineering-101/capture/out/00-commands.txt",
+      "sha256": "e4684eb8de4d53dbe0ed1c63756a7fd772151b1228ae6a7c5af863cf1d8bebb7",
+      "bytes": 13772,
+      "line_count": 140
+    },
+    {
+      "source_file": "manuals/reverse-engineering-101/capture/out/00-fixtures.txt",
+      "sha256": "20f294d576ec9eed443ae44941f2a5e03ab9b685848a2e7b65cfdde24091219d",
+      "bytes": 1883,
+      "line_count": 19
+    },
+    {
+      "source_file": "manuals/reverse-engineering-101/capture/out/00-versions.txt",
+      "sha256": "b2ee24f8174f7ebdd1dcf2a7b3e426b6b3d29cc8b14fd5a92e5b807dc8f3d4c2",
+      "bytes": 1649,
+      "line_count": 69
+    },
+    {
+      "source_file": "manuals/reverse-engineering-101/capture/out/10-mcp-server.log",
+      "sha256": "3abce00013d533d8e0196b5d14dc6cdb6da901f6bded307cc7133be76fe93e73",
+      "bytes": 3032,
+      "line_count": 17
+    },
+    {
+      "source_file": "manuals/reverse-engineering-101/capture/out/10-mcp-session.txt",
+      "sha256": "8b5c6c48dc870ccb5e66b66f9daeafc7b533beebe4e171575b1e2f78e70929db",
+      "bytes": 2404,
+      "line_count": 25
+    },
+    {
+      "source_file": "manuals/reverse-engineering-101/capture/out/11-bundles.txt",
+      "sha256": "03e155908c9c2080b61529f14ca898abc66dd35f047c59f8d195b7eef0a482d0",
+      "bytes": 366,
+      "line_count": 2
+    },
+    {
+      "source_file": "manuals/reverse-engineering-101/capture/out/12-evidence-export.txt",
+      "sha256": "624b0af32fa24165c4713f771483ee11da734bb28027ef1754e2ac778d3a6de6",
+      "bytes": 331,
+      "line_count": 4
+    },
+    {
+      "source_file": "manuals/reverse-engineering-101/capture/out/16-wabt.txt",
+      "sha256": "dee9b4464b0a634682aec03e03f1e7f810aed6db5bf18de81ce94424593e65a8",
+      "bytes": 3685,
+      "line_count": 142
+    },
+    {
+      "source_file": "manuals/reverse-engineering-101/capture/out/17-harness.txt",
+      "sha256": "c88193293c7f6bc24aa3116bae8b2cea2212fe4e90abf030183255b40c5adaa0",
+      "bytes": 792,
+      "line_count": 6
+    }
+  ],
+  "actually_read_chunks": [
+    {
+      "chunk": 1,
+      "chars": 9000,
+      "char_range": [
+        0,
+        9000
+      ],
+      "sha256": "648f80ec3e4f9df31da8b92ec6383f078f6ece4bf2241781c8dd6ff914c1f752",
+      "actually_read": true
+    },
+    {
+      "chunk": 2,
+      "chars": 9000,
+      "char_range": [
+        9000,
+        18000
+      ],
+      "sha256": "5275c80859635eb167cd245caf1f557aa49a8d256aad43cb2742043cba25b4db",
+      "actually_read": true
+    },
+    {
+      "chunk": 3,
+      "chars": 9000,
+      "char_range": [
+        18000,
+        27000
+      ],
+      "sha256": "fc53c60e8024abb53c2395027b8439a06c092d7540f9e134dc35dbedc4d5715f",
+      "actually_read": true
+    },
+    {
+      "chunk": 4,
+      "chars": 1532,
+      "char_range": [
+        27000,
+        28532
+      ],
+      "sha256": "f228d5645bbec870c9da3416ab38213d6f7228907f3d049ab2ce14c561b0c2b5",
+      "actually_read": true
+    }
+  ],
+  "binary_static_checks": {
+    "date": "2026-10-19",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "new_macho_data_checks": [
+      {
+        "source_file": "manuals/reverse-engineering-101/capture/fixtures/invoice",
+        "sha256": "14184363ca553860232803233cbdc5a02cef54a1d817a4aa920ef2ce28d9643b",
+        "bytes": 33560,
+        "machine": 16777228,
+        "load_commands": 17,
+        "segments": [
+          {
+            "name": "__PAGEZERO",
+            "vmaddr": 0,
+            "vmsize": 4294967296,
+            "fileoff": 0,
+            "filesize": 0
+          },
+          {
+            "name": "__TEXT",
+            "vmaddr": 4294967296,
+            "vmsize": 16384,
+            "fileoff": 0,
+            "filesize": 16384
+          },
+          {
+            "name": "__DATA_CONST",
+            "vmaddr": 4294983680,
+            "vmsize": 16384,
+            "fileoff": 16384,
+            "filesize": 16384
+          },
+          {
+            "name": "__LINKEDIT",
+            "vmaddr": 4295000064,
+            "vmsize": 16384,
+            "fileoff": 32768,
+            "filesize": 792
+          }
+        ],
+        "sections": [
+          {
+            "name": "__text",
+            "segment": "__TEXT",
+            "addr": 4294968416,
+            "size": 152,
+            "offset": 1120,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 2147484672
+          },
+          {
+            "name": "__stubs",
+            "segment": "__TEXT",
+            "addr": 4294968568,
+            "size": 36,
+            "offset": 1272,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 2147484680
+          },
+          {
+            "name": "__cstring",
+            "segment": "__TEXT",
+            "addr": 4294968604,
+            "size": 48,
+            "offset": 1308,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 2
+          },
+          {
+            "name": "__unwind_info",
+            "segment": "__TEXT",
+            "addr": 4294968652,
+            "size": 88,
+            "offset": 1356,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 0
+          },
+          {
+            "name": "__got",
+            "segment": "__DATA_CONST",
+            "addr": 4294983680,
+            "size": 32,
+            "offset": 16384,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 6
+          }
+        ],
+        "function_starts": [
+          "0x100000460"
+        ],
+        "symbol_count": 6,
+        "entryoff": 1120,
+        "source_exec": 0
+      },
+      {
+        "source_file": "manuals/reverse-engineering-101/capture/fixtures/ledger-arm64-O1",
+        "sha256": "01b5d08b08fb94678be5919d0e753d44b505a53107c95b94634f0e5d41c9e375",
+        "bytes": 33872,
+        "machine": 16777228,
+        "load_commands": 17,
+        "segments": [
+          {
+            "name": "__PAGEZERO",
+            "vmaddr": 0,
+            "vmsize": 4294967296,
+            "fileoff": 0,
+            "filesize": 0
+          },
+          {
+            "name": "__TEXT",
+            "vmaddr": 4294967296,
+            "vmsize": 16384,
+            "fileoff": 0,
+            "filesize": 16384
+          },
+          {
+            "name": "__DATA_CONST",
+            "vmaddr": 4294983680,
+            "vmsize": 16384,
+            "fileoff": 16384,
+            "filesize": 16384
+          },
+          {
+            "name": "__LINKEDIT",
+            "vmaddr": 4295000064,
+            "vmsize": 16384,
+            "fileoff": 32768,
+            "filesize": 1104
+          }
+        ],
+        "sections": [
+          {
+            "name": "__text",
+            "segment": "__TEXT",
+            "addr": 4294968576,
+            "size": 576,
+            "offset": 1280,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 2147484672
+          },
+          {
+            "name": "__stubs",
+            "segment": "__TEXT",
+            "addr": 4294969152,
+            "size": 48,
+            "offset": 1856,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 2147484680
+          },
+          {
+            "name": "__cstring",
+            "segment": "__TEXT",
+            "addr": 4294969200,
+            "size": 95,
+            "offset": 1904,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 2
+          },
+          {
+            "name": "__const",
+            "segment": "__TEXT",
+            "addr": 4294969296,
+            "size": 64,
+            "offset": 2000,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 0
+          },
+          {
+            "name": "__unwind_info",
+            "segment": "__TEXT",
+            "addr": 4294969360,
+            "size": 96,
+            "offset": 2064,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 0
+          },
+          {
+            "name": "__got",
+            "segment": "__DATA_CONST",
+            "addr": 4294983680,
+            "size": 48,
+            "offset": 16384,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 6
+          },
+          {
+            "name": "__const",
+            "segment": "__DATA_CONST",
+            "addr": 4294983728,
+            "size": 40,
+            "offset": 16432,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 0
+          }
+        ],
+        "function_starts": [
+          "0x100000500",
+          "0x100000518",
+          "0x100000554",
+          "0x100000588",
+          "0x1000005d0"
+        ],
+        "symbol_count": 13,
+        "entryoff": 1488,
+        "source_exec": 0,
+        "all_text_direct_BL_pairs": [
+          [
+            "0x100000620",
+            "0x100000758"
+          ],
+          [
+            "0x100000638",
+            "0x10000074c"
+          ],
+          [
+            "0x100000644",
+            "0x10000074c"
+          ],
+          [
+            "0x100000684",
+            "0x10000074c"
+          ],
+          [
+            "0x1000006a0",
+            "0x100000500"
+          ],
+          [
+            "0x1000006b0",
+            "0x100000764"
+          ],
+          [
+            "0x1000006bc",
+            "0x100000554"
+          ],
+          [
+            "0x1000006cc",
+            "0x100000764"
+          ],
+          [
+            "0x1000006ec",
+            "0x100000588"
+          ],
+          [
+            "0x1000006f8",
+            "0x100000764"
+          ],
+          [
+            "0x10000073c",
+            "0x100000740"
+          ]
+        ],
+        "grade_table": [
+          1,
+          2,
+          3,
+          4,
+          4
+        ],
+        "grade_entry_file_offset": 1304
+      },
+      {
+        "source_file": "manuals/reverse-engineering-101/capture/fixtures/ledger-arm64-O2",
+        "sha256": "8bbbaa5866c3fc9f6f598943350b55b5c11669dd1d5e41005efdfe44241915b3",
+        "bytes": 33872,
+        "machine": 16777228,
+        "load_commands": 17,
+        "segments": [
+          {
+            "name": "__PAGEZERO",
+            "vmaddr": 0,
+            "vmsize": 4294967296,
+            "fileoff": 0,
+            "filesize": 0
+          },
+          {
+            "name": "__TEXT",
+            "vmaddr": 4294967296,
+            "vmsize": 16384,
+            "fileoff": 0,
+            "filesize": 16384
+          },
+          {
+            "name": "__DATA_CONST",
+            "vmaddr": 4294983680,
+            "vmsize": 16384,
+            "fileoff": 16384,
+            "filesize": 16384
+          },
+          {
+            "name": "__LINKEDIT",
+            "vmaddr": 4295000064,
+            "vmsize": 16384,
+            "fileoff": 32768,
+            "filesize": 1104
+          }
+        ],
+        "sections": [
+          {
+            "name": "__text",
+            "segment": "__TEXT",
+            "addr": 4294968576,
+            "size": 756,
+            "offset": 1280,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 2147484672
+          },
+          {
+            "name": "__stubs",
+            "segment": "__TEXT",
+            "addr": 4294969332,
+            "size": 48,
+            "offset": 2036,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 2147484680
+          },
+          {
+            "name": "__cstring",
+            "segment": "__TEXT",
+            "addr": 4294969380,
+            "size": 95,
+            "offset": 2084,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 2
+          },
+          {
+            "name": "__const",
+            "segment": "__TEXT",
+            "addr": 4294969480,
+            "size": 64,
+            "offset": 2184,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 0
+          },
+          {
+            "name": "__unwind_info",
+            "segment": "__TEXT",
+            "addr": 4294969544,
+            "size": 96,
+            "offset": 2248,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 0
+          },
+          {
+            "name": "__got",
+            "segment": "__DATA_CONST",
+            "addr": 4294983680,
+            "size": 48,
+            "offset": 16384,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 6
+          },
+          {
+            "name": "__const",
+            "segment": "__DATA_CONST",
+            "addr": 4294983728,
+            "size": 40,
+            "offset": 16432,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 0
+          }
+        ],
+        "function_starts": [
+          "0x100000500",
+          "0x100000518",
+          "0x100000554",
+          "0x10000064c",
+          "0x100000694"
+        ],
+        "symbol_count": 13,
+        "entryoff": 1684,
+        "source_exec": 0
+      }
+    ],
+    "same_sha_binary_scope_reuses": [
+      {
+        "source_file": "manuals/reverse-engineering-101/capture/fixtures/ledger-arm64-O1.o",
+        "sha256": "fe67e3783e24427e4c3264e0e6ff9060f685cdd0939def1cdd99dad66e21c900",
+        "reuse_from": "phases/13-tools-and-protocols/32-program-anatomy-elf-from-scratch/code/fixtures/ledger-arm64-O1.o",
+        "prior_scope": "静态字节/header已观察，指令与效果语义待33等关联核；原binary未执行"
+      },
+      {
+        "source_file": "manuals/reverse-engineering-101/capture/fixtures/ledger-arm64-O2.o",
+        "sha256": "3cb939fa89e947a1d4288946889c8b626db93be0c31ddc1259eba3cb2935af46",
+        "reuse_from": "phases/13-tools-and-protocols/40-linking-loading-and-stripped-binaries/code/fixtures/ledger-arm64-O2.o",
+        "prior_scope": "binary_structure_static_checked"
+      },
+      {
+        "source_file": "manuals/reverse-engineering-101/capture/fixtures/ledger-x86_64-O0.o",
+        "sha256": "b2046c121930d3d1e5ba84ba796f9e9e161df2fe76f7b9dcf8db63f690447e13",
+        "reuse_from": "phases/13-tools-and-protocols/32-program-anatomy-elf-from-scratch/code/fixtures/ledger-x86_64-O0.o",
+        "prior_scope": "静态字节/header已观察，指令与效果语义待33等关联核；原binary未执行"
+      },
+      {
+        "source_file": "manuals/reverse-engineering-101/capture/fixtures/ledger-x86_64-O1.o",
+        "sha256": "9a4a8082ba5e285a732552981a6935e0c5255725664f380e37c44ebfb04d803f",
+        "reuse_from": "phases/13-tools-and-protocols/32-program-anatomy-elf-from-scratch/code/fixtures/ledger-x86_64-O1.o",
+        "prior_scope": "静态字节/header已观察，指令与效果语义待33等关联核；原binary未执行"
+      },
+      {
+        "source_file": "manuals/reverse-engineering-101/capture/fixtures/ledger-x86_64-O2.o",
+        "sha256": "ce31eaf10e7cb88fb8e313abfdb4f743964646339260c471ff97d60137bbe89b",
+        "reuse_from": "phases/13-tools-and-protocols/32-program-anatomy-elf-from-scratch/code/fixtures/ledger-x86_64-O2.o",
+        "prior_scope": "静态字节/header已观察，指令与效果语义待33等关联核；原binary未执行"
+      },
+      {
+        "source_file": "manuals/reverse-engineering-101/capture/fixtures/wasm/ledger.wasm",
+        "sha256": "699f6ff7737b6f59db95a37840ed9c11f7ad9d69c29a6a240b8ecf0b79275e99",
+        "reuse_from": "phases/13-tools-and-protocols/43-bytecode-and-managed-formats/code/fixtures/wasm/ledger.wasm",
+        "prior_scope": "binary_structure_static_checked"
+      }
+    ],
+    "fixture_manifest_checks": [
+      "fixtures/invoice",
+      "fixtures/invoice.c",
+      "fixtures/ledger-arm64-O1",
+      "fixtures/ledger-arm64-O1.o",
+      "fixtures/ledger-arm64-O2",
+      "fixtures/ledger-arm64-O2.o",
+      "fixtures/ledger-main.c",
+      "fixtures/ledger-x86_64-O0.o",
+      "fixtures/ledger-x86_64-O1.o",
+      "fixtures/ledger-x86_64-O2.o",
+      "fixtures/ledger.c",
+      "fixtures/js-app/index.html",
+      "fixtures/js-app/ledger.js",
+      "fixtures/js-app/main.js",
+      "fixtures/js-app/package.json",
+      "fixtures/js-app/preload.js",
+      "fixtures/js-app/renderer.js",
+      "fixtures/wasm/ledger.wasm",
+      "fixtures/wasm/ledger.wat"
+    ],
+    "new_binaries": 3,
+    "reuse_binaries": 6,
+    "source_exec": 0,
+    "limits": [
+      "只窄MachO头/表范围、LC_FUNCTION_STARTS、所列代码字/常量及19fixturehash；不声称全部二进制每字节语义或操作系统可运行",
+      "ARM O1全text直接BL没有grade目标，只支持该代码范围直接调用集合，不保证没有间接/外部runtime调用",
+      "6同SHA复用原静核范围，不将header核升级为整个对象语义验证"
+    ]
+  },
+  "prepared_json_projection": {
+    "view": "re-manual-out-b33v4",
+    "chunks": 25,
+    "read_cursor": 0,
+    "scope": "56JSON全树解析后所列关键语义投影，不原文全文；重复schema/pcode/catalog等按价值分类，前b33/v2/v3只是未读准备视图不计读取"
+  },
+  "notes": [
+    "MCP25个exchange其中_missing为error，但verify业务fail仍exchangeok；logserver17行不是25消息缺失错误证据",
+    "首Ghidralist6063ms/服务6060.02不同计时域，后O2首analyze5470ms/服务5465.9；不是本库性能测量",
+    "19fixture所有hash/size一致；O1表1,2,3,4,4、gradeVA100000518→offset1304；直接BL无grade不证明动态无间接call",
+    "12exportFalse比较canonical masked输入与原未maskbundle，不能把唯一差异都归newline；读取清单范围与实际payload不同"
+  ],
+  "source_exec": 0,
+  "manual_accepted": false,
+  "whole_update_complete": false
+}
