@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "status": "44全部36原项静读/全文复用或数据核，06具体差分符号知识回融，原图/14课最终待完",
+  "records": [
+    "64-逆向第44课核心读取.json",
+    "65-逆向第44课案例读取.json",
+    "66-逆向第44课差分案例静核.json"
+  ],
+  "formal_writes": [
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+      "sha256": "939b18021880fb3a01663141fd2d2761a40dd364941e9b7ed913d9f16377a8a8",
+      "role": "学习导航",
+      "last_fusion_date": "2026-10-19"
+    },
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/06-差分重建与符号执行.md",
+      "sha256": "a220274acd0015c0bcf3bdd914e66d9fac5c504062e4159217ef2ba95b45597b",
+      "role": "新增证据/差分重建主题",
+      "last_fusion_date": "2026-10-19"
+    }
+  ],
+  "knowledge_additions": [
+    "五类签名/双唯一候选/greedy消费与diamond误配/质量非概率和名字来源",
+    "对象视图与Ghidra合成装载视图、122vs234只1B实际变化、mask后同而引用表4vs3可变行为",
+    "Levenshtein明确输入范围，完整118vs46与82fingerprint/47编辑距离解释0.426829；stderr被筛日志不是完整诊断",
+    "符号状态/环境/路径条件/剪枝/手工IR语义前提，grade5类返回集合与5paths/2paths区别，9节点12边独立Mermaid",
+    "32bit grade完整域区间给数学推导，有限1401输入只核当前域；return0极值不代表连续全区间",
+    "SAT多模型、UNSAT仅编码问题/完整假设、unknown/timeout不可当unsat、硬编码table与errored缺项需保留",
+    "机器wrap32与C signedoverflow UB、IDIVtrap/shift/求解器total语义差别，percent多个50与−133模型重算",
+    "cap24块完成输入22/截断输入43，2截断状态集合[22]与[23..64]，不是其余41从未开始",
+    "工具分工KLEE bitcode/angr binary状态/Z3约束，实际capture与运行时模型/库/内存/ABI/状态缺项报告"
+  ],
+  "official_selected_reads": [
+    {
+      "url": "https://github.com/google/bindiff/blob/main/docs/concepts.md",
+      "date": "2026-10-19",
+      "scope": "双唯一/等价子集钻取/调用邻域、真实名字、primeproduct与MDindex区别、quality/confidence与similarity定义必要段；不当正确率"
+    },
+    {
+      "url": "https://microsoft.github.io/z3guide/docs/theories/Bitvectors/",
+      "date": "2026-10-19",
+      "scope": "位向量数值及signed/unsigned操作区分，不等源C UB模型"
+    },
+    {
+      "url": "https://docs.angr.io/en/latest/core-concepts/simulation.html",
+      "date": "2026-10-19",
+      "scope": "引擎和successor状态分类定点核"
+    },
+    {
+      "url": "https://docs.angr.io/en/latest/core-concepts/pathgroups.html",
+      "date": "2026-10-19",
+      "scope": "errored非stash、unconstrained保存选项、explore默认found后可仍有active"
+    }
+  ],
+  "validation": {
+    "date": "2026-10-19",
+    "renders": [
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/06-差分重建与符号执行.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "ace1d8e327249030eb8433bf7009e6528b44c5128914f392de941260a26a0b0e"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/06-差分重建与符号执行.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "9c1852be176875d8ea91200157acd33ab0dc938484682ca8f1cf21b2fcabd329"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "a08e369ec159a7f031e37e45ce6448161b14c8a7cccebe704a5bc3a94c578a41"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "76428945e7a23cce6ff0957bfb303e31b475c56f96f4c236aebe06da0ec91f8d"
+      }
+    ],
+    "old_fences_preserved": true,
+    "new_mermaid": {
+      "nodes": 9,
+      "edges": 12,
+      "scope": "手工简化grade路径图与5类结果对应，检查边集合；未执行原图JS，不将独立图写成原网站图验收"
+    },
+    "source_exec": 0,
+    "solver_run": 0,
+    "old_programs_rerun": 0,
+    "new_embedded_executable_programs": 0
+  },
+  "structure_check": {
+    "说明": "结构检查不替代语义、外链在线状态和实验运行验证",
+    "Markdown总数": 668,
+    "主库Markdown": 355,
+    "学习与导航Markdown": 301,
+    "维护Markdown": 54,
+    "统计口径": "主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。",
+    "本地链接检查次数": 4583,
+    "有效Notebook": 93,
+    "已登记上游空Notebook": 1,
+    "来源文件校验数": 969,
+    "有效SVG": 395,
+    "错误": [],
+    "提示": [
+      "第 19 课解答 Notebook 是已登记的上游空文件；不能运行。"
+    ]
+  },
+  "source_exec": 0,
+  "solver_install_import_run": 0,
+  "old_programs_rerun": 0,
+  "new_embedded_executable_programs": 0,
+  "remaining": [
+    "45的AI协作/工具知识及完整fixture/原图",
+    "此前所有逆向原交互图语义/静态替代或明确分类、14课最终验收",
+    "逆向手册198项/两个RE项目14stage/其它104项目stage/新增canonical配套/全局"
+  ],
+  "whole_update_complete": false
+}
