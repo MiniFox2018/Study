@@ -1,0 +1,865 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "status": "早期对象读取分类缺口已补，下一十主题整体学习与时态复查；不等整组验收",
+  "objects": [
+    {
+      "source_file": "phases/13-tools-and-protocols/32-program-anatomy-elf-from-scratch/code/fixtures/ledger-arm64-O1.o",
+      "sha256": "fe67e3783e24427e4c3264e0e6ff9060f685cdd0939def1cdd99dad66e21c900",
+      "bytes": 1688,
+      "structure": {
+        "format": "Mach-O64",
+        "machine": 16777228,
+        "kind": 1,
+        "flags": 8192,
+        "commands": [
+          {
+            "cmd": 25,
+            "offset": 32,
+            "size": 472
+          },
+          {
+            "cmd": 50,
+            "offset": 504,
+            "size": 24
+          },
+          {
+            "cmd": 46,
+            "offset": 528,
+            "size": 16
+          },
+          {
+            "cmd": 2,
+            "offset": 544,
+            "size": 24
+          },
+          {
+            "cmd": 11,
+            "offset": 568,
+            "size": 80
+          }
+        ],
+        "segments": [
+          {
+            "name": "",
+            "vmaddr": 0,
+            "vmsize": 456,
+            "fileoff": 648,
+            "filesize": 456
+          }
+        ],
+        "sections": [
+          {
+            "name": "__text",
+            "segment": "__TEXT",
+            "addr": 0,
+            "size": 208,
+            "offset": 648,
+            "reloff": 1104,
+            "nreloc": 6,
+            "flags": 2147484672
+          },
+          {
+            "name": "__const",
+            "segment": "__DATA",
+            "addr": 208,
+            "size": 40,
+            "offset": 856,
+            "reloff": 1152,
+            "nreloc": 5,
+            "flags": 0
+          },
+          {
+            "name": "__cstring",
+            "segment": "__TEXT",
+            "addr": 248,
+            "size": 10,
+            "offset": 896,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 2
+          },
+          {
+            "name": "__const",
+            "segment": "__TEXT",
+            "addr": 264,
+            "size": 64,
+            "offset": 912,
+            "reloff": 0,
+            "nreloc": 0,
+            "flags": 0
+          },
+          {
+            "name": "__compact_unwind",
+            "segment": "__LD",
+            "addr": 328,
+            "size": 128,
+            "offset": 976,
+            "reloff": 1192,
+            "nreloc": 4,
+            "flags": 33554432
+          }
+        ],
+        "symbols": [
+          {
+            "name": "ltmp0",
+            "type": 14,
+            "section": 1,
+            "desc": 0,
+            "value": 0
+          },
+          {
+            "name": "l_switch.table.grade",
+            "type": 14,
+            "section": 4,
+            "desc": 0,
+            "value": 264
+          },
+          {
+            "name": "l_switch.table.grade_label",
+            "type": 14,
+            "section": 4,
+            "desc": 0,
+            "value": 288
+          },
+          {
+            "name": "_labels",
+            "type": 14,
+            "section": 2,
+            "desc": 0,
+            "value": 208
+          },
+          {
+            "name": "ltmp1",
+            "type": 14,
+            "section": 2,
+            "desc": 0,
+            "value": 208
+          },
+          {
+            "name": "l_.str",
+            "type": 14,
+            "section": 3,
+            "desc": 0,
+            "value": 248
+          },
+          {
+            "name": "l_.str.1",
+            "type": 14,
+            "section": 3,
+            "desc": 0,
+            "value": 250
+          },
+          {
+            "name": "l_.str.2",
+            "type": 14,
+            "section": 3,
+            "desc": 0,
+            "value": 252
+          },
+          {
+            "name": "l_.str.3",
+            "type": 14,
+            "section": 3,
+            "desc": 0,
+            "value": 254
+          },
+          {
+            "name": "l_.str.4",
+            "type": 14,
+            "section": 3,
+            "desc": 0,
+            "value": 256
+          },
+          {
+            "name": "ltmp2",
+            "type": 14,
+            "section": 3,
+            "desc": 0,
+            "value": 248
+          },
+          {
+            "name": "ltmp3",
+            "type": 14,
+            "section": 4,
+            "desc": 0,
+            "value": 264
+          },
+          {
+            "name": "ltmp4",
+            "type": 14,
+            "section": 5,
+            "desc": 0,
+            "value": 328
+          },
+          {
+            "name": "_grade",
+            "type": 15,
+            "section": 1,
+            "desc": 0,
+            "value": 24
+          },
+          {
+            "name": "_grade_label",
+            "type": 15,
+            "section": 1,
+            "desc": 0,
+            "value": 136
+          },
+          {
+            "name": "_percent_change",
+            "type": 15,
+            "section": 1,
+            "desc": 0,
+            "value": 0
+          },
+          {
+            "name": "_total",
+            "type": 15,
+            "section": 1,
+            "desc": 0,
+            "value": 84
+          }
+        ],
+        "linkedit": {},
+        "function_starts": [],
+        "entryoff": null
+      }
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/32-program-anatomy-elf-from-scratch/code/fixtures/ledger-x86_64-O0.o",
+      "sha256": "b2046c121930d3d1e5ba84ba796f9e9e161df2fe76f7b9dcf8db63f690447e13",
+      "bytes": 2064,
+      "structure": {
+        "format": "ELF64",
+        "kind": 1,
+        "machine": 62,
+        "sections": [
+          {
+            "name": "",
+            "type": 0,
+            "addr": 0,
+            "offset": 0,
+            "size": 0,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".strtab",
+            "type": 3,
+            "addr": 0,
+            "offset": 1066,
+            "size": 161,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".text",
+            "type": 1,
+            "addr": 0,
+            "offset": 64,
+            "size": 295,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".rela.text",
+            "type": 4,
+            "addr": 0,
+            "offset": 752,
+            "size": 72,
+            "link": 12,
+            "info": 2,
+            "entsize": 24
+          },
+          {
+            "name": ".rodata",
+            "type": 1,
+            "addr": 0,
+            "offset": 360,
+            "size": 20,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".rela.rodata",
+            "type": 4,
+            "addr": 0,
+            "offset": 824,
+            "size": 120,
+            "link": 12,
+            "info": 4,
+            "entsize": 24
+          },
+          {
+            "name": ".data",
+            "type": 1,
+            "addr": 0,
+            "offset": 384,
+            "size": 40,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".rela.data",
+            "type": 4,
+            "addr": 0,
+            "offset": 944,
+            "size": 120,
+            "link": 12,
+            "info": 6,
+            "entsize": 24
+          },
+          {
+            "name": ".rodata.str1.1",
+            "type": 1,
+            "addr": 0,
+            "offset": 424,
+            "size": 10,
+            "link": 0,
+            "info": 0,
+            "entsize": 1
+          },
+          {
+            "name": ".comment",
+            "type": 1,
+            "addr": 0,
+            "offset": 434,
+            "size": 47,
+            "link": 0,
+            "info": 0,
+            "entsize": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "type": 1,
+            "addr": 0,
+            "offset": 481,
+            "size": 0,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".llvm_addrsig",
+            "type": 1879002115,
+            "addr": 0,
+            "offset": 1064,
+            "size": 2,
+            "link": 12,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".symtab",
+            "type": 2,
+            "addr": 0,
+            "offset": 488,
+            "size": 264,
+            "link": 1,
+            "info": 7,
+            "entsize": 24
+          }
+        ],
+        "program_headers": []
+      }
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/32-program-anatomy-elf-from-scratch/code/fixtures/ledger-x86_64-O1.o",
+      "sha256": "9a4a8082ba5e285a732552981a6935e0c5255725664f380e37c44ebfb04d803f",
+      "bytes": 1768,
+      "structure": {
+        "format": "ELF64",
+        "kind": 1,
+        "machine": 62,
+        "sections": [
+          {
+            "name": "",
+            "type": 0,
+            "addr": 0,
+            "offset": 0,
+            "size": 0,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".strtab",
+            "type": 3,
+            "addr": 0,
+            "offset": 872,
+            "size": 190,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".text",
+            "type": 1,
+            "addr": 0,
+            "offset": 64,
+            "size": 159,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".rela.text",
+            "type": 4,
+            "addr": 0,
+            "offset": 680,
+            "size": 72,
+            "link": 10,
+            "info": 2,
+            "entsize": 24
+          },
+          {
+            "name": ".rodata",
+            "type": 1,
+            "addr": 0,
+            "offset": 224,
+            "size": 80,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".rela.rodata",
+            "type": 4,
+            "addr": 0,
+            "offset": 752,
+            "size": 120,
+            "link": 10,
+            "info": 4,
+            "entsize": 24
+          },
+          {
+            "name": ".rodata.str1.1",
+            "type": 1,
+            "addr": 0,
+            "offset": 304,
+            "size": 10,
+            "link": 0,
+            "info": 0,
+            "entsize": 1
+          },
+          {
+            "name": ".comment",
+            "type": 1,
+            "addr": 0,
+            "offset": 314,
+            "size": 47,
+            "link": 0,
+            "info": 0,
+            "entsize": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "type": 1,
+            "addr": 0,
+            "offset": 361,
+            "size": 0,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".llvm_addrsig",
+            "type": 1879002115,
+            "addr": 0,
+            "offset": 872,
+            "size": 0,
+            "link": 10,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".symtab",
+            "type": 2,
+            "addr": 0,
+            "offset": 368,
+            "size": 312,
+            "link": 1,
+            "info": 9,
+            "entsize": 24
+          }
+        ],
+        "program_headers": []
+      }
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/32-program-anatomy-elf-from-scratch/code/fixtures/ledger-x86_64-O2.o",
+      "sha256": "ce31eaf10e7cb88fb8e313abfdb4f743964646339260c471ff97d60137bbe89b",
+      "bytes": 1880,
+      "structure": {
+        "format": "ELF64",
+        "kind": 1,
+        "machine": 62,
+        "sections": [
+          {
+            "name": "",
+            "type": 0,
+            "addr": 0,
+            "offset": 0,
+            "size": 0,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".strtab",
+            "type": 3,
+            "addr": 0,
+            "offset": 984,
+            "size": 190,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".text",
+            "type": 1,
+            "addr": 0,
+            "offset": 64,
+            "size": 271,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".rela.text",
+            "type": 4,
+            "addr": 0,
+            "offset": 792,
+            "size": 72,
+            "link": 10,
+            "info": 2,
+            "entsize": 24
+          },
+          {
+            "name": ".rodata",
+            "type": 1,
+            "addr": 0,
+            "offset": 336,
+            "size": 80,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".rela.rodata",
+            "type": 4,
+            "addr": 0,
+            "offset": 864,
+            "size": 120,
+            "link": 10,
+            "info": 4,
+            "entsize": 24
+          },
+          {
+            "name": ".rodata.str1.1",
+            "type": 1,
+            "addr": 0,
+            "offset": 416,
+            "size": 10,
+            "link": 0,
+            "info": 0,
+            "entsize": 1
+          },
+          {
+            "name": ".comment",
+            "type": 1,
+            "addr": 0,
+            "offset": 426,
+            "size": 47,
+            "link": 0,
+            "info": 0,
+            "entsize": 1
+          },
+          {
+            "name": ".note.GNU-stack",
+            "type": 1,
+            "addr": 0,
+            "offset": 473,
+            "size": 0,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".llvm_addrsig",
+            "type": 1879002115,
+            "addr": 0,
+            "offset": 984,
+            "size": 0,
+            "link": 10,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".symtab",
+            "type": 2,
+            "addr": 0,
+            "offset": 480,
+            "size": 312,
+            "link": 1,
+            "info": 9,
+            "entsize": 24
+          }
+        ],
+        "program_headers": []
+      }
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/32-program-anatomy-elf-from-scratch/code/fixtures/tiny-x86_64",
+      "sha256": "c5b008ff91fdacf65bac0649362d8af4443d179e0a404bad00b187b7d8eaee22",
+      "bytes": 736,
+      "structure": {
+        "format": "ELF64",
+        "kind": 2,
+        "machine": 62,
+        "sections": [
+          {
+            "name": "",
+            "type": 0,
+            "addr": 0,
+            "offset": 0,
+            "size": 0,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".text",
+            "type": 1,
+            "addr": 4194480,
+            "offset": 176,
+            "size": 36,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".rodata",
+            "type": 1,
+            "addr": 4194516,
+            "offset": 212,
+            "size": 3,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".symtab",
+            "type": 2,
+            "addr": 0,
+            "offset": 216,
+            "size": 72,
+            "link": 4,
+            "info": 2,
+            "entsize": 24
+          },
+          {
+            "name": ".strtab",
+            "type": 3,
+            "addr": 0,
+            "offset": 288,
+            "size": 16,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".shstrtab",
+            "type": 3,
+            "addr": 0,
+            "offset": 304,
+            "size": 41,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          }
+        ],
+        "program_headers": [
+          [
+            1,
+            5,
+            0,
+            4194304,
+            4194304,
+            736,
+            736,
+            4096
+          ],
+          [
+            1685382481,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16
+          ]
+        ]
+      }
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/sweep-trap.o",
+      "sha256": "4fa75b2b74e47bf7979cb988b1d0aff4ff7eedb5c85f59311ee13a9e257d6073",
+      "bytes": 552,
+      "structure": {
+        "format": "ELF64",
+        "kind": 1,
+        "machine": 62,
+        "sections": [
+          {
+            "name": "",
+            "type": 0,
+            "addr": 0,
+            "offset": 0,
+            "size": 0,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".strtab",
+            "type": 3,
+            "addr": 0,
+            "offset": 176,
+            "size": 55,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".text",
+            "type": 1,
+            "addr": 0,
+            "offset": 64,
+            "size": 36,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".note.GNU-stack",
+            "type": 1,
+            "addr": 0,
+            "offset": 100,
+            "size": 0,
+            "link": 0,
+            "info": 0,
+            "entsize": 0
+          },
+          {
+            "name": ".symtab",
+            "type": 2,
+            "addr": 0,
+            "offset": 104,
+            "size": 72,
+            "link": 1,
+            "info": 1,
+            "entsize": 24
+          }
+        ],
+        "program_headers": []
+      }
+    }
+  ],
+  "same_SHA_33_copies": [
+    {
+      "file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O0.o",
+      "sha256": "b2046c121930d3d1e5ba84ba796f9e9e161df2fe76f7b9dcf8db63f690447e13",
+      "same_as": "phases/13-tools-and-protocols/44-binary-diffing-and-symbolic-execution/code/fixtures/ledger-x86_64-O0.o",
+      "new_listing_binding": {
+        "file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O0.o",
+        "listing": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O0.objdump.txt",
+        "records": 86,
+        "bytes": 295,
+        "all_text_bytes_bound_once": true
+      }
+    },
+    {
+      "file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O1.o",
+      "sha256": "9a4a8082ba5e285a732552981a6935e0c5255725664f380e37c44ebfb04d803f",
+      "same_as": "phases/13-tools-and-protocols/44-binary-diffing-and-symbolic-execution/code/fixtures/ledger-x86_64-O1.o",
+      "new_listing_binding": {
+        "file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O1.o",
+        "listing": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O1.objdump.txt",
+        "records": 56,
+        "bytes": 159,
+        "all_text_bytes_bound_once": true
+      }
+    },
+    {
+      "file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O2.o",
+      "sha256": "ce31eaf10e7cb88fb8e313abfdb4f743964646339260c471ff97d60137bbe89b",
+      "same_as": "phases/13-tools-and-protocols/44-binary-diffing-and-symbolic-execution/code/fixtures/ledger-x86_64-O2.o",
+      "new_listing_binding": {
+        "file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O2.o",
+        "listing": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O2.objdump.txt",
+        "records": 84,
+        "bytes": 271,
+        "all_text_bytes_bound_once": true
+      }
+    }
+  ],
+  "listing_byte_bindings": [
+    {
+      "file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O0.o",
+      "listing": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O0.objdump.txt",
+      "records": 86,
+      "bytes": 295,
+      "all_text_bytes_bound_once": true
+    },
+    {
+      "file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O1.o",
+      "listing": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O1.objdump.txt",
+      "records": 56,
+      "bytes": 159,
+      "all_text_bytes_bound_once": true
+    },
+    {
+      "file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O2.o",
+      "listing": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/ledger-x86_64-O2.objdump.txt",
+      "records": 84,
+      "bytes": 271,
+      "all_text_bytes_bound_once": true
+    },
+    {
+      "file": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/sweep-trap.o",
+      "listing": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/code/fixtures/sweep-trap.objdump.txt",
+      "records": 11,
+      "bytes": 36,
+      "all_text_bytes_bound_once": true
+    }
+  ],
+  "total_listing_records": 237,
+  "total_bound_bytes": 761,
+  "sweep_trap": {
+    "table_offset": 16,
+    "data_hex": "31c09048",
+    "jump_at": 14,
+    "target": 20,
+    "real_add_at": 20,
+    "linear_REX_add_at": 19,
+    "static_only": true
+  },
+  "tinyELF": {
+    "bytes": 736,
+    "load_fileoff": 0,
+    "load_VA": 4194304,
+    "message_VA": 4194516,
+    "message": "ok\n",
+    "source_builder_not_run": true
+  },
+  "source_execution": 0,
+  "whole_group_complete": false
+}

@@ -1,0 +1,5772 @@
+{
+  "date": "2026-10-19",
+  "baseline_for_this_followup": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "observed_head": "45fa4084de6ba2f88fa96a41e69efa2166f868b3",
+  "head_commit_time_UTC": "2026-10-19T08:42:04Z",
+  "head_commit_time_China": "2026-10-19 16:42:04",
+  "head_tree": "6e24c1fd4af7da0af1b1e77c8423f9e8120e7463",
+  "both_recursive_trees_complete": true,
+  "baseline_blobs": 7989,
+  "head_blobs": 8720,
+  "changed_paths": 954,
+  "change_counts": {
+    "added": 732,
+    "modified": 221,
+    "removed": 1
+  },
+  "top_groups": {
+    ".github": 3,
+    ".gitignore": 1,
+    "BACKERS.md": 1,
+    "README.md": 1,
+    "SPONSORS.md": 1,
+    "api": 2,
+    "assets": 2,
+    "cheatsheets": 310,
+    "i18n": 34,
+    "lib": 1,
+    "manuals": 531,
+    "phases": 2,
+    "scripts": 9,
+    "site": 55,
+    "vercel.json": 1
+  },
+  "priority_followup": [
+    "manuals/sglang-101（384路径）",
+    "manuals/reverse-engineering-101（144路径，不把先前1a8版本验收推广到新内容）",
+    "cheatsheets（310路径，含154 evidence配套）",
+    "其余站点/API/lib/主课两路径等逐项核有效知识或维护分类"
+  ],
+  "path_changes": [
+    {
+      "path": ".github/workflows/cheatsheets-generate.yml",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e96c25b915a5e6830a4b6a84ded78c3186931ecb"
+    },
+    {
+      "path": ".github/workflows/cheatsheets.yml",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ae747c52a585f3afabd95bfce31af989dbd5589b"
+    },
+    {
+      "path": ".github/workflows/curriculum.yml",
+      "status": "modified",
+      "old_sha": "97d63c89be97ed75db4d2ca85206caee07b6a61c",
+      "new_sha": "a3ddacc776904d7a650037b27962c46b0caf9138"
+    },
+    {
+      "path": ".gitignore",
+      "status": "modified",
+      "old_sha": "ceb58417167594a65ba0e19782d03a0e0c5435a5",
+      "new_sha": "087148100aefefb66977a48eb569d94703f3420d"
+    },
+    {
+      "path": "BACKERS.md",
+      "status": "modified",
+      "old_sha": "36e70e1add86a26ec2eb19098b094d91576caaf5",
+      "new_sha": "d8d30aa753cb5bbd95d7514604149cf4d1beaf80"
+    },
+    {
+      "path": "README.md",
+      "status": "modified",
+      "old_sha": "692fa612b4194487a99658d5d97481489ada2994",
+      "new_sha": "4efb72ca6339ba09ff1e585cd5765a8520ea20ff"
+    },
+    {
+      "path": "SPONSORS.md",
+      "status": "modified",
+      "old_sha": "db2b2248d2e8a23b8fdfb3fb6b00e4cedefbe813",
+      "new_sha": "237479dcc43d82d8ad29f8060110ef0722adfc10"
+    },
+    {
+      "path": "api/lesson.js",
+      "status": "modified",
+      "old_sha": "bb9ffcdd2b534fb14f77187c5034afe720d47025",
+      "new_sha": "800c26d0180e7757cb26347be5cc46f3eaf3be20"
+    },
+    {
+      "path": "api/og.js",
+      "status": "modified",
+      "old_sha": "13beb95c3fcaf5cc5b8d922da35dd4a2b5ba6b71",
+      "new_sha": "927257bb9ebfc4da62f6f7fa0a15d51211a41e8e"
+    },
+    {
+      "path": "assets/readme/cheatsheet-sample.jpg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0f4519b6df33635f141bf33ff72f00147ab7430a"
+    },
+    {
+      "path": "assets/sponsors/nitrostack-banner-equal.png",
+      "status": "removed",
+      "old_sha": "76ea71a1f193e1af22af0830b380afb1ab61f829",
+      "new_sha": null
+    },
+    {
+      "path": "cheatsheets/AUTHORING.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9f6304a738b7a0cea6833088961ff49938d19bf2"
+    },
+    {
+      "path": "cheatsheets/a2a-and-agent-messaging.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "54fc43abc977ee268973b8eff5032743080ede27"
+    },
+    {
+      "path": "cheatsheets/a2a.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4edeff43d5c1fb555fc53f604cbd6ba4573ad5ab"
+    },
+    {
+      "path": "cheatsheets/agent-benchmarks.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f058a4287bfaeea5ae243cadb0a4fd272f63646c"
+    },
+    {
+      "path": "cheatsheets/agent-failure-modes.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5a59096ecd39464032129f8a427dc371dd2f3c5a"
+    },
+    {
+      "path": "cheatsheets/agent-frameworks-compared.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c7322fca8fddbe85cabc8b4c3e203e34e791b7cc"
+    },
+    {
+      "path": "cheatsheets/agent-harness.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f86abf8bacfede5500c844ee72b92b524973e552"
+    },
+    {
+      "path": "cheatsheets/agent-planning.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cd40b2d89e7ff63c706ca33727839f6db6060097"
+    },
+    {
+      "path": "cheatsheets/agent-reasoning-patterns.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1e68506b898687cda0038158293703d93526fe4a"
+    },
+    {
+      "path": "cheatsheets/agent-skills.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7bb6bc28b8543a7a085a3cea69151adfb25c57ac"
+    },
+    {
+      "path": "cheatsheets/agent-state-graphs.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "97925ea79e85717a758c374df104da03143d2f31"
+    },
+    {
+      "path": "cheatsheets/agent-tool-use-skills.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "833e49dc7ae16a28a65fe7101923de58b2fbaa19"
+    },
+    {
+      "path": "cheatsheets/agent-workbench-ops.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6697d15b102e2253d6ecd12c1d2746751226b01c"
+    },
+    {
+      "path": "cheatsheets/ai-governance.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "084df25989c92951d4fbd7af0013a0860dd62064"
+    },
+    {
+      "path": "cheatsheets/ai-safety.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "53bef5cb9047b91cb5b61689ade7eae128c8b581"
+    },
+    {
+      "path": "cheatsheets/ai-security-incidents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0199d5489df28645b9750cb9ea0d7b04031e515d"
+    },
+    {
+      "path": "cheatsheets/ai-tutor-learning-tools.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4c6fc986211af58094b450f3373481bf7736e84c"
+    },
+    {
+      "path": "cheatsheets/alignment-training.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4dd83f2202af8d6d8c3212ab252cac1d5849957b"
+    },
+    {
+      "path": "cheatsheets/asr-whisper.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5e2abdad668e4d75efb5d56decf10c2ed5abb61c"
+    },
+    {
+      "path": "cheatsheets/async-disaggregated-inference.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e0443e8ed7687793fa688efc1f7277410ba29a18"
+    },
+    {
+      "path": "cheatsheets/attention-variants.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0ecd0107bf1b0b72048c0a8a0581facf1efaceea"
+    },
+    {
+      "path": "cheatsheets/audio-features.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9746351ad77d41aa775e63e9bee3e9717beacbab"
+    },
+    {
+      "path": "cheatsheets/audio-generation-alms.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cd1295a8f98ba3f335d510313cd96823fcdd2b54"
+    },
+    {
+      "path": "cheatsheets/autonomous-agents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8349cfe0e8d8c68985ab19dbd25fd4fa5c5becfb"
+    },
+    {
+      "path": "cheatsheets/autonomous-research.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d6eb75de1ca2fa64d2e0bdb72b2c5581a1073d72"
+    },
+    {
+      "path": "cheatsheets/bert-gpt-t5.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cf8f74fdc23662cbe45df9b7497c6ca2023e0bc3"
+    },
+    {
+      "path": "cheatsheets/calculus-optimization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "703df4c6f1b915d0ea4fd3a597a4da2c9efd885a"
+    },
+    {
+      "path": "cheatsheets/classical-ml.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a55ad95b0b9a8979643ee7373f6529aeb65896ce"
+    },
+    {
+      "path": "cheatsheets/cnn-architectures.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "96df4c18718e2c863fb6499c4e4bf0f61e6d4505"
+    },
+    {
+      "path": "cheatsheets/coding-agents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7a2ac246288cfea6897f1755e68ab5749c6239f7"
+    },
+    {
+      "path": "cheatsheets/computer-vision.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8a6683f5bca945a03ab21bac193f3e3988413f74"
+    },
+    {
+      "path": "cheatsheets/constitutional-classifiers.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7993879c3c5a77e7f8175f15fdc19980b09e28d0"
+    },
+    {
+      "path": "cheatsheets/context-engineering.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "34ef87de46819ba29db7337bc4a93f450a982b5e"
+    },
+    {
+      "path": "cheatsheets/data-quality-workbenches.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "923680b09ab0a3b40c584c8a88ba8ca6bb59cb6e"
+    },
+    {
+      "path": "cheatsheets/debate-and-roles.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f6e104505c6268fe4cd1f7b28ed750533e68b5d6"
+    },
+    {
+      "path": "cheatsheets/deceptive-alignment.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0d76c9986e10a1048c61e414db052bf4733b8652"
+    },
+    {
+      "path": "cheatsheets/decision-briefing-tools.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7446e09742176c57181f6a3de036d9661eb8c520"
+    },
+    {
+      "path": "cheatsheets/deep-learning-training.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a8460c3632d19747034568ff3b89c41bd7c57f63"
+    },
+    {
+      "path": "cheatsheets/delegation-feedback.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f3c821d007d7c5e93f67dfe0bbaca78f66d232f4"
+    },
+    {
+      "path": "cheatsheets/detection-segmentation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ee910ea0977ec44d818f341b9ef448abb0d11d7b"
+    },
+    {
+      "path": "cheatsheets/dialogue-systems.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d5722e00000657a7d137d8114658a761687470eb"
+    },
+    {
+      "path": "cheatsheets/diffusion-models.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "882646b80bb41dc06b73cbf6256c33a8abca2b43"
+    },
+    {
+      "path": "cheatsheets/distributed-training.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "87267627420c64628c6523f506931cfe62370d0d"
+    },
+    {
+      "path": "cheatsheets/docker-sandboxes.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d48636a5faef03077074bb31df38e67ce4f188f5"
+    },
+    {
+      "path": "cheatsheets/edge-inference.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1b3480fdea9bba4db78fb9249396bf09b15eda31"
+    },
+    {
+      "path": "cheatsheets/embeddings-vector-search.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "278c7e3153059820e4055f8ab21636dea038bf40"
+    },
+    {
+      "path": "cheatsheets/embodied-computer-use.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b27a7db1708e50ff146f3b74f04c4cfd125afa77"
+    },
+    {
+      "path": "cheatsheets/emergent-agent-societies.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "293fbf73358d20a4e26932e83fa58804deac0b2d"
+    },
+    {
+      "path": "cheatsheets/eval-driven-agents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "fca5468f0a5f2a6512c16c00b696d7b77371b7eb"
+    },
+    {
+      "path": "cheatsheets/evidence/a2a-and-agent-messaging.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bb8e830ac58f57315538b49cc472a4433d07299a"
+    },
+    {
+      "path": "cheatsheets/evidence/a2a.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9ec840562199474dd36d272c9daa6819910e3fa4"
+    },
+    {
+      "path": "cheatsheets/evidence/agent-benchmarks.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0b760d3be3d39cc8ecbb67b67f114b5a712a8c8d"
+    },
+    {
+      "path": "cheatsheets/evidence/agent-failure-modes.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8e0ebb72afe4c61522d30ee62c1c95f65bd294bf"
+    },
+    {
+      "path": "cheatsheets/evidence/agent-frameworks-compared.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e5e1d2b304d01c507866802601f1aaa715b198ea"
+    },
+    {
+      "path": "cheatsheets/evidence/agent-harness.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "82e0633ba5e331fc33374a6127374383bc58d113"
+    },
+    {
+      "path": "cheatsheets/evidence/agent-planning.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3824994d2459de92b0923be574a929ddd1662f1d"
+    },
+    {
+      "path": "cheatsheets/evidence/agent-reasoning-patterns.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2b20f33bdaafb5c5d14d483c833c85f51e10a168"
+    },
+    {
+      "path": "cheatsheets/evidence/agent-skills.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2332ec451685357a019c9f1f3b798f99764308c4"
+    },
+    {
+      "path": "cheatsheets/evidence/agent-state-graphs.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f8ca35c704fd3ad261cac37e6375f77a4363329d"
+    },
+    {
+      "path": "cheatsheets/evidence/agent-tool-use-skills.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2c83205e1c9007dd77fa9c082c14b2083acfa24a"
+    },
+    {
+      "path": "cheatsheets/evidence/agent-workbench-ops.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a784cc42e7096eb7855bfb02b8de76c000c57c90"
+    },
+    {
+      "path": "cheatsheets/evidence/ai-governance.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "58b7e21c3efa3b9d66cd923470dc1e4e037be7b4"
+    },
+    {
+      "path": "cheatsheets/evidence/ai-safety.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "da2657487444e97f4a329b619c8851bf0fd534e0"
+    },
+    {
+      "path": "cheatsheets/evidence/ai-security-incidents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "67d03efeb27035ee4cd23d5f7563b0bba66f1b80"
+    },
+    {
+      "path": "cheatsheets/evidence/ai-tutor-learning-tools.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "620cfe03b207d48648cc5de416f10051f68875c6"
+    },
+    {
+      "path": "cheatsheets/evidence/alignment-training.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c7939decb8f172b9e6f5c807e54752095117b904"
+    },
+    {
+      "path": "cheatsheets/evidence/asr-whisper.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c0b2f781b2af2ad268128353b1cf175fdb0768bb"
+    },
+    {
+      "path": "cheatsheets/evidence/async-disaggregated-inference.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8a26bf8d9afd525908ee38010a86eea0e30dc86d"
+    },
+    {
+      "path": "cheatsheets/evidence/attention-variants.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "565cb5ba80caac9c66ea754182c2f23d990cacef"
+    },
+    {
+      "path": "cheatsheets/evidence/audio-features.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2be11e7bd6c8cf7603687094a8bc1cae575331c3"
+    },
+    {
+      "path": "cheatsheets/evidence/audio-generation-alms.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "78b413b08c5bb8090662d98d2b46bf2e532ee0fb"
+    },
+    {
+      "path": "cheatsheets/evidence/autonomous-agents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "005c8d2b8fc7b3991c889338fc02290b36d402f7"
+    },
+    {
+      "path": "cheatsheets/evidence/autonomous-research.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "02caf9685121cab8471f97e4281996a574ee9b33"
+    },
+    {
+      "path": "cheatsheets/evidence/bert-gpt-t5.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a4b2f9d187578db6989ebe10b3218c6eb725ef0b"
+    },
+    {
+      "path": "cheatsheets/evidence/calculus-optimization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c019f704cd52a175a55700625ce106ad1854372c"
+    },
+    {
+      "path": "cheatsheets/evidence/classical-ml.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "47fe70715f65b75c3f4a176fe5cf254798e28bfb"
+    },
+    {
+      "path": "cheatsheets/evidence/cnn-architectures.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "edcd8963f37f5463a55572639ed0741f5d0426b7"
+    },
+    {
+      "path": "cheatsheets/evidence/coding-agents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2f0b8b83dfefade138c789f153e5b4f083069e24"
+    },
+    {
+      "path": "cheatsheets/evidence/computer-vision.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d743c43fa1f63c0a589680eb4c69fdb660e10f17"
+    },
+    {
+      "path": "cheatsheets/evidence/constitutional-classifiers.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "879b20d315b86452a6fd57fc46b2a779bc5158c7"
+    },
+    {
+      "path": "cheatsheets/evidence/context-engineering.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f297fb2c1bb184dec7dc07d91793bcdf485fe73a"
+    },
+    {
+      "path": "cheatsheets/evidence/data-quality-workbenches.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cb2120b38d7738c134938da2623e84b1adf5cbab"
+    },
+    {
+      "path": "cheatsheets/evidence/debate-and-roles.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "829f62ad9c767853b52a7095dd40536fcefd884c"
+    },
+    {
+      "path": "cheatsheets/evidence/deceptive-alignment.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "96e03222e58b8631516ff9b03f30f6a4d552962d"
+    },
+    {
+      "path": "cheatsheets/evidence/decision-briefing-tools.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c536337517871298c1a1cc184d54ac8276008de3"
+    },
+    {
+      "path": "cheatsheets/evidence/deep-learning-training.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "61f2ec4be25ec23c8d193f0fe1238591a7c63773"
+    },
+    {
+      "path": "cheatsheets/evidence/delegation-feedback.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3fa141520211c973e693e5cd3ce3cd6198e68a15"
+    },
+    {
+      "path": "cheatsheets/evidence/detection-segmentation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bd00d6a0f98b6d5c18eeb9416a4cbb4465adcdbc"
+    },
+    {
+      "path": "cheatsheets/evidence/dialogue-systems.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1da36ec7d7be906f3e903cf722308ef40754a5ea"
+    },
+    {
+      "path": "cheatsheets/evidence/diffusion-models.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a99a4cbbba1777f0ecfba55ccb3ac0dff96c28bd"
+    },
+    {
+      "path": "cheatsheets/evidence/distributed-training.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d803dce8dd4f32a1db2365f8343be5e5e8af5625"
+    },
+    {
+      "path": "cheatsheets/evidence/docker-sandboxes.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "abdf1d32a2b863ac05b30eff52c33d0ed05f63ba"
+    },
+    {
+      "path": "cheatsheets/evidence/edge-inference.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8116e72164b176b0df25a80c3f4e1eb2641eda1a"
+    },
+    {
+      "path": "cheatsheets/evidence/embeddings-vector-search.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7235bcb92d8fa27b9ff529d0452ba23d11f8d38b"
+    },
+    {
+      "path": "cheatsheets/evidence/embodied-computer-use.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "66cb9ebcaf5c15541af283adcbd9d980e1597c0e"
+    },
+    {
+      "path": "cheatsheets/evidence/emergent-agent-societies.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "949c68b7fb8e786ae54f0f622364a45bea7d43fa"
+    },
+    {
+      "path": "cheatsheets/evidence/eval-driven-agents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "323e398fdfd3bd834ded2794fa6fc78e9ceaab6f"
+    },
+    {
+      "path": "cheatsheets/evidence/fairness-privacy.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b3b3bc6fa53ef61503c1b41d8b90db325b6704e2"
+    },
+    {
+      "path": "cheatsheets/evidence/feature-engineering.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d426c37d4f0ca41cfa9480869a8dc6b16ba1cb16"
+    },
+    {
+      "path": "cheatsheets/evidence/frontier-safety-frameworks.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6ad8bbd79c361962cb268569a77c0ae745d1af92"
+    },
+    {
+      "path": "cheatsheets/evidence/gans.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a2f7f9d4a25b219751725c8b97e7dd551e3d2e60"
+    },
+    {
+      "path": "cheatsheets/evidence/genai-observability.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f2f9af6d5ea58d3b50b5f2d9a818a0b76fab473a"
+    },
+    {
+      "path": "cheatsheets/evidence/generative-evaluation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f79145a438c618932290c85ab87c28aefd53f817"
+    },
+    {
+      "path": "cheatsheets/evidence/git-shell-linux.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8542622390c161df4b65de7c625d06b7d20e0d0e"
+    },
+    {
+      "path": "cheatsheets/evidence/gpt-from-scratch-training.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e3f32152e592c6093e4c8f2a6cf73797e25fe159"
+    },
+    {
+      "path": "cheatsheets/evidence/gpu-cloud-docker-keys.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b46186149d96347574ec8c9c3c3d8f1d8bcf911c"
+    },
+    {
+      "path": "cheatsheets/evidence/gpu-kubernetes.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d80ec73c955e1c512b72cb1a49fbf2c3acbdf6e9"
+    },
+    {
+      "path": "cheatsheets/evidence/graphs-knowledge-graphs.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "40f6db71ba8b7981b90d1bb5d875dc6ea41ba654"
+    },
+    {
+      "path": "cheatsheets/evidence/guardrails-moderation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "aa3351a7329b87d6a8d604923d569831aa71472d"
+    },
+    {
+      "path": "cheatsheets/evidence/image-editing-control.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "79e77157460ddedd229df70085780623de02bb8d"
+    },
+    {
+      "path": "cheatsheets/evidence/image-generation-compared.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b24c659f1fb4cbf85cf1bf26d3ae478b86ad68e5"
+    },
+    {
+      "path": "cheatsheets/evidence/inference-load-testing.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6d10d6359fdabf73d2ad6f9552c8643f7e840e2a"
+    },
+    {
+      "path": "cheatsheets/evidence/inference-optimization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "80c038e998a706da4abcc2db58fac99806fb8c86"
+    },
+    {
+      "path": "cheatsheets/evidence/information-numerics.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "babb875a9df396f89cf7b1659040ebd1c72f64c8"
+    },
+    {
+      "path": "cheatsheets/evidence/jax-vs-pytorch.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b3ba5206821fd042dc459def38bb33728f95545b"
+    },
+    {
+      "path": "cheatsheets/evidence/linear-algebra.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e13b573cb549996968c93bf54692408755afe754"
+    },
+    {
+      "path": "cheatsheets/evidence/llm-cost-caching.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8f8c2ca99c81dc0e9e0b3991706e959329bc7197"
+    },
+    {
+      "path": "cheatsheets/evidence/llm-evaluation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "73da0825446b051d6c17bd4ef9180e45ec99221d"
+    },
+    {
+      "path": "cheatsheets/evidence/llm-pipeline-capstone.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "eccef816216bdff797d19e16c9f0474c698c6c9d"
+    },
+    {
+      "path": "cheatsheets/evidence/llm-routing-gateways.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ebce37305fdaabd9a7bc5c76fa77863d8fa7fd6d"
+    },
+    {
+      "path": "cheatsheets/evidence/localization-workbenches.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d24a6268475bb9c6c014311a961f77253ceb61f5"
+    },
+    {
+      "path": "cheatsheets/evidence/lora-fine-tuning.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6fd144df61d0f7ccbdc8a56560960014b7a3d53a"
+    },
+    {
+      "path": "cheatsheets/evidence/managed-llm-platforms.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8ce712edda9e40e88d11bab9d07cc69fdb4aa7b0"
+    },
+    {
+      "path": "cheatsheets/evidence/marl-sim-to-real.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "258cf4aebaba14dc582f7d0729e329e12a5efe04"
+    },
+    {
+      "path": "cheatsheets/evidence/math-for-ml.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5bf58ce98377e442fa456e17fa8386e6075021f7"
+    },
+    {
+      "path": "cheatsheets/evidence/mcp-client-transports.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "81c25accda19c3e65cfdbfd8e04635c959f76b6a"
+    },
+    {
+      "path": "cheatsheets/evidence/mcp-gateways-operations.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "31edd1a6aa45123c2ca16e1f84fd7424ef07918f"
+    },
+    {
+      "path": "cheatsheets/evidence/mcp-security-auth.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "aa36e28036aa18dd1c5a4611bef3be67e72ec31a"
+    },
+    {
+      "path": "cheatsheets/evidence/mcp-server-build.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "38a08334fb61c84095151e277edacdba11fb2f46"
+    },
+    {
+      "path": "cheatsheets/evidence/mcp-tasks-elicitation-apps.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1b095488eab131e6446a72cd245df43aa12583a9"
+    },
+    {
+      "path": "cheatsheets/evidence/mcp.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8b0c497ea1d1923fe004d8bec4deda99fc420216"
+    },
+    {
+      "path": "cheatsheets/evidence/ml-evaluation-metrics.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a13bacaaf09a14cdca11423ed410f08e1459bdd6"
+    },
+    {
+      "path": "cheatsheets/evidence/ml-model-comparison.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e08b8080578564f336fad417e6b4833f7973bab0"
+    },
+    {
+      "path": "cheatsheets/evidence/ml-system-design.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8dadb4d217215aea3d0cbe62a023ff834c58caa6"
+    },
+    {
+      "path": "cheatsheets/evidence/moe-hybrid-architectures.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "87ae5b5e3268eecfe78f48cf70a794414754b825"
+    },
+    {
+      "path": "cheatsheets/evidence/multi-agent-case-studies.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4bc087a421bf995d85a56a759dab44c68a594bdb"
+    },
+    {
+      "path": "cheatsheets/evidence/multi-agent.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1c6a798fddcf335ece1ca6acb310f21a1c7a8a9e"
+    },
+    {
+      "path": "cheatsheets/evidence/multimodal-rag.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f01d3c9f2fe9d245f55bdc5f593fd22d11a8cb9a"
+    },
+    {
+      "path": "cheatsheets/evidence/neural-net-basics.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "848ff733d2b52744f49fb13df5bd63c31b2fa267"
+    },
+    {
+      "path": "cheatsheets/evidence/nn-debugging.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "608a347a2eb252d7e686cb979968e40acf9e5bae"
+    },
+    {
+      "path": "cheatsheets/evidence/notebooks-data-profiling.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c4b125fd46de55dc3ce8965935e720edd48d5890"
+    },
+    {
+      "path": "cheatsheets/evidence/ocr-documents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1302c5a633263e959a1a6a4d90314dcce08455f9"
+    },
+    {
+      "path": "cheatsheets/evidence/optimizers-schedules.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c1e4e9f014ce98bd7c82072eaead7d75b2e24013"
+    },
+    {
+      "path": "cheatsheets/evidence/orchestration-patterns.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2d61b3e819253b11b3fd28c312635121cceeb317"
+    },
+    {
+      "path": "cheatsheets/evidence/personal-organizer-agents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ddf15a0f4bebd40ab60ab7c9f811877d7633654f"
+    },
+    {
+      "path": "cheatsheets/evidence/positional-encoding.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c0f5ccb380a330fbb01273707fb710d0cbc2a542"
+    },
+    {
+      "path": "cheatsheets/evidence/pretraining-data.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2a3a542f0687f9c0564d226d7e0cdc36beaf9ab9"
+    },
+    {
+      "path": "cheatsheets/evidence/probability-statistics.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9559e37ffc15f494c84ce066cd433809f79efddd"
+    },
+    {
+      "path": "cheatsheets/evidence/product-discovery.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0131e87581b0c6b4be0798290f98e76a90cc9adb"
+    },
+    {
+      "path": "cheatsheets/evidence/production-agent-runtimes.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dad2196480290e4f974401bcf4262f93a7f17da5"
+    },
+    {
+      "path": "cheatsheets/evidence/production-llm-app.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b69e7dbe2f7579a95622bf1cf0f59c20126c0c2b"
+    },
+    {
+      "path": "cheatsheets/evidence/progressive-delivery.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c129500ebe2c86a6b4b69729990f99176281a7d4"
+    },
+    {
+      "path": "cheatsheets/evidence/prompt-engineering.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1b9543a9e02b2c6501caeaf7b16507c55669420c"
+    },
+    {
+      "path": "cheatsheets/evidence/python-dev-environment.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7c334323f0f3e8ea52848ad590309a5277d100c1"
+    },
+    {
+      "path": "cheatsheets/evidence/pytorch-essentials.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "96c1cbf1f823cbd8e5f51dd02556e298d995bb6c"
+    },
+    {
+      "path": "cheatsheets/evidence/quantization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9a23c3f4f483ba0acf3f1b6f093941cfa557d4bb"
+    },
+    {
+      "path": "cheatsheets/evidence/rag-production.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b0c1abfe080d18e6675b20f114224914dc4a2ef7"
+    },
+    {
+      "path": "cheatsheets/evidence/rag.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8d467ba49bd3699e1c115b3092698157ffdff9f4"
+    },
+    {
+      "path": "cheatsheets/evidence/re-from-scratch-tools.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "29de2cf815c58c3a0e2ef50c574f4439222613f4"
+    },
+    {
+      "path": "cheatsheets/evidence/reinforcement-learning.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9a88e9b4e4886880e26e803912adaf75dead2649"
+    },
+    {
+      "path": "cheatsheets/evidence/research-agent-pipeline.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "40586912cefc429486c9536bfeb5bda8ffadfc6f"
+    },
+    {
+      "path": "cheatsheets/evidence/research-agent-writing.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "870a5ec6084eddbfd46b0f10d2afd5f6ca7b9718"
+    },
+    {
+      "path": "cheatsheets/evidence/reverse-engineering.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "23e6d2eee067fc18057a75a9f9541feec290dd39"
+    },
+    {
+      "path": "cheatsheets/evidence/rlhf-dpo.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7779faeb015fc2acd734565a3cfc9c1598b662ec"
+    },
+    {
+      "path": "cheatsheets/evidence/rnns-seq2seq.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "164f3e0efc1f83d3c32e0ab981d912a881582091"
+    },
+    {
+      "path": "cheatsheets/evidence/sandbox-policy.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c69e26f5d1f51f91f97e3c1f414f5c3161c174e7"
+    },
+    {
+      "path": "cheatsheets/evidence/scaling-laws-pretraining.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "10705da03e11d6d4e589643092d82335914b5747"
+    },
+    {
+      "path": "cheatsheets/evidence/security-compliance.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6b1becc09645a771546d6e610648012e661e4d52"
+    },
+    {
+      "path": "cheatsheets/evidence/self-improving-reasoning.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "473181157b294a1affb8d53e5fe7f0af948c8915"
+    },
+    {
+      "path": "cheatsheets/evidence/self-supervised-clip.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3f1f471f2aeaeb23f8c92701c733d9a2235dfbe8"
+    },
+    {
+      "path": "cheatsheets/evidence/sequence-labeling.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bfe4e6ac962021cd46a6f983c915d5aeee188e54"
+    },
+    {
+      "path": "cheatsheets/evidence/serving-engines-compared.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "00ab2eb91c01ba0d8ecfa3e5482b0f448315c588"
+    },
+    {
+      "path": "cheatsheets/evidence/sglang-serving.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "777bfca55a84a2bb2a8c196f113e8657d357d7dc"
+    },
+    {
+      "path": "cheatsheets/evidence/signals-fourier.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cf684081b1909596ba96fab7c2b57d7dfae0f5a9"
+    },
+    {
+      "path": "cheatsheets/evidence/skill-trust-evals.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bed450725ef156ceacf05181defdb31906466297"
+    },
+    {
+      "path": "cheatsheets/evidence/speculative-decoding.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3defd78bd8de4942f506c92234c678bd5158bd52"
+    },
+    {
+      "path": "cheatsheets/evidence/sre-for-ai.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "58b77253a19d2e12621dcb607f42e32b93f31cfc"
+    },
+    {
+      "path": "cheatsheets/evidence/structured-outputs.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a2bf7fec7680c3a48537c16548b4721e2dabdb51"
+    },
+    {
+      "path": "cheatsheets/evidence/summarization-qa-nli.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e64a19333777dafd521e52bd21317621ead7f888"
+    },
+    {
+      "path": "cheatsheets/evidence/swarm-optimization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "04dc201024f0de4eaf3114965fcbc1ba361910ca"
+    },
+    {
+      "path": "cheatsheets/evidence/text-processing-classic.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dc7f3d7862a880daa4eea3387a3a9a91cd71ba2f"
+    },
+    {
+      "path": "cheatsheets/evidence/text-workflow-desks.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7faecf0e1d7659749e12a543ca0d2ddf6b323e12"
+    },
+    {
+      "path": "cheatsheets/evidence/time-series.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4975c85a5d9f02300d37d1d9a523141e7134ab34"
+    },
+    {
+      "path": "cheatsheets/evidence/tokenization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a457ef72dd27f487293a92b805d0f3fb9b94d020"
+    },
+    {
+      "path": "cheatsheets/evidence/tool-calling.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7145f579b4c785abfca43ce37a5020b154d5ed14"
+    },
+    {
+      "path": "cheatsheets/evidence/training-memory-checkpoints.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b4c909be209c42f52d26956b1d2620b420d2af68"
+    },
+    {
+      "path": "cheatsheets/evidence/transformers-attention.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bbff05664d8858ab8ef75b921c14c8fadfe26721"
+    },
+    {
+      "path": "cheatsheets/evidence/tts-voice-cloning.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a07cefc69858b27a63cb711160cfb061db742f5b"
+    },
+    {
+      "path": "cheatsheets/evidence/unified-multimodal.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "701bad956d2f8e264b95b56d4a419e224604b2c3"
+    },
+    {
+      "path": "cheatsheets/evidence/unsupervised-anomaly.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "371367f8dee998cc4f0d7297d271f8b2a0d041b8"
+    },
+    {
+      "path": "cheatsheets/evidence/value-vs-policy-rl.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "44a2c7b2f0e726b744810cb733055b59ea7f3b2e"
+    },
+    {
+      "path": "cheatsheets/evidence/video-3d-generation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2fbfec50785fe2c435a05424730ff96681634c06"
+    },
+    {
+      "path": "cheatsheets/evidence/video-3d-vision.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6a635078913cad63051d2581b20c6c49a8d5f164"
+    },
+    {
+      "path": "cheatsheets/evidence/video-language.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "35cc7cbdf80afffaae5601ed9677b9d7d9a37122"
+    },
+    {
+      "path": "cheatsheets/evidence/vision-edge-deployment.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7bba592d02096f604817057aad7f454b959bc58a"
+    },
+    {
+      "path": "cheatsheets/evidence/vision-transformers.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "371cb08f3154edd9978ea521ab1c4091f5c98908"
+    },
+    {
+      "path": "cheatsheets/evidence/visual-explainers.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0094ddc18bffcf0e923a94c34f9f7fecaf911251"
+    },
+    {
+      "path": "cheatsheets/evidence/vlm-architectures.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0a55b62669852912b7d073bbbf9de4dd0ec5165a"
+    },
+    {
+      "path": "cheatsheets/evidence/vlm-from-scratch.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "47d13d2326745054a49dace2b66de17926553d5d"
+    },
+    {
+      "path": "cheatsheets/evidence/vlm-model-families.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dcabf5cbee9f81309a209a1d6991bd597640d1a8"
+    },
+    {
+      "path": "cheatsheets/evidence/voice-assistants-realtime.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "06be99fd18455f49dec01555cc2956714f205c39"
+    },
+    {
+      "path": "cheatsheets/evidence/voice-security.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "35e89f9a2b6ce378e1894ced9fb1d149b8dbf97c"
+    },
+    {
+      "path": "cheatsheets/evidence/word-embeddings.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "032b10a2a60ab65bfdfc8dfdc0c4760477f2baa2"
+    },
+    {
+      "path": "cheatsheets/fairness-privacy.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "196386a6ba0690644f8f009705569b931d28a167"
+    },
+    {
+      "path": "cheatsheets/feature-engineering.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "208845972568015db1163680701f6ee1c0c8926e"
+    },
+    {
+      "path": "cheatsheets/frontier-safety-frameworks.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8351f250ffa8e72de0d168e80a0e6c0f7ecdd1d0"
+    },
+    {
+      "path": "cheatsheets/gans.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "638831521372cc359fb71f831444d306d4627029"
+    },
+    {
+      "path": "cheatsheets/genai-observability.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "238f1ff802a8a2249f3df73ec539b68edb526009"
+    },
+    {
+      "path": "cheatsheets/generative-evaluation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1759d7203261569eed4430986484bd03b783f21b"
+    },
+    {
+      "path": "cheatsheets/git-shell-linux.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ff5ee85982f16cc2e758084354b102cd2d570e29"
+    },
+    {
+      "path": "cheatsheets/gpt-from-scratch-training.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "53d152ec9e6a5a4a1074d6b69cbc4145ae4c8686"
+    },
+    {
+      "path": "cheatsheets/gpu-cloud-docker-keys.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "04b6d111404f5561a11d1df9cb9919e732f543f5"
+    },
+    {
+      "path": "cheatsheets/gpu-kubernetes.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d0e391b6617c487d97bef9f1913cdd7c15982308"
+    },
+    {
+      "path": "cheatsheets/graphs-knowledge-graphs.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "699184e8ff1fa7876eed584051cc2a599b347f17"
+    },
+    {
+      "path": "cheatsheets/guardrails-moderation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "63f2291de6ef8336294f4acd21380da0af1a28c7"
+    },
+    {
+      "path": "cheatsheets/image-editing-control.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0f8c9e6cf478e38fe8494fc6aa087d2c318e0be6"
+    },
+    {
+      "path": "cheatsheets/image-generation-compared.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a6db3e7ef43ccd9689addbabef5718563c2500c8"
+    },
+    {
+      "path": "cheatsheets/inference-load-testing.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d80ceaf11b7a6318a09031192945caa0ba2055c0"
+    },
+    {
+      "path": "cheatsheets/inference-optimization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b0944b5bce477142ba4d81bfd7c33468cb56b7cb"
+    },
+    {
+      "path": "cheatsheets/information-numerics.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6a9553df85a894e6158534c57666a8e523fd2b57"
+    },
+    {
+      "path": "cheatsheets/jax-vs-pytorch.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "fc560e9072e746cf95332c67e4770e54bcf7245b"
+    },
+    {
+      "path": "cheatsheets/linear-algebra.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0b2edc729c92a78b7e4dc2ef9000011278d8e51b"
+    },
+    {
+      "path": "cheatsheets/llm-cost-caching.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "38737589338f2d9592d494b207383b05f9623ed4"
+    },
+    {
+      "path": "cheatsheets/llm-evaluation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3fd5d3a3f73bbc4b2bf6dfb9e781877f72852ba9"
+    },
+    {
+      "path": "cheatsheets/llm-pipeline-capstone.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d11bb5e80456c312d48afd4a4885b687a61fe181"
+    },
+    {
+      "path": "cheatsheets/llm-routing-gateways.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "26a5bdbf07269e0d4e17f4f7eb43c98b9fde2dd7"
+    },
+    {
+      "path": "cheatsheets/localization-workbenches.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "428972ab96f7e9ce406ccea2aa56d715665afbee"
+    },
+    {
+      "path": "cheatsheets/lora-fine-tuning.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "51e8fc00eef430cfa698f1bd42b1c0cdc0b7b999"
+    },
+    {
+      "path": "cheatsheets/managed-llm-platforms.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0520c51769d1b089dd71d827ddb2c5be97b4890a"
+    },
+    {
+      "path": "cheatsheets/marl-sim-to-real.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8444882d3e5bd512f797958a1de5ae99e9cd5432"
+    },
+    {
+      "path": "cheatsheets/math-for-ml.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6f63200806f45857a81846542abf6f22d94d5d88"
+    },
+    {
+      "path": "cheatsheets/mcp-client-transports.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "535980fb7bad70dfa09fe0f26c2507d20f73f05d"
+    },
+    {
+      "path": "cheatsheets/mcp-gateways-operations.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2f09c410842ef7994fe4e719053202ddb74bbede"
+    },
+    {
+      "path": "cheatsheets/mcp-security-auth.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7620bd09c8c385b6384c2e97a94d122ef94ad4d8"
+    },
+    {
+      "path": "cheatsheets/mcp-server-build.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3c2101c683956531cbcbd769d8389b769a19424e"
+    },
+    {
+      "path": "cheatsheets/mcp-tasks-elicitation-apps.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "99c280736f3fa11515a1fb7f47539ae4943884d8"
+    },
+    {
+      "path": "cheatsheets/mcp.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bceccafc1594e0b8a249258e60593af39346b553"
+    },
+    {
+      "path": "cheatsheets/ml-evaluation-metrics.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "fca59a9014bef7ef78979059aeaef3d21681982b"
+    },
+    {
+      "path": "cheatsheets/ml-model-comparison.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "be61d97a227084f05ba943c7b9c06cfb71a0d43b"
+    },
+    {
+      "path": "cheatsheets/ml-system-design.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "db74170a0a485184c954d3e6ce75d9d0dc5b9738"
+    },
+    {
+      "path": "cheatsheets/moe-hybrid-architectures.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "982dc66330acf7c7c21e9cee56737d924fafc470"
+    },
+    {
+      "path": "cheatsheets/multi-agent-case-studies.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "825d7af6e60445ec850295fa505c05cce6d490a5"
+    },
+    {
+      "path": "cheatsheets/multi-agent.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7df3ecccdddc57320672c386bc460f84b61973f9"
+    },
+    {
+      "path": "cheatsheets/multimodal-rag.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "769adefd06756af3d6b454e69e7ee72abf53bbe7"
+    },
+    {
+      "path": "cheatsheets/neural-net-basics.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5d0ca76241f23ccef76c50c859a22f5058366065"
+    },
+    {
+      "path": "cheatsheets/nn-debugging.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e72171e053d84d1fc2baf6f4b440bd71430c7bae"
+    },
+    {
+      "path": "cheatsheets/notebooks-data-profiling.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9ff1fa0a6a83e741d002fc0a28d4bcfe4728f98a"
+    },
+    {
+      "path": "cheatsheets/ocr-documents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3b8f2cb5a8568d2bb8633d02b82ff48685eee833"
+    },
+    {
+      "path": "cheatsheets/optimizers-schedules.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d80700beeb2c5e3a5f321587babe643ded70fbe4"
+    },
+    {
+      "path": "cheatsheets/orchestration-patterns.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "83b9d20221ce547d9eeac3bad12446b4f91a0d20"
+    },
+    {
+      "path": "cheatsheets/personal-organizer-agents.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dcde657e8c757d079b33e998a1f04c079f3cc52b"
+    },
+    {
+      "path": "cheatsheets/positional-encoding.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "006290bff2ae8b4495f3399b799cda996c22c27b"
+    },
+    {
+      "path": "cheatsheets/pretraining-data.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "95527cc7dc5d5d41e2cbd90bfe6bb8d26ef88eaa"
+    },
+    {
+      "path": "cheatsheets/probability-statistics.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5708419dc16427552c9c472194a6f288a099e377"
+    },
+    {
+      "path": "cheatsheets/product-discovery.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9d046f12e2e771b195a85162d571b37a92a5660c"
+    },
+    {
+      "path": "cheatsheets/production-agent-runtimes.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "25bc4fbd7f2f3fb84a9c7b99339e95f5420d314f"
+    },
+    {
+      "path": "cheatsheets/production-llm-app.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3b0b4a51f8342d000fb90aff72fbe51308ac6621"
+    },
+    {
+      "path": "cheatsheets/progressive-delivery.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "66d91df15a97270f6098d90e4b986482416d8a49"
+    },
+    {
+      "path": "cheatsheets/prompt-engineering.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6d6e624e0f253fae2ee91dc1619212ef7cefc55c"
+    },
+    {
+      "path": "cheatsheets/python-dev-environment.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "046f9e94dd5c1dced11a40c0aa64031a56a420da"
+    },
+    {
+      "path": "cheatsheets/pytorch-essentials.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bdd12ffd298c53b0f290fb1eabc8c1a0b87017d9"
+    },
+    {
+      "path": "cheatsheets/quantization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d391d187b31917eae622a289e13f5c54e544d5bb"
+    },
+    {
+      "path": "cheatsheets/rag-production.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e2a597fcca4360115df3b9d63f1ee6550d71a940"
+    },
+    {
+      "path": "cheatsheets/rag.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "41a81f6f6cfa59eb3489fd864b1966f54eab28c6"
+    },
+    {
+      "path": "cheatsheets/re-from-scratch-tools.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c61dbd76db9efec7300fe35c546fa5853e502120"
+    },
+    {
+      "path": "cheatsheets/reinforcement-learning.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0aef6ff2b2bed850664f10bd2b0a27e81fe19191"
+    },
+    {
+      "path": "cheatsheets/research-agent-pipeline.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5960f6bd36510ba02aae31053612050ceb48c7a9"
+    },
+    {
+      "path": "cheatsheets/research-agent-writing.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e9a8101d120967e0a8a01edb718a744ecabe2a69"
+    },
+    {
+      "path": "cheatsheets/reverse-engineering.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d97e3f8378668d390e37028cc4ebb3f8691bac3e"
+    },
+    {
+      "path": "cheatsheets/rlhf-dpo.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ee5d8d686dc9b3b1042417610b3345294eb09fd6"
+    },
+    {
+      "path": "cheatsheets/rnns-seq2seq.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d07fe7cb0504f273c2f7770b0f70b6f19b33e106"
+    },
+    {
+      "path": "cheatsheets/sandbox-policy.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b6983fba2c06770231d8763b7311203b3c176d21"
+    },
+    {
+      "path": "cheatsheets/scaling-laws-pretraining.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "621e92194a01e844b525370131bfaaa342212c46"
+    },
+    {
+      "path": "cheatsheets/security-compliance.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4bde40e5954bafc04bea24d0cf78de2690c8fafa"
+    },
+    {
+      "path": "cheatsheets/self-improving-reasoning.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e78b62f96ae65a696d5eeac650dbd6be8067f69e"
+    },
+    {
+      "path": "cheatsheets/self-supervised-clip.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a327f283f61721a0851f1f255c600b94d0c33efd"
+    },
+    {
+      "path": "cheatsheets/sequence-labeling.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b5df7fb153435a626499a04f01c936c89bdbe706"
+    },
+    {
+      "path": "cheatsheets/serving-engines-compared.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9a34689c47265ee421a6dda9a816fe6ee1429f43"
+    },
+    {
+      "path": "cheatsheets/sglang-serving.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "66c57e7c499fbc7529e7f5ee08a439b0519aa680"
+    },
+    {
+      "path": "cheatsheets/signals-fourier.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ed5fd71de9f317aaa0d09b94f18b0203769a8cec"
+    },
+    {
+      "path": "cheatsheets/skill-trust-evals.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "fffef4e13eb1e403d49f6b91b47ec709031f7fda"
+    },
+    {
+      "path": "cheatsheets/speculative-decoding.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7164e6d8eadfe697f6f1f161c0f7ae3c09e969ea"
+    },
+    {
+      "path": "cheatsheets/sre-for-ai.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "19c44d5cc0c49d30f13808395fd628f1b6092473"
+    },
+    {
+      "path": "cheatsheets/structured-outputs.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9bb78e9d296b61193e388cfdfb8b8488a178d341"
+    },
+    {
+      "path": "cheatsheets/summarization-qa-nli.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c653ac5d2f3f309dc97068687176027b59d1ef71"
+    },
+    {
+      "path": "cheatsheets/swarm-optimization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "abae991086a9b67f0a9a088a55671071d67e1455"
+    },
+    {
+      "path": "cheatsheets/text-processing-classic.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bbaba64b46b6578272b1bdf817a209d10ec30245"
+    },
+    {
+      "path": "cheatsheets/text-workflow-desks.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3eb31caad8403371f2fab6bafaebd78b45f63f5b"
+    },
+    {
+      "path": "cheatsheets/time-series.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7e1461aa1bc04d3ab671673f3d910c07f45bd68e"
+    },
+    {
+      "path": "cheatsheets/tokenization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f4af10c94877f7971232d9e65883bf408984d2ff"
+    },
+    {
+      "path": "cheatsheets/tool-calling.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "87ff5e4ff9ba336c45fb2521fba5a31808929803"
+    },
+    {
+      "path": "cheatsheets/topics.yaml",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "96c21c42392cf3fd332c6265ca541b84884d27a0"
+    },
+    {
+      "path": "cheatsheets/training-memory-checkpoints.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e249ec1d5fca643390eb098bf76a25475429fe58"
+    },
+    {
+      "path": "cheatsheets/transformers-attention.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8d216a14c9ebbdb5996f9af34d651bd3610c4583"
+    },
+    {
+      "path": "cheatsheets/tts-voice-cloning.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4a19ec1ab930e5bdb458b1358b374b20200b849a"
+    },
+    {
+      "path": "cheatsheets/unified-multimodal.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "56cc3bd041f1bae76532a6751f59630f513f095c"
+    },
+    {
+      "path": "cheatsheets/unsupervised-anomaly.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ea1ca161821ef73793bdbdb4e345c63b5d5409e7"
+    },
+    {
+      "path": "cheatsheets/value-vs-policy-rl.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8f1cb478304ea03fb089c26fb70916315c87dfff"
+    },
+    {
+      "path": "cheatsheets/video-3d-generation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c18170f4e2561f3b02f19cd5ac64c6d6ee4d88a0"
+    },
+    {
+      "path": "cheatsheets/video-3d-vision.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7346286002db64471320089d7af92c5bca78a571"
+    },
+    {
+      "path": "cheatsheets/video-language.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3dc70a242c1bfc8401eab0e4a5b0487b57621295"
+    },
+    {
+      "path": "cheatsheets/vision-edge-deployment.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "689b09436bada9d9723aa7b512165d14aad0650e"
+    },
+    {
+      "path": "cheatsheets/vision-transformers.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7cd4455550c6889bfe75bb5caeae139703328ca3"
+    },
+    {
+      "path": "cheatsheets/visual-explainers.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "61c003bab403b4cc98ffe6178b603463547e8e07"
+    },
+    {
+      "path": "cheatsheets/vlm-architectures.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b89b89c7a0b86d91a20e95c03db5aa503b0a0880"
+    },
+    {
+      "path": "cheatsheets/vlm-from-scratch.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a9b011caf3fbc090aeb717b660206e4e55d000fd"
+    },
+    {
+      "path": "cheatsheets/vlm-model-families.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1bac5d9308dc8b11987ccdef338c470ef23d41cd"
+    },
+    {
+      "path": "cheatsheets/voice-assistants-realtime.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6be6f2dfc70b80c6d506d7225218785a50e1c8df"
+    },
+    {
+      "path": "cheatsheets/voice-security.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d898a97f8bcd3069dd746f740977c456dc145738"
+    },
+    {
+      "path": "cheatsheets/word-embeddings.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b49483a9bb56b2ad90ac695400ef086c751e5986"
+    },
+    {
+      "path": "i18n/ar/README.md",
+      "status": "modified",
+      "old_sha": "596c5bb6063e07213a1e653cc0e8dd8d8b150a12",
+      "new_sha": "ec473bda8f61c7ab1cbc7662acdffad095dfafcd"
+    },
+    {
+      "path": "i18n/bn/README.md",
+      "status": "modified",
+      "old_sha": "9a1fe74d0b4d18935e4bcf8f7801106bcf9c4a21",
+      "new_sha": "eb367f9142b84dceeecbd1e1905a4dafd18cf545"
+    },
+    {
+      "path": "i18n/cs/README.md",
+      "status": "modified",
+      "old_sha": "72d4d1566dcb382745ec257973ddca13ff8290b8",
+      "new_sha": "4470d38e5bebac61993d6cf3dbc1e9a595a17ae1"
+    },
+    {
+      "path": "i18n/da/README.md",
+      "status": "modified",
+      "old_sha": "68edb13ec408b31226e66334f5697edb5931ca2c",
+      "new_sha": "de6810ce4a6eb6693b1bc4959f3e5c225175f17d"
+    },
+    {
+      "path": "i18n/de/README.md",
+      "status": "modified",
+      "old_sha": "b709249608e5d14414174655ca7a63468948ca30",
+      "new_sha": "11b6ca177418c3e45837d289223d4057114a0068"
+    },
+    {
+      "path": "i18n/el/README.md",
+      "status": "modified",
+      "old_sha": "06d0d6ac6a34135bcb3bdf4ce89480b9d16e76a6",
+      "new_sha": "4cf90b1c57b9e89df52b9333484d3f2dba998700"
+    },
+    {
+      "path": "i18n/es/README.md",
+      "status": "modified",
+      "old_sha": "441ad9502595e82fdc0052e2df4c43fed863ca0a",
+      "new_sha": "e67b12417b956b481016328662919efdbe8bcee4"
+    },
+    {
+      "path": "i18n/fa/README.md",
+      "status": "modified",
+      "old_sha": "0dc78459ae80f306f6e8ee85e4662970c8eca3a2",
+      "new_sha": "6e648c481403209b08e78e7e35f0149b782a6f2a"
+    },
+    {
+      "path": "i18n/fi/README.md",
+      "status": "modified",
+      "old_sha": "9261e74c5ba4002be47df0581218d5b4ed5f6c4a",
+      "new_sha": "2c73094924810ad4e90a93a5e145c9ee332e573f"
+    },
+    {
+      "path": "i18n/fr/README.md",
+      "status": "modified",
+      "old_sha": "088e09214de3605b5c778be7899c51dbe7c38112",
+      "new_sha": "4b5dda2886a1b2f62fd1f78b987f5e6aebff3a01"
+    },
+    {
+      "path": "i18n/he/README.md",
+      "status": "modified",
+      "old_sha": "daee451299bd18f6f41c2f282c060ef23dc39fc0",
+      "new_sha": "f305ec85635ee2ad0989ce3ef578bc56eadf17ca"
+    },
+    {
+      "path": "i18n/hi/README.md",
+      "status": "modified",
+      "old_sha": "c9f587b26b86fe360e0b1762960cb1515193f188",
+      "new_sha": "1260cecafa0cba422afd9779873a74a52d550b54"
+    },
+    {
+      "path": "i18n/hu/README.md",
+      "status": "modified",
+      "old_sha": "a08a770a1c69ee30906dc101153c5be516575cfc",
+      "new_sha": "f5554718c9ec92344eee0fd9dfc1ff18ee805666"
+    },
+    {
+      "path": "i18n/id/README.md",
+      "status": "modified",
+      "old_sha": "2d9450243c0362da3c4c778a08624c937ec65e3d",
+      "new_sha": "3b59b4b2ae78c81d90ab64000780daba048e8b41"
+    },
+    {
+      "path": "i18n/it/README.md",
+      "status": "modified",
+      "old_sha": "816ece981cd144784b2d22e725a9bd5c5bb4e11b",
+      "new_sha": "6e0d46aead96a7d8618289412ebb9497d47706fa"
+    },
+    {
+      "path": "i18n/ja/README.md",
+      "status": "modified",
+      "old_sha": "9f6a785bc3bf6de02c83208ffbaff37fe23daa21",
+      "new_sha": "2a874988b064d135302641bd12e1b69535819379"
+    },
+    {
+      "path": "i18n/ko/README.md",
+      "status": "modified",
+      "old_sha": "ad37fb084ac951e0228e0ccae5dc9cf22adf0f2a",
+      "new_sha": "649f27b86d4ca8189c2e40dd620a455f9b25d395"
+    },
+    {
+      "path": "i18n/nl/README.md",
+      "status": "modified",
+      "old_sha": "193861771b6aa2e1a8f1ee73c115e00b2e37e245",
+      "new_sha": "2b689e72152565416092236a0f1195040b8c141d"
+    },
+    {
+      "path": "i18n/no/README.md",
+      "status": "modified",
+      "old_sha": "e61f9c28c60df8b533486526aff82e66135c877f",
+      "new_sha": "35638ac82d79772fd703c8f33f9b3c07214c64ca"
+    },
+    {
+      "path": "i18n/pl/README.md",
+      "status": "modified",
+      "old_sha": "9d92f8e3a4353e8340788234186dae4f3668a52f",
+      "new_sha": "f65e2c71d0dbb67074d52432067596e0f1a100c2"
+    },
+    {
+      "path": "i18n/pt-BR/README.md",
+      "status": "modified",
+      "old_sha": "fc39e4059ba47359af83fafd4f396d0571d12104",
+      "new_sha": "44853c3a63faf0c5a75a2465275de2ecf630951e"
+    },
+    {
+      "path": "i18n/pt/README.md",
+      "status": "modified",
+      "old_sha": "3d266706e14513190571feac9595d2a1bb5c265c",
+      "new_sha": "57bab0a9e11bcbbb0e62f8f588156f92773f076f"
+    },
+    {
+      "path": "i18n/readme-source.sha256",
+      "status": "modified",
+      "old_sha": "89534b3b51a024424c43fe0b1266eed894ee23cf",
+      "new_sha": "eba0cdcfb2320c15b286efd58a876735853218d9"
+    },
+    {
+      "path": "i18n/ro/README.md",
+      "status": "modified",
+      "old_sha": "87ec24fb960a8d1378427d875455dda23d2db71a",
+      "new_sha": "69e911478c9a5c4beea6f40fe849f184a6011bd7"
+    },
+    {
+      "path": "i18n/ru/README.md",
+      "status": "modified",
+      "old_sha": "539dc53c35461522e3462b59821269afb5a267ee",
+      "new_sha": "fb813b381b231d0763ab4989c0b7084d79183837"
+    },
+    {
+      "path": "i18n/sv/README.md",
+      "status": "modified",
+      "old_sha": "210a08d38b36f9a4ac3edfa08051f97a251c5f8f",
+      "new_sha": "b41782b4b27af447b9d9e54fd0b2a953a9faa717"
+    },
+    {
+      "path": "i18n/th/README.md",
+      "status": "modified",
+      "old_sha": "81fd99cca680d6ac75660bcf5a6b9894357e8fde",
+      "new_sha": "ce2f0cdc29e603b405e5cd826d5da932a49bda94"
+    },
+    {
+      "path": "i18n/tl/README.md",
+      "status": "modified",
+      "old_sha": "257ae502e3e40175d3534689e46f2fa5f336353d",
+      "new_sha": "4c42f1a31914da8a399139689bea724a73dcb2d5"
+    },
+    {
+      "path": "i18n/tr/README.md",
+      "status": "modified",
+      "old_sha": "b482e49a598af8359f1ceb5f70c55c9c32a88657",
+      "new_sha": "cf854849fd5d4b02f1fa393896cfbb22dbce0bee"
+    },
+    {
+      "path": "i18n/uk/README.md",
+      "status": "modified",
+      "old_sha": "fead549b280880760c5416870226f57729336daf",
+      "new_sha": "18fe4e9370945cc104aae0be9428e2f1bcac29be"
+    },
+    {
+      "path": "i18n/ur/README.md",
+      "status": "modified",
+      "old_sha": "09764b63c269d0c4b001c1e5b1cd863f3da31fdc",
+      "new_sha": "811f0c0b5894c27d2b51716732b5a83f3a074e0f"
+    },
+    {
+      "path": "i18n/vi/README.md",
+      "status": "modified",
+      "old_sha": "e142f3da70fed0b16d8ded4d81c316ed8351980b",
+      "new_sha": "dc9fc9e4deeaf613e6648cc39d271bb25ef16900"
+    },
+    {
+      "path": "i18n/zh-TW/README.md",
+      "status": "modified",
+      "old_sha": "617ed7b3abf9a7a9e8d56728f2a648673cde389f",
+      "new_sha": "dec8ab4bcc29b3b99e7e51efb5366ff7a8e40a30"
+    },
+    {
+      "path": "i18n/zh/README.md",
+      "status": "modified",
+      "old_sha": "ac45f4d6cbc0e059aaf9dd661f3c25555f48d4ee",
+      "new_sha": "e6c604b675db244dcd9340cc4a06c451aa173482"
+    },
+    {
+      "path": "lib/og-cards.js",
+      "status": "modified",
+      "old_sha": "c1d84ab085a3123f9f1ec04c31d9250b93c7f155",
+      "new_sha": "336e9485b2a94fccd62f4c450d9201df69abfb15"
+    },
+    {
+      "path": "manuals/AUTHORING.md",
+      "status": "modified",
+      "old_sha": "380ce3822a2c1b8090db23f40a1bd4fa2701e762",
+      "new_sha": "12cd9d60a889d4c65f04bb78409e6c6aa40efe64"
+    },
+    {
+      "path": "manuals/_shared/chart.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f6af166669dc0ecc6422093475f923b1321808fe"
+    },
+    {
+      "path": "manuals/_shared/templates/chart.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "08a8cb85cb74970515638ea07b04b815756e04c6"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/README.md",
+      "status": "modified",
+      "old_sha": "581fbc5c48610431adf6d628d2cf10f5cfa9a974",
+      "new_sha": "a5ab09272ccf7915fee854e596b80772c6b11b62"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/README.md",
+      "status": "modified",
+      "old_sha": "3f917f9c4697fc249074051b52b51a6fed14931e",
+      "new_sha": "5bdb1e3f4745472b0c3f05db096fa0f592ff9545"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/fixtures/bundle-rea-6.5.0-O1.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1ea2e77934e9f77c793c284d81c2929258e6ed2f"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/fixtures/setup/claude-duplicate.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3210b9f48e8cbcff336a14f04865c22223135563"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/fixtures/setup/claude-jsonc.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f7c0f9d1a31246581bb477a00b4c5f0969dd0631"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/00-commands.txt",
+      "status": "modified",
+      "old_sha": "07b34f2d4938948a61b14b7556fc4d31d0e7a567",
+      "new_sha": "9e44325a7cba7402dc0ad43a9aa6f6ee9af42e17"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/00-fixtures.txt",
+      "status": "modified",
+      "old_sha": "31e2b814a187129acdcfe339b0c7dd032bb29859",
+      "new_sha": "ccdab04d1ca484749fe66f721733358145aab1f3"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/00-versions.txt",
+      "status": "modified",
+      "old_sha": "9aa52ce4c3ef45530ab6628494b565dca6fa6299",
+      "new_sha": "2f546ea68804165e48248585bf3cd95c93b82956"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/02-capabilities.json",
+      "status": "modified",
+      "old_sha": "c22bc920f9442742b02fa7ae62cf34f56a99acb9",
+      "new_sha": "73c5698ca1e66188736f939a26078613aa2f7bd7"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/03-inspect-artifact.json",
+      "status": "modified",
+      "old_sha": "9b40497f2190a1cb41155f0398c862503c8b9dc1",
+      "new_sha": "bb8c0a8ef000ab7249446053400e35fe09d6632d"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/04-inspect-macho.json",
+      "status": "modified",
+      "old_sha": "2a95c25a558bed7594a8860e0d185139efeade5d",
+      "new_sha": "015685bf1f0640b8c7e5263077da8460fb7a9533"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/05-analyze-arm64-O1.json",
+      "status": "modified",
+      "old_sha": "ccd8a5da5bbf14d01d40d30cf779d4526dd467d4",
+      "new_sha": "31bc0ab4f88ec1d2e0c5cc9691c0b1f5ca8f5f6d"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/05-analyze-x86_64-O1.json",
+      "status": "modified",
+      "old_sha": "fd282df5ae41ed965475b6a7dabc4b8feb40d244",
+      "new_sha": "67b29078e7a629344a381a6e51709353d625cccf"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/06-function-grade-label.json",
+      "status": "modified",
+      "old_sha": "0e52059de80b73d5acc94bd80f74ef3c14f89093",
+      "new_sha": "afe3484e855f93eeffaec846fecbb2569d4201f6"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/06-function-grade-x86_64-O1.json",
+      "status": "modified",
+      "old_sha": "ef7b44ad060099c3613089bf276dce686b75e948",
+      "new_sha": "c1ca32abad3f46560909c51c6096375ebb6f6407"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/06-function-grade.json",
+      "status": "modified",
+      "old_sha": "7eb550736229e148f5bd692424758ab617d39af7",
+      "new_sha": "a64a2f0f0799f684feab58dad8e0778737ae7ba4"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/06-function-percent-change.json",
+      "status": "modified",
+      "old_sha": "5f6e3c19373964ff2ee850cd7bd707de2a020324",
+      "new_sha": "0622c2e830a73a15aaee48b55790f7cf93594121"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/06-function-total.json",
+      "status": "modified",
+      "old_sha": "e63928e0a2cba830465f4e7c57e94dbed2a68f85",
+      "new_sha": "741d01e2f5aa9ce6497b8e3cdf488d5d2a76b701"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/07-decompile-grade-x86_64-O1.json",
+      "status": "modified",
+      "old_sha": "9c8639911065a69e55d6c2d269463e6bb3a4b4bf",
+      "new_sha": "02463fd3315361fdb3e85c3fd1c8ef234b9be39f"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/07-decompile-total.json",
+      "status": "modified",
+      "old_sha": "243229b474a715d32a442030e10cb61b2b15323e",
+      "new_sha": "6b5bf571fa1905c334765d63a3e265a416ce1e25"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/08-address-to-file-offset.json",
+      "status": "modified",
+      "old_sha": "deb45d3bfd2c9a52c500e9a55017de037db6ef70",
+      "new_sha": "4319c308e65a94167e0b59bcc8d108e15786a75a"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-01-initialize.json",
+      "status": "modified",
+      "old_sha": "5efaf38b446e10f4bf8e7f0e155687f74db55454",
+      "new_sha": "f00a72de200a77541efdc79437560deb13949cdd"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-02-tools-list.json",
+      "status": "modified",
+      "old_sha": "bb12335de0161c0c16fd113a6f2e223c53f495f4",
+      "new_sha": "c5f02a99fd24b12dbae865791ef399b0d7bc064c"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-03-open-binary-O1.json",
+      "status": "modified",
+      "old_sha": "4777b27b9aa71acf1aad34cc1a8589e9f9324ed2",
+      "new_sha": "c15475fcc3897553fc03af88a411c492f750c9e0"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-04-binary-session.json",
+      "status": "modified",
+      "old_sha": "cd9d75a4ae50b8d426c640906984b4f6a0d604c0",
+      "new_sha": "e462f3c3b63fd1be8b3fba3cc6a1c6487d3aca6b"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-05-list-procedures.json",
+      "status": "modified",
+      "old_sha": "12d77feee9e0a76257b0c390f31b386c51e66e92",
+      "new_sha": "501df871b50bfaff7dcae0f694239b9b0989cef6"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-06-procedure-assembly-grade.json",
+      "status": "modified",
+      "old_sha": "aaeb4e8df2119e028f7b8449fa8ee2f769e68bb0",
+      "new_sha": "b4af23ad9b607c20d15193192eff48aa3763a8cc"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-07-xrefs-grade.json",
+      "status": "modified",
+      "old_sha": "422cfdc34bc06e84d38125d3c2dd8a0ed38cbc84",
+      "new_sha": "73bab09428ffbaa970519ae68b27ff47adb8164a"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-08-list-strings.json",
+      "status": "modified",
+      "old_sha": "839042704350bf832f1dcd12ddecb749017e6849",
+      "new_sha": "4366bb9e6bc0e572fe91137cf67c00dc94cab8e2"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-09-analyze-function-percent-change-O1.json",
+      "status": "modified",
+      "old_sha": "f224b138ba17492bf58adb8df9c6d09d3ba27a6f",
+      "new_sha": "acaf972f0cd724f5fa2a500b461aafb0c23d76a5"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-10-analyze-function-grade-O1.json",
+      "status": "modified",
+      "old_sha": "d05224f09776c3cfdac56cc58c1ce06efeaf80dd",
+      "new_sha": "c47840649975ea1af7f59ab369a8ed0546be3589"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-11-analyze-function-total-O1.json",
+      "status": "modified",
+      "old_sha": "8ec140616b55afaf63375cfe08b8ea578560808f",
+      "new_sha": "1cfb63e0ad16ed2800d03f8dcac25ffe60a1b22b"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-12-analyze-function-grade-label-O1.json",
+      "status": "modified",
+      "old_sha": "272a9321571cd210000c49ce161e6f0c2073a623",
+      "new_sha": "4981906c8211ecd4be0d289cd751e27400835e38"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-13-analyze-function-missing.json",
+      "status": "modified",
+      "old_sha": "32c6dfa8d31983c26a1549eccc3bbae631e12f80",
+      "new_sha": "63646e691814e80cd8f0f4b9fc6c2bfa1a7a60bd"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-14-export-evidence-bundle-O1.json",
+      "status": "modified",
+      "old_sha": "d4c60bdea2c33fc0eec92e3eea451c5d17f3c657",
+      "new_sha": "3a690e0d4793a56ba9fd2290aa2b38849e25b96e"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-16-open-binary-O2.json",
+      "status": "modified",
+      "old_sha": "46dab6dd2a893dcda5e316ee8c6fe433fdfdbe3e",
+      "new_sha": "c534c72be80d66844f5f45678ec26053aff9bdfa"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-17-analyze-function-percent-change-O2.json",
+      "status": "modified",
+      "old_sha": "1a9febaaee2ebad347a661046c8cdf3d7208fdce",
+      "new_sha": "9e41f33c3f4ad9306c34aa01c5a37b22dfa0704b"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-18-analyze-function-total-O2.json",
+      "status": "modified",
+      "old_sha": "c3b4f5840af8299a5be0994dd9f1adc11b03081d",
+      "new_sha": "1e58b4f4df431d16922a5b82a6152beb5646e433"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-19-export-evidence-bundle-O2.json",
+      "status": "modified",
+      "old_sha": "c7a85d74e0b1d0b11a9f48b076f18fe2244f86dd",
+      "new_sha": "5cc1ab9c95358c7bf380f10400f83b7f4b4c2928"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-20-compare-functions-percent-change.json",
+      "status": "modified",
+      "old_sha": "1c57a91bf5662882ea8945e576571fbff65e780a",
+      "new_sha": "bd2f228a99a588955778a1e5d52006a0c2461cf8"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-21-compare-functions-total.json",
+      "status": "modified",
+      "old_sha": "1bf87f21965f39f0d9407fc3c0edba12549a8eba",
+      "new_sha": "ab5dd4e7cfa969178c23395154a495836d167d70"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-22-verify-reconstruction.json",
+      "status": "modified",
+      "old_sha": "c9e8c4a6caf37552008f271c3908338a6d7d5059",
+      "new_sha": "39c55b460b1d5080596870cd91397d5ea7096a06"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-23-import-evidence-bundle-O1.json",
+      "status": "modified",
+      "old_sha": "2569abe9b5228546a6ccf2801ed38c0148809cc7",
+      "new_sha": "c71cf4a4eda659cb5d5db5b5576d13b4a3373e3d"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-24-inspect-wasm-artifact.json",
+      "status": "modified",
+      "old_sha": "b336ce894e191bce23ab387093cee9017176aa21",
+      "new_sha": "0ff0208a810f5cb6fd2c4e8f870803abc0c29d6a"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-server.log",
+      "status": "modified",
+      "old_sha": "0d51b72f24e57554bfd39a1823653f87fc7f3a87",
+      "new_sha": "b192eb785c43c76310a44e906b2d0a5731e28b4c"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/10-mcp-session.txt",
+      "status": "modified",
+      "old_sha": "7de38f63f86aee71038e87354ab9dd66442ea2e8",
+      "new_sha": "f3f99a649569b0c3007cbfa184586f6b6b238403"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/11-bundle-O1.json",
+      "status": "modified",
+      "old_sha": "1ea2e77934e9f77c793c284d81c2929258e6ed2f",
+      "new_sha": "ebfb92f7b053bc2f5f1493aaf6ade13ec3308912"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/11-bundle-O2.json",
+      "status": "modified",
+      "old_sha": "6f973e546980c10ccb34a9c106ad0b7aac3c82e1",
+      "new_sha": "bc17c1d2349ca5ec3723330652b7598441ac1963"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/11-bundles.txt",
+      "status": "modified",
+      "old_sha": "14fd4cc29d29ae10d31bac70c1c1e8fc8960cc61",
+      "new_sha": "ad87ff797857bbfe7183c9484a47cfa46c07c966"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/11-inspect-evidence-bundle-O1.json",
+      "status": "modified",
+      "old_sha": "f673057553c92969c0b557b0bbf2dee237f25e5d",
+      "new_sha": "47e68f7f39ba16ebc7836e38b20d067e7359a542"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/11-inspect-evidence-bundle-O2.json",
+      "status": "modified",
+      "old_sha": "073146b9cb2b12417b0cbbc6c335aeb039a08925",
+      "new_sha": "44965e3a81d0ef6d888bb660340fb58f8feeaac1"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/12-evidence-export.json",
+      "status": "modified",
+      "old_sha": "febc9662eb4618f0bc3e4716d65accda3230f37d",
+      "new_sha": "1e6c18cc34f504351ab6c1947fe168bb4690306e"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/12-evidence-export.txt",
+      "status": "modified",
+      "old_sha": "46d60614629c3980708a5bb8724d8ca57b89eab1",
+      "new_sha": "8e4b0e9b8f99a808231ec29da636bb7d524958bf"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/13-evidence-import-rea-6.5.0.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1777cc92d0040abbcbdfbdaa9fccc8cc87c3f024"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/14-compare-bundles.json",
+      "status": "modified",
+      "old_sha": "dddd7f0d88354cbaad2bc062e47debdcf3be8839",
+      "new_sha": "1ffd1488eaaecd9993347e496fdac5b30df8089d"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/15-js-app-graph.json",
+      "status": "modified",
+      "old_sha": "dd75815c193fb19dea0f04d12fa5983f678115bd",
+      "new_sha": "83b974b5d21fa0f0ed134fb29238cb8577525f15"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/15-js-app-view-modules.json",
+      "status": "modified",
+      "old_sha": "d7351c78cf6fba20e5746d1a680f13520f7c95bb",
+      "new_sha": "e5954d08ca2baa5531d8f3fe05b8424f3b62eb20"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/15-js-app-view-summary.json",
+      "status": "modified",
+      "old_sha": "c9cc602a61c99afdc0eb7152a362e6232c85b68b",
+      "new_sha": "22b6a15becf4210b65235f49bfb49eae02e72def"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/15-js-app.json",
+      "status": "modified",
+      "old_sha": "de70dd271923fec07b793e51c4d903406e1e2f9e",
+      "new_sha": "977ea776087aa797df3ad03acb6f0c9ecb26a21e"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/16-inspect-wasm-artifact.json",
+      "status": "modified",
+      "old_sha": "b4c1be452c816cbc351ff672e6953d38728c62a0",
+      "new_sha": "b30bc933ceb670051e8448dcf0bf52ed013477f3"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/18-setup-claude-duplicate.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "12efa36e93e83955c2a1c8e737fdabc9ccfc8564"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/18-setup-claude-jsonc.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0daf3f2b4a05d8221cd05e1a8071bfda3b099c8c"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/out/18-setup-configs.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9186e7ec09fd6422f5f24be8ea644c7263b37596"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/capture/run.py",
+      "status": "modified",
+      "old_sha": "15e6dfa9d05ad6790912b9094ed38ac14e789a0f",
+      "new_sha": "22ca850afa9cb63bc9e9a32d5b13cb5136dd1419"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/examples/mcp-registration.json",
+      "status": "modified",
+      "old_sha": "d8c5f01393f3796458c30d49130cb3e97770a1b1",
+      "new_sha": "0676f98a62495dd5a5303ef7bc6bf1b873352df6"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-0-1.svg",
+      "status": "modified",
+      "old_sha": "d985234c0c8847090dfe43d58108ee92c650d26a",
+      "new_sha": "11a4f71cb4682cc9abff8deb9980639887e8720c"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-1-1.svg",
+      "status": "modified",
+      "old_sha": "5bb7769a4d0392734cb7a7d3287e95cb33cf0795",
+      "new_sha": "f25b9ee9d4366c093ac1289043df349129072443"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-1-2.svg",
+      "status": "modified",
+      "old_sha": "91c8002fe62ba0ebceead8e0db6c58fb7ba9ca8d",
+      "new_sha": "44b59746a7abcbb7afc643a7d96c6d655c1ddba9"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-1-3.svg",
+      "status": "modified",
+      "old_sha": "4aed7dc4399cf408ad34dc72bd05d03e0aeadd61",
+      "new_sha": "59e5d52896121986c3bee596e4d9b6113e58ea2d"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-2-1.svg",
+      "status": "modified",
+      "old_sha": "a26b37314d9d824899257dbd822d5b0bc213882d",
+      "new_sha": "c35ffb0bd0f9e0079f60a09dc9b62c1d4ae02036"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-2-4.svg",
+      "status": "modified",
+      "old_sha": "2ae89de5f003a548f5522777e23e2c88a3553381",
+      "new_sha": "a45a16a3db2909efe5079b8a8e612f6ca1e1b724"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-3-1.svg",
+      "status": "modified",
+      "old_sha": "4ab101282ec32a98697158b4e90de0e4a90f1fcc",
+      "new_sha": "96fd387fb2cdfa18a7e742bc96fd8a21313a4743"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-3-2.svg",
+      "status": "modified",
+      "old_sha": "1ca134ec6773895d490f25f635ca91da1cd7f20d",
+      "new_sha": "3cf551f63352fbbd356427d7bd8830e5cb363e6c"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-4-1.svg",
+      "status": "modified",
+      "old_sha": "a453e46ac76d878f28a6d69c42f73ad3cf9f101c",
+      "new_sha": "be1460c2f096c58260a9fc97b4cf4309996dc05e"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-4-8.svg",
+      "status": "modified",
+      "old_sha": "180e3ca2a5d59c8fe6d1728c6931f4c5a27a16c1",
+      "new_sha": "5263c2174c4583eb2843f34854e469ae74c73a07"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-5-1.svg",
+      "status": "modified",
+      "old_sha": "0887e1af9ee4a740bb6144ed19c645e1d44f8809",
+      "new_sha": "1dc4894928fac590928117b85554e0ceedc22ba4"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-5-2.svg",
+      "status": "modified",
+      "old_sha": "4a6b8a95e921ed75e402bbab350dcc890bcdce00",
+      "new_sha": "663e6c3554581462f49ebd3ac7a360ee2601d146"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-5-3.svg",
+      "status": "modified",
+      "old_sha": "582339a72ca76feb32c78f1c8df146888e7c1c99",
+      "new_sha": "7c36dc25663c2c9da5fad59bb28c179bf710c2cd"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-5-4.svg",
+      "status": "modified",
+      "old_sha": "b52ee1bbc6fa541b056d10997a3a1cac29ff9b1c",
+      "new_sha": "95844239eef3dfc1064cfc9b853d61ad14b1964c"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-5-5.svg",
+      "status": "modified",
+      "old_sha": "7a5a18014a14b6e7c7dce86a6a2d32af9951d1b6",
+      "new_sha": "e2b44260bb3df1ccd1171243d4ad4ea3a591a4ef"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-5-6.svg",
+      "status": "modified",
+      "old_sha": "614d4a71b508fea5f2cd9dffd1b332b19a5f7853",
+      "new_sha": "22cc345996d93069ff88d9804aa2d8da62704e46"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-6-2.svg",
+      "status": "modified",
+      "old_sha": "e749a9a68ca61e784f5bbb11e92d06c71542f519",
+      "new_sha": "7bcaeadd534999024fea3ab16b9d921ab16ca7f8"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-7-1.svg",
+      "status": "modified",
+      "old_sha": "0f96f57689890bbbb981af7064a41353cc918e82",
+      "new_sha": "12d8486ef709c5ef2b7a065a8d04a5a1d79d7906"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-8-1.svg",
+      "status": "modified",
+      "old_sha": "f3a4afff3607e50958bfa8bd07cae89b10cf8895",
+      "new_sha": "710ff08a57e3239ec620bc3b3cdd5b28b582c21e"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-8-2.svg",
+      "status": "modified",
+      "old_sha": "1d1e4bcd9b33fede582df2c7cda70d3fd92837bf",
+      "new_sha": "95ce6e1e561ad0228944b2ed4e927bfeddca7da2"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-8-3.svg",
+      "status": "modified",
+      "old_sha": "1e0a1b7ac9389056746909169bb38ca4a8891c40",
+      "new_sha": "9f38f75c540e1e5d30b850907d514da7c895f6da"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/fig-8-4.svg",
+      "status": "modified",
+      "old_sha": "4ac0ff95e8dc1b0560681443decd732868c55c75",
+      "new_sha": "3c9fb3b4ac923e35055b0655c30042fd945f8e1d"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/plate-rea-investigation.svg",
+      "status": "modified",
+      "old_sha": "0dc76e729dc9c469e7c3861da54996ef570817ee",
+      "new_sha": "f28bd5266b468103d54d50d3bd4317d2a1019ce7"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-0-1.js",
+      "status": "modified",
+      "old_sha": "557d6acd80760a6bc04f2b78e200dd41c2cf0bcc",
+      "new_sha": "767688a54a4bee8db0dd7cb1009a48141c1d1c66"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-1-1.js",
+      "status": "modified",
+      "old_sha": "e364fe8275774b054be53d87e1fa9d6faacecfa9",
+      "new_sha": "282007c750be1831faf1c8e4daa098afd8253e52"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-1-2.js",
+      "status": "modified",
+      "old_sha": "fdaaf2f5ac2609e0b3ae223d0ae6b4672f2f3ad9",
+      "new_sha": "42b9f4b5ef85631c163eb625a4bbf311f99fc575"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-1-3.js",
+      "status": "modified",
+      "old_sha": "1181cfa2144acadaff7209b174cae1bcc7c6a76c",
+      "new_sha": "e1d94c28c7746d928805295bee1d2262886b7047"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-2-1.js",
+      "status": "modified",
+      "old_sha": "6c5e2ad288ca82fc0a88f62c2df5fc145f44ac47",
+      "new_sha": "fc5ce4c58c2532436fd709a2e0ab53a1506a16bb"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-2-4.js",
+      "status": "modified",
+      "old_sha": "9edea95d1151beaaceffe1372ceb333498eb86ff",
+      "new_sha": "61888e8ed3b052e9bf09c9fc3603d7341eb0735c"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-3-1.js",
+      "status": "modified",
+      "old_sha": "60e2911543e4b3151bd4bf0d8739a72f2910b5a6",
+      "new_sha": "b920d65580151291ca2641550190003f08f6544d"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-3-2.js",
+      "status": "modified",
+      "old_sha": "63f947202a2b602f7382e925983e73408b73fe0b",
+      "new_sha": "b2c112f970467c1f5cf6bd3925bc494acf3bae0e"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-4-1.js",
+      "status": "modified",
+      "old_sha": "a8c7ce38733dff8696e89578bae57a5dae52da4f",
+      "new_sha": "71efd5a1824e9131d4cb5bf9dd899cce582f71d6"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-4-8.js",
+      "status": "modified",
+      "old_sha": "2f9003f0df555692d73a044b969f26a3868292db",
+      "new_sha": "ce32d42063edc4f8bcd3e902b2fe88856fb51cf0"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-5-1.js",
+      "status": "modified",
+      "old_sha": "990fa2f170e325180ea96109e8a556278fad3491",
+      "new_sha": "18713831a2b0e9c71d3932ade8416a2bcbc212e5"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-5-2.js",
+      "status": "modified",
+      "old_sha": "feac9f32bdff435c01cc4a451b7b4a997e12745a",
+      "new_sha": "706718f7329772e16eef93c5a5c15fda4c5de081"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-5-3.js",
+      "status": "modified",
+      "old_sha": "97f109632325d42b3004b30ba8ff1ef90a50e912",
+      "new_sha": "43598cad5003cff952be19428b334c230552d31b"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-5-4.js",
+      "status": "modified",
+      "old_sha": "f8dbf963b81f1bd1f688263e5f6a7081141586c2",
+      "new_sha": "156bcd291524a54771b86d64d82bb6508a8d457f"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-5-5.js",
+      "status": "modified",
+      "old_sha": "135bb33f0515c983bb35fb7a8aca4b030f2957c3",
+      "new_sha": "efe731c3357331d1e2c8b1cb448a42cb4e973f87"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-5-6.js",
+      "status": "modified",
+      "old_sha": "1f27d081025a2ecdf2cf677ccccd2471dfeb7dbc",
+      "new_sha": "8a9e12668f705c10807d3760b7b9386248d537c7"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-6-2.js",
+      "status": "modified",
+      "old_sha": "8a001fa2cc942d19e5c1bdc975a98f6d3a7b1a43",
+      "new_sha": "c61df37456676e92af08ccf41d5135b60a9ea685"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-7-1.js",
+      "status": "modified",
+      "old_sha": "89eb9ce20d4fcc8aa7e5449c4c1deb2bf018781a",
+      "new_sha": "b578d429721e6c76924d51519afdef65bd834e73"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-8-1.js",
+      "status": "modified",
+      "old_sha": "6de5e5cf6dc4415bac73628b72e97307e3ab4ec6",
+      "new_sha": "020ab46d754b50613a8d6aaf49bcd5b5ec0cf012"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-8-2.js",
+      "status": "modified",
+      "old_sha": "ea37c3bf03669276a09667da24c558cbaeef912f",
+      "new_sha": "c46f886b8184dd09a7ad527f44c13e11706618e8"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-8-3.js",
+      "status": "modified",
+      "old_sha": "ec8995cb3509a6d8e11c482e6e9477929d818302",
+      "new_sha": "82f19b394ae250f9cf698db40b5828bda195d26e"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/fig-8-4.js",
+      "status": "modified",
+      "old_sha": "cf9b05eb96d407ced435ff5294d165b4695e2e07",
+      "new_sha": "4f40b48caec6a71f209c5f0fe4af1cf69be56cc6"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/figures/src/plate-rea-investigation.js",
+      "status": "modified",
+      "old_sha": "07cf1f4e256f45e300ae1e108bd79882c471627a",
+      "new_sha": "91160fa7656bc5dc41baf7adfc9e3d0a2301ac6e"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/front.md",
+      "status": "modified",
+      "old_sha": "0c2df5d8c6d8097647cfa25895b48b72e84d3fb5",
+      "new_sha": "d66d840df7a035e0e1cd11f3d90f9a5a12dfc8db"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/manual.json",
+      "status": "modified",
+      "old_sha": "2dcf7063522f896f46b12ac30778b86cc925b5e0",
+      "new_sha": "b08e0d6d320e614c8096b0c8de665bc47758bd80"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/1-1-rea-providers-and-evidence.md",
+      "status": "modified",
+      "old_sha": "356d24439fabbd9d9a56877d3aca46cca629b4be",
+      "new_sha": "f30a17f1d9c219034d7a9d0e40c03ed8157d1331"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/1-2-rea-function-end-to-end.md",
+      "status": "modified",
+      "old_sha": "da1d021645f3eb0acdd5719dfc27851c508674a5",
+      "new_sha": "954d76c81a00be3dbe1b71759e525b54b4e36cc8"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/2-1-the-readme-use-rule-and-the-law.md",
+      "status": "modified",
+      "old_sha": "1f6795df66c85250ad0a7c97198f4c76437256ad",
+      "new_sha": "c6ab44a4292219e362d476ab15d84fca3ac306c9"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/2-2-rea-doctor-and-the-ghidra-provider.md",
+      "status": "modified",
+      "old_sha": "ba8d0fa7f65ee4a2f9a0d8d11e5a1d8e33256be0",
+      "new_sha": "bfb720a0fedfc784b5f840341e506cb2e7ada45c"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/2-3-rea-capabilities.md",
+      "status": "modified",
+      "old_sha": "57ea1376d8a2248959c5e6c8a20a07096387a02a",
+      "new_sha": "2e07eb46c0e5bc43f5c7ee1348d11e621fb8f9a5"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/3-1-inspect-artifact.md",
+      "status": "modified",
+      "old_sha": "7fdf8277c00616706defd437e9fc15f05c92cecf",
+      "new_sha": "f8f0d008106d0aff8389955d16e6bb6f44663473"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/3-2-inspect-binary-layout-and-the-load-image.md",
+      "status": "modified",
+      "old_sha": "c457ab4a8979e66585b8a403e303c1f880dfff6c",
+      "new_sha": "174cf74e313a555d740e0e160ae903f4d3ca4774"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/3-3-address-to-file-offset.md",
+      "status": "modified",
+      "old_sha": "86ffaccc1d5338d11ed0b0156dbdbdd8e6421280",
+      "new_sha": "23dbaebc6b8f9cbed1b8fc1b4deae51912233b13"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/3-4-analyze-overview.md",
+      "status": "modified",
+      "old_sha": "268e02c4d36cce1a61c99e5de23d9eeed3bb9020",
+      "new_sha": "ae481e8a53d14d7070e22183e9a7dd79770e2bcc"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/4-1-open-binary-and-the-headless-bridge.md",
+      "status": "modified",
+      "old_sha": "984044a8b2ed21130f7f94d8773ca960052308d8",
+      "new_sha": "dc29cbfbd4d6fcd3ce89208fac573908596aaf46"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/4-2-list-procedures-and-function-bodies.md",
+      "status": "modified",
+      "old_sha": "95a91d0f87db7f04d1c2a820548d5283e523ebe7",
+      "new_sha": "45dd122d23f4ed8a7f234e0625ebb830dc6755d6"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/4-3-procedure-assembly.md",
+      "status": "modified",
+      "old_sha": "44e0a89993a383ada2bba23ce7dda3bc25d4992b",
+      "new_sha": "e9ddd90d9d5b8320280e4302e789189f46915129"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/4-4-xrefs-and-the-jump-table.md",
+      "status": "modified",
+      "old_sha": "866036707304f01a84dfd6b43cc025e883d854a7",
+      "new_sha": "1c0572bf9c8d4d1764c0c5ee15425de8c54b2f90"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/4-5-list-strings.md",
+      "status": "modified",
+      "old_sha": "84b4b6f4f80ff5049e375d09714a20740549ca8e",
+      "new_sha": "1badd70d93574a9cbcac5a931d7209dae76c14ae"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/4-6-analyze-function-and-pseudocode.md",
+      "status": "modified",
+      "old_sha": "11390ba86bc4e22a9795c113aad051a1349305ee",
+      "new_sha": "9226ffa9a30c7deb6009b132a896ef427ba85d7b"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/5-1-the-evidence-record.md",
+      "status": "modified",
+      "old_sha": "fa069eb0231520591f8f620870d33f3e16d5ee79",
+      "new_sha": "5632005bb0c136ec260f9fc33504cbe91024a813"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/5-2-residual-unknowns-and-coverage.md",
+      "status": "modified",
+      "old_sha": "ee40f4c5b6b0577877581ba3d4e9663934e8f2d6",
+      "new_sha": "4904ac13a5c35ef20545ab78807f29e8430cda7e"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/5-3-snapshots-and-the-answer-cache.md",
+      "status": "modified",
+      "old_sha": "a631c8f397eb41b60ce5365005b1c9d0cca40608",
+      "new_sha": "68e31b7dfd4610608109d5bfb5e24d88126aed77"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/5-4-evidence-bundles-export-and-import.md",
+      "status": "modified",
+      "old_sha": "5174c71ec55391e1fef22f97e53ba4254f66358c",
+      "new_sha": "2f6d2754bc13c825ad23cca0a41e83501873ec81"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/5-5-compare-and-compare-functions.md",
+      "status": "modified",
+      "old_sha": "7e5b9ae278a6b89f415e1d0fd7b3cbfd2c6ab8fe",
+      "new_sha": "0e485422fc89caeb6940fdbd78cadf00637fb9dc"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/6-1-analyze-javascript-application.md",
+      "status": "modified",
+      "old_sha": "99bf784e62d15515f8ee5ea6cd17a1a2d1a1c854",
+      "new_sha": "27b8578cae96805d2ce69658875b6cd00eb34ba2"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/6-2-inspect-wasm-artifact.md",
+      "status": "modified",
+      "old_sha": "1d7eb23d0d7c613cc93e03028468c0112b951f48",
+      "new_sha": "d965199521b0c44e68c65ed34447c32d621f2f6c"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/7-1-verify-reconstruction.md",
+      "status": "modified",
+      "old_sha": "7b2af5cd806e86a532b655008460918e67b8dbdc",
+      "new_sha": "7f0442f4c14439eecf459e586b8307bc5a6bd8c5"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/7-2-a-proof-harness-outside-rea.md",
+      "status": "modified",
+      "old_sha": "10e756a5143fbce3a512614d7a0c04d374e5cc47",
+      "new_sha": "51a3b55d019a1bdce5259244291ce2b4d3459790"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/8-1-the-rea-mcp-server.md",
+      "status": "modified",
+      "old_sha": "3e2a316f27894e23e3aa229b60a8b58f2b833035",
+      "new_sha": "7bfaa61c6a39fdc146b89c2ac24fffced3d82d64"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/8-2-an-agent-investigation.md",
+      "status": "modified",
+      "old_sha": "ee37440a6fd34315f8ed9ecdfb8bf54e23be7b21",
+      "new_sha": "ef9a51a076b4f08ec33832d05565fd1a79fec632"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/r-1-commands-and-tools.md",
+      "status": "modified",
+      "old_sha": "45c17f0fe4a98a49c5cfcae19e42e4829b0d0bb9",
+      "new_sha": "cd5b35ef3d775527b6f81ea058d4826a16cacc68"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/r-2-evidence-fields.md",
+      "status": "modified",
+      "old_sha": "0446d0c8ed092f761597ebfcfc347085c63c4fc1",
+      "new_sha": "f75304472bb8511d25d721aeec6c18b3d83e8c21"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/r-3-errors.md",
+      "status": "modified",
+      "old_sha": "14b74b12531df0d48e600438b07cbc6f50ff1dde",
+      "new_sha": "ad8efc0afbf1db4a5b162c70c832a806e8e2fe14"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/r-4-glossary.md",
+      "status": "modified",
+      "old_sha": "b3a8c5ea69a4aeefbd6afe27af4c5df0f162eba5",
+      "new_sha": "001b3a41810c250202d1755fc90987106bae6048"
+    },
+    {
+      "path": "manuals/reverse-engineering-101/sections/r-5-sources.md",
+      "status": "modified",
+      "old_sha": "a07769cbf77c40c2540b0840fe0cb360859856de",
+      "new_sha": "d4022056f3561fa2f949e46cb185bdc09a1075d9"
+    },
+    {
+      "path": "manuals/sglang-101/README.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6b1438fdeaa711c0f085e1fc3da0cd197da1e0cd"
+    },
+    {
+      "path": "manuals/sglang-101/capture/README.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ca3bd7cc480229c1ea9e7ea7ec517ca3119a68e2"
+    },
+    {
+      "path": "manuals/sglang-101/capture/cache_experiment.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3ea6102715fa6eea702c19adea3a0f6bb9d293fe"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/determinism_probe.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "64dce03d19646cc5c59db566f4f9ae6f313bbd89"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/incidents/gb10-driver-no-memory.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d6e919c38eb74d6d71538c20c542ce7352eb9eac"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/incidents/gb10-memory-guard-pauses.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c16c81900bc9d3253b94bb2bd5d35a25504d2491"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/incidents/l4-chunk-8192-prefill-graph-oom.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cff16cba78ece279e4e1b674a8d8bc5dd8357075"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/incidents/l4-pd-mooncake-tcp-queue.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7ac9fa735cc700e35d5a63b7fcc4b90d4a0ed654"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/incidents/l4-thermal-throttle.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0d4c96e85c2542a1e13868eb54984fbd7bbba8cb"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/incidents/l4-toolchain-failures.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b6dd8c9ab8cf27c543e86e6247a25b71b808f320"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/incidents/l4-tp-unbalanced-memory.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c8593db19bf710f055f2831542057829c730eb31"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/incidents/l4-vllm-flashinfer-jit.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "66907d449c6cca5c1b4fe71267d274648f5a4beb"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/miles_grpo.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6696842d301e71b200326580a514877bc4625255"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/miles_summary.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "52725438100462897da12448ade70373ea70a10e"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/offline.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bf653823583282796623d4a2d52a544550209d80"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/bench-random-c1.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0e32b4d78fd1a194e89ec355893d17032d0e0c16"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/bench-random-c1.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e690cb5f618ae84fc39562630e4fa8c1eca7c983"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/bench-random-c32.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ac5008b02cfe3da73ac0bf0313a80e9e081b6243"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/bench-random-c32.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "29a9fd4484f8230fc67f12b3935fe03a17d499ec"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/bench-random-c64.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bc111a4e909c150cb66fe2263ebce8e9ca444868"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/bench-random-c64.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5c481f956ffd835b54cca642d0b094ab7c2a70d3"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e8cf2734c80602f3d6987f1acadc428ac3514e1f"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b5b971aa982900026885ae918b126edfaedf617f"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/bench-shared-prefix.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "55db11b84543da69f90759ce7cd4e26683d192a2"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/bench-shared-prefix.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a570ce8054269560b19822a0b9ab8e1bb16f27a4"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/cache-experiment.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bb195742718e0da38279cc4438b6c77865ba0d12"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/determinism.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e2fdf4cf2510a578a4b222cdfc31974eea26c8bd"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/deterministic-bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8f034a2ff58d038644db004f4197d68fa6b3886e"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/deterministic-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "85a7e6a4da70ba7aa5910c08e55e9caeefbcc3d5"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/deterministic-determinism.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a4637f52ad7392434cd93f0c862bf8f1b853d4fc"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/eagle3-bench-random-c1.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b9b5a480887ce791aaf09cb1e9ef1bd62a29c046"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/eagle3-bench-random-c1.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c2194914ff633abad365763a7c807af531fbd620"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/eagle3-bench-random-c32.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3af0b752a32c677ce6fb378cdcfcbd9d073ac236"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/eagle3-bench-random-c32.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dc585487e419420595db3d36dd3baa4b44a4ce05"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/eagle3-bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "67180cf5b156f63ee4c617c72edce9fb25c92dd8"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/eagle3-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c961bcda2149beff32845b726dc8a0f910a1f251"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/eagle3-generate.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ce766cef0ecb938c6bb76d8f694af3ff94b766b9"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/eagle3-metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "72e3baa2cd3bfb828e80b800a3c8e22d3e1f84ff"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/environment.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "618d2ba6d7fc999d4b8f34d98ba835da5420c9a0"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/fp8-bench-random-c1.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "30a3cc4234a02d7dbea42be65ceacde9b218cc74"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/fp8-bench-random-c1.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a95654f2e16717b16b54c7081ce6f45cf4785fb6"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/fp8-bench-random-c32.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3db82a5523e0891bdd6e0ebc485b42b8dd504495"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/fp8-bench-random-c32.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b11db8cb18962b3fe83586b63864665671cf7016"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/fp8-bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d1e124690b94aebdcf9e42bd65b73bb49f3e3300"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/fp8-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a3c236d64dd1e08dfd9661bbca617053cf6315aa"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/fp8-generate.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "767eaa510978bb56a51a21b443d9bf2ad0d1e24d"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/generate.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4b05a7ddaa491ad9bee7abe1b45ccf0d41483e2a"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/idle-probe-ttft-idle.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "fd1551419b08102b6344c39b0e9bc6cfd1596cc6"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d7959060d4a8d9df223d5ae0a8f27c13fc8837e4"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/no-cuda-graph-bench-random-c1.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a33c8a260f2262137ec2a0a47c34a0fa274424a7"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/no-cuda-graph-bench-random-c1.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3f93f2c88c5d9edf2595bf24066198b92e5663b7"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/no-cuda-graph-bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7144f0a9bf2048af364eaccce808ee89c34a22e6"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/no-cuda-graph-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bc71c7d15dc0d89d942fecf4091e6ed23874bfce"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/no-overlap-bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "01fe64480a51e7b9494bf01784734a3024022935"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/no-overlap-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9bb550ec9b9202adb927a4635462b240f002b337"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/no-radix-cache-bench-shared-prefix.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "23b6e692d0a638c89e7230dc2e92934bccb42640"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/no-radix-cache-bench-shared-prefix.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3ed65e089e933081fa40447e59cc5527d0e69b49"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/no-radix-cache-metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ec6d016258b7529f58ea16a10d16dfacd8659edb"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-default.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c2845de08e34ec718b55bddb2353792c14ef9ddc"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-default.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a7a944625240d60077c40f9e42245868f7743255"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-deterministic.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "27cb046020a5fa086f55269f8017f5c8b855184b"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-deterministic.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "460f95df127ef516f7e9078bd0d9c41f0ec2269e"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-eagle3-no-env.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "def0513bc6333dac1e7bb957dc3751d44fad9f3b"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-eagle3.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0625423517801a3c7753b5bc73081768db97f1a9"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-eagle3.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e26ce897761ab0a26cb2a2b90b99bc2145d76bd2"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-fp8.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c28caf86d6b439378bc6a29e4c8ec977bcca7a88"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-fp8.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "856560242214bdde38f73bfe5710f4875f0b21f8"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-idle-probe.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c2845de08e34ec718b55bddb2353792c14ef9ddc"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-idle-probe.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "16cb8268c58f5e1bb10946264997ea4b079a32f5"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-load-default-kv-max.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f47076b3c9cb7cf242125586e53df23ed36ca38c"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-no-cuda-graph.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "81e15603ef24ddcfd78872dc1d651eae5b2d6db3"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-no-cuda-graph.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a10a0da6a100c10f18a63342d8aae6eb8fa359fc"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-no-overlap.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4e233244b1313491b391cb73794244ff0d032efa"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-no-overlap.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cb25a08e2576ff073cfa41b9c53e1ea1a359bc21"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-no-radix-cache.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "39db4d027d2deee1a67f85e8cc46a172f6ef331d"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-no-radix-cache.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a564c15022cde0cbbda6159244ab292f22c4e451"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-rate-default-full.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "723142500666a36a6320b6c301039148319819b8"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-rate-default-kv-max.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4fdd3d533a5adc32cdfde5e49d8497112f3a6480"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-small-pool.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1b9f9784164439e023bbdfd88a9124ed45fc4145"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-small-pool.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7e6a289847b7205c9613c1e4ca1391916faa132e"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/server-working-set-default.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "69c5be8963ed28db4eae723b698a2f1230838046"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/small-pool-bench-long-output-c16.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d2a999375f52708e6638b88210d200a7d0afda64"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/small-pool-bench-long-output-c16.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d3b5d10aa44fcb08556b48a42d6720088eeba942"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/small-pool-metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8b744cc878363cb41930c7c9e157fc502f11d582"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-gb10/structured.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3aefc2f539266fa97e97e57f4f86a1b896dd4a76"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-pd-swap.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d9e750ace88062066ac055f0babeaf3eb51ef7bc"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-random-c1.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8192d43879290aff8481cd075fe696c378d74707"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-random-c1.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7bd4debb77432cee1bf491c8252c4f46d4af49fa"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-random-c32.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "593b37bf187f2e2b2fb3fa5857e3455332f017a7"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-random-c32.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7d5f03c0d2838999ad4eb01a9684234c364c59a8"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-random-c64.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "92fa6293ea24849ab643ba58506e9e5573e0edcc"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-random-c64.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8441ca484cff7386f7a6921cb6f972af89c9ae79"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "057669e0cc147e205b7a93fdb5fd48537e69fc2a"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "950bab0f52521755f401e61112714050e356411d"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-shared-prefix.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "99266653d074ed6aad455ab6dd12e017fbe0527a"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/bench-shared-prefix.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "250e0509cc0f423f75f6f463c71f76aa997b0995"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/cache-experiment.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0c570a8e781449358526e7a12ff58bb30dd89475"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/determinism.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a83faad22be370ffa716f996155472ce2ed75e25"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/deterministic-bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ad9687400981234c4bfc6c24c287b151395bfc87"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/deterministic-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6010488f9984c5b0b6063a340e472416ec089821"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/deterministic-determinism.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0994c8b0e0c3117e40f665f79e9ddf50c2e59115"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/eagle3-bench-random-c1.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a13f1e499b82ef5aade34d5d47372f59079847d1"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/eagle3-bench-random-c1.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e4b9861ce695f76c4dfbe42d649510f69411e26e"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/eagle3-bench-random-c32.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7ed6f4ae1936a96cb24affc8abb0acb0951290e5"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/eagle3-bench-random-c32.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "41571c23f088b797b4881123bec19a5767d8aecb"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/eagle3-bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "da4fd83b7e097b88e9327cb932e8bf69cdc315f3"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/eagle3-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5ed54a2a38c6304ab40ee916480db99d40426ad8"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/eagle3-generate.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f025cb95b28c736c802758ecf535c58fe718a4c2"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/eagle3-metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2ef8e01c6ba2e23aba21107d92683bebf6511056"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/environment.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6f9235b17c36edebc02ce18a30133a298f4f1f70"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/fp8-bench-random-c1.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cdc02a4b50e539948c921f99af5dbacedba3f50a"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/fp8-bench-random-c1.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e5b3250fb7448f2220e5de54c08ee5d4c57c8879"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/fp8-bench-random-c32.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ec8c6f1821b6c0dd4a23a35f3923ec45b8f354b2"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/fp8-bench-random-c32.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "99c2a651654f3d2261adb8517cbee67263b741ca"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/fp8-bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "921b0ad14f2fe6a214c26d6f8671fa06c85430df"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/fp8-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c3a81703147ab83e6910239bf033063b2025aacb"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/fp8-generate.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3e7b0eac31853e6fe9a56de7834b839f061c4c87"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/generate.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7f8f41d5219dcb26e5971658c5c5264e51ab8112"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "21884c801048d50a190558c5577fc51f2ed56df4"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/no-cuda-graph-bench-random-c1.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b958c9df04f6934d5643f269b51b623e7ea52600"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/no-cuda-graph-bench-random-c1.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7689abe68bdf7584d72e1144d5447550658140b6"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/no-cuda-graph-bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d08af60b1a0b8a0b9e55ba0122f02e345570e293"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/no-cuda-graph-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e72a1288b663d2fda6c67cdaf9b988ea31e95943"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/no-overlap-bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cce2aca7b45145eb1e8fd25f6472b597a0922e9e"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/no-overlap-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4ba74f9e483f6b905d1f60c35d255b97fb4c303f"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/no-radix-cache-bench-shared-prefix.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ac56cd12544b8dfa6ff261968737b8ae6d23a444"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/no-radix-cache-bench-shared-prefix.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "30b439cfbe104fdfe7a90fa91ff5e7c1cbfd72f6"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/no-radix-cache-metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a90f13654836edfa1cb93c20bb863aa27f8044bc"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-default.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dfd2a0b0f2616566dc762cea2781f1fd6e09d133"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-default.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "217ec9e186d3276f75c78df8df612c373819dfc5"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-deterministic.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6c20a890e7fd932627e7e67bfd88705fad5c53dd"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-deterministic.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5c98305d6e43e9cb33d5368bf5cee537072ce844"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-dp2-tokens.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f112cce7c66e4a30d71ca3c8ea2101aec13e6cba"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-dp2.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4b5556c7551e4043773c4fdb1b122ae97b8c7932"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-eagle3-no-env.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8d2ecf73e762fdb72c040940dc9e8621654cfad5"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-eagle3.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "75846711c665ee2f8025f1146c87d4d4cdafac38"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-eagle3.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "591eacf292a8dd3e51bca4ee16218d7ff4376f5c"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-fp8.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "53da63c3d5f03767daef37c3d78ee8d68ed9514e"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-fp8.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4de13920ece6ea11aae278c52992efaab4a08871"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-h2h-prefix-sglang.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6af12a5e98435cf660f6263dc6936d6129713c0e"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-h2h-prefix-vllm.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0d6b479edbcd3da203c7bd13d08392005eba0c58"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-h2h-rate-sglang.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f448b688e1156e4a53e752ff11937885fd9126bd"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-h2h-rate-vllm.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "840e0d50f3b1e2c16fbf5fb68358b8401d1f8fe3"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-h2h-sglang.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "75096ac2d4921488a140d01ccb95a68dbb9142c4"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-h2h-vllm.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "49187bbb4c95d7f5d84e2b9b7a5c23dff989b328"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-h2h-waves-vllm.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a07defc88188382507cc103a99d18f9e963578ec"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-load-default.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "85bdae4aa8fcdc9a9a85a9f4779bc992f2567c26"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-load-eagle3.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0c6369e5ce7dbedfc1e8ad271f3a240404534b65"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-load-fp8.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "90b09749fd8ddee3127cb06f80f464e9307a8d30"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-load-graphs-on-off.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5346c277a4d5f096f76339903603a8d50da04779"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-load-triton.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b2574649d034b5456b9c822e364c53831be9ce06"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-no-cuda-graph.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ef2542cdf372bbeeede9d10905ec5767f576aff5"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-no-cuda-graph.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a30b5b490a72ee933b4e0cff4e1f6205e5ede607"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-no-overlap.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "56aafb388edf117a1efb9c98e4a5b4d43349445d"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-no-overlap.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "72317f9eb82166059e656a0101535eb8d677d381"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-no-radix-cache.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3ce382fd560d65a848b1b5632b2a9e98a43fde37"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-no-radix-cache.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "aa679d49f7002d309169f447a0a07e47e26feb1f"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-prefix-default.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "76ff8ca358e48a317b1343582daf75a92b4b2b5f"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-prefix-no-radix-cache.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5a07de6df0fe2cd3e543c2bbe01ffb47bf4e2301"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-small-pool-bf16-fp8.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "364e2fe88ad7e730c4b8589da036a6f338da6f14"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-small-pool.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "25534aeb04ef6a7917a3f4c5e7813e7005dc2934"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-small-pool.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "49aadbd05f20c0fa9db498b6fad793445ef7b332"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-waves-default.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0645ca5881e40a8b142b0f4acc1d5a7d906628e9"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-working-set-default.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d11e90d32e57c9adabf53a8866c938fd5fe8ad41"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/server-working-set-hicache.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d5f36435e0199bfc277d8435ef0ab4600223dc64"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/small-pool-bench-long-output-c16.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e167475fee37a1740bd858d6dd15fef7b31da03c"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/small-pool-bench-long-output-c16.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "069face4db82e1ce8306aa0f5a874a79b85937ca"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/small-pool-metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9f69bca5e408b7ac3b5115df888c3c0ddffaf14c"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-l4/structured.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8b15dbe68f5ac08a40098bf6fd0dec6150bb3003"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-miles/plain-48-excerpt.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ae089082c774ffafc5b4f46bbd855907a1dfdc04"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-miles/plain-48-s2-excerpt.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "147870d23f03c5b20c29d4d3d1934029917f1288"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-miles/plain-48-s3-excerpt.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3a6b29c6a97cf76ab40ad1084df9600dad118c5e"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-miles/plain-48-thermostat.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6e3ad9673fa4a4f6487864cc1fdcdb0adbcd57b1"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-miles/plain-excerpt.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "715e194daea66bf5657842ecd8bf6b41b502f7b6"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-miles/true-on-policy-error.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f957b495fa454a022c58b00c3f7138c5202288ed"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/out-miles/true-on-policy-fa3-error.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "06ba5e93f46c56c96c99ee4224057317b5e0263f"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/run.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4e62fbf32956c9d81665e3d13ebd0266d7e1c1f5"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/structured_probe.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "935289c14094f8cb8d6f466367351d99cdde39b1"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/summarize.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7a6901f0945dd23b292faf2858becc927aea54d2"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/summarize_miles.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ed93901ecefcf8cca9ece96a9ee7ed731868cef6"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/summary/gb10.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ed4ebb0e58e20a7bf0b23b35df3fce49ff27e1b5"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/summary/l4-throttled.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9140def1e82ce27796241ed8dd02d8f201937e30"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/summary/l4.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a5ca7b30cea08bcbcf0aa079f2f4c156a572d675"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/summary/miles-gb10.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8681d904ad641934199e904e5d117a5044ef5988"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/sweep.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a012ba72f33af1123442a3e06be7a935b8780f6d"
+    },
+    {
+      "path": "manuals/sglang-101/capture/gpu/ttft_idle_probe.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c0c15dcf05dc6fee5ab34438eb52ec950555f90a"
+    },
+    {
+      "path": "manuals/sglang-101/capture/one_request.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "58f691a5b028a85d345062e556d70357b8d0235c"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/bench-random-c1.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "45b638c424a98516ec4478428108c96da1acbbf5"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/bench-random-c1.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "10314f05a40fa6992e4c53670f3027ff24070ea7"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/bench-random-c32.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "aefb9717ccb25cb04ca244fe965ab6844b40dcbe"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/bench-random-c32.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "60b80a694e3786d194e0cca7e4058980d3bba979"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/bench-random-c8.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7f5deccc2ddfd46cdeef79a4da7cf098e7ceb794"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1ceb8fc2f608005cff708375bd6f0d900033c5b7"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/bench-shared-prefix.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6e9cf85856f7bfa92b10d58abdf3a33be4a63190"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/bench-shared-prefix.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "624b561e53fa97db1f4d796f3aabf1095cf67509"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/cache-experiment.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7a5d03efaeb4fc8bcfe597caf983b89e2bd54af6"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/environment.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8d1327c5cd73327893a8583237f8fa475fbf95f5"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/generate.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "51f6ff7a3fe39875e30aafe9a1f8fcee3f0b93ff"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c3c7540d15f935735f0cc2ee544cfe570c3cd4f4"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/no-overlap-bench-random-c8.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7a80f286cd111d25c0b60b3d943dae5b8134b354"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/no-radix-cache-bench-shared-prefix.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "36070d3b5a85c68aa7fe4fc9d622b6b35df0de3b"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/no-radix-cache-bench-shared-prefix.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ca4879a3199a007764b82ccde381c23e096af0fa"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/no-radix-cache-metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "26106189344e67a192ba96305c02cb37d3084201"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/oom-exploratory.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f82303c91c8414715c6ce0ada841ca7316c61d00"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/serve-help.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "864c3f164bf71d17c2c9735989b2aec41e67fe5b"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/server-default.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d32e4fe07452664f8e0c79b82035d396e600de3e"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/server-default.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "30ca41a172625c14b21180f5137045c5ab8ca1ad"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/server-no-overlap.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cf4827c6aa91cd3e67401c2bb22fe2e7e4a4b163"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/server-no-overlap.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "50f7cf522ddca6ff66a54495ce783216900fc220"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/server-no-radix-cache.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4629d624e052c0d168d5645158cfc4d9b9ceaa09"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/server-no-radix-cache.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c975c4a657ad98561ddab5d438ea54f163750d44"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/server-small-pool.command.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7f6bceb41c5ddd18bfe39e23c6b5f45bcf6e5bcf"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/server-small-pool.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4f0ecfe9ed2e33a32c34c7938af6b7179fdcb378"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/shutdown-exploratory.log",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ec7dd7d13ac0d6d894791353c44e36ae84c78b7c"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/shutdown-exploratory.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bdd94ee0fc730b72d4c17ad074bbdf7ef194c021"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/small-pool-bench-long-output-c16.jsonl",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "22b76064c4577ac743b42975c2166c68e4ae7634"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/small-pool-bench-long-output-c16.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "530ccc4094f51ba25c9d9c98ccdc1de80c2bf7a2"
+    },
+    {
+      "path": "manuals/sglang-101/capture/out/small-pool-metrics.txt",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e1d058e1b153e2b86d3e672c5018f52e366e6932"
+    },
+    {
+      "path": "manuals/sglang-101/capture/run.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "314542cfecb97c3be0a8e69cbdf1e7ed003b9dd8"
+    },
+    {
+      "path": "manuals/sglang-101/capture/shutdown_probe.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0f4966d090a189ae9631c9c86879506595251205"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-0-1.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3604c587e271f5aac131f2e5ca74dd1fa57acd41"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-1-1.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "179dbba4c3052b8693f876235e39239c7597563a"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-1-2.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "04fa2a6aa5d7b4c34eb190de782c47f1c4a8afc8"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-1-3.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a189b05e069c324a53b35be59c74708eed472e1d"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-2-1.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c167ee0c1160623fc9501254611cd5c5bbb3e153"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-2-2.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d01a1014a956fd201f633cd80964305e26735922"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-2-3.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4e8d19dd63036c40923b015c5169d3087b652c85"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-2-3b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "650e95189879397d6b6440ea6e744c506cb3240b"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-2-4.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "184075413273f9ff246b54c033fcac31a13dd67b"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-2-5.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3177fc2e2cc71cccecda68d1147a39b5cb7cb193"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-1.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d54c441964c37279fe548a0bb585f6a43a268fda"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-1b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ceb42e0607cd0179b2a73a8e1af93e8066cec2c2"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-2.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "890d9f0956efacf674aecaf35660ac9a8217ec5e"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-2c.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2ea1531a249d7a266fcfcacec839567028217e63"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-3.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "abcc2f2169ddf6f8cf29613eb07cf4abd3765a11"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-3b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cfdd48753fe69d88b72eac208f4e7d9b1f3613cc"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-3c.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b06a40beeaf521e8ec965c23ba189bef80a4aa6b"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-4.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ff9fed521a477192f041da707638974f49b49695"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-5.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "27abaea4485f4f4ff01feadfa3eab9c3e8b8d119"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-5c.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9815f1a38d4f710d3a6c133d39bbc2cef40fad0a"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-3-6.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bf046b53ca1a040e45e2fc128d4dac0dd80a81f2"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-1.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0ed8e2d4589d334e23b38196520bcbe66df0f4cb"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-2.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8cc4e6a21a629922a8be491c1d9089c5f2c5ef9f"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-3.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ecdf4b0491530378e2547818aa8ef1abd9cbe4fe"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-3b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e5427fe04af9413f18b84b09d884d2c81fe1fd13"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-3c.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f4dfb9b659425d313f68adacc1a79e528b39bcec"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-4.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "53bc827c810d0cb6b893dec06a3f39baecff42f0"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-4b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "314a5731cc4167badfcc27d01d3e398860fdf35d"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-4c.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7bd0bafcbbe9d6abaa8a1584724d382433bc6b55"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-5.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f639f3550fca3634bdbe03e6b30188cfc7b88ab4"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-6.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c2e02ef18d76b25ab4c94d3c98313aab1503db48"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-7.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "636c77ec4de1ed246336cb981c6f40bda90cc97a"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-8.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "555cceff74d7e4b22c9789ce732df4b4670adbad"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-4-9.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "06c118d4c27a495dde56cb431334650ca106ba4a"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-1.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "15d675495573fb601f8d79005253219696893cf3"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-1b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8ebf65a9673a37b2e4268f08bf02c4f6ca9667cc"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-1c.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dd03b8f3eadd001abb3d3564715ac4ff444a18e1"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-1d.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8e5aacf6e91e1c20b33835bbaabfb397f5263f01"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-1e.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7a4e6c6e74c8d9bcbb4be5503debe3f293c9beb9"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-1f.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "64ce7ce725f8a70855e035252d25679d0dcb4630"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-1g.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "84e18ba355bbe14debf27c594e728f6ecd09cb9d"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-1h.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "83c0afa8b0dd2807714682b0915f18bde617e28c"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-2.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1c5f28e096c856132299ddc282124e1442a124e0"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-3.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "831586a0de49814948c88bd94febd790186215e6"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-3b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "99ddbf8782d43275e8badf519a6ff0b140937b8a"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-3c.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8539eac70207020560c1c7d1274a61bb235f2c8a"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-3d.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "586fdcfbea138c26649d05fec4ec7b49b3665a51"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-5-3e.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f8d171df3c69fad332b47f4cc59ed327fc817821"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-6-1.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4bc11d42a98dce734bce2df224c816f6e4080566"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-6-1b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "feccdc93468924739bd94d358c625b254edceef6"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-6-1c.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f3b2a959d4006d05eef3b510a1e0bea073ead58e"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-6-2.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "cee863bdcda10a1f71d4c6694c87251cdb7c1002"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-6-2b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a6f4a4fc95cd12845d6bf515df850989d04c073f"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-6-2c.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f97a9d0d76ed6ea722ee3af13332fa36b4329d58"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-6-3.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5cb42907ce1fad19b158a4056221f35eec248765"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-6-3b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "df7a559f30f9a92b7af83c606d6405d3dfc2667d"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-6-4.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e61d25050f121e4a7d3564ce707637aeaa9d0efe"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-7-1.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "10c3b27439fc561854aaf8844443d83370c34cb1"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-7-1b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "77b80aab6688aca105e4d6be5a03cfb2380443eb"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-7-2.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "95dcd85f47f3af81060837a2478c001c03be5030"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-7-2b.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a4f174ff5bacbb311b876c1bf2a2183e1fa2faf4"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-7-2c.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "186a42b2c74c34f068a29f7179d5d2538a132822"
+    },
+    {
+      "path": "manuals/sglang-101/figures/fig-7-2d.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c217e804a1268004b0329615200e6356f63031ff"
+    },
+    {
+      "path": "manuals/sglang-101/figures/plate-sglang-request.svg",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5ad7efcc8df016de045770a5f29e8d0631be4ee8"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-0-1.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c008ac2a9033fc6095554f6d3a5bae3105d71258"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-1-1.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0971c4fb7d1a75981e10a61e026674d3bad8cdbe"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-1-2.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f390f5f0aa71bb08cd8cccf00b3c89244844651c"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-1-3.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e43a903863231d5e735facb8f01437ce8b9f5600"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-2-1.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b8f150daca85d6f7ad4b07cd419d859705f6c4ce"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-2-2.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "66838e91bf157cf1a2a587c8332072f706b85aa2"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-2-3.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "89341800ab44695b366a5b3043ee755240758f8f"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-2-3b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0840acefab4180f79176e36fe27ef7983d113a44"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-2-4.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e6a705a606e1a89864720bdf0403025d5c508e5b"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-2-5.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f48b7d574431ec2b751fcabc023a6527f74b8d31"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-1.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "2097a649574fc27c477cb86cceb0246b3a0906e7"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-1b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "fb9952505357a94c3a458c9d0641ae3669d19e63"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-2.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "709f704252ccb687bf5b8a70653259153bb2f355"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-2c.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0518deff6dbec34ea5770fb3459ae6d67a72628d"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-3.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ef47d3143b43b8c41d390da2f9e28136064c863c"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-3b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "0fcf858cfbe9ad241118615bb66fddce2ac93842"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-3c.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dc1a12c47493922675441a200ab1d581d47dcd3b"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-4.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "48c3c96d4c151d0f477eab32c862c7ed1c51b7e6"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-5.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "46eb1844bc40e777612696f4ae56bab78f19a239"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-5c.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "fcc260b14f04637d28beeb5138b0fbb97bb31ea8"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-3-6.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "00bd03f7573b5dbe0b67bfe43581b6a35b47b1f0"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-1.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1bd96b7d9a33697615749af924f7340f93eeda77"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-2.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8c98fc8c129fa7a6cf9a209b93db730b7ddd11b2"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-3.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "39cbdc8ea31e423fb88bf1d8a2a0c3f3aef10a91"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-3b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6db0bba009445ecff9f237e018200d71d03226f9"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-3c.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "83710c059c7cdf8cb886663fe894757e954fd69c"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-4.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d25dfe60340914c25969913be03fe1a223d1daaf"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-4b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ffe9a378273759b018878edf7b0bb0e2ff442433"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-4c.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "47e2219a0dc7979753496a568c3c9fc2d615ff4c"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-5.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "29f634568db89c38be3ab69e6c64cb81865ecb23"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-6.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "58c06ca0ded13fd199c8b4278a383d6e2132c5b2"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-7.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a173398416f60646d392ebf0c368a6c378ef6f63"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-8.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c38869d56f24b4952d7a1569ed62cb516b9069f8"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-4-9.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "eb6f149f592bffc44d17709dda12106fae30a613"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-1.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "79f44841f6b5e177cee620741b591b614a8a4b67"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-1b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "6479c729f85c6b168ac37ef964e73b1b9c009f35"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-1c.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ae6d415bf9201b5bb7dcf4ebdccb1b116652ad70"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-1d.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "991eed4bc06e62746629002e7570a35cf72b8a74"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-1e.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "76b23bd9f4440c1d793b8bed03a9a7a13cafb400"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-1f.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "05953b49b06e0382653a650e38e496cd7d55eacf"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-1g.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d783230a3df31d0c589fdb20894729897d85db30"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-1h.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f282bd60e9937caeef289030c9f679ad9d25242b"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-2.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1946be8d64d226bbd831a0ea0f7f15b7886801a0"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-3.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4179bc13090a9a163289db1f393170f02efc055a"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-3b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f1129e8f2b3e3c885106bceb4b74e92c123418a8"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-3c.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ae190ca41a122651941550242d659d41431d4d08"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-3d.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b77e1713d3cce04461e21a1fabe76248f76dfb12"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-5-3e.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "14939541af1b79b481bfcac384bd6c1c27b633a9"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-6-1.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "873c25d3ff77d9926fd824d8c2640f7eb0a3b7f1"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-6-1b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c075dd2b338cebf5705d8324ea217f38cd479955"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-6-1c.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "07ae45f953d672f75a3570d42090e30e51689625"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-6-2.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "03c8e3463e5be2222afa88da33b9f2a948dfff2c"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-6-2b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "711e801043726327951490d89d982cae1d69f0c3"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-6-2c.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "4b2460989edc476b533f30159c2c4a73b982df3d"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-6-3.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "fadbe75d0d26f25525b816a6367b93ccfbc988ef"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-6-3b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a02772006bbf746ef8ba8426d4c50bf5ccd6843f"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-6-4.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "fe0dd0722e442e2cd3670a4ea2d3a81c3d9cef5b"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-7-1.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9e0ef1acc04708e7980b76294348bf5e58f3101e"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-7-1b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e9a921dfa0546ee4aae3b8829e3a85aeb20e3da5"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-7-2.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8ace3872b671a88c5424f3d25dcb8a6a2e874aac"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-7-2b.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "64cca021b02a24e7c0b6cc99d78bebe9bf6343de"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-7-2c.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a5c71f161b444d31b4639e83ba52be6a647f0a43"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/fig-7-2d.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c6ad11e529b3f8fbb6934d44f1b4b5ac4370f178"
+    },
+    {
+      "path": "manuals/sglang-101/figures/src/plate-sglang-request.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "695ee489527d1c03adfb7710957a9d5f7e47f6ff"
+    },
+    {
+      "path": "manuals/sglang-101/front.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "46cecc8491ad66eac982c3fc4b3377875043ecf2"
+    },
+    {
+      "path": "manuals/sglang-101/manual.json",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ecd4fa70a849c2a1a4e56b882480c4be2339991e"
+    },
+    {
+      "path": "manuals/sglang-101/sections/1-1-what-a-serving-engine-owns.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5f22b3c834ac640db39a244a8dad2de78c2b79b7"
+    },
+    {
+      "path": "manuals/sglang-101/sections/1-2-one-request-end-to-end.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dc33f3e24fadd990c9396b6bd91b5dd803739667"
+    },
+    {
+      "path": "manuals/sglang-101/sections/2-1-sglang-serve-and-the-three-processes.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bf12c0e3f1c7b51f0ff22892af16b7fe50381077"
+    },
+    {
+      "path": "manuals/sglang-101/sections/2-2-the-scheduler-loop-and-schedule-policy.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "37731b3a9f0c3a2af8a595287819f8d4a199c111"
+    },
+    {
+      "path": "manuals/sglang-101/sections/2-3-admission-and-retraction.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e4ef822e19e04548113052cff889192f39952d55"
+    },
+    {
+      "path": "manuals/sglang-101/sections/2-4-the-overlap-scheduler.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9e64f2e8f3994609883c5e0f592d4792a9dccf6e"
+    },
+    {
+      "path": "manuals/sglang-101/sections/2-5-streaming-stop-strings-and-the-openai-api.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "1e186d7d122209486d2a30d01451e49fa2fd8cb7"
+    },
+    {
+      "path": "manuals/sglang-101/sections/3-1-kv-bytes-per-token-and-the-kv-pool.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f72bf9152d76c60cdbefb1f2e201b8b2dbba73cc"
+    },
+    {
+      "path": "manuals/sglang-101/sections/3-2-mem-fraction-static-and-startup-sizing.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e3de2703b6c164fa56234f2ff37806aee3f00ba0"
+    },
+    {
+      "path": "manuals/sglang-101/sections/3-3-radixcache.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "734d37de8a0c14864263d35cade4a6f7251da2f8"
+    },
+    {
+      "path": "manuals/sglang-101/sections/3-4-prefix-friendly-prompts.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ccc9fdaac83348f657055dc1363eaa9a5e8e4de0"
+    },
+    {
+      "path": "manuals/sglang-101/sections/3-5-eviction-policies-and-hicache.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bef00c8b6898a1f703d84125e4e30ea1b4d77f28"
+    },
+    {
+      "path": "manuals/sglang-101/sections/3-6-hybrid-models-and-the-cache.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "79d8450f0af3d5a6f204ecf2f7ab04591b00c520"
+    },
+    {
+      "path": "manuals/sglang-101/sections/4-1-forwardmode-and-cuda-graphs.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "67f5df40b1f0a87a8632b30614b8ba18bd89e200"
+    },
+    {
+      "path": "manuals/sglang-101/sections/4-2-attention-backend.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "12736a86fc1a9f7d965b2cbbda4157de42da76a6"
+    },
+    {
+      "path": "manuals/sglang-101/sections/4-3-quantization.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a2e7d736d081cd715f94c71d2cd4a36211c6ca0a"
+    },
+    {
+      "path": "manuals/sglang-101/sections/4-4-speculative-decoding.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dc0c91e9339424fa3417f4ea57e755798516a9ad"
+    },
+    {
+      "path": "manuals/sglang-101/sections/4-5-structured-outputs-with-xgrammar.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "088fd86091aab410af817c79d5bfff2467c61a23"
+    },
+    {
+      "path": "manuals/sglang-101/sections/4-6-deterministic-inference-and-logprobs.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "5712b4e7afbd6e4fd5bd2c83f3d56d1fb8cc35a9"
+    },
+    {
+      "path": "manuals/sglang-101/sections/5-1-sglang-benchmark-serving.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b6102920b80dc44091c22966dd7d462d94a8b7c3"
+    },
+    {
+      "path": "manuals/sglang-101/sections/5-2-the-metrics-endpoint.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "282589160b3c09561288594d5541648d7b857184"
+    },
+    {
+      "path": "manuals/sglang-101/sections/5-3-reading-other-peoples-benchmarks.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b5e1dccbc83b894f5bc61c94d3be725680898178"
+    },
+    {
+      "path": "manuals/sglang-101/sections/6-1-tp-size-dp-size-and-attn-dp-size.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f210b12a95e881e17f358f380fedb993042cb7cf"
+    },
+    {
+      "path": "manuals/sglang-101/sections/6-2-moe-serving-deepep-and-eplb.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c341b1492d93d63e7418a729f766bbe9b862ed93"
+    },
+    {
+      "path": "manuals/sglang-101/sections/6-3-prefill-decode-disaggregation.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b0412366161178f660c893464d5e3c24707b67cf"
+    },
+    {
+      "path": "manuals/sglang-101/sections/6-4-sgl-model-gateway.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f27350ce89fbf6f251d2b7567db69855a358cf12"
+    },
+    {
+      "path": "manuals/sglang-101/sections/7-1-operating-sglang.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "d199481f88a6279ca635b2ea3c53da8f5dd3bce0"
+    },
+    {
+      "path": "manuals/sglang-101/sections/7-2-sglang-as-an-rl-rollout-engine.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7cb83e1d87487a982f6591445680c7a5f396a418"
+    },
+    {
+      "path": "manuals/sglang-101/sections/r-1-flags-and-defaults.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "e3496edf65e62715835f4b57041a745b7d9bc77c"
+    },
+    {
+      "path": "manuals/sglang-101/sections/r-2-metrics.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "a280d190ac86906a1b3756af6948b7912674bef2"
+    },
+    {
+      "path": "manuals/sglang-101/sections/r-3-incident-index.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3c910df0b8922fb5c54f1100b1340dca744b4d2c"
+    },
+    {
+      "path": "manuals/sglang-101/sections/r-4-glossary.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ed5cf246be5e97d785523229636083d1f4fa6981"
+    },
+    {
+      "path": "manuals/sglang-101/sections/r-5-sources.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c9500a9eaa92e50c5ae42c3b17151ce049c41277"
+    },
+    {
+      "path": "manuals/sglang-101/sections/r-6-figure-index.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "dd9d6a9ee56073f0ec1424c4c2655d09a2a31dc7"
+    },
+    {
+      "path": "phases/01-math-foundations/01-linear-algebra-intuition/docs/en.md",
+      "status": "modified",
+      "old_sha": "b12793fc2faf6c8e217eadf68edbd32d595338fe",
+      "new_sha": "d1b8e4179de28f48885848e932fed3f255bc1e34"
+    },
+    {
+      "path": "phases/13-tools-and-protocols/README.md",
+      "status": "modified",
+      "old_sha": "33dd5a23b2ec9ed6024cd0ad4d83d431f5a0c02e",
+      "new_sha": "1590fc21cb0f6dff752d199cc4fff8705ce8b6e4"
+    },
+    {
+      "path": "scripts/agent-machine/build.mjs",
+      "status": "modified",
+      "old_sha": "ad8276dd7f0ddbeb14e0aec9d8d7fc7aca1bbeae",
+      "new_sha": "c580256b4bdf29719f41cd78e26e4593060c5c69"
+    },
+    {
+      "path": "scripts/cheatsheets/generate.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "f4dac0a2ec07931c2a06712a9c3a5c68278a7c25"
+    },
+    {
+      "path": "scripts/cheatsheets/prompt.md",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "b85914ad1bd19de0bfdbafe99286b0b79396c691"
+    },
+    {
+      "path": "scripts/cheatsheets/report.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9f92c155a0c775009c9ac86cb6080eb391d7a96f"
+    },
+    {
+      "path": "scripts/cheatsheets/test_generate.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c11270236a9f1442c53992268b68d41b440ecde1"
+    },
+    {
+      "path": "scripts/link_check.py",
+      "status": "modified",
+      "old_sha": "ce8ff9977b621807f970e9f9e2d17a926ef5e988",
+      "new_sha": "64910f4bca4c8772a75a6fda6b1a150de1a4ee42"
+    },
+    {
+      "path": "scripts/print_cheatsheets.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "519d9a3e3d4c0e22ea0c5306d9eedbdc9e514104"
+    },
+    {
+      "path": "scripts/test_function_bundles.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "8c9f823e62b6af998f9f083d8f4636d6a1f3a2f8"
+    },
+    {
+      "path": "scripts/test_link_check.py",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "64e584aa7988b035f78b465d4b8ec909ce7d699e"
+    },
+    {
+      "path": "site/about.html",
+      "status": "modified",
+      "old_sha": "22955713df6002e60cc7554f2ca1d67775beb4d2",
+      "new_sha": "c4165c71a1d2b18029277d75ca5ab13f2b72517c"
+    },
+    {
+      "path": "site/assessment.html",
+      "status": "modified",
+      "old_sha": "9077210b8497c889712c531da14490b2476b6807",
+      "new_sha": "6f3bd7dd0e9362ed7fcb7072a0514340bfdfb0e4"
+    },
+    {
+      "path": "site/blogs.html",
+      "status": "modified",
+      "old_sha": "16b30bb032346d01cf43ac319653143f82d11f4e",
+      "new_sha": "d7e69abb6dee0c4a9baea26bfe411c98943cdced"
+    },
+    {
+      "path": "site/build-cheatsheets.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "947a79c4b9922155be433c2b847bb60596180f37"
+    },
+    {
+      "path": "site/build-hubs.js",
+      "status": "modified",
+      "old_sha": "36e4f1405ac92d12ad1bd2585279fdb0ef51f1cb",
+      "new_sha": "01c55af9750538bc1c94373505784b9a81bd6cc4"
+    },
+    {
+      "path": "site/build-manuals.js",
+      "status": "modified",
+      "old_sha": "7e03f4c79e65aad660c52feb69b2398f4fe937a2",
+      "new_sha": "e6ee5248d5f6db456cef2f20984668e4427f0374"
+    },
+    {
+      "path": "site/build-skills.js",
+      "status": "modified",
+      "old_sha": "cacdfd21353a481bc2709af6014a781a972590b9",
+      "new_sha": "53fe8e0de960a2a0d62ead31f9c36e8d95ce0b34"
+    },
+    {
+      "path": "site/build.js",
+      "status": "modified",
+      "old_sha": "cafd1f689a27e90b89059fa51fa889e3c17e8a0f",
+      "new_sha": "21ad17856af5fabaf7df378e1cfbd0c0d9827bb4"
+    },
+    {
+      "path": "site/catalog.html",
+      "status": "modified",
+      "old_sha": "ab8de081a21d94308966eb8dd9d0a7476371bdb5",
+      "new_sha": "f89fd8bf6046bff97ea7446cbd3169a256168953"
+    },
+    {
+      "path": "site/certification.html",
+      "status": "modified",
+      "old_sha": "4028e78edab7a38e59109b8a6ca99366a347b1fa",
+      "new_sha": "4604a7acf47be41ffc845f5af7094f871407df9a"
+    },
+    {
+      "path": "site/certifications.html",
+      "status": "modified",
+      "old_sha": "a1fc093a31c7f83b92af94e68a407065122f15df",
+      "new_sha": "419128dfbcc281fcfaad229dc84668416ad5cdca"
+    },
+    {
+      "path": "site/cheatsheet-evidence.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "988d5496bb2bb2dd2c0bf4793fd7e44da4a2f8ae"
+    },
+    {
+      "path": "site/cheatsheet-topics.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "c9e334544a5ac5cb8fdbac18a20abd44ecf7f977"
+    },
+    {
+      "path": "site/cheatsheets-print.css",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "fe112cbafef5530308ea29a5662a0f5f0b2c216a"
+    },
+    {
+      "path": "site/cheatsheets.css",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "7406d4a47606d23bd4d97a2982d026a9e0a134aa"
+    },
+    {
+      "path": "site/cheatsheets.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "db5e726a0c8623dd610b6027cb2a75fdf56a0b11"
+    },
+    {
+      "path": "site/contact.html",
+      "status": "modified",
+      "old_sha": "de3ccc6072f3e604e31ca1a344dcda4d2fb753c7",
+      "new_sha": "c42398f5cbbdf58dd19b7a2d9907751714f64c04"
+    },
+    {
+      "path": "site/data.js",
+      "status": "modified",
+      "old_sha": "56d49a41d56f9ad1d0c044b781a3f5e88920fa0f",
+      "new_sha": "2dd84557427f07a0c427bd8a465f6262b1726227"
+    },
+    {
+      "path": "site/developer.html",
+      "status": "modified",
+      "old_sha": "4d13a2ffd5ddf4128e3322a696be6d9d7a777fd6",
+      "new_sha": "5859b2d1a504df09cfa1805374734d97b6dea794"
+    },
+    {
+      "path": "site/figures-agents2.js",
+      "status": "modified",
+      "old_sha": "22f8dde632f44b3c4f4f9faa904acdd516ff76c8",
+      "new_sha": "33516156e435e9367d4aeb789e90c0b582407cc9"
+    },
+    {
+      "path": "site/glossary.html",
+      "status": "modified",
+      "old_sha": "d5a3025ee50c65f82c93e4cce89e906d25459a66",
+      "new_sha": "1700c23384727ec212a87f0f6ae4d29156322556"
+    },
+    {
+      "path": "site/header.js",
+      "status": "modified",
+      "old_sha": "c0e50656a794d9664ca9c937bbd491c01830ca57",
+      "new_sha": "a27f8038654cbd9b8a3fa936f10e7ac6e6e9e3b6"
+    },
+    {
+      "path": "site/highlights-anchor.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "27673171aa665e52c71543459fbf5e128d818ae9"
+    },
+    {
+      "path": "site/highlights-page.css",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3f76a5bf5768246b44e4858f0e186bfc53de7074"
+    },
+    {
+      "path": "site/highlights-page.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "46b3dfb7335845a4b25fa21164fd367ff7cb1679"
+    },
+    {
+      "path": "site/highlights-store.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "035ffdcdfff63f2b1c5f88dcfbef6e37cfea7b68"
+    },
+    {
+      "path": "site/highlights.css",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "43bbd32432ecd6d9b2e3ae4e562617206a8dee9a"
+    },
+    {
+      "path": "site/highlights.html",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9247b9a477393d6493a115492922e367e3ffe005"
+    },
+    {
+      "path": "site/highlights.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "18cba3d02bbc6ef892f5c09e059a3bb1661b37a3"
+    },
+    {
+      "path": "site/how-to-learn.html",
+      "status": "modified",
+      "old_sha": "19e89b98ef58fa2c197e3dd5bbb0295def28fd73",
+      "new_sha": "5aaf540c561ffb8c4d37a64924bf4e690d6bab06"
+    },
+    {
+      "path": "site/hubs.css",
+      "status": "modified",
+      "old_sha": "5f72d47e28b14247d962563660c1544310e876fc",
+      "new_sha": "68eedd3747e8b91bfaeb83cfdee7e2deb9cea48a"
+    },
+    {
+      "path": "site/index.html",
+      "status": "modified",
+      "old_sha": "8c012aa50644005696337a6508de9665a67f0c1a",
+      "new_sha": "4100fb294aa4b00eb4ef845c052dee984c1b687d"
+    },
+    {
+      "path": "site/inside-an-ai-agent.html",
+      "status": "modified",
+      "old_sha": "ee48b1f07d5a7f75545d2c9330422e9422bc4cfe",
+      "new_sha": "ce64c189ba4548601acb08e8fc90f52c3c75e44e"
+    },
+    {
+      "path": "site/learning-paths.html",
+      "status": "modified",
+      "old_sha": "fbe9bb8d8e94eb2555995e4813d8d68441d2124e",
+      "new_sha": "6c40cbf7c967c038b80d8473823fdf10c9c8134f"
+    },
+    {
+      "path": "site/lesson-markdown.js",
+      "status": "modified",
+      "old_sha": "5b8fbf3e98cfbd08431840aca049597007b2afab",
+      "new_sha": "979111d86553c5917fb346783c3f7274ebac6e4e"
+    },
+    {
+      "path": "site/lesson.html",
+      "status": "modified",
+      "old_sha": "b6408947d588c6091af5641741d9a33ea86180c3",
+      "new_sha": "bcd0bb77c528260e9db352ea02d5cf4e53fa147e"
+    },
+    {
+      "path": "site/privacy.html",
+      "status": "modified",
+      "old_sha": "eeb333758a44060cea096f00f4939358105a5542",
+      "new_sha": "4c5917efea874cd5a1bbda6bc300b60c78fd93b4"
+    },
+    {
+      "path": "site/project.html",
+      "status": "modified",
+      "old_sha": "27269226dfe1a8fc538ec349d6761b00dcb75816",
+      "new_sha": "7e37e588460d5073d4051c2d4893d5be172c1fb8"
+    },
+    {
+      "path": "site/projects.html",
+      "status": "modified",
+      "old_sha": "4dc98b15080a776eb273118501c4816ec76c92ea",
+      "new_sha": "03daa39694053cad12a378bbbd3a13a0a90e0def"
+    },
+    {
+      "path": "site/roadmap.html",
+      "status": "modified",
+      "old_sha": "10b622f14de00ed347c38ecfb29677deef7865da",
+      "new_sha": "37202c2ba48062b3272a3aa03e7eb1988e37f228"
+    },
+    {
+      "path": "site/skills.html",
+      "status": "modified",
+      "old_sha": "fc255cd0239e6e2b10817354c6b8869f66e46c27",
+      "new_sha": "16e9ac567462769030204ec0afddec7a388bb245"
+    },
+    {
+      "path": "site/sponsors.html",
+      "status": "modified",
+      "old_sha": "481b2ca3f44f7275b14c8743a0a2a8453bc02268",
+      "new_sha": "4c05f9f078f9377c89665403f22902ea74486416"
+    },
+    {
+      "path": "site/test_build_artifacts.js",
+      "status": "modified",
+      "old_sha": "23e7450982edc48640a0790dbb7e356d9a38fd78",
+      "new_sha": "4490f836b7a216375b4413e392c8d3b3f7fee18a"
+    },
+    {
+      "path": "site/test_cheatsheet_topics.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "9459e3b3cc7234f3f028e2a9cac7079348da7090"
+    },
+    {
+      "path": "site/test_cheatsheets.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "826c8c2e9803687e67d0dbe773c48dea3067bc70"
+    },
+    {
+      "path": "site/test_highlights.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "bd6df6f0386ce82d3c9ca481f15677bf68964cfc"
+    },
+    {
+      "path": "site/test_highlights_page.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "3c2b7381173d74fd4c5481605c1f91914dff5443"
+    },
+    {
+      "path": "site/test_highlights_store.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "219d803e7c60d850a7eea08894679396c1026d20"
+    },
+    {
+      "path": "site/test_lesson_markdown_links.js",
+      "status": "added",
+      "old_sha": null,
+      "new_sha": "ce28a69fe275533b8e8040c253e623c84ecaa34e"
+    },
+    {
+      "path": "site/test_lesson_math.js",
+      "status": "modified",
+      "old_sha": "cc2509fcf17c7db262e4643af53e375884f81860",
+      "new_sha": "76097eb620a74ed49e42eb0d6831c58d56c9dd75"
+    },
+    {
+      "path": "site/test_manuals.js",
+      "status": "modified",
+      "old_sha": "14bdfd72302bdd5f55489ad1555e4e5d2461c8a0",
+      "new_sha": "8e0e91a2d3caf832f07844dd619e9d2042753eff"
+    },
+    {
+      "path": "site/test_sponsors.js",
+      "status": "modified",
+      "old_sha": "19321022b1815f9e71546da2c13c51e0499ddde8",
+      "new_sha": "786c443256ac2db796975bbb6d6ca006d24ea02c"
+    },
+    {
+      "path": "site/test_writing_mirror.js",
+      "status": "modified",
+      "old_sha": "f9f7bf64a91ceba3753de69d9a27ff6a8286f062",
+      "new_sha": "4eced8a418b1cdf0a30c8baa882b86bb5ef71322"
+    },
+    {
+      "path": "site/ui-strings.json",
+      "status": "modified",
+      "old_sha": "1ccab4545dd3f55b43c42c8e1573ee531c126a48",
+      "new_sha": "afc92adc7f4bddb930c85c5acff3156cbb32b8ed"
+    },
+    {
+      "path": "site/writing-mirror.js",
+      "status": "modified",
+      "old_sha": "d8d3d607c82264d95773bf160fa2245708fe0848",
+      "new_sha": "c187e24f90c493dc0d2217ea69e9af5a041a6183"
+    },
+    {
+      "path": "vercel.json",
+      "status": "modified",
+      "old_sha": "78f25188f29b034a6acad63b3ba87bfb5d10e292",
+      "new_sha": "625a221484eef18893cafccc331d075742a67a31"
+    }
+  ],
+  "status": "只核官方完整树和路径变化，未读取这些后续内容，更未计知识吸收",
+  "knowledge_absorbed": false,
+  "source_program_execution": 0,
+  "current_fixed_target_remains": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "continuation_order": "先完成当前1a8剩余26项目104阶段/配套与全局，再逐项核45fa408相对1a8的变化并融合，最后复核HEAD",
+  "scope_sites": "仅第一来源；其余四站未读"
+}
