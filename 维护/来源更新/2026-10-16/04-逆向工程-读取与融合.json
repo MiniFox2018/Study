@@ -17410,10 +17410,31 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 2356,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          2356
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "2356行实现已全部静读，原模块、marshal.loads/dis、compare_interpreters与所有subprocess均未执行。",
+        "Reader.take未核negativecount/initialcursor/end，LEB通用70bit上限非Wasm位宽校验；终止byte先return可越位宽。",
+        "PYC flags保留位未拒，未知magicversion仍modernlayout；marshaller引用槽先置None但未将可递归容器先分配，self-list/dict语义有缺；counts/类型/深度/一致性/尾随bytes未充分校验。",
+        "ClassFile CP Utf8用普通utf8replace而非ModifiedUTF8；标签引用类型/版本/LongDouble末slot未全核；innerattr未要求完全消费，StackMap/Bootstrap只读count；method按name忽略descriptor不支持重载唯一定位。",
+        "JVM switch未核high>=low/npairs非负/键排序和唯一/zero padding；wide未限制可wide opcode，某大值越索引；branch目标未核指令边界/栈类型，解析不等JVMS verifier。",
+        "JVM对照按method顺序zip且不比signature/name，常量引用operand逗号后忽略invokeinterface count等；len0或漏匹配的reference不代表完整验收。",
+        "Wasm实现用canonicalORDER正确支持DataCount在Code前、Tag在Global前，与正文数字排序说法冲突；已读测试有专门顺序案例，不照正文简化。",
+        "Wasm_table/global/elem/datacount/tag直接跳过；imports kindtag等payload未处理，codebody end未先核在Code section中，function/count/type索引未全核，name子节size未受父边界约束，部分已知section不核完全消费。",
+        "Wasm decode不验证block/else/end栈类型/branchdepth，末尾无end可返回，ref.null读ULEB而heaptype为有符号类型编码、memoryindex只u8、prefixed扩展不支持；unknown报错不等完整支持或验证所有单byte版本。",
+        "CLI只核RVA起点/maxsize映射，目录存在/optional边界/CLIcb/metadata/stream大小和重复名字未全核；表游标按rowsize*count直接跳无界，slice短读不一定拒绝。",
+        "ECMA blob压缩整数不是LEB128，_element_type用uleb读TypeDefOrRef不适任意值；method/local签名count只u8，generic/vararg/pinned/多维数组等未完整解；missingkind返回type0xXX不是完整拒绝。",
+        "MethodDef ParamList只切片Name不按Sequence含return=0排序/对齐；method(name)不支持重载唯一性；fatheader实际dwordsize读取但header_size属性固定12，未解析MoreSects/EH区域与nativeentry/RVA特殊。",
+        "CLI userstrings长度末标志/保留前缀/索引界检查不全；codedindex非法tag/行引用未全拒；tokens未全table支持，unknown仅hex。",
+        "对照MetaDump只遍历expected项，无必需集合与非空门槛，多出来源表/方法可能不查；compared包括8个prefix占位但实际跳过，不把246/246当246相同深度检查。",
+        "keeps比较不同字段口径：Wasm body含locals声明、JVM/CIL是code bytes，不能拿长度直接判效率；LVT start0不是可靠区分parameter/local规则，要按descriptor/accessflags/slot宽度；PYC typesNone只是该例无注解，非所有pyc没有类型信息。"
+      ],
       "source_execution": 0
     },
     {
@@ -17424,10 +17445,18 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 390,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          390
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "390行测试全静读未运行。固定四pyc/四class/二Wasm/CLI/native与oracle/坏magic/sectionorder/跨解释器比较；原跨解释器测试会subprocess编译和marshal，未执行。",
+        "Wasm canonicalORDER测试弥补正文简化；JVM只实际比较grade code相等，不由quiz延伸为所有Code arrays完全相等；fixture读取/二进制独立静核待续。"
+      ],
       "source_execution": 0
     },
     {
@@ -17438,10 +17467,23 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 464,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          464
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "第43课464行正文全部静读，4容器pyc/JVM/Wasm/CLI及native横比、Labs/实践/验收/失败/refs；版本/工具能力/研究百分比为作者快照，未官方核不直接当今日推荐。",
+        "PYC magic必须完整匹配已支持版本，不是任意2bytes+CRLF皆可；unknownversion不能默认现代marshal layout。类型信息存储“none”说法过强，注解/字符串/常量及runtime元数据依实现与版本，names也不保证所有源名。",
+        "CPython自适应指令与公开co_code关系须核官方，不能直接采“specializedforms在同co_code”字面；sourcehash不是作者身份或程序可信证明。",
+        "JVM bigendian/CP索引/descriptor/Code/attributes有长期值；ModifiedUTF8不同普通UTF8，Long/Double占两slot；StackMapTable/MethodParameters/本地变量名保留不能概括为一律有-g才有；解析不等验证。",
+        "Wasm整数不全LEB，浮点常量固定IEEE字节；section逻辑顺序不是按1–13数字排序，DataCount/Tag位置须核规范；brtable深度/类型约束，wasm2wat roundtrip不默认每字节/全部custom保全。",
+        "CLI machine0x14c不独立证明AnyCPU/可跨位宽，要结合CLIflags/32bit要求/原生混合；元数据version不唯一反映SDK，PDB可独立或嵌入，参数名存在不等所有Release必保留。",
+        "不同语言grade整数除法定义域不同（Python//对负数与C/JVM/CLI向零），横比元数据保留不能自动说全输入行为等价。"
+      ],
       "source_execution": 0
     },
     {
@@ -17452,10 +17494,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 63,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          63
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "63行仅资料静读，不激活来源Skill；header/版本/逐事实来源/unknown框架有效，但2bytes+CRLF即pyc等简化识别、全支持reader与producer版本从metadata推断需边界。"
+      ],
       "source_execution": 0
     },
     {
@@ -17466,10 +17515,17 @@
       "official_blob_matches": true,
       "text": true,
       "line_count": 90,
-      "status": "仅机械定位/字节核对，未读全文或媒体内容",
-      "actual_read_ranges": [],
-      "actual_read_date": null,
-      "semantic_notes": [],
+      "status": "full_text_read",
+      "actual_read_ranges": [
+        [
+          1,
+          90
+        ]
+      ],
+      "actual_read_date": "2026-10-19",
+      "semantic_notes": [
+        "90行7题全读，marshal不是承诺稳定、版本magic不证明工具一定缺表、只grade测试不证明全部Code数组，PDB可嵌入；题目应按固定fixture改为有前提推论。"
+      ],
       "source_execution": 0
     },
     {
@@ -21350,11 +21406,11 @@
   ],
   "checkpoint": {
     "at_utc": "2026-10-16T22:19:12.013078+00:00",
-    "stage": "42全部原项静读/分类且动态主题已回融05，下一43核心",
+    "stage": "43核心5文件21块全读；下一fixtures/16对象静核与四容器主题",
     "full_text_primaries": 146,
     "source_execution": 0,
     "formal_writes": 0,
-    "detail": "59记录既有章增补与2全文4渲染0警告；七主题不增数量，图/43–45/手册/项目仍未完成。",
+    "detail": "60保存全部原范围和Reader/JVM/Wasm/CLI子集边界，剩余fixtures与图未读未验；源模块0执行。",
     "root_continuation": "44布局正文已提交；45续读原断点，14课/逆向手册仍未验收",
     "newly_full_text_paths_20261019": [
       "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/main.py",
