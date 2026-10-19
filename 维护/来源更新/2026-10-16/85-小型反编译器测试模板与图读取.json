@@ -1,0 +1,1379 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "manifest": {
+    "source_files": [
+      {
+        "source_file": "projects/mini-decompiler/.gitignore",
+        "sha256": "8bd477039fb47b3a6587ac34f282142e4b2d7104618afaa3d451557d4b3e67d9",
+        "bytes": 49,
+        "line_count": 2
+      },
+      {
+        "source_file": "projects/mini-decompiler/fixtures/candidates/band_wrong_table.c",
+        "sha256": "92549f6e8f1bd432c81067b0ddbf17188d9620b219763b1683349ece01595cce",
+        "bytes": 209,
+        "line_count": 11
+      },
+      {
+        "source_file": "projects/mini-decompiler/fixtures/candidates/fold_wide.c",
+        "sha256": "f7abd94024bd450c97d544a9f4f73b1cc2d9efa76a2db3ecc34c8fbf2e239812",
+        "bytes": 142,
+        "line_count": 5
+      },
+      {
+        "source_file": "projects/mini-decompiler/fixtures/heldout/extra-x86_64-O0.objdump.txt",
+        "sha256": "0e3c2548256ac35b785a8c5955bf51f8be6e1dd9422b1191396f11da4a50094f",
+        "bytes": 4817,
+        "line_count": 89
+      },
+      {
+        "source_file": "projects/mini-decompiler/fixtures/heldout/extra-x86_64-O1.objdump.txt",
+        "sha256": "7d869ce9a8094227a7ee0cd83315da8ba950981000d611d6289551e935f4b2ea",
+        "bytes": 2488,
+        "line_count": 51
+      },
+      {
+        "source_file": "projects/mini-decompiler/fixtures/heldout/extra.c",
+        "sha256": "f35c784da75af67a59ab9333c28dc948f991a8efc5b50c09689b7cbba790f5a2",
+        "bytes": 547,
+        "line_count": 30
+      },
+      {
+        "source_file": "projects/mini-decompiler/fixtures/samples-x86_64-O0.objdump.txt",
+        "sha256": "23f7f2fae7341555bb984d8a9d5489c3e3d0b5d1316cc0f5e52c4c99b8d8c67a",
+        "bytes": 6249,
+        "line_count": 117
+      },
+      {
+        "source_file": "projects/mini-decompiler/fixtures/samples-x86_64-O1.objdump.txt",
+        "sha256": "2ef9cb4aee7a0e69e4356d9bbebea29c803ff5404edecc63524e09e74ab526a2",
+        "bytes": 3524,
+        "line_count": 71
+      },
+      {
+        "source_file": "projects/mini-decompiler/fixtures/samples.c",
+        "sha256": "a6fd47ab1faa2b58b2c92c7cd5abe10eff342b87798c7c751522d382d42a4de3",
+        "bytes": 695,
+        "line_count": 37
+      },
+      {
+        "source_file": "projects/mini-decompiler/media/output.json",
+        "sha256": "658f5abd93f024066b5d0a76f261e64266e4a1a4a67bcf0530d50a74a5b939ac",
+        "bytes": 3212,
+        "line_count": 72
+      },
+      {
+        "source_file": "projects/mini-decompiler/media/run.json",
+        "sha256": "ae0884e6ae88e38df890f7da2c490b3f0e0a0895edabc081a4182616257549a8",
+        "bytes": 2376,
+        "line_count": 48
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/01-elf-loader/starter/samples/samples-x86_64-O0.objdump.txt",
+        "sha256": "23f7f2fae7341555bb984d8a9d5489c3e3d0b5d1316cc0f5e52c4c99b8d8c67a",
+        "bytes": 6249,
+        "line_count": 117
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/01-elf-loader/starter/samples/samples-x86_64-O1.objdump.txt",
+        "sha256": "2ef9cb4aee7a0e69e4356d9bbebea29c803ff5404edecc63524e09e74ab526a2",
+        "bytes": 3524,
+        "line_count": 71
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/01-elf-loader/starter/samples/samples.c",
+        "sha256": "a6fd47ab1faa2b58b2c92c7cd5abe10eff342b87798c7c751522d382d42a4de3",
+        "bytes": 695,
+        "line_count": 37
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/01-elf-loader/tests/test_stage_01.py",
+        "sha256": "baca7ff3071d41a510b0996843e95237404815644b67502f48dbf1ea26a2ca0e",
+        "bytes": 5121,
+        "line_count": 115
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/02-decoder/tests/test_stage_02.py",
+        "sha256": "eb3ad6e852ac30f61e11ddf7a1e65f221c6f318b0d991cbcd127ac23c4106193",
+        "bytes": 6901,
+        "line_count": 144
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/03-control-flow/tests/test_stage_03.py",
+        "sha256": "c269b0652a548b18fb86824dde67f1a1085360a782258217ea1e11bdb3c0faaf",
+        "bytes": 7228,
+        "line_count": 147
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/04-lift-and-ssa/tests/test_stage_04.py",
+        "sha256": "31af4db22561bf633efc458cecb4bce10f1737221d414909c8cb27617e1eee9c",
+        "bytes": 9133,
+        "line_count": 180
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/05-optimize/tests/test_stage_05.py",
+        "sha256": "17baaf4cfff316386761bb2266b803517c4de1372a8c56e4bf72c46d42402d42",
+        "bytes": 6919,
+        "line_count": 157
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/06-signature/tests/test_stage_06.py",
+        "sha256": "10b39a72cb1efdbeafb1d610f31a19622bed591e9467a48c5a8dc5b42f5d3c76",
+        "bytes": 6565,
+        "line_count": 136
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/07-structure-and-emit/tests/test_stage_07.py",
+        "sha256": "08355eb22b61a7ce0fb01af5cb6687d907fb46e5813fea44e81985627432bd3e",
+        "bytes": 6831,
+        "line_count": 152
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/08-verify/tests/test_stage_08.py",
+        "sha256": "ce7ad506ef0d4cbe1763b872480fab685aa0d588b1b6813392b666aeb945a6a2",
+        "bytes": 11636,
+        "line_count": 217
+      }
+    ],
+    "same_sha_reuses": [
+      {
+        "source_file": "projects/mini-decompiler/stages/01-elf-loader/starter/minidec/__init__.py",
+        "sha256": "eb4e72c7ca2b3242527b39bd840ced588631e97404cea0e72e3131406cdeec59",
+        "bytes": 23,
+        "line_count": 2,
+        "reuse_from": "projects/mini-decompiler/solution/minidec/__init__.py"
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/01-elf-loader/starter/minidec/__main__.py",
+        "sha256": "13a1a5b340cdcfc1902b62be90e508c7c71886000d5bf087e7854aadf09fb35e",
+        "bytes": 52,
+        "line_count": 5,
+        "reuse_from": "projects/mini-decompiler/solution/minidec/__main__.py"
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/01-elf-loader/starter/minidec/cli.py",
+        "sha256": "5d1305193b29ac2de71368fde75de858854ff0b87cd8fec2bd53d064ba3301bb",
+        "bytes": 5169,
+        "line_count": 120,
+        "reuse_from": "projects/mini-decompiler/solution/minidec/cli.py"
+      }
+    ],
+    "starter_deltas": [
+      {
+        "source_file": "projects/mini-decompiler/stages/01-elf-loader/starter/minidec/elf.py",
+        "sha256": "a28818684d6206e919aa2a9aa46679c2155d6fc482a0069901a70cf362457ed3",
+        "bytes": 5157,
+        "line_count": 192,
+        "reuse_canonical": "projects/mini-decompiler/solution/minidec/elf.py",
+        "equal_ranges": [
+          {
+            "starter": [
+              1,
+              133
+            ],
+            "canonical": [
+              1,
+              133
+            ]
+          },
+          {
+            "starter": [
+              135,
+              141
+            ],
+            "canonical": [
+              166,
+              172
+            ]
+          },
+          {
+            "starter": [
+              143,
+              144
+            ],
+            "canonical": [
+              185,
+              186
+            ]
+          },
+          {
+            "starter": [
+              146,
+              160
+            ],
+            "canonical": [
+              203,
+              217
+            ]
+          },
+          {
+            "starter": [
+              162,
+              163
+            ],
+            "canonical": [
+              224,
+              225
+            ]
+          },
+          {
+            "starter": [
+              165,
+              187
+            ],
+            "canonical": [
+              236,
+              258
+            ]
+          },
+          {
+            "starter": [
+              189,
+              192
+            ],
+            "canonical": [
+              265,
+              268
+            ]
+          }
+        ],
+        "new_ranges": [
+          [
+            134,
+            134
+          ],
+          [
+            142,
+            142
+          ],
+          [
+            145,
+            145
+          ],
+          [
+            161,
+            161
+          ],
+          [
+            164,
+            164
+          ],
+          [
+            188,
+            188
+          ]
+        ],
+        "all_lines_accounted": true
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/02-decoder/starter/minidec/decoder.py",
+        "sha256": "37e6cc09e89c1becd28ec9d0ea0a934fa78708f3b6c2949be9fd25a8631d8f54",
+        "bytes": 14308,
+        "line_count": 398,
+        "reuse_canonical": "projects/mini-decompiler/solution/minidec/decoder.py",
+        "equal_ranges": [
+          {
+            "starter": [
+              1,
+              251
+            ],
+            "canonical": [
+              1,
+              251
+            ]
+          },
+          {
+            "starter": [
+              253,
+              286
+            ],
+            "canonical": [
+              284,
+              317
+            ]
+          },
+          {
+            "starter": [
+              288,
+              290
+            ],
+            "canonical": [
+              332,
+              334
+            ]
+          },
+          {
+            "starter": [
+              292,
+              294
+            ],
+            "canonical": [
+              423,
+              425
+            ]
+          },
+          {
+            "starter": [
+              296,
+              324
+            ],
+            "canonical": [
+              448,
+              476
+            ]
+          },
+          {
+            "starter": [
+              326,
+              398
+            ],
+            "canonical": [
+              491,
+              563
+            ]
+          }
+        ],
+        "new_ranges": [
+          [
+            252,
+            252
+          ],
+          [
+            287,
+            287
+          ],
+          [
+            291,
+            291
+          ],
+          [
+            295,
+            295
+          ],
+          [
+            325,
+            325
+          ]
+        ],
+        "all_lines_accounted": true
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/03-control-flow/starter/minidec/cfg.py",
+        "sha256": "8b6b07c10acec0fce00968f2bf9cbbbd58fe732629dd4a39856bd191efac8e8b",
+        "bytes": 9883,
+        "line_count": 263,
+        "reuse_canonical": "projects/mini-decompiler/solution/minidec/cfg.py",
+        "equal_ranges": [
+          {
+            "starter": [
+              1,
+              69
+            ],
+            "canonical": [
+              1,
+              69
+            ]
+          },
+          {
+            "starter": [
+              71,
+              99
+            ],
+            "canonical": [
+              119,
+              147
+            ]
+          },
+          {
+            "starter": [
+              101,
+              103
+            ],
+            "canonical": [
+              154,
+              156
+            ]
+          },
+          {
+            "starter": [
+              105,
+              108
+            ],
+            "canonical": [
+              196,
+              199
+            ]
+          },
+          {
+            "starter": [
+              110,
+              157
+            ],
+            "canonical": [
+              218,
+              265
+            ]
+          },
+          {
+            "starter": [
+              159,
+              160
+            ],
+            "canonical": [
+              277,
+              278
+            ]
+          },
+          {
+            "starter": [
+              162,
+              169
+            ],
+            "canonical": [
+              315,
+              322
+            ]
+          },
+          {
+            "starter": [
+              171,
+              191
+            ],
+            "canonical": [
+              335,
+              355
+            ]
+          },
+          {
+            "starter": [
+              193,
+              194
+            ],
+            "canonical": [
+              376,
+              377
+            ]
+          },
+          {
+            "starter": [
+              196,
+              197
+            ],
+            "canonical": [
+              380,
+              381
+            ]
+          },
+          {
+            "starter": [
+              199,
+              212
+            ],
+            "canonical": [
+              394,
+              407
+            ]
+          },
+          {
+            "starter": [
+              214,
+              226
+            ],
+            "canonical": [
+              433,
+              445
+            ]
+          },
+          {
+            "starter": [
+              228,
+              263
+            ],
+            "canonical": [
+              460,
+              495
+            ]
+          }
+        ],
+        "new_ranges": [
+          [
+            70,
+            70
+          ],
+          [
+            100,
+            100
+          ],
+          [
+            104,
+            104
+          ],
+          [
+            109,
+            109
+          ],
+          [
+            158,
+            158
+          ],
+          [
+            161,
+            161
+          ],
+          [
+            170,
+            170
+          ],
+          [
+            192,
+            192
+          ],
+          [
+            195,
+            195
+          ],
+          [
+            198,
+            198
+          ],
+          [
+            213,
+            213
+          ],
+          [
+            227,
+            227
+          ]
+        ],
+        "all_lines_accounted": true
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/04-lift-and-ssa/starter/minidec/ir.py",
+        "sha256": "e7e2b6be19f966e48a80c6e9ce75e86d22d3c5fb6f093c0cda7c4fe3a4a18ea5",
+        "bytes": 11402,
+        "line_count": 416,
+        "reuse_canonical": "projects/mini-decompiler/solution/minidec/ir.py",
+        "equal_ranges": [
+          {
+            "starter": [
+              1,
+              240
+            ],
+            "canonical": [
+              1,
+              240
+            ]
+          },
+          {
+            "starter": [
+              242,
+              335
+            ],
+            "canonical": [
+              390,
+              483
+            ]
+          },
+          {
+            "starter": [
+              337,
+              416
+            ],
+            "canonical": [
+              506,
+              585
+            ]
+          }
+        ],
+        "new_ranges": [
+          [
+            241,
+            241
+          ],
+          [
+            336,
+            336
+          ]
+        ],
+        "all_lines_accounted": true
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/04-lift-and-ssa/starter/minidec/ssa.py",
+        "sha256": "8e2fe1cc899bc4ae62b86c8b9f95b71ea4bf09db9f70244308de639b95ca9e2d",
+        "bytes": 578,
+        "line_count": 23,
+        "reuse_canonical": "projects/mini-decompiler/solution/minidec/ssa.py",
+        "equal_ranges": [
+          {
+            "starter": [
+              1,
+              8
+            ],
+            "canonical": [
+              1,
+              8
+            ]
+          },
+          {
+            "starter": [
+              10,
+              12
+            ],
+            "canonical": [
+              34,
+              36
+            ]
+          },
+          {
+            "starter": [
+              14,
+              22
+            ],
+            "canonical": [
+              114,
+              122
+            ]
+          }
+        ],
+        "new_ranges": [
+          [
+            9,
+            9
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            23,
+            23
+          ]
+        ],
+        "all_lines_accounted": true
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/05-optimize/starter/minidec/passes.py",
+        "sha256": "ce6beb44780d42227e3e96218fa0f36bf2fcbc36411348d514902cf2f944d509",
+        "bytes": 5211,
+        "line_count": 154,
+        "reuse_canonical": "projects/mini-decompiler/solution/minidec/passes.py",
+        "equal_ranges": [
+          {
+            "starter": [
+              1,
+              47
+            ],
+            "canonical": [
+              1,
+              47
+            ]
+          },
+          {
+            "starter": [
+              49,
+              51
+            ],
+            "canonical": [
+              55,
+              57
+            ]
+          },
+          {
+            "starter": [
+              53,
+              98
+            ],
+            "canonical": [
+              65,
+              110
+            ]
+          },
+          {
+            "starter": [
+              100,
+              128
+            ],
+            "canonical": [
+              210,
+              238
+            ]
+          },
+          {
+            "starter": [
+              130,
+              132
+            ],
+            "canonical": [
+              250,
+              252
+            ]
+          },
+          {
+            "starter": [
+              134,
+              136
+            ],
+            "canonical": [
+              279,
+              281
+            ]
+          },
+          {
+            "starter": [
+              138,
+              140
+            ],
+            "canonical": [
+              303,
+              305
+            ]
+          },
+          {
+            "starter": [
+              142,
+              153
+            ],
+            "canonical": [
+              356,
+              367
+            ]
+          }
+        ],
+        "new_ranges": [
+          [
+            48,
+            48
+          ],
+          [
+            52,
+            52
+          ],
+          [
+            99,
+            99
+          ],
+          [
+            129,
+            129
+          ],
+          [
+            133,
+            133
+          ],
+          [
+            137,
+            137
+          ],
+          [
+            141,
+            141
+          ],
+          [
+            154,
+            154
+          ]
+        ],
+        "all_lines_accounted": true
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/06-signature/starter/minidec/types.py",
+        "sha256": "bb35985be51307af84796a45588167e3b1dfec07d94b8a17246a3be9f1596cbe",
+        "bytes": 3111,
+        "line_count": 98,
+        "reuse_canonical": "projects/mini-decompiler/solution/minidec/types.py",
+        "equal_ranges": [
+          {
+            "starter": [
+              1,
+              77
+            ],
+            "canonical": [
+              1,
+              77
+            ]
+          },
+          {
+            "starter": [
+              79,
+              81
+            ],
+            "canonical": [
+              84,
+              86
+            ]
+          },
+          {
+            "starter": [
+              83,
+              85
+            ],
+            "canonical": [
+              127,
+              129
+            ]
+          },
+          {
+            "starter": [
+              87,
+              89
+            ],
+            "canonical": [
+              157,
+              159
+            ]
+          },
+          {
+            "starter": [
+              91,
+              93
+            ],
+            "canonical": [
+              169,
+              171
+            ]
+          },
+          {
+            "starter": [
+              95,
+              97
+            ],
+            "canonical": [
+              227,
+              229
+            ]
+          }
+        ],
+        "new_ranges": [
+          [
+            78,
+            78
+          ],
+          [
+            82,
+            82
+          ],
+          [
+            86,
+            86
+          ],
+          [
+            90,
+            90
+          ],
+          [
+            94,
+            94
+          ],
+          [
+            98,
+            98
+          ]
+        ],
+        "all_lines_accounted": true
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/07-structure-and-emit/starter/minidec/emit.py",
+        "sha256": "967bd6586451d9aaea6e421d45bcf73b5797fe68e04e38ffd1c6205ebfe29a2a",
+        "bytes": 8471,
+        "line_count": 225,
+        "reuse_canonical": "projects/mini-decompiler/solution/minidec/emit.py",
+        "equal_ranges": [
+          {
+            "starter": [
+              1,
+              204
+            ],
+            "canonical": [
+              1,
+              204
+            ]
+          },
+          {
+            "starter": [
+              206,
+              208
+            ],
+            "canonical": [
+              214,
+              216
+            ]
+          },
+          {
+            "starter": [
+              210,
+              212
+            ],
+            "canonical": [
+              226,
+              228
+            ]
+          },
+          {
+            "starter": [
+              214,
+              216
+            ],
+            "canonical": [
+              239,
+              241
+            ]
+          },
+          {
+            "starter": [
+              218,
+              220
+            ],
+            "canonical": [
+              297,
+              299
+            ]
+          },
+          {
+            "starter": [
+              222,
+              224
+            ],
+            "canonical": [
+              310,
+              312
+            ]
+          }
+        ],
+        "new_ranges": [
+          [
+            205,
+            205
+          ],
+          [
+            209,
+            209
+          ],
+          [
+            213,
+            213
+          ],
+          [
+            217,
+            217
+          ],
+          [
+            221,
+            221
+          ],
+          [
+            225,
+            225
+          ]
+        ],
+        "all_lines_accounted": true
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/07-structure-and-emit/starter/minidec/structure.py",
+        "sha256": "da42781bbb8ab7316d9ab3a09bbea9ede5c4586dc271053b8ad9e872bfe08106",
+        "bytes": 4674,
+        "line_count": 130,
+        "reuse_canonical": "projects/mini-decompiler/solution/minidec/structure.py",
+        "equal_ranges": [
+          {
+            "starter": [
+              1,
+              102
+            ],
+            "canonical": [
+              1,
+              102
+            ]
+          },
+          {
+            "starter": [
+              104,
+              113
+            ],
+            "canonical": [
+              124,
+              133
+            ]
+          },
+          {
+            "starter": [
+              115,
+              116
+            ],
+            "canonical": [
+              168,
+              169
+            ]
+          },
+          {
+            "starter": [
+              118,
+              119
+            ],
+            "canonical": [
+              186,
+              187
+            ]
+          },
+          {
+            "starter": [
+              121,
+              130
+            ],
+            "canonical": [
+              218,
+              227
+            ]
+          }
+        ],
+        "new_ranges": [
+          [
+            103,
+            103
+          ],
+          [
+            114,
+            114
+          ],
+          [
+            117,
+            117
+          ],
+          [
+            120,
+            120
+          ]
+        ],
+        "all_lines_accounted": true
+      },
+      {
+        "source_file": "projects/mini-decompiler/stages/08-verify/starter/minidec/verify.py",
+        "sha256": "ebb9ccb918f73255bfe3ed175275dd87b100c6c403fb8d20a277818416aa92ca",
+        "bytes": 14378,
+        "line_count": 363,
+        "reuse_canonical": "projects/mini-decompiler/solution/minidec/verify.py",
+        "equal_ranges": [
+          {
+            "starter": [
+              1,
+              3
+            ],
+            "canonical": [
+              1,
+              3
+            ]
+          },
+          {
+            "starter": [
+              4,
+              52
+            ],
+            "canonical": [
+              5,
+              53
+            ]
+          },
+          {
+            "starter": [
+              54,
+              56
+            ],
+            "canonical": [
+              61,
+              63
+            ]
+          },
+          {
+            "starter": [
+              58,
+              127
+            ],
+            "canonical": [
+              71,
+              140
+            ]
+          },
+          {
+            "starter": [
+              129,
+              150
+            ],
+            "canonical": [
+              174,
+              195
+            ]
+          },
+          {
+            "starter": [
+              152,
+              154
+            ],
+            "canonical": [
+              208,
+              210
+            ]
+          },
+          {
+            "starter": [
+              156,
+              341
+            ],
+            "canonical": [
+              225,
+              410
+            ]
+          },
+          {
+            "starter": [
+              343,
+              345
+            ],
+            "canonical": [
+              422,
+              424
+            ]
+          },
+          {
+            "starter": [
+              347,
+              358
+            ],
+            "canonical": [
+              433,
+              444
+            ]
+          },
+          {
+            "starter": [
+              360,
+              362
+            ],
+            "canonical": [
+              483,
+              485
+            ]
+          }
+        ],
+        "new_ranges": [
+          [
+            53,
+            53
+          ],
+          [
+            57,
+            57
+          ],
+          [
+            128,
+            128
+          ],
+          [
+            151,
+            151
+          ],
+          [
+            155,
+            155
+          ],
+          [
+            342,
+            342
+          ],
+          [
+            346,
+            346
+          ],
+          [
+            359,
+            359
+          ],
+          [
+            363,
+            363
+          ]
+        ],
+        "all_lines_accounted": true
+      }
+    ],
+    "groups": [
+      {
+        "group": "text",
+        "files": 14,
+        "chunks": [
+          {
+            "chunk": 1,
+            "chars": 8457,
+            "sha256": "7f93d2a0eed4746642d4092333c5a2299b3626377da506da03318e4841c68c1b"
+          },
+          {
+            "chunk": 2,
+            "chars": 8465,
+            "sha256": "b96e5bee593647254c4f1366c448dab923eb0b4b8eb1c769f4501a6d860854e2"
+          },
+          {
+            "chunk": 3,
+            "chars": 8462,
+            "sha256": "29d37691baad179301b35aeaad7c9c95c87930ad0f3fdb058e8fa512fcf9110b"
+          },
+          {
+            "chunk": 4,
+            "chars": 8467,
+            "sha256": "14570e918c9b81b3ffb48c05b48a21ef1076523976c554a192ab08843a2d7e7b"
+          },
+          {
+            "chunk": 5,
+            "chars": 1895,
+            "sha256": "272ef09b59a3425733e2d37edb4c2aedaf77b542f454045548c125965fdfb3b5"
+          }
+        ]
+      },
+      {
+        "group": "starter",
+        "files": 10,
+        "chunks": [
+          {
+            "chunk": 1,
+            "chars": 8463,
+            "sha256": "6535494ff6da1057d10e1fdd86d31eaf3a8ac30d6fe54334f20f1094605b5d9e"
+          },
+          {
+            "chunk": 2,
+            "chars": 1138,
+            "sha256": "4215276a7bfd58604ab7882a9c31f471acddf38fd9b775c24685ad6332e0ca9d"
+          }
+        ]
+      },
+      {
+        "group": "tests",
+        "files": 8,
+        "chunks": [
+          {
+            "chunk": 1,
+            "chars": 8487,
+            "sha256": "f64d2b6df4bb792e8dffa170e58bdad627c152d535f2da73b6ad864d393491e2"
+          },
+          {
+            "chunk": 2,
+            "chars": 8467,
+            "sha256": "6972fb8cad7915376db702052e6d59c1ad80a32259ce6086879f70353a90d1ee"
+          },
+          {
+            "chunk": 3,
+            "chars": 8489,
+            "sha256": "e197385d9c7585def9564b7bf50ac185e5802c7d0f7f915b2bc0eb0d155c2be7"
+          },
+          {
+            "chunk": 4,
+            "chars": 8475,
+            "sha256": "78e7e46599c10cf54283c8b7c015bb993f8cfd3301d28d2ac2c16429092a8d40"
+          },
+          {
+            "chunk": 5,
+            "chars": 8495,
+            "sha256": "6831fa903cd43bc31a3808926c22cb30b5fe0a0b429fcdf9afb591dd843f1e02"
+          },
+          {
+            "chunk": 6,
+            "chars": 8365,
+            "sha256": "a9b153d7875255bfde7898db83071258f901555f0e42da87df72990fa7a8a481"
+          },
+          {
+            "chunk": 7,
+            "chars": 8449,
+            "sha256": "519e723d83328d8b57e5f65a7654100167fb13a5308779dde0347a2ff43b5c3f"
+          },
+          {
+            "chunk": 8,
+            "chars": 1725,
+            "sha256": "13d246b78a6778ae1c9145ca5ad615d647366b253bdcc38581bd1417e3242b45"
+          }
+        ]
+      }
+    ],
+    "source_exec": 0
+  },
+  "all_15_support_chunks_actually_read": true,
+  "static_tests": [
+    {
+      "file": "projects/mini-decompiler/stages/01-elf-loader/tests/test_stage_01.py",
+      "static_test_methods": 11,
+      "executed": false
+    },
+    {
+      "file": "projects/mini-decompiler/stages/02-decoder/tests/test_stage_02.py",
+      "static_test_methods": 17,
+      "executed": false
+    },
+    {
+      "file": "projects/mini-decompiler/stages/03-control-flow/tests/test_stage_03.py",
+      "static_test_methods": 12,
+      "executed": false
+    },
+    {
+      "file": "projects/mini-decompiler/stages/04-lift-and-ssa/tests/test_stage_04.py",
+      "static_test_methods": 15,
+      "executed": false
+    },
+    {
+      "file": "projects/mini-decompiler/stages/05-optimize/tests/test_stage_05.py",
+      "static_test_methods": 13,
+      "executed": false
+    },
+    {
+      "file": "projects/mini-decompiler/stages/06-signature/tests/test_stage_06.py",
+      "static_test_methods": 11,
+      "executed": false
+    },
+    {
+      "file": "projects/mini-decompiler/stages/07-structure-and-emit/tests/test_stage_07.py",
+      "static_test_methods": 10,
+      "executed": false
+    },
+    {
+      "file": "projects/mini-decompiler/stages/08-verify/tests/test_stage_08.py",
+      "static_test_methods": 16,
+      "executed": false
+    }
+  ],
+  "static_test_count": 105,
+  "eight_original_labs": {
+    "source_file": "site/figures/projects/mini-decompiler.js",
+    "sha256": "54d763f67fe7d4c8066c8d2301c0323a78f256a37b77c376aad2063e32ce0485",
+    "bytes": 23214,
+    "line_count": 455,
+    "chunks": [
+      {
+        "chunk": 1,
+        "chars": 8461,
+        "sha256": "527563eb093988331082bf4317840bab2baf6b169d93562a26e8adde2f12f985"
+      },
+      {
+        "chunk": 2,
+        "chars": 8331,
+        "sha256": "befd96ee9eb05d157b04d4bf43f8b12f4dbff6582fab765492945df3840f099c"
+      },
+      {
+        "chunk": 3,
+        "chars": 6422,
+        "sha256": "4039115295610f17b7dace5122f02df4dd557aa3dd2fb8937415ed1f972d98e5"
+      }
+    ],
+    "source_exec": 0
+  },
+  "all_3_figure_chunks_actually_read": true,
+  "semantic_notes": [
+    "58文本均闭合：此前10核心+13canonical，加22新全文/3同SHA全文复用/10精确行域复用且所有新增行实际读；后10不是抽样跳读，整文件每行都映射或呈现，starter均待补NotImplementedError。verify starter另缺import itertools，需实现时显式补依赖。",
+    "8tests105方法静态计数11+17+12+15+13+11+10+16，与作者2026-10-14runJSON一致；本库没执行105tests/评分器/clang/driver。测试多固定字节、字符串与图断言，部分shape test甚至期待xor零不写flags，未验证该序列后读ZF；套件通过不修复实现的未测语义缺口。",
+    "第7测试goto0/bracebalance主要fixtures，没有任意fallbacklabel/循环头重算/复杂多出口；stage8拒空aggregate一例没有测非空behavior+空bytes、不同key、0cell、空readconstants、多余/错序driver输出，不称严格failclosed完整。publicheldout是额外受控fixture，不是外部不可见真实评测。",
+    "samples.c thirds value+bonus可signed溢出；fold acc*31可溢出；record reads+1/total+value/除0与INT_MIN/-1都要域与trap分层，spare未被任何本函访问，不可删成原struct只有2成员。heldout weighted乘3和span_end加法也可能UB，原有限网格包含limits不能在C语义上直接全域推广。",
+    "media输出只作者fold验证30cells/0mismatch/bytes38vs40/arm64Darwin，非所有五函数183cell完整输出；183来自正文及集合数独立推导，不能冒称media存全183结果。output PNG只尾部结果，runPNG见starter失败与solution105通过；未逐帧视觉GIF。",
+    "elfLab取两个section基址都0的符号坐标算offset，stored=S+A-P省略实际linkedsectionbase，不能当运行VA。field随size固定变化target不变是公式坐标消去，源码stage1正文称field改变target会等量移动并非所有控制联合成立。",
+    "decoderLab只是字段示意：parseInt容坏后缀、16bitnames用REG32、B8/accumulator等被误作ModRM、SIBmod0base5缺disp4、立即数把所有剩余字节当一个field、不验证op范围/截断/15limit；不能用该UI判断decoder正确或拿计量数当反汇编oracle。Pythondecoder更完整但仍子集。",
+    "graphLab固定5node+5baseedges与back/entryLoop/skip，Cooper算法/entryDF可解释；summary“无backedge故无loop”只当前可约图，任意irreduciblegraph有cycle却可无支配回边。ssaLab迭代DF给entry隐含caller x0来源，未运行完整rename/width处理。",
+    "magicLab BigInt仅控制shift32..40/d2..100/int32；m须signed32fit比Pythonmagic_divisor更严格，product无限BigInt未截断但当前m范围在signed64，error bound依全域论证前提；单x展示不是全域穷举。signatureLab仅3寄存器示例且unusedprefix解释比Pythonreport准确，不自动恢复完整源声明。",
+    "structureLab由选择项直接套模板，headerExit checkbox不能证明CFG满足while形状；固定goto0不是测试实际结构化。verifyLab perScalar=base+2*constants不是实际集合并/邻居：band真实5边界新增4/5/6共3，UI同设只加2；若邻域相交又少增，不可把图公式当实际计数。还忽略reloc/常量变化、空来源、0case、source身份等，UIpass只是模拟状态不收据。"
+  ],
+  "source_exec": 0,
+  "stage_accepted": 0,
+  "whole_update_complete": false
+}
