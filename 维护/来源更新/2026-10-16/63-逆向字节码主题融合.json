@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "status": "43全部57原项已静读/同SHA复用或数据核，08主题已写，原图与14课最终验收未完",
+  "records": [
+    "60-逆向第43课读取断点.json",
+    "61-逆向第43课案例读取.json",
+    "62-逆向第43课二进制静核.json"
+  ],
+  "formal_writes": [
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+      "sha256": "caeaae854c438712c5036e36874eb87c64bc2b189a006fa32feff39a05637cb7",
+      "role": "学习导航",
+      "last_fusion_date": "2026-10-19"
+    },
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/08-字节码与托管容器.md",
+      "role": "新增字节码与托管容器独立学习主题",
+      "sha256": "9d9e97971fd8171e694826bb6098f12a3d34170140d5f560217ee20612bdff69",
+      "last_fusion_date": "2026-10-19"
+    }
+  ],
+  "knowledge_additions": [
+    "pyc16B header/hash与timestamp、magic只指格式不补丁版、marshal/codeobject元数据/closure/异常表、版本opcode/cache/公开co_code非必运行内部流",
+    "JVM17CP tags分组/索引链/descriptor/Code与可选debug/MethodParameters/ModifiedUTF8/longdouble两slot、switch36B手解与opcode相对坐标",
+    "Wasmcanonical节序/导入索引/locals与body坐标/结构深度br_table/name与export、非最短LEB位宽和float固定宽、custom与roundtrip边界",
+    "CLI PE目录14到metadata五stream/14表、HeapSizes与codedwidth、token/ParamSequence/blob压缩整数非LEB、tiny/fat与ILswitch基准",
+    "横比仅固定容器元数据；Python grade110反例、除法/溢出/host副作用/Code长度口径，不写全输入等价或通用准确率",
+    "reference必须非空有完整必需集合和方法identity，不把zip/忽略prefix/空mismatch等当全通过"
+  ],
+  "official_selected_reads": [
+    {
+      "url": "https://peps.python.org/pep-0552/",
+      "scope": "16B头/flags/两类失效检查必要段"
+    },
+    {
+      "url": "https://github.com/python/cpython/blob/v3.14.0/Include/internal/pycore_magic_number.h",
+      "scope": "完整官方头中3627和token规则，借gh只读下载未执行",
+      "sha256": "bb62ef60ff8151ef269d61455d86c8f0d0d402d300e17df226380a75ba2a7a66"
+    },
+    {
+      "url": "https://docs.python.org/3.14/library/dis.html",
+      "scope": "版本跳转/cache/adaptive说明"
+    },
+    {
+      "url": "https://docs.python.org/3.14/c-api/code.html#c.PyCode_GetCode",
+      "scope": "公开co_code不一定实际执行流，不采原文同co_code绝对句"
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se25/html/jvms-4.html",
+      "scope": "constantpool/ModifiedUTF8/Code与MethodParameters必要段"
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se25/html/jvms-6.html#jvms-6.5.tableswitch",
+      "scope": "switchpadding和opcode相对坐标"
+    },
+    {
+      "url": "https://webassembly.github.io/spec/core/binary/modules.html",
+      "scope": "节顺序/DataCount/Tag/数量与custom，网页为2026-10-13版3.0"
+    },
+    {
+      "url": "https://webassembly.github.io/spec/core/binary/values.html",
+      "scope": "LEB位宽/非最短范围/float编码"
+    },
+    {
+      "url": "https://ecma-international.org/wp-content/uploads/ECMA-335_6th_edition_june_2012.pdf",
+      "scope": "网页工具失败后官方URL用Pythonurllib获取PDF，只用pypdf数据提取选定六页实际读；非574页全文审查",
+      "sha256": "8c1decf6d482f020776a12dd601537e024d5d5f30df130a3ea3bbf3c51adb1d6",
+      "pdf_pages_zero_based": [
+        282,
+        283,
+        298,
+        299,
+        310,
+        311
+      ],
+      "sections": [
+        "II.23.2",
+        "II.24.2.6",
+        "II.25.4.1–5"
+      ]
+    },
+    {
+      "url": "https://github.com/dotnet/runtime/blob/main/docs/design/specs/Ecma-335-Augments.md",
+      "scope": "规范与运行时补充区别定点定位，不当所有提案已成为ECMA标准"
+    }
+  ],
+  "validation": {
+    "date": "2026-10-19",
+    "new_own_u32LEB": {
+      "valid_cases": 8,
+      "reject_cases": 7,
+      "scope": "Wasm式unsigned32及完整读取边界；允许合规非最短编码，不是signedLEB/CLI压缩整数/完整Wasm验证器"
+    },
+    "renders": [
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/08-字节码与托管容器.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "72419e7c8cc3c675ce1c2bb9f6e4ba626fd394f3f358ba0c1da670ab48708905"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/08-字节码与托管容器.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "2f905c45f29115ea19365d153f82da9bf59b207974ee62b8a729fe85de4af8dd"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "e0da295044bc99102a25b35b676396226c3ddfdb8466676dc8665189fee517cd"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "7032b19f5337a5241a67076a05314ac1d9f073763e47acc8cd1db638d09448bd"
+      }
+    ],
+    "old_fences_preserved": true,
+    "source_exec": 0,
+    "new_embedded_executable_programs": 1,
+    "old_programs_rerun": 0
+  },
+  "structure_check": {
+    "说明": "结构检查不替代语义、外链在线状态和实验运行验证",
+    "Markdown总数": 668,
+    "主库Markdown": 355,
+    "学习与导航Markdown": 301,
+    "维护Markdown": 54,
+    "统计口径": "主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。",
+    "本地链接检查次数": 4582,
+    "有效Notebook": 93,
+    "已登记上游空Notebook": 1,
+    "来源文件校验数": 969,
+    "有效SVG": 395,
+    "错误": [],
+    "提示": [
+      "第 19 课解答 Notebook 是已登记的上游空文件；不能运行。"
+    ]
+  },
+  "source_exec": 0,
+  "old_programs_rerun": 0,
+  "new_embedded_executable_programs": 1,
+  "remaining": [
+    "原图语义/静态替代或明确分类及14课最终验收",
+    "44–45/逆向手册198项/两项目14stage/其它104项目stage",
+    "新增canonical配套/统一结构/学习深度/时效和最终GitHub交付"
+  ],
+  "whole_update_complete": false
+}
