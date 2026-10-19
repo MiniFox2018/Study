@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "project": "binary-inspector",
+  "status": "六阶段知识融合验收完成；原检查器/91tests/目标无执行，个人项目未替读者完成",
+  "accepted": true,
+  "source_items": 98,
+  "source_status_counts": {
+    "full_text_read": 49,
+    "binary_classified_static_data_checked": 21,
+    "demo_media_value_classified": 4,
+    "empty_package_marker_value_classified": 2,
+    "同SHA全文读取副本复用；未重复呈现": 8,
+    "same_byte_static_binary_scope_reuse": 14
+  },
+  "accepted_stage_ids": [
+    "01-headers",
+    "02-layout",
+    "03-symbols",
+    "04-linkage",
+    "05-discovery",
+    "06-report"
+  ],
+  "reading_records": [
+    "78-静态检查器项目核心读取.json",
+    "79-静态检查器参考实现静读.json",
+    "80-静态检查器测试模板与原图读取.json",
+    "81-静态检查器样本与演示静核.json"
+  ],
+  "formal_writes": [
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+      "sha256": "9e085d7a51092730e71cee91ab656371f6b47cc18a7b030852129f17752ab4ac",
+      "role": "学习导航",
+      "last_fusion_date": "2026-10-19"
+    },
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/10-实现可审计的二进制检查器.md",
+      "date": "2026-10-19",
+      "scope": "Binary Inspector六阶段工程学习与来源实现边界",
+      "sha256": "2dcfb7899431095f7bf807c8c3808f280b960bf5f66410c84a7581889b84ac81",
+      "last_fusion_date": "2026-10-19"
+    }
+  ],
+  "learning_additions": [
+    "六模块ParsedImage/索引/坐标与状态合同，复用01/07基础不镜像项目目录",
+    "头识别vstyped完整表范围、支持矩阵、COFF32头支持不代表重定位支持",
+    "字节熵H公式/15字节例/有限样本上界/零填充/全局vs局部、一个自写新程序6数学向量与排列不变核",
+    "ELF sh_link/COFF原索引与aux/nlist、Itanium替换/指针const层/支持子集与D0/1/2",
+    "重定位与PE导入/导出/ordinal/alias/forwarder/全span、MachO链页与segment域/typedaddend/regulartrie",
+    "字符串ASCII及UTF16ASCII子集、五起点方法误报/真值绑定、tally6/5/1与meter6/4/1和完整precision/recall",
+    "报告三层校验、64bitJSON/HTML上下文、128格50264B分区及粗归属，差分键丢同名/库/地址/编码等反例",
+    "六阶段自主实践和答案、作者91tests静计/演示与本库静核和个人实践分层"
+  ],
+  "validation": {
+    "date": "2026-10-19",
+    "new_own_example": {
+      "file": "计算机科学基础/10-程序分析与逆向工程/10-实现可审计的二进制检查器.md",
+      "programs": 1,
+      "execution_stdout": "3.3736\n",
+      "numeric_vectors": [
+        {
+          "input_hex": "",
+          "expected": 0.0,
+          "actual": 0.0
+        },
+        {
+          "input_hex": "00000000000000000000000000000000",
+          "expected": 0.0,
+          "actual": -0.0
+        },
+        {
+          "input_hex": "61616262",
+          "expected": 1.0,
+          "actual": 1.0
+        },
+        {
+          "input_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff",
+          "expected": 8.0,
+          "actual": 8.0
+        },
+        {
+          "input_hex": "61616162",
+          "expected": 0.8112781244591328,
+          "actual": 0.8112781244591328
+        },
+        {
+          "input_hex": "74616c6c79207265706f7274207633",
+          "expected": 3.373557262275185,
+          "actual": 3.3735572622751855
+        }
+      ],
+      "permutation_same_entropy": true,
+      "scope": "只运行本库新写Counter/log2字节熵例，空/单值/均匀/非均匀/实际短串和顺序不变性，不运行来源函数"
+    },
+    "renders": [
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/10-实现可审计的二进制检查器.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "fe5194cbd22bf7c97fff9526762e125c7ddec0e06b9cbcc911bcac5a1245ba28"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/10-实现可审计的二进制检查器.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "41d2248c9e23b4053072ae0617180756f3e9a30c9eb25c29123ce24e072ce1aa"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "af485a13ee279fecd118f6f766425b6939ad1ff9ca5fc20db142c7b6cb1e8b59"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "a101a40a1756836bb902b544c1826920d9d4fc51079c0125d25f38545c9bf5f6"
+      }
+    ],
+    "source_exec": 0,
+    "old_programs_rerun": 0,
+    "new_embedded_executable_programs": 1
+  },
+  "additional_selected_primary_reads": [
+    {
+      "url": "https://github.com/apple-oss-distributions/dyld/blob/fd8d0c4d52320ebf64db34f3cb280310d905c5ae/include/mach-o/fixup-chains.h",
+      "date": "2026-10-19",
+      "scope": "215–231 pointer64 bindaddend0..255；310–331 import2 int32与import3 uint64字段、库ordinal范围；纠正79先前审查判断",
+      "sha256": "90bd2b316ada7fc5fe47c2872ea679f0c6cc6d249ed5965dbbdc5bea5afdd21a"
+    },
+    {
+      "url": "https://itanium-cxx-abi.github.io/cxx-abi/abi.html#mangling",
+      "date": "2026-10-19",
+      "scope": "析构编码D0 deleting/D1 complete/D2 base必要段，同前已读规则，不安装c++filt"
+    }
+  ],
+  "extra_project_runtime_selected_reads": [
+    {
+      "file": "site/figures/projects/runtime.js",
+      "ranges": [
+        [
+          210,
+          247
+        ]
+      ],
+      "scope": "checkbox/number finite min/max输入转换与trace身份必要段；前80已记其余selected范围"
+    },
+    {
+      "file": "site/projects.js",
+      "ranges": [
+        [
+          459,
+          475
+        ],
+        [
+          484,
+          484
+        ]
+      ],
+      "scope": "provider按projectid加载、load失败被捕，注册路径不是所有top-levelfigure清单；未执行网页"
+    }
+  ],
+  "source_exec": 0,
+  "original_91_tests_run": false,
+  "new_own_embedded_programs": 1,
+  "old_programs_rerun": 0,
+  "raw_source_or_media_files_committed": false,
+  "whole_update_complete": false,
+  "remaining": [
+    "mini-decompiler8stage及14逆向主课整体最终复查",
+    "其它26项目104stage与新增canonical配套/Skills/全局"
+  ],
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4600 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

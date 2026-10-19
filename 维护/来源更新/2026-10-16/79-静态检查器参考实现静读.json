@@ -247,7 +247,7 @@
     "symbols308全读：每ELF符号表独立sh_link比旧课更稳，仍未验STRTAB type/entsize，SectionNAMES丢原sectionID可同名冲突；SHN_XINDEX不支持。COFF aux保持rawindex，PE确会读COFF符号表（修正docs说必[]），MachO code-section symbol全归func只是候选标签，不保证每标签入口。",
     "demangler递归P/R/O/K普通指针const层次可保持，不应错误批评全部suffix；限制数组/模板/运算符等。字符串length按Python字符而非UTF8byte/isdigit非ASCII、无限递归可RecursionError，文档Neverraise不成立；sourceD1/2/3集合漏D0并接受非普通D3，正式按Itanium D0/D1/D2，不照抄。未知保原名/unsupported，别把None当名字不存在。",
     "linkage443全读：ARM64以外ELF强用X86前缀对riscv/arm会误标。ELF失效非零sh_info变None没拒而特殊0可能合法，要区分。relocfieldspan/length/pcrel未保使记录不足通用验证；MachOADDEND末尾悬空/多pending覆盖、sectionordinal0合法abs场景可能过拒；unsupported明确不当所有格式支持。",
-    "ULEB负offset从尾读取、10th有效bit溢uint64未拒；chained starts structsize/segment_offset/pagecount/table域/segmentfilesize不足，页内但跨segment还可能读到别段。importformat3 addend<QQ不是有符号64，负addend被大正数解释；pointer bindaddend8是此64格式unsigned，需按官方合同区分，并保tableaddend与pointeraddend不是合并解。",
+    "ULEB负offset从尾读取、10th有效bit溢uint64未拒；chained starts structsize/segment_offset/pagecount/table域/segmentfilesize不足，页内但跨segment还可能读到别段。importformat3表项addend在Apple固定头文件为uint64_t，<QQ读取与字段声明一致，不能仅由无符号读取判错；此前该项审查判断已于同日官方核验后更正。pointer bindaddend8是此64格式unsigned，需按官方合同区分，并保tableaddend与pointeraddend不是合并解。",
     "librarylist仅LOAD/WEAK忽略REEXPORT/UPWARD导致ordinal编号可能错，-3weaklookup未支持。trie terminal size未限定读cursor、reexport importedName未解析、absolute/stubresolver等flag差别省略；visited可阻重复，格式健壮范围非所有语义。不要把子集parser宣称完整exports。",
     "PE rva_to_offset只核起点不核后续全span/headers映射，import没有按directorysize收束、inner65536未遇0也继续descriptor不报、null descriptor只查3字段，hint/nameNUL可跨区；reserved位不校验。export只遍有名字条目漏ordinal-only/多alias names>functions可合法、EAT0空slot错误作base地址，forwarder起点正确但string末界未限directory。basereloc blockoddsize/fieldspan不足，type0skip不等其它type都当前64有效。",
     "discovery161全读：ASCII和ASCII子集UTF16LE、UTF16可oddstart，section只首byte归属，字符串不证打印；LC_FUNCTION_STARTS没有每startcode内/alignment/instruction boundary核。x86 E8任意byte扫证实会在immediate/data误认、arm64code内data也可误认；union排prologue不保证零误报。ET_REL整数start和同名section丢ID，score truth仅symbol_starts不核同一构建布局，precision empty0/recall empty1是此指标合同非真实覆盖证据。",
@@ -259,5 +259,17 @@
   ],
   "source_exec": 0,
   "stage_accepted": 0,
-  "whole_update_complete": false
+  "whole_update_complete": false,
+  "root_review_correction": {
+    "date": "2026-10-19",
+    "prior_claim_withdrawn": "format3表项addend必须按有符号64读取的判断",
+    "corrected_claim": "官方dyld_chained_import_addend64声明uint64_t；参考<QQ字段读取不能据此判错，显示数学含义另需具体绑定合同",
+    "official_url": "https://github.com/apple-oss-distributions/dyld/blob/fd8d0c4d52320ebf64db34f3cb280310d905c5ae/include/mach-o/fixup-chains.h",
+    "selected_lines": [
+      324,
+      331
+    ],
+    "sha256": "90bd2b316ada7fc5fe47c2872ea679f0c6cc6d249ed5965dbbdc5bea5afdd21a",
+    "scope": "固定官方头文件原字段与LLVM官方ChainedFixupTarget uint64类型必要核，不执行上游代码"
+  }
 }
