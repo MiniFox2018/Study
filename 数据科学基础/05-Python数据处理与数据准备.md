@@ -281,3 +281,180 @@ $$s=0.8J(标题)+0.2J(作者).$$
 四幅原交互图都演示同一个Jaccard加权公式，没有实际实现导入、决定和crosswalk验证；图上的Automatic merges=0只是这个示意规则。作者20测试仅覆盖若干正常/坏样本，不包含全部分隔符身份、输入别名、审阅历史和政策版本问题。
 
 增量来源为[第一来源Catalog Record Linker](https://github.com/rohitg00/ai-engineering-from-scratch/tree/1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e/projects/catalog-record-linker)，源提交2026-10-15，本库2026-10-23融合。28原项中的21文本全文、3同SHA复用、4媒体分类及四lab源码已读；样本分数1与11/15、两个字段冲突、实体/映射数量由自写CSV/集合/Fraction数据计算核对。作者2026-10-09运行记录另保，本库没有运行原Python模块、CLI、测试、HTML脚本或处理用户真实目录；旧pandas例与原核验日期保持。
+
+
+## 14. 单表修复：原表、规则、预览和决定分开
+
+### 14.1 先区分字节、CSV记录、字段值与业务类型
+
+“保留原文”可能指四种不同的东西：保留文件原始字节；保留CSV的引号、分隔符和换行排版；保留解析后的每个字段字符串；保留业务解释后的数值或日期。它们不能混称。这个教学项目保留的是**解析后字段字符串**，不是原文件字节或原始CSV排版。
+
+处理链应明确：字节按编码解码成文本，按CSV方言解析成逻辑记录，再按业务规则理解字段。CSV不是简单的“每行按逗号切开”：`"x,y"`是一个字段；`"say ""hi"""`中的两个引号表示一个字面引号；引号中的换行仍属于同一个字段。逻辑数据行号从1开始，不等于文本物理行号；含换行字段会跨物理行，报告里的row=2指第二条数据记录。
+
+参考`profile(text)`使用默认逗号CSV阅读器和`strict=True`，拒绝空或仅空白表头、完全相同的重复表头、宽度不一致的记录，并保留原字段字符串。它没有自动检测分号/制表符方言，也没有自动解码GBK/UTF-16、移除BOM或修补坏引号。CLI输入是JSON，其`csv`字段已经是Unicode文本，并非任意CSV二进制文件；`Path.read_text()`没有显式encoding。不能把这个接口描述成“自动修复任意Excel导出文件”。
+
+约定编码和BOM在解析前处理：例如文本开头U+FEFF若未处理，会进入第一列表头，成为`\ufeffplace`而不是`place`；后续按`place`制定规则便找不到列。不要对全部文本随意删除BOM字符；它在非文件开头可能是真实字段内容。分隔符、quotechar、doublequote、换行、编码/BOM策略应成为输入合同或导入元数据，若不支持某种方言，应明确拒绝或要求先做受控转换。
+
+字段值`"001"`是字符串，未经政策不应变为1。空字段和带引号的空字符串在默认CSV解析后都是`""`，原引号差异已经丢失；字符串`"0"`仍是零文本，`"NA"`、`"null"`没有自动变缺失。先定义缺失token、类型与单位，再做转换。这个项目把空或仅空白字符串统计为missing，但不把它们变成Python None，不做数值类型推断，也没有均值/众数插补。默认流程不会补缺；若显式alias把空串映射成某个词，确实可改变缺失，这必须是明确政策，不能说程序绝对禁止补值。
+
+### 14.2 原表画像：缺失与distinct应标明计数口径
+
+返回结构是`{columns,rows,profile}`：columns保留表头和顺序；rows是字段名到原字符串的记录；profile对每列给出missing与unique。对N条记录，列c的缺失率可定义为：
+
+$$
+\text{missing\_rate}(c)=\frac{\sum_{i=1}^N\mathbf{1}[\operatorname{len}(\operatorname{strip}(x_{ic}))=0]}{N},\quad N>0.
+$$
+
+unique在这里按**原字符串精确相等**计数，包括空字符串；不是非空distinct，也不先去空白或忽略大小写。仅表头的空表被允许，missing=0、unique=0；缺失率不应把0/0写成0。
+
+使用固定教学表：
+
+| 数据行 | place | date | volunteers |
+| ---: | --- | --- | --- |
+| 1 | North Garden | 14/03/2026 | 8 |
+| 2 | north garden | 03/04/2026 | 10 |
+| 3 | N. Garden | 04/03/2026 | 空字符串 |
+
+三个列的unique均为3，volunteers的missing为1、缺失率1/3。place在业务上可能同一地点，在原始画像中仍是三种拼写。必须先保留这个差异，再由显式别名规则合并；不能用“看起来相似”替代业务确认。
+
+表头只检查`strip()`后不空，实际表头不做trim：`a`与` a`是不同列，后者的规则名也必须含空格。只做完全相同表头的duplicate检查没有消除规范化后的碰撞，应决定拒绝、显式改名还是保留，并记录映射。
+
+### 14.3 规则是有顺序的政策，不是自动猜测
+
+参考`propose(table, aliases=None, date_columns=None)`生成版本1规则列表。按输入列顺序，对每列先trim，再加显式alias，再加date。未知列拒绝，alias目标值必须是字符串。例：
+
+```json
+{
+  "schema_version":1,
+  "rules":[
+    {"column":"place","operation":"trim"},
+    {"column":"place","operation":"alias",
+     "values":{"north garden":"North Garden","N. Garden":"North Garden"}},
+    {"column":"date","operation":"trim"},
+    {"column":"date","operation":"date"},
+    {"column":"volunteers","operation":"trim"}
+  ]
+}
+```
+
+trim先去字段首尾空白，再对结果做**精确字符串**别名查找。因此`" N. Garden "`能命中`N. Garden`，但`N. garden`不会自动命中。没有casefold、同义词模型、模糊匹配或地理实体推断。业务ID、首尾空白有意义的自由文本不一定适合统一trim，这个项目对所有列加trim是教学约定，实际应按字段数据字典授权。
+
+规则顺序通常不满足交换律。例如先alias再trim，`" N. Garden "`不会命中别名；先trim再alias会命中。也不能从单个测试推断所有规则幂等。若alias为`A→B,B→C`，同一条规则一次只查一次，第一遍A变B、第二遍B变C，便有`T(T(x))≠T(x)`。若canonical自己有首尾空白，下一遍trim也会再次改变。设计可复用配方时应检查canonical稳定、没有链式意外转移，明确一次执行或规范化到不动点的政策；不要盲目循环直到不变，环`A→B,B→A`可能振荡。
+
+配方对象也有所有权问题：参考propose直接把输入alias子字典放入规则，没有深复制；调用者之后修改该字典会改变配方。保存并哈希的是哪一个版本，要在运行边界冻结，不能认为创建时有schema_version就不可变。
+
+### 14.4 日期：先列出合法解释，再区分唯一、歧义和无效
+
+`03/04/2026`可能为3月4日或4月3日；不能从一列存在`14/03/2026`就静默断言全列都是日/月/年。日期解释需要来源格式声明或逐项审阅。
+
+原文API说“ISO或无歧义DD/MM/YYYY”，实际实现更宽：
+
+- `a/b/y`中a>12时按日/月/年构造日期；
+- b>12时按月/日/年构造日期，所以`03/14/2026`也变成2026-03-14；
+- a、b都≤12且不同，直接标ambiguous；
+- a=b时两种顺序一致，再校验日期；
+- 不含斜线时交给`date.fromisoformat`，成功后在preview标准化成`isoformat()`。
+
+因此14/03/2026、03/14/2026都可自动转2026-03-14；03/04/2026和04/03/2026待审；12/12/2026变2026-12-12；31/02/2026是无效日期，不能被强制挪到3月。
+
+但参考先用≤12判断歧义，没有先确认月份/日期/年份合法：`00/01/2026`可能被标为歧义，而不是无效。更可靠的概念算法是：分别尝试DMY与MDY，剔除不存在的日期，再对结果去重；零个结果为invalid，一个结果为唯一合法解释，两个不同结果才为ambiguous。这个算法用于理解和改进，不能声称原实现已经这样做。
+
+斜线分支按int读年，没有固定四位要求，所以两位年不会自动得到常见的“20xx”世纪解释；2026年和26年不同。ISO分支和审阅值接受的实际字符串形式随Python版本而变化：本次自写标准库数据核验在当前Python 3.12上确认`2026-04-03`、`20260403`、`2026-W14-5`都能解析为2026-04-03。若合同要求固定`YYYY-MM-DD`，须另做格式检查与规范化；不能只靠fromisoformat这个名字。项目宣称Python3.10+，因此还需固定运行版本或约束自己的输入语言，避免升级后悄悄扩大接受集合。
+
+### 14.5 预览：深复制数据，列出最终差异，待审项另列
+
+`preview(table, recipe)`校验版本和规则列名/operation，对原rows做深复制，再顺序应用规则。输出`{rows,changes,pending,fingerprint}`。changes每项是`{row,column,before,after}`，以原始表与最终表比较；pending是`{row,column,value,reason}`。
+
+它报告的是**一个单元格从原始值到最终值的净变化**，并不是每条规则执行的历史。`" N. Garden "→"North Garden"`只产生一条before/after，不单独保留trim后和alias后的两个事件。若需要逐步可审计或撤销，另外记录rule_id、输入/输出、执行顺序、政策版本和原因。
+
+样例预览共3个changed cells：第1行date、第2行place、第3行place。第2、3行date为两个pending，volunteers空串仍为空串。
+
+“未解决保持原始值”的表述也要收窄：date规则遇到歧义时保留的是**到达date规则时的当前值**。若原始日期为`" 03/04/2026 "`，前置trim已变成`"03/04/2026"`；日期仍pending，但最终单元格已经有trim变更。alias也可能在date前改值。真正原字符串仍在输入table和changes.before，而不一定是输出rows。这并非深复制失效，而是规则顺序与“原始”含义不同。
+
+### 14.6 用输入与配方指纹绑定审阅，但不要冒充审批认证
+
+为了防止把旧决定套到另一个表，参考计算：
+
+$$
+F=\operatorname{SHA256}(\operatorname{UTF8}(\operatorname{JSON}_{sort\_keys}(\{table,recipe\}))).
+$$
+
+table包含columns、原rows及其profile；recipe包含有序规则。这里使用Python默认JSON序列化设置和sort_keys，列表顺序保留，并非跨语言规范化JSON标准。表中任一字段/行顺序、规则内容/顺序变化一般会改变指纹。即使column顺序只是展示偏好也会影响它。
+
+指纹绑定的是解析后的对象与配方，不是原文件原始字节：不同的CSV引号写法或记录换行可能解析成相同对象并产生相同指纹。它也没有绑定执行器代码、Python日期解析版本、审阅者身份、审阅时间或先前决定。SHA-256摘要可用于一致性比较，但不能证明谁批准、数据真实或业务结论正确。
+
+样例在所述序列化合同下得到：
+
+```text
+d4403ab69f98f6066714b8681d1c44d80b8f53b3a7d3a20bcc1e149209dd3d88
+```
+
+本次用独立构造的table/recipe作纯数据计算，结果与作者截图JSON一致；这只核对了指纹构成，不是运行原修复器的证据。
+
+审阅文件例如：
+
+```json
+{
+  "fingerprint":"d4403ab69f98f6066714b8681d1c44d80b8f53b3a7d3a20bcc1e149209dd3d88",
+  "cells":[{"row":2,"column":"date","value":"2026-04-03"}]
+}
+```
+
+`repair(table, recipe, decisions=None)`重新预览，核对指纹，只允许对pending的单元格给决定；同一坐标不能重复，替换值必须能被日期解析。它不允许通过审阅文件随意改一个正常地点名，也不支持“拒绝/豁免/保留且已审”的决定类型。这里的审批是一份显式用户输入，尚无认证、权限或签名系统。
+
+第2行决定后，第2行date变2026-04-03，总changes=4、pending=1，第3行04/03/2026仍未解。`pending=0`只能说明当前被这些规则识别的日期问题已解，不能证明地点别名正确或所有数据质量问题已消除。
+
+替换值校验后参考实现直接存入原字符串，没有统一`.isoformat()`；所以在可接受basic/week形式的运行版本上，审阅可留下20260403或2026-W14-5，不保证全表输出都为YYYY-MM-DD。推荐合同是验证后写入统一格式，并把原审阅输入另存。
+
+### 14.7 导出消费者、重放与修订历史
+
+产物为`cleaned.csv`、`recipe.json`、`receipt.json`、`review.html`。receipt包含结果rows/csv/recipe/changes/pending/fingerprint。CSV用DictWriter按原column顺序输出，按需要引用逗号、换行与引号；消费者使用同一方言的DictReader读取，再核对字段字符串、顺序、记录数和待审状态。
+
+CSV往返能保住字段值，不意味着字节相等：引号选择和记录换行可以改变。编码、类型、缺失token和单位仍需独立合同；下游不能把`001`自动当1、把空串当0或把日期字符串自动换成本地化日期。仅把CSV读成功不是业务质量验收。
+
+`--recipe`可以在另一张兼容表上重放规则，`--decisions`则绑定本次表与配方。旧决定不能因“也是date列第2行”就移植到新表。原参考仅检查每条规则引用的列存在，不核对完整schema/列类型/业务字段含义；同名列可能语义不同，应有schema和数据字典约束。
+
+重跑时要区分两种输入：对**原表**重用配方和同一批决定可得到同一结果；将**已清洗表**当输入时，表指纹不同，原审阅不能再套。测试只证明一个trim例子第二次无变化，不证明任意alias配方幂等。
+
+CLI每次生成审阅面板都从`cells:[]`开始，即使本次用过旧decisions。receipt有最终变更，但不包含完整决定文件、审阅者、理由或修订链。因此下一次若只填剩余第3行、再从原表运行，之前第2行决定可能丢失。继续审阅应保留已有决定，将新决定合并并校验重复/冲突，或明确创建新修订并保留父版本；不能用“有receipt”替代完整审批历史。
+
+HTML将单元格和JSON转义后显示；下载按钮只做JSON.parse语法检查，真正的指纹、坐标、值和业务校验发生在重新导入后。下载了文件不等于已应用，也不等于审批完成。原截图只是展示用户在textarea中填写了第2行决定，没有证明它已重新执行生效。
+
+输入路径不会被主动写回，但输出文件逐个写入，没有整体原子发布、失败回滚或输出路径防覆盖检查。必要时先在新目录生成、验证所有产物属于同一版本，再发布；不要把半份新receipt与旧cleaned.csv当作完整版本。默认locale编码和文件写入换行也应显式控制，原项目CLI未实现这些完整政策。
+
+### 14.8 四幅图的真实含义和局限
+
+此项目四个calculate函数分别固定`stage=1/2/3/4`，用同一组控件展示四种视角：
+
+1. 阶段1显示原place与date字符串，并把changed/pending显示为0，强调先保留输入；这两个0不是经过全表质量验证。
+2. 阶段2显示trim、alias、date政策中间值，不展示真实多列配方列表。
+3. 阶段3显示规范化地点与待审日期；地点`" N. Garden "`变North Garden，03/04/2026保留歧义。
+4. 阶段4勾选approve并给出合法审阅日期后，可解除这一个示意日期pending；没有实现真实指纹、坐标集合或审批权限验证。
+
+stepIndex未参与计算，切换同一图的步骤不会改变固定stage。JavaScript用正则限制YYYY-MM-DD及四位斜线年，Python则委托fromisoformat/int，接受范围不同；JavaScript Date.UTC对0～99年有1900基准的特殊处理，校验可能与Python公历日期不同。不要把图当作Python实现的完整等价测试。
+
+### 14.9 练习、参考答案与实际测试覆盖
+
+**练习1**：`"x,y"`与`"say ""hi""\nnext"`怎样解析，数据行号能否用物理行号代替？答案：前者一个含逗号字段，后者一个含引号与换行字段；不能按物理行号代替逻辑记录号。
+
+**练习2**：样例初始与只审第2行后的changes/pending是多少？答案：3/2与4/1。volunteers缺失没有补值；第3行日期仍待审。用rows/changes/pending三者解释，不仅报总数。
+
+**练习3**：对原始`" 03/04/2026 "`，未审输出一定字节原样保留吗？答案：不会。trim已去外侧空白，date规则仍pending；原值应到table或changes.before找。
+
+**练习4**：A→B、B→C的别名规则可否直接声称重放幂等？答案：不行。第一遍A→B，第二遍B→C。需要约束canonical稳定或明确多轮政策。
+
+四测试文件每阶段5项，共20项，本次全部静读但没有执行：
+
+| 阶段 | 实际断言覆盖 | 没有由这些断言证明的能力 |
+| --- | --- | --- |
+| profile | 原空白保留、空字符串missing、ragged拒绝、重复表头拒绝、Éloi与引号逗号 | 编码/BOM、分号、引号换行、空行、header规范化碰撞 |
+| propose | trim/alias/date顺序、空表一规则、未知列拒绝、非字符串alias值拒绝、多列顺序 | alias幂等、政策不可变、外部recipe完整schema、空串映射政策 |
+| preview | trim后alias且输入未变、歧义、14/03转换、无效日期pending、闰日不改 | MDY、年份边界/零、空白pending原值、逐规则历史、跨版本解析 |
+| repair | 正常审阅、旧指纹拒绝、带逗号CSV往返、trim幂等、非pending禁止 | 重复决定、畸形坐标、固定YYYY-MM-DD、持久审阅历史、文件原子发布/CLI全链 |
+
+API统一称invalid输入抛ValueError，但畸形字典/类型可能产生KeyError、TypeError或AttributeError；不要把存在若干ValueError检查等同于完整异常合同。拓展时先把输入schema、必填字段、严格整数行号（排除bool）、值类型与规则版本验证完整，再运行业务变换。
+
+来源是[AI Engineering from Scratch CSV Repair Workbench固定快照](https://github.com/rohitg00/ai-engineering-from-scratch/tree/1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e/projects/csv-repair-workbench)及[四阶段交互图](https://github.com/rohitg00/ai-engineering-from-scratch/blob/1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e/site/figures/projects/csv-repair-workbench.js)。源截止2026-10-15T05:58:42Z，本次读取2026-10-23；作者run.json时间2026-10-09T14:26:55Z，记录starter失败、参考四阶段各5项通过。上述是固定源码静读与独立纯数据核对，不是本次运行来源程序。28个原项与1个JS全部核对目标树；22份唯一文本全文读、3份同SHA复用；2PNG视觉检查，2GIF共30帧仅数据解码；原Python/CLI/测试/JS执行数为0。
+
+
+本节逐项读取、原程序未执行范围、主代理复核与实际验证见[融合记录](../维护/来源更新/2026-10-16/97-CSV修复项目读取与融合.json)。
