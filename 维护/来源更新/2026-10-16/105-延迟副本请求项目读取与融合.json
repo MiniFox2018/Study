@@ -1,0 +1,813 @@
+{
+  "date": "2026-10-23",
+  "project": "hedged-request-lab",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-measure-safe-reads",
+    "02-schedule-duplicate",
+    "03-validate-and-account",
+    "04-export-tradeoffs"
+  ],
+  "read_handoff": {
+    "project": "hedged-request-lab",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_cutoff": "2026-10-15T05:58:42Z",
+    "read_date": "2026-10-23",
+    "author_run": "2026-10-09T14:24:22Z",
+    "author_output": "2026-10-09T14:24:23Z",
+    "accepted": false,
+    "inventory": "/tmp/study-update-20261016/hedged-agent-20261023/inventory.json",
+    "data_proof": "/tmp/study-update-20261016/hedged-agent-20261023/data-proof.json",
+    "knowledge": "/tmp/study-update-20261016/hedged-agent-20261023/knowledge.md",
+    "knowledge_sha256": "5bdee24214a9e4381b96f530509284b5d9c868f9d2aa100f8dfb97e5fd5a222c",
+    "counts": {
+      "project_items": 23,
+      "extra_js": 1,
+      "tests_static": 21,
+      "gif_data_frames": 49,
+      "png_visual": 2,
+      "source_execution": 0,
+      "real_traffic": 0
+    },
+    "single_merge_file": "Agentic Design Patterns/01-核心章节/12-异常处理和恢复.md",
+    "merge": "补延迟副本请求到现有失败/取消/重试预算合同，与retry-storm互补。",
+    "findings": [
+      "真实Go GET/loopback HTTP，不是纯仿真；本次未运行。",
+      "valid200/body<=65536/nonemptyvalue，未验证等价版本/严格重复键/空白字符串；默认外部CLI禁redirect，库client由调用方控制。",
+      "每操作2端以内/δ0..1秒/2秒context，赢家最多100ms grace；timer与valid同时ready存在调度差异，错误先到不立即发副本。",
+      "cancelRequested是未收集计数，Cancelled是ctx末态，Late是赢家后收集，均非服务端停止/省费证明。",
+      "Compare server work累计baseline与hedge，作者9完整包含3+6；请求比2不等CPU/等待时长/计费比。",
+      "Compare错误partial/失败调用未完整落成功报告，CLI错误不写JSON；无整实验deadline；自定义忽略ctx的Transport可残留工作。",
+      "21test静读：5percentileURL、5调度、6有效响应取消、5比较；未实际测试全部并发交错/错误账本。",
+      "4图范围不同，空Number=0/tie理想化/请求数work命名不能替真实统计。"
+    ],
+    "remaining": [
+      "root融合后正式渲染/全库核与中文维护；accepted=false。",
+      "无Go编译/测试/CLI/JS/网络流量；仅作者JSON解析与自写纯时序算术。"
+    ]
+  },
+  "inventory": [
+    {
+      "path": "projects/hedged-request-lab/README.md",
+      "bytes": 3202,
+      "sha256": "6882c89f3eac7328d437348f627176ca1f1ad8f0a5e82b7d6f5d32cf9a1a6c05",
+      "git_blob": "b69faa4d2198ae1a27ac9ba2fdcaf21289e76185",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 44,
+      "read_ranges": [
+        [
+          1,
+          44
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/media/output.gif",
+      "bytes": 543899,
+      "sha256": "381bb220caf7307c9c2eb596a4922e8cf2f5fcbfd0e6b5381c020b8fdb02c552",
+      "git_blob": "2d9bc8ee6bb7ed8e81fc66f06adadcb3e26c5379",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 32,
+      "duration_ms": 14400,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual": false,
+      "visual_scope": "PNG整图看；output作者最后receipt尾部，run作者通过日志。GIF不逐帧视觉。"
+    },
+    {
+      "path": "projects/hedged-request-lab/media/output.json",
+      "bytes": 3332,
+      "sha256": "d95f023810559b221008e381a3f26fa165bb148da39df9cfea5974ce22eff9f0",
+      "git_blob": "049fe3df20d089841dcbfcd74dc44813893249eb",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 18,
+      "read_ranges": [
+        [
+          1,
+          18
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/media/output.png",
+      "bytes": 38903,
+      "sha256": "5072d2bc4a5bc4340b5e5935d0cc03c78c59b70b95d9e0acff56c2b937bf4109",
+      "git_blob": "b8b24e1224fb58fd71546c33c245ecf8cd571ea3",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual": true,
+      "visual_scope": "PNG整图看；output作者最后receipt尾部，run作者通过日志。GIF不逐帧视觉。"
+    },
+    {
+      "path": "projects/hedged-request-lab/media/run.gif",
+      "bytes": 215101,
+      "sha256": "2b49aeb1ff0c3142e419c907ba8ae513800ee1f66dedadf2a485aed2789e7b35",
+      "git_blob": "adb8014b8119a4938979dac41cad8a77c75bc2a8",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 17,
+      "duration_ms": 7650,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual": false,
+      "visual_scope": "PNG整图看；output作者最后receipt尾部，run作者通过日志。GIF不逐帧视觉。"
+    },
+    {
+      "path": "projects/hedged-request-lab/media/run.json",
+      "bytes": 2043,
+      "sha256": "6c77718fa95c359fc81a07f731f87b60a5c8b018a2b556222301fee51ab7f97c",
+      "git_blob": "9ca08fd05f0f044868dd7cd706f75975ba455c8c",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/media/run.png",
+      "bytes": 86300,
+      "sha256": "3a1636a2ee62c3a609653612fba42d2f503d10ac7645ec02deb1a40d48456eb3",
+      "git_blob": "252c1a0810b3d02f271b99ef7159102d48d111ab",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual": true,
+      "visual_scope": "PNG整图看；output作者最后receipt尾部，run作者通过日志。GIF不逐帧视觉。"
+    },
+    {
+      "path": "projects/hedged-request-lab/project.json",
+      "bytes": 3160,
+      "sha256": "7041f819413bf4797a900281bd184c18dd4c952cd44dec3d3c1b5e3f3fb8f867",
+      "git_blob": "bb0c128f32aeb850d4b86b35e7cf84f2e27e8a97",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 106,
+      "read_ranges": [
+        [
+          1,
+          106
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/solution/go.mod",
+      "bytes": 25,
+      "sha256": "96e1f3010a41fdd398805dd6df9a693d33e863ab0c6c15a481b02d956abc12b8",
+      "git_blob": "5ff3f1931295ad711d4fc80ac1c0e3f714960bc2",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/solution/main.go",
+      "bytes": 8347,
+      "sha256": "1682990ff76ef86a1c020a4e567b4a5eb4a8bbaabda4087b550f944f7de872ed",
+      "git_blob": "5a545823b14e70363fae6ed9e45ab7061e60fcb1",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 267,
+      "read_ranges": [
+        [
+          1,
+          267
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/01-measure-safe-reads/docs/en.md",
+      "bytes": 1894,
+      "sha256": "37c5a47187213c5a61b1aa1609bb176ced5b1e2e14e11dd02adaa6710c1c3ac6",
+      "git_blob": "45a284bc403150d13b6919a6ebe02b6bc97a3a08",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/01-measure-safe-reads/starter/go.mod",
+      "bytes": 25,
+      "sha256": "96e1f3010a41fdd398805dd6df9a693d33e863ab0c6c15a481b02d956abc12b8",
+      "git_blob": "5ff3f1931295ad711d4fc80ac1c0e3f714960bc2",
+      "tree_match": true,
+      "mode": "同SHA复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/hedged-request-lab/solution/go.mod"
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/01-measure-safe-reads/starter/main.go",
+      "bytes": 4895,
+      "sha256": "2c9961f3c5b07db0d2ee765b284ffa2ad0d9c3766fe0e6eeafd800a940344941",
+      "git_blob": "ddaf3d583f18f06f6c5675a0be28c98a2734bf78",
+      "tree_match": true,
+      "mode": "solution精确公共行复用+差异行全读",
+      "lines": 153,
+      "read_ranges": [
+        [
+          1,
+          153
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/hedged-request-lab/solution/main.go",
+      "ranges": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            9
+          ],
+          "current": [
+            1,
+            9
+          ],
+          "equal_sha256": "959bcf4231c9351484e4ad5d97860089357cbb704d8f653cf1a49a42990872b8"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            10,
+            10
+          ],
+          "current": [
+            10,
+            9
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            11,
+            14
+          ],
+          "current": [
+            10,
+            13
+          ],
+          "equal_sha256": "c69ceaa032f4645c776b7464bc03336788711393069b238d80c6276e34e3d8c5"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            15,
+            15
+          ],
+          "current": [
+            14,
+            13
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            16,
+            27
+          ],
+          "current": [
+            14,
+            25
+          ],
+          "equal_sha256": "311ddb10c3d048f7b66db5d98095c9b8b813f80563cd51fd5df26f58f4ab825c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            28,
+            40
+          ],
+          "current": [
+            26,
+            26
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            41,
+            70
+          ],
+          "current": [
+            27,
+            56
+          ],
+          "equal_sha256": "45a27eaafefc2c26fe40d13cfb9caeb26339b71cbd5decf7329e28d8159980ef"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            71,
+            85
+          ],
+          "current": [
+            57,
+            58
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            86,
+            112
+          ],
+          "current": [
+            59,
+            85
+          ],
+          "equal_sha256": "7c74eff8a5e7d13915b61d689c6d1c808caf57edca7794e565e181f5b5c31899"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            113,
+            175
+          ],
+          "current": [
+            86,
+            86
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            176,
+            213
+          ],
+          "current": [
+            87,
+            124
+          ],
+          "equal_sha256": "fc7deef36557227be5ab3fbd674b15b57b241b109ec2d32bbe9b93ed7b7327ee"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            214,
+            240
+          ],
+          "current": [
+            125,
+            125
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            241,
+            241
+          ],
+          "current": [
+            126,
+            126
+          ],
+          "equal_sha256": "d10b36aa74a59bcf4a88185837f658afaf3646eff2bb16c3928d0e9335e945d2"
+        },
+        {
+          "kind": "insert",
+          "prior": [
+            242,
+            241
+          ],
+          "current": [
+            127,
+            127
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            242,
+            267
+          ],
+          "current": [
+            128,
+            153
+          ],
+          "equal_sha256": "c1652cfa287e0bc289092a46c8bc231f67de9fe5a6a73a73194c3b3680fc2157"
+        }
+      ]
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/01-measure-safe-reads/tests/stage_test.go",
+      "bytes": 849,
+      "sha256": "6bbfbec9cec219a76669f97a2466041ca410922e1b1fc825a78b4a9f3b361660",
+      "git_blob": "b5d9eb8a550d82b4f35ecf030832db83510989a0",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "executed": false,
+      "static_tests": [
+        "TestPercentiles",
+        "TestEmpty",
+        "TestInvalidSamples",
+        "TestNoMutation",
+        "TestSafeURL"
+      ]
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/02-schedule-duplicate/docs/en.md",
+      "bytes": 2050,
+      "sha256": "d3a8e00cb71d65a5d9ca72bff72a3148490dc39f9a831be9a57a336aa84f7c41",
+      "git_blob": "5a5bbd8ba8cb1e05b25e48e3b9575073b2da8168",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/02-schedule-duplicate/starter/STAGE-2.md",
+      "bytes": 379,
+      "sha256": "6e7164c010706f807c7b7e067538728f6df4896661d95691a97a6295f9616b4d",
+      "git_blob": "c9ee238c87f67dc4a13491b6ef36c7972780ae4b",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/02-schedule-duplicate/tests/stage_test.go",
+      "bytes": 1671,
+      "sha256": "fa2c7930541f78377796c5d008ab65ce3604056d93702feec549d7d1b5d7681f",
+      "git_blob": "96fb9a8e28a91fd3f59461a9bb6bfb3e6bb8ae70",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "executed": false,
+      "static_tests": [
+        "TestFastPrimaryNoHedge",
+        "TestSlowPrimaryHedges",
+        "TestSingleEndpoint",
+        "TestTooMany",
+        "TestParentCancelled"
+      ]
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/03-validate-and-account/docs/en.md",
+      "bytes": 2182,
+      "sha256": "bdf9118fd33075617e50777c8585a6a05a4e5ced3bc07964ea622fcc1c60af7f",
+      "git_blob": "0bc9fa07d711419ece09005dd8056fe10a722b02",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/03-validate-and-account/starter/STAGE-3.md",
+      "bytes": 382,
+      "sha256": "e438bfbaf4aad6b2fc3539e22aed5875fb91fffbe518676e785eaa5c7b87926b",
+      "git_blob": "b262c480b2b407a92cdfd228242b6578ebcaf264",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/03-validate-and-account/tests/stage_test.go",
+      "bytes": 1627,
+      "sha256": "1bf69edad0645cfaf0d17fab5931ce0fbb28e36557eddd61e577bcab81020398",
+      "git_blob": "42e81b45c652092cca1280f4a06ff6cfd7657316",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 62,
+      "read_ranges": [
+        [
+          1,
+          62
+        ]
+      ],
+      "executed": false,
+      "static_tests": [
+        "TestValidJSON",
+        "TestErrorCannotWin",
+        "TestEmptyAndMalformed",
+        "TestBodyLimit",
+        "TestFastInvalidLoses",
+        "TestLateCancellationAccounted"
+      ]
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/04-export-tradeoffs/docs/en.md",
+      "bytes": 2168,
+      "sha256": "6ceeb41162da5fc2afe85f4755de9304137ab3ea6bc36d3168d7d4543390fd88",
+      "git_blob": "ff4e2d36f9b5c503ac5e4a13007356cb356feae8",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/04-export-tradeoffs/starter/STAGE-4.md",
+      "bytes": 298,
+      "sha256": "5bbe35b62781005f2215f1871bf5d7d42d41a1f58fbe712d4bf610369f748fa5",
+      "git_blob": "b5ffdb091f0da72f6b607621675b70a6d50fc6ca",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/hedged-request-lab/stages/04-export-tradeoffs/tests/stage_test.go",
+      "bytes": 937,
+      "sha256": "90a6c75db51fd97771882a9ae856561eb09abc151d8719dee82573d93f89d499",
+      "git_blob": "b0baa85ecfce03242467b99128422343bb6fa18e",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "executed": false,
+      "static_tests": [
+        "TestComparisonCounts",
+        "TestWorkContinues",
+        "TestSampleBounds",
+        "TestReceiptConsumer",
+        "TestDelayNoDuplicates"
+      ]
+    },
+    {
+      "path": "site/figures/projects/hedged-request-lab.js",
+      "bytes": 5121,
+      "sha256": "487e07bd99d1939272da3408d612e75dcffd21a40988fb2055b8ecf418d4d867",
+      "git_blob": "0ef7e5e8cb1ab7e1e587b231ab0f404852a7402b",
+      "tree_match": true,
+      "mode": "全文实际静读",
+      "lines": 197,
+      "read_ranges": [
+        [
+          1,
+          197
+        ]
+      ],
+      "executed": false
+    }
+  ],
+  "root_read_chunks": [],
+  "tests_static": [
+    {
+      "file": "projects/hedged-request-lab/stages/01-measure-safe-reads/tests/stage_test.go",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/hedged-request-lab/stages/02-schedule-duplicate/tests/stage_test.go",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/hedged-request-lab/stages/03-validate-and-account/tests/stage_test.go",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/hedged-request-lab/stages/04-export-tradeoffs/tests/stage_test.go",
+      "static_tests": 5,
+      "executed": false
+    }
+  ],
+  "root_review": {
+    "all_git_blobs_rechecked": 24,
+    "drift": 0,
+    "critical_read": [
+      "Hedged(112-193)"
+    ]
+  },
+  "data_proof": {
+    "date": "2026-10-23",
+    "method": "纯数据解析作者JSON并独立nearest-rank/计数核算、理想时序推导；没有运行原Go/测试/JS或真实HTTP。",
+    "source_execution": 0,
+    "real_traffic_generated": 0,
+    "author_timestamp": "2026-10-09T14:24:23Z",
+    "author_hedged_winner_samples_sorted": [
+      17.340208,
+      18.802,
+      24.156583
+    ],
+    "recomputed_hedged_quantiles": {
+      "0.5": 18.802,
+      "0.95": 24.156583
+    },
+    "author_calls_ratio": 2.0,
+    "author_all_fixture_work": {
+      "started": 9,
+      "completed": 9,
+      "cancellationObserved": 3
+    },
+    "author_hedge_receipt_cancel_requests": 3,
+    "author_balance_all_receipts": true,
+    "own_nearest_rank_example": {
+      "0.5": 10,
+      "0.95": 80
+    },
+    "ideal_scenarios": [
+      {
+        "primary_ms": 80,
+        "secondary_ms": 5,
+        "delay_ms": 10,
+        "ideal_valid_responses_only_latency": 15,
+        "launched": 2,
+        "tie_at_equal_delay": null
+      },
+      {
+        "primary_ms": 5,
+        "secondary_ms": 5,
+        "delay_ms": 10,
+        "ideal_valid_responses_only_latency": 5,
+        "launched": 1,
+        "tie_at_equal_delay": null
+      },
+      {
+        "primary_ms": 80,
+        "secondary_ms": 100,
+        "delay_ms": 10,
+        "ideal_valid_responses_only_latency": 80,
+        "launched": 2,
+        "tie_at_equal_delay": null
+      },
+      {
+        "primary_ms": 80,
+        "secondary_ms": 5,
+        "delay_ms": 200,
+        "ideal_valid_responses_only_latency": 80,
+        "launched": 1,
+        "tie_at_equal_delay": null
+      },
+      {
+        "primary_ms": 10,
+        "secondary_ms": 5,
+        "delay_ms": 10,
+        "ideal_valid_responses_only_latency": 10,
+        "launched": 1,
+        "tie_at_equal_delay": "实现select可有不同选择，不用理想图式证明唯一launch数"
+      }
+    ],
+    "fast_invalid_primary_case": {
+      "primary_500_ms": 1,
+      "secondary_valid_service_ms": 5,
+      "delay_ms": 10,
+      "valid_winner_ideal_ms": 15,
+      "not_immediate_failover_ms": 6
+    },
+    "work_units_note": {
+      "baseline_3_slow_wait_ms": 240,
+      "hedged_3_primary_plus_secondary_wait_ms": 255,
+      "wait_sum_ratio": 1.0625,
+      "launched_call_ratio": 2,
+      "scope": "仅固定Sleep时长求和，非CPU/实际计费或真实压测"
+    },
+    "source_boundaries": [
+      "晚arrival是赢家后被收集，不证明墙钟上一定后完成；Cancelled是Read结束ctx.Err()!=nil而非服务端停止。",
+      "CancelRequested赢家分支=launched-received，可能含已完成但未收集；timeout分支未完整逐取消计账。",
+      "有赢家最多等100ms，忽略ctx的自定义Transport可残留goroutine；两秒context不等服务停止。",
+      "CompareEndpoints错误提前return，不保存失败hedge receipt完整调用/partial指标；CLI错误不写JSON。"
+    ],
+    "figure_differences": [
+      "图1空输入/空项Number变0，与空样本库拒绝不同。",
+      "图2假设响应都valid且无调度开销，在primary==delay强制不发而实现select竞态。",
+      "图3固定proven saved0是保守推断不是测量；图4叫work ratio但实际仅请求数比。"
+    ],
+    "official_refs": [
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-safe-methods",
+        "scope": "safe method语义，不把GET标签当任意业务无副作用证明。"
+      },
+      {
+        "url": "https://pkg.go.dev/context#CancelFunc",
+        "scope": "CancelFunc不等待工作停止；本次只核该段，不运行网络。"
+      }
+    ]
+  },
+  "formal_fusion": {
+    "file": "Agentic Design Patterns/01-核心章节/12-异常处理和恢复.md",
+    "before_sha256": "b2e71da2b8d6289030cac8f191f81597810cb6bd41e28d937cca2c2ecd7934a1",
+    "after_sha256": "49a99aaf615386eadb2be7a7fb24d2a5e3eba26dc75bd930a443995877fbc866",
+    "old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "64a55b0b614b5735545aa422c9245709fb7f3bf3d8bb9066ed7981936c4987c5",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "eed9b0f138b810a0b9559554ff82b06608d79a0202f1d997e2fbf5fd3ff7f09a",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4625 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}
