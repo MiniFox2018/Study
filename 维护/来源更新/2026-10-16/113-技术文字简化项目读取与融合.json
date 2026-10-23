@@ -1,0 +1,2729 @@
+{
+  "date": "2026-10-23",
+  "project": "plain-language-rewrite-desk",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-record-facts",
+    "02-propose-rewrites",
+    "03-compare-facts",
+    "04-accepted-export"
+  ],
+  "delegate_review": {
+    "project": "plain-language-rewrite-desk",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_cutoff": "2026-10-15T05:58:42Z",
+    "read_date": "2026-10-23",
+    "author_run": "2026-10-09T14:18:34Z",
+    "accepted": false,
+    "single_merge_file": "数据科学基础/06-数据可视化与分析沟通.md",
+    "inventory": "/tmp/study-update-20261016/plain-agent-20261023/inventory.json",
+    "data_proof": "/tmp/study-update-20261016/plain-agent-20261023/data-proof.json",
+    "knowledge": "/tmp/study-update-20261016/plain-agent-20261023/knowledge.md",
+    "knowledge_sha256": "e53c0f71711f8511448acc441553f00987e559ad9692f28a8acc02ed9c3a5c4a",
+    "counts": {
+      "project_items": 25,
+      "tests_static": 24,
+      "gif_data_frames": 27,
+      "png_visual": 2,
+      "source_execution": 0
+    },
+    "findings": [
+      "不含真实LLM adapter；recorded author或7组替换，method后续Comparison丢弃。",
+      "数字多重集/大小写保护词/定义短语是词面门禁，关系/否定能漏；指标非语言理解评分。",
+      "p1 26->23词，13->11.5；p2 27->17词但15%->10%及定义缺失拒采用。",
+      "决定精确绑定候选而未绑定原文/规则版本；段ID是顺序号。",
+      "accepted.md完整文档，reject/pending保原文；仅pending未决；changes展示候选指标不等实际导出减少。",
+      "所有文本/源码/图片读取或精确复用，原测试只静读；没有源/网络执行。"
+    ],
+    "remaining": [
+      "root融合渲染/全库检查与中文记录，accepted=false。"
+    ]
+  },
+  "inventory": [
+    {
+      "path": "projects/plain-language-rewrite-desk/README.md",
+      "bytes": 3296,
+      "sha256": "eab1b499619fb4f3c4a22e7bbd488bda656b175f7a69e0804bc09c55c1823d74",
+      "git_blob": "07c3d72199d5d211ac0535e4d6dc3cbb59943bf1",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 50,
+      "read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/media/output.gif",
+      "bytes": 41641,
+      "sha256": "758a5a1bf4b1fc979039f5917ff01fe664cc1900bae2666e0dac207d346cfe7a",
+      "git_blob": "cf3ada326e2804925bf9ee9bc906f69b596aaf42",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 9,
+      "duration_ms": 5850,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": false,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/media/output.json",
+      "bytes": 358,
+      "sha256": "a1edccae7e524c2aac6775b54b13d79a5f6f85ddb6765ce3b0e8d52181446653",
+      "git_blob": "95a54d4087f06bab0e20fa51d25c916c94c8c986",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 17,
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/media/output.png",
+      "bytes": 73062,
+      "sha256": "f6cb11f3178b1427622082865f76ea47e2a95d5d807b0ad5cbe908c1fec1bcb3",
+      "git_blob": "c522accbfa76fb82bdd81666587b937bb199b883",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": true,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/media/run.gif",
+      "bytes": 246024,
+      "sha256": "df7f34c02a26803255dcd5fc8d5bbf4fab478f2af6ec683b6d468e7021acda6f",
+      "git_blob": "5afcd129b4757693df8a627fe3ba9ce3585e37e0",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 18,
+      "duration_ms": 8100,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": false,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/media/run.json",
+      "bytes": 2246,
+      "sha256": "4a4fb658be8154f4af12d5b343cbefd84bf8f438689c82f1286cf8a50319e33a",
+      "git_blob": "c41db008abae22d96320f4c2cc487edf27f649f2",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/media/run.png",
+      "bytes": 91041,
+      "sha256": "dc3c2f5c2452e91c8cf6e958191c9764370862ca5f8dc26962cbba56ec4afba4",
+      "git_blob": "a4247bbc4508f67b3ddedffb39845c9cd28c2542",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": true,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/project.json",
+      "bytes": 3575,
+      "sha256": "6d9e155d2ae16be460fa6bcc81c35ed55ccead4f013d821c382095f232640f5f",
+      "git_blob": "cedb3bd16046a90f0cb7e0285a78c1c600a45a6b",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 103,
+      "read_ranges": [
+        [
+          1,
+          103
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/solution/cli.ts",
+      "bytes": 1820,
+      "sha256": "3d0f777ebc3ef3c29fbe7f104b7e2de6db257acb376a4ee6649d181a41e068f8",
+      "git_blob": "7b51e947e619e4dcceecbd9ff84bde0671762519",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 60,
+      "read_ranges": [
+        [
+          1,
+          60
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/solution/main.ts",
+      "bytes": 10179,
+      "sha256": "429497a1668e5b531edd2c4000f0d9f280d633ba23cbcce418c0debd2db947be",
+      "git_blob": "77f69312a3ba3ed91bf4c5e69f5da8c7cb3251c4",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 234,
+      "read_ranges": [
+        [
+          1,
+          234
+        ]
+      ],
+      "executed": false,
+      "helper_tail_exact_bytes": 2701,
+      "reuse_source": "projects/field-notes-map-builder/solution/main.ts",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "6f7342e6b7062bbc17cd3375a37409f849e5a7ad740121f4a4287e6845230f89"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            3,
+            7
+          ],
+          "current": [
+            3,
+            5
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            8,
+            8
+          ],
+          "current": [
+            6,
+            6
+          ],
+          "equal_sha256": "df3982fd610173599241fca93c7c866683f58f541eced1c2098102145477164c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            9,
+            12
+          ],
+          "current": [
+            7,
+            23
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            13,
+            14
+          ],
+          "current": [
+            24,
+            25
+          ],
+          "equal_sha256": "aa1d1a63390229c798347e83a0405441c9400035284ad168c1bf6cdf1d70a370"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            15,
+            47
+          ],
+          "current": [
+            26,
+            130
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            48,
+            48
+          ],
+          "current": [
+            131,
+            131
+          ],
+          "equal_sha256": "d0ed3e192847c302ffcc163aff94789b0ab5d6088390ec604daec4c7e8ab898c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            49,
+            54
+          ],
+          "current": [
+            132,
+            137
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            55,
+            57
+          ],
+          "current": [
+            138,
+            140
+          ],
+          "equal_sha256": "bb03cc21b9e43ea30504b4565cb4d8c862998adbb32fb228c58c36ad91b5a80b"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            58,
+            79
+          ],
+          "current": [
+            141,
+            153
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            80,
+            80
+          ],
+          "current": [
+            154,
+            154
+          ],
+          "equal_sha256": "d61195100226f998290468972e6735654c2412de3f352075334464e3e3522149"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            81,
+            83
+          ],
+          "current": [
+            155,
+            156
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            84,
+            84
+          ],
+          "current": [
+            157,
+            157
+          ],
+          "equal_sha256": "56769e5bc1271b060cf4c4aeab9c8d5509e58cc906a27b3dd2a72c3b6cd62820"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            85,
+            101
+          ],
+          "current": [
+            158,
+            169
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            102,
+            102
+          ],
+          "current": [
+            170,
+            170
+          ],
+          "equal_sha256": "8918205c87aec718d8ed26668abe0962b53a36e38887e5434ec02d59639e3ec1"
+        },
+        {
+          "kind": "insert",
+          "prior": [
+            103,
+            102
+          ],
+          "current": [
+            171,
+            187
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            103,
+            103
+          ],
+          "current": [
+            188,
+            188
+          ],
+          "equal_sha256": "16766aa3913c819cde85614a0ab8d5eaf4c462b970d03d6d12a35f0d9150827b"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            104,
+            109
+          ],
+          "current": [
+            189,
+            194
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            110,
+            111
+          ],
+          "current": [
+            195,
+            196
+          ],
+          "equal_sha256": "7c0140f176c07287da9a37956f09ae4a31a4ec6720436be066b621ac442cf02b"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            112,
+            169
+          ],
+          "current": [
+            197,
+            199
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            170,
+            170
+          ],
+          "current": [
+            200,
+            200
+          ],
+          "equal_sha256": "3f287c8d006a86264589ded55c21cd86e0c83ce853a5cf16c842961c443eb37a"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            171,
+            188
+          ],
+          "current": [
+            201,
+            200
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            189,
+            189
+          ],
+          "current": [
+            201,
+            201
+          ],
+          "equal_sha256": "75ec58a6d459578a1b0fd88393286e60b92bb726b0cce30a41838dc7d871fd97"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            190,
+            201
+          ],
+          "current": [
+            202,
+            204
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            202,
+            231
+          ],
+          "current": [
+            205,
+            234
+          ],
+          "equal_sha256": "628f9bdc0375ae10b50754576fef7e8c3c3aa7bc53de8e33ee986135eac7cdba"
+        }
+      ]
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/solution/sample.json",
+      "bytes": 609,
+      "sha256": "6fd9fd91b77d323288dce3fbc9eda86418ef56b1cbcbf2ce7ea06be3f43a0870",
+      "git_blob": "c1ece32a505196889d0f84f44486a98549d5713a",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 13,
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/01-record-facts/docs/en.md",
+      "bytes": 2822,
+      "sha256": "90647fcbf535aae2623465fd1f187657886f660fdc6f203a2fc0709adfdc449d",
+      "git_blob": "0be029303a166124c5ad449dfddf2ec53063919a",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/stages/01-validate-glossary/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            10
+          ],
+          "current": [
+            2,
+            10
+          ],
+          "equal_sha256": "ba2fa785faaf74ae396861557086edba0b0e5803623b994e1f9bdcd5631c7ff5"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            11,
+            11
+          ],
+          "current": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            15
+          ],
+          "current": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            16,
+            16
+          ],
+          "current": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            19
+          ],
+          "current": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            20,
+            24
+          ],
+          "current": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            27
+          ],
+          "current": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            28,
+            28
+          ],
+          "current": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            29,
+            35
+          ],
+          "current": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            36,
+            37
+          ],
+          "current": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            38,
+            43
+          ],
+          "current": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            44,
+            44
+          ],
+          "current": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            45,
+            50
+          ],
+          "current": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            51,
+            51
+          ],
+          "current": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            52,
+            54
+          ],
+          "current": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            55,
+            55
+          ],
+          "current": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            56,
+            58
+          ],
+          "current": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            59,
+            59
+          ],
+          "current": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            60,
+            60
+          ],
+          "current": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            61,
+            61
+          ],
+          "current": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ]
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/01-record-facts/starter/cli.ts",
+      "bytes": 1820,
+      "sha256": "3d0f777ebc3ef3c29fbe7f104b7e2de6db257acb376a4ee6649d181a41e068f8",
+      "git_blob": "7b51e947e619e4dcceecbd9ff84bde0671762519",
+      "tree_match": true,
+      "mode": "同SHA全文复用",
+      "lines": 60,
+      "read_ranges": [
+        [
+          1,
+          60
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/solution/cli.ts"
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/01-record-facts/starter/main.ts",
+      "bytes": 4327,
+      "sha256": "16585b90a197b7afc01d9bb8457a8f086a4409e094e319c62586824417042e2c",
+      "git_blob": "84d67defdb70076fac5e7d5c8180c73af89b87a9",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 96,
+      "read_ranges": [
+        [
+          1,
+          96
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/solution/main.ts",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            24
+          ],
+          "current": [
+            1,
+            24
+          ],
+          "equal_sha256": "10d3b3548f82d97805a0f1e7375311fa034dc06977f97b492fc0339d02c6bd7f"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            25,
+            32
+          ],
+          "current": [
+            25,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            33,
+            36
+          ],
+          "current": [
+            25,
+            28
+          ],
+          "equal_sha256": "07a8050dc56a1415279892ee3f432ec94d6f2b82a5b80cd086d8652be201a80c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            37,
+            52
+          ],
+          "current": [
+            29,
+            29
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            53,
+            57
+          ],
+          "current": [
+            30,
+            34
+          ],
+          "equal_sha256": "c44bdafc6bee2b51242cf428804ddb51f573a8e7aa3d56fe91c5530f11567db0"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            58,
+            85
+          ],
+          "current": [
+            35,
+            35
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            86,
+            92
+          ],
+          "current": [
+            36,
+            42
+          ],
+          "equal_sha256": "842178570ed7cb08af669285c24af845baf4b03a944bcba7e53dcea139a23187"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            93,
+            100
+          ],
+          "current": [
+            43,
+            43
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            101,
+            106
+          ],
+          "current": [
+            44,
+            49
+          ],
+          "equal_sha256": "887e552d4739f8a2cd5ddff4d543fc070daf57714d275f92b810e00fb7b05d38"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            107,
+            139
+          ],
+          "current": [
+            50,
+            50
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            140,
+            149
+          ],
+          "current": [
+            51,
+            60
+          ],
+          "equal_sha256": "c925723f581e6c208614761fd450fa3a7e69e150fb62e83942007254d5e96cb1"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            150,
+            195
+          ],
+          "current": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            196,
+            200
+          ],
+          "current": [
+            62,
+            66
+          ],
+          "equal_sha256": "6379c757e61874bc94c4e7d7f704905da66366a8c96166c7646ef08a9fa743f4"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            201,
+            205
+          ],
+          "current": [
+            67,
+            67
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            206,
+            234
+          ],
+          "current": [
+            68,
+            96
+          ],
+          "equal_sha256": "a7c13e1c2087a63fe04a3911aef5f1c10db1d7eb484b07e1d1c9b3b6a3e05216"
+        }
+      ]
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/01-record-facts/starter/sample.json",
+      "bytes": 609,
+      "sha256": "6fd9fd91b77d323288dce3fbc9eda86418ef56b1cbcbf2ce7ea06be3f43a0870",
+      "git_blob": "c1ece32a505196889d0f84f44486a98549d5713a",
+      "tree_match": true,
+      "mode": "同SHA全文复用",
+      "lines": 13,
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/solution/sample.json"
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/01-record-facts/tests/stage.test.mjs",
+      "bytes": 1052,
+      "sha256": "8052e58c8859f8e790bc6204d891a095c7b5617e68e2c1feb7ba091f2bbccecd",
+      "git_blob": "15f6c64839a753e475dc18689d2e7a36ac77b9ac",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 28,
+      "read_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/stages/01-validate-glossary/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            7
+          ],
+          "current": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            8
+          ],
+          "current": [
+            8,
+            8
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            9,
+            9
+          ],
+          "current": [
+            9,
+            9
+          ],
+          "equal_sha256": "8cdb332139085b4f1fa7bf46a525dc5d09178a969bee5daf5386c49b74ca8944"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            10,
+            12
+          ],
+          "current": [
+            10,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            13,
+            13
+          ],
+          "current": [
+            12,
+            12
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            14,
+            22
+          ],
+          "current": [
+            13,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            23,
+            23
+          ],
+          "current": [
+            17,
+            17
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            24,
+            38
+          ],
+          "current": [
+            18,
+            28
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "tests_static": [
+        "segments blank lines with stable identity",
+        "records protected terms present only",
+        "records unit-bearing facts",
+        "empty prose has no paragraphs",
+        "heldout repeated number stays repeated",
+        "invalid protected list rejected"
+      ]
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/02-propose-rewrites/docs/en.md",
+      "bytes": 3001,
+      "sha256": "43acc64082a93ecae8d62f8daa8c88cfe3d35f2eda0c05853a3c9f202a6bd176",
+      "git_blob": "8e123ba0e89d9e44a6cff153660fcf455df8ecdc",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/stages/02-match-text/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            10
+          ],
+          "current": [
+            2,
+            10
+          ],
+          "equal_sha256": "e8a7bc0f17464bc187ca6724a873f864a017545db28f2e976c7c6daf4ad3a546"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            11,
+            11
+          ],
+          "current": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            15
+          ],
+          "current": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            16,
+            16
+          ],
+          "current": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            19
+          ],
+          "current": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            20,
+            24
+          ],
+          "current": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            27
+          ],
+          "current": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            28,
+            28
+          ],
+          "current": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            29,
+            35
+          ],
+          "current": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            36,
+            37
+          ],
+          "current": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            38,
+            43
+          ],
+          "current": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            44,
+            44
+          ],
+          "current": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            45,
+            50
+          ],
+          "current": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            51,
+            51
+          ],
+          "current": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            52,
+            54
+          ],
+          "current": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            55,
+            55
+          ],
+          "current": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            56,
+            58
+          ],
+          "current": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            59,
+            59
+          ],
+          "current": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            60,
+            60
+          ],
+          "current": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            61,
+            61
+          ],
+          "current": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ]
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/02-propose-rewrites/starter/STAGE-2.md",
+      "bytes": 254,
+      "sha256": "9c40240193c87bc06002258d4631b6ffe1a4c858488765622969683c46a9723a",
+      "git_blob": "3cdc8b216740cb09c42c043b5c6d6df90cca6cda",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/02-propose-rewrites/tests/stage.test.mjs",
+      "bytes": 1241,
+      "sha256": "da683e208fde5dc1b668f12dcd6163b9fa52460b3d9221642bb7592fdf8176a8",
+      "git_blob": "7b51e616d6b2643cf94a4c5ca06313968d3d31a9",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 38,
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/stages/01-validate-glossary/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            7
+          ],
+          "current": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            12
+          ],
+          "current": [
+            8,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            13,
+            13
+          ],
+          "current": [
+            20,
+            20
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            14,
+            22
+          ],
+          "current": [
+            21,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            23,
+            23
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            24,
+            27
+          ],
+          "current": [
+            26,
+            29
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            28,
+            28
+          ],
+          "current": [
+            30,
+            30
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            29,
+            37
+          ],
+          "current": [
+            31,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            38,
+            38
+          ],
+          "current": [
+            38,
+            38
+          ],
+          "equal_sha256": "29576b54e255e3c948eea5b5904fa38b81682fdd3cbd9ae841ff0e7bd80d394c"
+        }
+      ],
+      "tests_static": [
+        "visible substitution creates candidate",
+        "recorded proposal preserves exact author text",
+        "method identifies deterministic source",
+        "unknown paragraph rejected",
+        "heldout empty proposal rejected",
+        "original remains unchanged"
+      ]
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/03-compare-facts/docs/en.md",
+      "bytes": 3023,
+      "sha256": "dcb6b1feed7efe89a7902e855360b3d31d262faa91c65b369bb53bb0d180c94f",
+      "git_blob": "800ce528f46eadf47d47f21475c0b4ad95a2c7ed",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/stages/03-accessible-definitions/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            10
+          ],
+          "current": [
+            2,
+            10
+          ],
+          "equal_sha256": "4bba616be05a3d361f9beaf956a72a7b62ffd80f06a886559cdc10772678bf09"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            11,
+            11
+          ],
+          "current": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            15
+          ],
+          "current": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            16,
+            16
+          ],
+          "current": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            19
+          ],
+          "current": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            20,
+            24
+          ],
+          "current": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            27
+          ],
+          "current": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            28,
+            28
+          ],
+          "current": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            29,
+            35
+          ],
+          "current": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            36,
+            37
+          ],
+          "current": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            38,
+            43
+          ],
+          "current": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            44,
+            44
+          ],
+          "current": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            45,
+            50
+          ],
+          "current": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            51,
+            51
+          ],
+          "current": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            52,
+            54
+          ],
+          "current": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            55,
+            55
+          ],
+          "current": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            56,
+            58
+          ],
+          "current": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            59,
+            59
+          ],
+          "current": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            60,
+            60
+          ],
+          "current": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            61,
+            61
+          ],
+          "current": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ]
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/03-compare-facts/starter/STAGE-3.md",
+      "bytes": 266,
+      "sha256": "0f8437f98c092c5afafdbe45d0c41ceda2653753ab0fa29f1cabc9117f6244b0",
+      "git_blob": "06def6680f8d376c995edcb9df1feacc38172e50",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/03-compare-facts/tests/stage.test.mjs",
+      "bytes": 1496,
+      "sha256": "3b6be335bb4b2bac0cf1df8f0665104e553a70e323281e7031bbb5c060787ad8",
+      "git_blob": "676b99d85e0c569d0968b42148422b82d6b7ed5b",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 53,
+      "read_ranges": [
+        [
+          1,
+          53
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/stages/01-validate-glossary/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            7
+          ],
+          "current": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            8
+          ],
+          "current": [
+            8,
+            47
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            9,
+            9
+          ],
+          "current": [
+            48,
+            48
+          ],
+          "equal_sha256": "8cdb332139085b4f1fa7bf46a525dc5d09178a969bee5daf5386c49b74ca8944"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            10,
+            11
+          ],
+          "current": [
+            49,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            13
+          ],
+          "current": [
+            52,
+            53
+          ],
+          "equal_sha256": "c45d5395520b6a7b74e559ae10d0d4bcd0ba3687278a22f2bcf97787d4d00518"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            14,
+            38
+          ],
+          "current": [
+            54,
+            53
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "tests_static": [
+        "changed number flagged",
+        "missing term flagged",
+        "missing definition flagged",
+        "measures sentence average",
+        "heldout missing proposal rejected",
+        "unchanged facts pass lexical checks"
+      ]
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/04-accepted-export/docs/en.md",
+      "bytes": 3196,
+      "sha256": "267564a167b46607393f62dbab83aaf544d40b8334f6c2c05c8429da1ea14db3",
+      "git_blob": "4ebf10152da9bd5b97c72dad3e6e9d942d4ece5b",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/stages/04-publish-bundle/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            10
+          ],
+          "current": [
+            2,
+            10
+          ],
+          "equal_sha256": "c807327af8c337b6f95122519d0223d70d13d155b7b9a9949e13a9396e3b6f0c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            11,
+            11
+          ],
+          "current": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            15
+          ],
+          "current": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            16,
+            16
+          ],
+          "current": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            19
+          ],
+          "current": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            20,
+            24
+          ],
+          "current": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            27
+          ],
+          "current": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            28,
+            28
+          ],
+          "current": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            29,
+            35
+          ],
+          "current": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            36,
+            37
+          ],
+          "current": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            38,
+            43
+          ],
+          "current": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            44,
+            44
+          ],
+          "current": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            45,
+            50
+          ],
+          "current": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            51,
+            51
+          ],
+          "current": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            52,
+            54
+          ],
+          "current": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            55,
+            55
+          ],
+          "current": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            56,
+            58
+          ],
+          "current": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            59,
+            59
+          ],
+          "current": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            60,
+            60
+          ],
+          "current": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            61,
+            61
+          ],
+          "current": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ]
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/04-accepted-export/starter/STAGE-4.md",
+      "bytes": 262,
+      "sha256": "433d10b0155b748e494749ec452a817bd38af481dd2328bd08cc2ce37b3f1b05",
+      "git_blob": "ecbc8125e7cd66f8b95189034a3d6ef9be44cb31",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/plain-language-rewrite-desk/stages/04-accepted-export/tests/stage.test.mjs",
+      "bytes": 1802,
+      "sha256": "05120312e0b7f131cf2fb738825ffe154d63dd198af9df4e32ccb072e9f70030",
+      "git_blob": "d37c263a30e6537fc8aacbce4bca0b3aed9d7a60",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 57,
+      "read_ranges": [
+        [
+          1,
+          57
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/stages/01-validate-glossary/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            7
+          ],
+          "current": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            12
+          ],
+          "current": [
+            8,
+            26
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            13,
+            13
+          ],
+          "current": [
+            27,
+            27
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            14,
+            16
+          ],
+          "current": [
+            28,
+            36
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            37,
+            38
+          ],
+          "equal_sha256": "261970c5dab0973194e66a7087a7ff61b9241cbf02d330d1aa23b7db3d450767"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            22
+          ],
+          "current": [
+            39,
+            43
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            23,
+            23
+          ],
+          "current": [
+            44,
+            44
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            24,
+            24
+          ],
+          "current": [
+            45,
+            45
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            46,
+            46
+          ],
+          "equal_sha256": "87dbb509222835daad7fe0d816124f7d9eb08ae2802526f276333f15d674aa48"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            26,
+            27
+          ],
+          "current": [
+            47,
+            52
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            28,
+            28
+          ],
+          "current": [
+            53,
+            53
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            29,
+            32
+          ],
+          "current": [
+            54,
+            56
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            33,
+            33
+          ],
+          "current": [
+            57,
+            57
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            34,
+            38
+          ],
+          "current": [
+            58,
+            57
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "tests_static": [
+        "pending retains original",
+        "explicit accept exports candidate",
+        "reject keeps original and resolves review",
+        "stale proposal approval rejected",
+        "heldout edited review cannot bypass issues",
+        "interface exposes review download"
+      ]
+    },
+    {
+      "path": "site/figures/projects/plain-language-rewrite-desk.js",
+      "bytes": 5586,
+      "sha256": "27c35d6d8bec188d67b24a501019049557837160a0ceb30bd273e3c4790638b1",
+      "git_blob": "68bfe5db68f7047ed16fa7b025726c5d495ef41f",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 193,
+      "read_ranges": [
+        [
+          1,
+          193
+        ]
+      ],
+      "executed": false
+    }
+  ],
+  "data_proof": {
+    "date": "2026-10-23",
+    "method": "自写ASCII样本分词/数字多重集/词组替换与决定推导；不运行源TS/JS。",
+    "source_execution": 0,
+    "sample_comparisons": [
+      {
+        "id": "p1",
+        "original": "In order to compare map distances, utilize the map scale prior to measuring the path. A 2 cm line represents approximately 100 m on the ground.",
+        "candidate": "to compare map distances, use the map scale before measuring the path. A 2 cm line represents about 100 m on the ground.",
+        "numbers_original": [
+          "100 m",
+          "2 cm"
+        ],
+        "numbers_candidate": [
+          "100 m",
+          "2 cm"
+        ],
+        "before": {
+          "words": 26,
+          "sentences": 2,
+          "averageWords": 13.0,
+          "longWords": 4
+        },
+        "after": {
+          "words": 23,
+          "sentences": 2,
+          "averageWords": 11.5,
+          "longWords": 3
+        },
+        "issues": []
+      },
+      {
+        "id": "p2",
+        "original": "A projection, a method for representing a curved surface on a flat map, introduces distortion. At this point in time, our example uses a 15% area difference.",
+        "candidate": "A projection shows a curved surface on a flat map. This example uses a 10% area difference.",
+        "numbers_original": [
+          "15%"
+        ],
+        "numbers_candidate": [
+          "10%"
+        ],
+        "before": {
+          "words": 27,
+          "sentences": 2,
+          "averageWords": 13.5,
+          "longWords": 5
+        },
+        "after": {
+          "words": 17,
+          "sentences": 2,
+          "averageWords": 8.5,
+          "longWords": 2
+        },
+        "issues": [
+          "Numeric facts changed",
+          "Missing required definition: projection"
+        ]
+      }
+    ],
+    "sample_decision": {
+      "schemaVersion": 1,
+      "decisions": [
+        {
+          "id": "p1",
+          "candidate": "to compare map distances, use the map scale before measuring the path. A 2 cm line represents about 100 m on the ground.",
+          "decision": "accept"
+        },
+        {
+          "id": "p2",
+          "candidate": "A projection shows a curved surface on a flat map. This example uses a 10% area difference.",
+          "decision": "reject"
+        }
+      ]
+    },
+    "expected_markdown": "to compare map distances, use the map scale before measuring the path. A 2 cm line represents about 100 m on the ground.\n\nA projection, a method for representing a curved surface on a flat map, introduces distortion. At this point in time, our example uses a 15% area difference.\n",
+    "counterexamples": [
+      {
+        "original": "A is 2 kg; B is 3 kg.",
+        "candidate": "A is 3 kg; B is 2 kg.",
+        "same_numeric_multiset": true,
+        "semantic_relation_changed": true
+      },
+      {
+        "original": "The result is not safe.",
+        "candidate": "The result is safe.",
+        "numeric_and_protected_lexical_checks_can_pass": true
+      },
+      {
+        "original": "2.5 units.",
+        "measure": {
+          "words": 3,
+          "sentences": 2,
+          "averageWords": 1.5,
+          "longWords": 0
+        },
+        "note": "小数点被当句界，非真实语言句子计数"
+      }
+    ],
+    "remaining": [
+      "原24测试仅静读，语义等价/中文句法/真实provider/编辑身份未验证。"
+    ]
+  },
+  "root_review": {
+    "all_git_blobs_rechecked": 26,
+    "drift": 0,
+    "critical_source_functions_actually_read": [
+      "compareParagraphs",
+      "exportRevisions"
+    ],
+    "formal_draft_complete_read": true,
+    "source_execution": 0
+  },
+  "tests_static": [
+    {
+      "file": "projects/plain-language-rewrite-desk/stages/01-record-facts/tests/stage.test.mjs",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/plain-language-rewrite-desk/stages/02-propose-rewrites/tests/stage.test.mjs",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/plain-language-rewrite-desk/stages/03-compare-facts/tests/stage.test.mjs",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/plain-language-rewrite-desk/stages/04-accepted-export/tests/stage.test.mjs",
+      "static_tests": 6,
+      "executed": false
+    }
+  ],
+  "formal_fusion": {
+    "file": "数据科学基础/06-数据可视化与分析沟通.md",
+    "before_sha256": "1015f1e873d2112a272d4cf35acc168763a6ba1310d6133f3273b82aa2df1770",
+    "after_sha256": "4a5b4c2ccb0c363d238a80fcf0588a91c94d3a132a3431bbe1f7ebb0b50a4796",
+    "old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "f6b179ccbc682e3c66f951db56e67a5c3b1e3181ab1d8b5131d2be33f0e85583",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "36a0fef69d51236d8745f1c3a2dbd9d319f59ca10fdc62098dbdcaf64f0a1cb1",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4635 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

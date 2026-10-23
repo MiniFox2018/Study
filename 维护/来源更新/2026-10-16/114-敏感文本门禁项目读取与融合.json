@@ -1,0 +1,892 @@
+{
+  "date": "2026-10-23",
+  "project": "sensitive-text-redaction-gate",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-detect-spans",
+    "02-merge-overlaps",
+    "03-redact-text",
+    "04-export-safe-records"
+  ],
+  "delegate_review": {
+    "project": "sensitive-text-redaction-gate",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_cutoff": "2026-10-15T05:58:42Z",
+    "read_date": "2026-10-23",
+    "author_run": "2026-10-09T14:39:29Z",
+    "accepted": false,
+    "single_merge_file": "数据科学基础/02-数据类型-来源与质量.md",
+    "inventory": "/tmp/study-update-20261016/redaction-agent-20261023/inventory.json",
+    "data_proof": "/tmp/study-update-20261016/redaction-agent-20261023/data-proof.json",
+    "knowledge": "/tmp/study-update-20261016/redaction-agent-20261023/knowledge.md",
+    "knowledge_sha256": "5e628e6979886d93bc8b19bf29d90e87d0ed0e9b48d89ac5d4ca66624e46ae7e",
+    "counts": {
+      "project_items": 28,
+      "tests_static": 30,
+      "gif_data_frames": 24,
+      "png_visual": 2,
+      "source_execution": 0
+    },
+    "findings": [
+      "三类有界检测不是通用PII/匿名；匹配限额前合并，fail closed无partial。",
+      "Python字符偏移不同UTF8/UTF16；overlap union、adjacency分开，原游标replacement marker不改坐标。",
+      "样本3行4区间63字符；回执不保原短秘密或其hash；ID非敏感由人负责。",
+      "process只id/text，拒漏扫extra metadata；CLI通用error不回显原行。",
+      "输入先全读、无总字节/时间预算，三产物非原子/无完整输出别名保全。",
+      "30tests静读：10检测含subprocess性能/上限、7合并、6替换、7batch/CLI；未运行任何source regex/程序。"
+    ],
+    "remaining": [
+      "root融合/渲染/全库检查；本子任务accepted=false。"
+    ]
+  },
+  "inventory": [
+    {
+      "path": "projects/sensitive-text-redaction-gate/API.md",
+      "bytes": 3112,
+      "sha256": "23285c35b11c859adde72eceaf5616cfbcf9e4e63551b27aed0927d2c5151be5",
+      "git_blob": "e6c44892550f07b51aed82ed5915815659ce05e9",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 47,
+      "read_ranges": [
+        [
+          1,
+          47
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/README.md",
+      "bytes": 3236,
+      "sha256": "bc47ca05429aa0bbc4453b8dbf5d0c1e7af2070b3ebe17041ae33e086a16f61d",
+      "git_blob": "dbf70ce682202c39e3c46fbcf3a3223d7e9154c9",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 54,
+      "read_ranges": [
+        [
+          1,
+          54
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/media/output.gif",
+      "bytes": 39199,
+      "sha256": "eeaa74bdeb2b8ea210cfb4bb883a99070e02a903db15510a26ef381ca05fb649",
+      "git_blob": "2ab050103d70b85c4c0aaa03b3397c68dd23429b",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 6,
+      "duration_ms": 3900,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": false,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/media/output.json",
+      "bytes": 245,
+      "sha256": "ce2b8227d005aca3d949db72d607ebf1dd1b9b68c7573bf397a301d53eb8e087",
+      "git_blob": "0fcb7ea4863b77ed26be2cd5978278cf85aa0a29",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 11,
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/media/output.png",
+      "bytes": 52832,
+      "sha256": "9322794bbc54b999df9ed4936862a662dbc92d475157e6993aca9857bb80eb5b",
+      "git_blob": "9521bcf9a4c7777ea7c7699cb8f12b6c7b2dc2ff",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": true,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/media/run.gif",
+      "bytes": 232211,
+      "sha256": "c3079ed9e24900eb1a008da155dea3f6829a4c9a3d4ea9b6f8cb08579ffcb020",
+      "git_blob": "cfe84cb68416466887367ce85741dbb3525c6178",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 18,
+      "duration_ms": 8100,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": false,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/media/run.json",
+      "bytes": 2271,
+      "sha256": "9354c1c7d25715c40fd0e2818fbe3b69ca58526d475e0375c2fcd31c73f69cb3",
+      "git_blob": "448bbf7a4f4dd658cd59d03a0a9ca49334ca9e9e",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/media/run.png",
+      "bytes": 90411,
+      "sha256": "e33f801a0e154cb4fe044aa2f82f77cda350da7a3c0c59dd2d6a1b20ee827a14",
+      "git_blob": "03a00166b357c7ed9d384fb51d606ad376263015",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": true,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/project.json",
+      "bytes": 3487,
+      "sha256": "9ea75bb5ac67ba656de1c4458133d9d47dfe96beba9e3cb0f0cb3a59d470d1c1",
+      "git_blob": "f5bbabdecc93281754dbf0390a32dc9caa8a8dd6",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 111,
+      "read_ranges": [
+        [
+          1,
+          111
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/solution/cli.py",
+      "bytes": 1667,
+      "sha256": "37f5351ca43d2a41a42b942e520346d0a45d08efa5ac4b08d03f96ed253c4b6f",
+      "git_blob": "5806f24c9fd1ddb524a703d25f91e6b101163a57",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/solution/main.py",
+      "bytes": 6491,
+      "sha256": "c70d44e76f27886d66b7e60e6e8abd9753a519dc2852a9abbf2c023b53f52b52",
+      "git_blob": "57deafa8c75291cfd0700dc3bd6856b38a67c0bb",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 146,
+      "read_ranges": [
+        [
+          1,
+          146
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/solution/samples/input.jsonl",
+      "bytes": 236,
+      "sha256": "193508c71b3730a93f40267f9ac4ffdb290bb1adf7ab081deb99b568b487b926",
+      "git_blob": "625179895bc3e9447c1a47554c5bd08432800119",
+      "tree_match": true,
+      "mode": "已实际读取starter样本的精确SHA复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/sensitive-text-redaction-gate/stages/01-detect-spans/starter/samples/input.jsonl"
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/solution/samples/literals.json",
+      "bytes": 16,
+      "sha256": "595f136e834948d07ffa6ddf171943ca6daf00b13d01a0aa9a3d824a15012307",
+      "git_blob": "2439f16a131e3d1d8e0c0da8ea682e86b772112e",
+      "tree_match": true,
+      "mode": "已实际读取starter样本的精确SHA复用",
+      "lines": 1,
+      "read_ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/sensitive-text-redaction-gate/stages/01-detect-spans/starter/samples/literals.json"
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/01-detect-spans/docs/en.md",
+      "bytes": 3377,
+      "sha256": "dbee84b06f3ac151e03cb3fb2c0661f2d94a4f681e39f6511119e249e3366d4c",
+      "git_blob": "b15f489e5726436f8abb81db7eb5c48915ad672e",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 76,
+      "read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/01-detect-spans/starter/cli.py",
+      "bytes": 1667,
+      "sha256": "37f5351ca43d2a41a42b942e520346d0a45d08efa5ac4b08d03f96ed253c4b6f",
+      "git_blob": "5806f24c9fd1ddb524a703d25f91e6b101163a57",
+      "tree_match": true,
+      "mode": "同SHA全文复用",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/sensitive-text-redaction-gate/solution/cli.py"
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/01-detect-spans/starter/main.py",
+      "bytes": 1782,
+      "sha256": "df2edc31709aeecece6c2543375faf2790d883c4791617ec4281e9b07f8ef4e4",
+      "git_blob": "360cd5e85f6b68d69c9069373044f54296f2ef73",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 31,
+      "read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/sensitive-text-redaction-gate/solution/main.py",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": "6a1da67899bb57ec2903c3f99953fe8beb48d7cdb0bcad6e6da6c0c01bec04da"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            3,
+            3
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "ff3e4d4dcf7250cae8d622d77c9a6d69aefcf4ab04ef9920218fafe93c0f1991"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            4,
+            10
+          ],
+          "current": [
+            3,
+            2
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            11,
+            13
+          ],
+          "current": [
+            3,
+            5
+          ],
+          "equal_sha256": "fcdbc61fa1000e6ae85a91cb56c35b67468e3f2840275282f63b35829eec4b5c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            14,
+            46
+          ],
+          "current": [
+            6,
+            6
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            47,
+            49
+          ],
+          "current": [
+            7,
+            9
+          ],
+          "equal_sha256": "0843413d30d9cd420bbd81dedbd4dab56e4a9f1674860736c9545c16351e307a"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            50,
+            73
+          ],
+          "current": [
+            10,
+            10
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            74,
+            76
+          ],
+          "current": [
+            11,
+            13
+          ],
+          "equal_sha256": "0d6cbe64db7cb4453d68a5496395a1d61107c1a773db0d54930ade5b6e4cbe6a"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            77,
+            95
+          ],
+          "current": [
+            14,
+            14
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            96,
+            98
+          ],
+          "current": [
+            15,
+            17
+          ],
+          "equal_sha256": "7930c6f5fe5241ea214018136dfa0392993d45373ec7bbe61bddac68b275e6a9"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            99,
+            133
+          ],
+          "current": [
+            18,
+            18
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            134,
+            146
+          ],
+          "current": [
+            19,
+            31
+          ],
+          "equal_sha256": "ee72f77392007eeca5f1023005fb63e9601a5ced6e3e496cbc7a8e42ff1dd7a2"
+        }
+      ]
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/01-detect-spans/starter/samples/input.jsonl",
+      "bytes": 236,
+      "sha256": "193508c71b3730a93f40267f9ac4ffdb290bb1adf7ab081deb99b568b487b926",
+      "git_blob": "625179895bc3e9447c1a47554c5bd08432800119",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/01-detect-spans/starter/samples/literals.json",
+      "bytes": 16,
+      "sha256": "595f136e834948d07ffa6ddf171943ca6daf00b13d01a0aa9a3d824a15012307",
+      "git_blob": "2439f16a131e3d1d8e0c0da8ea682e86b772112e",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 1,
+      "read_ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/01-detect-spans/tests/test_stage.py",
+      "bytes": 2114,
+      "sha256": "8fa4ac2ed0f4988ef4248ff6e5032a4e817b5ab5e5b5571297f50fb3d08fc812",
+      "git_blob": "ab782564d989e2e86c381c88d8260c5f2647fdf7",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 64,
+      "read_ranges": [
+        [
+          1,
+          64
+        ]
+      ],
+      "executed": false,
+      "tests_static": [
+        "test_email_offsets",
+        "test_unicode_offsets",
+        "test_ip_validity",
+        "test_literal_repetition_overlap",
+        "test_literal_validation",
+        "test_text_validation",
+        "test_unmatched",
+        "test_sentence_punctuation",
+        "test_punctuation_scan_is_bounded",
+        "test_match_limit_fails_closed"
+      ]
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/02-merge-overlaps/docs/en.md",
+      "bytes": 3087,
+      "sha256": "bfb737b73e92c688b3f5ee896bc8ee48f46d91d770a18875ffc226368b3f9731",
+      "git_blob": "7f2feaafbd8762572e0fb65469aa5005bffecfb5",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 76,
+      "read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/02-merge-overlaps/starter/stage-2.md",
+      "bytes": 133,
+      "sha256": "3dea1b64635a7900c3e30d8dbd65c722a5dc614ed0d63e644e07e2cc6a408663",
+      "git_blob": "0029164266c208ebdf1e0443e4bd1649e0e619c4",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/02-merge-overlaps/tests/test_stage.py",
+      "bytes": 1603,
+      "sha256": "6447a9eb51575c0073322b8bfcb911a7799d9aa16625fc20812139bcd9af5ccf",
+      "git_blob": "ba885d11eef45c6ed3a293437f4e6639248f66f2",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 46,
+      "read_ranges": [
+        [
+          1,
+          46
+        ]
+      ],
+      "executed": false,
+      "tests_static": [
+        "test_overlap_union",
+        "test_nested",
+        "test_adjacent_stay_separate",
+        "test_sort_and_duplicate",
+        "test_invalid_offsets",
+        "test_unknown_kind",
+        "test_empty"
+      ]
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/03-redact-text/docs/en.md",
+      "bytes": 3107,
+      "sha256": "cf99dc8b77c6a3174dfdaa2ee0fe79c890fd897ab7ab0551a637d8566d99f015",
+      "git_blob": "7793a6dc7ffd849a1742c144a6231ce7182ab0cf",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 76,
+      "read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/03-redact-text/starter/stage-3.md",
+      "bytes": 147,
+      "sha256": "8a70c8bc389f9aa7519ea25e913e8116de71195bee0bef95cd39c777af87a010",
+      "git_blob": "5b70cdd7534f13bfdf68dc815ef0bac47eac04f2",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/03-redact-text/tests/test_stage.py",
+      "bytes": 1172,
+      "sha256": "4f9d6f806a9977aaefb512a41309e3722796c43eb93e3e08932787ca03d46426",
+      "git_blob": "79314c5043f25630f101cec3cee341dcc677ed25",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 31,
+      "read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "executed": false,
+      "tests_static": [
+        "test_email_and_ip",
+        "test_no_raw_value_in_receipt",
+        "test_overlap_covers_full_union",
+        "test_unchanged_text",
+        "test_unicode_preservation",
+        "test_email_literal_nested"
+      ]
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/04-export-safe-records/docs/en.md",
+      "bytes": 3694,
+      "sha256": "a3588ae09655c9b268e68264cec6dde1da4dc22301746046d5bae62c68964bde",
+      "git_blob": "5fcd0aad4b0098e54057bd8ab37259ff50e1b757",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 76,
+      "read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/04-export-safe-records/starter/stage-4.md",
+      "bytes": 148,
+      "sha256": "27d8bd37396fecac2b5c582173d0ccfb43ed60594ee4d6e6864479baf74b741c",
+      "git_blob": "ae49747189ebc7ec7714ab8cbe9cac9981b155cc",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/sensitive-text-redaction-gate/stages/04-export-safe-records/tests/test_stage.py",
+      "bytes": 3205,
+      "sha256": "9a16a74b41172a16bc820c7ff8d2e962ffdc9716f613bed98916af4d8403c947",
+      "git_blob": "a96f4169a3fd0b9e395bdefd09aa30a4c215f6a5",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 86,
+      "read_ranges": [
+        [
+          1,
+          86
+        ]
+      ],
+      "executed": false,
+      "tests_static": [
+        "test_batch_totals",
+        "test_empty_batch_still_validates_policy",
+        "test_duplicate_ids",
+        "test_extra_metadata_is_rejected",
+        "test_html_escaped",
+        "test_cli_export_consumed",
+        "test_cli_error_does_not_echo_sensitive_text"
+      ]
+    },
+    {
+      "path": "site/figures/projects/sensitive-text-redaction-gate.js",
+      "bytes": 5278,
+      "sha256": "124ef9873ec1ee145d69f2a3b58f786b2504c0a836019ee37eb825420e2ecea3",
+      "git_blob": "9011757e43015598a514bfa6574fe2eec3be4f73",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "executed": false
+    }
+  ],
+  "data_proof": {
+    "date": "2026-10-23",
+    "method": "依固定样本明确已知目标作字符位置/区间长度/输出拼接的独立核算，未执行来源regex/detect/merge/redact/process或CLI。",
+    "source_execution": 0,
+    "sample_results": [
+      {
+        "id": "note-1",
+        "text": "Send the orchard report to [REDACTED] from [REDACTED].",
+        "spans": [
+          {
+            "start": 27,
+            "end": 48,
+            "kinds": [
+              "EMAIL"
+            ]
+          },
+          {
+            "start": 54,
+            "end": 64,
+            "kinds": [
+              "IPV4"
+            ]
+          }
+        ],
+        "redacted_characters": 31
+      },
+      {
+        "id": "note-2",
+        "text": "Case [REDACTED] uses [REDACTED] for its owner.",
+        "spans": [
+          {
+            "start": 5,
+            "end": 16,
+            "kinds": [
+              "LITERAL"
+            ]
+          },
+          {
+            "start": 22,
+            "end": 43,
+            "kinds": [
+              "EMAIL"
+            ]
+          }
+        ],
+        "redacted_characters": 32
+      },
+      {
+        "id": "note-3",
+        "text": "The next watering round is Tuesday.",
+        "spans": [],
+        "redacted_characters": 0
+      }
+    ],
+    "totals": {
+      "records": 3,
+      "spans": 4,
+      "redacted_characters": 63
+    },
+    "overlap": {
+      "text": "banana",
+      "literal": "ana",
+      "raw_intervals": [
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "union": [
+        [
+          1,
+          6
+        ]
+      ],
+      "removed_chars": 5,
+      "result": "b[REDACTED]"
+    },
+    "adjacent": {
+      "intervals": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "remain_two_spans": true,
+      "removed_characters": 4
+    },
+    "nested": {
+      "outer": [
+        0,
+        14
+      ],
+      "inner": [
+        2,
+        9
+      ],
+      "merged": [
+        0,
+        14
+      ],
+      "do_not_expose_outer_remainder": true
+    },
+    "unicode_offset": {
+      "text": "🌳 a@example.test",
+      "python_char_start": 2,
+      "utf8_byte_start": 5,
+      "utf16_code_unit_start": 3
+    },
+    "remaining": [
+      "不运行原regex或测试，未验证误报/漏报/扫描性能。",
+      "合成样本外的姓名/手机/IPv6/编码内容不在检测合同；ID语法不保证非敏感。"
+    ]
+  },
+  "root_review": {
+    "all_git_blobs_rechecked": 29,
+    "drift": 0,
+    "critical_source_functions_actually_read": [
+      "merge_spans",
+      "redact",
+      "process"
+    ],
+    "formal_draft_complete_read": true,
+    "source_execution": 0
+  },
+  "tests_static": [
+    {
+      "file": "projects/sensitive-text-redaction-gate/stages/01-detect-spans/tests/test_stage.py",
+      "static_tests": 10,
+      "executed": false
+    },
+    {
+      "file": "projects/sensitive-text-redaction-gate/stages/02-merge-overlaps/tests/test_stage.py",
+      "static_tests": 7,
+      "executed": false
+    },
+    {
+      "file": "projects/sensitive-text-redaction-gate/stages/03-redact-text/tests/test_stage.py",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/sensitive-text-redaction-gate/stages/04-export-safe-records/tests/test_stage.py",
+      "static_tests": 7,
+      "executed": false
+    }
+  ],
+  "formal_fusion": {
+    "file": "数据科学基础/02-数据类型-来源与质量.md",
+    "before_sha256": "d64ed7b4f5dd02ef3794afddad9da2fab500c0a2fdb2953d34329a4538046792",
+    "after_sha256": "79b17b9a09cd220ae9fd2cd8bf21636b3fe571f28f1951aa2da8ea7efdceb95a",
+    "old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "5da1e8ab9daacf57bb707a2d7ce142f6a4adc0a158a8400ca61d6d9357c064fe",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "9115c674a1ac2adb8d3c0429b81477a3a0d5f0d11a163a514c056863acb3228a",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4635 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}
