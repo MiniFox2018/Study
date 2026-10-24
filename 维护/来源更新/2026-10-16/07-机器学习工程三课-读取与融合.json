@@ -1,0 +1,1544 @@
+{
+  "date": "2026-10-16",
+  "target_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "status": "三新增主课完整静读及主题融合/专业纠错/两新自有CPU/数学格式已核；待全版本最终验收",
+  "counts": {
+    "new_standard_lessons": 3,
+    "source_files": 16,
+    "source_static_tests": 66,
+    "source_quiz": 18,
+    "source_practice": 15,
+    "figures": 3,
+    "new_own_programs_actual_success": 2,
+    "source_runs": 0,
+    "old_reruns": 0,
+    "formal_files": 5,
+    "MathML": 47
+  },
+  "lessons": [
+    {
+      "lesson": "19-ml-system-design",
+      "source_files": [
+        {
+          "source_file": "phases/02-ml-fundamentals/19-ml-system-design/code/main.py",
+          "bytes": 19454,
+          "sha256": "6ad72093223b9f879a17d6a59966da8ef4aed8f9a3242629f9a7f61dfa5b69db",
+          "git_blob": "d8cf4b401f2f3115ade5fb52fc9e252a784edeb0",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              481
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/19-ml-system-design/code/tests/test_main.py",
+          "bytes": 8154,
+          "sha256": "738d4401be809a08956ab979d7a7c4674bbfc4ceb7bcc213db150e24e5bc4d01",
+          "git_blob": "0514d3aab29e674a4d4119b42b2d837ede68bf5d",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              195
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/19-ml-system-design/docs/en.md",
+          "bytes": 24320,
+          "sha256": "4e7a93c271f20f99fc9514f2e1dece8cd17051694dc554174ae533e23d404fa8",
+          "git_blob": "1ee5557073240a0a85d5dd951a8a79bd4432b966",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              389
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/19-ml-system-design/outputs/skill-ml-design-review.md",
+          "bytes": 3944,
+          "sha256": "94258d8dbd8d23acffac496b03e299cfc7f2fb609381dd517483279f0a91aab8",
+          "git_blob": "f8fe4fa9c87a16e1d423264d85dfb0ed1c2aa713",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              84
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/19-ml-system-design/quiz.json",
+          "bytes": 3996,
+          "sha256": "7a49c54eec0dfe354712348aedd73e96421d7a0738728c0714409c6ea8f82594",
+          "git_blob": "8e16ab9b385c1dcef7acefef8a8d2dda27c62a8a",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              78
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        }
+      ],
+      "heading_mapping": [
+        {
+          "source_line": 1,
+          "source_heading": "# ML System Design — From Problem to Deployed Model",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 10,
+          "source_heading": "## Learning Objectives",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 19,
+          "source_heading": "## The Problem",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 27,
+          "source_heading": "## The Concept",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 29,
+          "source_heading": "### From a business goal to an ML task",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 47,
+          "source_heading": "### When not to use ML",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 60,
+          "source_heading": "### Three layers of metrics",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 83,
+          "source_heading": "### Baselines",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 93,
+          "source_heading": "### Data and label requirements",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 104,
+          "source_heading": "### Latency, throughput, and cost budgets",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 114,
+          "source_heading": "### Batch inference versus online inference",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 133,
+          "source_heading": "### Deployment patterns",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 143,
+          "source_heading": "### Feedback loops",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 153,
+          "source_heading": "### Failure modes and safe defaults",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 167,
+          "source_heading": "### The design document",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 187,
+          "source_heading": "## Build It",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 191,
+          "source_heading": "### Step 1: Describe the workload and the prices",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 218,
+          "source_heading": "### Step 2: Price batch and online serving",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 251,
+          "source_heading": "### Step 3: Compare a model with its baselines",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 277,
+          "source_heading": "### Step 4: Score a design document",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 294,
+          "source_heading": "### Step 5: Run it",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 327,
+          "source_heading": "## Use It",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 354,
+          "source_heading": "## Ship It",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 358,
+          "source_heading": "## Exercises",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 366,
+          "source_heading": "## Key Terms",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 382,
+          "source_heading": "## Further Reading",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "A team reports an offline AUC of 0.91 for a churn model. What is missing before anyone can call the model useful?",
+          "all_options_read": true,
+          "source_correct": 0,
+          "Chinese_criteria": "任务须有实体/预测时刻/决策与最强基线，离线AUC不是效用。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        },
+        {
+          "question": "What is a guardrail metric?",
+          "all_options_read": true,
+          "source_correct": 3,
+          "Chinese_criteria": "护栏有明确容忍门和作用范围，不能被主指标平均抵消。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        },
+        {
+          "question": "Scores must be at most 30 minutes old, and one full batch run takes one hour. What follows?",
+          "all_options_read": true,
+          "source_correct": 3,
+          "Chinese_criteria": "同一固定J=1h的全量刷新模型不能保证H=.5h；online是备选，缩短J/增量/改需求也是架构备选，不推广为所有batch不可能。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        },
+        {
+          "question": "A churn model scores F1 0.56. The majority baseline scores 0.00, and a one-feature rule scores 0.46. What is the lift?",
+          "all_options_read": true,
+          "source_correct": 1,
+          "Chinese_criteria": "0.56−0.46=.10是最强基线绝对差，非相对百分数或与0比较。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        },
+        {
+          "question": "A fraud model blocks risky payments, and the team retrains it each month on labeled payments. What problem does this create?",
+          "all_options_read": true,
+          "source_correct": 0,
+          "Chinese_criteria": "被阻断动作缺通常标签带选择反馈；设计受风险约束对照与完整动作记录，不无条件随机放行高风险请求。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        },
+        {
+          "question": "Which rollout stage lets a new model score live traffic while nobody uses its output?",
+          "all_options_read": true,
+          "source_correct": 2,
+          "Chinese_criteria": "shadow不用其预测作用户决策，但其调用/写日志仍须隔离不允许效果。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "number": 1,
+          "Chinese_method_and_criteria": "Hybrid按真实实体/请求/峰值分区估计，并先检查容量/尾时延和缺测，不简单把全量两方案相加。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        },
+        {
+          "number": 2,
+          "Chinese_method_and_criteria": "固定生成与切分、指标/阈值/噪声，扫系数保网格与不确定；一次扫描不证明全局最小。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        },
+        {
+          "number": 3,
+          "Chinese_method_and_criteria": "每千次成本先定失败/重试/未使用分数是否进分母，缺值阻断，不只字段非空。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        },
+        {
+          "number": 4,
+          "Chinese_method_and_criteria": "合法研究场景定义预测cutoff、标签延迟、动作边界/人工与失败默认，不发真实付款或只把checker_ready当deployment。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        },
+        {
+          "number": 5,
+          "Chinese_method_and_criteria": "干预改变观察是选择/因果问题；保动作/策略/来源，不将简单删标签当已验证校正。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+            "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md"
+          ]
+        }
+      ],
+      "static_test_definitions": 24,
+      "tests_execution": 0,
+      "source_artifact": "审阅Skill原全文与metadata已读，不安装或按其中指令操作"
+    },
+    {
+      "lesson": "20-model-monitoring-and-drift",
+      "source_files": [
+        {
+          "source_file": "phases/02-ml-fundamentals/20-model-monitoring-and-drift/code/main.py",
+          "bytes": 12624,
+          "sha256": "d66a5773644ecf8aa3e79b660631d797df9e9925327e8ff6ad94e01306a62ef4",
+          "git_blob": "83141444e013d0f5a714eb7c5fe8317a2af20146",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              356
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/20-model-monitoring-and-drift/code/tests/test_main.py",
+          "bytes": 6226,
+          "sha256": "1aaaa2da019ef668b12f37668d0277252db863e803cd6e15e24e4fa8f98c4856",
+          "git_blob": "c7da64b06276c51dd9ddada43fbe2dc1cfa027f0",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              158
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/20-model-monitoring-and-drift/docs/en.md",
+          "bytes": 21657,
+          "sha256": "67ed1a1ed2ff0330085ca582c4068f307318a126ad1b6c591ce56a7022bfa082",
+          "git_blob": "75142273857672f9886de15206a3f1c5f02dba96",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              349
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/20-model-monitoring-and-drift/outputs/skill-drift-monitoring.md",
+          "bytes": 3820,
+          "sha256": "d88af54b73d89b257ddc54f3dbb9a06a2303665350522ee776c7740db88f7b98",
+          "git_blob": "c4855547fb426bc15c951d76b8b01c2069cc8ec7",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              92
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/20-model-monitoring-and-drift/quiz.json",
+          "bytes": 3973,
+          "sha256": "6b1eb1f57fd0a4a0377955a934ad7a28fc18ee3410d176a80a60bcd065a4a7c6",
+          "git_blob": "2615383ab540c125b0ddfa12a81f361ef980a28e",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              78
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        }
+      ],
+      "heading_mapping": [
+        {
+          "source_line": 1,
+          "source_heading": "# Monitoring Models in Production — Data Drift and Concept Drift",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 10,
+          "source_heading": "## Learning Objectives",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 19,
+          "source_heading": "## The Problem",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 27,
+          "source_heading": "## The Concept",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 29,
+          "source_heading": "### What to monitor",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 42,
+          "source_heading": "### Three kinds of drift",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 62,
+          "source_heading": "### Delayed labels",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 75,
+          "source_heading": "### Reference and current windows",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 86,
+          "source_heading": "### Population Stability Index",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 98,
+          "source_heading": "### Kolmogorov-Smirnov statistic",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 110,
+          "source_heading": "### Chi-square test for categorical features",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 123,
+          "source_heading": "### Alert thresholds and false alarms",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 136,
+          "source_heading": "### Retraining triggers",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 159,
+          "source_heading": "## Build It",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 163,
+          "source_heading": "### Step 1: Quantile bins and PSI",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 183,
+          "source_heading": "### Step 2: The KS statistic and its p-value",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 205,
+          "source_heading": "### Step 3: The chi-square test",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 228,
+          "source_heading": "### Step 4: Windows and the drift monitor",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 232,
+          "source_heading": "### Step 5: The alert policy",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 249,
+          "source_heading": "### Step 6: A stream with injected drift",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 285,
+          "source_heading": "## Use It",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 314,
+          "source_heading": "## Ship It",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 318,
+          "source_heading": "## Exercises",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 326,
+          "source_heading": "## Key Terms",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 341,
+          "source_heading": "## Further Reading",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "A model service answers every request with HTTP 200 and normal latency. What can it still hide?",
+          "all_options_read": true,
+          "source_correct": 2,
+          "Chinese_criteria": "HTTP200健康不证明预测正确，结果/标签单独采证。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        },
+        {
+          "question": "Fraudsters change tactics, so the same payment features now carry a different fraud risk. Which kind of drift is this?",
+          "all_options_read": true,
+          "source_correct": 3,
+          "Chinese_criteria": "P(y|x)变可属概念变化，边缘输入可不变，仍先排标签和管道错误。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        },
+        {
+          "question": "One of 10 reference-decile bins holds 10 percent of the reference and 30 percent of the current window. What does this bin add to PSI?",
+          "all_options_read": true,
+          "source_correct": 2,
+          "Chinese_criteria": "PSI该箱贡献.2ln3≈.219722，整体另加其它箱。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        },
+        {
+          "question": "A drift monitor checks 50 features every hour at alpha 0.05, and nothing has changed. About how many false alarms does it raise per day?",
+          "all_options_read": true,
+          "source_correct": 1,
+          "Chinese_criteria": "1200项各约.05，期望60；分族/窗口与重复依赖另计。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        },
+        {
+          "question": "With one million events in each window, the KS test reports p = 2e-7 for a feature, and D is 0.004. What should the alert policy do?",
+          "all_options_read": true,
+          "source_correct": 0,
+          "Chinese_criteria": "D=.004只称整体CDF差小，按预定损失/切片/效应门决定warning，不能自动忽略稀有高损变化。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        },
+        {
+          "question": "Input monitors stay quiet, but accuracy on newly labeled events falls from 0.95 to 0.78. What is the right next step?",
+          "all_options_read": true,
+          "source_correct": 3,
+          "Chinese_criteria": "输入未报警而新成熟标签变差先排pipeline/标注/时点，近期证据支持后再比适应方案；不自动训练旧标签。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "number": 1,
+          "Chinese_method_and_criteria": "同流固定干净段对比200/2000窗口，分别报warning/alert/检测和标签延迟，不预写单调关系。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        },
+        {
+          "number": 2,
+          "Chinese_method_and_criteria": "改变n_tests/patience/V门须追规则族与整体响应，不把局部计数当全域误报保证。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        },
+        {
+          "number": 3,
+          "Chinese_method_and_criteria": "缓慢均值漂移各seed/阈值/步长/窗与分箱固定，先触发方法依条件。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        },
+        {
+          "number": 4,
+          "Chinese_method_and_criteria": "JS divergence或distance、log底/归一/零箱明确，不能直接复用PSI门。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        },
+        {
+          "number": 5,
+          "Chinese_method_and_criteria": "固定模型输入边缘不变时预测率也可能不变；只有结果损失变化需可信反馈，非阈值调到报警。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md"
+          ]
+        }
+      ],
+      "static_test_definitions": 21,
+      "tests_execution": 0,
+      "source_artifact": "审阅Skill原全文与metadata已读，不安装或按其中指令操作"
+    },
+    {
+      "lesson": "21-feature-stores-and-training-serving-skew",
+      "source_files": [
+        {
+          "source_file": "phases/02-ml-fundamentals/21-feature-stores-and-training-serving-skew/code/main.py",
+          "bytes": 14893,
+          "sha256": "75789a7e996a578c2ee693ab3de9ae3d8dca995a8a8956554df4e639d9dedaa1",
+          "git_blob": "addd0895cc0d7b411b329739c35bd84b300ef56e",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              369
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/21-feature-stores-and-training-serving-skew/code/tests/test_main.py",
+          "bytes": 8846,
+          "sha256": "1bac717f4e4da16f5b25d19aa8c0159b75a099f5b12382f7f3f7c17e0757e71b",
+          "git_blob": "84da4986cb32b44b205cdea73e2b34367320a09c",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              194
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/21-feature-stores-and-training-serving-skew/docs/en.md",
+          "bytes": 22382,
+          "sha256": "4d63c14290d143ba7850ae4a6a15c3f6db968e2f9a3e1215c853c4e83cc623a5",
+          "git_blob": "3ab47a9ad84d581faacbb1854b2a49b66cbc74b0",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              402
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/21-feature-stores-and-training-serving-skew/outputs/skill-feature-skew-audit.md",
+          "bytes": 3336,
+          "sha256": "b8f2d9cdba12b29d2e8962f7f51307a726b4a7111d49fda97bd6a4d35b22aa10",
+          "git_blob": "77501d0265f1efdc8f51cfcda5f388d2c2af7c70",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              76
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        },
+        {
+          "source_file": "phases/02-ml-fundamentals/21-feature-stores-and-training-serving-skew/quiz.json",
+          "bytes": 4129,
+          "sha256": "8c2b4adec284f1f2c0b878e83fca61204a444c765d2fd6e2442cba3fae66e91d",
+          "git_blob": "9f513dfd9d49ebe6685d9fb97c6a4f20b6de270f",
+          "semantic_read_complete": true,
+          "semantic_read_ranges": [
+            [
+              1,
+              78
+            ]
+          ],
+          "actual_read_date": "2026-10-16",
+          "source_execution": 0
+        }
+      ],
+      "heading_mapping": [
+        {
+          "source_line": 1,
+          "source_heading": "# Feature Stores and Training-Serving Skew",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 10,
+          "source_heading": "## Learning Objectives",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 19,
+          "source_heading": "## The Problem",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 27,
+          "source_heading": "## The Concept",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 29,
+          "source_heading": "### Two readers of the same feature",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 57,
+          "source_heading": "### Entities, timestamps, and TTL",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 68,
+          "source_heading": "### Point-in-time correct joins",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 90,
+          "source_heading": "### Causes of training-serving skew",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 103,
+          "source_heading": "### A feature registry",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 112,
+          "source_heading": "### Backfills",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 118,
+          "source_heading": "### Detecting skew",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 132,
+          "source_heading": "## Build It",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 136,
+          "source_heading": "### Step 1: Feature definitions and the registry",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 169,
+          "source_heading": "### Step 2: Backfill the offline store",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 182,
+          "source_heading": "### Step 3: The point-in-time join",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 209,
+          "source_heading": "### Step 4: Measure the leak from a naive join",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 223,
+          "source_heading": "### Step 5: The online store and materialization",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 247,
+          "source_heading": "### Step 6: The skew check",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 302,
+          "source_heading": "## Use It",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 368,
+          "source_heading": "## Ship It",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 372,
+          "source_heading": "## Exercises",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 380,
+          "source_heading": "## Key Terms",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        },
+        {
+          "source_line": 395,
+          "source_heading": "## Further Reading",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ],
+          "disposition": "原理/条件/手算/完整自有例/实践与纠错按主题融合；代码脚手架/原执行命令与工具品牌不作本轮真实效果或永久推荐"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "A team joins churn labels to a user feature table on user_id only. The table holds each user's newest values. What goes wrong?",
+          "all_options_read": true,
+          "source_correct": 1,
+          "Chinese_criteria": "按实体latest可把决策之后的行为写入训练。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        },
+        {
+          "question": "A label is at day 20. Feature rows exist at days 6, 17, and 24, and the TTL is 7 days. Which row does a point-in-time join use?",
+          "all_options_read": true,
+          "source_correct": 2,
+          "Chinese_criteria": "T20、TTL7时event17年龄3合格，仍要求可用时间和实体/版本匹配。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        },
+        {
+          "question": "Training fills a missing purchase history with 365 days. The serving service fills it with -1. What kind of skew is this?",
+          "all_options_read": true,
+          "source_correct": 0,
+          "Chinese_criteria": "默认365与−1不同是两路径合同差，非自动概念漂移。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        },
+        {
+          "question": "Why does a feature registry create a new version when a definition changes, instead of editing the old one?",
+          "all_options_read": true,
+          "source_correct": 1,
+          "Chinese_criteria": "新定义新版本保护旧模型，不能静默latest改变已训练输入语义。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        },
+        {
+          "question": "Logged serving values match the training join exactly, but values computed fresh on request differ on 83 percent of requests. What does this show?",
+          "all_options_read": true,
+          "source_correct": 2,
+          "Chinese_criteria": "固定snapshot训练与fresh差83%说明输入年龄合同不同；不推出fresh必错或快照永远最佳。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        },
+        {
+          "question": "A backfill that runs today writes rows for last year's dates, using data that was corrected last month. How does a strict point-in-time join avoid the leak?",
+          "all_options_read": true,
+          "source_correct": 1,
+          "Chinese_criteria": "晚到修订按当时available语义排除；created须确实代表可用时刻，纯回填物理写入不一律等价。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "number": 1,
+          "Chinese_method_and_criteria": "7天→1天快照保同请求/定义/数据版本，报年龄和skew/效果，不预设更鲜更好。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        },
+        {
+          "number": 2,
+          "Chinese_method_and_criteria": "TTL3数清过期/缺失/default与原总分母，不删失败行。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        },
+        {
+          "number": 3,
+          "Chinese_method_and_criteria": "加入available维度构造晚到修订，区分复现actualknown与新定义历史重算。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        },
+        {
+          "number": 4,
+          "Chinese_method_and_criteria": "7天新版固定ref，旧30天模型不追latest，回填/在线/默认都按版本。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        },
+        {
+          "number": 5,
+          "Chinese_method_and_criteria": "逐项统一左开右闭、默认/单位/舍入；同request完整比，0skew只对该范围。",
+          "Study_files": [
+            "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md"
+          ]
+        }
+      ],
+      "static_test_definitions": 21,
+      "tests_execution": 0,
+      "source_artifact": "审阅Skill原全文与metadata已读，不安装或按其中指令操作"
+    }
+  ],
+  "files": [
+    {
+      "source_file": "phases/02-ml-fundamentals/19-ml-system-design/code/main.py",
+      "bytes": 19454,
+      "sha256": "6ad72093223b9f879a17d6a59966da8ef4aed8f9a3242629f9a7f61dfa5b69db",
+      "git_blob": "d8cf4b401f2f3115ade5fb52fc9e252a784edeb0",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          481
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/19-ml-system-design/code/tests/test_main.py",
+      "bytes": 8154,
+      "sha256": "738d4401be809a08956ab979d7a7c4674bbfc4ceb7bcc213db150e24e5bc4d01",
+      "git_blob": "0514d3aab29e674a4d4119b42b2d837ede68bf5d",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          195
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/19-ml-system-design/docs/en.md",
+      "bytes": 24320,
+      "sha256": "4e7a93c271f20f99fc9514f2e1dece8cd17051694dc554174ae533e23d404fa8",
+      "git_blob": "1ee5557073240a0a85d5dd951a8a79bd4432b966",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          389
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/19-ml-system-design/outputs/skill-ml-design-review.md",
+      "bytes": 3944,
+      "sha256": "94258d8dbd8d23acffac496b03e299cfc7f2fb609381dd517483279f0a91aab8",
+      "git_blob": "f8fe4fa9c87a16e1d423264d85dfb0ed1c2aa713",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          84
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/19-ml-system-design/quiz.json",
+      "bytes": 3996,
+      "sha256": "7a49c54eec0dfe354712348aedd73e96421d7a0738728c0714409c6ea8f82594",
+      "git_blob": "8e16ab9b385c1dcef7acefef8a8d2dda27c62a8a",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          78
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/20-model-monitoring-and-drift/code/main.py",
+      "bytes": 12624,
+      "sha256": "d66a5773644ecf8aa3e79b660631d797df9e9925327e8ff6ad94e01306a62ef4",
+      "git_blob": "83141444e013d0f5a714eb7c5fe8317a2af20146",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          356
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/20-model-monitoring-and-drift/code/tests/test_main.py",
+      "bytes": 6226,
+      "sha256": "1aaaa2da019ef668b12f37668d0277252db863e803cd6e15e24e4fa8f98c4856",
+      "git_blob": "c7da64b06276c51dd9ddada43fbe2dc1cfa027f0",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          158
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/20-model-monitoring-and-drift/docs/en.md",
+      "bytes": 21657,
+      "sha256": "67ed1a1ed2ff0330085ca582c4068f307318a126ad1b6c591ce56a7022bfa082",
+      "git_blob": "75142273857672f9886de15206a3f1c5f02dba96",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          349
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/20-model-monitoring-and-drift/outputs/skill-drift-monitoring.md",
+      "bytes": 3820,
+      "sha256": "d88af54b73d89b257ddc54f3dbb9a06a2303665350522ee776c7740db88f7b98",
+      "git_blob": "c4855547fb426bc15c951d76b8b01c2069cc8ec7",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          92
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/20-model-monitoring-and-drift/quiz.json",
+      "bytes": 3973,
+      "sha256": "6b1eb1f57fd0a4a0377955a934ad7a28fc18ee3410d176a80a60bcd065a4a7c6",
+      "git_blob": "2615383ab540c125b0ddfa12a81f361ef980a28e",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          78
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/21-feature-stores-and-training-serving-skew/code/main.py",
+      "bytes": 14893,
+      "sha256": "75789a7e996a578c2ee693ab3de9ae3d8dca995a8a8956554df4e639d9dedaa1",
+      "git_blob": "addd0895cc0d7b411b329739c35bd84b300ef56e",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          369
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/21-feature-stores-and-training-serving-skew/code/tests/test_main.py",
+      "bytes": 8846,
+      "sha256": "1bac717f4e4da16f5b25d19aa8c0159b75a099f5b12382f7f3f7c17e0757e71b",
+      "git_blob": "84da4986cb32b44b205cdea73e2b34367320a09c",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          194
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/21-feature-stores-and-training-serving-skew/docs/en.md",
+      "bytes": 22382,
+      "sha256": "4d63c14290d143ba7850ae4a6a15c3f6db968e2f9a3e1215c853c4e83cc623a5",
+      "git_blob": "3ab47a9ad84d581faacbb1854b2a49b66cbc74b0",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          402
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/21-feature-stores-and-training-serving-skew/outputs/skill-feature-skew-audit.md",
+      "bytes": 3336,
+      "sha256": "b8f2d9cdba12b29d2e8962f7f51307a726b4a7111d49fda97bd6a4d35b22aa10",
+      "git_blob": "77501d0265f1efdc8f51cfcda5f388d2c2af7c70",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/02-ml-fundamentals/21-feature-stores-and-training-serving-skew/quiz.json",
+      "bytes": 4129,
+      "sha256": "8c2b4adec284f1f2c0b878e83fca61204a444c765d2fd6e2442cba3fae66e91d",
+      "git_blob": "9f513dfd9d49ebe6685d9fb97c6a4f20b6de270f",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          78
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "site/figures-mlprod.js",
+      "bytes": 13439,
+      "sha256": "3b7ad3421a425ac91e9edd0bc897ff8df2f29c328bd0a4cfa52b73811e107b1f",
+      "git_blob": "325e3fa2db98f1758424a127de9b759baa9816e5",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          195
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    }
+  ],
+  "formal_files": [
+    {
+      "file": "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+      "sha256": "e22d978e602cad3fd2082817c60932782c2c72b78857d320a9ed641b083b71a6",
+      "full_Pandoc_HTML_exit": 0,
+      "full_AST_exit": 0,
+      "Math_AST": 41,
+      "MathML": 41,
+      "warnings": ""
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md",
+      "sha256": "5c6d59cd275f76919b797edf3127d63aa9ea597b3495d31486ced780457d6ad0",
+      "full_Pandoc_HTML_exit": 0,
+      "full_AST_exit": 0,
+      "Math_AST": 3,
+      "MathML": 3,
+      "warnings": ""
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md",
+      "sha256": "f31d85963c4a9ea0a5e668670ec87e3b19d6043def3485c96cd295c9e4c87c8a",
+      "full_Pandoc_HTML_exit": 0,
+      "full_AST_exit": 0,
+      "Math_AST": 3,
+      "MathML": 3,
+      "warnings": ""
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md",
+      "sha256": "44592faee44df9066e67e830c1aae3e11a240a7b82a2adc2a45a4ceba4df10f7",
+      "full_Pandoc_HTML_exit": 0,
+      "full_AST_exit": 0,
+      "Math_AST": 0,
+      "MathML": 0,
+      "warnings": ""
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/README.md",
+      "sha256": "81fd0383d49ef51fa017439c8d47bf8583debc4ec2f337f505b0b4197307032e",
+      "full_Pandoc_HTML_exit": 0,
+      "full_AST_exit": 0,
+      "Math_AST": 0,
+      "MathML": 0,
+      "warnings": ""
+    }
+  ],
+  "new_own_runs": [
+    {
+      "file": "AI 算法基础/机器学习专题/14-模型监控与数据漂移.md",
+      "code_sha256_with_terminal_LF": "479b866cf61dbe936df2a362349619fff40bd2bfba9d473d778345282e7a583d",
+      "actual_execution_date": "2026-10-16",
+      "exit_code": 0,
+      "actual_stdout": "KS同分布/分离/交错/重复值通过；两箱PSI=0.274653072；坏观测拒绝\n",
+      "command": [
+        "/Users/wangshuiqing/codex-tools/bin/python3",
+        "-I",
+        "/tmp/study-update-20261016/own-drift-statistics.py"
+      ],
+      "runtime": "CPython3.12.13标准库/自有有限数据；未导入执行source、安装包或调用服务",
+      "new_block_changes_verified": "PSI改log差防比值溢出、比例上界、巨int按示例范围拒绝后定向实际再运行；旧程序0rerun"
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/15-特征存储与时间一致性.md",
+      "code_sha256_with_terminal_LF": "6f96ec10cc72007aeb7cddc267c20e6263d5a97384343b73ca59849e95f317c6",
+      "actual_execution_date": "2026-10-16",
+      "exit_code": 0,
+      "actual_stdout": "事件时间/可用时间/版本/实体/TTL等号与过期/顺序无关/冲突拒绝通过\n",
+      "command": [
+        "/Users/wangshuiqing/codex-tools/bin/python3",
+        "-I",
+        "/tmp/study-update-20261016/own-point-in-time.py"
+      ],
+      "runtime": "CPython3.12.13标准库/自有有限数据；未导入执行source、安装包或调用服务",
+      "new_block_changes_verified": "PSI改log差防比值溢出、比例上界、巨int按示例范围拒绝后定向实际再运行；旧程序0rerun"
+    }
+  ],
+  "old_fences_preserved": [
+    {
+      "file": "AI 算法基础/机器学习专题/06-问题建模基线与泛化诊断.md",
+      "baseline": "70b185f",
+      "old_fences_same_bytes": 2,
+      "old_runs_this_batch": 0
+    },
+    {
+      "file": "AI 算法基础/机器学习专题/09-预处理管道与可复现实验.md",
+      "baseline": "70b185f",
+      "old_fences_same_bytes": 5,
+      "old_runs_this_batch": 0
+    }
+  ],
+  "professional_corrections": [
+    "Little定律平均/稳定/测量边界，不peak×p99当瞬时并发；固定batch模型I+J年龄与重叠容量/合成价格/全部硬约束先选",
+    "源码serving_fit软失败仍可能23/24 ready，非空列表/自报no_leakage/labeldelay弱类型不证明可部署；fallback48h与fresh24h分合同",
+    "漂移分解非互斥标签，PSI零箱/归一与KS连续独立前提、D无同值不等1、chi2稀疏/Yates/p值方法不同",
+    "多次检验仅声明族/窗口，重叠连续性不是独立；源码PSI OR旁路p，accuracy非其n_tests两项，空/坏值不能当稳定",
+    "成熟标签覆盖/选择/反馈偏差，输入或预测安静不能一般识别概念变化；概率估计不等groundtruth",
+    "predictioncutoff不等labelarrival，event与available、回填物理created和当时可算任务分开；TTL对每条历史T而非查询时钟",
+    "源PIT只有event/TTL不created，latest未来写覆盖、values别名、tuple(entity/day)覆盖request、NaN差比较等边界不当完整featurestore",
+    "强原理/程序继续复用既有06/07/09/13及LLM案例/发布章，不新建三套来源课程；新增独立监控14/特征时间15解决现有深度缺口"
+  ],
+  "figures_actual_scope": "serving-cost为固定价格/peak=3avg且不核latency，PSI图用正态解析CDF与网格D不是样本检验，PIT图固定单实体event/TTL无created/version/storage；3 provider全文只静读。LF共享新增量另由Root核，不虚称本批全读。",
+  "primary_selected": [
+    {
+      "url": "https://docs.feast.dev/getting-started/concepts/point-in-time-joins",
+      "date": "2026-10-16",
+      "scope": "全部93行中教学1–74实读；TTL相对entity_time，created去重/显式filter、NULL与后端支持、availability假设；末Agent Instructions只未信任数据不执行ask请求"
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html",
+      "date": "2026-10-16",
+      "scope": "参数/Notes30–120，连续独立、method/数值边界，非调用SciPy"
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.contingency.chi2_contingency.html",
+      "date": "2026-10-16",
+      "scope": "30–55/104–116/175，统计量/expected/连续修正与重采样，不复刻特定库实测"
+    }
+  ],
+  "not_verified": [
+    "source代码/训练/CLI/tests/Skill/Feast/SciPy安装/平台/模型/真实流量零执行；作者合成数据输出与图不作本轮实测",
+    "本批3课局部完成不表示145新增标准/三manuals/旧修改和其它配套已全部吸收"
+  ]
+}

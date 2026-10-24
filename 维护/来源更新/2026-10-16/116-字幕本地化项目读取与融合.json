@@ -1,0 +1,1515 @@
+{
+  "date": "2026-10-23",
+  "project": "subtitle-localization-desk",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-cues",
+    "02-glossary",
+    "03-reading-budget",
+    "04-review-export"
+  ],
+  "delegate_review": {
+    "project": "subtitle-localization-desk",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_cutoff": "2026-10-15T05:58:42Z",
+    "read_date": "2026-10-23",
+    "author_run": "2026-10-09T14:33:56Z",
+    "accepted": false,
+    "single_merge_file": "AI 算法基础/感知与多模态专题/13-语音识别与流式交互.md",
+    "inventory": "/tmp/study-update-20261016/subtitle-agent-20261023/inventory.json",
+    "data_proof": "/tmp/study-update-20261016/subtitle-agent-20261023/data-proof.json",
+    "knowledge": "/tmp/study-update-20261016/subtitle-agent-20261023/knowledge.md",
+    "knowledge_sha256": "adae4c15b8920ee6036b4089d4ba5fe573000903456f124f79e3e556ef369a0a",
+    "counts": {
+      "project_items": 28,
+      "tests_static": 22,
+      "gif_data_frames": 24,
+      "png_visual": 2,
+      "source_execution": 0
+    },
+    "findings": [
+      "离线已给VTT/翻译，无ASR/模型provider；受限VTT保timing/ID/settings但未全settings语法，NOTE跳STYLE/REGION拒；允许overlap按start排序。",
+      "字幕count非空白codepoint，实体/组合符非实际阅读量；label59char/2s budget24，缩为17可保marcador。",
+      "指纹绑定proposals+cps，样本复算精确匹配作者57b374...；所有approve后输出，缺术语拒，overflow需True。",
+      "缺译文可通过approval清标记，不能证明目标语言；空批不complete，cps bool/上限不严；术语substring/标签/级联边界。",
+      "CLI未全审会unlink旧reviewed.vtt；HTML面板approved重置False/旧override丢，三产物非事务。",
+      "22tests静读（5+6+5+6），W3C2026-05-20 CRD指定timing段已核，Python\\d较ASCII宽。"
+    ],
+    "remaining": [
+      "root融合渲染/全库验收；源程序/播放器/真实翻译均未运行。"
+    ]
+  },
+  "inventory": [
+    {
+      "path": "projects/subtitle-localization-desk/API.md",
+      "bytes": 2092,
+      "sha256": "31d03fc8d8e2bb7c800d735de045e2ac391494e4050f09795946ff904684692b",
+      "git_blob": "6bff66ea2c278eeeca47717c614e501973afbf92",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 39,
+      "read_ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/subtitle-localization-desk/README.md",
+      "bytes": 2759,
+      "sha256": "467bdd7c1f9bb1f38aed065e1085dbf05e9b17a40e2352f0f6dacd900d97fb46",
+      "git_blob": "b1b0160c52531846102d6c797a80efb604911f40",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 48,
+      "read_ranges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/subtitle-localization-desk/media/output.gif",
+      "bytes": 78092,
+      "sha256": "85a535e0017c5680f2cbe1360766f4e3ce19ccac0fdf93080722d31cbd0e32f1",
+      "git_blob": "2962f4e96f77275d8534aa7d09bf27b43c65abd8",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 6,
+      "duration_ms": 3900,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": false,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/subtitle-localization-desk/media/output.json",
+      "bytes": 805,
+      "sha256": "de4bfc2ef4c3a74a9029ecbdbad07bd9e04aa21a0739dade7f4912912655e471",
+      "git_blob": "73faaa817aacc1f5e6918342507343c76117bae9",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 12,
+      "read_ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/subtitle-localization-desk/media/output.png",
+      "bytes": 65065,
+      "sha256": "41d33378bca135023ee98062096eefb05d6a515ce22952f30a7620f45e88f9fa",
+      "git_blob": "fb5ad24403e888507d95a05e3116291b189d7716",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": true,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/subtitle-localization-desk/media/run.gif",
+      "bytes": 240729,
+      "sha256": "168c6b98da77b228279ffec7c0f4af98873fea4e622b88b8f8d346b7da151571",
+      "git_blob": "1607eabdfd79ffe5c98a890d087b1ff729236e50",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 18,
+      "duration_ms": 8100,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": false,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/subtitle-localization-desk/media/run.json",
+      "bytes": 2300,
+      "sha256": "e4134bd310475ccb7b9df7695c8e1166f2ae234227b773dbc65df6efda12876f",
+      "git_blob": "369570d6116372dcb991e4f3f44a37fe00b17393",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/subtitle-localization-desk/media/run.png",
+      "bytes": 91516,
+      "sha256": "fb02584da4589d8026802a8dc8243ac5a0a5791f322b61790b8ec48a15b91e8a",
+      "git_blob": "336493498501269dff23cac6563d86b35c1947c4",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": true,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/subtitle-localization-desk/project.json",
+      "bytes": 3389,
+      "sha256": "8b48c07699ac093f5750dfee9bc8988196f1d04b02017f8bdfabd9222305eb7c",
+      "git_blob": "c0a212b6204371287fed0b1343ef163c698219af",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 108,
+      "read_ranges": [
+        [
+          1,
+          108
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/subtitle-localization-desk/solution/cli.py",
+      "bytes": 1927,
+      "sha256": "778174eae95570c42ee5878460af979018a9cb10d0092a27a422cf98ab0278c6",
+      "git_blob": "933030ba09ec357486466140698b89289e1b814a",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 69,
+      "read_ranges": [
+        [
+          1,
+          69
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/subtitle-localization-desk/solution/main.py",
+      "bytes": 7859,
+      "sha256": "9e30499875a01c0e9407e31a247273d9c92c4ba2840c9f386af7d53b48f8bef7",
+      "git_blob": "cfae8bbcd16596c3f48bcbe292d461bef38be5c7",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 207,
+      "read_ranges": [
+        [
+          1,
+          207
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/subtitle-localization-desk/solution/presentation.py",
+      "bytes": 3995,
+      "sha256": "273a81aa9cfcaab90280deffcad0f253844a9afcbeec3e42ac35bd17480b83d6",
+      "git_blob": "8a1c6e0d4bde546e6a64ab1541c6534365fd9af1",
+      "tree_match": true,
+      "mode": "已实际全文读取的presentation精确SHA复用",
+      "lines": 66,
+      "read_ranges": [
+        [
+          1,
+          66
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/community-learning-path-finder/stages/01-catalog/starter/presentation.py"
+    },
+    {
+      "path": "projects/subtitle-localization-desk/solution/samples/input.json",
+      "bytes": 676,
+      "sha256": "2083ff34ace22aa1a9a8126204bd8499f9ab8a36ab2f43bcf8d19e49639fedfa",
+      "git_blob": "190116041b4d0d89807496e3de9436e5503216a6",
+      "tree_match": true,
+      "mode": "已实际读取starter样本的精确SHA复用",
+      "lines": 16,
+      "read_ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/subtitle-localization-desk/stages/01-cues/starter/samples/input.json"
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/01-cues/docs/en.md",
+      "bytes": 1611,
+      "sha256": "25fa02afd85abb8c66c6f3657d9e6b881314516697ffc82f7e0fdbe1d813680f",
+      "git_blob": "d419fa6368314a83294b2fc9ee6f68157fa91f1b",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 33,
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/community-learning-path-finder/stages/01-catalog/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            3,
+            3
+          ],
+          "current": [
+            3,
+            3
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            4,
+            6
+          ],
+          "current": [
+            4,
+            6
+          ],
+          "equal_sha256": "9fc265a6643e198a14d9047629183cda1ad03eacb13aed626bdbd1a74eee3e70"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            7,
+            7
+          ],
+          "current": [
+            7,
+            7
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            8,
+            9
+          ],
+          "current": [
+            8,
+            9
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            10,
+            10
+          ],
+          "current": [
+            10,
+            10
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            11,
+            16
+          ],
+          "current": [
+            11,
+            16
+          ],
+          "equal_sha256": "a518a525866f341c1a49d395c1ff5654ed0e3de857a42718c9492791a866328c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            17,
+            17
+          ],
+          "current": [
+            17,
+            17
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            18,
+            23
+          ],
+          "current": [
+            18,
+            23
+          ],
+          "equal_sha256": "41809224607572f2f381b9ee7389fd9a2f0ebf8a95472bcdd4b67d8f4b9184f1"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            24,
+            24
+          ],
+          "current": [
+            24,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            25,
+            30
+          ],
+          "current": [
+            25,
+            30
+          ],
+          "equal_sha256": "e2b8ef6505aa23de616ad411417bfc0f7a0f74605897d71869625529273aef30"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            31,
+            31
+          ],
+          "current": [
+            31,
+            31
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            32,
+            33
+          ],
+          "current": [
+            32,
+            33
+          ],
+          "equal_sha256": "1b8539d8c164e1230869cc55b7850a41a8520a09bffce8ec8a8990e10527d4e0"
+        }
+      ]
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/01-cues/starter/cli.py",
+      "bytes": 1927,
+      "sha256": "778174eae95570c42ee5878460af979018a9cb10d0092a27a422cf98ab0278c6",
+      "git_blob": "933030ba09ec357486466140698b89289e1b814a",
+      "tree_match": true,
+      "mode": "同SHA全文复用",
+      "lines": 69,
+      "read_ranges": [
+        [
+          1,
+          69
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/subtitle-localization-desk/solution/cli.py"
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/01-cues/starter/main.py",
+      "bytes": 2080,
+      "sha256": "db952d080a72249bf6ce85f9ca18deddff19fb2e4260dd040f576031fbefd17b",
+      "git_blob": "a5d918c2d322ef360039020a99079223dbc660b6",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 31,
+      "read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/subtitle-localization-desk/solution/main.py",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            13
+          ],
+          "current": [
+            1,
+            13
+          ],
+          "equal_sha256": "a064a0590aae06d44b5d1d58ed16f231791c945e35c771040c2c9cb366f7bd9c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            14,
+            58
+          ],
+          "current": [
+            14,
+            14
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            59,
+            62
+          ],
+          "current": [
+            15,
+            18
+          ],
+          "equal_sha256": "cf16869bc1ef8fa4ff098a087ed87a2ba6866f3c4bd6a2174e473ce02b4b8f32"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            63,
+            100
+          ],
+          "current": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            101,
+            104
+          ],
+          "current": [
+            20,
+            23
+          ],
+          "equal_sha256": "567be21b3ed36ea95839a532eddb27d5d93f65a9f70a5cca437af7ca17af99d5"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            105,
+            132
+          ],
+          "current": [
+            24,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            133,
+            136
+          ],
+          "current": [
+            25,
+            28
+          ],
+          "equal_sha256": "5b2abc9fcecf5416c4d8979d414251cd76d956a49481625a75361d4a641baa46"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            137,
+            207
+          ],
+          "current": [
+            29,
+            31
+          ],
+          "equal_sha256": null
+        }
+      ]
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/01-cues/starter/presentation.py",
+      "bytes": 3995,
+      "sha256": "273a81aa9cfcaab90280deffcad0f253844a9afcbeec3e42ac35bd17480b83d6",
+      "git_blob": "8a1c6e0d4bde546e6a64ab1541c6534365fd9af1",
+      "tree_match": true,
+      "mode": "已实际全文读取的presentation精确SHA复用",
+      "lines": 66,
+      "read_ranges": [
+        [
+          1,
+          66
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/community-learning-path-finder/stages/01-catalog/starter/presentation.py"
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/01-cues/starter/samples/input.json",
+      "bytes": 676,
+      "sha256": "2083ff34ace22aa1a9a8126204bd8499f9ab8a36ab2f43bcf8d19e49639fedfa",
+      "git_blob": "190116041b4d0d89807496e3de9436e5503216a6",
+      "tree_match": true,
+      "mode": "同SHA全文复用",
+      "lines": 16,
+      "read_ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/subtitle-localization-desk/solution/samples/input.json"
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/01-cues/tests/test_stage_1.py",
+      "bytes": 946,
+      "sha256": "9577945917e7d539e12d7ac67ea8a2f4b7c3fcc8c36b4cd477f8519c96aeb1bc",
+      "git_blob": "7b56425cc7e7e37a560b69de11ba67475ca20636",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 31,
+      "read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "executed": false,
+      "tests_static": [
+        "test_parse",
+        "test_settings",
+        "test_reversed",
+        "test_bad_header",
+        "test_duplicate"
+      ]
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/02-glossary/docs/en.md",
+      "bytes": 1659,
+      "sha256": "c7c24f68bbc560d714ed1ea77ae0c554f5c645c956a991323f54d1ad09672154",
+      "git_blob": "30b12dad948f30cc01f6994876944356e20a6568",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 33,
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/community-learning-path-finder/stages/02-closure/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            3,
+            3
+          ],
+          "current": [
+            3,
+            3
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            4,
+            6
+          ],
+          "current": [
+            4,
+            6
+          ],
+          "equal_sha256": "9fc265a6643e198a14d9047629183cda1ad03eacb13aed626bdbd1a74eee3e70"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            7,
+            7
+          ],
+          "current": [
+            7,
+            7
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            8,
+            9
+          ],
+          "current": [
+            8,
+            9
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            10,
+            10
+          ],
+          "current": [
+            10,
+            10
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            11,
+            16
+          ],
+          "current": [
+            11,
+            16
+          ],
+          "equal_sha256": "a518a525866f341c1a49d395c1ff5654ed0e3de857a42718c9492791a866328c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            17,
+            17
+          ],
+          "current": [
+            17,
+            17
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            18,
+            23
+          ],
+          "current": [
+            18,
+            23
+          ],
+          "equal_sha256": "41809224607572f2f381b9ee7389fd9a2f0ebf8a95472bcdd4b67d8f4b9184f1"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            24,
+            24
+          ],
+          "current": [
+            24,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            25,
+            30
+          ],
+          "current": [
+            25,
+            30
+          ],
+          "equal_sha256": "e2b8ef6505aa23de616ad411417bfc0f7a0f74605897d71869625529273aef30"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            31,
+            31
+          ],
+          "current": [
+            31,
+            31
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            32,
+            33
+          ],
+          "current": [
+            32,
+            33
+          ],
+          "equal_sha256": "1b8539d8c164e1230869cc55b7850a41a8520a09bffce8ec8a8990e10527d4e0"
+        }
+      ]
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/02-glossary/starter/STAGE-2.md",
+      "bytes": 111,
+      "sha256": "664802515af7a875b7114caff8a357a591dc8fb4d1694c9fff9e119e440847fd",
+      "git_blob": "7bb444ef8c05e035d92016c2b5573387ef076035",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 1,
+      "read_ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/02-glossary/tests/test_stage_2.py",
+      "bytes": 1126,
+      "sha256": "9c685886501eddc16caedb738ce634ffaae4cc597cf6190feb14b44e7451e35b",
+      "git_blob": "2c62417c8eda9167b3af54e01c0b378f6101c9e0",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 35,
+      "read_ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "executed": false,
+      "tests_static": [
+        "test_glossary",
+        "test_missing",
+        "test_unknown",
+        "test_boundary",
+        "test_heldout",
+        "test_whitespace_only_blank_line"
+      ]
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/03-reading-budget/docs/en.md",
+      "bytes": 1619,
+      "sha256": "08750b9744b3126ed6d45892fa13421efba481fdb9e6d498764071d64881ed4a",
+      "git_blob": "40eccf50636b8a5683c9c7d4699d2a71ed800b93",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 33,
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/community-learning-path-finder/stages/03-rank/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            3,
+            3
+          ],
+          "current": [
+            3,
+            3
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            4,
+            6
+          ],
+          "current": [
+            4,
+            6
+          ],
+          "equal_sha256": "9fc265a6643e198a14d9047629183cda1ad03eacb13aed626bdbd1a74eee3e70"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            7,
+            7
+          ],
+          "current": [
+            7,
+            7
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            8,
+            9
+          ],
+          "current": [
+            8,
+            9
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            10,
+            10
+          ],
+          "current": [
+            10,
+            10
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            11,
+            16
+          ],
+          "current": [
+            11,
+            16
+          ],
+          "equal_sha256": "a518a525866f341c1a49d395c1ff5654ed0e3de857a42718c9492791a866328c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            17,
+            17
+          ],
+          "current": [
+            17,
+            17
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            18,
+            23
+          ],
+          "current": [
+            18,
+            23
+          ],
+          "equal_sha256": "41809224607572f2f381b9ee7389fd9a2f0ebf8a95472bcdd4b67d8f4b9184f1"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            24,
+            24
+          ],
+          "current": [
+            24,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            25,
+            30
+          ],
+          "current": [
+            25,
+            30
+          ],
+          "equal_sha256": "e2b8ef6505aa23de616ad411417bfc0f7a0f74605897d71869625529273aef30"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            31,
+            31
+          ],
+          "current": [
+            31,
+            31
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            32,
+            33
+          ],
+          "current": [
+            32,
+            33
+          ],
+          "equal_sha256": "1b8539d8c164e1230869cc55b7850a41a8520a09bffce8ec8a8990e10527d4e0"
+        }
+      ]
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/03-reading-budget/starter/STAGE-3.md",
+      "bytes": 112,
+      "sha256": "f505a973b70c7e64043735c742b39cea9ea981d7408475cfa2aa3298307733a0",
+      "git_blob": "ab78c3c3ca727fb30f7e2085d60e98c1196ccd2d",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 1,
+      "read_ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/03-reading-budget/tests/test_stage_3.py",
+      "bytes": 840,
+      "sha256": "1501480e843c43f5586154835d6442bed925091bde592b200f7e7a462d388b78",
+      "git_blob": "279e2a70a87e65c626ed852db5b69ecab0f5f733",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 27,
+      "read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "executed": false,
+      "tests_static": [
+        "test_budget",
+        "test_term",
+        "test_tag_count",
+        "test_invalid",
+        "test_heldout_unicode"
+      ]
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/04-review-export/docs/en.md",
+      "bytes": 2063,
+      "sha256": "3afa74258ca6d009d27e434a3058ff39122295678149b960c34943b4f19f3a9a",
+      "git_blob": "5e4014d3e95d850cd3c982a3d972fb96b367fc92",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 33,
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/community-learning-path-finder/stages/04-progress/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            3,
+            3
+          ],
+          "current": [
+            3,
+            3
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            4,
+            6
+          ],
+          "current": [
+            4,
+            6
+          ],
+          "equal_sha256": "9fc265a6643e198a14d9047629183cda1ad03eacb13aed626bdbd1a74eee3e70"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            7,
+            7
+          ],
+          "current": [
+            7,
+            7
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            8,
+            9
+          ],
+          "current": [
+            8,
+            9
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            10,
+            10
+          ],
+          "current": [
+            10,
+            10
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            11,
+            16
+          ],
+          "current": [
+            11,
+            16
+          ],
+          "equal_sha256": "a518a525866f341c1a49d395c1ff5654ed0e3de857a42718c9492791a866328c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            17,
+            17
+          ],
+          "current": [
+            17,
+            17
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            18,
+            23
+          ],
+          "current": [
+            18,
+            23
+          ],
+          "equal_sha256": "41809224607572f2f381b9ee7389fd9a2f0ebf8a95472bcdd4b67d8f4b9184f1"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            24,
+            24
+          ],
+          "current": [
+            24,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            25,
+            30
+          ],
+          "current": [
+            25,
+            30
+          ],
+          "equal_sha256": "e2b8ef6505aa23de616ad411417bfc0f7a0f74605897d71869625529273aef30"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            31,
+            31
+          ],
+          "current": [
+            31,
+            31
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            32,
+            33
+          ],
+          "current": [
+            32,
+            33
+          ],
+          "equal_sha256": "1b8539d8c164e1230869cc55b7850a41a8520a09bffce8ec8a8990e10527d4e0"
+        }
+      ]
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/04-review-export/starter/STAGE-4.md",
+      "bytes": 122,
+      "sha256": "dad0bb737780f63680af5425e38fc713c9216842e7e13609a6237e59a4cc1756",
+      "git_blob": "c738d9adcba34daebc0c55b6dca11a4a4b2dbb71",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 1,
+      "read_ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/subtitle-localization-desk/stages/04-review-export/tests/test_stage_4.py",
+      "bytes": 2019,
+      "sha256": "bf7132f68c6389b9bf4de762a34ed650a2879de17903c50cba08c5992633aea4",
+      "git_blob": "e5f21ce54625f3c1fc80f377b69b68deb7310263",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 64,
+      "read_ranges": [
+        [
+          1,
+          64
+        ]
+      ],
+      "executed": false,
+      "tests_static": [
+        "test_unreviewed",
+        "test_export",
+        "test_stale",
+        "test_injection",
+        "test_budget_override",
+        "test_whitespace_only_blank_line"
+      ]
+    },
+    {
+      "path": "site/figures/projects/subtitle-localization-desk.js",
+      "bytes": 12040,
+      "sha256": "9950b2bd351c96391c482699f069019ac83a3ed9f7080a54e2ba6903a6f2263f",
+      "git_blob": "0f86ddd79120fab90254472dde9ab30f2105305f",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 47,
+      "read_ranges": [
+        [
+          1,
+          47
+        ]
+      ],
+      "executed": false
+    }
+  ],
+  "data_proof": {
+    "date": "2026-10-23",
+    "method": "独立固定VTT样本split/字面术语替换/字符预算/JSON指纹纯数据复算，未调用来源函数或CLI。",
+    "source_execution": 0,
+    "sample_rows": [
+      {
+        "id": "map",
+        "start": "00:00.000",
+        "end": "00:03.000",
+        "settings": "",
+        "text": "Open the map.",
+        "duration": 3.0,
+        "proposed": "Abre el mapa.",
+        "needs_translation": false,
+        "required_terms": [
+          "mapa"
+        ],
+        "characters": 11,
+        "budget": 36,
+        "cps": 3.67,
+        "flags": []
+      },
+      {
+        "id": "route",
+        "start": "00:03.000",
+        "end": "00:06.000",
+        "settings": "",
+        "text": "Choose a route.",
+        "duration": 3.0,
+        "proposed": "Elige una ruta.",
+        "needs_translation": false,
+        "required_terms": [],
+        "characters": 13,
+        "budget": 36,
+        "cps": 4.33,
+        "flags": []
+      },
+      {
+        "id": "zoom",
+        "start": "00:06.000",
+        "end": "00:09.000",
+        "settings": "",
+        "text": "Zoom to your street.",
+        "duration": 3.0,
+        "proposed": "Amplía tu calle.",
+        "needs_translation": false,
+        "required_terms": [],
+        "characters": 14,
+        "budget": 36,
+        "cps": 4.67,
+        "flags": []
+      },
+      {
+        "id": "marker",
+        "start": "00:09.000",
+        "end": "00:12.000",
+        "settings": "",
+        "text": "Add a marker.",
+        "duration": 3.0,
+        "proposed": "Añade un marcador.",
+        "needs_translation": false,
+        "required_terms": [
+          "marcador"
+        ],
+        "characters": 16,
+        "budget": 36,
+        "cps": 5.33,
+        "flags": []
+      },
+      {
+        "id": "label",
+        "start": "00:12.000",
+        "end": "00:14.000",
+        "settings": "",
+        "text": "Name the marker.",
+        "duration": 2.0,
+        "proposed": "Escribe un nombre descriptivo y completo para el marcador de tu calle.",
+        "needs_translation": false,
+        "required_terms": [
+          "marcador"
+        ],
+        "characters": 59,
+        "budget": 24,
+        "cps": 29.5,
+        "flags": [
+          "over_budget"
+        ]
+      },
+      {
+        "id": "save",
+        "start": "00:14.000",
+        "end": "00:17.000",
+        "settings": "",
+        "text": "Save the map.",
+        "duration": 3.0,
+        "proposed": "Guarda el mapa.",
+        "needs_translation": false,
+        "required_terms": [
+          "mapa"
+        ],
+        "characters": 13,
+        "budget": 36,
+        "cps": 4.33,
+        "flags": []
+      }
+    ],
+    "fingerprint": "57b374e10ee4d76789187d83d385ef58c17ba629db5f32c4e9fdf98fbb1bab8a",
+    "matches_author_review_json": true,
+    "all_approved_original_candidates_without_override": "拒绝label超预算",
+    "shortened_label": {
+      "text": "Nombra el marcador.",
+      "characters": 17,
+      "budget": 24,
+      "contains_required_term": true,
+      "all_cues_approved_can_emit": true
+    },
+    "counterexamples": [
+      "&amp;未实体解码，字符近似统计为5而不是显示的1；组合符非grapheme。",
+      "required_terms检查原始proposed substring，可能在标签内出现而可见正文没有。",
+      "missing translation可通过人为approved清needs_translation，即使文本原样未换语言；双语审稿仍必要。",
+      "over_budget需override_budget is True；cps当前接受bool(True)作为1，未设最大值/总cue数量。",
+      "旧reviewed.vtt在未全审阅时CLI会unlink，避免旧成果误用但实际会删除该路径，须使用专属输出目录。"
+    ],
+    "remaining": [
+      "未执行原Python/CLI/JS/tests或播放器；不可称完整WebVTT/翻译语义验收。"
+    ]
+  },
+  "root_review": {
+    "all_git_blobs_rechecked": 29,
+    "drift": 0,
+    "critical_source_functions_actually_read": [
+      "inspect",
+      "export_localized"
+    ],
+    "formal_draft_complete_read": true,
+    "source_execution": 0
+  },
+  "tests_static": [
+    {
+      "file": "projects/subtitle-localization-desk/stages/01-cues/tests/test_stage_1.py",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/subtitle-localization-desk/stages/02-glossary/tests/test_stage_2.py",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/subtitle-localization-desk/stages/03-reading-budget/tests/test_stage_3.py",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/subtitle-localization-desk/stages/04-review-export/tests/test_stage_4.py",
+      "static_tests": 6,
+      "executed": false
+    }
+  ],
+  "formal_fusion": {
+    "file": "AI 算法基础/感知与多模态专题/13-语音识别与流式交互.md",
+    "before_sha256": "7aa03bea4af7bb7b30d9592e355e2c3b9f27bfc20b70af31a60b443b337d033a",
+    "after_sha256": "c9f5f96d1064776444b2606977535366a9d9237b8100b5455426caf1f24fc2ce",
+    "old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "6e93409918829e5ae82ae98f51175046959423c2ca64e24f8920a8a7fac0c976",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "786cf6f6e79fee3ace9a6943d12f119c8bb2bc3f3372b51314feb694ce4e263f",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4635 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

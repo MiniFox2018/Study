@@ -1,0 +1,917 @@
+{
+  "date": "2026-10-23",
+  "project": "field-notes-map-builder",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "source_root": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-update-source1-20261016/ai-engineering-from-scratch-1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-import-observations",
+    "02-distance-groups",
+    "03-review-groups",
+    "04-export-geojson"
+  ],
+  "delegate_review": {
+    "project": "field-notes-map-builder",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_cutoff": "2026-10-15T05:58:42Z",
+    "read_date": "2026-10-23",
+    "author_run": "2026-10-09T14:27:06Z",
+    "accepted": false,
+    "inventory": "/tmp/study-update-20261016/fieldmap-agent-20261023/inventory.json",
+    "data_proof": "/tmp/study-update-20261016/fieldmap-agent-20261023/data-proof.json",
+    "knowledge": "/tmp/study-update-20261016/fieldmap-agent-20261023/knowledge.md",
+    "knowledge_sha256": "8022a08e681f94ab2479faf8e06ab0b21fa473b7102e9537dc0149ec3b410965",
+    "knowledge_characters": 4762,
+    "counts": {
+      "project_items": 25,
+      "text": 21,
+      "media": 4,
+      "extra_js": 1,
+      "exact_file_reuse": 2,
+      "starter_common_line_reuse": 1,
+      "tests_static": 24,
+      "png_viewed": 2,
+      "gif_frames_data_only": 24,
+      "source_execution": 0
+    },
+    "recommended_single_merge_file": "数据科学基础/06-数据可视化与分析沟通.md",
+    "merge_location": "第13节：空间观测地图，衔接既有第12节图表叙事；输入/版本仅交叉引用05、12。",
+    "findings": [
+      "实际TS标准库小项目，球面R6371008.8m，O(n²)全对距离<=半径边与连通分量，不是所有组内点都近/同实体/测绘精度。",
+      "导入要求有限numbers/经纬度界/严格UTC日期回格式/非空note；无隐式缺失补0；数值界不证明datum或精度；photo只有HTTP(S)前缀而非完整URL/可达校验。",
+      "review分三态，pending不批准；keep-separate拆单点不删观测/原边。group ID取首成员且无版本/内容指纹，同ID成员变动可错套旧决定。",
+      "GeoJSON1Point/1原观测，4样本始终4feature；group属性不带审阅状态，不能单看GeoJSON推人工批准；外部review结构不完整验证。",
+      "图是首点经度展开+横纵独立缩放，非测距/导航底图；dateline显示180.001而GeoJSON仍-179.999。",
+      "四lab不同：界、赤道距离、拆组计数、展开；不替代完整导入/连通/人审/导出管线。",
+      "CLI三产物非原子/未保护任意输入输出重合；无真实地理服务/照片下载。"
+    ],
+    "sample": {
+      "radius_m": 35,
+      "edge_m": 19.693330975242446,
+      "groups": [
+        {
+          "id": "bench-a",
+          "members": [
+            "bench-a",
+            "shade-a"
+          ]
+        },
+        {
+          "id": "water",
+          "members": [
+            "water"
+          ]
+        },
+        {
+          "id": "bench-b",
+          "members": [
+            "bench-b"
+          ]
+        }
+      ],
+      "dateline_m": 222.39016047087586
+    },
+    "remaining": [
+      "root融合正文后渲染/全库校验/中文记录；本交接不是正式阶段验收。",
+      "未执行来源TS/JS/CLI/原测试，未访问用户实际坐标或网络照片。",
+      "GIF全帧数据解码非逐帧视觉，PNG只报告实际可见范围。"
+    ]
+  },
+  "inventory": [
+    {
+      "path": "projects/field-notes-map-builder/README.md",
+      "bytes": 3132,
+      "sha256": "8a2dd1318306750788cbaf4846700470694bbd4b4cd95123ca95d06d2a14c872",
+      "git_blob": "bbd0b63d539b20f4f914a92b959aea0cf3cc649c",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 50,
+      "read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/media/output.gif",
+      "bytes": 21468,
+      "sha256": "e4867d7e9d306f713e5634679674920551c49561f4c4fbee06981a654c8c6659",
+      "git_blob": "99cc41d44efe27a2bf3f4cee0a4ca31ab7db386f",
+      "tree_match": true,
+      "class": "作者演示媒体",
+      "frames": 6,
+      "dimensions": [
+        1120,
+        630
+      ],
+      "duration_ms": 3900,
+      "all_frames_data_decoded": true,
+      "visual": false,
+      "visual_scope": "PNG整图已看；output只显示地图上半/部分点，未冒称全页；GIF未逐帧看。"
+    },
+    {
+      "path": "projects/field-notes-map-builder/media/output.json",
+      "bytes": 271,
+      "sha256": "b6d2e9fa29462a4c3944648ae49d88a854a3117c06df141835f863d9a8ba2123",
+      "git_blob": "4d62b90add8c6855840f4357211c489ffc52a301",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 12,
+      "read_ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/media/output.png",
+      "bytes": 37154,
+      "sha256": "3eb487409aa079d4963b384946b0cb7d63494457d7971298a40dd58e94609f34",
+      "git_blob": "5cd44f7ac7249f86e615f92ba460c32ab2d16b6d",
+      "tree_match": true,
+      "class": "作者演示媒体",
+      "frames": 1,
+      "dimensions": [
+        1120,
+        630
+      ],
+      "duration_ms": 0,
+      "all_frames_data_decoded": true,
+      "visual": true,
+      "visual_scope": "PNG整图已看；output只显示地图上半/部分点，未冒称全页；GIF未逐帧看。"
+    },
+    {
+      "path": "projects/field-notes-map-builder/media/run.gif",
+      "bytes": 231751,
+      "sha256": "23c232822a0d02a4924af3322588de1a99e0fd56441b39fbddbb75f639da6973",
+      "git_blob": "d98691f4a7431747a67c3e7b02f16e50793fbab8",
+      "tree_match": true,
+      "class": "作者演示媒体",
+      "frames": 18,
+      "dimensions": [
+        1120,
+        630
+      ],
+      "duration_ms": 8100,
+      "all_frames_data_decoded": true,
+      "visual": false,
+      "visual_scope": "PNG整图已看；output只显示地图上半/部分点，未冒称全页；GIF未逐帧看。"
+    },
+    {
+      "path": "projects/field-notes-map-builder/media/run.json",
+      "bytes": 2172,
+      "sha256": "1b104c1f1ce4027ddbda64c3b5af2773c5f2a315b032d8406835645557a53e65",
+      "git_blob": "d9af52ecae828d2965141d4405bee3fb6a717321",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/media/run.png",
+      "bytes": 89227,
+      "sha256": "02115cd0a4cc3d3d15a2be086009065652a8ba00e8ed7f243b51f5c0cf7fa5b7",
+      "git_blob": "2bfacbb4be2ea6c38c17ec8dbed42d922708ec59",
+      "tree_match": true,
+      "class": "作者演示媒体",
+      "frames": 1,
+      "dimensions": [
+        1120,
+        630
+      ],
+      "duration_ms": 0,
+      "all_frames_data_decoded": true,
+      "visual": true,
+      "visual_scope": "PNG整图已看；output只显示地图上半/部分点，未冒称全页；GIF未逐帧看。"
+    },
+    {
+      "path": "projects/field-notes-map-builder/project.json",
+      "bytes": 3408,
+      "sha256": "646c856644177e21d2425f26a627de9df6d0015fab74feb243c0518b3ba791b4",
+      "git_blob": "f9d3a91508c2cde36c62d254a297179a76e03401",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 103,
+      "read_ranges": [
+        [
+          1,
+          103
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/solution/cli.ts",
+      "bytes": 1594,
+      "sha256": "cc962a16aa46ae48092683170347fd7d57cd7c40c3e677b84e6d8a91101a968f",
+      "git_blob": "cd501f5eb1afb597513203942c66c00505f7caa6",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 55,
+      "read_ranges": [
+        [
+          1,
+          55
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/solution/main.ts",
+      "bytes": 10653,
+      "sha256": "9999425fcad9733d5781059f73a29ce93fe1bdff2a3ec5f97a4cf1705abffac9",
+      "git_blob": "e493652d96ac057412b244bb0c6fb2b617b6e662",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 231,
+      "read_ranges": [
+        [
+          1,
+          231
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/solution/sample.json",
+      "bytes": 824,
+      "sha256": "69185086dfb352de7fc9fc9bd923199cb2717f2f6182d46cdfa4b3002ac2f5b1",
+      "git_blob": "8fbbbe82fafb8ced62e72b961e22b7b6454e7d66",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 33,
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/01-import-observations/docs/en.md",
+      "bytes": 2755,
+      "sha256": "17964e19a54a05435950a70660a5c2c0207b58ca72ddfd0fc71b2b1562eb4536",
+      "git_blob": "656b9665f85b42be9f1fd510803c2526141fad19",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/01-import-observations/starter/cli.ts",
+      "bytes": 1594,
+      "sha256": "cc962a16aa46ae48092683170347fd7d57cd7c40c3e677b84e6d8a91101a968f",
+      "git_blob": "cd501f5eb1afb597513203942c66c00505f7caa6",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 55,
+      "read_ranges": [
+        [
+          1,
+          55
+        ]
+      ],
+      "read_mode": "同SHA精确复用",
+      "executed": false,
+      "reuse_source": "projects/field-notes-map-builder/solution/cli.ts"
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/01-import-observations/starter/main.ts",
+      "bytes": 4049,
+      "sha256": "94645eaf68fb08f8a59f3d09a395f86445c0e758e38f8c282a6b1e217772459a",
+      "git_blob": "0931e5ec5e55c2cfcbd69a0e4c451cebe75063a3",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 79,
+      "read_ranges": [
+        [
+          1,
+          79
+        ]
+      ],
+      "read_mode": "已全文solution精确公共行复用+所有不同starter行实际输出",
+      "executed": false,
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "solution_range": [
+            1,
+            13
+          ],
+          "starter_range": [
+            1,
+            13
+          ],
+          "equal_range_sha256": "643a5d850f1a488744a9cb1bc20cb15db95476990c226bfe9425eb3b0f2b08d6"
+        },
+        {
+          "kind": "delete",
+          "solution_range": [
+            14,
+            14
+          ],
+          "starter_range": [
+            14,
+            13
+          ],
+          "equal_range_sha256": null
+        },
+        {
+          "kind": "equal",
+          "solution_range": [
+            15,
+            15
+          ],
+          "starter_range": [
+            14,
+            14
+          ],
+          "equal_range_sha256": "049676c26f686212d94a5cfac4b791f077e3e3d75dd72356a9a28e4b69f35dde"
+        },
+        {
+          "kind": "replace",
+          "solution_range": [
+            16,
+            56
+          ],
+          "starter_range": [
+            15,
+            15
+          ],
+          "equal_range_sha256": null
+        },
+        {
+          "kind": "equal",
+          "solution_range": [
+            57,
+            61
+          ],
+          "starter_range": [
+            16,
+            20
+          ],
+          "equal_range_sha256": "649cec6f1254e1c4b95ec08a66243393fe7ab10f19a6c46f2981d32813023f21"
+        },
+        {
+          "kind": "replace",
+          "solution_range": [
+            62,
+            74
+          ],
+          "starter_range": [
+            21,
+            21
+          ],
+          "equal_range_sha256": null
+        },
+        {
+          "kind": "equal",
+          "solution_range": [
+            75,
+            79
+          ],
+          "starter_range": [
+            22,
+            26
+          ],
+          "equal_range_sha256": "e754f47759f86d0e7133f61107f25ae419f708f2cea56443bcd5d7db3aa64843"
+        },
+        {
+          "kind": "replace",
+          "solution_range": [
+            80,
+            110
+          ],
+          "starter_range": [
+            27,
+            27
+          ],
+          "equal_range_sha256": null
+        },
+        {
+          "kind": "equal",
+          "solution_range": [
+            111,
+            119
+          ],
+          "starter_range": [
+            28,
+            36
+          ],
+          "equal_range_sha256": "513972cec9179e340833569234f88ea7a5c00c48b5204480efb6a30611161f83"
+        },
+        {
+          "kind": "replace",
+          "solution_range": [
+            120,
+            145
+          ],
+          "starter_range": [
+            37,
+            37
+          ],
+          "equal_range_sha256": null
+        },
+        {
+          "kind": "equal",
+          "solution_range": [
+            146,
+            150
+          ],
+          "starter_range": [
+            38,
+            42
+          ],
+          "equal_range_sha256": "1a8e33c298307995a0d4c6382c75b8868a5e1bff35354ac6449296cdbef4fc36"
+        },
+        {
+          "kind": "replace",
+          "solution_range": [
+            151,
+            164
+          ],
+          "starter_range": [
+            43,
+            43
+          ],
+          "equal_range_sha256": null
+        },
+        {
+          "kind": "equal",
+          "solution_range": [
+            165,
+            170
+          ],
+          "starter_range": [
+            44,
+            49
+          ],
+          "equal_range_sha256": "fbc05b75bdd6b98165c61e52e829fcb68d78186c689203c9a44290b085a65b52"
+        },
+        {
+          "kind": "replace",
+          "solution_range": [
+            171,
+            202
+          ],
+          "starter_range": [
+            50,
+            50
+          ],
+          "equal_range_sha256": null
+        },
+        {
+          "kind": "equal",
+          "solution_range": [
+            203,
+            231
+          ],
+          "starter_range": [
+            51,
+            79
+          ],
+          "equal_range_sha256": "a7c13e1c2087a63fe04a3911aef5f1c10db1d7eb484b07e1d1c9b3b6a3e05216"
+        }
+      ]
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/01-import-observations/starter/sample.json",
+      "bytes": 824,
+      "sha256": "69185086dfb352de7fc9fc9bd923199cb2717f2f6182d46cdfa4b3002ac2f5b1",
+      "git_blob": "8fbbbe82fafb8ced62e72b961e22b7b6454e7d66",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 33,
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "read_mode": "同SHA精确复用",
+      "executed": false,
+      "reuse_source": "projects/field-notes-map-builder/solution/sample.json"
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/01-import-observations/tests/stage.test.mjs",
+      "bytes": 1197,
+      "sha256": "120cadfa0a0700184a85006202710b591926318ced17f4275c2ae7c8b34bd95a",
+      "git_blob": "981908900bb17160dbff694c2a62e6a234b94f09",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 41,
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false,
+      "tests_static": [
+        "preserves evidence",
+        "poles and dateline are valid boundaries",
+        "out of bounds rejected",
+        "impossible date rejected",
+        "heldout numeric string rejected",
+        "unsafe photo rejected"
+      ]
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/02-distance-groups/docs/en.md",
+      "bytes": 2876,
+      "sha256": "bf4f872836b6d505a090244758189b23abcddbedc0d48e104cbde317fda89b76",
+      "git_blob": "1e3605299cf2c4bdedf1800cc3245f6c83760100",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/02-distance-groups/starter/STAGE-2.md",
+      "bytes": 260,
+      "sha256": "5bcc25395fd03fd5e4ed700be4c81c3b67203daba6fc8e6b6e5feb9229be0186",
+      "git_blob": "7653ed98ea63e93568780dfeee0885a85402f17c",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/02-distance-groups/tests/stage.test.mjs",
+      "bytes": 1167,
+      "sha256": "54245babb782e4c29855d4b445f66d96509478a0efb7845ea311f60d40761506",
+      "git_blob": "66bd67ac89b6cf4cfc49fd521259b1fb33f229e5",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 29,
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false,
+      "tests_static": [
+        "zero self distance",
+        "one equatorial degree about 111195m",
+        "transitive groups retain pair evidence",
+        "zero radius keeps separate locations",
+        "heldout antimeridian neighbors",
+        "bad radius rejected"
+      ]
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/03-review-groups/docs/en.md",
+      "bytes": 2752,
+      "sha256": "53f110c463e1dc6f162f0cb1955b8760fdaadcdab8b612e198302e8d787ba283",
+      "git_blob": "51bf951cf03edb9fd2648e277f01b26bf3e0d8f4",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/03-review-groups/starter/STAGE-3.md",
+      "bytes": 257,
+      "sha256": "7c55d7a665f0f48c52c298bb1c94820355e5e1bffb366abbbd4cb928d83772cc",
+      "git_blob": "04b4b44d294014e0efed6c0ed7aadb55ce2efb48",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/03-review-groups/tests/stage.test.mjs",
+      "bytes": 1447,
+      "sha256": "289463b858c987c391df27c54b4d2d664f7e47a62d37ed3fdb18c437477880f8",
+      "git_blob": "9975fb19fe7c00b243c5a276259274edf719a967",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 48,
+      "read_ranges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false,
+      "tests_static": [
+        "default review is pending",
+        "split keeps each observation",
+        "keep-group retains component",
+        "unknown group rejected",
+        "heldout arbitrary decision rejected",
+        "source remains unchanged"
+      ]
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/04-export-geojson/docs/en.md",
+      "bytes": 3136,
+      "sha256": "10f7c343bb2fef40746c6adb6101f5cda63952085413b83b34ac0de4279de26b",
+      "git_blob": "fbb7ce3c2ffeaeee008eacda359522fb55572932",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/04-export-geojson/starter/STAGE-4.md",
+      "bytes": 256,
+      "sha256": "42f7e9401a949418264d4e24e3246cff5f49f8d49f0180e41c96b86fc755686e",
+      "git_blob": "99eccf94fd96f0e936fb7c8d47448c8e10d46572",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    },
+    {
+      "path": "projects/field-notes-map-builder/stages/04-export-geojson/tests/stage.test.mjs",
+      "bytes": 1787,
+      "sha256": "a4e0548cb4d36f90fe2f35a0a56a6aa92d347129d60fb036fe3f4f45d51d03ed",
+      "git_blob": "de540178a0b1d703fdfbc3edf0cf37c0446f7dce",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 68,
+      "read_ranges": [
+        [
+          1,
+          68
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false,
+      "tests_static": [
+        "valid GeoJSON coordinate order",
+        "preserves every observation",
+        "retains evidence properties",
+        "JSON roundtrip consumable",
+        "heldout map text escaped",
+        "empty map remains finite"
+      ]
+    },
+    {
+      "path": "site/figures/projects/field-notes-map-builder.js",
+      "bytes": 5300,
+      "sha256": "f7ccd486dbacea7d286a95d6912ef618957ef835ebfc6cfc1f283f29d7029a14",
+      "git_blob": "c98b9c910df59cc34d5b6e6d4660432687b30cd7",
+      "tree_match": true,
+      "class": "静读文本",
+      "lines": 186,
+      "read_ranges": [
+        [
+          1,
+          186
+        ]
+      ],
+      "read_mode": "全文实际输出",
+      "executed": false
+    }
+  ],
+  "data_proof": {
+    "date": "2026-10-23",
+    "method": "自写Python标准math计算球面距离、列表分组/审阅与GeoJSON值推导，无原TS/JS执行或导入。",
+    "source_execution": 0,
+    "sample_all_pair_distances": [
+      {
+        "from": "bench-a",
+        "to": "shade-a",
+        "meters": 19.693330975242446
+      },
+      {
+        "from": "bench-a",
+        "to": "water",
+        "meters": 243.57789206941143
+      },
+      {
+        "from": "bench-a",
+        "to": "bench-b",
+        "meters": 273.4694268801696
+      },
+      {
+        "from": "shade-a",
+        "to": "water",
+        "meters": 224.05413176590233
+      },
+      {
+        "from": "shade-a",
+        "to": "bench-b",
+        "meters": 280.19437903422664
+      },
+      {
+        "from": "water",
+        "to": "bench-b",
+        "meters": 436.98206849442056
+      }
+    ],
+    "sample_edges_radius35": [
+      {
+        "from": "bench-a",
+        "to": "shade-a",
+        "meters": 19.693330975242446
+      }
+    ],
+    "sample_default_groups": [
+      {
+        "id": "bench-a",
+        "members": [
+          "bench-a",
+          "shade-a"
+        ]
+      },
+      {
+        "id": "water",
+        "members": [
+          "water"
+        ]
+      },
+      {
+        "id": "bench-b",
+        "members": [
+          "bench-b"
+        ]
+      }
+    ],
+    "sample_split_bench_a_groups": [
+      {
+        "id": "bench-a",
+        "members": [
+          "bench-a"
+        ]
+      },
+      {
+        "id": "shade-a",
+        "members": [
+          "shade-a"
+        ]
+      },
+      {
+        "id": "water",
+        "members": [
+          "water"
+        ]
+      },
+      {
+        "id": "bench-b",
+        "members": [
+          "bench-b"
+        ]
+      }
+    ],
+    "sample_feature_count": 4,
+    "first_feature_coordinates": [
+      77.59,
+      12.97
+    ],
+    "equator_chain_meters": [
+      111.19508023353293,
+      111.19508023353293,
+      222.39016046706584
+    ],
+    "dateline_distance_m": 222.39016047087586,
+    "dateline_display_lon": 180.00099999999998,
+    "original_export_lon": -179.999,
+    "radius_zero": [
+      "不同坐标不连边",
+      "完全相同坐标连0m边"
+    ],
+    "stale_review_static_counterexample": {
+      "previous_group": {
+        "id": "a",
+        "members": [
+          "a",
+          "b"
+        ]
+      },
+      "current_group_same_id": {
+        "id": "a",
+        "members": [
+          "a",
+          "c"
+        ]
+      },
+      "review": {
+        "schemaVersion": 1,
+        "decisions": {
+          "a": "keep-group"
+        }
+      },
+      "source_accepts_by_id_without_fingerprint": true
+    },
+    "official_refs": [
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc7946#section-3.1.1",
+        "scope": "position数组、longitude/latitude前二项；section4另核WGS84十进制度，不是整RFC。"
+      }
+    ],
+    "limits": [
+      "24原测试仅静读；不证明Node/浏览器结果。",
+      "图片只看PNG，GIF全帧解码而非全帧视觉。",
+      "不访问用户真实坐标或照片，无测绘/投影软件/外部地图服务。"
+    ]
+  },
+  "root_review": {
+    "inventory_rechecked": 26,
+    "drift": 0,
+    "critical_actual_read": [
+      "groupNearby",
+      "reviewGroups",
+      "exportGeoJSON"
+    ],
+    "proof": "前者核对连通组/GeoJSON，后者核UTF16边界/贪心/HTML子集；未运行来源程序"
+  },
+  "formal_fusion": {
+    "file": "数据科学基础/06-数据可视化与分析沟通.md",
+    "before_sha256": "7ee85deb2be23ede364959f6c372515c11355b495745341a3f70b56453b58182",
+    "after_sha256": "1015f1e873d2112a272d4cf35acc168763a6ba1310d6133f3273b82aa2df1770",
+    "old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "27dd1198c760441536fe4b1a6dfe2103c534eda4707d6aafe65da135334ca53c",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "c69faf4d6ba19bda9f68f8d7df025da58dd6fb6913ae988afad3c90ddc1e1699",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4620 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

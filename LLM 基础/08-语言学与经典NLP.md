@@ -46,6 +46,45 @@ N-gram 近似为 $p(x_t\mid x_{<t})\approx p(x_t\mid x_{t-n+1:t-1})$。训练以
 
 它提供简单可解释的语言模型基线，适合检查新模型是否真的改善预测；分词、BOS/EOS、UNK 处理与训练/测试拆分仍影响结果。联合概率和 PPL 的定义/手算由[序列模型第 1 节](../AI%20算法基础/深度学习专题/03-序列模型与机器翻译.md#1-序列分词与语言模型)维护，计数与平滑实现见[文本表示与检索](../AI%20算法基础/语言与文本专题/01-文本预处理与稀疏表示.md)。
 
+### 7.1 可解释自动补词：从计数到编辑动作
+
+前面的N-gram可落成一个完全本地的单词候选器：只从作者提供的语料学习词频、最多两个词的历史及来源ID，给前缀提供候选。它不调用托管LLM，不补知识事实，不会推导未见词，更不把候选计数当语言质量或事实置信度。
+
+**训练合同。** 输入是唯一非空id及非空text的语料数组。文本NFC规范化并小写，token为Unicode字母/数字串，可含内部直/弯撇号。按ASCII句号、问号、叹号或换行切句，不跨这些边界建立转移。词频words[w]累加；对每个位置分别记录前一词和前两词的JSON编码键→后继词计数；sources[w]是出现过该词的去重来源ID。
+
+```text
+输入：Garden club shares seeds. Garden club grows herbs.
+词频：garden=2, club=2, shares=1, seeds=1, grows=1, herbs=1
+历史["garden","club"]：shares=1, grows=1
+没有 seeds→garden 转移，因为中间有句号。
+```
+
+使用无原型字典或Map避免constructor等合法词与对象原型相撞。这个分词器没有中文分词、词形还原或完整句子检测：连续中文可能是一整个token，中文句号没有被列为句界；组合标记即使NFC后仍可能残留而被切断。英文小例成立不等于对所有语言同样适用。
+
+**候选证据与排序。** 对前缀同样NFC/小写，筛词表中startsWith的词；每个候选独立找最长可用历史：先前两词，再前一词，否则用全局词频。按order降序、该order的count降序、词的localeCompare排序，limit为0..50的整数，默认5。
+
+例如词表seed=5、shade=10、share=2；两词garden/club后share出现1次，一词club后shade出现2次。前缀s、历史garden/club时share(order2,count1)排在shade(order1,count2)、seed(order0,count5)前。历史unknown时均退到order0，shade先于seed、share；前缀zzz返回空，不能补造远程答案。
+
+返回的`score=order×1000000+count`是展示编码，真实排序先分别比较order/count。count若超过一百万，单独按score排序会违背原先层级，不能把这个编码当通用可排序数；它也不是归一概率，未实现平滑或对不同候选使用同一条件分母。不要用它计算困惑度或声称候选有某个正确率。
+
+全样本的Garden club后shares计4、grows计2；输入`Garden club sh`的prefix=sh、history=[garden,club]，唯一相符shares用order2/count4。接受后为`Garden club shares `；这时native用order2/count2，seeds和tools各order2/count1。界面列出的来源是词的**全语料**来源，未细分“这个两词历史→该词”出现在哪一段，因此不能从sources直接证明每个条件转移的出处。
+
+**编辑状态不能只按可见字数截断。** completeText只取最后句界后的尾段；若末尾是字母/数字/撇号，把最后token作为未完前缀弹出，其余最多两个词作历史；尾随空格表示当前词已完成，prefix为空。acceptSuggestion核候选是单个规范词，并确认当前原文仍以旧prefix结尾，再替换该后缀并加一个空格，保留前面原文。不能把shares直接接到sh后生成shshares。
+
+来源仅处理文本末尾，不支持光标中间、选择区、IME组合输入或撤销事务。规范化还可能改变长度：原文用分解形式e+组合重音，tokenize产出é，但accept比较未规范化原后缀与é会拒绝；改成按规范后长度截原文又可能删错。正确扩展需保存原文偏移映射和编辑版本，围绕光标计算，并核输入法组合结束。末尾悬空撇号也需单独合同，不能直接套普通词例。
+
+**可携带模型与安全输出。** JSON含schemaVersion=1、words、histories、sources。import核规范单词、正安全整数、history键解析为1或2个已有词、条件计数不超过相应词频、来源数组为非空字符串项，并返回深复制。它没验证来源ID实际存在、频率能由某份语料重建、全部历史的跨项一致性或编辑权限；空来源数组也不被拒。JSON“结构有效”与“训练证据真实”仍是两项验收。
+
+网页调用同一套分词/候选/接受函数，把词、order、count和sources用textContent呈现，下载模型与写作文本；将模型嵌入脚本时另转义分隔符。模型可能暴露私人词汇和来源ID，本地并不等于适合公开上传。CLI顺序写模型、suggestions和HTML，未提供整包原子发布与来源版本绑定，点击候选也不会自动重新训练模型。
+
+四图的第一/第三只用ASCII字母正则，第二显示分数，第四只比较单个条件count与总数；不替代核心Unicode、整份模型校验或编辑状态处理。本次没有执行来源浏览器JS或真实键盘操作。
+
+自检：低频的order2候选能排在高频order0前吗？能，这是明确层级政策；sources含三篇能证明当前转移出现三篇吗？不能；显示score是概率吗？不是；中文句号能否假定会清空历史？当前实现不会；点击接收代表模型学会新词吗？不会。
+
+
+来源：[vocabulary-autocomplete-pad](https://github.com/rohitg00/ai-engineering-from-scratch/tree/1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e/projects/vocabulary-autocomplete-pad)，固定源截止2026-10-15T05:58:42Z，本次2026-10-23静读/自写数据核算；源程序、测试、CLI、浏览器JS均未执行。逐项范围及验证见[融合记录](../维护/来源更新/2026-10-16/111-本地自动补词项目读取与融合.json)。
+
+
 ## 8. TF-IDF：词面特征与稀疏检索
 
 TF-IDF 结合篇内词频和跨文档稀有度。例如教学定义 $\mathrm{IDF}(w)=\ln(N/\mathrm{df}(w))$，三篇文档中“苹果”出现两篇、“显卡”出现一篇，则 IDF 为 $\ln(3/2)$ 和 $\ln3$；同词频下“显卡”权重更高。实际实现可用加一平滑、sublinear TF 和 L2 归一化，必须报告具体公式。

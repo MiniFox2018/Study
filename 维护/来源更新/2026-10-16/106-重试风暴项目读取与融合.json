@@ -1,0 +1,3573 @@
+{
+  "date": "2026-10-23",
+  "project": "retry-storm-lab",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-deterministic-service",
+    "02-bounded-jitter",
+    "03-shared-budget",
+    "04-local-http-replay"
+  ],
+  "read_handoff": {
+    "project": "retry-storm-lab",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_cutoff": "2026-10-15T05:58:42Z",
+    "read_date": "2026-10-23",
+    "author_run": "2026-10-09T14:24:07Z",
+    "author_output": "2026-10-09T14:24:11Z",
+    "accepted": false,
+    "inventory": "/tmp/study-update-20261016/retry-agent-20261023/inventory.json",
+    "data_proof": "/tmp/study-update-20261016/retry-agent-20261023/data-proof.json",
+    "knowledge": "/tmp/study-update-20261016/retry-agent-20261023/knowledge.md",
+    "knowledge_sha256": "6b1e9f3485b0fb1b7cd7a915b2f35ca6f6278d247161e9a66a2c901faca37f3c",
+    "knowledge_characters": 4172,
+    "counts": {
+      "project_items": 30,
+      "extra_js": 1,
+      "exact_full_file_reuse": 3,
+      "partial_line_reuse": 9,
+      "tests_static": 26,
+      "gif_data_only_frames": 146,
+      "png_visual": 2,
+      "source_execution": 0,
+      "real_traffic": 0
+    },
+    "single_merge_file": "Agentic Design Patterns/01-核心章节/12-异常处理和恢复.md",
+    "merge": "与hedged稿接同一失败/取消/共享重试预算入口。",
+    "findings": [
+      "Go Replay精确ms离散模型；Go Local/Fetch真实HTTP；TS仅分析。mode必须保留，不能比同名peak推真实容量。",
+      "仿真按time/client排，zero jitter可抢同ms次序/预算；failure/window和capacity不是排队/在途/服务延迟模型。",
+      "Delay full jitter含0、uint64截断；STAGE-2文字漏xor/multiply，与真算法冲突。",
+      "预算是in-process mutex shared retries，先扣再等、取消不退款，Local实际tries与consumed不等；上界min(NA,N+B)只对逻辑attempt。",
+      "真实GET只重试429/502/503/504，不重试transport/body/error；Retry-After date/秒，超过cap停止而非缩短；ParseInt+2宽松于RFC纯DIGIT。",
+      "Fetch live AtMS是各client响应头到达相对时间，非统一请求派发时刻；真实peak不可作全局到达/在途/容量峰。",
+      "HTTP200body失败：Go Local success0但trace200，TS按状态success1，合法失败报告可counter mismatch。",
+      "analyze核client/连续次数/成功终止/总计，但无时间单调/策略核验/真实性；report缺完整policy/seed/budget/failure/capacity版本。",
+      "纯数据重建作者32条simulation完全相同；作者sim32/0success/peak21，live32/12success/peak18，均放大1.6但服务合同不同。",
+      "自写参数case预算60 nojitter75calls10successpeak20；jitter67calls19successpeak22；不能断言jitter所有peak必降。",
+      "原26tests仅静读（5+5+5+11，stage4含Go5/TS6）；图2自动修cap/base0与核心拒绝不同，图4actual只是滑块。"
+    ],
+    "proof_summary": {
+      "author_trace_exact_reconstruction": true,
+      "author_audits": [
+        {
+          "mode": "deterministic-simulation",
+          "calls": 32,
+          "retries": 12,
+          "successes": 0,
+          "amplification": 1.6,
+          "peak": 21
+        },
+        {
+          "mode": "local-http-fixture",
+          "calls": 32,
+          "retries": 12,
+          "successes": 12,
+          "amplification": 1.6,
+          "peak": 18
+        }
+      ],
+      "small_case": {
+        "clients": 3,
+        "calls": 4,
+        "successes": 3,
+        "retries": 1,
+        "peak": 3,
+        "amplification": 1.3333333333333333
+      }
+    },
+    "official_ref": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-retry-after",
+      "scope": "HTTP-date或非负十进制delay-seconds；未执行请求。"
+    },
+    "remaining": [
+      "root融合/整文件渲染/全库核/中文更新记录；accepted=false。",
+      "没有执行Go/TS/demo/CLI/tests/JS/HTTP/压测，没有用户真实数据访问。",
+      "只有自写纯事件/uint64/计数验证，不声称现实网络/排队/生产策略已验证。"
+    ]
+  },
+  "inventory": [
+    {
+      "path": "projects/retry-storm-lab/README.md",
+      "bytes": 3434,
+      "sha256": "8a7ac7bbd8488a13cccc60998f0621e22369902c3d1a7ffeff2a49ed804e195e",
+      "git_blob": "157386732ba73e5c27fa27ae4539100608e63500",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 49,
+      "read_ranges": [
+        [
+          1,
+          49
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/media/output.gif",
+      "bytes": 1272990,
+      "sha256": "f9db6413ded12358113bc9a68526ce0fc1778b3f9a3d1f1babd3a6b24bc8cd20",
+      "git_blob": "76ce0060709bd94345f595006e72186957b9bde1",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 128,
+      "duration_ms": 57600,
+      "dimensions": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual": false,
+      "visual_scope": "PNG整体已看：output末尾分桶、run作者日志；GIF仅解码。"
+    },
+    {
+      "path": "projects/retry-storm-lab/media/output.json",
+      "bytes": 8796,
+      "sha256": "932205206c1a5816315cad76e099b1e05baf565d18ddd6dc57337ceffa84921e",
+      "git_blob": "f9807f53fd2284294781b472b9d7d07e6383aea5",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 17,
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "executed": false,
+      "read_mode_detail": "完整JSON parse，全部metadata与4份内层JSON完整紧凑输出实际阅读，非仅抽样字段"
+    },
+    {
+      "path": "projects/retry-storm-lab/media/output.png",
+      "bytes": 23671,
+      "sha256": "a3591afee87b2e41d84df3a6a50b78459a9c4fa2ac995ed4fad7a7782e3577fe",
+      "git_blob": "4edf9feca1a0d93310f1e8f5b095b8394b89e72c",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "dimensions": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual": true,
+      "visual_scope": "PNG整体已看：output末尾分桶、run作者日志；GIF仅解码。"
+    },
+    {
+      "path": "projects/retry-storm-lab/media/run.gif",
+      "bytes": 214879,
+      "sha256": "daf850b23b1ab9ab2866c44367cd0639496ab21d54178c85604c3b58fae56a12",
+      "git_blob": "1c6bd997f0a43da730d1935da574699c1806c214",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 18,
+      "duration_ms": 8100,
+      "dimensions": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual": false,
+      "visual_scope": "PNG整体已看：output末尾分桶、run作者日志；GIF仅解码。"
+    },
+    {
+      "path": "projects/retry-storm-lab/media/run.json",
+      "bytes": 2113,
+      "sha256": "044a628c9055cce0ecd4888adba4a6c9222de86e0809699fb30cdb506e5721a3",
+      "git_blob": "5699ee6e2283e5b567e64b8b54b1a74a52444707",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/media/run.png",
+      "bytes": 86792,
+      "sha256": "a4c4ca3ba4d8f92dc9c25160c3494ba8b98495de0041053948c4c95f9de2498e",
+      "git_blob": "1a80e246e6bd72a2ad042742f267b836b85bc88c",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "dimensions": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual": true,
+      "visual_scope": "PNG整体已看：output末尾分桶、run作者日志；GIF仅解码。"
+    },
+    {
+      "path": "projects/retry-storm-lab/project.json",
+      "bytes": 3307,
+      "sha256": "f7deb72683dd322981c7230cb95f9d1f7e46b4ab7124c0689b315e1505b14749",
+      "git_blob": "6276ded3bf46857306fb95b5cb7b81b44d6a86b2",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 114,
+      "read_ranges": [
+        [
+          1,
+          114
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/solution/cli.ts",
+      "bytes": 318,
+      "sha256": "5d5de113b5202227deeef4ed573f798f2429422e9a1d3e14bb0a4366558cd39e",
+      "git_blob": "18a53d20e945e10e911325f8cf3429b99b9a551d",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 8,
+      "read_ranges": [
+        [
+          1,
+          8
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/solution/demo.py",
+      "bytes": 184,
+      "sha256": "10f50f2558e2311cb6ae66c1a816a69ae481bfbba1498fd8d8580f8407de0357",
+      "git_blob": "63000e4df91d048453232968b384f0aa6770962e",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 4,
+      "read_ranges": [
+        [
+          1,
+          4
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/solution/go.mod",
+      "bytes": 25,
+      "sha256": "f87d96f87741058cf5c10da95a264d38887778f1d7562b36f3c89541e1f0a725",
+      "git_blob": "9b4612cf87453c89c0184e7b0308e740577e6ccd",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/solution/main.go",
+      "bytes": 7556,
+      "sha256": "59ce61c80463b398955881d742ee9235a091556795e9bf301e657849edbeb4c6",
+      "git_blob": "bdab219a48e013351ea558450e4e4383228bc21b",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 285,
+      "read_ranges": [
+        [
+          1,
+          285
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/solution/main.ts",
+      "bytes": 1641,
+      "sha256": "c2d29f4dc32c71c33bb335a3d6a27b61099680fef2d40926daffefbbc5885362",
+      "git_blob": "35e3cc6998b7a9a15a9d8d0d71968c95186b61e8",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 59,
+      "read_ranges": [
+        [
+          1,
+          59
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/01-deterministic-service/docs/en.md",
+      "bytes": 2140,
+      "sha256": "dc73b28750c664431b779d565b4fa6ef904b452933eeb4696bdb3acea8eba5b9",
+      "git_blob": "703538a37af551e22ea5d02c8f88af3a855b9430",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/hedged-request-lab/stages/01-measure-safe-reads/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            3,
+            3
+          ],
+          "current": [
+            3,
+            3
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            4,
+            5
+          ],
+          "current": [
+            4,
+            5
+          ],
+          "equal_sha256": "59799934e7886fe104c86252004f1a130d8a30b842889fd590f6fc34b2f52d1e"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            6,
+            6
+          ],
+          "current": [
+            6,
+            6
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            7,
+            12
+          ],
+          "current": [
+            7,
+            12
+          ],
+          "equal_sha256": "d6bc9f1990fd905a12a23f6df008c6eba679d1dda12b6f6957e8ad43e12afa29"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            13,
+            13
+          ],
+          "current": [
+            13,
+            13
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            14,
+            16
+          ],
+          "current": [
+            14,
+            16
+          ],
+          "equal_sha256": "9924a50881041ed76ac87c39081666589503c548c0eebd983d6043c42b6cd111"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            17,
+            17
+          ],
+          "current": [
+            17,
+            17
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            18,
+            19
+          ],
+          "current": [
+            18,
+            19
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            20,
+            20
+          ],
+          "current": [
+            20,
+            20
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            21,
+            24
+          ],
+          "current": [
+            21,
+            24
+          ],
+          "equal_sha256": "a8e5a5a55a7a04a51815dc248aeb9226067a22d9946c412fdbc78bc8d268ad28"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            31
+          ],
+          "current": [
+            26,
+            31
+          ],
+          "equal_sha256": "c448a7a53c6ca6b2539cec3c6e8447a418e00cc22a797ab619b6d9cffd454359"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            32,
+            33
+          ],
+          "current": [
+            32,
+            33
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            34,
+            39
+          ],
+          "current": [
+            34,
+            39
+          ],
+          "equal_sha256": "b0e6c81fbc9feee422b23e51ddb3c214fc187835b44e863a793d4ac56ef9fd23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            40,
+            40
+          ],
+          "current": [
+            40,
+            40
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            41,
+            42
+          ],
+          "current": [
+            41,
+            42
+          ],
+          "equal_sha256": "203d1dbbb2959862d439b407730454396b32101d97de59b50b0fae4ff65e15d3"
+        }
+      ],
+      "different_lines_actually_read": true
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/01-deterministic-service/starter/cli.ts",
+      "bytes": 318,
+      "sha256": "5d5de113b5202227deeef4ed573f798f2429422e9a1d3e14bb0a4366558cd39e",
+      "git_blob": "18a53d20e945e10e911325f8cf3429b99b9a551d",
+      "tree_match": true,
+      "mode": "同SHA复用",
+      "lines": 8,
+      "read_ranges": [
+        [
+          1,
+          8
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/retry-storm-lab/solution/cli.ts"
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/01-deterministic-service/starter/demo.py",
+      "bytes": 184,
+      "sha256": "10f50f2558e2311cb6ae66c1a816a69ae481bfbba1498fd8d8580f8407de0357",
+      "git_blob": "63000e4df91d048453232968b384f0aa6770962e",
+      "tree_match": true,
+      "mode": "同SHA复用",
+      "lines": 4,
+      "read_ranges": [
+        [
+          1,
+          4
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/retry-storm-lab/solution/demo.py"
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/01-deterministic-service/starter/go.mod",
+      "bytes": 25,
+      "sha256": "f87d96f87741058cf5c10da95a264d38887778f1d7562b36f3c89541e1f0a725",
+      "git_blob": "9b4612cf87453c89c0184e7b0308e740577e6ccd",
+      "tree_match": true,
+      "mode": "同SHA复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/retry-storm-lab/solution/go.mod"
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/01-deterministic-service/starter/main.go",
+      "bytes": 4227,
+      "sha256": "97f4fd08300515c7b460b92a6d165bf9af6bf0a9e163e756e6c996e5eee16bb9",
+      "git_blob": "07039ee6b1905a8f6cd2ef3149c9c01cc332cde1",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 152,
+      "read_ranges": [
+        [
+          1,
+          152
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/retry-storm-lab/solution/main.go",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            8
+          ],
+          "current": [
+            1,
+            8
+          ],
+          "equal_sha256": "1339bea25633a3fd16c6a54bfcbca2ab9f2dea418d4faba2ae959cd6fca7ae7c"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            9,
+            9
+          ],
+          "current": [
+            9,
+            8
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            10,
+            13
+          ],
+          "current": [
+            9,
+            12
+          ],
+          "equal_sha256": "52683079230ef3df6f2e97b2cbfb37c9176471847f1fc6258ee34bde11bc7639"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            14,
+            14
+          ],
+          "current": [
+            13,
+            12
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            15,
+            47
+          ],
+          "current": [
+            13,
+            45
+          ],
+          "equal_sha256": "1e3df59ace5c21cee283d9018396431bad33b734039f4a0b54c5b7c29214e8e4"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            48,
+            64
+          ],
+          "current": [
+            46,
+            46
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            65,
+            65
+          ],
+          "current": [
+            47,
+            47
+          ],
+          "equal_sha256": "1af6ebc3db6df30bc729a106ed22f643e3af1f21e1da63405f93aacabd9ebb03"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            66,
+            97
+          ],
+          "current": [
+            48,
+            48
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            98,
+            110
+          ],
+          "current": [
+            49,
+            61
+          ],
+          "equal_sha256": "238877a6e418161b07781d4acc659bb7345d6fb9e2090cd0aa42e744e330e3a2"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            111,
+            119
+          ],
+          "current": [
+            62,
+            63
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            120,
+            120
+          ],
+          "current": [
+            64,
+            64
+          ],
+          "equal_sha256": "3e9d5d013480f581ae65bf4fd1638151ac4fc71e31b53f20400b7193dc1599d4"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            121,
+            137
+          ],
+          "current": [
+            65,
+            65
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            138,
+            139
+          ],
+          "current": [
+            66,
+            67
+          ],
+          "equal_sha256": "8c737b93e9976b18fc7140b8b6448e2960917b85e0fad05e68d24796bf6a3ae8"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            140,
+            198
+          ],
+          "current": [
+            68,
+            68
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            199,
+            200
+          ],
+          "current": [
+            69,
+            70
+          ],
+          "equal_sha256": "4b0552117ee7257ecb33148b9bce13ea5fbef292cdb7a561a80231e60deba48e"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            201,
+            203
+          ],
+          "current": [
+            71,
+            70
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            204,
+            285
+          ],
+          "current": [
+            71,
+            152
+          ],
+          "equal_sha256": "0c50a929f28ecd1115fe27487a059a9f319b7106d0255cd4085dd1106b3c70fb"
+        }
+      ],
+      "different_lines_actually_read": true
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/01-deterministic-service/starter/main.ts",
+      "bytes": 96,
+      "sha256": "89fef4cc01155b39340a5f3485135ac17f34b1287477b72facd1263515f2044f",
+      "git_blob": "e5f82facf56707d5472da32609c8341d3a372171",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/01-deterministic-service/tests/stage_test.go",
+      "bytes": 842,
+      "sha256": "65506d586db5ea3baaacef2560e1eb58a9643b2467e85ef2741c66d5853d99a8",
+      "git_blob": "fc5d1f331e8631f9c92e9f121ddd8a6e96299ca7",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 37,
+      "read_ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/hedged-request-lab/stages/01-measure-safe-reads/tests/stage_test.go",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            3
+          ],
+          "current": [
+            1,
+            3
+          ],
+          "equal_sha256": "05fba717cf4ee1505d05f688586bec757218211c9da4b4057dd6cb8913040733"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            4,
+            4
+          ],
+          "current": [
+            4,
+            3
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            5,
+            7
+          ],
+          "current": [
+            4,
+            6
+          ],
+          "equal_sha256": "03dd1e14d9d9699b0570a53c89f35437743d24b32663876e0df5a46023747ff2"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            11
+          ],
+          "current": [
+            7,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            14
+          ],
+          "current": [
+            17,
+            19
+          ],
+          "equal_sha256": "7caa1133742832069ba28dfc2c6882385025b0234ba96157044bbee217705e4f"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            15,
+            16
+          ],
+          "current": [
+            20,
+            22
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            23,
+            24
+          ],
+          "equal_sha256": "708def3c7ff3f9285a3c7c7fc725a77513fac8dce3bb27065f61de10697f6d23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            22
+          ],
+          "current": [
+            25,
+            34
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            23,
+            25
+          ],
+          "current": [
+            35,
+            37
+          ],
+          "equal_sha256": "27e25385ad090488d3daac909986bc1a762601f17d9138e9799cf238ae0998ee"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            26,
+            42
+          ],
+          "current": [
+            38,
+            37
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_read": true,
+      "static_tests": [
+        "TestSingleAttempt",
+        "TestFailureWindow",
+        "TestEmpty",
+        "TestInvalidCapacity",
+        "TestInitialOrder"
+      ]
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/02-bounded-jitter/docs/en.md",
+      "bytes": 2089,
+      "sha256": "c4e6aaecb91b817d0522ee0bb29a133dc1bc260460c737f21ba903aa0f1b8515",
+      "git_blob": "b08e0a1b2bee8a3d8fe9d3a07f427455bf6a06c5",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/hedged-request-lab/stages/02-schedule-duplicate/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            3,
+            3
+          ],
+          "current": [
+            3,
+            3
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            4,
+            5
+          ],
+          "current": [
+            4,
+            5
+          ],
+          "equal_sha256": "59799934e7886fe104c86252004f1a130d8a30b842889fd590f6fc34b2f52d1e"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            6,
+            6
+          ],
+          "current": [
+            6,
+            6
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            7,
+            12
+          ],
+          "current": [
+            7,
+            12
+          ],
+          "equal_sha256": "f7e98e3cbc6177c869548940d59a6e30b021f95c97968fde2459cf63adefb21f"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            13,
+            13
+          ],
+          "current": [
+            13,
+            13
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            14,
+            16
+          ],
+          "current": [
+            14,
+            16
+          ],
+          "equal_sha256": "9924a50881041ed76ac87c39081666589503c548c0eebd983d6043c42b6cd111"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            17,
+            17
+          ],
+          "current": [
+            17,
+            17
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            18,
+            19
+          ],
+          "current": [
+            18,
+            19
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            20,
+            20
+          ],
+          "current": [
+            20,
+            20
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            21,
+            24
+          ],
+          "current": [
+            21,
+            24
+          ],
+          "equal_sha256": "a8e5a5a55a7a04a51815dc248aeb9226067a22d9946c412fdbc78bc8d268ad28"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            31
+          ],
+          "current": [
+            26,
+            31
+          ],
+          "equal_sha256": "c448a7a53c6ca6b2539cec3c6e8447a418e00cc22a797ab619b6d9cffd454359"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            32,
+            33
+          ],
+          "current": [
+            32,
+            33
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            34,
+            39
+          ],
+          "current": [
+            34,
+            39
+          ],
+          "equal_sha256": "b0e6c81fbc9feee422b23e51ddb3c214fc187835b44e863a793d4ac56ef9fd23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            40,
+            40
+          ],
+          "current": [
+            40,
+            40
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            41,
+            42
+          ],
+          "current": [
+            41,
+            42
+          ],
+          "equal_sha256": "203d1dbbb2959862d439b407730454396b32101d97de59b50b0fae4ff65e15d3"
+        }
+      ],
+      "different_lines_actually_read": true
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/02-bounded-jitter/starter/STAGE-2.md",
+      "bytes": 312,
+      "sha256": "9a7764c962cc894a60133cdc697131f80f69807cb2a6f848fb5a6ca4bffeb727",
+      "git_blob": "4fa44cf911e4e4051d80f4a9b18bf9222a447475",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/02-bounded-jitter/tests/stage_test.go",
+      "bytes": 885,
+      "sha256": "ee22e456a4ce642d4a4da8d81ab7c2fa7a17579eb4462111ad8f95c61bfc7fcf",
+      "git_blob": "b4758f8720a90a1439f30dfe7df5f0f113f81856",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 44,
+      "read_ranges": [
+        [
+          1,
+          44
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/hedged-request-lab/stages/01-measure-safe-reads/tests/stage_test.go",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            3
+          ],
+          "current": [
+            1,
+            3
+          ],
+          "equal_sha256": "05fba717cf4ee1505d05f688586bec757218211c9da4b4057dd6cb8913040733"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            4,
+            4
+          ],
+          "current": [
+            4,
+            3
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            5,
+            7
+          ],
+          "current": [
+            4,
+            6
+          ],
+          "equal_sha256": "03dd1e14d9d9699b0570a53c89f35437743d24b32663876e0df5a46023747ff2"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            22
+          ],
+          "current": [
+            7,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            23,
+            25
+          ],
+          "current": [
+            12,
+            14
+          ],
+          "equal_sha256": "27e25385ad090488d3daac909986bc1a762601f17d9138e9799cf238ae0998ee"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            26,
+            30
+          ],
+          "current": [
+            15,
+            21
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            31,
+            32
+          ],
+          "current": [
+            22,
+            23
+          ],
+          "equal_sha256": "708def3c7ff3f9285a3c7c7fc725a77513fac8dce3bb27065f61de10697f6d23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            33,
+            40
+          ],
+          "current": [
+            24,
+            27
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            41,
+            42
+          ],
+          "current": [
+            28,
+            29
+          ],
+          "equal_sha256": "708def3c7ff3f9285a3c7c7fc725a77513fac8dce3bb27065f61de10697f6d23"
+        },
+        {
+          "kind": "insert",
+          "prior": [
+            43,
+            42
+          ],
+          "current": [
+            30,
+            44
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_read": true,
+      "static_tests": [
+        "TestDoubling",
+        "TestJitterBound",
+        "TestRepeatable",
+        "TestClientSpread",
+        "TestInvalidPolicy"
+      ]
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/03-shared-budget/docs/en.md",
+      "bytes": 2068,
+      "sha256": "7dc88c4acd33a5330274ab4359fff6591e8b405c0f5f8a1374dd01ea4b9d5885",
+      "git_blob": "32f11d91a41132686a55778267c046c97c35dd7a",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/hedged-request-lab/stages/03-validate-and-account/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            3,
+            3
+          ],
+          "current": [
+            3,
+            3
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            4,
+            5
+          ],
+          "current": [
+            4,
+            5
+          ],
+          "equal_sha256": "59799934e7886fe104c86252004f1a130d8a30b842889fd590f6fc34b2f52d1e"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            6,
+            6
+          ],
+          "current": [
+            6,
+            6
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            7,
+            12
+          ],
+          "current": [
+            7,
+            12
+          ],
+          "equal_sha256": "beb09db95dedc5da3fc053e297f07c3a46c4542e78829c99ce50ddc111465ec0"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            13,
+            13
+          ],
+          "current": [
+            13,
+            13
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            14,
+            16
+          ],
+          "current": [
+            14,
+            16
+          ],
+          "equal_sha256": "9924a50881041ed76ac87c39081666589503c548c0eebd983d6043c42b6cd111"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            17,
+            17
+          ],
+          "current": [
+            17,
+            17
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            18,
+            19
+          ],
+          "current": [
+            18,
+            19
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            20,
+            20
+          ],
+          "current": [
+            20,
+            20
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            21,
+            24
+          ],
+          "current": [
+            21,
+            24
+          ],
+          "equal_sha256": "a8e5a5a55a7a04a51815dc248aeb9226067a22d9946c412fdbc78bc8d268ad28"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            31
+          ],
+          "current": [
+            26,
+            31
+          ],
+          "equal_sha256": "c448a7a53c6ca6b2539cec3c6e8447a418e00cc22a797ab619b6d9cffd454359"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            32,
+            33
+          ],
+          "current": [
+            32,
+            33
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            34,
+            39
+          ],
+          "current": [
+            34,
+            39
+          ],
+          "equal_sha256": "b0e6c81fbc9feee422b23e51ddb3c214fc187835b44e863a793d4ac56ef9fd23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            40,
+            40
+          ],
+          "current": [
+            40,
+            40
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            41,
+            42
+          ],
+          "current": [
+            41,
+            42
+          ],
+          "equal_sha256": "203d1dbbb2959862d439b407730454396b32101d97de59b50b0fae4ff65e15d3"
+        }
+      ],
+      "different_lines_actually_read": true
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/03-shared-budget/starter/STAGE-3.md",
+      "bytes": 308,
+      "sha256": "e3e07804ee3327a14fb0548532e8b82739ab03dd782a59f869508a7b122d2e49",
+      "git_blob": "87ad608f63f159e296ec67836960bc6452a39e1e",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/03-shared-budget/tests/stage_test.go",
+      "bytes": 1007,
+      "sha256": "53221f4108c810e96298b69825ced7cdd1c7bfa7ad54947ea0ba333d62758b41",
+      "git_blob": "c7a44bc4ee8295b66ff8ed75e70840752649e509",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/hedged-request-lab/stages/01-measure-safe-reads/tests/stage_test.go",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            3
+          ],
+          "current": [
+            1,
+            3
+          ],
+          "equal_sha256": "05fba717cf4ee1505d05f688586bec757218211c9da4b4057dd6cb8913040733"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            4,
+            4
+          ],
+          "current": [
+            4,
+            6
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            5,
+            5
+          ],
+          "current": [
+            7,
+            7
+          ],
+          "equal_sha256": "1824a597832983d9f0b73caa9406a5a72c57c1e62124c8881b1e30449c4a822b"
+        },
+        {
+          "kind": "insert",
+          "prior": [
+            6,
+            5
+          ],
+          "current": [
+            8,
+            8
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            6,
+            7
+          ],
+          "current": [
+            9,
+            10
+          ],
+          "equal_sha256": "fafba0527c3953c4b6e0e5b5739ba83612f8053bcdc9466730193cd1d590b408"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            10
+          ],
+          "current": [
+            11,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            11,
+            13
+          ],
+          "current": [
+            38,
+            40
+          ],
+          "equal_sha256": "f17ff9185e275b85d9eae9b2cdb2f0ab7ed1fb98011b228db796cc6308350551"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            14,
+            16
+          ],
+          "current": [
+            41,
+            45
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            46,
+            47
+          ],
+          "equal_sha256": "708def3c7ff3f9285a3c7c7fc725a77513fac8dce3bb27065f61de10697f6d23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            23
+          ],
+          "current": [
+            48,
+            50
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            24,
+            25
+          ],
+          "current": [
+            51,
+            52
+          ],
+          "equal_sha256": "708def3c7ff3f9285a3c7c7fc725a77513fac8dce3bb27065f61de10697f6d23"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            26,
+            42
+          ],
+          "current": [
+            53,
+            52
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_read": true,
+      "static_tests": [
+        "TestSharedReplayCap",
+        "TestBudgetConcurrent",
+        "TestSeconds",
+        "TestHTTPDate",
+        "TestMalformedDelay"
+      ]
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/04-local-http-replay/docs/en.md",
+      "bytes": 2196,
+      "sha256": "35d5f1b9b901403428f0d2fe94bdee1735cf85c8254a79167562af3031d936ab",
+      "git_blob": "afc6690dd2acf79530f9cf537767db7e7e753a35",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/hedged-request-lab/stages/04-export-tradeoffs/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            3,
+            3
+          ],
+          "current": [
+            3,
+            3
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            4,
+            5
+          ],
+          "current": [
+            4,
+            5
+          ],
+          "equal_sha256": "59799934e7886fe104c86252004f1a130d8a30b842889fd590f6fc34b2f52d1e"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            6,
+            6
+          ],
+          "current": [
+            6,
+            6
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            7,
+            12
+          ],
+          "current": [
+            7,
+            12
+          ],
+          "equal_sha256": "37ccdcb64ef4059f34ccb62cd63907228f5c7f097aba5e4e993ba43f78139397"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            13,
+            13
+          ],
+          "current": [
+            13,
+            13
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            14,
+            16
+          ],
+          "current": [
+            14,
+            16
+          ],
+          "equal_sha256": "9924a50881041ed76ac87c39081666589503c548c0eebd983d6043c42b6cd111"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            17,
+            17
+          ],
+          "current": [
+            17,
+            17
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            18,
+            19
+          ],
+          "current": [
+            18,
+            19
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            20,
+            20
+          ],
+          "current": [
+            20,
+            20
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            21,
+            24
+          ],
+          "current": [
+            21,
+            24
+          ],
+          "equal_sha256": "a8e5a5a55a7a04a51815dc248aeb9226067a22d9946c412fdbc78bc8d268ad28"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            31
+          ],
+          "current": [
+            26,
+            31
+          ],
+          "equal_sha256": "c448a7a53c6ca6b2539cec3c6e8447a418e00cc22a797ab619b6d9cffd454359"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            32,
+            33
+          ],
+          "current": [
+            32,
+            33
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            34,
+            39
+          ],
+          "current": [
+            34,
+            39
+          ],
+          "equal_sha256": "b0e6c81fbc9feee422b23e51ddb3c214fc187835b44e863a793d4ac56ef9fd23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            40,
+            40
+          ],
+          "current": [
+            40,
+            40
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            41,
+            41
+          ],
+          "current": [
+            41,
+            41
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            42,
+            42
+          ],
+          "current": [
+            42,
+            42
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_read": true
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/04-local-http-replay/starter/STAGE-4.md",
+      "bytes": 344,
+      "sha256": "0b3d93c0e4baf36e120a6b02495bad1d908e2ffc62efaa7f336a98ba3e10b9ae",
+      "git_blob": "4384b00e03cf2c0a94a1f28ee18b4d635143a98e",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/04-local-http-replay/tests/stage.test.ts",
+      "bytes": 1323,
+      "sha256": "3f1aaa78858700b4eb843a19ddfc6b3757c8840d040081893dda012f80f10b13",
+      "git_blob": "1f7ba764034723b6825f6dac0cf80bbb41821f4e",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 45,
+      "read_ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "executed": false,
+      "static_tests": [
+        "amplification",
+        "peak timeline",
+        "counter tamper",
+        "attempt gap",
+        "unknown client",
+        "success terminal"
+      ]
+    },
+    {
+      "path": "projects/retry-storm-lab/stages/04-local-http-replay/tests/stage_test.go",
+      "bytes": 1824,
+      "sha256": "596dc7a571f98a2290763d6b8d7d440b50dc82e86c2eded044fa17c0b1f192f8",
+      "git_blob": "4ac21e8d4e4ae6935b9e7f2eb26d86d9a46b8c03",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 60,
+      "read_ranges": [
+        [
+          1,
+          60
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/hedged-request-lab/stages/01-measure-safe-reads/tests/stage_test.go",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            3
+          ],
+          "current": [
+            1,
+            3
+          ],
+          "equal_sha256": "05fba717cf4ee1505d05f688586bec757218211c9da4b4057dd6cb8913040733"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            4,
+            4
+          ],
+          "current": [
+            4,
+            7
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            5,
+            7
+          ],
+          "current": [
+            8,
+            10
+          ],
+          "equal_sha256": "03dd1e14d9d9699b0570a53c89f35437743d24b32663876e0df5a46023747ff2"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            11
+          ],
+          "current": [
+            11,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            13
+          ],
+          "current": [
+            25,
+            26
+          ],
+          "equal_sha256": "708def3c7ff3f9285a3c7c7fc725a77513fac8dce3bb27065f61de10697f6d23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            14,
+            16
+          ],
+          "current": [
+            27,
+            32
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            33,
+            34
+          ],
+          "equal_sha256": "708def3c7ff3f9285a3c7c7fc725a77513fac8dce3bb27065f61de10697f6d23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            23
+          ],
+          "current": [
+            35,
+            40
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            24,
+            25
+          ],
+          "current": [
+            41,
+            42
+          ],
+          "equal_sha256": "708def3c7ff3f9285a3c7c7fc725a77513fac8dce3bb27065f61de10697f6d23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            26,
+            30
+          ],
+          "current": [
+            43,
+            48
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            31,
+            32
+          ],
+          "current": [
+            49,
+            50
+          ],
+          "equal_sha256": "708def3c7ff3f9285a3c7c7fc725a77513fac8dce3bb27065f61de10697f6d23"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            33,
+            40
+          ],
+          "current": [
+            51,
+            58
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            41,
+            42
+          ],
+          "current": [
+            59,
+            60
+          ],
+          "equal_sha256": "708def3c7ff3f9285a3c7c7fc725a77513fac8dce3bb27065f61de10697f6d23"
+        }
+      ],
+      "different_lines_actually_read": true,
+      "static_tests": [
+        "TestWireRetry",
+        "TestWireNonRetry",
+        "TestWireBudget",
+        "TestWireServerDelay",
+        "TestCancelled"
+      ]
+    },
+    {
+      "path": "site/figures/projects/retry-storm-lab.js",
+      "bytes": 5203,
+      "sha256": "f102ac91569738ec80790809fb80faadb60c94c7114a14b5bb7c5ada2248bc41",
+      "git_blob": "0baca94fdb28ae29cc4daaa79b69a120c385bb7b",
+      "tree_match": true,
+      "mode": "全文静读或精确公共行复用",
+      "lines": 212,
+      "read_ranges": [
+        [
+          1,
+          212
+        ]
+      ],
+      "executed": false
+    }
+  ],
+  "root_read_chunks": [],
+  "tests_static": [
+    {
+      "file": "projects/retry-storm-lab/stages/01-deterministic-service/tests/stage_test.go",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/retry-storm-lab/stages/02-bounded-jitter/tests/stage_test.go",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/retry-storm-lab/stages/03-shared-budget/tests/stage_test.go",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/retry-storm-lab/stages/04-local-http-replay/tests/stage.test.ts",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/retry-storm-lab/stages/04-local-http-replay/tests/stage_test.go",
+      "static_tests": 5,
+      "executed": false
+    }
+  ],
+  "root_review": {
+    "all_git_blobs_rechecked": 31,
+    "drift": 0,
+    "critical_read": [
+      "ServerDelay/Fetch(120-199)"
+    ]
+  },
+  "data_proof": {
+    "date": "2026-10-23",
+    "method": "自写heapq离散事件/uint64掩码算术重建，不执行来源Go/TS/CLI/demo/tests，也不产生HTTP；解析作者4内层JSON独立核计数/峰值。",
+    "source_execution": 0,
+    "real_traffic": 0,
+    "author_timestamp": "2026-10-09T14:24:11Z",
+    "author_reports_audited": [
+      {
+        "mode": "deterministic-simulation",
+        "calls": 32,
+        "retries": 12,
+        "successes": 0,
+        "amplification": 1.6,
+        "peak": 21
+      },
+      {
+        "mode": "local-http-fixture",
+        "calls": 32,
+        "retries": 12,
+        "successes": 12,
+        "amplification": 1.6,
+        "peak": 18
+      }
+    ],
+    "exact_simulation_trace_reconstructed_matches_author": true,
+    "small_complete_case": {
+      "clients": 3,
+      "calls": 4,
+      "successes": 3,
+      "retries": 1,
+      "timeline": [
+        {
+          "client": 0,
+          "attempt": 1,
+          "atMs": 0,
+          "status": 200
+        },
+        {
+          "client": 1,
+          "attempt": 1,
+          "atMs": 0,
+          "status": 200
+        },
+        {
+          "client": 2,
+          "attempt": 1,
+          "atMs": 0,
+          "status": 503
+        },
+        {
+          "client": 2,
+          "attempt": 2,
+          "atMs": 10,
+          "status": 200
+        }
+      ],
+      "peak": 3,
+      "amplification": 1.3333333333333333
+    },
+    "policy_cases": [
+      {
+        "parameters": {
+          "clients": 20,
+          "failUntil": 12,
+          "capacity": 5,
+          "budget": 60,
+          "jitter": false,
+          "seed": 7
+        },
+        "result": {
+          "clients": 20,
+          "calls": 75,
+          "successes": 10,
+          "retries": 55,
+          "timeline": [
+            {
+              "client": 0,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 1,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 2,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 3,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 4,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 5,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 6,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 7,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 8,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 9,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 10,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 11,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 12,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 13,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 14,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 15,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 16,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 17,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 18,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 19,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 0,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 1,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 2,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 3,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 4,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 5,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 6,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 7,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 8,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 9,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 10,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 11,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 12,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 13,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 14,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 15,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 16,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 17,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 18,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 19,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 0,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 200
+            },
+            {
+              "client": 1,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 200
+            },
+            {
+              "client": 2,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 200
+            },
+            {
+              "client": 3,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 200
+            },
+            {
+              "client": 4,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 200
+            },
+            {
+              "client": 5,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 6,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 7,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 8,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 9,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 10,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 11,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 12,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 13,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 14,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 15,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 16,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 17,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 18,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 19,
+              "attempt": 3,
+              "atMs": 30,
+              "status": 503
+            },
+            {
+              "client": 5,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 200
+            },
+            {
+              "client": 6,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 200
+            },
+            {
+              "client": 7,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 200
+            },
+            {
+              "client": 8,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 200
+            },
+            {
+              "client": 9,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 200
+            },
+            {
+              "client": 10,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 503
+            },
+            {
+              "client": 11,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 503
+            },
+            {
+              "client": 12,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 503
+            },
+            {
+              "client": 13,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 503
+            },
+            {
+              "client": 14,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 503
+            },
+            {
+              "client": 15,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 503
+            },
+            {
+              "client": 16,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 503
+            },
+            {
+              "client": 17,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 503
+            },
+            {
+              "client": 18,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 503
+            },
+            {
+              "client": 19,
+              "attempt": 4,
+              "atMs": 70,
+              "status": 503
+            }
+          ],
+          "peak": 20,
+          "amplification": 3.75
+        }
+      },
+      {
+        "parameters": {
+          "clients": 20,
+          "failUntil": 12,
+          "capacity": 5,
+          "budget": 60,
+          "jitter": true,
+          "seed": 7
+        },
+        "result": {
+          "clients": 20,
+          "calls": 67,
+          "successes": 19,
+          "retries": 47,
+          "timeline": [
+            {
+              "client": 0,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 0,
+              "attempt": 2,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 1,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 2,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 3,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 4,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 5,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 6,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 7,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 8,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 9,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 10,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 11,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 12,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 13,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 14,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 15,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 16,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 17,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 17,
+              "attempt": 2,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 18,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 19,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 3,
+              "attempt": 2,
+              "atMs": 1,
+              "status": 503
+            },
+            {
+              "client": 4,
+              "attempt": 2,
+              "atMs": 2,
+              "status": 503
+            },
+            {
+              "client": 13,
+              "attempt": 2,
+              "atMs": 2,
+              "status": 503
+            },
+            {
+              "client": 0,
+              "attempt": 3,
+              "atMs": 3,
+              "status": 503
+            },
+            {
+              "client": 3,
+              "attempt": 3,
+              "atMs": 4,
+              "status": 503
+            },
+            {
+              "client": 5,
+              "attempt": 2,
+              "atMs": 4,
+              "status": 503
+            },
+            {
+              "client": 7,
+              "attempt": 2,
+              "atMs": 4,
+              "status": 503
+            },
+            {
+              "client": 11,
+              "attempt": 2,
+              "atMs": 4,
+              "status": 503
+            },
+            {
+              "client": 19,
+              "attempt": 2,
+              "atMs": 4,
+              "status": 503
+            },
+            {
+              "client": 6,
+              "attempt": 2,
+              "atMs": 5,
+              "status": 503
+            },
+            {
+              "client": 13,
+              "attempt": 3,
+              "atMs": 5,
+              "status": 503
+            },
+            {
+              "client": 1,
+              "attempt": 2,
+              "atMs": 6,
+              "status": 503
+            },
+            {
+              "client": 2,
+              "attempt": 2,
+              "atMs": 6,
+              "status": 503
+            },
+            {
+              "client": 6,
+              "attempt": 3,
+              "atMs": 7,
+              "status": 503
+            },
+            {
+              "client": 15,
+              "attempt": 2,
+              "atMs": 7,
+              "status": 503
+            },
+            {
+              "client": 8,
+              "attempt": 2,
+              "atMs": 8,
+              "status": 503
+            },
+            {
+              "client": 9,
+              "attempt": 2,
+              "atMs": 8,
+              "status": 503
+            },
+            {
+              "client": 11,
+              "attempt": 3,
+              "atMs": 8,
+              "status": 503
+            },
+            {
+              "client": 18,
+              "attempt": 2,
+              "atMs": 8,
+              "status": 503
+            },
+            {
+              "client": 4,
+              "attempt": 3,
+              "atMs": 9,
+              "status": 503
+            },
+            {
+              "client": 6,
+              "attempt": 4,
+              "atMs": 9,
+              "status": 503
+            },
+            {
+              "client": 10,
+              "attempt": 2,
+              "atMs": 9,
+              "status": 503
+            },
+            {
+              "client": 14,
+              "attempt": 2,
+              "atMs": 9,
+              "status": 503
+            },
+            {
+              "client": 16,
+              "attempt": 2,
+              "atMs": 9,
+              "status": 503
+            },
+            {
+              "client": 12,
+              "attempt": 2,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 17,
+              "attempt": 3,
+              "atMs": 10,
+              "status": 503
+            },
+            {
+              "client": 5,
+              "attempt": 3,
+              "atMs": 12,
+              "status": 200
+            },
+            {
+              "client": 8,
+              "attempt": 3,
+              "atMs": 13,
+              "status": 200
+            },
+            {
+              "client": 16,
+              "attempt": 3,
+              "atMs": 15,
+              "status": 200
+            },
+            {
+              "client": 1,
+              "attempt": 3,
+              "atMs": 16,
+              "status": 200
+            },
+            {
+              "client": 2,
+              "attempt": 3,
+              "atMs": 18,
+              "status": 200
+            },
+            {
+              "client": 7,
+              "attempt": 3,
+              "atMs": 18,
+              "status": 200
+            },
+            {
+              "client": 19,
+              "attempt": 3,
+              "atMs": 19,
+              "status": 200
+            },
+            {
+              "client": 10,
+              "attempt": 3,
+              "atMs": 20,
+              "status": 200
+            },
+            {
+              "client": 13,
+              "attempt": 4,
+              "atMs": 21,
+              "status": 200
+            },
+            {
+              "client": 14,
+              "attempt": 3,
+              "atMs": 21,
+              "status": 200
+            },
+            {
+              "client": 3,
+              "attempt": 4,
+              "atMs": 22,
+              "status": 200
+            },
+            {
+              "client": 12,
+              "attempt": 3,
+              "atMs": 22,
+              "status": 200
+            },
+            {
+              "client": 18,
+              "attempt": 3,
+              "atMs": 22,
+              "status": 200
+            },
+            {
+              "client": 0,
+              "attempt": 4,
+              "atMs": 25,
+              "status": 200
+            },
+            {
+              "client": 15,
+              "attempt": 3,
+              "atMs": 26,
+              "status": 200
+            },
+            {
+              "client": 9,
+              "attempt": 3,
+              "atMs": 27,
+              "status": 200
+            },
+            {
+              "client": 11,
+              "attempt": 4,
+              "atMs": 35,
+              "status": 200
+            },
+            {
+              "client": 4,
+              "attempt": 4,
+              "atMs": 38,
+              "status": 200
+            },
+            {
+              "client": 17,
+              "attempt": 4,
+              "atMs": 50,
+              "status": 200
+            }
+          ],
+          "peak": 22,
+          "amplification": 3.35
+        }
+      },
+      {
+        "parameters": {
+          "clients": 20,
+          "failUntil": 12,
+          "capacity": 5,
+          "budget": 12,
+          "jitter": true,
+          "seed": 7
+        },
+        "result": {
+          "clients": 20,
+          "calls": 32,
+          "successes": 0,
+          "retries": 12,
+          "timeline": [
+            {
+              "client": 0,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 0,
+              "attempt": 2,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 1,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 2,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 3,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 4,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 5,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 6,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 7,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 8,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 9,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 10,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 11,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 12,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 13,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 14,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 15,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 16,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 17,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 18,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 19,
+              "attempt": 1,
+              "atMs": 0,
+              "status": 503
+            },
+            {
+              "client": 3,
+              "attempt": 2,
+              "atMs": 1,
+              "status": 503
+            },
+            {
+              "client": 4,
+              "attempt": 2,
+              "atMs": 2,
+              "status": 503
+            },
+            {
+              "client": 0,
+              "attempt": 3,
+              "atMs": 3,
+              "status": 503
+            },
+            {
+              "client": 5,
+              "attempt": 2,
+              "atMs": 4,
+              "status": 503
+            },
+            {
+              "client": 7,
+              "attempt": 2,
+              "atMs": 4,
+              "status": 503
+            },
+            {
+              "client": 6,
+              "attempt": 2,
+              "atMs": 5,
+              "status": 503
+            },
+            {
+              "client": 1,
+              "attempt": 2,
+              "atMs": 6,
+              "status": 503
+            },
+            {
+              "client": 2,
+              "attempt": 2,
+              "atMs": 6,
+              "status": 503
+            },
+            {
+              "client": 8,
+              "attempt": 2,
+              "atMs": 8,
+              "status": 503
+            },
+            {
+              "client": 9,
+              "attempt": 2,
+              "atMs": 8,
+              "status": 503
+            },
+            {
+              "client": 10,
+              "attempt": 2,
+              "atMs": 9,
+              "status": 503
+            }
+          ],
+          "peak": 21,
+          "amplification": 1.6
+        }
+      }
+    ],
+    "wait_no_jitter_base10_cap25": [
+      10,
+      20,
+      25,
+      25
+    ],
+    "jitter_first_retries_clients0_11": [
+      0,
+      6,
+      6,
+      1,
+      2,
+      4,
+      5,
+      4,
+      8,
+      8,
+      9,
+      4
+    ],
+    "empty_simulation": {
+      "clients": 0,
+      "calls": 0,
+      "successes": 0,
+      "retries": 0,
+      "timeline": [],
+      "peak": 0,
+      "amplification": 0
+    },
+    "server_delay_cases": [
+      {
+        "value": "2 seconds",
+        "policy_cap_ms": 80,
+        "outcome": "终止，不缩短到80ms继续重试"
+      },
+      {
+        "future_http_date_seconds": 3,
+        "outcome": "3秒，若大于cap终止"
+      },
+      {
+        "past_http_date": "过去日期",
+        "outcome": "0等待"
+      }
+    ],
+    "static_contract_counterexamples": [
+      "2xx但body超限/读取失败：Fetch错误，Local success不加；timeline仍2xx，TS按status计成功会counter mismatch。",
+      "budget.Take在等待前扣，context取消期间不返还；Local.report.retries是实际trace额外调用，非token consumed。",
+      "live AtMS在响应headers后、body前记录且每client起点各异，simulation AtMS是全局派发时刻。",
+      "analyze未核每client时间单调或回退政策/Retry-After，且报告不含policy/seed/failure/capacity/budget，计数一致不证明实际执行。",
+      "source STAGE-2.md只给线性和mod而漏xor/multiply，不能当参考真实Delay算法。"
+    ],
+    "official_ref": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-retry-after",
+      "scope": "HTTP-date或非负十进制delay-seconds；未执行请求。"
+    },
+    "limits": [
+      "重建仅固定离散容量模型，非排队/真实吞吐/服务CPU模型。",
+      "原26测试仅静读，外部压测/取消/服务效果未动态核验。"
+    ]
+  },
+  "formal_fusion": {
+    "file": "Agentic Design Patterns/01-核心章节/12-异常处理和恢复.md",
+    "before_sha256": "b2e71da2b8d6289030cac8f191f81597810cb6bd41e28d937cca2c2ecd7934a1",
+    "after_sha256": "49a99aaf615386eadb2be7a7fb24d2a5e3eba26dc75bd930a443995877fbc866",
+    "old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "64a55b0b614b5735545aa422c9245709fb7f3bf3d8bb9066ed7981936c4987c5",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "eed9b0f138b810a0b9559554ff82b06608d79a0202f1d997e2fbf5fd3ff7f09a",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4625 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

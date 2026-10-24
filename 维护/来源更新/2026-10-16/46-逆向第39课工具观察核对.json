@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "scope": "39固定5工具capture全读3块",
+  "source_files": [
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.angr.json",
+      "sha256": "9e8311b23a76926ee327c485ccd841eea4826ed4b67b639a327fb26250e516e5",
+      "lines": 135
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.lifts.json",
+      "sha256": "6f6acc87ff515de2f53a3f6d423728719be8f7c474f8d129ea7f7eac0e13da3d",
+      "lines": 285
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.lldb.txt",
+      "sha256": "ea7cea67b8766b0a164eca4cd3fad02a5b0badfe76ac93d1c07d2352a85e46d5",
+      "lines": 31
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.radare2.txt",
+      "sha256": "834ca13798eeea4eecf7eeaa06cbea1aeb1d2aec285fa5b6442cf190f1e759e8",
+      "lines": 119
+    },
+    {
+      "source_file": "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.rizin.txt",
+      "sha256": "3f1ca698fbd15bb5fb740242a74575e2320089cd26c329aeeeae198799142d35",
+      "lines": 51
+    }
+  ],
+  "review_chunks": [
+    {
+      "chunk": 1,
+      "chars": 9992,
+      "sha256": "ca3f1182bb15a1ad8f07179fa67579992d60af95963a4bc3bc7212f4b1fc3ec3"
+    },
+    {
+      "chunk": 2,
+      "chars": 9958,
+      "sha256": "8e8b536d9f2e6aa1637b27586e1ca448dffaaec91774fb3e81e5eb98ba0f2fb4"
+    },
+    {
+      "chunk": 3,
+      "chars": 7293,
+      "sha256": "4fa56f5ef30b086ad70b78397f7a420e5e4ca4e76748f9bf60b21f8c5a227d98"
+    }
+  ],
+  "professional_findings": {
+    "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.angr.json": [
+      "全部20个function伪C/地址/块数与工具版本/analysis字段全文静读；作者angr10.0.3历史capture，不是本库运行。",
+      "div10s/mod10s虽然v1为unsigned long long，但a0与1717986919先按int相乘再赋值，宽度/溢出语义不等原signextend64机器乘，不能采信quiz“两者都正确”。",
+      "sum_n打印double返回、uint128_t指针、v6/v7未初始化，scalar尾循环仅增加index无求和；copy16猜double返回及fill未初始化返回、tail_caller漏实际参数；digest g_400434[4]配0..4访问等都需核真实指令与表。"
+    ],
+    "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.lifts.json": [
+      "Capstone5.0.7两函数逐条bytes/text/groups，pypcode4.0.1两函数每条IR/flags/宽度/返回完整实际读，未执行SDK。",
+      "div10s保sext32→64及64乘、sar34/sign63补偿、add32清高；mod8s保test flags/cmov条件/andmask/sub32与ret语义。IR存在不证明作者更上层伪C自动正确。"
+    ],
+    "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.lldb.txt": [
+      "3函数每条lldb作者反汇编全文静读，只有targetcreate/disassemble无run/launch轨迹；它不是动态执行观察。",
+      "table_switch LEA原零位移显示临近地址，需结合对象重定位，不以裸disassemble文本猜表位置；与其他工具要换算各自地址坐标。"
+    ],
+    "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.radare2.txt": [
+      "完整命令/25函数afl、所选pdf/pdc及invalidmemory警告全读；relocsnotapplied明确，source0调用。",
+      "pdc文本是寄存器式伪语法非可编译或已验证C；tablebranch将无符号比较简化、clamp_max/mod10s return载体及签名等可能失真，不能由函数列表/数目相同证明语义。"
+    ],
+    "phases/13-tools-and-protocols/39-compiler-idioms-and-optimization/code/fixtures/idioms-x86_64-O2.rizin.txt": [
+      "完整rizin版本/25afl/所选pdf/RzIL及skipmap/peekmemory错误全读；仅历史capture。",
+      "RzIL只展一条imul，不能称全部指令语义齐全；LEA relocation应用与r2未应用不同，字节/地址显示应分原文件与装载后内存，不拿两套base直接比较。"
+    ]
+  },
+  "formal_changed": [],
+  "remaining39": 54,
+  "next_prepared_review": {
+    "index": "/tmp/study-update-20261016/re39-builds-b9-index.json",
+    "files": 36,
+    "builds": 18,
+    "chunks": 47,
+    "chunks_actually_read": 0,
+    "policy": "严格先读原件/基础版本后完整差分，相同原文只精确映射复用；准备不算已读"
+  },
+  "source_exec": 0,
+  "old_reruns": 0,
+  "whole_update_complete": false
+}

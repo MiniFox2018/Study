@@ -1,0 +1,903 @@
+{
+  "date": "2026-10-23",
+  "project": "csv-repair-workbench",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "source_root": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-update-source1-20261016/ai-engineering-from-scratch-1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-profile",
+    "02-rules",
+    "03-preview",
+    "04-export"
+  ],
+  "delegate_review": {
+    "project": "csv-repair-workbench",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_cutoff": "2026-10-15T05:58:42Z",
+    "review_date": "2026-10-23",
+    "author_run_date": "2026-10-09T14:26:55Z",
+    "status": "全项目与辅助图读取完成，待root融合和验收",
+    "accepted": false,
+    "source_scope": {
+      "project_files": 28,
+      "helper_files": 1,
+      "all_29_git_blobs_match_target_tree": true,
+      "unique_text_full_actual_read": 22,
+      "exact_sha_reuse": 3,
+      "png_visual": 2,
+      "gif_data_decode": 2,
+      "gif_frames_data_decode": 30,
+      "all_gif_frames_visually_reviewed": false,
+      "source_python_js_cli_test_executions": 0
+    },
+    "inventory": "/tmp/study-update-20261016/csv-agent-20261023/inventory.json",
+    "knowledge": "/tmp/study-update-20261016/csv-agent-20261023/knowledge.md",
+    "knowledge_sha256": "f6d1f19367601cf497a05bbee3a163c41eaaece4dd0740881274f3a510d5cd3a",
+    "data_proof": "/tmp/study-update-20261016/csv-agent-20261023/data-proof.json",
+    "actual_read_evidence": {
+      "text": "README/API/project.json/main/cli/presentation/sample/startermain全文；4docs/3STAGE提示/4tests全文；2mediaJSON全文；图JS字符范围[0,7200)和[7200,13732)无遗漏。",
+      "reuse": "starter cli/presentation/input.json分别与同项目solution同SHA；inventory已记重用对象。",
+      "images": "output PNG显示输入row2审阅JSON的textarea与下载按钮，不能证明应用；run PNG显示作者starter FAIL和参考4×5 PASS。",
+      "existing_notes": "05整章、02整章、字符编码05整章完整读取；05已有记录关联第13节，不重建通则。"
+    },
+    "recommended_single_merge_target": "数据科学基础/05-Python数据处理与数据准备.md",
+    "dedup_strategy": [
+      "现有05基础清洗与13记录关联保留；新增单表修复的具体合同/算例/日期/决定/发布，指纹与审阅通则引用13而不复写平行教程。",
+      "02质量与缺失机制只交叉链接；编码原理链接计算机数字素养05，保留本项目BOM/方言实际边界。",
+      "不保存原媒体、原实现/脚手架、完整网站镜像；来源轻量映射。"
+    ],
+    "functions": [
+      {
+        "path": "projects/csv-repair-workbench/solution/main.py",
+        "name": "profile",
+        "lines": [
+          4,
+          31
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/solution/main.py",
+        "name": "propose",
+        "lines": [
+          34,
+          51
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/solution/main.py",
+        "name": "preview",
+        "lines": [
+          54,
+          112
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/solution/main.py",
+        "name": "repair",
+        "lines": [
+          115,
+          143
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/solution/presentation.py",
+        "name": "page",
+        "lines": [
+          5,
+          66
+        ]
+      }
+    ],
+    "tests_static": [
+      {
+        "path": "projects/csv-repair-workbench/stages/01-profile/tests/test_stage_1.py",
+        "methods": [
+          {
+            "name": "test_original",
+            "lines": [
+              6,
+              7
+            ]
+          },
+          {
+            "name": "test_missing",
+            "lines": [
+              9,
+              10
+            ]
+          },
+          {
+            "name": "test_ragged",
+            "lines": [
+              12,
+              14
+            ]
+          },
+          {
+            "name": "test_duplicate",
+            "lines": [
+              16,
+              18
+            ]
+          },
+          {
+            "name": "test_heldout",
+            "lines": [
+              20,
+              21
+            ]
+          }
+        ],
+        "executed": false
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/02-rules/tests/test_stage_2.py",
+        "methods": [
+          {
+            "name": "test_order",
+            "lines": [
+              6,
+              10
+            ]
+          },
+          {
+            "name": "test_empty",
+            "lines": [
+              12,
+              13
+            ]
+          },
+          {
+            "name": "test_unknown",
+            "lines": [
+              15,
+              17
+            ]
+          },
+          {
+            "name": "test_invalid",
+            "lines": [
+              19,
+              21
+            ]
+          },
+          {
+            "name": "test_heldout",
+            "lines": [
+              23,
+              27
+            ]
+          }
+        ],
+        "executed": false
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/03-preview/tests/test_stage_3.py",
+        "methods": [
+          {
+            "name": "test_alias",
+            "lines": [
+              6,
+              10
+            ]
+          },
+          {
+            "name": "test_ambiguous",
+            "lines": [
+              12,
+              17
+            ]
+          },
+          {
+            "name": "test_unambiguous",
+            "lines": [
+              19,
+              24
+            ]
+          },
+          {
+            "name": "test_invalid",
+            "lines": [
+              26,
+              30
+            ]
+          },
+          {
+            "name": "test_heldout",
+            "lines": [
+              32,
+              34
+            ]
+          }
+        ],
+        "executed": false
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/04-export/tests/test_stage_4.py",
+        "methods": [
+          {
+            "name": "test_review",
+            "lines": [
+              6,
+              19
+            ]
+          },
+          {
+            "name": "test_stale",
+            "lines": [
+              21,
+              24
+            ]
+          },
+          {
+            "name": "test_roundtrip",
+            "lines": [
+              26,
+              28
+            ]
+          },
+          {
+            "name": "test_replay",
+            "lines": [
+              30,
+              34
+            ]
+          },
+          {
+            "name": "test_nonpending",
+            "lines": [
+              36,
+              48
+            ]
+          }
+        ],
+        "executed": false
+      }
+    ],
+    "stage_coverage": [
+      {
+        "stage": "01-profile",
+        "coverage": "字节/方言/记录/字符串/类型分层；默认CSV逗号引号/换行/BOM边界；原字符串保留、missing/unique和1/3样例。"
+      },
+      {
+        "stage": "02-rules",
+        "coverage": "显式trim→alias→date配方、列顺序、精确别名、语义授权、无插补、非幂等/可变字典边界。"
+      },
+      {
+        "stage": "03-preview",
+        "coverage": "DMY/MDY/ISO实际合同、唯一/歧义/无效日期、年/零/解析版本；deepcopy与最终cell diff、pending不一定原字段。"
+      },
+      {
+        "stage": "04-export",
+        "coverage": "table+recipe SHA与样例匹配、pending坐标决定、部分审阅、原审阅历史丢失边界、CSV消费者/配方重放/多产物发布。"
+      }
+    ],
+    "critical_findings": [
+      {
+        "id": "V1",
+        "finding": "API称ISO或无歧义DD/MM，实际b>12分支接受MDY；a,b都<=12先判歧义可误标00/01；斜线年份无4位限制。",
+        "path": "solution/main.py:preview"
+      },
+      {
+        "id": "V2",
+        "finding": "API称unresolved cells original，实际trim/alias先行，pending保留当前变换后值。真正原值在table与changes.before。",
+        "path": "solution/main.py:preview/repair"
+      },
+      {
+        "id": "V3",
+        "finding": "changes是原表到最终表的净差异，不是逐规则执行日志；recipe返回值及alias map非冻结。",
+        "path": "solution/main.py:propose/preview"
+      },
+      {
+        "id": "V4",
+        "finding": "保留parsed cell strings，不保CSV排版/字节；空字段与quoted-empty同解析、类型未推断；BOM/encoding/dialect不自动修复。",
+        "path": "solution/main.py:profile + cli.py"
+      },
+      {
+        "id": "V5",
+        "finding": "fingerprint绑定table与recipe并使用Python默认sort_keys JSON，不含原字节/引擎/审阅者；独立数据构造核对到作者d4403...d88。",
+        "path": "solution/main.py:preview"
+      },
+      {
+        "id": "V6",
+        "finding": "repair解析审阅日期后直接存其字符串，无固定YYYY-MM-DD规范化；当前3.12标准库可接受basic/week。",
+        "path": "solution/main.py:repair"
+      },
+      {
+        "id": "V7",
+        "finding": "CLI每次review cells重置为空，receipt未存决定修订历史；从原表仅导入剩余决定会失去先前决定。文件多产物无整体原子发布。",
+        "path": "solution/cli.py"
+      },
+      {
+        "id": "V8",
+        "finding": "仅trim重放测试不能证明alias全局幂等，A→B,B→C反例；默认无缺失插补但显式空串alias可补值。",
+        "path": "solution/main.py:propose/preview"
+      },
+      {
+        "id": "V9",
+        "finding": "四lab固定stage1至4、stepIndex未使用；stage4单示意approve未实现指纹/坐标完整校验；JS正则/Date.UTC年份与Python实际接受域不同。",
+        "path": "site/figures/projects/csv-repair-workbench.js"
+      },
+      {
+        "id": "V10",
+        "finding": "统一Invalid→ValueError承诺未完整实现，畸形schema/规则/决定可能别的异常；本次只静读20测试无运行。",
+        "path": "API.md + solution/main.py"
+      }
+    ],
+    "independent_data_results": {
+      "sample_profile": {
+        "place": {
+          "missing": 0,
+          "unique": 3
+        },
+        "date": {
+          "missing": 0,
+          "unique": 3
+        },
+        "volunteers": {
+          "missing": 1,
+          "unique": 3
+        }
+      },
+      "initial_changes_pending": [
+        3,
+        2
+      ],
+      "after_row2_decision_changes_pending": [
+        4,
+        1
+      ],
+      "fingerprint": "d4403ab69f98f6066714b8681d1c44d80b8f53b3a7d3a20bcc1e149209dd3d88",
+      "csv_quoted_comma_quote_newline": "数据解析核对成功",
+      "empty_vs_quoted_empty": "数据解析相同",
+      "BOM": "保留在第一表头",
+      "stdlib_date_forms": "当前执行Python3.12日期数据核对，非来源程序运行"
+    },
+    "not_done": [
+      "未修改Study正文、导航、来源/任务表；root需复核融合。",
+      "未跑融合文件Pandoc或仓库check_knowledge；草稿不等于验收。",
+      "不执行原程序/测试/CLI/JS，因此实际导出、网页交互、兼容性/浏览器无障碍/任意规则幂等无本次运行证据。"
+    ]
+  },
+  "root_inventory": {
+    "files": 29,
+    "official_tree_sha_verified": true,
+    "drift": 0,
+    "inventory": [
+      {
+        "path": "projects/csv-repair-workbench/API.md",
+        "bytes": 1690,
+        "sha256": "639703b77d64115e8a7830295390ba76ae3b0fc9b7d5b7389f5c47d252d751e3",
+        "git_blob": "036c1109415c6a1092ad84337c252742fdc52718",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            39
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/README.md",
+        "bytes": 2562,
+        "sha256": "ad6f0590e2abb7fc6df667c50b6a085d80842d55c4595f079cdbe200b175267e",
+        "git_blob": "127fd8e2f26cb7c98127d13a5906a1bfc078ace8",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            48
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/media/output.gif",
+        "bytes": 54857,
+        "sha256": "bd31910115fdc16027324995641b182d7fe4720aa5ec19dfda6847fa38683e5d",
+        "git_blob": "6c840c6b3347d94b0bf2dce7f9ef5c4e2f80c7d1",
+        "matches_target_tree": true,
+        "kind": "GIF",
+        "size": [
+          1120,
+          630
+        ],
+        "decoded_frames": 12,
+        "duration_ms": 7800,
+        "status": "所有帧仅数据解码；非逐帧视觉审查"
+      },
+      {
+        "path": "projects/csv-repair-workbench/media/output.json",
+        "bytes": 600,
+        "sha256": "7440ffe65100f42aa94d0fc980767964ea2a0da592d84a197e5240a0d5edbf62",
+        "git_blob": "612f84512be3e588c722f6df5731a258505f93c0",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            21
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/media/output.png",
+        "bytes": 45078,
+        "sha256": "e272bf573224b3c7cba99067ed5580d2b859def454edbdb251e486da3815ad53",
+        "git_blob": "b799cdf533f90c6fe4376201800f0f25bddc35b2",
+        "matches_target_tree": true,
+        "kind": "PNG",
+        "size": [
+          1120,
+          630
+        ],
+        "decoded_frames": 1,
+        "duration_ms": 0,
+        "status": "PNG实际视觉检查"
+      },
+      {
+        "path": "projects/csv-repair-workbench/media/run.gif",
+        "bytes": 227661,
+        "sha256": "3aecb73362df225dfb7a35dfe686642315cd06cf0dbb7c110f9f7a89546c1026",
+        "git_blob": "d6908701d43f15f876a2e19e0fcf64429838b9e9",
+        "matches_target_tree": true,
+        "kind": "GIF",
+        "size": [
+          1120,
+          630
+        ],
+        "decoded_frames": 18,
+        "duration_ms": 8100,
+        "status": "所有帧仅数据解码；非逐帧视觉审查"
+      },
+      {
+        "path": "projects/csv-repair-workbench/media/run.json",
+        "bytes": 2204,
+        "sha256": "a9ae6560482cd921eda4c302e442ad35a99d2530f05949403bb8281c54246200",
+        "git_blob": "10b0a01a9412ff8dd8b8ccc2fc5b1a9aa01b2ffe",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            52
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/media/run.png",
+        "bytes": 92373,
+        "sha256": "eece5883589dcf922c01f4790138ab66eba1cca1ec4517dadb1efef610c4eb89",
+        "git_blob": "d2ea834b905918d154886b8c89aecd35c1c2ae39",
+        "matches_target_tree": true,
+        "kind": "PNG",
+        "size": [
+          1120,
+          630
+        ],
+        "decoded_frames": 1,
+        "duration_ms": 0,
+        "status": "PNG实际视觉检查"
+      },
+      {
+        "path": "projects/csv-repair-workbench/project.json",
+        "bytes": 3239,
+        "sha256": "0ccc5be8aed182dc8275bbbcd7729c54d20ec8fac2e3da8df773b3362f693b93",
+        "git_blob": "7c328282b6b368fd92e19159478c33518d03d8e9",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            108
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/solution/cli.py",
+        "bytes": 1469,
+        "sha256": "f7f30d236e723df0b2c058d2bffb8fd8db86a0f128c69270d98686562ebd05ff",
+        "git_blob": "44e923f4e04834190b9a3ac1e304968c54a0148a",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            49
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/solution/main.py",
+        "bytes": 6220,
+        "sha256": "96c3245fa3f8f6675cebaee5fcecd3f2da2f1c95c01953a7f4d651915a237760",
+        "git_blob": "34df10f79168b04229555c3d8b742a249e977461",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            143
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/solution/presentation.py",
+        "bytes": 3995,
+        "sha256": "273a81aa9cfcaab90280deffcad0f253844a9afcbeec3e42ac35bd17480b83d6",
+        "git_blob": "8a1c6e0d4bde546e6a64ab1541c6534365fd9af1",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            66
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/solution/samples/input.json",
+        "bytes": 266,
+        "sha256": "e20cdc3826295e01994742112256a2941ec63b6dd3578ad11de75fe5ca5fff38",
+        "git_blob": "1c39455e4e22291b902238b5df6fbf4900e517c6",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            12
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/01-profile/docs/en.md",
+        "bytes": 1577,
+        "sha256": "030a687c562476dbd4ac3523828ece2bc5d72b0cd7b7d08beb92cf8f7ebfe507",
+        "git_blob": "faf0f304542a14e3e9394498cf20978f03583e53",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            33
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/01-profile/starter/cli.py",
+        "bytes": 1469,
+        "sha256": "f7f30d236e723df0b2c058d2bffb8fd8db86a0f128c69270d98686562ebd05ff",
+        "git_blob": "44e923f4e04834190b9a3ac1e304968c54a0148a",
+        "matches_target_tree": true,
+        "status": "精确SHA复用已全文读取文本",
+        "reused_from": "projects/csv-repair-workbench/solution/cli.py"
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/01-profile/starter/main.py",
+        "bytes": 1398,
+        "sha256": "b166d8581f2280789314a678e0695a340e0d9a97931a7bab177a728db7805aa1",
+        "git_blob": "7216352189dd234b1e20cb1bee278249e2eda244",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            21
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/01-profile/starter/presentation.py",
+        "bytes": 3995,
+        "sha256": "273a81aa9cfcaab90280deffcad0f253844a9afcbeec3e42ac35bd17480b83d6",
+        "git_blob": "8a1c6e0d4bde546e6a64ab1541c6534365fd9af1",
+        "matches_target_tree": true,
+        "status": "精确SHA复用已全文读取文本",
+        "reused_from": "projects/csv-repair-workbench/solution/presentation.py"
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/01-profile/starter/samples/input.json",
+        "bytes": 266,
+        "sha256": "e20cdc3826295e01994742112256a2941ec63b6dd3578ad11de75fe5ca5fff38",
+        "git_blob": "1c39455e4e22291b902238b5df6fbf4900e517c6",
+        "matches_target_tree": true,
+        "status": "精确SHA复用已全文读取文本",
+        "reused_from": "projects/csv-repair-workbench/solution/samples/input.json"
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/01-profile/tests/test_stage_1.py",
+        "bytes": 657,
+        "sha256": "6b039338ade34c49746a509c322b5acdc180624cd560ed96008457e7c2abf71b",
+        "git_blob": "bb0c12ec0500d7058bc4bbe1bb5f7cb8b5f5a561",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            21
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/02-rules/docs/en.md",
+        "bytes": 1580,
+        "sha256": "8b088341f2ab7b11331415a6ff5841a73e4cd7352b78ad7c31bea25e500f787d",
+        "git_blob": "c8445af68e604d8ceb12860e3acf2e503ba9a86d",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            33
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/02-rules/starter/STAGE-2.md",
+        "bytes": 106,
+        "sha256": "3ca00797cbdad004cbb2b663dc8bc836badfea441613d2e4ea36708c187a19ce",
+        "git_blob": "bb7bb60a41bf8fa0b4cc69b9c28f6e06f3720ed0",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/02-rules/tests/test_stage_2.py",
+        "bytes": 838,
+        "sha256": "6bffd7a46509b5ae448acc04fdf48db10a18cebd0e1febb9a9fe7f637f3b4103",
+        "git_blob": "44096b640efeddba72ad1a510028953de6a1b881",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            27
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/03-preview/docs/en.md",
+        "bytes": 1554,
+        "sha256": "75dc4434780fb1784fa9f104a1e03aeed846ccdd704383ff5d82330b245d1e6e",
+        "git_blob": "cefeba9bac3434c37d8dfd984c14b76e6ed70d99",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            33
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/03-preview/starter/STAGE-3.md",
+        "bytes": 113,
+        "sha256": "45c5479d4cf146645db95b3f0a7c3b9ce2ca91de56001098a5b63a7b6d9cba5d",
+        "git_blob": "214566ceb69b89cdda30319fead2a8d0ebff130b",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/03-preview/tests/test_stage_3.py",
+        "bytes": 1139,
+        "sha256": "f6be876c8d836a403d7d732da3cfb0eef37f7ea2a517ccca754e93c7110dd772",
+        "git_blob": "dedb472925763455a524f07242d885a8130928ee",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            34
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/04-export/docs/en.md",
+        "bytes": 1931,
+        "sha256": "b6ead73fafeec038d2986f3fa8ee16da99020752dac41dcc1cc35b257ad999f7",
+        "git_blob": "b06f12d7a42615e55c110f69b14149fa13bf9064",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            33
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/04-export/starter/STAGE-4.md",
+        "bytes": 119,
+        "sha256": "63587dde03d4fc084bdc0967dfe86dc26a27d11d66bd62e493d606983fc00b1b",
+        "git_blob": "580f68a12e0542e66ca1c8f832e6daeb4cb08160",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "path": "projects/csv-repair-workbench/stages/04-export/tests/test_stage_4.py",
+        "bytes": 1441,
+        "sha256": "e590a7f2022f50a1e01923aa14a68de54a3cccfce52ff2cb0baf88050ba4bda1",
+        "git_blob": "06e0ba93878d5f3bf6edea556d36e738bbd20f2c",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            48
+          ]
+        ]
+      },
+      {
+        "path": "site/figures/projects/csv-repair-workbench.js",
+        "bytes": 13732,
+        "sha256": "102efee17c47b9a1205464e09ccd1331b035264302cc6aa05711366532701005",
+        "git_blob": "c61db37128d2251a747b8256cc3ae5b7b7625b22",
+        "matches_target_tree": true,
+        "status": "全文实际静读",
+        "read_lines": [
+          [
+            1,
+            75
+          ]
+        ]
+      }
+    ]
+  },
+  "root_primary_review": {
+    "scope": "核关键实现和完整学习稿，不重复原文镜像；来源均未执行",
+    "actually_read": [
+      "API.md",
+      "solution/main.py",
+      "solution/cli.py",
+      "solution/samples/input.json"
+    ]
+  },
+  "tests_static_inventory": [
+    {
+      "file": "projects/csv-repair-workbench/stages/01-profile/tests/test_stage_1.py",
+      "static_methods": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/csv-repair-workbench/stages/02-rules/tests/test_stage_2.py",
+      "static_methods": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/csv-repair-workbench/stages/03-preview/tests/test_stage_3.py",
+      "static_methods": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/csv-repair-workbench/stages/04-export/tests/test_stage_4.py",
+      "static_methods": 5,
+      "executed": false
+    }
+  ],
+  "delegate_data_proof": {
+    "scope": "独立纯CSV/JSON/日期数据核验；原模块/函数/测试/CLI/JS执行数为0",
+    "python": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+    "sample_profile": {
+      "place": {
+        "missing": 0,
+        "unique": 3
+      },
+      "date": {
+        "missing": 0,
+        "unique": 3
+      },
+      "volunteers": {
+        "missing": 1,
+        "unique": 3
+      }
+    },
+    "sample_recipe": {
+      "schema_version": 1,
+      "rules": [
+        {
+          "column": "place",
+          "operation": "trim"
+        },
+        {
+          "column": "place",
+          "operation": "alias",
+          "values": {
+            "north garden": "North Garden",
+            "N. Garden": "North Garden"
+          }
+        },
+        {
+          "column": "date",
+          "operation": "trim"
+        },
+        {
+          "column": "date",
+          "operation": "date"
+        },
+        {
+          "column": "volunteers",
+          "operation": "trim"
+        }
+      ]
+    },
+    "sample_fingerprint": "d4403ab69f98f6066714b8681d1c44d80b8f53b3a7d3a20bcc1e149209dd3d88",
+    "author_media_fingerprint_matches": true,
+    "before_review": {
+      "changes": 3,
+      "pending": 2,
+      "date_row1": "2026-03-14",
+      "all_places": "North Garden"
+    },
+    "after_row2_review": {
+      "changes": 4,
+      "pending": 1,
+      "row2_date": "2026-04-03",
+      "row3_date": "04/03/2026"
+    },
+    "quoted_csv_fields": [
+      "x,y",
+      "say \"hi\"\nnext"
+    ],
+    "empty_and_quoted_empty_parse_equal": true,
+    "zero_remains_string": "0",
+    "bom_first_header": "﻿a",
+    "stdlib_accepted_date_forms_on_this_runtime": {
+      "2026-04-03": "2026-04-03",
+      "20260403": "2026-04-03",
+      "2026-W14-5": "2026-04-03"
+    },
+    "source_executions": 0
+  },
+  "formal_fusion": {
+    "file": "数据科学基础/05-Python数据处理与数据准备.md",
+    "before_sha256": "104e2af4528d4604ca10b89a18100015b6c3399603ad377827f67024f2d9f73d",
+    "after_sha256": "26c378c2cb1d20c377f226c12a9b8e453d965aa23e788e3e7a80e38b094f62f8",
+    "old_full_text_prefix_and_code_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "1f68470998aebea7b03914e6f675b4d9aa55c85c1a740d4dec9586e0e951a33e",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "5f6321d5cc634259d5113d637a508b92c9e778ca903bc1f82f11a06a5deea85e",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "root_data_checks": {
+    "parsed_table_recipe_fingerprint": "d4403ab69f98f6066714b8681d1c44d80b8f53b3a7d3a20bcc1e149209dd3d88",
+    "stdlib_date_forms_on_python312": {
+      "2026-04-03": "2026-04-03",
+      "20260403": "2026-04-03",
+      "2026-W14-5": "2026-04-03"
+    },
+    "source_repair_not_run": true
+  },
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4614 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

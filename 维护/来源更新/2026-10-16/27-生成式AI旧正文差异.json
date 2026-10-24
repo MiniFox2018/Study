@@ -1,0 +1,213 @@
+{
+  "date": "2026-10-19",
+  "old_source_commit": "3be078b37ffd8f0c04953c0678e48f5c6d0c7775",
+  "target_source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "scope": "旧Phase08生成式AI12修改正文138差分",
+  "accepted_delta": true,
+  "source_files": [
+    {
+      "source_file": "phases/08-generative-ai/01-generative-models-taxonomy-history/docs/en.md",
+      "old_sha256": "ffd3a1abd851ac44929ef552e8c573e22ab8e45997119815e267dc68f179ea52",
+      "new_sha256": "3441b569a900f42086a922735075295fdace77d8306cf4ff46fc81413966d858",
+      "old_git_blob": "60ca5dc33351f501ce0a19f0a39adc87db0a6180",
+      "new_git_blob": "aae617c804d7996cbf6193777ce09c17a94b2e86",
+      "hunks": 9,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/20-自编码器与对抗生成实践.md",
+      "disposition": "§1密度/对象/训练信号多轴分类；AR也能算密度、source resampling sampler可有精确KDE密度，不按onlyflows或旧SOTA榜单学习",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/02-autoencoders-vae/docs/en.md",
+      "old_sha256": "09d80cdcdfbcc7fcd85dcdba56b67cf8923e05ec5883f1f4c5f4525ae82d14b6",
+      "new_sha256": "eba81d8e5209ac53fa26a2da2852d193c9ce0cbb348c5825cfd76d4495f6f4d6",
+      "old_git_blob": "d00aba8a98f56255742fc53c92809b58a9409a32",
+      "new_git_blob": "0dc6409f9758a821a40a28349e9724776a9a9aa1",
+      "hunks": 18,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/20-自编码器与对抗生成实践.md",
+      "disposition": "§2–4保AE无采样prior非必记忆；负ELBO是负重构loglikelihood+KL、sum/mean与beta、路径梯度、softplus可用、posterior collapse/freebits需条件",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/03-gans-generator-discriminator/docs/en.md",
+      "old_sha256": "db7fe86ffad9d10f6c5a3af0a1192fde88538af04589e34a21472b8769a1cdf8",
+      "new_sha256": "63258263bc9ce4e9312fb31bea20b813055cfea14aac20dcdf6a3c1c740ea9e9",
+      "old_git_blob": "0f39742c4c2bde197128a88d5ae023e44185156a",
+      "new_git_blob": "42f3524bb4b3b845804909661cff21e374fc8d26",
+      "hunks": 12,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/10-深度生成模型.md",
+      "disposition": "§2保理想最优D与JS、非饱和logit梯度、G/D detach和冻结；loss或D=.5不证明分布已匹配",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/04-conditional-gans-pix2pix/docs/en.md",
+      "old_sha256": "d6bbfa6ac4d6dc5ee373169e15023f9789b88a85ed0a7152ff0d588615c3ded7",
+      "new_sha256": "d367559893c31d907b08e7edc3204d27fad7df0271300f6e92a50d06b1ed51a4",
+      "old_git_blob": "34a8ad2af763bb3630b9f6e6e5f346c8d6902550",
+      "new_git_blob": "c5b3b13176d755364b303bfebab2cd5c2fa38a5d",
+      "hunks": 10,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/20-自编码器与对抗生成实践.md",
+      "disposition": "§8–9保paired条件D、逐patchloss、L1中位数不保证更锐/低误差不能掩盖全背景，cycle不可辨识性；不保lambda100一律最佳",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/05-stylegan/docs/en.md",
+      "old_sha256": "4b67d997dd5a842de48754015af22b8a53395131d228b28145656a4fab111e75",
+      "new_sha256": "e6d93ab2b19ad3f9648424e207aa83465e7b209df10fcd403eeef538ba2d1db5",
+      "old_git_blob": "22fff86779c216fd3256fff7e80d0db3abd45741",
+      "new_git_blob": "219da99e741de8a6d286a9aa4f49c11fa6b45357",
+      "hunks": 17,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/20-自编码器与对抗生成实践.md",
+      "disposition": "§10–13风格注入/调制解调/R1与PL/truncation/inversion，区分StyleGAN版本，latent轴不保证正交语义或相同身份",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/06-diffusion-ddpm-from-scratch/docs/en.md",
+      "old_sha256": "f62dd0eaa055920ebe0ae369fd734c5b0e6ab90ce3f31f485487d7d4cd7a86f8",
+      "new_sha256": "c584ddcc8a6856dfc2171125e691a9ef9ad4d3313b8113c6f61e361cd1b81b67",
+      "old_git_blob": "d22b0bb943ed95dbf2c4a452d6f98b9f97b13d8e",
+      "new_git_blob": "8402a9de89b1a1edff5b33924b48e8aa2d96cf28",
+      "hunks": 21,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/21-扩散流匹配与条件生成.md",
+      "disposition": "§1–2累计alpha/真实终点/后验方差、simpleMSE非完整ELBO、noise预测对应边际score而非已知原noise、diffusion-v非flow导数；不保产品参数化/固定倍速表",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/07-latent-diffusion-stable-diffusion/docs/en.md",
+      "old_sha256": "31a712aa953cffde8d835b2d6776923c98ca0946f06adb2c53f2694863ba6941",
+      "new_sha256": "d866f087da7b455a3c13840e6e3624964b0be4b12cc481fdc707770622bca77b",
+      "old_git_blob": "6bd89e2d8ded9526772745ee9683b63bcc60ab1a",
+      "new_git_blob": "a003dae36a014e42cda706975adcd07e8bb31328",
+      "hunks": 9,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/21-扩散流匹配与条件生成.md",
+      "disposition": "§3/5保真实codec scale/shift/空间通道压缩预算、guidance两公式换标度/w0是conditional、negative不是严格unconditional",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/08-controlnet-lora-conditioning/docs/en.md",
+      "old_sha256": "cc1f1598103a54fe7dda2459c8e0c172c22109098a64f730ac2dbb9d251e83b2",
+      "new_sha256": "949c130b46ce16748e7aa7cf308eb5b62556ca631aa94814d8a2cd69d6f1a137",
+      "old_git_blob": "08d0ff712998adbd3979f0a7527fbf5508e96eea",
+      "new_git_blob": "f6781f879e95a30c95d8eb694b7bd20da61d5104",
+      "hunks": 11,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/21-扩散流匹配与条件生成.md",
+      "disposition": "§6矩形W/alpha_L/r/runtime系数与合并元数据，rank不保证优化找到解/所有模型固定100倍；ControlNet条件/版本/坐标与zero-init分开",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/10-video-generation/docs/en.md",
+      "old_sha256": "5e91c7daf3c94dce2a239e36f6cf07314359b21629aac1e2f47910d9212c53d1",
+      "new_sha256": "7f347d1e809f686c1513b70ef278e39d2f5eaced4c4ae8a0d34b4cafc6b0d1ce",
+      "old_git_blob": "29e054a0e725e04c7cd8d61b1fd4f66c5ec468ea",
+      "new_git_blob": "e458a6c10ab0862b636fb640e154a3bc2dd54940",
+      "hunks": 1,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "disposition": "参考从Genmo旧blog改作者https://huggingface.co/genmo/mochi-1-preview，2026-10-19实际打开/模型卡在；属入口修订非新视频架构，本库保统一时序/预算章节，不据此调用下载模型或沿用旧硬件推荐",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/13-flow-matching-rectified-flows/docs/en.md",
+      "old_sha256": "3b092712de5baa4726f5b090215c3d6e259e1858c7dcc512cc0bc81fea3a8a60",
+      "new_sha256": "25511ba804640ce3df2e2fe51b251e44d140656fe11ce183ebf9c9007cca7e7b",
+      "old_git_blob": "6b0aec15f75432c8c88df6035c04b92ea074601b",
+      "new_git_blob": "312afa802c6c5b3b160b9de8646185a36d63ec72",
+      "hunks": 20,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/深度学习专题/21-扩散流匹配与条件生成.md",
+      "disposition": "§8–9保数据0噪声1/负dt、边际velocity条件均值、一般path导数a′x0+sigma′epsilon非source负号、reflow耦合改变不能硬套Gaussian条件，直配对不保一步精确",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/14-evaluation-fid-clip-score/docs/en.md",
+      "old_sha256": "4d3065d894662f8b621270106203c8f7a16d990c47fee5cba6ed66ee6b9c97ea",
+      "new_sha256": "38a0cf5e3a972011581bac8e08c7b796bf91cf974f99a6d5dbb54e9dbc5a5559",
+      "old_git_blob": "6c3f5a44b2a77d96f2a1d053290d08bfaa75d561",
+      "new_git_blob": "70c06ec64c7ec676b5f10f4f8d9009e1d9c58ac9",
+      "hunks": 2,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "disposition": "§10.1/10.2全协方差PSD夹心/样本偏差非必偏低/10000非阈值、FID不看prompt/CLIP不是业务真值，复用既有数值算法",
+      "source_executed": false
+    },
+    {
+      "source_file": "phases/08-generative-ai/19-visual-autoregressive-var/docs/en.md",
+      "old_sha256": "e7444b2327b8996ed0a0a266833e7ae86822f1add71474db7e045a6194011eb2",
+      "new_sha256": "2027fd1e8921fb2b90bc93eaf9468320416ba4c3b633e6da4a3fca2d505269e3",
+      "old_git_blob": "02679d8249a68b2ae39ddd5a3ec659fd3b213e9d",
+      "new_git_blob": "9805006767dd6182d67a6abd8159dfaeace977c7",
+      "hunks": 8,
+      "status": "全部差分已完整静读及逐行校验，复用既有学习主干",
+      "formal_file": "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md",
+      "disposition": "§12实际残差量化φ映射/680位置/当前输入来自前尺度，同尺度互见不泄漏真实当前答案、轮数不是FLOPs或真实速度",
+      "source_executed": false
+    }
+  ],
+  "hunks_read": 138,
+  "read_review_chunks": [
+    {
+      "chunk": 1,
+      "chars": 10423,
+      "sha256": "f281bf54dbca3878ea329c481bb25a75fe0f147b35a17526de581f91b4e3f022"
+    },
+    {
+      "chunk": 2,
+      "chars": 10285,
+      "sha256": "f60793d24a6eb5d3d874318acc481de25050b9704269903e966a37c70bfec413"
+    },
+    {
+      "chunk": 3,
+      "chars": 10401,
+      "sha256": "6cb53d136e3da8622105a7350d8c948890caba67dfe98bf8f332aea99739b6c4"
+    },
+    {
+      "chunk": 4,
+      "chars": 10407,
+      "sha256": "f512295337888e84b8dff4637f1ed82a44ff20d4ac8f9da640ecff48bfc97597"
+    },
+    {
+      "chunk": 5,
+      "chars": 10336,
+      "sha256": "61acbc3c183d226fe19869b218648708a9f8295d9bc2a9d50a6bd7448cb10292"
+    },
+    {
+      "chunk": 6,
+      "chars": 10490,
+      "sha256": "0881b1c90ebc78b988f9dcd08a3f804e6a3de1695438d1d8c9cda6c06c04cedc"
+    },
+    {
+      "chunk": 7,
+      "chars": 3465,
+      "sha256": "3d137a6f5c7c85dad01e3e11def95837151a16531833b6771b4196d97c5deea4"
+    }
+  ],
+  "classification": "137处公式/符号排版与一处Mochi引用入口替换；作者模型卡现核可达。原有理论和完整合成示例复用，不照搬源中仍留的数学/评价/性能错误",
+  "formal_changed": [],
+  "existing_formal_sha256": {
+    "AI 算法基础/深度学习专题/20-自编码器与对抗生成实践.md": "5462ec8d83e76ea3a00167263b761bf2d9d16eb16ff4786ca9b354d2f005cd7d",
+    "AI 算法基础/深度学习专题/10-深度生成模型.md": "ac6179b917e56cc9c37df4e4fff84033374a9bbc18ac0113a4903cf412063b5f",
+    "AI 算法基础/深度学习专题/21-扩散流匹配与条件生成.md": "c3ca4ed7ba17ca6aab40bbeb3e5c70544eccd8548c448cccfb08af119e26ae92",
+    "AI 算法基础/感知与多模态专题/09-视觉生成与视频时序.md": "12a8233c833c3f454dd99919c1497ca019cf02749a3a716411c1fe972adfa6b6"
+  },
+  "preserved_stricter_cases": [
+    "ELBO重构项符号/重参数化/softplus边界",
+    "非饱和GAN梯度与理想均衡、paired条件和PatchGAN归约",
+    "StyleGAN1/2/3差异/truncation不等均值图/控制非必解耦",
+    "DDPM累计量/终态/scheduler/参数化与flow导数的区别",
+    "一般path导数两项相加/学习边际场非一条直配对",
+    "FID有限样本偏差/协方差PSD/CLIP分数尺度",
+    "VAR不向当前尺度输入真实目标/尺度轮数非token逐步"
+  ],
+  "render_policy": "正式正文未改，不重渲染/重运行旧例；维护JSON/路径和全库结构另校验",
+  "new_programs": 0,
+  "source_program_runs": 0,
+  "old_example_reruns": 0,
+  "whole_update_complete": false
+}

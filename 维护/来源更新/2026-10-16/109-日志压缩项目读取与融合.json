@@ -1,0 +1,2162 @@
+{
+  "date": "2026-10-23",
+  "project": "log-volume-reduction-lab",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-parse-bounded-logs",
+    "02-group-templates",
+    "03-compare-samplers",
+    "04-export-coverage"
+  ],
+  "read_handoff": {
+    "read_by": "root",
+    "method": "9个准备块按源顺序实际全读，公共行/文件精确复用；不是只扫描目录"
+  },
+  "inventory": [
+    {
+      "path": "projects/log-volume-reduction-lab/README.md",
+      "bytes": 3007,
+      "sha256": "14ff87e50acc8cd1b13df2798223edc333ea3a4b4d71555c307388ef86916b72",
+      "git_blob": "fea8a2558862a957100a08936bc6010acedfc5c4",
+      "status": "root_actual_full_text_read",
+      "lines": 44
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/media/output.gif",
+      "bytes": 148119,
+      "sha256": "7d7489a6c710630bbecaeaba2b9380b9f5f0bb43655eb30939723a0be8976c84",
+      "git_blob": "081acb326188194cedb3f9a9939f243b1e062f73",
+      "status": "author_demo_media_value_classified",
+      "frames_data_decoded": 13,
+      "actual_visual_read": false,
+      "scope": "output.png实际看；run.png为已全读run.json作者旧测试日志的重复展示；GIF仅解码不称逐帧视觉"
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/media/output.json",
+      "bytes": 1347,
+      "sha256": "ec1e618b12186726a604bdf6bb6469266fda0753e26782bb90a3ed7dc1931a38",
+      "git_blob": "f543d7c667673b77ba2cc6fa132cef74938b54a0",
+      "status": "root_actual_full_text_read",
+      "lines": 17
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/media/output.png",
+      "bytes": 42829,
+      "sha256": "2aa9b10d04464c11617250e459f09308c2fb601caec2d8ed26d3a5bf97d1eb4b",
+      "git_blob": "761526a37a8674565997a01c0b61ace8e2b4fde8",
+      "status": "author_demo_media_value_classified",
+      "frames_data_decoded": 1,
+      "actual_visual_read": true,
+      "scope": "output.png实际看；run.png为已全读run.json作者旧测试日志的重复展示；GIF仅解码不称逐帧视觉"
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/media/run.gif",
+      "bytes": 220594,
+      "sha256": "628c06fd60ee42c962585aa7ba8416dc9c9107d43c96ef7230fc87f508cd2f67",
+      "git_blob": "397639dbe25ca8cbb100d06ce9be43c339f6b859",
+      "status": "author_demo_media_value_classified",
+      "frames_data_decoded": 18,
+      "actual_visual_read": false,
+      "scope": "output.png实际看；run.png为已全读run.json作者旧测试日志的重复展示；GIF仅解码不称逐帧视觉"
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/media/run.json",
+      "bytes": 2178,
+      "sha256": "7175b2a337751d0dc71db196ca61c3129fe5a34c4b580170063150db77672181",
+      "git_blob": "6f6bca43472c08c18f96c38e553af59840ed70d8",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 52,
+      "reuse_source": "projects/field-notes-map-builder/media/run.json",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "a6fb08fda1acb957b6116bd37811a1fe41a01611c0631edbf786d6889a27a55c"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            2,
+            3
+          ],
+          "current_lines": [
+            2,
+            3
+          ],
+          "sha256": "d00356830e8e3a037d6d7452ce7a46c283c02216fcd31d3fc46b12628804b67e"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            4,
+            8
+          ],
+          "current_lines": [
+            4,
+            8
+          ],
+          "sha256": "0d8118f3842bdf1ee432d285c3c94a9c3772275e2f39ecf8d714b698e19ddaa5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            9,
+            9
+          ],
+          "current_lines": [
+            9,
+            9
+          ],
+          "sha256": "1d7aa1f3420ab5e7f208f2e03edbb955a21e00eac415723cf5e1d4fa8f4d25d9"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            10,
+            10
+          ],
+          "current_lines": [
+            10,
+            10
+          ],
+          "sha256": "17c955f38cb0dc740d553d3975ba2b0dd66a056a203b43c92ae30c4576c5fc8b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            11,
+            11
+          ],
+          "current_lines": [
+            11,
+            11
+          ],
+          "sha256": "de01236c94d7ae88b7e353d01da533b00b34db121251732141b7855b7f56c4cb"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            12,
+            14
+          ],
+          "current_lines": [
+            12,
+            14
+          ],
+          "sha256": "07b5b0e5aefa33da46ff46fe068ce97f6852d5f403f00f106b7a15b2f5b5b713"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            15,
+            16
+          ],
+          "current_lines": [
+            15,
+            16
+          ],
+          "sha256": "f6a0d5cead83f890ce1acdcaa7377f92b7abbaaac9262c2a1c6b39f346976b56"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            17,
+            21
+          ],
+          "current_lines": [
+            17,
+            21
+          ],
+          "sha256": "82b1fbf9c8ab70ce68f3b9a48cb1254133cc204a92ca700e23e768d0eebad173"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            22,
+            22
+          ],
+          "current_lines": [
+            22,
+            22
+          ],
+          "sha256": "1d7aa1f3420ab5e7f208f2e03edbb955a21e00eac415723cf5e1d4fa8f4d25d9"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            23,
+            25
+          ],
+          "current_lines": [
+            23,
+            25
+          ],
+          "sha256": "4594921a96b4b9876e0393910934f664c31b03bd8db247001e23d67c063261c5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            26,
+            26
+          ],
+          "current_lines": [
+            26,
+            26
+          ],
+          "sha256": "2c277f17a8f80884248bab79a5026afd411676adc03cfc7446b127b734d49b04"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            27,
+            30
+          ],
+          "current_lines": [
+            27,
+            30
+          ],
+          "sha256": "2e6bb6c4efc7c10ac49fb869df21dcc8d39a4b3521645a9ce02202c78c989242"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            31,
+            32
+          ],
+          "current_lines": [
+            31,
+            32
+          ],
+          "sha256": "5f094078a46c1119f7e94139e7337e93b15e7c5290efd94877cdce9988e08dbd"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            33,
+            37
+          ],
+          "current_lines": [
+            33,
+            37
+          ],
+          "sha256": "82b1fbf9c8ab70ce68f3b9a48cb1254133cc204a92ca700e23e768d0eebad173"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            38,
+            38
+          ],
+          "current_lines": [
+            38,
+            38
+          ],
+          "sha256": "1d7aa1f3420ab5e7f208f2e03edbb955a21e00eac415723cf5e1d4fa8f4d25d9"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            39,
+            42
+          ],
+          "current_lines": [
+            39,
+            42
+          ],
+          "sha256": "d85dd0d07386447c813258e84ff54ee9da36b36672d6eb080a3cd68cf5d7ced8"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            43,
+            43
+          ],
+          "current_lines": [
+            43,
+            43
+          ],
+          "sha256": "5d6f72c7e51e4e47f86d3411e3e7c89a8e9d397ecabe33ea63b737ec139ac9f8"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            44,
+            46
+          ],
+          "current_lines": [
+            44,
+            46
+          ],
+          "sha256": "07b5b0e5aefa33da46ff46fe068ce97f6852d5f403f00f106b7a15b2f5b5b713"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            47,
+            48
+          ],
+          "current_lines": [
+            47,
+            48
+          ],
+          "sha256": "71c5344d709d386700c2e8bc2e00160318e1acd0a7dbd8ff355f046fad2a07f2"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            49,
+            52
+          ],
+          "current_lines": [
+            49,
+            52
+          ],
+          "sha256": "51c199c4da9c29c1bf38cf4dc998167db0cd43dd94b199059a832cee24b62025"
+        }
+      ]
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/media/run.png",
+      "bytes": 87906,
+      "sha256": "1d048a57f1b396e7a153d9efcd0a0a4b8abc9f142623e7ab20d1cadf2b4e88e7",
+      "git_blob": "0f479c2062af075c70fc1abe033c96d841deb658",
+      "status": "author_demo_media_value_classified",
+      "frames_data_decoded": 1,
+      "actual_visual_read": false,
+      "scope": "output.png实际看；run.png为已全读run.json作者旧测试日志的重复展示；GIF仅解码不称逐帧视觉"
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/project.json",
+      "bytes": 3157,
+      "sha256": "1426f294d6a481436e4d519b5c844214359700e8fc587a69c356b7bd6be2ee26",
+      "git_blob": "16b77cfc050c74cd30265dc65296d572059a47d9",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 113,
+      "reuse_source": "projects/kubernetes-event-storyboard/project.json",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "a6fb08fda1acb957b6116bd37811a1fe41a01611c0631edbf786d6889a27a55c"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            2,
+            6
+          ],
+          "current_lines": [
+            2,
+            6
+          ],
+          "sha256": "f965f302492603bd2034618a2e8772cd2614edc7657af4b98586d9dc2e3e4be7"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            7,
+            10
+          ],
+          "current_lines": [
+            7,
+            10
+          ],
+          "sha256": "08e8cb24e33a7d04b33a0d21b025ccee8724a272414aee456c28269d88828c79"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            11,
+            12
+          ],
+          "current_lines": [
+            11,
+            12
+          ],
+          "sha256": "0886d5cc8f4df77394cf4c1c63b9fd698dc9af49b1272c84101155ff7d6413a7"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            13,
+            17
+          ],
+          "current_lines": [
+            13,
+            17
+          ],
+          "sha256": "3171357e51c079fecc4305f4091c359e3a3f1d0d47a7a162a4992ccaf599bb33"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            18,
+            18
+          ],
+          "current_lines": [
+            18,
+            18
+          ],
+          "sha256": "6ed1360b9b5282ea9b797780ba009b2cd6467fca20dbf0ffb0987cd5af4b785a"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            19,
+            19
+          ],
+          "current_lines": [
+            19,
+            19
+          ],
+          "sha256": "5e485fc277c30efa9f7616b43362cc527228a50f39ab27ffdbb4a99cf8ad80b8"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            20,
+            21
+          ],
+          "current_lines": [
+            20,
+            20
+          ],
+          "sha256": "875893b399167f1e96ed455d965f372e43518e35eeefef1b7f29a2ae4f572393"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            22,
+            31
+          ],
+          "current_lines": [
+            21,
+            30
+          ],
+          "sha256": "31a884b13915a0d8a2bfc4128ca1f773e3c0328c78aff2e61331bd87760f1292"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            32,
+            34
+          ],
+          "current_lines": [
+            31,
+            33
+          ],
+          "sha256": "a9b44fbd89e8e74013c8dcd4c1ae12f3861e0c936c76ee942261901a78f56de8"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            35,
+            35
+          ],
+          "current_lines": [
+            34,
+            34
+          ],
+          "sha256": "b2e60e48bf0cd17667f81562fc5bf6bf7d3fb190ee636875db29ad2e24327283"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            36,
+            36
+          ],
+          "current_lines": [
+            35,
+            35
+          ],
+          "sha256": "3d55d89af375e5158a42d65e2b7c8fd07ef389e1f10ae5eb1b0389eb17f550ef"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            37,
+            38
+          ],
+          "current_lines": [
+            36,
+            37
+          ],
+          "sha256": "e3ba2fa21344145c07805ada4eae5a13da1ca70b7c2b6285cb4196bcacca2865"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            39,
+            41
+          ],
+          "current_lines": [
+            38,
+            40
+          ],
+          "sha256": "11f9817966fc65f79f5eb30270fd0aba0be5c2530eb9937cd41beb95c34a2416"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            42,
+            43
+          ],
+          "current_lines": [
+            41,
+            42
+          ],
+          "sha256": "313dda7689c9f471b526c1e6c84ecc4494c78b35ddffde6bdc98944c23849db1"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            44,
+            44
+          ],
+          "current_lines": [
+            43,
+            43
+          ],
+          "sha256": "1b228420a16ff76ff7bf357c2e0338e183f2bdb5a693e80ff05fa73f1f8a2a60"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            45,
+            46
+          ],
+          "current_lines": [
+            44,
+            45
+          ],
+          "sha256": "27ec1b61bb354cd792d2d18839662b6f52a3a2643c60b8c5c59336465c9b7a08"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            47,
+            49
+          ],
+          "current_lines": [
+            46,
+            48
+          ],
+          "sha256": "3da5d99370031fac9ab518ad5033f24806ec2043e4a73bcae98c9cce29ce0568"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            50,
+            50
+          ],
+          "current_lines": [
+            49,
+            49
+          ],
+          "sha256": "b2e60e48bf0cd17667f81562fc5bf6bf7d3fb190ee636875db29ad2e24327283"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            51,
+            51
+          ],
+          "current_lines": [
+            50,
+            50
+          ],
+          "sha256": "3d55d89af375e5158a42d65e2b7c8fd07ef389e1f10ae5eb1b0389eb17f550ef"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            52,
+            53
+          ],
+          "current_lines": [
+            51,
+            52
+          ],
+          "sha256": "c7ff7dbdac1d8109d6aece8e2e69877cc2c8142d194e09072d0db5e9d4800277"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            54,
+            56
+          ],
+          "current_lines": [
+            53,
+            55
+          ],
+          "sha256": "ef3fe0e830908de87dceaa224b0779cb64de3d38ee83c6d6f51e4b4f1530b953"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            57,
+            58
+          ],
+          "current_lines": [
+            56,
+            57
+          ],
+          "sha256": "313dda7689c9f471b526c1e6c84ecc4494c78b35ddffde6bdc98944c23849db1"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            59,
+            59
+          ],
+          "current_lines": [
+            58,
+            58
+          ],
+          "sha256": "a03d0947515830ac2f826d2c17d40a37e02ce007a6cf9c5b2b244ac3adcfd59d"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            60,
+            61
+          ],
+          "current_lines": [
+            59,
+            60
+          ],
+          "sha256": "27ec1b61bb354cd792d2d18839662b6f52a3a2643c60b8c5c59336465c9b7a08"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            62,
+            64
+          ],
+          "current_lines": [
+            61,
+            63
+          ],
+          "sha256": "5b4add70b03898d76f9f0492627b83ca7d69ad4357ef65e8e858c0f85cbc0315"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            65,
+            65
+          ],
+          "current_lines": [
+            64,
+            64
+          ],
+          "sha256": "b2e60e48bf0cd17667f81562fc5bf6bf7d3fb190ee636875db29ad2e24327283"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            66,
+            66
+          ],
+          "current_lines": [
+            65,
+            65
+          ],
+          "sha256": "3d55d89af375e5158a42d65e2b7c8fd07ef389e1f10ae5eb1b0389eb17f550ef"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            67,
+            68
+          ],
+          "current_lines": [
+            66,
+            67
+          ],
+          "sha256": "c7ff7dbdac1d8109d6aece8e2e69877cc2c8142d194e09072d0db5e9d4800277"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            69,
+            71
+          ],
+          "current_lines": [
+            68,
+            70
+          ],
+          "sha256": "4853ca1b979da3f355d2d2ddea9723d651410200552aa22bd9e2c391db470b1c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            72,
+            73
+          ],
+          "current_lines": [
+            71,
+            72
+          ],
+          "sha256": "313dda7689c9f471b526c1e6c84ecc4494c78b35ddffde6bdc98944c23849db1"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            74,
+            74
+          ],
+          "current_lines": [
+            73,
+            73
+          ],
+          "sha256": "9fe8c2210f7d896b79c7923cc8886457d029ab8e2baff2d64bf69d837cea7560"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            75,
+            76
+          ],
+          "current_lines": [
+            74,
+            75
+          ],
+          "sha256": "27ec1b61bb354cd792d2d18839662b6f52a3a2643c60b8c5c59336465c9b7a08"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            77,
+            79
+          ],
+          "current_lines": [
+            76,
+            78
+          ],
+          "sha256": "a1341566da130c1100b3b714f9ea24c8397407dca9d97e5d7cce270d05269cc0"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            80,
+            80
+          ],
+          "current_lines": [
+            79,
+            79
+          ],
+          "sha256": "b2e60e48bf0cd17667f81562fc5bf6bf7d3fb190ee636875db29ad2e24327283"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            81,
+            81
+          ],
+          "current_lines": [
+            80,
+            80
+          ],
+          "sha256": "fcccc892eb6529f1d5eb7b7e8d263279fd12e5e8a59d65fe1b0c437f23a19df8"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            82,
+            83
+          ],
+          "current_lines": [
+            81,
+            82
+          ],
+          "sha256": "c7ff7dbdac1d8109d6aece8e2e69877cc2c8142d194e09072d0db5e9d4800277"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            84,
+            86
+          ],
+          "current_lines": [
+            83,
+            85
+          ],
+          "sha256": "9ad4795f5e6b4096ae5951eed3c29381f0e5c73ef8da4a879a23939bc3f57f17"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            87,
+            88
+          ],
+          "current_lines": [
+            86,
+            87
+          ],
+          "sha256": "313dda7689c9f471b526c1e6c84ecc4494c78b35ddffde6bdc98944c23849db1"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            89,
+            89
+          ],
+          "current_lines": [
+            88,
+            88
+          ],
+          "sha256": "f940a8eb0205099a3da740882bd30f7a06096496b5e6ea73a1ac64b17af4bf85"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            90,
+            91
+          ],
+          "current_lines": [
+            89,
+            90
+          ],
+          "sha256": "194a2937f1351e71067bd53efd50516f71d3169b10a9b04f0ab4876af92470c0"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            92,
+            92
+          ],
+          "current_lines": [
+            91,
+            91
+          ],
+          "sha256": "88a1bec87808b8aabeb4d14fbfa09cb1351d547fcaa8cd9555385729f065638a"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            93,
+            94
+          ],
+          "current_lines": [
+            92,
+            93
+          ],
+          "sha256": "f84c054e4cbda6b8c988664c3d44ae48a1dbfda3748bbaec6d30b275dc174375"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            95,
+            95
+          ],
+          "current_lines": [
+            94,
+            94
+          ],
+          "sha256": "045befd974ecfb67446be4961d7977a97a046ef9c85d790c51feb1f7d004dcfa"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            96,
+            110
+          ],
+          "current_lines": [
+            95,
+            109
+          ],
+          "sha256": "16607b6a15c7787613c685f540bf63a5b8c3b697f9e4dbc1052e7c152e355a3a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            111,
+            111
+          ],
+          "current_lines": [
+            110,
+            110
+          ],
+          "sha256": "26243ff9ce096f29cc778f66790c12694cde16f6f5a4d7c05f5d1006a55bf68c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            112,
+            114
+          ],
+          "current_lines": [
+            111,
+            113
+          ],
+          "sha256": "0b48b317e19dd747c78d925b3617cf8e12b71f186752dcb5fcfa937e3f34ae4f"
+        }
+      ]
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/solution/demo.py",
+      "bytes": 608,
+      "sha256": "824c2b86a478319e59ad967632d81f2f1d89052e98d5e219c759f5588102542d",
+      "git_blob": "9db751926bdddbb1dad550735dd8d587828da633",
+      "status": "root_actual_full_text_read",
+      "lines": 14
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/solution/main.py",
+      "bytes": 2145,
+      "sha256": "0c2a5faf06b16d156a08db7a51f774807101f53cdd5cdb5ab74438241951d344",
+      "git_blob": "f09726528270ab5d83dae48e85b87afe23cead67",
+      "status": "root_actual_full_text_read",
+      "lines": 45
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/solution/main.rs",
+      "bytes": 5559,
+      "sha256": "693afca85a623fae58b58cc4b27f39c7062de2d970ad8190a4135ca614b8ce64",
+      "git_blob": "8a55af2814aff7ac41ba260f686b1aa5ffb3ab9d",
+      "status": "root_actual_full_text_read",
+      "lines": 175
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/01-parse-bounded-logs/docs/en.md",
+      "bytes": 1994,
+      "sha256": "23180cf7aaf245bf994622b051779f398eb9395c465cf8d74ac7aeb12f014329",
+      "git_blob": "214504b62061de9ccf34644f92d2e347e4c29382",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 42,
+      "reuse_source": "projects/decision-tradeoff-explorer/stages/01-declare-evidence/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "aa6fb46a16ddcb2cd744cb7447fdb2c885ee0293f76772fbb76cb46a79d9f122"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            2,
+            2
+          ],
+          "current_lines": [
+            2,
+            2
+          ],
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            3,
+            3
+          ],
+          "current_lines": [
+            3,
+            3
+          ],
+          "sha256": "597a4edc8da983ca635c7eca45c857486b8ccf0b69befbb4312d4fc5471528eb"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            4,
+            5
+          ],
+          "current_lines": [
+            4,
+            5
+          ],
+          "sha256": "575a7a3769defeab339ab3c54a7057673f1b624a41ca9f9dbdbe8c6320a277f5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            6,
+            6
+          ],
+          "current_lines": [
+            6,
+            6
+          ],
+          "sha256": "46d28197c1f9488703d20186aa65db1e0ad9eae38901589380a8f49ce5d3addc"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            7,
+            12
+          ],
+          "current_lines": [
+            7,
+            12
+          ],
+          "sha256": "c9bd8db4c38f9b4df6338a60f3da631e974b5889c527d0bcf737428463f2d53a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            13,
+            13
+          ],
+          "current_lines": [
+            13,
+            13
+          ],
+          "sha256": "aaa7ad15e836b3a7a06475a71b74f4fd97e1e31426cac62c3d1b956e3e3aef52"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            14,
+            16
+          ],
+          "current_lines": [
+            14,
+            16
+          ],
+          "sha256": "0036e8ea3679916f018e9302530536d74ede4533f98b773cc6698f9af827cfe9"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            17,
+            17
+          ],
+          "current_lines": [
+            17,
+            17
+          ],
+          "sha256": "5b63a2bfe8140f7605a0c7f281f9c842f602e539329a55cb5e65e8c8ddb7684b"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            18,
+            19
+          ],
+          "current_lines": [
+            18,
+            19
+          ],
+          "sha256": "f51055fd81db8b33eb1860bc16119e1d9c6392b0e828d5087ff58e194d153e5a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            20,
+            20
+          ],
+          "current_lines": [
+            20,
+            20
+          ],
+          "sha256": "209591fe83ab874d461eac570f7b38f1590b4b7e7f3313667d9f0fc52408ca15"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            21,
+            24
+          ],
+          "current_lines": [
+            21,
+            24
+          ],
+          "sha256": "0102cfafa93c54208a66788e184c122f1fa163c780c27a3dc67672594093d222"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            25,
+            25
+          ],
+          "current_lines": [
+            25,
+            25
+          ],
+          "sha256": "8ebcfbf8a8e6e50fa335967007d93a6a8a3abb867be704e1d81a068db8e6476c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            26,
+            31
+          ],
+          "current_lines": [
+            26,
+            31
+          ],
+          "sha256": "bf39f800486150a681f72c54142b8733c9b563387501917d048c5ecf26d5822e"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            32,
+            33
+          ],
+          "current_lines": [
+            32,
+            33
+          ],
+          "sha256": "e74615ee16cbf6e35bcce37cba66c3e97549e63032b1fbd8c452ae3bd96d7e00"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            34,
+            39
+          ],
+          "current_lines": [
+            34,
+            39
+          ],
+          "sha256": "a5ae487764de07e6592024d9c765d4767a0627e3d071776ea3fcd4f4065ebaed"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            40,
+            40
+          ],
+          "current_lines": [
+            40,
+            40
+          ],
+          "sha256": "5200fbf8c218ca21d56bed42fc95fb54471fb2f39da2d3934640707f638f051b"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            41,
+            42
+          ],
+          "current_lines": [
+            41,
+            42
+          ],
+          "sha256": "156ba23fbc8602cf15c271344054d9f5f83ceee25bfbc5ea66e6ec9937ba3a8a"
+        }
+      ]
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/01-parse-bounded-logs/starter/demo.py",
+      "bytes": 608,
+      "sha256": "824c2b86a478319e59ad967632d81f2f1d89052e98d5e219c759f5588102542d",
+      "git_blob": "9db751926bdddbb1dad550735dd8d587828da633",
+      "status": "exact_SHA_reuse_of_read_text",
+      "lines": 14,
+      "reuse_source": "projects/log-volume-reduction-lab/solution/demo.py"
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/01-parse-bounded-logs/starter/main.py",
+      "bytes": 133,
+      "sha256": "b3e591689ad3347f0840a74f1c359a711932fdb4cf1a5cfe517387c341237b48",
+      "git_blob": "c2acac839a083883afa3536184ce076b7f99eb33",
+      "status": "root_actual_full_text_read",
+      "lines": 2
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/01-parse-bounded-logs/starter/main.rs",
+      "bytes": 2519,
+      "sha256": "1bcd7a349879ccb3f8d0b3007d1098594be0640580faccd88ac1c7de610732d4",
+      "git_blob": "09e0ec70dc0b3b0e943dbd5f8ced4c89fb53f106",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 87,
+      "reuse_source": "projects/log-volume-reduction-lab/solution/main.rs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "base_lines": [
+            1,
+            34
+          ],
+          "current_lines": [
+            1,
+            34
+          ],
+          "sha256": "a0e5fd20cbe42ce84a4829e13e7f13a29bd5200db54458b62f0aa8024b7520b9"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            35,
+            60
+          ],
+          "current_lines": [
+            35,
+            35
+          ],
+          "sha256": "0aeda9b68f827790106e78415f61a406acdca3fd23dc4308f09a205843b63b3e"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            61,
+            62
+          ],
+          "current_lines": [
+            36,
+            37
+          ],
+          "sha256": "68dd588d77e855d979cf5e01923cba54b6934447819624989176fff8961dbe34"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            63,
+            79
+          ],
+          "current_lines": [
+            38,
+            38
+          ],
+          "sha256": "19bf5dd4b52c7aa65bc84f68f60fd0e3cadd8809e5d1353c9d61c2ed55814849"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            80,
+            81
+          ],
+          "current_lines": [
+            39,
+            40
+          ],
+          "sha256": "01370982608614dc590c33c357225f7d8a52a0c6e105edf794acef814a68f31a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            82,
+            119
+          ],
+          "current_lines": [
+            41,
+            41
+          ],
+          "sha256": "737ffa884c172e8a9d1403ea8e06be1eff0b4b657dfa4896e1cbd6bf8e31992c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            120,
+            137
+          ],
+          "current_lines": [
+            42,
+            59
+          ],
+          "sha256": "51af7e58dcb8f74d0499c45eaabf5369cb3fd6e01b801c8c9869b93bc8b1431f"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            138,
+            148
+          ],
+          "current_lines": [
+            60,
+            60
+          ],
+          "sha256": "70e0a71922da688a4dcf4f5be9a1a8b64d024f3af280a25a04c9eefe0637f66b"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            149,
+            175
+          ],
+          "current_lines": [
+            61,
+            87
+          ],
+          "sha256": "300de08aade72dadba271cec9ad0f8d52e2951740f2aa611872acdca45c8a75b"
+        }
+      ]
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/01-parse-bounded-logs/tests/stage.rs",
+      "bytes": 832,
+      "sha256": "d81a381a5b3ee8c9095490b1ab7326b7e08c07eaae28c7a063c482932d9f9eae",
+      "git_blob": "58b1db93967593e00601809ccc4ddcb4c503829d",
+      "status": "root_actual_full_text_read",
+      "lines": 33
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/02-group-templates/docs/en.md",
+      "bytes": 2020,
+      "sha256": "d8c3de73b68ae21894ad4e097b16f441d8abd264a145d550c2eb115628213452",
+      "git_blob": "c15dcb470324579d4bc265d679fb843a4ed2f50f",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 42,
+      "reuse_source": "projects/log-volume-reduction-lab/stages/01-parse-bounded-logs/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "3660b3d6b91033225f819ab339d3932f3c995507df0daeb8c8e2f66843072abc"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            2,
+            2
+          ],
+          "current_lines": [
+            2,
+            2
+          ],
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            3,
+            3
+          ],
+          "current_lines": [
+            3,
+            3
+          ],
+          "sha256": "49b28d617a1ae80bf3c7533fc683784b38bba75fac3ccbc2a036a9e767d220ce"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            4,
+            6
+          ],
+          "current_lines": [
+            4,
+            6
+          ],
+          "sha256": "4fc54d20398ebe77f2dd0d7c19f3b264e8390518f6d16a9e174566e3b7d671f6"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            7,
+            7
+          ],
+          "current_lines": [
+            7,
+            7
+          ],
+          "sha256": "427a30ebc711d123f730366dcac2aaa78daf566d35f511405176226a48558cdc"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            8,
+            12
+          ],
+          "current_lines": [
+            8,
+            12
+          ],
+          "sha256": "c35d7bd6b4ec072fd4602a9859de417242de4e0049408a448e0435959f848dbc"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            13,
+            13
+          ],
+          "current_lines": [
+            13,
+            13
+          ],
+          "sha256": "2927efb6a7ec91fca5805bcc7c7f2a6e36642d187aa828c35f783f5e09152d38"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            14,
+            16
+          ],
+          "current_lines": [
+            14,
+            16
+          ],
+          "sha256": "0036e8ea3679916f018e9302530536d74ede4533f98b773cc6698f9af827cfe9"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            17,
+            17
+          ],
+          "current_lines": [
+            17,
+            17
+          ],
+          "sha256": "7fc86f0b1b70bcf02ba395c66b184768e25d0f05451e731f6c2ab5ed75b75a4b"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            18,
+            19
+          ],
+          "current_lines": [
+            18,
+            19
+          ],
+          "sha256": "f51055fd81db8b33eb1860bc16119e1d9c6392b0e828d5087ff58e194d153e5a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            20,
+            20
+          ],
+          "current_lines": [
+            20,
+            20
+          ],
+          "sha256": "2aa5f8d5287e6ac30e85a7e7e4483b135346583c4698a73ea5825f27d799e4ce"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            21,
+            24
+          ],
+          "current_lines": [
+            21,
+            24
+          ],
+          "sha256": "0102cfafa93c54208a66788e184c122f1fa163c780c27a3dc67672594093d222"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            25,
+            25
+          ],
+          "current_lines": [
+            25,
+            25
+          ],
+          "sha256": "f99959a18d429604f10f44caf86878217ca160b7adbe1fade61f0e66c9a8e212"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            26,
+            32
+          ],
+          "current_lines": [
+            26,
+            32
+          ],
+          "sha256": "2fbb2a0327bca9cf560c2dc0b8d374bea2c5bb5cf052929112cbbec5749996a5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            33,
+            33
+          ],
+          "current_lines": [
+            33,
+            33
+          ],
+          "sha256": "55f27bfff7ba0866473ec7cc17913076e32d0eb834fdc0b5f87636f29bdab33e"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            34,
+            39
+          ],
+          "current_lines": [
+            34,
+            39
+          ],
+          "sha256": "a5ae487764de07e6592024d9c765d4767a0627e3d071776ea3fcd4f4065ebaed"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            40,
+            40
+          ],
+          "current_lines": [
+            40,
+            40
+          ],
+          "sha256": "247b85e239c5d73f29ce772fa6a825ff21be62bdff14becfa59c7e2c136ae777"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            41,
+            42
+          ],
+          "current_lines": [
+            41,
+            42
+          ],
+          "sha256": "156ba23fbc8602cf15c271344054d9f5f83ceee25bfbc5ea66e6ec9937ba3a8a"
+        }
+      ]
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/02-group-templates/starter/STAGE-2.md",
+      "bytes": 283,
+      "sha256": "776b43519b2cee8d910b78ac4b325b9fb28a99ffd38fd7c811de468ef5a08aa9",
+      "git_blob": "64eb208d69418a55fc0914475266bd8146cc03d3",
+      "status": "root_actual_full_text_read",
+      "lines": 3
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/02-group-templates/tests/stage.rs",
+      "bytes": 831,
+      "sha256": "3802bc7ce2cf81405c30a7c4b46d6dcb4b2499e6b28b49d1e35341eb4586df9c",
+      "git_blob": "0ab342d1b8835f93ef64b955544ca4012668f524",
+      "status": "root_actual_full_text_read",
+      "lines": 34
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/03-compare-samplers/docs/en.md",
+      "bytes": 2107,
+      "sha256": "034ea29469db7f51fd4657bca648386be667416dad93474d2526880d8f5554de",
+      "git_blob": "cc4c51f401f347f28e3736256f99919999c68cba",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 42,
+      "reuse_source": "projects/log-volume-reduction-lab/stages/02-group-templates/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "f0e018b9c2fa15819820380d214838fcca5ffb749b51db056807490b074b6307"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            2,
+            2
+          ],
+          "current_lines": [
+            2,
+            2
+          ],
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            3,
+            3
+          ],
+          "current_lines": [
+            3,
+            3
+          ],
+          "sha256": "cc188e56a92e584d54103aee9168edadefc44c56759b98e5930de7d2a197eca8"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            4,
+            6
+          ],
+          "current_lines": [
+            4,
+            6
+          ],
+          "sha256": "4fc54d20398ebe77f2dd0d7c19f3b264e8390518f6d16a9e174566e3b7d671f6"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            7,
+            7
+          ],
+          "current_lines": [
+            7,
+            7
+          ],
+          "sha256": "d7c0f1e10821bbdbc1d89dc76a5d677f30aff4dc7545d2753808ecfa5eee647f"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            8,
+            12
+          ],
+          "current_lines": [
+            8,
+            12
+          ],
+          "sha256": "c35d7bd6b4ec072fd4602a9859de417242de4e0049408a448e0435959f848dbc"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            13,
+            13
+          ],
+          "current_lines": [
+            13,
+            13
+          ],
+          "sha256": "de8e895fdde009e393818de10f146f9e28ae5ee962a1233dd1a94a982dd69cf7"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            14,
+            16
+          ],
+          "current_lines": [
+            14,
+            16
+          ],
+          "sha256": "0036e8ea3679916f018e9302530536d74ede4533f98b773cc6698f9af827cfe9"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            17,
+            17
+          ],
+          "current_lines": [
+            17,
+            17
+          ],
+          "sha256": "db5ae858953b0f697e87d0c4ba96072b7de6eb1c7cfb11a6ee9c6b267b37c509"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            18,
+            19
+          ],
+          "current_lines": [
+            18,
+            19
+          ],
+          "sha256": "f51055fd81db8b33eb1860bc16119e1d9c6392b0e828d5087ff58e194d153e5a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            20,
+            20
+          ],
+          "current_lines": [
+            20,
+            20
+          ],
+          "sha256": "766949c3b835a10efe17aca7144980493ec25b94a7312070945ff531fc7faf2d"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            21,
+            24
+          ],
+          "current_lines": [
+            21,
+            24
+          ],
+          "sha256": "0102cfafa93c54208a66788e184c122f1fa163c780c27a3dc67672594093d222"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            25,
+            25
+          ],
+          "current_lines": [
+            25,
+            25
+          ],
+          "sha256": "02893cf7a597f3b308bdfdcc3bb913312f613fb6a64c8c0e1ee43dd0cffa850a"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            26,
+            32
+          ],
+          "current_lines": [
+            26,
+            32
+          ],
+          "sha256": "2fbb2a0327bca9cf560c2dc0b8d374bea2c5bb5cf052929112cbbec5749996a5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            33,
+            33
+          ],
+          "current_lines": [
+            33,
+            33
+          ],
+          "sha256": "e01760dda8d5a12119c3a0b4b1d916e9697731abee5292f7fe0efcc4b7c822d5"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            34,
+            39
+          ],
+          "current_lines": [
+            34,
+            39
+          ],
+          "sha256": "a5ae487764de07e6592024d9c765d4767a0627e3d071776ea3fcd4f4065ebaed"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            40,
+            40
+          ],
+          "current_lines": [
+            40,
+            40
+          ],
+          "sha256": "4d598d9d744b8c4319571b26771559dcf5dfb2f24f14c57f44a0d2d8003a01ca"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            41,
+            42
+          ],
+          "current_lines": [
+            41,
+            42
+          ],
+          "sha256": "156ba23fbc8602cf15c271344054d9f5f83ceee25bfbc5ea66e6ec9937ba3a8a"
+        }
+      ]
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/03-compare-samplers/starter/STAGE-3.md",
+      "bytes": 282,
+      "sha256": "5ef9022b78e50931d04c6fad78c491f8039aafcb76a14951383f9a85e50cb18f",
+      "git_blob": "366db1d72463b4446c71bb7c89e5e5316e1e9180",
+      "status": "root_actual_full_text_read",
+      "lines": 3
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/03-compare-samplers/tests/stage.rs",
+      "bytes": 1005,
+      "sha256": "666efe47bfb64edac038d5f9ae5a0662fa850e25145aac5d7b5ab5fc56049c73",
+      "git_blob": "cd195a184526b1150f1a1aeee7ff0efb881f1a5a",
+      "status": "root_actual_full_text_read",
+      "lines": 36
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/04-export-coverage/docs/en.md",
+      "bytes": 2103,
+      "sha256": "6c1ccab977070c9f371c7b57222967c7e5718d8c8c2022969e93b5bd91ddfcb1",
+      "git_blob": "f4a1517fc2db5485be577de30fb65f5c19efb345",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 42,
+      "reuse_source": "projects/log-volume-reduction-lab/stages/02-group-templates/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "ff1ef4b52e772624acc1745814e4f12bdc39cb9a23d7d68191c73e1525dd29c0"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            2,
+            2
+          ],
+          "current_lines": [
+            2,
+            2
+          ],
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            3,
+            3
+          ],
+          "current_lines": [
+            3,
+            3
+          ],
+          "sha256": "3e0b169a9411f91552167da060743be82817531e22c719848457c22168ca2857"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            4,
+            6
+          ],
+          "current_lines": [
+            4,
+            6
+          ],
+          "sha256": "4fc54d20398ebe77f2dd0d7c19f3b264e8390518f6d16a9e174566e3b7d671f6"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            7,
+            7
+          ],
+          "current_lines": [
+            7,
+            7
+          ],
+          "sha256": "f79ec97a0d4c7930916dc5ec61c129e04af087efadc9715788a5f690b0a96572"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            8,
+            12
+          ],
+          "current_lines": [
+            8,
+            12
+          ],
+          "sha256": "c35d7bd6b4ec072fd4602a9859de417242de4e0049408a448e0435959f848dbc"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            13,
+            13
+          ],
+          "current_lines": [
+            13,
+            13
+          ],
+          "sha256": "16735471e9ba14d984b829e7dc4396d0615311906f4a3eddd082c80058058e3c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            14,
+            16
+          ],
+          "current_lines": [
+            14,
+            16
+          ],
+          "sha256": "0036e8ea3679916f018e9302530536d74ede4533f98b773cc6698f9af827cfe9"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            17,
+            17
+          ],
+          "current_lines": [
+            17,
+            17
+          ],
+          "sha256": "041bc583e80e2bfbf155842f6da2e211cf65ad40c3f06f88d3188960a021c4c2"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            18,
+            19
+          ],
+          "current_lines": [
+            18,
+            19
+          ],
+          "sha256": "f51055fd81db8b33eb1860bc16119e1d9c6392b0e828d5087ff58e194d153e5a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            20,
+            20
+          ],
+          "current_lines": [
+            20,
+            20
+          ],
+          "sha256": "7c3b7cb36ac9d19f10d000bcaf104553810f784865ceac2f7c9fc9b49f25fe36"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            21,
+            24
+          ],
+          "current_lines": [
+            21,
+            24
+          ],
+          "sha256": "0102cfafa93c54208a66788e184c122f1fa163c780c27a3dc67672594093d222"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            25,
+            25
+          ],
+          "current_lines": [
+            25,
+            25
+          ],
+          "sha256": "05be5a026df952f86d5c77e367ea73ac5f848f7bfa53c846ef906b2daf4f8826"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            26,
+            32
+          ],
+          "current_lines": [
+            26,
+            32
+          ],
+          "sha256": "2fbb2a0327bca9cf560c2dc0b8d374bea2c5bb5cf052929112cbbec5749996a5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            33,
+            33
+          ],
+          "current_lines": [
+            33,
+            33
+          ],
+          "sha256": "49d7d984a1d37478ff046d989abaac1953bedd69e4a59e08f2563b7747fad321"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            34,
+            39
+          ],
+          "current_lines": [
+            34,
+            39
+          ],
+          "sha256": "a5ae487764de07e6592024d9c765d4767a0627e3d071776ea3fcd4f4065ebaed"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            40,
+            40
+          ],
+          "current_lines": [
+            40,
+            40
+          ],
+          "sha256": "7ff5beb7f1d9f4f5526232afda3245f01a9970ce389766b788119c43b3cdfbce"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            41,
+            41
+          ],
+          "current_lines": [
+            41,
+            41
+          ],
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            42,
+            42
+          ],
+          "current_lines": [
+            42,
+            42
+          ],
+          "sha256": "1c389ab0ab0d4e85d6f0aa8eb7a4b833325ba9a17e64edd6f2b50dd67ebe8f40"
+        }
+      ]
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/04-export-coverage/starter/STAGE-4.md",
+      "bytes": 318,
+      "sha256": "f441ad2388a1cc0f3c19f1b111004913bf47788a7ecfd47bbc61556ccd6f080c",
+      "git_blob": "88100f0e1df9b0ffb57e0648e914cb12b98def90",
+      "status": "root_actual_full_text_read",
+      "lines": 3
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/04-export-coverage/tests/stage.rs",
+      "bytes": 925,
+      "sha256": "d493bd1ec938970f96637c5c92ba67a85b237a334b74a95f9efab809013863a0",
+      "git_blob": "6d9d677557fe2ff9aed566dd7e1a3b09edf36f9e",
+      "status": "root_actual_full_text_read",
+      "lines": 33
+    },
+    {
+      "path": "projects/log-volume-reduction-lab/stages/04-export-coverage/tests/test_coverage.py",
+      "bytes": 1095,
+      "sha256": "2b50559c49dbd7c3a3b63562e5b22ee6d1ba09b48f305eb259bde70e871f6c0f",
+      "git_blob": "b04e5e5215177b22f0427dbf1c2e8d8aff0f0147",
+      "status": "root_actual_full_text_read",
+      "lines": 18
+    },
+    {
+      "path": "site/figures/projects/log-volume-reduction-lab.js",
+      "bytes": 4811,
+      "sha256": "c0459f68adc71af938702888322fd8a8d7d7deb334f7ca4d709188ea6d658c63",
+      "git_blob": "8f683540d7c72fd44e408f0522f7219d88be4542",
+      "status": "root_actual_full_text_read",
+      "lines": 187
+    }
+  ],
+  "root_read_chunks": [
+    {
+      "file": "read-01.txt",
+      "characters": 18000,
+      "sha256": "52d772812e50c2a82a9624e686bcdb5f59b0897bb01d28f180e8b7c5c5850db9",
+      "read": true
+    },
+    {
+      "file": "read-02.txt",
+      "characters": 18000,
+      "sha256": "7dedb611112cab57b3a63cd86fb15f539598ffcb4842a8025e031aac8ae383e3",
+      "read": true
+    },
+    {
+      "file": "read-03.txt",
+      "characters": 2335,
+      "sha256": "cc67baffcea10bedc611da73f6f5272f6ed5532f582064a0bb7ff1c0e051923f",
+      "read": true
+    }
+  ],
+  "tests_static": [
+    {
+      "file": "projects/log-volume-reduction-lab/stages/01-parse-bounded-logs/tests/stage.rs",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/log-volume-reduction-lab/stages/02-group-templates/tests/stage.rs",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/log-volume-reduction-lab/stages/03-compare-samplers/tests/stage.rs",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/log-volume-reduction-lab/stages/04-export-coverage/tests/stage.rs",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/log-volume-reduction-lab/stages/04-export-coverage/tests/test_coverage.py",
+      "static_tests": 7,
+      "executed": false
+    }
+  ],
+  "root_review": {
+    "all_git_blobs_rechecked": 27,
+    "drift": 0,
+    "critical_read": [
+      "Rust全部领域函数与Python coverage/全部课程与测试/图"
+    ]
+  },
+  "data_proof": {
+    "uniform_zero_based": [
+      0,
+      25,
+      50,
+      75,
+      100,
+      125,
+      150,
+      175
+    ],
+    "synthesized_from_explicit_course_contract": true,
+    "upstream_fixture_not_present": true,
+    "template_counts": [
+      1,
+      199
+    ],
+    "author_logs_not_rerun": true
+  },
+  "formal_fusion": {
+    "file": "计算机科学基础/05-生产级软件工程.md",
+    "before_sha256": "a23f0bbe2404e916bdbcab822ca38bc7a77d1d535d353ed46a4dcee301e94b2d",
+    "after_sha256": "156513b9560e3e4a1a54037d6716cfa484e718f3230c9eec0032bb365062a1f9",
+    "old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "8a7dda77a5cfe04e6862d51e4b8cb1381062e64893e7a014c1fedcabf0ea5865",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "a87cc92567c46134a6b12e5c3d01c495386b1f78355a6c98d7df6fecf685d7a3",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4625 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}
