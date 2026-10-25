@@ -448,3 +448,11 @@ assert np.allclose(A @ v, sigma * u)
 **一个无需新程序的核对**：第3节 `diag(5,3,1)` 的rank1与rank2平方误差分别为10与1；rank3为0，说明更多项对**这份被近似矩阵**更准确。若被近似的是含噪测量，“更像测量”不能直接推出“更像未知干净真值”。PCA按元素平均的MSE仍按第6节除以nd，并与协方差的n−1约定衔接，不照抄上游“舍弃特征值之和就是MSE”。
 
 来源是固定`1a8c4fd`的[10降维](https://github.com/rohitg00/ai-engineering-from-scratch/tree/1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e/phases/01-math-foundations/10-dimensionality-reduction)与[11 SVD](https://github.com/rohitg00/ai-engineering-from-scratch/tree/1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e/phases/01-math-foundations/11-singular-value-decomposition)。全部差分与8项提示已实际读，旧部分同SHA复用首轮完整阅读；本批只补条件、手算和练习判断，旧代码原字节保留、未新跑。完整记录见[15批覆盖](../../维护/来源更新/2026-10-16/15-降维SVD练习增量-读取与融合.json)。
+
+
+## 幂迭代练习：不动方向未必是主方向
+
+第12节已要求初值含主方向分量。反例M=diag(2,1)、v0=(0,1)：初值非零且最大模特征值唯一，但每次Mv仍在第二方向，Rayleigh商为1而非2。方向不再改变只证明到达某个不动方向，不能单独判已找到最大模特征向量。用残差、不同初值和谱隙一起诊断；负主特征值时允许符号交替，再固定符号便于比较。现有完整程序保留，不再复制一份同义幂迭代。
+
+
+2026-10-25增量：基于[固定3f9715c的计算练习](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a/practice)，源截止2026-10-23。已读题目/参考/提示并按知识去重复用，未运行来源练习、测试或训练；反例仅自写标准库核算，旧程序及原成功日期不变。51题落点、710路径读取层级与本批正文验证见[11记录](../../维护/来源更新/2026-10-24/11-算法练习纠偏与训练路径融合.json)。

@@ -554,3 +554,13 @@ print('synthetic CPU only; held scores are observations, no pretrained semantic 
 更换召回模型先锁相同语料/ID与N，分别评价candidate Recall@N、CE排序MRR/nDCG和最终证据集合覆盖；召回改动不能仅看top1 raw score。比较1/10/40/60等epoch时同时记录train loss/positive-negative margin与held-out排名，源练习说“十轮代替一轮”不符合原默认60。替mean为CLS须同split/seed/参数预算并验证mask；加answerability第二head须标有答案/无答案，分开ranking与拒答损失、权重及校准集。推理阈值与缓存都绑定model/tokenizer/pool/length/doc revision/权限，不同query的raw scalar不能当同一概率阈值。
 
 本节来源是第1来源固定提交3be078b37ffd8f0c04953c0678e48f5c6d0c7775的Phase19/66与69只读冻结记录；六课的练习、原题与stage关系由[12第15节](12-文本检索与RAG文档工程.md#15-分块融合重排与评价的练习和测验)统一维护。原有代码块与2026-10-04/07/08日期保留。未核当前模型卡/部署SDK/厂商参数，也未把来源型号、固定速度、memory估计或score阈值写为当前生产推荐。
+
+
+## CLIP练习：双向分母和零损失的含义
+
+本章第4节的单向对比目标可扩为CLIP式双向目标：图文embedding先L2归一，S=I@T.T/temperature，正例在对角线。图→文按行交叉熵、文→图按列交叉熵各占1/2，对S的梯度为(P_row+P_col-2*Identity)/(2N)。P_col必须按列归一；做两遍行softmax不是双向目标。
+
+全相等logit时loss=logN；N=1时loss和对S梯度都是0，只因没有可区分负例，不证明学会检索。N增大还带来N²score、跨设备通信与假负例，沿第3/6节核多正例、分组切分和候选集合，而不是只比较训练loss大小。
+
+
+2026-10-25增量：基于[固定3f9715c的计算练习](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a/practice)，源截止2026-10-23。已读题目/参考/提示并按知识去重复用，未运行来源练习、测试或训练；反例仅自写标准库核算，旧程序及原成功日期不变。51题落点、710路径读取层级与本批正文验证见[11记录](../维护/来源更新/2026-10-24/11-算法练习纠偏与训练路径融合.json)。
