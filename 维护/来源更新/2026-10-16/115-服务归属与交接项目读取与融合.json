@@ -1,0 +1,2597 @@
+{
+  "date": "2026-10-23",
+  "project": "service-ownership-navigator",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-load-evidence",
+    "02-resolve-paths",
+    "03-check-runbooks",
+    "04-export-handoff"
+  ],
+  "delegate_review": {
+    "project": "service-ownership-navigator",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_cutoff": "2026-10-15T05:58:42Z",
+    "read_date": "2026-10-23",
+    "author_run": "2026-10-09T14:24:28Z",
+    "accepted": false,
+    "single_merge_file": "计算机科学基础/05-生产级软件工程.md",
+    "inventory": "/tmp/study-update-20261016/ownership-agent-20261023/inventory.json",
+    "data_proof": "/tmp/study-update-20261016/ownership-agent-20261023/data-proof.json",
+    "knowledge": "/tmp/study-update-20261016/ownership-agent-20261023/knowledge.md",
+    "knowledge_sha256": "55c6d335d7f99bb4aecceeba33348055a3805f1e0b90ca2f68b748b17e95571c",
+    "counts": {
+      "project_items": 25,
+      "tests_static": 24,
+      "gif_data_frames": 24,
+      "png_visual": 2,
+      "source_execution": 0
+    },
+    "findings": [
+      "local规则子集非完整CODEOWNERS，last匹配不是最specific；catalog fallback最长root，分歧保留不合并。",
+      "样本cache三规则2/3/4，有效cache、两冲突，queue存在rollback缺；deps直接catalog owners。",
+      "仅supplied数据，不检查实际path/账户/currentoncall；catalog.json/line0默认标识非真实文件快照。",
+      "runbook简单heading/inline-link正则，片段/外部跳过，绝对链接未实现root语义，操作准确性未验证。",
+      "CLI reviewFile不用，无通知/批准执行；目录搜索不重算packet。"
+    ],
+    "remaining": [
+      "root融合渲染/全库验证；原24测试/TS/JS/CLI未执行。"
+    ]
+  },
+  "inventory": [
+    {
+      "path": "projects/service-ownership-navigator/README.md",
+      "bytes": 3251,
+      "sha256": "de7c34866d8a67a20d7cdc0f54344be827f1f65cba29db81014c7a90a6b2ea42",
+      "git_blob": "59f7e076a87530beb07f24c6eb8c3223840d4b6c",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 50,
+      "read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/service-ownership-navigator/media/output.gif",
+      "bytes": 38763,
+      "sha256": "fa778736024159485f026905a63ccb9fb963774a4a3af1d6694d7b73a756149d",
+      "git_blob": "a364fbe1be93651553404f548b5024013cc8f908",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 6,
+      "duration_ms": 3900,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": false,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/service-ownership-navigator/media/output.json",
+      "bytes": 251,
+      "sha256": "4d151012c4592b82128860c34699ea0ac5906976224ead18a2999270ede4e57d",
+      "git_blob": "6d7e3077623928f18828380073ecbc048c7a877a",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 12,
+      "read_ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/service-ownership-navigator/media/output.png",
+      "bytes": 66151,
+      "sha256": "8aab121e596187b442065c81c7c19637babdea10815e1e14416788c09346c39c",
+      "git_blob": "f129698860a234a2cef06730880c8a57cbc95246",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": true,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/service-ownership-navigator/media/run.gif",
+      "bytes": 240338,
+      "sha256": "4dc772e30e0fc6f838e12b146a37c5e473fdd29db44b847236ed07eb27cad8b3",
+      "git_blob": "ce222e150fb52a356d89461d8ed9b2f68a594182",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 18,
+      "duration_ms": 8100,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": false,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/service-ownership-navigator/media/run.json",
+      "bytes": 2228,
+      "sha256": "7d6260d42a6905a2ac41b8774616a3584abca8e473c6c37de9db2b29dda4444b",
+      "git_blob": "2713cb211b2b0220e20ced0df9a3b356900620c4",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/service-ownership-navigator/media/run.png",
+      "bytes": 93122,
+      "sha256": "5fc4424fcae9c02175c93bfcc6cc811fb42b94a4ec4c7b18e9913a1e1b07589c",
+      "git_blob": "9cd6d79663afdf975eec7b8830188ac889f16dda",
+      "tree_match": true,
+      "mode": "作者媒体",
+      "frames": 1,
+      "duration_ms": 0,
+      "size": [
+        1120,
+        630
+      ],
+      "all_frames_data_decoded": true,
+      "visual_review": true,
+      "visual_scope": "PNG实际整图看，按可见范围推断；GIF仅解码非逐帧视觉。"
+    },
+    {
+      "path": "projects/service-ownership-navigator/project.json",
+      "bytes": 3566,
+      "sha256": "815f51a202c705220374b9a892fd657abaf93a095189cd33aed8aaf2760ab28c",
+      "git_blob": "10c60ae86919a9d422b8fc88050e1aabe357d377",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 104,
+      "read_ranges": [
+        [
+          1,
+          104
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/service-ownership-navigator/solution/cli.ts",
+      "bytes": 1446,
+      "sha256": "7ca31b1f4f74206126184dfd9f4a44e0ba7a8fd11b69afbe680d6763772c40d3",
+      "git_blob": "71892de81c49c087b695c3ceb8d377d770a366ad",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 47,
+      "read_ranges": [
+        [
+          1,
+          47
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/service-ownership-navigator/solution/main.ts",
+      "bytes": 12546,
+      "sha256": "3c86b3a04a88bf346d47a56015408d56e584b8ba11b084a499126a6037c44a6a",
+      "git_blob": "bf2983a4b4fbd5a6cebe4f412d00b3cb828b729a",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 303,
+      "read_ranges": [
+        [
+          1,
+          303
+        ]
+      ],
+      "executed": false,
+      "helper_tail_exact_bytes": 2701,
+      "reuse_source": "projects/field-notes-map-builder/solution/main.ts",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            2
+          ],
+          "current": [
+            2,
+            2
+          ],
+          "equal_sha256": "6f7342e6b7062bbc17cd3375a37409f849e5a7ad740121f4a4287e6845230f89"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            3,
+            7
+          ],
+          "current": [
+            3,
+            7
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            8,
+            8
+          ],
+          "current": [
+            8,
+            8
+          ],
+          "equal_sha256": "df3982fd610173599241fca93c7c866683f58f541eced1c2098102145477164c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            9,
+            12
+          ],
+          "current": [
+            9,
+            26
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            13,
+            14
+          ],
+          "current": [
+            27,
+            28
+          ],
+          "equal_sha256": "aa1d1a63390229c798347e83a0405441c9400035284ad168c1bf6cdf1d70a370"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            15,
+            21
+          ],
+          "current": [
+            29,
+            82
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            22,
+            22
+          ],
+          "current": [
+            83,
+            83
+          ],
+          "equal_sha256": "546a1c09aec919ec1c987a73365a36e4259d08c62d242b80ca9716c77294dc57"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            23,
+            47
+          ],
+          "current": [
+            84,
+            84
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            48,
+            49
+          ],
+          "current": [
+            85,
+            86
+          ],
+          "equal_sha256": "15b099c7e9bb0e38beb441aaf9f7368e0b39a407b827cd9825fac8b09c33ae2d"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            50,
+            54
+          ],
+          "current": [
+            87,
+            93
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            55,
+            56
+          ],
+          "current": [
+            94,
+            95
+          ],
+          "equal_sha256": "b2ab1aea88539ccd39996887a847f98eb6482e28b8b0604036475b0a8f00d136"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            57,
+            79
+          ],
+          "current": [
+            96,
+            97
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            80,
+            80
+          ],
+          "current": [
+            98,
+            98
+          ],
+          "equal_sha256": "d61195100226f998290468972e6735654c2412de3f352075334464e3e3522149"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            81,
+            83
+          ],
+          "current": [
+            99,
+            101
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            84,
+            84
+          ],
+          "current": [
+            102,
+            102
+          ],
+          "equal_sha256": "56769e5bc1271b060cf4c4aeab9c8d5509e58cc906a27b3dd2a72c3b6cd62820"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            85,
+            102
+          ],
+          "current": [
+            103,
+            106
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            103,
+            103
+          ],
+          "current": [
+            107,
+            107
+          ],
+          "equal_sha256": "16766aa3913c819cde85614a0ab8d5eaf4c462b970d03d6d12a35f0d9150827b"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            104,
+            109
+          ],
+          "current": [
+            108,
+            110
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            110,
+            111
+          ],
+          "current": [
+            111,
+            112
+          ],
+          "equal_sha256": "7c0140f176c07287da9a37956f09ae4a31a4ec6720436be066b621ac442cf02b"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            112,
+            114
+          ],
+          "current": [
+            113,
+            237
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            115,
+            116
+          ],
+          "current": [
+            238,
+            239
+          ],
+          "equal_sha256": "ec64e22d7c515e78ff9cf0ef998c7a0eb710a2cabb12b48408661f6cf5858b69"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            117,
+            118
+          ],
+          "current": [
+            240,
+            242
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            119,
+            119
+          ],
+          "current": [
+            243,
+            243
+          ],
+          "equal_sha256": "5d1674014064106bb57ae03dcddaf939e965f5dcab619fbeeb2c4f824698d7b7"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            120,
+            150
+          ],
+          "current": [
+            244,
+            244
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            151,
+            151
+          ],
+          "current": [
+            245,
+            245
+          ],
+          "equal_sha256": "16766aa3913c819cde85614a0ab8d5eaf4c462b970d03d6d12a35f0d9150827b"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            152,
+            163
+          ],
+          "current": [
+            246,
+            256
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            164,
+            165
+          ],
+          "current": [
+            257,
+            258
+          ],
+          "equal_sha256": "7c0140f176c07287da9a37956f09ae4a31a4ec6720436be066b621ac442cf02b"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            166,
+            169
+          ],
+          "current": [
+            259,
+            261
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            170,
+            170
+          ],
+          "current": [
+            262,
+            262
+          ],
+          "equal_sha256": "3f287c8d006a86264589ded55c21cd86e0c83ce853a5cf16c842961c443eb37a"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            171,
+            188
+          ],
+          "current": [
+            263,
+            262
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            189,
+            189
+          ],
+          "current": [
+            263,
+            263
+          ],
+          "equal_sha256": "75ec58a6d459578a1b0fd88393286e60b92bb726b0cce30a41838dc7d871fd97"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            190,
+            201
+          ],
+          "current": [
+            264,
+            273
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            202,
+            231
+          ],
+          "current": [
+            274,
+            303
+          ],
+          "equal_sha256": "628f9bdc0375ae10b50754576fef7e8c3c3aa7bc53de8e33ee986135eac7cdba"
+        }
+      ]
+    },
+    {
+      "path": "projects/service-ownership-navigator/solution/sample.json",
+      "bytes": 1070,
+      "sha256": "595777ff4a954be00baeaa6ba1dbe87d61868d595167112c47516ed29d0507e9",
+      "git_blob": "10eade3d2ee68c2193fcae65ac9ff94ee0567ea3",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 34,
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/01-load-evidence/docs/en.md",
+      "bytes": 3011,
+      "sha256": "a7a21be0c51984732361f8f9a45caccf7a32d16f70870b3394ec7905cfad30fc",
+      "git_blob": "c989d933046a94ffe7508f50216b238a516b4427",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/stages/01-record-facts/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            10
+          ],
+          "current": [
+            2,
+            10
+          ],
+          "equal_sha256": "ba2fa785faaf74ae396861557086edba0b0e5803623b994e1f9bdcd5631c7ff5"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            11,
+            11
+          ],
+          "current": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            15
+          ],
+          "current": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            16,
+            16
+          ],
+          "current": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            19
+          ],
+          "current": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            20,
+            24
+          ],
+          "current": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            27
+          ],
+          "current": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            28,
+            28
+          ],
+          "current": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            29,
+            35
+          ],
+          "current": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            36,
+            37
+          ],
+          "current": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            38,
+            43
+          ],
+          "current": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            44,
+            44
+          ],
+          "current": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            45,
+            50
+          ],
+          "current": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            51,
+            51
+          ],
+          "current": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            52,
+            54
+          ],
+          "current": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            55,
+            55
+          ],
+          "current": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            56,
+            58
+          ],
+          "current": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            59,
+            59
+          ],
+          "current": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            60,
+            60
+          ],
+          "current": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            61,
+            61
+          ],
+          "current": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ]
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/01-load-evidence/starter/cli.ts",
+      "bytes": 1446,
+      "sha256": "7ca31b1f4f74206126184dfd9f4a44e0ba7a8fd11b69afbe680d6763772c40d3",
+      "git_blob": "71892de81c49c087b695c3ceb8d377d770a366ad",
+      "tree_match": true,
+      "mode": "同SHA全文复用",
+      "lines": 47,
+      "read_ranges": [
+        [
+          1,
+          47
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/service-ownership-navigator/solution/cli.ts"
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/01-load-evidence/starter/main.ts",
+      "bytes": 4463,
+      "sha256": "9e61eb2cbd7fbc2de25f56d5f876bf4ac1078eed5b92a96c10e48bd2d2e19973",
+      "git_blob": "97aa526f6b2c1ae5dbbc34daf05e61c6784c0c92",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 99,
+      "read_ranges": [
+        [
+          1,
+          99
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/service-ownership-navigator/solution/main.ts",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            27
+          ],
+          "current": [
+            1,
+            27
+          ],
+          "equal_sha256": "407156641b4bfbc7a734a4b3140473d81097d85d9271021f9c7123b93dea59ad"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            28,
+            51
+          ],
+          "current": [
+            28,
+            27
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            52,
+            55
+          ],
+          "current": [
+            28,
+            31
+          ],
+          "equal_sha256": "6b3a610584905de65321d36105f5566d4ba6bb1cbe0349849a7a65f6456e7091"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            56,
+            71
+          ],
+          "current": [
+            32,
+            32
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            72,
+            73
+          ],
+          "current": [
+            33,
+            34
+          ],
+          "equal_sha256": "483748dfd4789ba054b6669ddc5149bd95ff4c349139fc0463dd53dc67268923"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            74,
+            111
+          ],
+          "current": [
+            35,
+            35
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            112,
+            113
+          ],
+          "current": [
+            36,
+            37
+          ],
+          "equal_sha256": "a00750beb8a3660fdab761024b53d199fd6e72c8c130ea8358057abdf511d89a"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            114,
+            134
+          ],
+          "current": [
+            38,
+            38
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            135,
+            136
+          ],
+          "current": [
+            39,
+            40
+          ],
+          "equal_sha256": "a7d54092d49d56925317a0cdc3c483b7618e3787d0827f3374d822c297cf54fc"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            137,
+            185
+          ],
+          "current": [
+            41,
+            41
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            186,
+            196
+          ],
+          "current": [
+            42,
+            52
+          ],
+          "equal_sha256": "cc017eea7b2eb4e61163ba59fb789297464b2594a696188f4ff295e09d305773"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            197,
+            233
+          ],
+          "current": [
+            53,
+            53
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            234,
+            243
+          ],
+          "current": [
+            54,
+            63
+          ],
+          "equal_sha256": "ee6b2a39fcdff3967cb8731349a1f57934e86f818a459b63b4981d91440b0e0f"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            244,
+            257
+          ],
+          "current": [
+            64,
+            64
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            258,
+            262
+          ],
+          "current": [
+            65,
+            69
+          ],
+          "equal_sha256": "39602a94dbbc5a91f06d7711532ef29ed4241c9f7718536ad4a8d9f54c87977d"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            263,
+            274
+          ],
+          "current": [
+            70,
+            70
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            275,
+            303
+          ],
+          "current": [
+            71,
+            99
+          ],
+          "equal_sha256": "a7c13e1c2087a63fe04a3911aef5f1c10db1d7eb484b07e1d1c9b3b6a3e05216"
+        }
+      ]
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/01-load-evidence/starter/sample.json",
+      "bytes": 1070,
+      "sha256": "595777ff4a954be00baeaa6ba1dbe87d61868d595167112c47516ed29d0507e9",
+      "git_blob": "10eade3d2ee68c2193fcae65ac9ff94ee0567ea3",
+      "tree_match": true,
+      "mode": "同SHA全文复用",
+      "lines": 34,
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/service-ownership-navigator/solution/sample.json"
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/01-load-evidence/tests/stage.test.mjs",
+      "bytes": 1055,
+      "sha256": "e1ca315dda67152f5c6253c79c38fbaf0cd8b2bb73b66a34c77425718651e322",
+      "git_blob": "13df44740cbf0257184071fe5bdae11fb39a9534",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 26,
+      "read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/stages/01-record-facts/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            7
+          ],
+          "current": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            21
+          ],
+          "current": [
+            8,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            22,
+            22
+          ],
+          "current": [
+            20,
+            20
+          ],
+          "equal_sha256": "c72f426c56d82daed08408089ee26b10fd61574404168b2538e210d28a8ecf54"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            23,
+            28
+          ],
+          "current": [
+            21,
+            26
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "tests_static": [
+        "rule source positions retained",
+        "multiple owners retained",
+        "trailing comment excluded",
+        "unsupported negation rejected",
+        "heldout missing owners rejected",
+        "empty comment-only rule file allowed"
+      ]
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/02-resolve-paths/docs/en.md",
+      "bytes": 3058,
+      "sha256": "9dce57b73cd52343623c76003c0a0a38eec98963c5e7490f9f9e27cfd5ec5ea7",
+      "git_blob": "8c21d7ef6508e7e1c9082bd7e186f0643591af3f",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/stages/02-propose-rewrites/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            10
+          ],
+          "current": [
+            2,
+            10
+          ],
+          "equal_sha256": "e8a7bc0f17464bc187ca6724a873f864a017545db28f2e976c7c6daf4ad3a546"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            11,
+            11
+          ],
+          "current": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            15
+          ],
+          "current": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            16,
+            16
+          ],
+          "current": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            19
+          ],
+          "current": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            20,
+            24
+          ],
+          "current": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            27
+          ],
+          "current": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            28,
+            28
+          ],
+          "current": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            29,
+            35
+          ],
+          "current": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            36,
+            37
+          ],
+          "current": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            38,
+            43
+          ],
+          "current": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            44,
+            44
+          ],
+          "current": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            45,
+            50
+          ],
+          "current": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            51,
+            51
+          ],
+          "current": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            52,
+            54
+          ],
+          "current": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            55,
+            55
+          ],
+          "current": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            56,
+            58
+          ],
+          "current": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            59,
+            59
+          ],
+          "current": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            60,
+            60
+          ],
+          "current": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            61,
+            61
+          ],
+          "current": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ]
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/02-resolve-paths/starter/STAGE-2.md",
+      "bytes": 263,
+      "sha256": "3c904c88ddf59605703c6ed1a78b90fa659f57ebaf50df956da1bab7297a170b",
+      "git_blob": "4472d56ea717d290f7ebc23dd1d6a277537cf396",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/02-resolve-paths/tests/stage.test.mjs",
+      "bytes": 1363,
+      "sha256": "0c3fa090b758e8ae6584338b4738c264bb8d1270d12edb500c068e4bae5439c0",
+      "git_blob": "381dca4264ee4d0f58b9aefb33ef051480af133c",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 43,
+      "read_ranges": [
+        [
+          1,
+          43
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/stages/01-record-facts/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            7
+          ],
+          "current": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            21
+          ],
+          "current": [
+            8,
+            32
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            22,
+            22
+          ],
+          "current": [
+            33,
+            33
+          ],
+          "equal_sha256": "c72f426c56d82daed08408089ee26b10fd61574404168b2538e210d28a8ecf54"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            23,
+            28
+          ],
+          "current": [
+            34,
+            43
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "tests_static": [
+        "last matching rule wins",
+        "conflicting evidence retained",
+        "single star stays within segment",
+        "double star permits zero directories",
+        "heldout traversal rejected",
+        "no evidence returns unresolved"
+      ]
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/03-check-runbooks/docs/en.md",
+      "bytes": 2886,
+      "sha256": "c920aff6e131308f02e0bb463a9430461a217782c80df57cf5743d94e964f4ca",
+      "git_blob": "068ad7a67517e7ca4fd39574abb47899ccfd43ae",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/stages/03-compare-facts/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            10
+          ],
+          "current": [
+            2,
+            10
+          ],
+          "equal_sha256": "4bba616be05a3d361f9beaf956a72a7b62ffd80f06a886559cdc10772678bf09"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            11,
+            11
+          ],
+          "current": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            15
+          ],
+          "current": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            16,
+            16
+          ],
+          "current": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            19
+          ],
+          "current": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            20,
+            24
+          ],
+          "current": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            27
+          ],
+          "current": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            28,
+            28
+          ],
+          "current": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            29,
+            35
+          ],
+          "current": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            36,
+            37
+          ],
+          "current": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            38,
+            43
+          ],
+          "current": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            44,
+            44
+          ],
+          "current": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            45,
+            50
+          ],
+          "current": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            51,
+            51
+          ],
+          "current": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            52,
+            54
+          ],
+          "current": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            55,
+            55
+          ],
+          "current": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            56,
+            58
+          ],
+          "current": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            59,
+            59
+          ],
+          "current": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            60,
+            60
+          ],
+          "current": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            61,
+            61
+          ],
+          "current": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ]
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/03-check-runbooks/starter/STAGE-3.md",
+      "bytes": 246,
+      "sha256": "6209ab92988a6f0c6dc262f00f9f369d1e5374df859250d382bbe89d58169c00",
+      "git_blob": "8805f9c8c2352cf7b99be7547c1711acd569d570",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/03-check-runbooks/tests/stage.test.mjs",
+      "bytes": 1416,
+      "sha256": "2bf8b1ac98c48769fc01a8ed916ae315d1599f9f9b3bf4b5988d4bc4d45a4f1c",
+      "git_blob": "55c41024c26f5232d06807b083d3943d6fcd85c8",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 48,
+      "read_ranges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/stages/01-record-facts/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            7
+          ],
+          "current": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            8
+          ],
+          "current": [
+            8,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            9,
+            9
+          ],
+          "current": [
+            45,
+            45
+          ],
+          "equal_sha256": "8cdb332139085b4f1fa7bf46a525dc5d09178a969bee5daf5386c49b74ca8944"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            10,
+            11
+          ],
+          "current": [
+            46,
+            47
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            12
+          ],
+          "current": [
+            48,
+            48
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            13,
+            28
+          ],
+          "current": [
+            49,
+            48
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "tests_static": [
+        "missing main runbook reported",
+        "extracts headings",
+        "resolves local references",
+        "missing relative file reported",
+        "heldout above-root traversal flagged",
+        "remote link not claimed checked"
+      ]
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/04-export-handoff/docs/en.md",
+      "bytes": 3080,
+      "sha256": "102241f170358b15e4a046383cae32d1aec921140d14c4da0f75f2cc75c726ee",
+      "git_blob": "84633524f0741fd5a2e6881ab34ff61ad51c3a45",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/stages/04-accepted-export/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior": [
+            1,
+            1
+          ],
+          "current": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            2,
+            10
+          ],
+          "current": [
+            2,
+            10
+          ],
+          "equal_sha256": "c807327af8c337b6f95122519d0223d70d13d155b7b9a9949e13a9396e3b6f0c"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            11,
+            11
+          ],
+          "current": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            15
+          ],
+          "current": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            16,
+            16
+          ],
+          "current": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            17,
+            18
+          ],
+          "current": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            19,
+            19
+          ],
+          "current": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            20,
+            24
+          ],
+          "current": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            25,
+            25
+          ],
+          "current": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            26,
+            27
+          ],
+          "current": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            28,
+            28
+          ],
+          "current": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            29,
+            35
+          ],
+          "current": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            36,
+            37
+          ],
+          "current": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            38,
+            43
+          ],
+          "current": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            44,
+            44
+          ],
+          "current": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            45,
+            50
+          ],
+          "current": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            51,
+            51
+          ],
+          "current": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            52,
+            54
+          ],
+          "current": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            55,
+            55
+          ],
+          "current": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            56,
+            58
+          ],
+          "current": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            59,
+            59
+          ],
+          "current": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            60,
+            60
+          ],
+          "current": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            61,
+            61
+          ],
+          "current": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ]
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/04-export-handoff/starter/STAGE-4.md",
+      "bytes": 270,
+      "sha256": "992992a9cfc0bd06e97a13fe01b18bb85c966aca0cc4dc94b57ee5b0aa21cb01",
+      "git_blob": "7bcf9f3fb5cf5066a12396274ac344566adde122",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "executed": false
+    },
+    {
+      "path": "projects/service-ownership-navigator/stages/04-export-handoff/tests/stage.test.mjs",
+      "bytes": 1616,
+      "sha256": "a0b299baf84439b1bc384b2b9a1820933eed1822bcfac1b974d46f09de748d5a",
+      "git_blob": "432cf3085a4c4775cc4d9e9b14e29f3cd2cffe44",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 57,
+      "read_ranges": [
+        [
+          1,
+          57
+        ]
+      ],
+      "executed": false,
+      "reuse_source": "projects/plain-language-rewrite-desk/stages/01-record-facts/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior": [
+            1,
+            7
+          ],
+          "current": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior": [
+            8,
+            11
+          ],
+          "current": [
+            8,
+            56
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior": [
+            12,
+            12
+          ],
+          "current": [
+            57,
+            57
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "delete",
+          "prior": [
+            13,
+            28
+          ],
+          "current": [
+            58,
+            57
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "tests_static": [
+        "packet has version and selected path",
+        "dependency handoff resolves owners",
+        "runbook report is included",
+        "unknown path gives null runbook",
+        "heldout directory text escaped",
+        "packet JSON roundtrip retains citations"
+      ]
+    },
+    {
+      "path": "site/figures/projects/service-ownership-navigator.js",
+      "bytes": 5354,
+      "sha256": "20155df46f8ec9629d9c80ed02b8a7df5e4df8a3baba58ec7e37c47ed3f60dd1",
+      "git_blob": "8e791166cf43dbd17c333db3553a06ff4a1b58c6",
+      "tree_match": true,
+      "mode": "所有新语义实际静读，精确公共行复用见line_proofs",
+      "lines": 187,
+      "read_ranges": [
+        [
+          1,
+          187
+        ]
+      ],
+      "executed": false
+    }
+  ],
+  "data_proof": {
+    "date": "2026-10-23",
+    "method": "手工限定样本三前缀匹配，用纯字符串/posixpath归一核路径和目录对象键；不调用来源rule/Markdown解析器、TS/JS。",
+    "source_execution": 0,
+    "sample": {
+      "query": "services/images/cache/store.ts",
+      "service": "images",
+      "matching_rules": [
+        {
+          "pattern": "/services/",
+          "owners": [
+            "@fictional/platform"
+          ],
+          "line": 2,
+          "source": "CODEOWNERS"
+        },
+        {
+          "pattern": "/services/images/",
+          "owners": [
+            "@fictional/media"
+          ],
+          "line": 3,
+          "source": "CODEOWNERS"
+        },
+        {
+          "pattern": "/services/images/cache/**",
+          "owners": [
+            "@fictional/cache"
+          ],
+          "line": 4,
+          "source": "CODEOWNERS"
+        }
+      ],
+      "effective_owners": [
+        "@fictional/cache"
+      ],
+      "catalog_owners": [
+        "@fictional/media"
+      ],
+      "conflict_count": 2,
+      "runbook_headings": [
+        "Image resizing",
+        "Diagnose"
+      ],
+      "local_links": [
+        {
+          "target": "runbooks/queue.md",
+          "exists": true
+        },
+        {
+          "target": "runbooks/rollback.md",
+          "exists": false
+        }
+      ],
+      "dependency_owners": [
+        {
+          "id": "queue",
+          "owners": [
+            "@fictional/platform"
+          ]
+        }
+      ]
+    },
+    "last_wins_counterexample": {
+      "rules": [
+        "/services/images/cache/** @cache",
+        "/services/ @platform"
+      ],
+      "same_path_effective": "@platform",
+      "not_most_specific": "@cache"
+    },
+    "scope_counterexamples": [
+      "依赖环/重复依赖未拒；handoff仅直接依赖且owners来自catalog，不重新应用路径规则。",
+      "/absolute.md在checkRunbook内部会和base拼成runbooks/absolute.md，未采用repo-root绝对链接语义；只支持明确相对链接。",
+      "#fragment和远端URL跳过，heading存在与实际恢复准确性分开；正则会读取代码块中伪heading/link。",
+      "catalog.json/CODEOWNERS来源标签是内部默认，不是读取真实Git文件或提交签名。"
+    ]
+  },
+  "root_review": {
+    "all_git_blobs_rechecked": 26,
+    "drift": 0,
+    "critical_source_functions_actually_read": [
+      "matchesRule",
+      "resolveOwnership",
+      "checkRunbook"
+    ],
+    "formal_draft_complete_read": true,
+    "source_execution": 0
+  },
+  "tests_static": [
+    {
+      "file": "projects/service-ownership-navigator/stages/01-load-evidence/tests/stage.test.mjs",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/service-ownership-navigator/stages/02-resolve-paths/tests/stage.test.mjs",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/service-ownership-navigator/stages/03-check-runbooks/tests/stage.test.mjs",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/service-ownership-navigator/stages/04-export-handoff/tests/stage.test.mjs",
+      "static_tests": 6,
+      "executed": false
+    }
+  ],
+  "formal_fusion": {
+    "file": "计算机科学基础/05-生产级软件工程.md",
+    "before_sha256": "156513b9560e3e4a1a54037d6716cfa484e718f3230c9eec0032bb365062a1f9",
+    "after_sha256": "cdb4b0783ba9935e3655d78df4b3c80c75f70216d3e079eee23108aefcd9d83a",
+    "old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "255b698dd5dd5b0d2ad89f9be402d81c5db877af076ea5e264cc78089a08d9ac",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "dce1c3e80e127c3c959129681a79b9edb2d3576092568bf850b13dab3a857889",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4635 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

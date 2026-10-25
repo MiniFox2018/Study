@@ -1,0 +1,2162 @@
+{
+  "date": "2026-10-23",
+  "project": "kubernetes-event-storyboard",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-parse-snapshots",
+    "02-group-occurrences",
+    "03-connect-revisions",
+    "04-export-storyboard"
+  ],
+  "read_handoff": {
+    "read_by": "root",
+    "method": "9个准备块按源顺序实际全读，公共行/文件精确复用；不是只扫描目录"
+  },
+  "inventory": [
+    {
+      "path": "projects/kubernetes-event-storyboard/README.md",
+      "bytes": 3206,
+      "sha256": "3e2938f84ea6031db608d250bfc4460876020e4d8a0b8712c8f7a0c5b6bd082c",
+      "git_blob": "843525645b4e29325b27f27747337cd47312618e",
+      "status": "root_actual_full_text_read",
+      "lines": 45
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/media/output.gif",
+      "bytes": 66922,
+      "sha256": "e14f235a565064cd8a6369a668013731a957b89adc7b15ea726bf2d9d9054f5e",
+      "git_blob": "780755be33f1e1a873712feb13fc2cde76dd8f9c",
+      "status": "author_demo_media_value_classified",
+      "frames_data_decoded": 6,
+      "actual_visual_read": false,
+      "scope": "output.png实际看；run.png为已全读run.json作者旧测试日志的重复展示；GIF仅解码不称逐帧视觉"
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/media/output.json",
+      "bytes": 235,
+      "sha256": "e9b15fbe2648e23e3c5a3c5775a1e8bbd93eba25a410da9f675b031a046abddb",
+      "git_blob": "922e428a8b906f30210c94c5e2d610145da0ed3f",
+      "status": "root_actual_full_text_read",
+      "lines": 11
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/media/output.png",
+      "bytes": 66047,
+      "sha256": "f2a14952c5f6d861c5d16ecbbadd7da9fb189f48e9bd1d2a198a4328bb0126a8",
+      "git_blob": "a0f0b60e79f17cae17ecf7e63ff6af12a6c3ea4d",
+      "status": "author_demo_media_value_classified",
+      "frames_data_decoded": 1,
+      "actual_visual_read": true,
+      "scope": "output.png实际看；run.png为已全读run.json作者旧测试日志的重复展示；GIF仅解码不称逐帧视觉"
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/media/run.gif",
+      "bytes": 277663,
+      "sha256": "f8fb1332ac8976f3f3fe22839d3a22c41971af9d892d319bfbe7492a6e5fc286",
+      "git_blob": "0364cb365cd7e26dc801879fb0cbbc8fa06345d7",
+      "status": "author_demo_media_value_classified",
+      "frames_data_decoded": 18,
+      "actual_visual_read": false,
+      "scope": "output.png实际看；run.png为已全读run.json作者旧测试日志的重复展示；GIF仅解码不称逐帧视觉"
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/media/run.json",
+      "bytes": 2273,
+      "sha256": "7badd24d110650b5ee04042db29f1ceaba5bda93c651355217d7cde9c3d151d7",
+      "git_blob": "98d4f706c397c04e244b37470c460f775eca7472",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 52,
+      "reuse_source": "projects/download-folder-sort-desk/media/run.json",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "a6fb08fda1acb957b6116bd37811a1fe41a01611c0631edbf786d6889a27a55c"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            2,
+            3
+          ],
+          "current_lines": [
+            2,
+            3
+          ],
+          "sha256": "3241c07c938eb2c119848f63b20b8d5650bf59e0aa7cbcc7eb585e95ca69a6b6"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            4,
+            8
+          ],
+          "current_lines": [
+            4,
+            8
+          ],
+          "sha256": "0d8118f3842bdf1ee432d285c3c94a9c3772275e2f39ecf8d714b698e19ddaa5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            9,
+            9
+          ],
+          "current_lines": [
+            9,
+            9
+          ],
+          "sha256": "c2d2fac99ba2aac5895f2066542e4a75cb86ac8258f9ec1264cfb9593c8f788c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            10,
+            10
+          ],
+          "current_lines": [
+            10,
+            10
+          ],
+          "sha256": "17c955f38cb0dc740d553d3975ba2b0dd66a056a203b43c92ae30c4576c5fc8b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            11,
+            11
+          ],
+          "current_lines": [
+            11,
+            11
+          ],
+          "sha256": "9d70d2a62c01443f6df8e4f410d6ef2e9c13b8740c798b7d3d474d1154096bbe"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            12,
+            14
+          ],
+          "current_lines": [
+            12,
+            14
+          ],
+          "sha256": "07b5b0e5aefa33da46ff46fe068ce97f6852d5f403f00f106b7a15b2f5b5b713"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            15,
+            16
+          ],
+          "current_lines": [
+            15,
+            16
+          ],
+          "sha256": "9ad8fdf4147a12899220a99de18be24c1da1bce61c96341603caa1c9bac349e0"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            17,
+            21
+          ],
+          "current_lines": [
+            17,
+            21
+          ],
+          "sha256": "82b1fbf9c8ab70ce68f3b9a48cb1254133cc204a92ca700e23e768d0eebad173"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            22,
+            22
+          ],
+          "current_lines": [
+            22,
+            22
+          ],
+          "sha256": "c2d2fac99ba2aac5895f2066542e4a75cb86ac8258f9ec1264cfb9593c8f788c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            23,
+            25
+          ],
+          "current_lines": [
+            23,
+            25
+          ],
+          "sha256": "4594921a96b4b9876e0393910934f664c31b03bd8db247001e23d67c063261c5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            26,
+            26
+          ],
+          "current_lines": [
+            26,
+            26
+          ],
+          "sha256": "6e3b9bb116b39d12005401ed0e538327fa26a79f3c64f0d7166b6ee83ec8bde9"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            27,
+            30
+          ],
+          "current_lines": [
+            27,
+            30
+          ],
+          "sha256": "2e6bb6c4efc7c10ac49fb869df21dcc8d39a4b3521645a9ce02202c78c989242"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            31,
+            32
+          ],
+          "current_lines": [
+            31,
+            32
+          ],
+          "sha256": "6be9ff1704ef8174724003f90ea1f75da4c27b1a0dc44f67fb063921b5a460e2"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            33,
+            37
+          ],
+          "current_lines": [
+            33,
+            37
+          ],
+          "sha256": "82b1fbf9c8ab70ce68f3b9a48cb1254133cc204a92ca700e23e768d0eebad173"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            38,
+            38
+          ],
+          "current_lines": [
+            38,
+            38
+          ],
+          "sha256": "c2d2fac99ba2aac5895f2066542e4a75cb86ac8258f9ec1264cfb9593c8f788c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            39,
+            42
+          ],
+          "current_lines": [
+            39,
+            42
+          ],
+          "sha256": "d85dd0d07386447c813258e84ff54ee9da36b36672d6eb080a3cd68cf5d7ced8"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            43,
+            43
+          ],
+          "current_lines": [
+            43,
+            43
+          ],
+          "sha256": "9d6326501a02348d514f48b5948b41f5eb4d4e78765c6350ab8723392ad955ea"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            44,
+            46
+          ],
+          "current_lines": [
+            44,
+            46
+          ],
+          "sha256": "07b5b0e5aefa33da46ff46fe068ce97f6852d5f403f00f106b7a15b2f5b5b713"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            47,
+            48
+          ],
+          "current_lines": [
+            47,
+            48
+          ],
+          "sha256": "0c04b27196ecd1e6bcbeac7e3ee7429ff9a9e3f3e5d94ef85be26cf0bd07c297"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            49,
+            52
+          ],
+          "current_lines": [
+            49,
+            52
+          ],
+          "sha256": "51c199c4da9c29c1bf38cf4dc998167db0cd43dd94b199059a832cee24b62025"
+        }
+      ]
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/media/run.png",
+      "bytes": 90049,
+      "sha256": "5b2798f59356e305369ec58f33ba472cccabbd45cda1e0198e0429caa7f1012e",
+      "git_blob": "478e0d18973102115e109cbb9a80b0df800992f8",
+      "status": "author_demo_media_value_classified",
+      "frames_data_decoded": 1,
+      "actual_visual_read": false,
+      "scope": "output.png实际看；run.png为已全读run.json作者旧测试日志的重复展示；GIF仅解码不称逐帧视觉"
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/project.json",
+      "bytes": 3319,
+      "sha256": "10cf6f0480ccd79a620e3d384ae36b7a1023380caf62eeb7d8d1032b36b7b982",
+      "git_blob": "4ae957071e7091b47343acbe4a72ed605d2885d8",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 114,
+      "reuse_source": "projects/decision-tradeoff-explorer/project.json",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "a6fb08fda1acb957b6116bd37811a1fe41a01611c0631edbf786d6889a27a55c"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            2,
+            5
+          ],
+          "current_lines": [
+            2,
+            5
+          ],
+          "sha256": "86f8264491387e53fe56eec441f50fe8913542b3e1aba02631a8b6b2c5cecbf9"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            6,
+            10
+          ],
+          "current_lines": [
+            6,
+            10
+          ],
+          "sha256": "a008b05f1eb93b3ad4ff24e027e82c56febffa4a47a203909e932397bd29a606"
+        },
+        {
+          "kind": "insert",
+          "base_lines": [
+            11,
+            10
+          ],
+          "current_lines": [
+            11,
+            11
+          ],
+          "sha256": "2faf45c59986fa8271a9defa2c6e990f09c20cab74245280f081ba321618515c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            11,
+            16
+          ],
+          "current_lines": [
+            12,
+            17
+          ],
+          "sha256": "8e7802924be3472aad86023ef786bab178f3c9b0be5e29c5ec24fc45c7bd9ba1"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            17,
+            17
+          ],
+          "current_lines": [
+            18,
+            18
+          ],
+          "sha256": "6cf3274b25dc75d5f3a3abe3607ab9544e30a9b9c7c854c0be30f80c7b1f69d9"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            18,
+            18
+          ],
+          "current_lines": [
+            19,
+            19
+          ],
+          "sha256": "5e485fc277c30efa9f7616b43362cc527228a50f39ab27ffdbb4a99cf8ad80b8"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            19,
+            20
+          ],
+          "current_lines": [
+            20,
+            21
+          ],
+          "sha256": "d57da9cfdabb90166b99891f56bb3907543e68db8d9aee3f2bf9d027cf849253"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            21,
+            23
+          ],
+          "current_lines": [
+            22,
+            24
+          ],
+          "sha256": "87a16a0f571b32919a563f577835bb148ac22c4e491a61eb9145efa1bd5d73de"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            24,
+            26
+          ],
+          "current_lines": [
+            25,
+            26
+          ],
+          "sha256": "81a863d6bdc2a0bb9d689e7a44c039b7406fb14cdab301f666998a756347610f"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            27,
+            31
+          ],
+          "current_lines": [
+            27,
+            31
+          ],
+          "sha256": "73ca5b6b952d5a9352ed038d6679eb54de11aca416625806becf9963fcb032be"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            32,
+            34
+          ],
+          "current_lines": [
+            32,
+            34
+          ],
+          "sha256": "daaa92033dbcb0ef0f6df6c541607c80d5106d7284b94f31f7ec7d5099e80f92"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            35,
+            35
+          ],
+          "current_lines": [
+            35,
+            35
+          ],
+          "sha256": "b2e60e48bf0cd17667f81562fc5bf6bf7d3fb190ee636875db29ad2e24327283"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            36,
+            36
+          ],
+          "current_lines": [
+            36,
+            36
+          ],
+          "sha256": "1e0ad4ecae134d4213244ffa2bb3067864b91885276e0be0e9e73d0850d0c911"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            37,
+            38
+          ],
+          "current_lines": [
+            37,
+            38
+          ],
+          "sha256": "e3ba2fa21344145c07805ada4eae5a13da1ca70b7c2b6285cb4196bcacca2865"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            39,
+            41
+          ],
+          "current_lines": [
+            39,
+            41
+          ],
+          "sha256": "9feac7465f24123627d1c1e85dcff0b6f76f9cde434c657a6d52884002059d78"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            42,
+            43
+          ],
+          "current_lines": [
+            42,
+            43
+          ],
+          "sha256": "313dda7689c9f471b526c1e6c84ecc4494c78b35ddffde6bdc98944c23849db1"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            44,
+            44
+          ],
+          "current_lines": [
+            44,
+            44
+          ],
+          "sha256": "4cd0060ca371e4def592c038df906ee992338fca0aaad9b853b090da2e7db7a2"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            45,
+            46
+          ],
+          "current_lines": [
+            45,
+            46
+          ],
+          "sha256": "27ec1b61bb354cd792d2d18839662b6f52a3a2643c60b8c5c59336465c9b7a08"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            47,
+            49
+          ],
+          "current_lines": [
+            47,
+            49
+          ],
+          "sha256": "d2c6f570394ccbaaf992228e63af8b7a5f25a1ea810b831913657d628cc10b75"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            50,
+            50
+          ],
+          "current_lines": [
+            50,
+            50
+          ],
+          "sha256": "b2e60e48bf0cd17667f81562fc5bf6bf7d3fb190ee636875db29ad2e24327283"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            51,
+            51
+          ],
+          "current_lines": [
+            51,
+            51
+          ],
+          "sha256": "1e0ad4ecae134d4213244ffa2bb3067864b91885276e0be0e9e73d0850d0c911"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            52,
+            53
+          ],
+          "current_lines": [
+            52,
+            53
+          ],
+          "sha256": "c7ff7dbdac1d8109d6aece8e2e69877cc2c8142d194e09072d0db5e9d4800277"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            54,
+            56
+          ],
+          "current_lines": [
+            54,
+            56
+          ],
+          "sha256": "4f48b523e8a57b324b107a9a074878d53c4eeb133d0c8afedc3647385038d7b7"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            57,
+            58
+          ],
+          "current_lines": [
+            57,
+            58
+          ],
+          "sha256": "313dda7689c9f471b526c1e6c84ecc4494c78b35ddffde6bdc98944c23849db1"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            59,
+            59
+          ],
+          "current_lines": [
+            59,
+            59
+          ],
+          "sha256": "f0e5a10dbf32e352499d5cb40ac37cb1feccf3053c464d881431371edd078a95"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            60,
+            61
+          ],
+          "current_lines": [
+            60,
+            61
+          ],
+          "sha256": "27ec1b61bb354cd792d2d18839662b6f52a3a2643c60b8c5c59336465c9b7a08"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            62,
+            64
+          ],
+          "current_lines": [
+            62,
+            64
+          ],
+          "sha256": "4e2a7c6543bf165dac9fe86929bf2eb1d37f8bd285a493d6a63decea5d7a136f"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            65,
+            65
+          ],
+          "current_lines": [
+            65,
+            65
+          ],
+          "sha256": "b2e60e48bf0cd17667f81562fc5bf6bf7d3fb190ee636875db29ad2e24327283"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            66,
+            66
+          ],
+          "current_lines": [
+            66,
+            66
+          ],
+          "sha256": "1e0ad4ecae134d4213244ffa2bb3067864b91885276e0be0e9e73d0850d0c911"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            67,
+            68
+          ],
+          "current_lines": [
+            67,
+            68
+          ],
+          "sha256": "c7ff7dbdac1d8109d6aece8e2e69877cc2c8142d194e09072d0db5e9d4800277"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            69,
+            71
+          ],
+          "current_lines": [
+            69,
+            71
+          ],
+          "sha256": "a26f2f2875fa5a52c7e3c7ddf04f9b8d60a7403b02f936eb8958620818f5df38"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            72,
+            73
+          ],
+          "current_lines": [
+            72,
+            73
+          ],
+          "sha256": "313dda7689c9f471b526c1e6c84ecc4494c78b35ddffde6bdc98944c23849db1"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            74,
+            74
+          ],
+          "current_lines": [
+            74,
+            74
+          ],
+          "sha256": "1b0a07c18c584cd44c7843edcc8fb8cf46a8e933ac640d959d55f0238a5701b9"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            75,
+            76
+          ],
+          "current_lines": [
+            75,
+            76
+          ],
+          "sha256": "27ec1b61bb354cd792d2d18839662b6f52a3a2643c60b8c5c59336465c9b7a08"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            77,
+            79
+          ],
+          "current_lines": [
+            77,
+            79
+          ],
+          "sha256": "1f531fb826d1f9893417826836fb8becbc8198ace54cfb395ab832632984e1d6"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            80,
+            80
+          ],
+          "current_lines": [
+            80,
+            80
+          ],
+          "sha256": "b2e60e48bf0cd17667f81562fc5bf6bf7d3fb190ee636875db29ad2e24327283"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            81,
+            81
+          ],
+          "current_lines": [
+            81,
+            81
+          ],
+          "sha256": "f91e43f51d67ed0f9a1f93bc077e7fc0b346f0a3dc07a2a9e99516f22ac645e5"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            82,
+            83
+          ],
+          "current_lines": [
+            82,
+            83
+          ],
+          "sha256": "c7ff7dbdac1d8109d6aece8e2e69877cc2c8142d194e09072d0db5e9d4800277"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            84,
+            86
+          ],
+          "current_lines": [
+            84,
+            86
+          ],
+          "sha256": "43ebe0896839615bd69ffb17716d1d270b34798929e0ec7b102ed912ed3ffc74"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            87,
+            88
+          ],
+          "current_lines": [
+            87,
+            88
+          ],
+          "sha256": "313dda7689c9f471b526c1e6c84ecc4494c78b35ddffde6bdc98944c23849db1"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            89,
+            89
+          ],
+          "current_lines": [
+            89,
+            97
+          ],
+          "sha256": "69a6f962a2bd8872c2f3e3dcb5135d9c2329ba48569356b9edc941cbe0e9eab5"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            90,
+            106
+          ],
+          "current_lines": [
+            98,
+            114
+          ],
+          "sha256": "509e8f882b2cefa1f935554a3cdf5a9b43c12a82ab9804052aa49320e4a18ca7"
+        }
+      ]
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/solution/cli.ts",
+      "bytes": 483,
+      "sha256": "20006772a6c0ab5cc1b0fd44be2260d7c5a0291de701fa059d7f185e26cd3d23",
+      "git_blob": "f5e58ed32308f23b3bafa677cf1c8fe785cdc9bf",
+      "status": "root_actual_full_text_read",
+      "lines": 13
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/solution/demo.py",
+      "bytes": 136,
+      "sha256": "89192ea4d18c61f40ac70ba8830abea2fccf758cb51737c9f823736aff70bf35",
+      "git_blob": "a5c15e8fd584f27f163b079967b51843d95fc62f",
+      "status": "root_actual_full_text_read",
+      "lines": 3
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/solution/fixtures/rollout.json",
+      "bytes": 1888,
+      "sha256": "a49bb7863ab1c2aa1801d22358e7fa728cff912dbbc519f8fd6a2746ac3d129d",
+      "git_blob": "08fa27fad72ddd655e1f7d3573447d0dbf79373f",
+      "status": "root_actual_full_text_read",
+      "lines": 87
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/solution/go.mod",
+      "bytes": 27,
+      "sha256": "fc227f539dc9f4493b59f5026fb14b8c67b03b0d984cc3dfea5e797cd53cb6c7",
+      "git_blob": "3d9085ec25369a7a4763da59df0b3dfda4999878",
+      "status": "root_actual_full_text_read",
+      "lines": 3
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/solution/main.go",
+      "bytes": 7329,
+      "sha256": "8855bf9919e3dadeac78d8bf10318817900d2a6dd00842b5fe45d672aa3a7105",
+      "git_blob": "b344f6cd9a9dc69afd5195174584db0addc6ec40",
+      "status": "root_actual_full_text_read",
+      "lines": 268
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/solution/main.ts",
+      "bytes": 3313,
+      "sha256": "033def8a0e2ad77683c22f87ba9235fbceeed7bd3f11ee87bf13ef96b27f710a",
+      "git_blob": "86b6f56399e44b2b939b0495b15c48888373e3c7",
+      "status": "root_actual_full_text_read",
+      "lines": 46
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/01-parse-snapshots/docs/en.md",
+      "bytes": 2172,
+      "sha256": "0e1b8b7ac46f5722a6a4e6d9517b185d389808111caaf7ea331ca972694960a5",
+      "git_blob": "40d70dfdcd66e2d71563c9d0d6adbd77511969f5",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 42,
+      "reuse_source": "projects/decision-tradeoff-explorer/stages/01-declare-evidence/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "e1c5cf3398833dde130fa69a2685b29e02308ac1a5cb18f16e87d6ee3436ebe4"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            2,
+            2
+          ],
+          "current_lines": [
+            2,
+            2
+          ],
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            3,
+            3
+          ],
+          "current_lines": [
+            3,
+            3
+          ],
+          "sha256": "bbe708cb94058c0d2f1431a0763db87dfea5ae4bce2f80565ec825f1721aff25"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            4,
+            5
+          ],
+          "current_lines": [
+            4,
+            5
+          ],
+          "sha256": "575a7a3769defeab339ab3c54a7057673f1b624a41ca9f9dbdbe8c6320a277f5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            6,
+            6
+          ],
+          "current_lines": [
+            6,
+            6
+          ],
+          "sha256": "a1e54ee934f2847f9ce58ddf210c9eb7acbd8296c103ce6c6657e4a902b49352"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            7,
+            12
+          ],
+          "current_lines": [
+            7,
+            12
+          ],
+          "sha256": "c9bd8db4c38f9b4df6338a60f3da631e974b5889c527d0bcf737428463f2d53a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            13,
+            13
+          ],
+          "current_lines": [
+            13,
+            13
+          ],
+          "sha256": "7f2ba994a9fa815b08442d5db27e3dd885c10aaf50e7d76f56602e5cfb2f35bc"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            14,
+            16
+          ],
+          "current_lines": [
+            14,
+            16
+          ],
+          "sha256": "0036e8ea3679916f018e9302530536d74ede4533f98b773cc6698f9af827cfe9"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            17,
+            17
+          ],
+          "current_lines": [
+            17,
+            17
+          ],
+          "sha256": "5d0ff8233bbf3b9d996f8174da48425645bc45c84b5794f8740db1311127ec95"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            18,
+            19
+          ],
+          "current_lines": [
+            18,
+            19
+          ],
+          "sha256": "f51055fd81db8b33eb1860bc16119e1d9c6392b0e828d5087ff58e194d153e5a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            20,
+            20
+          ],
+          "current_lines": [
+            20,
+            20
+          ],
+          "sha256": "525bce4802b3bf84ef4259ee77762c94c6f0f213ef77b022fef9626057eefe2e"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            21,
+            24
+          ],
+          "current_lines": [
+            21,
+            24
+          ],
+          "sha256": "0102cfafa93c54208a66788e184c122f1fa163c780c27a3dc67672594093d222"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            25,
+            25
+          ],
+          "current_lines": [
+            25,
+            25
+          ],
+          "sha256": "464a6fffe0a992fcff04157f1590664cbab5e429e333e04b1de94b9a05a93a80"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            26,
+            31
+          ],
+          "current_lines": [
+            26,
+            31
+          ],
+          "sha256": "bf39f800486150a681f72c54142b8733c9b563387501917d048c5ecf26d5822e"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            32,
+            33
+          ],
+          "current_lines": [
+            32,
+            33
+          ],
+          "sha256": "f1f9e5a78b3a38be0f9d2d41f01d26304f247c786f25237d1ace3cfd16a6cb3d"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            34,
+            39
+          ],
+          "current_lines": [
+            34,
+            39
+          ],
+          "sha256": "a5ae487764de07e6592024d9c765d4767a0627e3d071776ea3fcd4f4065ebaed"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            40,
+            40
+          ],
+          "current_lines": [
+            40,
+            40
+          ],
+          "sha256": "05929f700980dbff8fca68fa6448cf9e1059de91d7dab1c7ccd479999c51330a"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            41,
+            41
+          ],
+          "current_lines": [
+            41,
+            41
+          ],
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            42,
+            42
+          ],
+          "current_lines": [
+            42,
+            42
+          ],
+          "sha256": "82db14a9138e00099c5ac5abd63b955d7a085f3c30fb0745fa21f4c08c0106a1"
+        }
+      ]
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/01-parse-snapshots/starter/cli.ts",
+      "bytes": 483,
+      "sha256": "20006772a6c0ab5cc1b0fd44be2260d7c5a0291de701fa059d7f185e26cd3d23",
+      "git_blob": "f5e58ed32308f23b3bafa677cf1c8fe785cdc9bf",
+      "status": "exact_SHA_reuse_of_read_text",
+      "lines": 13,
+      "reuse_source": "projects/kubernetes-event-storyboard/solution/cli.ts"
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/01-parse-snapshots/starter/demo.py",
+      "bytes": 136,
+      "sha256": "89192ea4d18c61f40ac70ba8830abea2fccf758cb51737c9f823736aff70bf35",
+      "git_blob": "a5c15e8fd584f27f163b079967b51843d95fc62f",
+      "status": "exact_SHA_reuse_of_read_text",
+      "lines": 3,
+      "reuse_source": "projects/kubernetes-event-storyboard/solution/demo.py"
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/01-parse-snapshots/starter/fixtures/rollout.json",
+      "bytes": 1888,
+      "sha256": "a49bb7863ab1c2aa1801d22358e7fa728cff912dbbc519f8fd6a2746ac3d129d",
+      "git_blob": "08fa27fad72ddd655e1f7d3573447d0dbf79373f",
+      "status": "exact_SHA_reuse_of_read_text",
+      "lines": 87,
+      "reuse_source": "projects/kubernetes-event-storyboard/solution/fixtures/rollout.json"
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/01-parse-snapshots/starter/go.mod",
+      "bytes": 27,
+      "sha256": "fc227f539dc9f4493b59f5026fb14b8c67b03b0d984cc3dfea5e797cd53cb6c7",
+      "git_blob": "3d9085ec25369a7a4763da59df0b3dfda4999878",
+      "status": "exact_SHA_reuse_of_read_text",
+      "lines": 3,
+      "reuse_source": "projects/kubernetes-event-storyboard/solution/go.mod"
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/01-parse-snapshots/starter/main.go",
+      "bytes": 3440,
+      "sha256": "fe6e9b8a2ae844ba6e9efa13d9801f67f05d2c1c37bc07eafde2e11dbde1aac7",
+      "git_blob": "eacaaa7f4885e9117ffa6655cd6086f6f50b4d23",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 110,
+      "reuse_source": "projects/kubernetes-event-storyboard/solution/main.go",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "base_lines": [
+            1,
+            3
+          ],
+          "current_lines": [
+            1,
+            3
+          ],
+          "sha256": "f13ff86eafdae31ee8ab4c24772f623aa0f078923c79655f47dcc1b6e33a8253"
+        },
+        {
+          "kind": "delete",
+          "base_lines": [
+            4,
+            4
+          ],
+          "current_lines": [
+            4,
+            3
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            5,
+            8
+          ],
+          "current_lines": [
+            4,
+            7
+          ],
+          "sha256": "82d929fb8a122217cce5b3372b4a7ae7c1014de01f3524291afb6d52e6c7a2bf"
+        },
+        {
+          "kind": "delete",
+          "base_lines": [
+            9,
+            9
+          ],
+          "current_lines": [
+            8,
+            7
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            10,
+            10
+          ],
+          "current_lines": [
+            8,
+            8
+          ],
+          "sha256": "171b756171ff8240f94ccb83de837ed4242449df3ecef3a3762523d1f5ae0348"
+        },
+        {
+          "kind": "delete",
+          "base_lines": [
+            11,
+            11
+          ],
+          "current_lines": [
+            9,
+            8
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            12,
+            78
+          ],
+          "current_lines": [
+            9,
+            75
+          ],
+          "sha256": "567b9625cb18ddf6aeb2de2d11fadd9eff85a6bf1aca745f1d45e17e720fea5e"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            79,
+            239
+          ],
+          "current_lines": [
+            76,
+            81
+          ],
+          "sha256": "9dcfbf08fb7875b5e5f2c8be1b1d423af7cf175a6acf86e2d95ef88de53387db"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            240,
+            268
+          ],
+          "current_lines": [
+            82,
+            110
+          ],
+          "sha256": "69e5aacdde2c54c563f05281b94a2bb7d82f5cc577c13d64dce7ad1df9d3335c"
+        }
+      ]
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/01-parse-snapshots/starter/main.ts",
+      "bytes": 191,
+      "sha256": "a360899cfed1ef09f932f1afc032277264fbf305d1b07dfeba212d8e5b084090",
+      "git_blob": "ba377884c3b14bc1037027da6925f4720a6b0ed1",
+      "status": "root_actual_full_text_read",
+      "lines": 6
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/01-parse-snapshots/tests/stage_test.go",
+      "bytes": 1343,
+      "sha256": "4963db060fcdf2720d3091053db1a022ef787054e9c2c2a125272fae1fc00410",
+      "git_blob": "93746e4d400f226b30e7b38663aa950a8ac5bafd",
+      "status": "root_actual_full_text_read",
+      "lines": 57
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/02-group-occurrences/docs/en.md",
+      "bytes": 2200,
+      "sha256": "b8c4f4a551099a2e1fe8055cb141d4566286a831a3d802721c6ecd2de3a7e111",
+      "git_blob": "f762913b9cbcbb3ece693ff0cdd1ab06a119c8b7",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 42,
+      "reuse_source": "projects/decision-tradeoff-explorer/stages/03-sweep-preferences/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "4e88376e33ceaa848c818f54cd544dd5e9bbc7e877913083d3b1b283784b6a99"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            2,
+            2
+          ],
+          "current_lines": [
+            2,
+            2
+          ],
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            3,
+            3
+          ],
+          "current_lines": [
+            3,
+            3
+          ],
+          "sha256": "8ae50e045b9ee9af40fd63fce53d3968c9ec0d14c3745a7910d158ac70b2ba2c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            4,
+            5
+          ],
+          "current_lines": [
+            4,
+            5
+          ],
+          "sha256": "575a7a3769defeab339ab3c54a7057673f1b624a41ca9f9dbdbe8c6320a277f5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            6,
+            7
+          ],
+          "current_lines": [
+            6,
+            7
+          ],
+          "sha256": "a08de0a433c5070d8bc7d6f33877eca4736986670f34345644a44faaa5292ad4"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            8,
+            12
+          ],
+          "current_lines": [
+            8,
+            12
+          ],
+          "sha256": "c35d7bd6b4ec072fd4602a9859de417242de4e0049408a448e0435959f848dbc"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            13,
+            13
+          ],
+          "current_lines": [
+            13,
+            13
+          ],
+          "sha256": "614b70bd40c32038ff35133cddb541322b5aa25f90d27f29825100ff8b2bfc99"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            14,
+            16
+          ],
+          "current_lines": [
+            14,
+            16
+          ],
+          "sha256": "0036e8ea3679916f018e9302530536d74ede4533f98b773cc6698f9af827cfe9"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            17,
+            17
+          ],
+          "current_lines": [
+            17,
+            17
+          ],
+          "sha256": "e1742e5f146f1aa075a0c7b98eda89632bffaa6efc3d49088056624dd6640d1d"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            18,
+            19
+          ],
+          "current_lines": [
+            18,
+            19
+          ],
+          "sha256": "f51055fd81db8b33eb1860bc16119e1d9c6392b0e828d5087ff58e194d153e5a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            20,
+            20
+          ],
+          "current_lines": [
+            20,
+            20
+          ],
+          "sha256": "d7f8a5c7590b63ea596d8fb3f8b19d4cb5aa8389ae10254ab0b989ed07e43ede"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            21,
+            24
+          ],
+          "current_lines": [
+            21,
+            24
+          ],
+          "sha256": "0102cfafa93c54208a66788e184c122f1fa163c780c27a3dc67672594093d222"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            25,
+            25
+          ],
+          "current_lines": [
+            25,
+            25
+          ],
+          "sha256": "dd94317057c2e11dccdf530ff747284cb1b66160c94816e02cc4e0edd31cd556"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            26,
+            31
+          ],
+          "current_lines": [
+            26,
+            31
+          ],
+          "sha256": "bf39f800486150a681f72c54142b8733c9b563387501917d048c5ecf26d5822e"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            32,
+            33
+          ],
+          "current_lines": [
+            32,
+            33
+          ],
+          "sha256": "5f7a4280dbe861a570eedfe8cfc5fb2730c5d9341c8c46bc2a496a75f4390da6"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            34,
+            39
+          ],
+          "current_lines": [
+            34,
+            39
+          ],
+          "sha256": "a5ae487764de07e6592024d9c765d4767a0627e3d071776ea3fcd4f4065ebaed"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            40,
+            40
+          ],
+          "current_lines": [
+            40,
+            40
+          ],
+          "sha256": "34e287d53dd332789c0b98cb822fdd842b0dccfefbda44ae4ec8b61a8851a35b"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            41,
+            42
+          ],
+          "current_lines": [
+            41,
+            42
+          ],
+          "sha256": "156ba23fbc8602cf15c271344054d9f5f83ceee25bfbc5ea66e6ec9937ba3a8a"
+        }
+      ]
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/02-group-occurrences/starter/STAGE-2.md",
+      "bytes": 263,
+      "sha256": "373eedbec9420ad047811d54455e473549c28ca68d78bc12728be3550539ac56",
+      "git_blob": "ef74b48ef8bd5b010b1320f7cd223ad2e64d0f09",
+      "status": "root_actual_full_text_read",
+      "lines": 3
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/02-group-occurrences/tests/stage_test.go",
+      "bytes": 1712,
+      "sha256": "832cf40c82a23420bdcd98187437eda93467a8946895f00d46d6dc884bedbe27",
+      "git_blob": "8903ad35341e2c3056ea3fddc75a16bae647f7dd",
+      "status": "root_actual_full_text_read",
+      "lines": 75
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/03-connect-revisions/docs/en.md",
+      "bytes": 2061,
+      "sha256": "f6b6c524a98480c9b282af8f4f7f4bf78484a873b2f519cfdc9f086b1ba13592",
+      "git_blob": "1d91fa6c1a025446ffc78c5eb37aa8aef250b441",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 42,
+      "reuse_source": "projects/kubernetes-event-storyboard/stages/02-group-occurrences/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "1d9c223f00b52e082178a6cac8f8829e54ffb28d7d0d83c165cb881cc283a03b"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            2,
+            2
+          ],
+          "current_lines": [
+            2,
+            2
+          ],
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            3,
+            3
+          ],
+          "current_lines": [
+            3,
+            3
+          ],
+          "sha256": "0220fbdb2e89e2b332b8165fe6c0664be3076ddbb0e669f6a87cb5b2d01b563c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            4,
+            6
+          ],
+          "current_lines": [
+            4,
+            6
+          ],
+          "sha256": "31709304a73ad0eaf61f62599f0d1f27f06c8b5cbd1473704919531eb04ee908"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            7,
+            7
+          ],
+          "current_lines": [
+            7,
+            7
+          ],
+          "sha256": "d7c0f1e10821bbdbc1d89dc76a5d677f30aff4dc7545d2753808ecfa5eee647f"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            8,
+            12
+          ],
+          "current_lines": [
+            8,
+            12
+          ],
+          "sha256": "c35d7bd6b4ec072fd4602a9859de417242de4e0049408a448e0435959f848dbc"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            13,
+            13
+          ],
+          "current_lines": [
+            13,
+            13
+          ],
+          "sha256": "2d70e1d722f12223a23dfdbeb7ffbeb16090b59b65a510a5387af5eefe552bca"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            14,
+            16
+          ],
+          "current_lines": [
+            14,
+            16
+          ],
+          "sha256": "0036e8ea3679916f018e9302530536d74ede4533f98b773cc6698f9af827cfe9"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            17,
+            17
+          ],
+          "current_lines": [
+            17,
+            17
+          ],
+          "sha256": "f934ead8f7817885be0f18a9cf1784dfb0d0a0c272ac45062ac554c4144e851f"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            18,
+            19
+          ],
+          "current_lines": [
+            18,
+            19
+          ],
+          "sha256": "f51055fd81db8b33eb1860bc16119e1d9c6392b0e828d5087ff58e194d153e5a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            20,
+            20
+          ],
+          "current_lines": [
+            20,
+            20
+          ],
+          "sha256": "e1ff15c1f7956df50fe1826a3bd65bee7b3b405d972a5ea5dc1c66138cd22a89"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            21,
+            24
+          ],
+          "current_lines": [
+            21,
+            24
+          ],
+          "sha256": "0102cfafa93c54208a66788e184c122f1fa163c780c27a3dc67672594093d222"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            25,
+            25
+          ],
+          "current_lines": [
+            25,
+            25
+          ],
+          "sha256": "a9634880689c3cde91ef9dda8fdd806b2448814513bbe23af4efc9de2ff7ccbc"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            26,
+            32
+          ],
+          "current_lines": [
+            26,
+            32
+          ],
+          "sha256": "4b87c9f3d18afc8bfa5007674d2ff40a22e28ba8ef7db5d67775ca5463e151c2"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            33,
+            33
+          ],
+          "current_lines": [
+            33,
+            33
+          ],
+          "sha256": "492d5bfd083a20695d084aa8b21e13c81822319054cc065ba0725322e5d53093"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            34,
+            39
+          ],
+          "current_lines": [
+            34,
+            39
+          ],
+          "sha256": "a5ae487764de07e6592024d9c765d4767a0627e3d071776ea3fcd4f4065ebaed"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            40,
+            40
+          ],
+          "current_lines": [
+            40,
+            40
+          ],
+          "sha256": "c5c72e38633a5b011c483941a81b1e4c45139433a72c29fb9ff7c5a2e926e500"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            41,
+            42
+          ],
+          "current_lines": [
+            41,
+            42
+          ],
+          "sha256": "156ba23fbc8602cf15c271344054d9f5f83ceee25bfbc5ea66e6ec9937ba3a8a"
+        }
+      ]
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/03-connect-revisions/starter/STAGE-3.md",
+      "bytes": 256,
+      "sha256": "13d35714f4cf4b2ce985b54f8a00215c9970b26945effa3857ab5c23d79fa59b",
+      "git_blob": "b0c4d059cade431971d36f0b708cab19eaaa4bb9",
+      "status": "root_actual_full_text_read",
+      "lines": 3
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/03-connect-revisions/tests/stage_test.go",
+      "bytes": 1355,
+      "sha256": "a01279794a2fbb28518b0022ff3b4f3836814b5bcd45741b2e6148423abab50d",
+      "git_blob": "62e42450d6f4b2aade4dd46df3e7409a9d2430f8",
+      "status": "root_actual_full_text_read",
+      "lines": 48
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/04-export-storyboard/docs/en.md",
+      "bytes": 2100,
+      "sha256": "f70d534a06373ab6f806603c27d367eb9aa7800a72ee6e7f5306623ee15753fc",
+      "git_blob": "7293247944f573f1a5545185e240ec4e74ca989b",
+      "status": "root_actual_read_different_lines_with_exact_common_line_reuse",
+      "lines": 42,
+      "reuse_source": "projects/decision-tradeoff-explorer/stages/04-export-board/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "base_lines": [
+            1,
+            1
+          ],
+          "current_lines": [
+            1,
+            1
+          ],
+          "sha256": "9b0b26ab5cf685b80bdb18820ee559a4fe1c9b7cf98e313ae113ceb0deca12a9"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            2,
+            2
+          ],
+          "current_lines": [
+            2,
+            2
+          ],
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            3,
+            3
+          ],
+          "current_lines": [
+            3,
+            3
+          ],
+          "sha256": "94ee568964efb31c65bb046165ee986ba409c1a7b2430d370dcdc7338db03a94"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            4,
+            5
+          ],
+          "current_lines": [
+            4,
+            5
+          ],
+          "sha256": "575a7a3769defeab339ab3c54a7057673f1b624a41ca9f9dbdbe8c6320a277f5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            6,
+            6
+          ],
+          "current_lines": [
+            6,
+            6
+          ],
+          "sha256": "a1e54ee934f2847f9ce58ddf210c9eb7acbd8296c103ce6c6657e4a902b49352"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            7,
+            12
+          ],
+          "current_lines": [
+            7,
+            12
+          ],
+          "sha256": "1a7f38fcd8af11553a50e10da5c5df0eae3561461ac0eefd748ee91b1abfa3d5"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            13,
+            13
+          ],
+          "current_lines": [
+            13,
+            13
+          ],
+          "sha256": "13540fd46fd5ed37e9cecf8bc25e0b32828ddfec48c5bcb9eb55d1241ec1e22e"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            14,
+            16
+          ],
+          "current_lines": [
+            14,
+            16
+          ],
+          "sha256": "0036e8ea3679916f018e9302530536d74ede4533f98b773cc6698f9af827cfe9"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            17,
+            17
+          ],
+          "current_lines": [
+            17,
+            17
+          ],
+          "sha256": "6e14925fde8da5efd2f285a87467107840108bfe960889983c6c7cae578ff1bc"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            18,
+            19
+          ],
+          "current_lines": [
+            18,
+            19
+          ],
+          "sha256": "f51055fd81db8b33eb1860bc16119e1d9c6392b0e828d5087ff58e194d153e5a"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            20,
+            20
+          ],
+          "current_lines": [
+            20,
+            20
+          ],
+          "sha256": "dd7651d0e3be9867beea485862451ca5b73ae17de9f16681cce56da9b8ad4998"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            21,
+            24
+          ],
+          "current_lines": [
+            21,
+            24
+          ],
+          "sha256": "0102cfafa93c54208a66788e184c122f1fa163c780c27a3dc67672594093d222"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            25,
+            25
+          ],
+          "current_lines": [
+            25,
+            25
+          ],
+          "sha256": "1ab78cdc9e9b27e346afdac45588f2a39b5c3c09500896dbea043c8c535c97f7"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            26,
+            31
+          ],
+          "current_lines": [
+            26,
+            31
+          ],
+          "sha256": "bf39f800486150a681f72c54142b8733c9b563387501917d048c5ecf26d5822e"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            32,
+            33
+          ],
+          "current_lines": [
+            32,
+            33
+          ],
+          "sha256": "ec61b419e939ffc126b60269154dafdba9eb6d9e533154835d25b270ab5ce733"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            34,
+            39
+          ],
+          "current_lines": [
+            34,
+            39
+          ],
+          "sha256": "a5ae487764de07e6592024d9c765d4767a0627e3d071776ea3fcd4f4065ebaed"
+        },
+        {
+          "kind": "replace",
+          "base_lines": [
+            40,
+            40
+          ],
+          "current_lines": [
+            40,
+            40
+          ],
+          "sha256": "9088b4718ae746fa0c6d925ed0a05806dddc3c230e6b53ff457cc8101a98967c"
+        },
+        {
+          "kind": "equal",
+          "base_lines": [
+            41,
+            42
+          ],
+          "current_lines": [
+            41,
+            42
+          ],
+          "sha256": "156ba23fbc8602cf15c271344054d9f5f83ceee25bfbc5ea66e6ec9937ba3a8a"
+        }
+      ]
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/04-export-storyboard/starter/STAGE-4.md",
+      "bytes": 263,
+      "sha256": "bbd9ef7decac80b1d3c9b3c2dd4e3f46f8394874844cf3d8eff623cbdb3dee0f",
+      "git_blob": "d3d6bba05a49fbe4d42c0877cf859b8fce0f7d2a",
+      "status": "root_actual_full_text_read",
+      "lines": 3
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/04-export-storyboard/tests/stage.test.ts",
+      "bytes": 1603,
+      "sha256": "44af97dbed674e2985c581d9768869c6dfceeea17ae28860a53492b74be97452",
+      "git_blob": "14371b0a3275999c9e6813cec4c510d6b6c6fb30",
+      "status": "root_actual_full_text_read",
+      "lines": 54
+    },
+    {
+      "path": "projects/kubernetes-event-storyboard/stages/04-export-storyboard/tests/stage_test.go",
+      "bytes": 1203,
+      "sha256": "abd069f0d35fd5b94c7d91d3a4ba58b593a36e5267b841b1c0e1b6cc60b13196",
+      "git_blob": "0ac0c4989692f11b9c9dbc95763cf1ccd24a592d",
+      "status": "root_actual_full_text_read",
+      "lines": 52
+    },
+    {
+      "path": "site/figures/projects/kubernetes-event-storyboard.js",
+      "bytes": 5042,
+      "sha256": "59e7a34fe61d5eb1a97228da1870657c677d01fe030fa3c8513acd9494e0d0aa",
+      "git_blob": "055594dd53ed19af37068c50419dcd0d95802349",
+      "status": "root_actual_full_text_read",
+      "lines": 199
+    }
+  ],
+  "root_read_chunks": [
+    {
+      "file": "read-01.txt",
+      "characters": 18000,
+      "sha256": "db872f7807f9be43831bc4fdbc27a38a167e85fdb0600a72fbe7570344ec3c9d",
+      "read": true
+    },
+    {
+      "file": "read-02.txt",
+      "characters": 18000,
+      "sha256": "394eb1a3c1f9d4e0b89d34d1a1182c24b350352a1b2b62798ba01e4341990e1d",
+      "read": true
+    },
+    {
+      "file": "read-03.txt",
+      "characters": 10331,
+      "sha256": "f5b2163b90d7234fcf89c9c6abc6aa224e66e63b73372e13896ff893cf9581e0",
+      "read": true
+    }
+  ],
+  "tests_static": [
+    {
+      "file": "projects/kubernetes-event-storyboard/stages/01-parse-snapshots/tests/stage_test.go",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/kubernetes-event-storyboard/stages/02-group-occurrences/tests/stage_test.go",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/kubernetes-event-storyboard/stages/03-connect-revisions/tests/stage_test.go",
+      "static_tests": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/kubernetes-event-storyboard/stages/04-export-storyboard/tests/stage.test.ts",
+      "static_tests": 6,
+      "executed": false
+    },
+    {
+      "file": "projects/kubernetes-event-storyboard/stages/04-export-storyboard/tests/stage_test.go",
+      "static_tests": 5,
+      "executed": false
+    }
+  ],
+  "root_review": {
+    "all_git_blobs_rechecked": 33,
+    "drift": 0,
+    "critical_read": [
+      "完整Parse/Group/Connect/Export及TS消费/五份测试/四课/图"
+    ]
+  },
+  "data_proof": {
+    "same_uid_max_plus_distinct": 5,
+    "author_fixture_expected": [
+      {
+        "uid": "pod-old",
+        "count": 4,
+        "revision": "7"
+      },
+      {
+        "uid": "pod-new",
+        "count": 1,
+        "revision": "8"
+      }
+    ],
+    "missing_owner_and_single_found_revision_static_gap_documented": true
+  },
+  "formal_fusion": {
+    "file": "计算机科学基础/05-生产级软件工程.md",
+    "before_sha256": "a23f0bbe2404e916bdbcab822ca38bc7a77d1d535d353ed46a4dcee301e94b2d",
+    "after_sha256": "156513b9560e3e4a1a54037d6716cfa484e718f3230c9eec0032bb365062a1f9",
+    "old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "8a7dda77a5cfe04e6862d51e4b8cb1381062e64893e7a014c1fedcabf0ea5865",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "a87cc92567c46134a6b12e5c3d01c495386b1f78355a6c98d7df6fecf685d7a3",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4625 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

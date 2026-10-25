@@ -332,6 +332,40 @@ class Money:
 
 frozen 提供浅层不可变语义，不等于所有成员递归不可变。
 
+### 20.1 frozen、可哈希和类型正确是三个判断
+
+frozen阻止通常的字段重新赋值，不会递归冻结字段指向的list，也不按注解检查传入值。默认eq/frozen组合可能生成hash方法，但计算hash时仍要求参与字段本身可哈希；不能将“用了frozen”写成“必定可放set”。每实例独立的可变字段用default_factory，真正需要稳定哈希的记录则选可哈希、语义稳定的字段并验证输入。
+
+~~~python
+from dataclasses import dataclass, field, FrozenInstanceError
+
+
+@dataclass(frozen=True)
+class TagRecord:
+    tags: list[str] = field(default_factory=list)
+
+
+a, b = TagRecord(), TagRecord()
+a.tags.append("独立字段仍可变")
+assert a.tags and b.tags == []
+try:
+    a.tags = []
+except FrozenInstanceError:
+    pass
+else:
+    raise AssertionError("frozen应拒通常重新赋值")
+try:
+    hash(a)
+except TypeError:
+    pass
+else:
+    raise AssertionError("list字段不能直接哈希")
+print("每实例独立/frozen浅层限制/可哈希条件通过")
+~~~
+
+
+[Python3.12 dataclasses官方说明](https://docs.python.org/3.12/library/dataclasses.html#frozen-instances)与hash生成条件于2026-10-16选读核对。这个例子解释局部对象行为，不是安全边界；注解、冻结、格式验证和业务授权各有职责。
+
 ## 21. 一个实用检查表
 
 提交前至少问：

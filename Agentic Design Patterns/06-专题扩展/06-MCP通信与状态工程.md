@@ -1632,3 +1632,55 @@ MRTR可以经历多轮输入。两轮的状态可以分别封存已验证的选�
 作者 run 媒体记录参考解必选 35 项，output 记录 catalog_size=15、选中 pods_count/logs_count、characters=343/full_characters=2788。这些是来源录制结果，不是本任务运行；schema 变更、计数单位和真实主机能力须另核。五幅交互图共用 calculate，families 滑块可到 50，而候选资源只列六种、生成 schema 也比 Python 简化；图上 250 和字数不等实际源码目录/序列化。图示的初始化复选框只是演示状态，没有发协议消息。
 
 增量来源：[MCP Tool Discovery Workbench 五阶段](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/projects/mcp-at-scale)，固定提交 `3be078b37ffd8f0c04953c0678e48f5c6d0c7775`。源全文件、五注册及必要 helpers 和全部 GIF 帧在 2026-10-14 静读；2026-10-15 恢复字节核对并回融。未执行来源、build、CLI、SDK 或服务；本篇既有九个自有程序不重跑，原验证日期和输出保留。
+
+
+## 18. 公开课程的只读REST/MCP入口：能力、缓存和来源版本
+
+已有章节说明协议原语；这里把同一份课程内容同时交给浏览器、REST和MCP客户端，检查不同消费路径是否保住相同的身份与边界。固定教学快照的入口不登录、不保存学习进度、不执行示例、不评分；这只是这些端点的实现范围，不限制宿主的其他工具权限。
+
+### 18.1 搜索给稳定身份，读取只接受目录中的身份
+
+构建器把课程正文及项目README编成按path排序的目录。search只在title/description/path中做小写词面匹配，q拆成若干空白分隔词，要求每个词都出现；不是正文全文检索、向量检索或智能先修推断。结果省去markdown，保留path、标题、描述、网页/源码地址与可用译文；read_resource用完全相同path查目录项，未把path直接拼到任意文件系统位置，也不按用户URL抓网页。
+
+参数合同：q≤200个JS字符串单位，kind为all/lesson/project，limit1..50，offset0..10000。REST中的limit/offset先要求十进制数字字符串再转整数，MCP直接要求整数；未知字段拒绝。客户端应先查目录，再拿返回身份读取，不能把`../../.env`或网页URL当合法课程path。
+
+分页结果含items、total、offset、limit、nextOffset。一个部署内顺序稳定，不同部署插入内容后offset可能漏项/重复，所以完整遍历应绑定部署版本/目录摘要，部署变化就从头检查。资源sourceUrl使用main或translations分支链接，能追出处却不能固定字节；长期学习记录还应保存commit、Blob或内容摘要。本库采用固定提交正是为解决这个差别。
+
+### 18.2 HTTP成功、RPC错误和工具错误分别处理
+
+REST支持GET/HEAD，HEAD无body仍带相应状态/头；参数不合400、资源无404、方法不合405、表示不合406、配额429、内容不可用503。错误是problem JSON，状态、机器code和恢复hint分开，内部异常只给通用503，避免回显私有路径。平台也可能在应用之前返回非JSON错误，消费者不能无条件解析所有响应为JSON。
+
+MCP以POST承载单个JSON-RPC消息，声明input/output schema，同时给文本JSON和structuredContent。JSON解析失败是-32700，消息结构非法-32600，方法未知-32601，参数非法-32602，内部不可用-32603；资源未找到则是tools/call结果中的isError，而非伪装成功正文或直接混成所有HTTP404。schema声明不是每次动态结果已经过校验的证据，消费方仍要核结构与业务用途。
+
+固定实现接受协议修订2025-11-25与2025-03-26，初始化协商返回支持版本；客户端在后续请求带所协商的MCP-Protocol-Version。它不创建session ID、不建立GET SSE、无订阅/服务端请求/恢复流；GET返回405并不自动表示不支持Streamable HTTP。通知/响应被接受后回202无body。相关传输规则已核[2025-11-25官方规范](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)，核验范围为POST/GET、通知、版本头与可选会话，不声明这是当前唯一修订。
+
+请求body按流累计限制64KiB，不能只信Content-Length；JSON数组批请求不在该实现合同内。Origin存在则必须在允许集合，服务端客户端可无Origin；Origin不是用户认证。readOnlyHint/idempotentHint等是工具描述，返回Markdown仍是外部资料，不能提升为宿主系统指令或自动获准执行。
+
+### 18.3 内容协商、限流与缓存必须描述实际作用范围
+
+协商先看最具体媒体范围，再通配范围，明确q=0不能被更宽的`*/*`覆盖。例：`application/json;q=0, */*`仍拒JSON；`application/*;q=0.3,*/*;q=1`对JSON的质量是0.3。浏览器默认HTML，显式Markdown在同质量时优先，相关响应Vary包含Accept/Accept-Encoding。缓存键漏掉协商维度，就可能把HTML误给正文读取器。
+
+每个catalog/resource/MCP函数实例各持有一个限流器：按可信客户端IP，60秒固定窗每IP120次，最多记10000个地址。以两实例为例，一个IP可分别消耗两份本地预算；窗口边界前后也可能短时集中多次请求。因此它不是分布式全局配额、费用上限或平台调用前的防护。NAT后的多人共享IP；未知/非法地址共用保守桶；本地用socket地址，不信任随意转发头，平台模式才用指定平台头。
+
+成功catalog/resource被设为public/max-age300/s-maxage86400，并删除实例RateLimit头：CDN缓存命中不再消耗该函数实例，不能把旧缓存头里的remaining当现在全局余量。错误与MCP不缓存；429带Retry-After。该代码的RateLimit字段沿用了当时互联网草案格式，笔记不将其称已发布RFC或要求所有服务同名字段。
+
+客户端按状态分类，在预算内尊重Retry-After并退避；不能因内容读接口是幂等就无限重试。限流器先于方法/参数处理，错误请求和HEAD也可消耗本地额度。若要预算整个抓取，应计目录分页、正文、失败尝试和不同部署的重读，并保存未完成位置。
+
+### 18.4 译文缓存：成功、旧值和缺失不能混为一谈
+
+译文来源是独立translations分支；允许语言由注册表决定，并非任意用户语言码。未发布该课译文是缺失，分支获取失败是不可用，API和网页的回退政策也不同；读者要核实际返回lang/sourceUrl，不因请求了中文就假定收到中文。
+
+参考读取器固定目标URL模式、禁重定向、2.5秒超时，最多256KiB。先预检声明长度，再逐块累计实际字节，超过就停止，finally取消reader；Content-Length缺失或伪小不能绕过后者。但这不是所有平台内存分配的硬上界，单块分配和缓冲复制仍存在；标题以#开头只核形状，不证明译文正确或没有提示注入。
+
+缓存最多64项，保存正在进行的Promise使同键合并；成功TTL10分钟，失败TTL1分钟。有上次好值时刷新失败返回旧值，且没有单独输出“stale/原版本”字段；对内容时效敏感时不能把再次返回旧译文当新分支已核验。逐出是Map插入顺序，缓存命中不移到尾部，不能称完整LRU；无内容commit绑定，译文也可能与英文不在同一版本。
+
+### 18.5 正文接口与检索摘要各有用途
+
+lessonDocumentSeo为展示生成最长约160字符描述与220空白词摘要，跳过围栏/表格等内容；HTML转Markdown也使用固定子集转换，会丢结构细节。这些适合索引/导航，不能代替学习正文。课程资源入口读取完整原Markdown，客户端按sourceUrl解析相对引用；不能把“提供原文URL”写成“接口已经把所有相对链接改写为绝对URL”。
+
+清单与server.json可帮助发现服务，但manifest存在不证明注册表已收录、接口当前在线、所有部署一致或学习者已完成。源码测试包含伪HTTP与实际loopback线级测试；本次均只静读，没有运行服务、发端点请求或据此宣称线上通过。
+
+自检：实例120/min是否全站120/min？否；readOnlyHint是否能约束宿主shell？不能；看到220词摘要能否判正文已读完？不能；旧译文刷新失败却返回文字能否当最新？不能；GET405是否必定不符合该传输？不是，要核它表示无GET SSE及其他合同。
+
+
+来源：[固定提交的developer说明](https://github.com/rohitg00/ai-engineering-from-scratch/blob/1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e/site/developer.md)，源截止2026-10-15T05:58:42Z，本次2026-10-23静读及官方指定协议段核对；读取、JSON投影与未运行范围见[117核验记录](../../维护/来源更新/2026-10-16/117-只读内容接口与缓存融合.json)。其余新增配套仍另行处置，不以此记录结束整个更新。

@@ -1,0 +1,945 @@
+{
+  "date": "2026-10-23",
+  "project": "configuration-drift-explainer",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "source_root": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-update-source1-20261016/ai-engineering-from-scratch-1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "accepted_stage_ids": [
+    "01-load-layers",
+    "02-resolve-provenance",
+    "03-compare-effective-values",
+    "04-export-ci-evidence"
+  ],
+  "delegate_review": {
+    "source_repository": "https://github.com/rohitg00/ai-engineering-from-scratch",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_timestamp": "2026-10-15T05:58:42Z",
+    "read_date": "2026-10-23",
+    "project": "configuration-drift-explainer",
+    "agent_task": "/root/drift_project_read",
+    "status": "full original project disposition and independent calculations ready; knowledge draft only; root fusion and final acceptance pending",
+    "preferred_single_merge_target": "计算机科学基础/05-生产级软件工程.md §9 Configuration 与 Secret",
+    "existing_context_read": {
+      "path": "计算机科学基础/05-生产级软件工程.md",
+      "lines": [
+        130,
+        155
+      ],
+      "other_context": "heading/configuration/provenance/approval keyword search across file; full existing file not reread"
+    },
+    "counts": {
+      "project_original_files": 25,
+      "helper_js_files": 1,
+      "all_original_items": 26,
+      "project_text_files": 21,
+      "text_full_actual_read_new": 20,
+      "text_exact_sha_reuse": 2,
+      "png_viewed": 2,
+      "gif_full_data_decoded": 2,
+      "stages": 4,
+      "stage_tests_statically_counted": 21,
+      "source_execution_count": 0
+    },
+    "files": [
+      {
+        "path": "projects/configuration-drift-explainer/README.md",
+        "bytes": 2921,
+        "sha256": "473fe8a65685c27551b359af00f769568683fb4d7fe70faf1569cbae95ff62d1",
+        "git_blob_sha": "3f60fafc77a0cfc70ecdc1beccf615f066584fc9",
+        "matches_fixed_tree": true,
+        "lines": 44,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 44
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/media/output.gif",
+        "bytes": 154715,
+        "sha256": "718acf7437506fb38ac40e5911b1ae2491d87ada7a14edf6a0e6fdad579d561d",
+        "git_blob_sha": "b923ddcb4d66dd22ed990aba7b1232805c728cb6",
+        "matches_fixed_tree": true,
+        "classification": "author demonstration animation; text semantics from media JSON",
+        "read_scope": "all frames decoded as RGBA; only PNG poster visually viewed; no all-frame visual review",
+        "visual_reviewed": false
+      },
+      {
+        "path": "projects/configuration-drift-explainer/media/output.json",
+        "bytes": 1481,
+        "sha256": "7ebb396d141abadc8066cfb54e11463db7f8c690b7725a5711373ed4850c8ec2",
+        "git_blob_sha": "1b6e7930a5acfaef93392c4713e0f4ef81e9dba2",
+        "matches_fixed_tree": true,
+        "lines": 18,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 18
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/media/output.png",
+        "bytes": 32103,
+        "sha256": "d9c514beda3e217f10d3164d31cfc3cd8d8655c68231b3dc5fa7bed84cfbe3d7",
+        "git_blob_sha": "62ce9c626b352ceb7a0b8f5ea5bc63393bd03383",
+        "matches_fixed_tree": true,
+        "classification": "author demonstration screenshot; no new standalone knowledge",
+        "read_scope": "actual complete image viewed",
+        "visual_reviewed": true
+      },
+      {
+        "path": "projects/configuration-drift-explainer/media/run.gif",
+        "bytes": 234525,
+        "sha256": "a6810d9305d3508020f02b50edcf91a7e22663d5dda6b8e4eb12b9a97c2e4d6f",
+        "git_blob_sha": "9e872c2961a1dbaa4b10f00cb7f5eb8c481f42a9",
+        "matches_fixed_tree": true,
+        "classification": "author demonstration animation; text semantics from media JSON",
+        "read_scope": "all frames decoded as RGBA; only PNG poster visually viewed; no all-frame visual review",
+        "visual_reviewed": false
+      },
+      {
+        "path": "projects/configuration-drift-explainer/media/run.json",
+        "bytes": 2196,
+        "sha256": "6fc0391869b47bf73bb79ef34858d91bc7590b291d4f3f4c433f3948bbf7c5b5",
+        "git_blob_sha": "271de3d1009226a500f021ea06359ea9635964bf",
+        "matches_fixed_tree": true,
+        "lines": 52,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 52
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/media/run.png",
+        "bytes": 88691,
+        "sha256": "b0fc5859e128e01674cb817b1b8c32cac5d9ce26094d8013cb288bf1b0d35aab",
+        "git_blob_sha": "c36f63e1ca1923a80599a905b54f977b62c9de2b",
+        "matches_fixed_tree": true,
+        "classification": "author demonstration screenshot; no new standalone knowledge",
+        "read_scope": "actual complete image viewed",
+        "visual_reviewed": true
+      },
+      {
+        "path": "projects/configuration-drift-explainer/project.json",
+        "bytes": 3101,
+        "sha256": "2d03029194bedf72e2555be44b9cc1b50ae22f98544fd2da18cf698c30f5f31f",
+        "git_blob_sha": "3ea9461468a063da7fb245f0336c20682b3c971d",
+        "matches_fixed_tree": true,
+        "lines": 105,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 105
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/solution/fixtures/config.json",
+        "bytes": 376,
+        "sha256": "b05d55c0659d9644ff6dc610ef4dfac500809d9b295e0603fe2a129232160c5e",
+        "git_blob_sha": "5651d438d57af808e67087ab44cf206ce531f120",
+        "matches_fixed_tree": true,
+        "lines": 23,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 23
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/solution/go.mod",
+        "bytes": 22,
+        "sha256": "2740670987bfafbf69c08d91ea597d727242863554d24fa63b0b231aaf77118d",
+        "git_blob_sha": "491468c44a6a67f1c86b332c5996b2d9bd3b97b6",
+        "matches_fixed_tree": true,
+        "lines": 3,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 3
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/solution/main.go",
+        "bytes": 4449,
+        "sha256": "d17f563ef167e585b8845e8ba9ea0b6cf9c15aecec92717afec79dcf9ee58baa",
+        "git_blob_sha": "15786c40a6e96bc84815173f13697a93b4c54458",
+        "matches_fixed_tree": true,
+        "lines": 190,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 190
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/01-load-layers/docs/en.md",
+        "bytes": 2032,
+        "sha256": "26560f0ed4fbacebcb00433f1c1ee7cfcedc8b088aec58e117393ceb945fbf44",
+        "git_blob_sha": "d43cacd5686f8c1c27516695c8000f754b3f2757",
+        "matches_fixed_tree": true,
+        "lines": 42,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 42
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/01-load-layers/starter/fixtures/config.json",
+        "bytes": 376,
+        "sha256": "b05d55c0659d9644ff6dc610ef4dfac500809d9b295e0603fe2a129232160c5e",
+        "git_blob_sha": "5651d438d57af808e67087ab44cf206ce531f120",
+        "matches_fixed_tree": true,
+        "lines": 23,
+        "classification": "exact SHA reuse of fully read canonical text",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 23
+        },
+        "reuse_from": "projects/configuration-drift-explainer/solution/fixtures/config.json"
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/01-load-layers/starter/go.mod",
+        "bytes": 22,
+        "sha256": "2740670987bfafbf69c08d91ea597d727242863554d24fa63b0b231aaf77118d",
+        "git_blob_sha": "491468c44a6a67f1c86b332c5996b2d9bd3b97b6",
+        "matches_fixed_tree": true,
+        "lines": 3,
+        "classification": "exact SHA reuse of fully read canonical text",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 3
+        },
+        "reuse_from": "projects/configuration-drift-explainer/solution/go.mod"
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/01-load-layers/starter/main.go",
+        "bytes": 2287,
+        "sha256": "0891c10a49265f8057da93e6b33f4533625c5bde31132fa1b19856760ee828c2",
+        "git_blob_sha": "53f0a1dc89d9223b45679013d0e7e108c1a1fc2e",
+        "matches_fixed_tree": true,
+        "lines": 92,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 92
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/01-load-layers/tests/stage_test.go",
+        "bytes": 925,
+        "sha256": "b8ceebf73c687ce585cc9e9a84dea7d193421d1eedb42d3a763f2dce0513c358",
+        "git_blob_sha": "e768c55f3702d728606d0b3d499066eab32476b8",
+        "matches_fixed_tree": true,
+        "lines": 37,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 37
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/02-resolve-provenance/docs/en.md",
+        "bytes": 1980,
+        "sha256": "855a2a208caa8e8d10e36e48e1d6f7622067e74db707d03e9239251f06af7b4d",
+        "git_blob_sha": "60407b0ba3dc2d0fb98d30ac0244b50a894adde8",
+        "matches_fixed_tree": true,
+        "lines": 42,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 42
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/02-resolve-provenance/starter/STAGE-2.md",
+        "bytes": 238,
+        "sha256": "324a828912f86e6f1cf495476067efedaae2bbabbb998f76bf878d6066fd123f",
+        "git_blob_sha": "949a38969a4828f4e7e5798f4f2a94f6127f50bf",
+        "matches_fixed_tree": true,
+        "lines": 3,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 3
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/02-resolve-provenance/tests/stage_test.go",
+        "bytes": 880,
+        "sha256": "b2582c3eeb44fb0010c5090b85d339ee1f713f6da992aca2ec1a1dbace99c509",
+        "git_blob_sha": "96b3f32462d1b0bfbeffb899a1df5976ccedfeff",
+        "matches_fixed_tree": true,
+        "lines": 35,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 35
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/03-compare-effective-values/docs/en.md",
+        "bytes": 2045,
+        "sha256": "bd9efd55daff7c2738fdb311aecb6e6598785091915050c2beb8a6872e121b74",
+        "git_blob_sha": "1428cc3c56cbc139dd04d737a3745c85749eb047",
+        "matches_fixed_tree": true,
+        "lines": 42,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 42
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/03-compare-effective-values/starter/STAGE-3.md",
+        "bytes": 339,
+        "sha256": "de081b10a6095169692d7ede07235ee96e7fdf10d5004b141f1b22df8ad3ff94",
+        "git_blob_sha": "ed14751c924522c7e98f777db5c78b2c79bc74de",
+        "matches_fixed_tree": true,
+        "lines": 3,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 3
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/03-compare-effective-values/tests/stage_test.go",
+        "bytes": 1120,
+        "sha256": "0427b72fbc9666f4064221049c52c06bcaf9a7012f1c2932b84c0c6860026e9c",
+        "git_blob_sha": "acb37c7ef2c029fe77d1f59049b246a18a0eb052",
+        "matches_fixed_tree": true,
+        "lines": 36,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 36
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/04-export-ci-evidence/docs/en.md",
+        "bytes": 2069,
+        "sha256": "1bd00d586f40ae1bfd6e56428a27f2dffc9db8b4ef97a58930f7c8d4b2b7b2bf",
+        "git_blob_sha": "352ec3821dada55dd001e6f4dde47b7ce9a24176",
+        "matches_fixed_tree": true,
+        "lines": 42,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 42
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/04-export-ci-evidence/starter/STAGE-4.md",
+        "bytes": 274,
+        "sha256": "422bd80b196afc977124b4058e3e8193a932e28c3f7df03d41a3c2e2568b1728",
+        "git_blob_sha": "b47e4895371fd80254dbebfb3e87f13ef2c86acb",
+        "matches_fixed_tree": true,
+        "lines": 3,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 3
+        }
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/04-export-ci-evidence/tests/stage_test.go",
+        "bytes": 1242,
+        "sha256": "945b44296589551aae3063d0a6b92c42b45c72c048023079fbae1b9ed7ccdc15",
+        "git_blob_sha": "79a3b8ee33de88164f6dcec8dc11ea2a061333f2",
+        "matches_fixed_tree": true,
+        "lines": 43,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 43
+        }
+      },
+      {
+        "path": "site/figures/projects/configuration-drift-explainer.js",
+        "bytes": 4480,
+        "sha256": "6121a6c7500e1b49bd518e4cc6e1e8f07a969e6d116c25e57f9dda18c2d8b5c3",
+        "git_blob_sha": "8be921a50a2a531c23ddddf7fa4805a49a282c76",
+        "matches_fixed_tree": true,
+        "lines": 160,
+        "classification": "full text statically read; source instructions treated as data",
+        "read_scope": {
+          "start_line": 1,
+          "end_line": 160
+        }
+      }
+    ],
+    "tests": [
+      {
+        "path": "projects/configuration-drift-explainer/stages/01-load-layers/tests/stage_test.go",
+        "test_count": 6,
+        "test_names": [
+          "TestValid",
+          "TestUnknown",
+          "TestDuplicate",
+          "TestNested",
+          "TestTrailing",
+          "TestBounds"
+        ],
+        "executed": false
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/02-resolve-provenance/tests/stage_test.go",
+        "test_count": 5,
+        "test_names": [
+          "TestLaterWins",
+          "TestHistory",
+          "TestNullOverride",
+          "TestUntouched",
+          "TestEmpty"
+        ],
+        "executed": false
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/03-compare-effective-values/tests/stage_test.go",
+        "test_count": 5,
+        "test_names": [
+          "TestChanged",
+          "TestMissingNull",
+          "TestUnexpectedSecret",
+          "TestEqualSecret",
+          "TestSortedAndExplicit"
+        ],
+        "executed": false
+      },
+      {
+        "path": "projects/configuration-drift-explainer/stages/04-export-ci-evidence/tests/stage_test.go",
+        "test_count": 5,
+        "test_names": [
+          "TestExportSchema",
+          "TestNoCurrentSecret",
+          "TestNoHistoricSecret",
+          "TestConsumer",
+          "TestStable"
+        ],
+        "executed": false
+      }
+    ],
+    "four_interactive_figures": [
+      {
+        "id": "pj-configuration-drift-explainer-1",
+        "actual_semantics": "JSON.parse one scalar then null or typeof string/number/boolean; nested object/array rejected",
+        "missing_coverage": [
+          "whole document validation",
+          "layer names",
+          "one-MiB bound",
+          "duplicate member policy",
+          "finite number overflow parity: JS JSON.parse 1e400 can become Infinity whereas Go rejects overflowing float64"
+        ],
+        "js_executed": false
+      },
+      {
+        "id": "pj-configuration-drift-explainer-2",
+        "actual_semantics": "two sliders default30/override5; effective override; ordered rows default/override; one shadowed metric",
+        "missing_coverage": [
+          "multiple keys",
+          "null",
+          "presence",
+          "actual Resolve call"
+        ],
+        "js_executed": false
+      },
+      {
+        "id": "pj-configuration-drift-explainer-3",
+        "actual_semantics": "two number sliders only; strict equality or changed, actual-expected difference",
+        "missing_coverage": [
+          "missing",
+          "unexpected",
+          "null",
+          "type distinctions outside slider number values"
+        ],
+        "js_executed": false
+      },
+      {
+        "id": "pj-configuration-drift-explainer-4",
+        "actual_semantics": "two strings strict equality before regex redaction; row shows key and redacted values",
+        "missing_coverage": [
+          "explicit sensitive key list",
+          "history redaction",
+          "true CLI export",
+          "file permissions or CI"
+        ],
+        "js_executed": false
+      }
+    ],
+    "independent_data_verification": {
+      "date": "2026-10-23",
+      "scope": "independent data-only Python calculation; no source module imports or original tests/Go/JS executed",
+      "fixture_report_matches_author_json": true,
+      "fixture_result": {
+        "schemaVersion": 1,
+        "drift": true,
+        "changes": [
+          {
+            "key": "api_token",
+            "kind": "changed",
+            "expected": "[REDACTED]",
+            "observed": "[REDACTED]",
+            "history": [
+              {
+                "layer": "defaults.json",
+                "value": "[REDACTED]"
+              }
+            ],
+            "redacted": true
+          },
+          {
+            "key": "region",
+            "kind": "equal",
+            "expected": "local",
+            "observed": "local",
+            "history": [
+              {
+                "layer": "defaults.json",
+                "value": "local"
+              }
+            ],
+            "redacted": false
+          },
+          {
+            "key": "timeout",
+            "kind": "changed",
+            "expected": 5,
+            "observed": 30,
+            "history": [
+              {
+                "layer": "defaults.json",
+                "value": 30
+              },
+              {
+                "layer": "env:TIMEOUT",
+                "value": 5
+              }
+            ],
+            "redacted": false
+          }
+        ]
+      },
+      "cases": [
+        {
+          "case": "null-missing",
+          "expected_kind": "missing",
+          "report": {
+            "schemaVersion": 1,
+            "drift": true,
+            "changes": [
+              {
+                "key": "x",
+                "kind": "missing",
+                "expected": null,
+                "observed": null,
+                "history": [
+                  {
+                    "layer": "base",
+                    "value": null
+                  }
+                ],
+                "redacted": false
+              }
+            ]
+          }
+        },
+        {
+          "case": "null-present",
+          "expected_kind": "equal",
+          "report": {
+            "schemaVersion": 1,
+            "drift": false,
+            "changes": [
+              {
+                "key": "x",
+                "kind": "equal",
+                "expected": null,
+                "observed": null,
+                "history": [
+                  {
+                    "layer": "base",
+                    "value": null
+                  }
+                ],
+                "redacted": false
+              }
+            ]
+          }
+        },
+        {
+          "case": "null-override",
+          "expected_kind": "equal",
+          "report": {
+            "schemaVersion": 1,
+            "drift": false,
+            "changes": [
+              {
+                "key": "x",
+                "kind": "equal",
+                "expected": null,
+                "observed": null,
+                "history": [
+                  {
+                    "layer": "base",
+                    "value": 1
+                  },
+                  {
+                    "layer": "env",
+                    "value": null
+                  }
+                ],
+                "redacted": false
+              }
+            ]
+          }
+        },
+        {
+          "case": "type-change",
+          "expected_kind": "changed",
+          "report": {
+            "schemaVersion": 1,
+            "drift": true,
+            "changes": [
+              {
+                "key": "x",
+                "kind": "changed",
+                "expected": true,
+                "observed": 1,
+                "history": [
+                  {
+                    "layer": "base",
+                    "value": true
+                  }
+                ],
+                "redacted": false
+              }
+            ]
+          }
+        },
+        {
+          "case": "string-number",
+          "expected_kind": "changed",
+          "report": {
+            "schemaVersion": 1,
+            "drift": true,
+            "changes": [
+              {
+                "key": "x",
+                "kind": "changed",
+                "expected": "30",
+                "observed": 30,
+                "history": [
+                  {
+                    "layer": "base",
+                    "value": "30"
+                  }
+                ],
+                "redacted": false
+              }
+            ]
+          }
+        },
+        {
+          "case": "empty-string",
+          "expected_kind": "changed",
+          "report": {
+            "schemaVersion": 1,
+            "drift": true,
+            "changes": [
+              {
+                "key": "x",
+                "kind": "changed",
+                "expected": null,
+                "observed": "",
+                "history": [
+                  {
+                    "layer": "base",
+                    "value": null
+                  }
+                ],
+                "redacted": false
+              }
+            ]
+          }
+        },
+        {
+          "case": "unexpected-secret",
+          "expected_kind": "unexpected",
+          "report": {
+            "schemaVersion": 1,
+            "drift": true,
+            "changes": [
+              {
+                "key": "TOKEN",
+                "kind": "unexpected",
+                "expected": null,
+                "observed": "[REDACTED]",
+                "history": [],
+                "redacted": true
+              }
+            ]
+          }
+        },
+        {
+          "case": "explicit-secret",
+          "expected_kind": "changed",
+          "report": {
+            "schemaVersion": 1,
+            "drift": true,
+            "changes": [
+              {
+                "key": "opaque",
+                "kind": "changed",
+                "expected": "[REDACTED]",
+                "observed": "[REDACTED]",
+                "history": [
+                  {
+                    "layer": "base",
+                    "value": "[REDACTED]"
+                  }
+                ],
+                "redacted": true
+              }
+            ]
+          }
+        },
+        {
+          "case": "equal-secret",
+          "expected_kind": "equal",
+          "report": {
+            "schemaVersion": 1,
+            "drift": false,
+            "changes": [
+              {
+                "key": "password",
+                "kind": "equal",
+                "expected": "[REDACTED]",
+                "observed": "[REDACTED]",
+                "history": [
+                  {
+                    "layer": "base",
+                    "value": "[REDACTED]"
+                  }
+                ],
+                "redacted": true
+              }
+            ]
+          }
+        },
+        {
+          "case": "literal-dot-key",
+          "expected_kind": "equal",
+          "report": {
+            "schemaVersion": 1,
+            "drift": false,
+            "changes": [
+              {
+                "key": "db.host",
+                "kind": "equal",
+                "expected": "x",
+                "observed": "x",
+                "history": [
+                  {
+                    "layer": "base",
+                    "value": "x"
+                  }
+                ],
+                "redacted": false
+              }
+            ]
+          }
+        }
+      ],
+      "float64_collision": {
+        "integers": [
+          "9007199254740992",
+          "9007199254740993"
+        ],
+        "same_binary64": true
+      },
+      "limitations": [
+        "ASCII keys and small scalar numbers only in comparison fixture proof; not Go decoder/runtime reproduction",
+        "No filesystem, compiler, actual CI or process exit test"
+      ]
+    },
+    "media": [
+      {
+        "path": "media/run.gif",
+        "dimensions": [
+          1120,
+          630
+        ],
+        "format": "GIF",
+        "frames": 18,
+        "duration_ms": 8100,
+        "all_frames_decoded": true,
+        "all_frames_visually_inspected": false,
+        "frame_hashes": [
+          "5829eb70ccfe6c348741456d4758af09ad4276e94b11066997854e944462c0e1",
+          "5d20bf64b3e4caccd345f1b3aa2fa2b8ae71cf19f251c86a9ec2e855ea683639",
+          "ba2da9834058e544138c25ab96417824d1f518237599dd3e95ec0ead9231b57a",
+          "b41ba4a7f84e1a58f1e07bebd2b0e654dba055a59c8848614fb8b8e41f67aa18",
+          "f169ff2d8ac8493fd7f2dde172929b32e4cf7242ac55543d7ec78070f6a2afb2",
+          "f169ff2d8ac8493fd7f2dde172929b32e4cf7242ac55543d7ec78070f6a2afb2",
+          "f169ff2d8ac8493fd7f2dde172929b32e4cf7242ac55543d7ec78070f6a2afb2",
+          "7ef80cfac6f5e1412dd6731de14f1064ab9af62e3c6838519384cac26849585f",
+          "abae899eaf001c11960ec986a26502acc56bff715b3f7d494c8d65659cf051dd",
+          "cd85bc29cfcdfd61e2626d10b327eb33ecdf5d97660b8001123f048a5d4aa3a5",
+          "cd85bc29cfcdfd61e2626d10b327eb33ecdf5d97660b8001123f048a5d4aa3a5",
+          "cd85bc29cfcdfd61e2626d10b327eb33ecdf5d97660b8001123f048a5d4aa3a5",
+          "5f1eea4d2dab4738e3a9bbd07234cd24f63c4d38fcef23b3b15b04716a7ebe7f",
+          "ffa1ef882d1e2b6cb9727ce27575dd9d920cddc79e3e00839ddcd72ba48308cd",
+          "f4f959bebe7cf15768d84564fc5944d92843568f73e3d95ca30ce19765265fa6",
+          "46c4ab0edaff73a4b4dffacfe566b94e30d1be7f9d51c7dac839127ee578f88b",
+          "46c4ab0edaff73a4b4dffacfe566b94e30d1be7f9d51c7dac839127ee578f88b",
+          "46c4ab0edaff73a4b4dffacfe566b94e30d1be7f9d51c7dac839127ee578f88b"
+        ]
+      },
+      {
+        "path": "media/output.gif",
+        "dimensions": [
+          1120,
+          630
+        ],
+        "format": "GIF",
+        "frames": 17,
+        "duration_ms": 7650,
+        "all_frames_decoded": true,
+        "all_frames_visually_inspected": false,
+        "frame_hashes": [
+          "a7383dd1f108aa3cda334e8898e3f671cda51d1cdd71d4cc39c21c4b6cb62e36",
+          "9902be557287a243a7ef3fbd0826d3ed7595839a99ec307b7fcb0e89d2b9e0a2",
+          "42dfa96b140228ce4396aefb666a4ea89f6c92d5d03b67e082689ba1c5c22135",
+          "dc421edaa7c74004615cc05d5659f2073183685bc0d5bccff7127f496e77e0ce",
+          "e8374ca0410e73b05c22b92298458542952cf395eef850154f4f266579489a3d",
+          "1fe4c3678aaf9c99160b53a5807d4b114167ff24a83ef88ffe3315bac6985d64",
+          "75f1efc9d83690d896640bd97e510b4096aa73afee866fb8a8c77d7dda817a4c",
+          "4ffd63894668ceda511fe105dac8e326a81e4a0d659e3f96e893e5e8fcf2ed2f",
+          "59bda8dff07cbe614b40dfe2f4370d4e14bea7e12d8adaa8cfc09c27b986d525",
+          "91bf101d48c4faf0b0e5bfec0a02d65d8067e2dba6bfa0a53d99c31d2c399a47",
+          "19a448d892f13cd006ac3faa4084a88520c90b349c9d493d5055b8412446193f",
+          "fe33f15c33892e8191b0df908ee18073613f6c0966b1ad608a72b4c468542949",
+          "85af37566e706ed95cf432bccf0664e8eae0a22a9e3107af2d5d3a391e7c3773",
+          "bbcdf97506d23a1382b757aaa232ab711e999a750f565252493de6a3f131f7fb",
+          "d0ac560b0fd5c6bba77566c08ecd40a4f3339a2cb5fcfbb2aea67af9add0b1d4",
+          "d0ac560b0fd5c6bba77566c08ecd40a4f3339a2cb5fcfbb2aea67af9add0b1d4",
+          "d0ac560b0fd5c6bba77566c08ecd40a4f3339a2cb5fcfbb2aea67af9add0b1d4"
+        ]
+      }
+    ],
+    "author_runs": {
+      "run_recordedAt": "2026-10-09T14:11:32Z",
+      "output_recordedAt": "2026-10-09T14:11:33Z",
+      "reference_stage_pass_counts": [
+        6,
+        5,
+        5,
+        5
+      ],
+      "fresh_starter_stage1_fails": true,
+      "author_records_are_unsigned_self_reported": true,
+      "no_claim_user_mastery": true
+    },
+    "critical_boundaries": [
+      "Flat scalar maps only; no deep merge, arrays, shell expansion, real env/file reads or special path semantics.",
+      "Null is a present scalar override, not deletion. Compare key membership independently of nil/null; before-redaction classification is essential.",
+      "Union-key stable report ordering and ordered per-key history; actual layer provenance is supplied labels, not independently authenticated file sources.",
+      "Auto key regex is substring case-insensitive; explicit sensitive set is exact case-sensitive membership; source identifiers/key names/nonsecret values remain visible.",
+      "Go JSON v1 DisallowUnknownFields does not reject duplicate JSON members, case-insensitive struct matching, invalid UTF8 replacement, or binary64 precision collisions. Source validates only float64 not json.Number.",
+      "CLI os.ReadFile allocates complete input before one-MiB Load check, so this is not a streaming memory bound.",
+      "os.WriteFile(...0600) only sets permissions upon creation; existing file modes persist, truncation and write are not atomic, symlink/parent handling absent.",
+      "Source report version1 represents missing side and explicit null alike in values; consumers must interpret kind, or future version adds explicit presence flags.",
+      "Compare/Export do not call Load; direct function callers must guarantee validation before passing arbitrary maps.",
+      "Layer name only TrimSpace emptiness and exact duplicate check; names differing in whitespace remain distinct, embedded control characters and secrets in names not generally redacted.",
+      "No CI policy allowlist, collected object/revision/clock/hash/signature, approval binding, concurrency guard or remediation execution; do not infer them from report.",
+      "Default CLI return0 can include drift; --check built binary contract return2 not reproduced by author no-check demo or static stage tests. go run may wrap child status."
+    ],
+    "official_primary_checks": [
+      {
+        "url": "https://pkg.go.dev/encoding/json#Unmarshal",
+        "read_scope": "Jina copy lines500-555, plus42-50; v1 case-insensitive fields/interface float64/duplicate names/invalid UTF8 semantics only",
+        "sha256": "5b399f7980f125dd8f44b59e847eebbc43891524c784ed07f2b6b968177665ac",
+        "retrieval": "agent-reach generic web Jina read-only",
+        "date": "2026-10-23",
+        "runtime_verified": false
+      },
+      {
+        "url": "https://pkg.go.dev/os#WriteFile",
+        "read_scope": "Jina copy lines790-796; existing permissions and partial-write semantics only",
+        "sha256": "34b8547fce65e956bc22a7ecf4adc57df3613c129ac0626f97104a78acf9a8f6",
+        "retrieval": "agent-reach generic web Jina read-only",
+        "date": "2026-10-23",
+        "runtime_verified": false
+      }
+    ],
+    "knowledge_draft": "/tmp/study-update-20261016/drift-agent-20261023/knowledge.md",
+    "unfinished": [
+      "root review/fusion into existing §9; link/navigation consistency",
+      "whole modified formal file Pandoc JSON/HTML with zero warnings",
+      "repo check_knowledge.py and diff --check",
+      "central audit/state/source ledger/changelog/PR progress updates",
+      "No original Go/JS execution, true CLI/filesystem or CI proof; keep these bounded, not required to invoke under current scope"
+    ],
+    "formal_files_modified": [],
+    "git_actions": []
+  },
+  "root_review": {
+    "inventory_rechecked": 26,
+    "drift": 0,
+    "actually_read_full": [
+      "solution/main.go"
+    ],
+    "existing_context": "生产级软件工程第9节及第10节相邻入口；外部治理引用不冒source自带",
+    "fixture_kinds_recomputed": {
+      "timeout": "changed",
+      "region": "equal",
+      "api_token": "changed"
+    },
+    "timeout_history_recomputed": [
+      [
+        "defaults.json",
+        30
+      ],
+      [
+        "env:TIMEOUT",
+        5
+      ]
+    ],
+    "binary64_collision_recomputed": true,
+    "source_code_executed": false
+  },
+  "formal_fusion": {
+    "file": "计算机科学基础/05-生产级软件工程.md",
+    "before_sha256": "c6ad811d7a7602854a12b6d57b2f5f75010b413c9d100678903848d3553bd78c",
+    "after_sha256": "cd9a48c882e2a53f3f82f62ca509a1b3fe57fdece3814a9c375d0e8bffb404d2",
+    "old_prefix_and_all_old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "4c83d9a8ef6ac44df70c3b9a88110c179030ac30a05c7217039db5e4f1b3812f",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "553ad8b004d6c9704b22d8b9764e604a65caa207d55c6a8a7abe23edc71cae89",
+        "warnings": ""
+      }
+    ],
+    "stage_map": {
+      "01-load-layers": "9.1平面scalar输入/JSONv1/精度与类型/未知字段边界",
+      "02-resolve-provenance": "9.2覆盖顺序/每key全部history/null非删除",
+      "03-compare-effective-values": "9.3–4存在性四分类/原值比较后脱敏当前与历史",
+      "04-export-ci-evidence": "9.5–6versioned报告/CI退出与部分写入/来源及批准不是原工具能力"
+    }
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "checkpoint": "四阶段知识验收完成，原Go/JS/21tests/CLI/CI未运行",
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4611 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

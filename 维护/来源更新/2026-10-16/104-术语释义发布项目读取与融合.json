@@ -1,0 +1,2775 @@
+{
+  "date": "2026-10-23",
+  "project": "glossary-hovercard-publisher",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "source_root": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-update-source1-20261016/ai-engineering-from-scratch-1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-validate-glossary",
+    "02-match-text",
+    "03-accessible-definitions",
+    "04-publish-bundle"
+  ],
+  "delegate_review": {
+    "project": "glossary-hovercard-publisher",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_cutoff": "2026-10-15T05:58:42Z",
+    "read_date": "2026-10-23",
+    "author_run": "2026-10-09T14:39:27Z",
+    "accepted": false,
+    "inventory": "/tmp/study-update-20261016/glossary-agent-20261023/inventory.json",
+    "data_proof": "/tmp/study-update-20261016/glossary-agent-20261023/data-proof.json",
+    "knowledge": "/tmp/study-update-20261016/glossary-agent-20261023/knowledge.md",
+    "knowledge_sha256": "e5da29fb9f0b2b7d34c59545b51ee6499ec01c5a6e6595fd75d0c433e5630257",
+    "knowledge_characters": 4860,
+    "counts": {
+      "project_items": 25,
+      "text": 21,
+      "media": 4,
+      "extra_js": 1,
+      "exact_full_file_reuse": 2,
+      "partial_line_reuse": 10,
+      "tests_static": 25,
+      "png_visual": 2,
+      "gif_data_frames_only": 24,
+      "source_execution": 0
+    },
+    "recommended_single_merge_file": "Python/Core/14-Web-Development.md",
+    "merge_location": "既有第6节Template/HTML上下文后补6.1–6.5，解释语言无关文本/HTML合同并明示参考实现为TS。",
+    "findings": [
+      "小写键检查全canonical/aliases短语唯一，ID受限；返回copy；非empty后仍保留首尾空白，未做完整Unicode规范化或大小写折叠。",
+      "最长为当前位置长度优先的左到右贪心，不是全局最优覆盖；UTF16半开偏移；word谓词L/N/_；astral邻字码元与组合符导致边界漏判；中文连写不作分词。",
+      "受限HTML片段白名单/平衡栈，a/pre/code祖先不注释；实体与标签隔断短语，不等一般可见文本匹配；不是HTML5 parser/general sanitizer，标签/属性会规范化且评论丢弃，不逐字保真。",
+      "原生button+span在段落/强调内可用，click同步aria-expanded/hidden；定义HTMLescape，嵌入JSON对<等转义。未浏览器/读屏/键盘实测。",
+      "允许外部class/id可和全局.term-trigger及#export冲突；合法p id=export先出现时下载绑定错元素。静态反例，无JS执行，不冒称已验证XSS。",
+      "CLI读第三reviewFile却不使用。reviewed是编辑前提，无审批人/状态/指纹；释义展开不是编辑批准，覆盖次数不证明质量/理解。",
+      "样本7注释，count(1,2,1,1,2)，代码coordinates和链接legend不计，0项必须保留但不能直接删。",
+      "四图各有不同范围；图2用ASCII-style\\b非核心Unicode；图4过滤非法计数且空串可Number=0；不替实际annotation/审批。",
+      "三产物顺序写入，无完整版本绑定/原子发布/重合路径保护；输出不能直接再注释因button不在输入白名单。"
+    ],
+    "official_refs": [
+      {
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/",
+        "scope": "原生按钮及Enter/Space激活的指定Keyboard Interaction段；非本次键盘/读屏实测。"
+      }
+    ],
+    "remaining": [
+      "root融合上下文、整文件Pandoc/全库验证、中文更新记录；本交接不更新总表或accepted。",
+      "25测试仅静读，未执行任何来源TS/JS/CLI/HTML；无用户真实数据访问。",
+      "纯UTF16模型与样本token投影不是完整JS/HTML5/Unicode运行验证。",
+      "2PNG实际视觉，GIF全帧数据解码非全帧视觉。"
+    ]
+  },
+  "inventory": [
+    {
+      "path": "projects/glossary-hovercard-publisher/README.md",
+      "bytes": 3068,
+      "sha256": "e4f02af0da6ec35408c82a70fd98c8a5e48f6d9ff97588e3dacecbad07e92f5a",
+      "git_blob": "627e17540a6f824677a5d54e6578c3b55d997891",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 50,
+      "read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "source_executed": false
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/media/output.gif",
+      "bytes": 60790,
+      "sha256": "f6745b3a8af02fad5e09e1d4222faf0c65a5527c2391bcb29c56f99856b28b10",
+      "git_blob": "0a10901143dcf347adff5e335502219b8f4cdd52",
+      "tree_match": true,
+      "mode": "媒体分类",
+      "frames": 6,
+      "size": [
+        1120,
+        630
+      ],
+      "duration_ms": 3900,
+      "all_frames_data_decoded": true,
+      "visual": false,
+      "visual_scope": "PNG整体已看：output可见map scale已展开及代码/链接不注释；run作者历史。GIF只解码。"
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/media/output.json",
+      "bytes": 275,
+      "sha256": "75d6a0d98bc617a8fff87d8f63030a6a20201bef09dc48437383e6651152e245",
+      "git_blob": "499531d6c38a18592b9a4dc67237019cd04d6897",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 11,
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "source_executed": false
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/media/output.png",
+      "bytes": 69698,
+      "sha256": "883de0c361bb90ad44b4572c40c0e8b0720bfd1a763f31f9bcaf69e8a8b05869",
+      "git_blob": "afdad0e540e5e47fff51a56b9e765f626a835b31",
+      "tree_match": true,
+      "mode": "媒体分类",
+      "frames": 1,
+      "size": [
+        1120,
+        630
+      ],
+      "duration_ms": 0,
+      "all_frames_data_decoded": true,
+      "visual": true,
+      "visual_scope": "PNG整体已看：output可见map scale已展开及代码/链接不注释；run作者历史。GIF只解码。"
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/media/run.gif",
+      "bytes": 243275,
+      "sha256": "6c8d8ba830ba1267d156ab2537c3434e38793306d99ec4e4ce4c41d25901d59a",
+      "git_blob": "c6cd6f2685caba688a67d9134d1b6cb8c9af8faf",
+      "tree_match": true,
+      "mode": "媒体分类",
+      "frames": 18,
+      "size": [
+        1120,
+        630
+      ],
+      "duration_ms": 8100,
+      "all_frames_data_decoded": true,
+      "visual": false,
+      "visual_scope": "PNG整体已看：output可见map scale已展开及代码/链接不注释；run作者历史。GIF只解码。"
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/media/run.json",
+      "bytes": 2249,
+      "sha256": "2c1fd9b050591eb9733b8d405fbc8e2fb76330feb1ce37d5a3182fd89ffb7766",
+      "git_blob": "54563f3ad15ea42a5ed78507e3e95fd52e0cb70f",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "source_executed": false
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/media/run.png",
+      "bytes": 91220,
+      "sha256": "1cb1c7b13c8752973dee8407c51179f427d52e8e6e9c2cf4a504d1bba08757c8",
+      "git_blob": "fb37f384b23034d85e817e439286526cb600b9de",
+      "tree_match": true,
+      "mode": "媒体分类",
+      "frames": 1,
+      "size": [
+        1120,
+        630
+      ],
+      "duration_ms": 0,
+      "all_frames_data_decoded": true,
+      "visual": true,
+      "visual_scope": "PNG整体已看：output可见map scale已展开及代码/链接不注释；run作者历史。GIF只解码。"
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/project.json",
+      "bytes": 3326,
+      "sha256": "77921a6bd001e9d2d10ed9d1fa27f0c0245cbc06d269fb311647f2e8b575486c",
+      "git_blob": "1f876233eb61a165c214b3af06f20f9d12ba16ff",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 101,
+      "read_ranges": [
+        [
+          1,
+          101
+        ]
+      ],
+      "source_executed": false
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/solution/cli.ts",
+      "bytes": 1315,
+      "sha256": "3874fd4f9914fc756fd033f0c99c8fae67040854ea96a5cfb29d31490f97082d",
+      "git_blob": "950c5a84608ce775915e94db94479a128ea543b0",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 41,
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "source_executed": false
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/solution/main.ts",
+      "bytes": 9732,
+      "sha256": "4b0e7e4d212361e32821bb9918cf3b0cff3afa7d68ff7976818294615f1a3ea6",
+      "git_blob": "9c8d50113be5785fe79c79accfc0166c18bfa1e6",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 224,
+      "read_ranges": [
+        [
+          1,
+          224
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/field-notes-map-builder/solution/main.ts",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior_range": [
+            1,
+            1
+          ],
+          "current_range": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            2,
+            2
+          ],
+          "current_range": [
+            2,
+            2
+          ],
+          "equal_sha256": "6f7342e6b7062bbc17cd3375a37409f849e5a7ad740121f4a4287e6845230f89"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            3,
+            7
+          ],
+          "current_range": [
+            3,
+            5
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            8,
+            8
+          ],
+          "current_range": [
+            6,
+            6
+          ],
+          "equal_sha256": "df3982fd610173599241fca93c7c866683f58f541eced1c2098102145477164c"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            9,
+            12
+          ],
+          "current_range": [
+            7,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            13,
+            13
+          ],
+          "current_range": [
+            12,
+            12
+          ],
+          "equal_sha256": "df3982fd610173599241fca93c7c866683f58f541eced1c2098102145477164c"
+        },
+        {
+          "kind": "insert",
+          "prior_range": [
+            14,
+            13
+          ],
+          "current_range": [
+            13,
+            13
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            14,
+            14
+          ],
+          "current_range": [
+            14,
+            14
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            15,
+            21
+          ],
+          "current_range": [
+            15,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            22,
+            22
+          ],
+          "current_range": [
+            25,
+            25
+          ],
+          "equal_sha256": "546a1c09aec919ec1c987a73365a36e4259d08c62d242b80ca9716c77294dc57"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            23,
+            55
+          ],
+          "current_range": [
+            26,
+            35
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            56,
+            57
+          ],
+          "current_range": [
+            36,
+            37
+          ],
+          "equal_sha256": "bb1fecddddc006dbedbbb2ebc103a801fc6b02a77ea0022f07ad4d6b70f4833b"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            58,
+            74
+          ],
+          "current_range": [
+            38,
+            68
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            75,
+            75
+          ],
+          "current_range": [
+            69,
+            69
+          ],
+          "equal_sha256": "d10b36aa74a59bcf4a88185837f658afaf3646eff2bb16c3928d0e9335e945d2"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            76,
+            95
+          ],
+          "current_range": [
+            70,
+            112
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            96,
+            96
+          ],
+          "current_range": [
+            113,
+            113
+          ],
+          "equal_sha256": "f61f5bbc379fd349ffd484746f91dcd132c4bb0b0a919ca7ec94604bf9ca2435"
+        },
+        {
+          "kind": "insert",
+          "prior_range": [
+            97,
+            96
+          ],
+          "current_range": [
+            114,
+            141
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            97,
+            97
+          ],
+          "current_range": [
+            142,
+            142
+          ],
+          "equal_sha256": "28d86778615f6af47bb1bc4f40face756749768e5111f114cfa234a5060c25af"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            98,
+            136
+          ],
+          "current_range": [
+            143,
+            161
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            137,
+            138
+          ],
+          "current_range": [
+            162,
+            163
+          ],
+          "equal_sha256": "531290f57cbd4dc640349830b0162664b9e84b465fbe1892d5554e80f4785ee1"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            139,
+            150
+          ],
+          "current_range": [
+            164,
+            164
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            151,
+            151
+          ],
+          "current_range": [
+            165,
+            165
+          ],
+          "equal_sha256": "16766aa3913c819cde85614a0ab8d5eaf4c462b970d03d6d12a35f0d9150827b"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            152,
+            162
+          ],
+          "current_range": [
+            166,
+            170
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            163,
+            165
+          ],
+          "current_range": [
+            171,
+            173
+          ],
+          "equal_sha256": "93088a666ac9f88717588a7733ed9189fbc4e69ae157e0e39486132951561a99"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            166,
+            202
+          ],
+          "current_range": [
+            174,
+            195
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            203,
+            231
+          ],
+          "current_range": [
+            196,
+            224
+          ],
+          "equal_sha256": "a7c13e1c2087a63fe04a3911aef5f1c10db1d7eb484b07e1d1c9b3b6a3e05216"
+        }
+      ],
+      "different_lines_actually_output_and_read": true,
+      "common_helper_tail_bytes": 2701,
+      "reuse_tail_only_for_solution": true
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/solution/sample.json",
+      "bytes": 1361,
+      "sha256": "616c6e92274e8b72a9a81f8aa020d680b1032b86a2b5745005349d0314afd677",
+      "git_blob": "ee5471bc5f0dedcf3e6999a7ffe218042fa1e057",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 41,
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "source_executed": false
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/01-validate-glossary/docs/en.md",
+      "bytes": 2674,
+      "sha256": "5d283c5140ff2c6cd9d2a527564164657d90a5e2832d059777bd8945ff054a6e",
+      "git_blob": "8e2f38a1a4da012f7d2e589ff0daf00b26423768",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/field-notes-map-builder/stages/01-import-observations/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior_range": [
+            1,
+            1
+          ],
+          "current_range": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            2,
+            10
+          ],
+          "current_range": [
+            2,
+            10
+          ],
+          "equal_sha256": "ba2fa785faaf74ae396861557086edba0b0e5803623b994e1f9bdcd5631c7ff5"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            11,
+            11
+          ],
+          "current_range": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            12,
+            15
+          ],
+          "current_range": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            16,
+            16
+          ],
+          "current_range": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            17,
+            18
+          ],
+          "current_range": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            19,
+            19
+          ],
+          "current_range": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            20,
+            24
+          ],
+          "current_range": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            25,
+            25
+          ],
+          "current_range": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            26,
+            27
+          ],
+          "current_range": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            28,
+            28
+          ],
+          "current_range": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            29,
+            35
+          ],
+          "current_range": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            36,
+            37
+          ],
+          "current_range": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            38,
+            43
+          ],
+          "current_range": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            44,
+            44
+          ],
+          "current_range": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            45,
+            50
+          ],
+          "current_range": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            51,
+            51
+          ],
+          "current_range": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            52,
+            54
+          ],
+          "current_range": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            55,
+            55
+          ],
+          "current_range": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            56,
+            58
+          ],
+          "current_range": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            59,
+            59
+          ],
+          "current_range": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            60,
+            60
+          ],
+          "current_range": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            61,
+            61
+          ],
+          "current_range": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_output_and_read": true
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/01-validate-glossary/starter/cli.ts",
+      "bytes": 1315,
+      "sha256": "3874fd4f9914fc756fd033f0c99c8fae67040854ea96a5cfb29d31490f97082d",
+      "git_blob": "950c5a84608ce775915e94db94479a128ea543b0",
+      "tree_match": true,
+      "mode": "同SHA复用",
+      "lines": 41,
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/solution/cli.ts"
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/01-validate-glossary/starter/main.ts",
+      "bytes": 3546,
+      "sha256": "0a9e740fb73729d6371c9b5cba1436c691d1dd4454c77612c87797a922f18405",
+      "git_blob": "199c8cbb5c7affd8e88588c56d374e2046ff0242",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 59,
+      "read_ranges": [
+        [
+          1,
+          59
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/solution/main.ts",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior_range": [
+            1,
+            13
+          ],
+          "current_range": [
+            1,
+            13
+          ],
+          "equal_sha256": "e8fb487b0e68e5afafc70922d52611a9e8dbbec6cbcc5c57c36c49c55fe98e48"
+        },
+        {
+          "kind": "delete",
+          "prior_range": [
+            14,
+            14
+          ],
+          "current_range": [
+            14,
+            13
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            15,
+            15
+          ],
+          "current_range": [
+            14,
+            14
+          ],
+          "equal_sha256": "1aad760358a848381f0da3eb68579689edcfeb5ee9335f92ee4aaa0134ee35c3"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            16,
+            36
+          ],
+          "current_range": [
+            15,
+            15
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            37,
+            38
+          ],
+          "current_range": [
+            16,
+            17
+          ],
+          "equal_sha256": "6298f59dbdb7d79bc1244af511e445f155dfeda73d4a99687f907aa2a6f45317"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            39,
+            68
+          ],
+          "current_range": [
+            18,
+            18
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            69,
+            73
+          ],
+          "current_range": [
+            19,
+            23
+          ],
+          "equal_sha256": "67120826fe9390525017c1f92f92175578742cdb8bc3ed12726390977982860c"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            74,
+            172
+          ],
+          "current_range": [
+            24,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            173,
+            177
+          ],
+          "current_range": [
+            25,
+            29
+          ],
+          "equal_sha256": "76bfc7367d0ed174563f532707b97b6b22d5230153cd6cc86bf99da7d81597cd"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            178,
+            195
+          ],
+          "current_range": [
+            30,
+            30
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            196,
+            224
+          ],
+          "current_range": [
+            31,
+            59
+          ],
+          "equal_sha256": "a7c13e1c2087a63fe04a3911aef5f1c10db1d7eb484b07e1d1c9b3b6a3e05216"
+        }
+      ],
+      "different_lines_actually_output_and_read": true
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/01-validate-glossary/starter/sample.json",
+      "bytes": 1361,
+      "sha256": "616c6e92274e8b72a9a81f8aa020d680b1032b86a2b5745005349d0314afd677",
+      "git_blob": "ee5471bc5f0dedcf3e6999a7ffe218042fa1e057",
+      "tree_match": true,
+      "mode": "同SHA复用",
+      "lines": 41,
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/glossary-hovercard-publisher/solution/sample.json"
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/01-validate-glossary/tests/stage.test.mjs",
+      "bytes": 1215,
+      "sha256": "406201207724802899a36cd97ac2fdde385740ce1a8bcaa2125c5ec280b9f1b9",
+      "git_blob": "7425490670cd22d971b2518228c13621f27723e6",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 38,
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/field-notes-map-builder/stages/01-import-observations/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior_range": [
+            1,
+            7
+          ],
+          "current_range": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            8,
+            20
+          ],
+          "current_range": [
+            8,
+            12
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            21,
+            21
+          ],
+          "current_range": [
+            13,
+            13
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            22,
+            22
+          ],
+          "current_range": [
+            14,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            23,
+            23
+          ],
+          "current_range": [
+            17,
+            17
+          ],
+          "equal_sha256": "87dbb509222835daad7fe0d816124f7d9eb08ae2802526f276333f15d674aa48"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            24,
+            25
+          ],
+          "current_range": [
+            18,
+            22
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            26,
+            26
+          ],
+          "current_range": [
+            23,
+            23
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            27,
+            27
+          ],
+          "current_range": [
+            24,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            28,
+            28
+          ],
+          "current_range": [
+            25,
+            25
+          ],
+          "equal_sha256": "87dbb509222835daad7fe0d816124f7d9eb08ae2802526f276333f15d674aa48"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            29,
+            30
+          ],
+          "current_range": [
+            26,
+            27
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            31,
+            31
+          ],
+          "current_range": [
+            28,
+            28
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            32,
+            32
+          ],
+          "current_range": [
+            29,
+            29
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            33,
+            33
+          ],
+          "current_range": [
+            30,
+            30
+          ],
+          "equal_sha256": "87dbb509222835daad7fe0d816124f7d9eb08ae2802526f276333f15d674aa48"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            34,
+            35
+          ],
+          "current_range": [
+            31,
+            32
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            36,
+            36
+          ],
+          "current_range": [
+            33,
+            33
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            37,
+            41
+          ],
+          "current_range": [
+            34,
+            38
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_output_and_read": true,
+      "tests_static": [
+        "aliases default to empty",
+        "empty glossary allowed",
+        "duplicate alias rejected",
+        "invalid identity rejected",
+        "heldout empty definition rejected",
+        "copies alias list"
+      ]
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/02-match-text/docs/en.md",
+      "bytes": 2711,
+      "sha256": "4c9319ffb1c3655349865c9a7c5728c372b321785d4d86d75811f42553927c00",
+      "git_blob": "73ce8348f87d1f9033ac61aab58e2c48a0e219b3",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/field-notes-map-builder/stages/02-distance-groups/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior_range": [
+            1,
+            1
+          ],
+          "current_range": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            2,
+            10
+          ],
+          "current_range": [
+            2,
+            10
+          ],
+          "equal_sha256": "e8a7bc0f17464bc187ca6724a873f864a017545db28f2e976c7c6daf4ad3a546"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            11,
+            11
+          ],
+          "current_range": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            12,
+            15
+          ],
+          "current_range": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            16,
+            16
+          ],
+          "current_range": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            17,
+            18
+          ],
+          "current_range": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            19,
+            19
+          ],
+          "current_range": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            20,
+            24
+          ],
+          "current_range": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            25,
+            25
+          ],
+          "current_range": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            26,
+            27
+          ],
+          "current_range": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            28,
+            28
+          ],
+          "current_range": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            29,
+            35
+          ],
+          "current_range": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            36,
+            37
+          ],
+          "current_range": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            38,
+            43
+          ],
+          "current_range": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            44,
+            44
+          ],
+          "current_range": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            45,
+            50
+          ],
+          "current_range": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            51,
+            51
+          ],
+          "current_range": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            52,
+            54
+          ],
+          "current_range": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            55,
+            55
+          ],
+          "current_range": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            56,
+            58
+          ],
+          "current_range": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            59,
+            59
+          ],
+          "current_range": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            60,
+            60
+          ],
+          "current_range": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            61,
+            61
+          ],
+          "current_range": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_output_and_read": true
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/02-match-text/starter/STAGE-2.md",
+      "bytes": 252,
+      "sha256": "78538273a0fa2265fa05ecb3606f0c62c51015efb55940c3d16457d4293c29fc",
+      "git_blob": "96bbb714247a1eecc2591893f1d5760620d4c05d",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "source_executed": false
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/02-match-text/tests/stage.test.mjs",
+      "bytes": 1125,
+      "sha256": "33dae80f95947de01d34709b00a01ff559f9cc3eeb4fed37e0e169d2d93229a1",
+      "git_blob": "e69ac2e7867abde906354bc344a258441d36582c",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 28,
+      "read_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/field-notes-map-builder/stages/01-import-observations/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior_range": [
+            1,
+            7
+          ],
+          "current_range": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            8,
+            20
+          ],
+          "current_range": [
+            8,
+            23
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            21,
+            21
+          ],
+          "current_range": [
+            24,
+            24
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            22,
+            41
+          ],
+          "current_range": [
+            25,
+            28
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_output_and_read": true,
+      "tests_static": [
+        "longest phrase wins",
+        "word substring does not match",
+        "alias maps to canonical identity",
+        "repeated nonoverlapping matches",
+        "heldout unicode boundary",
+        "empty input returns none"
+      ]
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/03-accessible-definitions/docs/en.md",
+      "bytes": 3295,
+      "sha256": "7b5d9da77a1bdeb823cabb13120d62cd910c30e967f75220ccd7a7a43a9ae831",
+      "git_blob": "60722c75fc59fffae99a7eed6cd8540e0ea9db4d",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/field-notes-map-builder/stages/03-review-groups/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior_range": [
+            1,
+            1
+          ],
+          "current_range": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            2,
+            10
+          ],
+          "current_range": [
+            2,
+            10
+          ],
+          "equal_sha256": "4bba616be05a3d361f9beaf956a72a7b62ffd80f06a886559cdc10772678bf09"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            11,
+            11
+          ],
+          "current_range": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            12,
+            15
+          ],
+          "current_range": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            16,
+            16
+          ],
+          "current_range": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            17,
+            18
+          ],
+          "current_range": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            19,
+            19
+          ],
+          "current_range": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            20,
+            24
+          ],
+          "current_range": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            25,
+            25
+          ],
+          "current_range": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            26,
+            27
+          ],
+          "current_range": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            28,
+            28
+          ],
+          "current_range": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            29,
+            35
+          ],
+          "current_range": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            36,
+            37
+          ],
+          "current_range": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            38,
+            43
+          ],
+          "current_range": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            44,
+            44
+          ],
+          "current_range": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            45,
+            50
+          ],
+          "current_range": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            51,
+            51
+          ],
+          "current_range": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            52,
+            54
+          ],
+          "current_range": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            55,
+            55
+          ],
+          "current_range": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            56,
+            58
+          ],
+          "current_range": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            59,
+            59
+          ],
+          "current_range": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            60,
+            60
+          ],
+          "current_range": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            61,
+            61
+          ],
+          "current_range": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_output_and_read": true
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/03-accessible-definitions/starter/STAGE-3.md",
+      "bytes": 264,
+      "sha256": "f03c3ba601f549daccba7ebc3dc082da5442a4fa95a21c88452aacb8117d9e71",
+      "git_blob": "abf65da3a2fb1b071122ea87792fea6c8d997b36",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "source_executed": false
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/03-accessible-definitions/tests/stage.test.mjs",
+      "bytes": 1743,
+      "sha256": "def994836cc6d91230cd00e670effc15e9d38d41843bc32782b66bf42e094a2e",
+      "git_blob": "f9870706778c5ad0998f0e64399f2d844f419924",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 48,
+      "read_ranges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/field-notes-map-builder/stages/01-import-observations/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior_range": [
+            1,
+            7
+          ],
+          "current_range": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            8,
+            20
+          ],
+          "current_range": [
+            8,
+            24
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            21,
+            21
+          ],
+          "current_range": [
+            25,
+            25
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            22,
+            22
+          ],
+          "current_range": [
+            26,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            23,
+            23
+          ],
+          "current_range": [
+            29,
+            29
+          ],
+          "equal_sha256": "87dbb509222835daad7fe0d816124f7d9eb08ae2802526f276333f15d674aa48"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            24,
+            25
+          ],
+          "current_range": [
+            30,
+            31
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            26,
+            26
+          ],
+          "current_range": [
+            32,
+            32
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            27,
+            30
+          ],
+          "current_range": [
+            33,
+            35
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            31,
+            31
+          ],
+          "current_range": [
+            36,
+            36
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            32,
+            41
+          ],
+          "current_range": [
+            37,
+            48
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_output_and_read": true,
+      "tests_static": [
+        "annotates eligible text and counts",
+        "preserves code and links",
+        "rejects active attributes",
+        "rejects unbalanced fragments",
+        "heldout unsafe URL rejected",
+        "definition escaped",
+        "inline annotation preserves paragraph and emphasis structure"
+      ]
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/04-publish-bundle/docs/en.md",
+      "bytes": 3081,
+      "sha256": "9daf4559be323fef1d46061cbf7447e4b98584fda2e130f7a3356254e202dea9",
+      "git_blob": "657276717b12eff1d7a578ead02957bdb664edd0",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/field-notes-map-builder/stages/04-export-geojson/docs/en.md",
+      "line_proofs": [
+        {
+          "kind": "replace",
+          "prior_range": [
+            1,
+            1
+          ],
+          "current_range": [
+            1,
+            1
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            2,
+            10
+          ],
+          "current_range": [
+            2,
+            10
+          ],
+          "equal_sha256": "c807327af8c337b6f95122519d0223d70d13d155b7b9a9949e13a9396e3b6f0c"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            11,
+            11
+          ],
+          "current_range": [
+            11,
+            11
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            12,
+            15
+          ],
+          "current_range": [
+            12,
+            15
+          ],
+          "equal_sha256": "77a0c7c43be48b3c451c4eea0a52388ee63fcda15529f03627c1a631df1a2955"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            16,
+            16
+          ],
+          "current_range": [
+            16,
+            16
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            17,
+            18
+          ],
+          "current_range": [
+            17,
+            18
+          ],
+          "equal_sha256": "47c06c561d5c327343685268a46b3391f3998eee890d2be51f0d21cc4a53ae6d"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            19,
+            19
+          ],
+          "current_range": [
+            19,
+            19
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            20,
+            24
+          ],
+          "current_range": [
+            20,
+            24
+          ],
+          "equal_sha256": "bbcd6879b4f9a9dbabe7857702160ee38510f7e7c9f36f6c2d29260210356185"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            25,
+            25
+          ],
+          "current_range": [
+            25,
+            25
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            26,
+            27
+          ],
+          "current_range": [
+            26,
+            27
+          ],
+          "equal_sha256": "c4cbb8428e866ee062f46596a50471d47490f2070e8fc08c65da7bbaf5d5f531"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            28,
+            28
+          ],
+          "current_range": [
+            28,
+            28
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            29,
+            35
+          ],
+          "current_range": [
+            29,
+            35
+          ],
+          "equal_sha256": "e62c266cc93a0e0d53a2c43e80a69489f73da7b347dee66d2f500fa17f7dabab"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            36,
+            37
+          ],
+          "current_range": [
+            36,
+            37
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            38,
+            43
+          ],
+          "current_range": [
+            38,
+            43
+          ],
+          "equal_sha256": "a0a21c050d7da5c566f23f126aaadb2389175ed90654e4aa9bafb2e99b791246"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            44,
+            44
+          ],
+          "current_range": [
+            44,
+            44
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            45,
+            50
+          ],
+          "current_range": [
+            45,
+            50
+          ],
+          "equal_sha256": "a468a6f4a5b94301ab64c0221800e91edfa06b7a2e3db7b6fe18974ca3c33813"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            51,
+            51
+          ],
+          "current_range": [
+            51,
+            51
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            52,
+            54
+          ],
+          "current_range": [
+            52,
+            54
+          ],
+          "equal_sha256": "780e0b104cc30b0490fd7c70e2e50996c9dead6238aa96d996a8adbb90a13eae"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            55,
+            55
+          ],
+          "current_range": [
+            55,
+            55
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            56,
+            58
+          ],
+          "current_range": [
+            56,
+            58
+          ],
+          "equal_sha256": "b8a43ecfe972375fb75746355aa02759eee5f77194ec2112032b736a599ac922"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            59,
+            59
+          ],
+          "current_range": [
+            59,
+            59
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            60,
+            60
+          ],
+          "current_range": [
+            60,
+            60
+          ],
+          "equal_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            61,
+            61
+          ],
+          "current_range": [
+            61,
+            61
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_output_and_read": true
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/04-publish-bundle/starter/STAGE-4.md",
+      "bytes": 262,
+      "sha256": "a207ecd4fae27d33358e5dcb5fb22d4709d3f24f3c09b1d761dc00b3943efbf8",
+      "git_blob": "eb1d31ca907880d8fa255387d9de0ec0ef42c6d1",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 3,
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "source_executed": false
+    },
+    {
+      "path": "projects/glossary-hovercard-publisher/stages/04-publish-bundle/tests/stage.test.mjs",
+      "bytes": 1262,
+      "sha256": "db127a3b4050e6bdf1ddba15c6eedcb0ce6f886ec4c118ffdaed80ab5832f91f",
+      "git_blob": "1b05707f6bc939e233fb743609ace50cc475f65b",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 39,
+      "read_ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "source_executed": false,
+      "reuse_source": "projects/field-notes-map-builder/stages/01-import-observations/tests/stage.test.mjs",
+      "line_proofs": [
+        {
+          "kind": "equal",
+          "prior_range": [
+            1,
+            7
+          ],
+          "current_range": [
+            1,
+            7
+          ],
+          "equal_sha256": "eeef904e80fefaf7dececc4b9668275b0a16f223ad8bc055b38a899561bfdaa9"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            8,
+            20
+          ],
+          "current_range": [
+            8,
+            18
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            21,
+            21
+          ],
+          "current_range": [
+            19,
+            19
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            22,
+            25
+          ],
+          "current_range": [
+            20,
+            33
+          ],
+          "equal_sha256": null
+        },
+        {
+          "kind": "equal",
+          "prior_range": [
+            26,
+            26
+          ],
+          "current_range": [
+            34,
+            34
+          ],
+          "equal_sha256": "ec23e0836dd4d033030c10156b9d0ff820985078783596b0b01851f54d8e2209"
+        },
+        {
+          "kind": "replace",
+          "prior_range": [
+            27,
+            41
+          ],
+          "current_range": [
+            35,
+            39
+          ],
+          "equal_sha256": null
+        }
+      ],
+      "different_lines_actually_output_and_read": true,
+      "tests_static": [
+        "ships standalone document",
+        "exports reusable exact glossary",
+        "reports absent terms",
+        "includes a keyboard-native disclosure button",
+        "heldout embedded script escaped",
+        "exports a copy"
+      ]
+    },
+    {
+      "path": "site/figures/projects/glossary-hovercard-publisher.js",
+      "bytes": 5027,
+      "sha256": "da1d7d6d3f4510df4b9984d76a1a9724de939753e83fdaf5639d0198b751b2d2",
+      "git_blob": "05e1c286ab1f2c50ba2e9bf2cd82758a2b4df076",
+      "tree_match": true,
+      "mode": "实际全文或精确行复用",
+      "lines": 182,
+      "read_ranges": [
+        [
+          1,
+          182
+        ]
+      ],
+      "source_executed": false
+    }
+  ],
+  "data_proof": {
+    "date": "2026-10-23",
+    "method": "自写Python标准库纯字符串/UTF16码元/Unicode类别模型，固定HTML子集token投影核样本，未执行或import来源TS/JS/HTML。模型仅用于列出的ASCII词与Unicode边界反例，不声称实现完整ECMAScript或HTML5。",
+    "source_execution": 0,
+    "sample_coverage": {
+      "map-scale": 1,
+      "legend": 2,
+      "latitude": 1,
+      "longitude": 1,
+      "coordinates": 2
+    },
+    "sample_annotations": 7,
+    "sample_eligible_hits": [
+      {
+        "termId": "map-scale",
+        "start": 9,
+        "end": 18,
+        "text": "map scale"
+      },
+      {
+        "termId": "legend",
+        "start": 43,
+        "end": 49,
+        "text": "legend"
+      },
+      {
+        "termId": "coordinates",
+        "start": 78,
+        "end": 89,
+        "text": "Coordinates"
+      },
+      {
+        "termId": "latitude",
+        "start": 114,
+        "end": 122,
+        "text": "latitude"
+      },
+      {
+        "termId": "longitude",
+        "start": 127,
+        "end": 136,
+        "text": "longitude"
+      },
+      {
+        "termId": "coordinates",
+        "start": 2,
+        "end": 17,
+        "text": "coordinate pair"
+      },
+      {
+        "termId": "legend",
+        "start": 49,
+        "end": 56,
+        "text": "map key"
+      }
+    ],
+    "utf16_cases": [
+      {
+        "text": "Map scale, then map",
+        "matches": [
+          {
+            "termId": "scale",
+            "start": 0,
+            "end": 9,
+            "text": "Map scale"
+          },
+          {
+            "termId": "map",
+            "start": 16,
+            "end": 19,
+            "text": "map"
+          }
+        ]
+      },
+      {
+        "text": "mapping _map map2",
+        "matches": []
+      },
+      {
+        "text": "a RATIO.",
+        "matches": [
+          {
+            "termId": "scale",
+            "start": 2,
+            "end": 7,
+            "text": "RATIO"
+          }
+        ]
+      },
+      {
+        "text": "émapping mapé",
+        "matches": []
+      },
+      {
+        "text": "𐐀map",
+        "matches": [
+          {
+            "termId": "map",
+            "start": 2,
+            "end": 5,
+            "text": "map"
+          }
+        ]
+      },
+      {
+        "text": "maṕ",
+        "matches": [
+          {
+            "termId": "map",
+            "start": 0,
+            "end": 3,
+            "text": "map"
+          }
+        ]
+      },
+      {
+        "text": "map; map",
+        "matches": [
+          {
+            "termId": "map",
+            "start": 0,
+            "end": 3,
+            "text": "map"
+          },
+          {
+            "termId": "map",
+            "start": 5,
+            "end": 8,
+            "text": "map"
+          }
+        ]
+      }
+    ],
+    "chinese_boundary": {
+      "text": "这张地图很好。 地图。",
+      "matches": [
+        {
+          "termId": "map-cn",
+          "start": 8,
+          "end": 10,
+          "text": "地图"
+        }
+      ]
+    },
+    "left_to_right_greedy_counterexample": {
+      "text": "a b c d",
+      "terms": [
+        {
+          "id": "short",
+          "term": "a b",
+          "aliases": []
+        },
+        {
+          "id": "long",
+          "term": "b c d",
+          "aliases": []
+        }
+      ],
+      "matches": [
+        {
+          "termId": "short",
+          "start": 0,
+          "end": 3,
+          "text": "a b"
+        }
+      ]
+    },
+    "entity_boundary_examples": [
+      "map&nbsp;scale不会作为map scale整体命中；若独立map也在词表，可能只注释map段。",
+      "map <em>scale</em>的短语不跨元素。"
+    ],
+    "static_selector_collision": {
+      "input_fragment": "<p id=\"export\">Other</p>",
+      "attribute_allowed": true,
+      "generated_later_button_id": "export",
+      "first_querySelector_export_can_bind_input_paragraph": true,
+      "classification": "静态DOM顺序推导，未开浏览器/执行事件"
+    },
+    "static_review_contract": {
+      "cli_reviewFile_read": true,
+      "review_value_used_for_publish": false,
+      "actual_editor_approval_state": null
+    },
+    "figure_boundaries": [
+      "图2使用ASCII-style\\b的map scale|map正则，不等同核心Unicode边界、可配置全词表。",
+      "图4空字符串split/Number可能算0一项；错误/负数被filter丢掉，不是严格覆盖输入校验。"
+    ],
+    "official_refs": [
+      {
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/",
+        "scope": "原生按钮及Enter/Space激活的指定Keyboard Interaction段；非本次键盘/读屏实测。"
+      }
+    ],
+    "not_verified": [
+      "原25测试/CLI/JS未运行；没有通用HTML sanitizer或完整Unicode实现的验收。",
+      "未进行浏览器布局/键盘/读屏/DOM冲突动态验证。",
+      "词定义专业性仍需编辑核验，无审批/审稿人/版本指纹实现。"
+    ]
+  },
+  "root_review": {
+    "inventory_rechecked": 26,
+    "drift": 0,
+    "critical_actual_read": [
+      "matchTerms",
+      "annotateLesson HTML allowlist/parser"
+    ],
+    "proof": "前者核对连通组/GeoJSON，后者核UTF16边界/贪心/HTML子集；未运行来源程序"
+  },
+  "formal_fusion": {
+    "file": "Python/Core/14-Web-Development.md",
+    "before_sha256": "02140d16b2ec89597f2ef4eaf2403dcab4cff561a7401076281fc4b7b5cc5463",
+    "after_sha256": "2bf2f7d14167372757380c32796582f9024e054de3796a7abc008440ad256f84",
+    "old_code_fences_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "2e24120fc457d95ab3114f2760446a23df441f10a5f3e0793a6a513135d60585",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "27378e12f4b36fd52659f8cf6cabb32cab47b2cd7bec7376f87dd1c02a5a4dd6",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4620 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

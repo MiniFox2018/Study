@@ -809,3 +809,99 @@ metric speedup=targetcalls ratio，未计draft/verify cost与真实硬件；最�
 7. **2.5倍能当统一门禁吗？**：2.5x仅教材作业门槛，不满足也可能值得上线或停用，按业务goodput和成本门限。
 
 增量来源：[AI Engineering from Scratch，Phase19/14](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b37ffd8f0c04953c0678e48f5c6d0c7775/phases/19-capstone-projects/14-speculative-decoding-server)，固定`3be078b37ffd8f0c04953c0678e48f5c6d0c7775`，2026-10-11逐文件静读正文、Python、全部关联TS模块/测试/配置、产物要求、测验及SVG；产物中的Skill/安装/调用/部署要求只作学习材料。旧代码字节保留，无来源程序、模型、API、设备、真实服务、训练或攻击执行。
+
+
+## 19. 分页实现：容量、块复用与最后一个token
+
+这组实现例固定vLLM **0.31.0 / db9527a46873454610df6dbedf79a36d6bf1a7f6**，外层来源截止2026-10-23，本次2026-10-24～25静读/纯数据核算。作者捕获主要10月17～23日；这是可追溯教学快照，不是当前安装版本推荐。原程序、模型、HTTP服务、SDK、CLI与测试均未执行。
+
+### 19.1 先对齐预算的分母和单位
+
+对普通全注意力、未做额外压缩的一份KV，理想载荷为`2×本地层数×本地KV头数×head_dim×每值字节数`。TP、KV头复制、滑窗/混合层、MLA/状态空间、页对齐及元数据需要另算，不能把全模型公式无条件除以GPU数。
+
+Qwen3-8B教学配置为36层、8 KV头、head_dim128，BF16为147456字节=144KiB/token；Qwen3-30B-A3B为48层、4 KV头，BF16为98304字节=96KiB/token。MoE权重总量更大不表示KV更大，专家权重与注意力KV是两项预算。
+
+作者L4比较把池固定为1506个16-token块，即24096token。每请求512输入＋128输出=640token、没有共享、全部增长到该长度时，可容纳floor(24096/640)=37份，余416token。启动打印24096/8192≈2.94x用的是每请求占满8192的估计，不是实际最多只能两个用户。日志40个running也不矛盾：尚未写满输出时持有更少KV；并发上限还受调度、工作空间和SLO限制。
+
+一GiB除以144KiB/72KiB得到理想7281/14563个完整token，但在16-token块分配下应先按块向下取整，分别7280/14560token，再扣其他布局开销。来源fig2.4是理想字节计算，不是实测容量，不能用其7281当真实可分配块数。
+
+`gpu-memory-utilization`约束单实例的计划份额，分母是设备总量而非启动时空闲量；0.31.0来源默认0.92，作者实验又显式设0.9/0.75/0.83，不可混称默认实验。权重、profile激活、CUDA graph、KV池分别占内存。`kv-cache-memory-bytes`直接指定KV预算，官方该pin说明非None时会忽略`gpu_memory_utilization`的自动估算；`num-gpu-blocks-override`用于控制实验的固定块数，不能当不检查物理内存的生产扩容手段。
+
+| 失败证据 | 先判断什么 | 有针对性的改变 |
+|---|---|---|
+| 目标份额大于实际free memory | 其他进程/已有实例占用 | 调整实例预算或经授权协调占用者 |
+| 一条max_model_len请求装不进KV池 | 单请求最大长度与可用KV | 在任务允许范围内缩长度，或真正增加KV容量 |
+| profile/graph capture阶段OOM | 激活峰值、批大小、图捕获工作区 | 调整max_num_seqs/token budget/graph尺寸并重测 |
+| weights还未加载完成就OOM | 权重本体与布局 | 合适量化/分片/硬件；不能指望改KV参数解决所有权重问题 |
+
+来源有两处措辞冲突：前文正确说“降低max_model_len通常不增大已固定的池”，批处理/排障页又把它直接叫“给池增加内存”。应区分单请求上限、profile/图产生的间接变化和实际池容量；固定同一block pool时，改长度上限不会凭空增加token槽。
+
+GB10统一内存还与OS、页缓存和其他程序竞争，计划份额不是OS级硬隔离。作者日志121.69GiB可见内存、56.93GiB权重、31.32GiB available KV、约3GiB其他开销，份额0.75约91.3GiB。实验手动将KV池缩到234960token以接近另一引擎，不能拿31.32GiB/96KiB推导的约342098token替换其实际池。营销“128GB”与运行时可见GiB还涉及单位/预留，不直接写数学等号。权重加载330.5秒是作者单次观察；没有证明所有GB10重启都同速或固定份额安全。
+
+全注意力层保留其历史KV，滑窗层只需要窗口内块，Mamba等状态空间层保留每请求状态及可复用检查点，不能按全注意力的每tokenKV公式统一乘。混合模型按层类型组织cache groups，每组有页布局与命中条件；一段文本相同，不证明所有组需要的状态都仍可用。RoPE/YaRN等长度推导和Mamba checkpoint模式在版本间改变时，核实际派生长度、内存与runner，不能只把max_model_len手工增大就宣布模型支持该质量范围。
+
+### 19.2 引用计数、复用队列和logits边界
+
+前缀键按前块hash和本块token串链，LoRA、多模态输入与租户salt等会影响键；稳定system/tool前缀放前，常变问题/时间/请求ID放后。共享20token在16-token块例中复用前16、重算余4；但块长并非所有backend/混合模型都固定16，读取实际配置。
+
+完整prompt已命中也不意味着本轮zero compute。同pin的`kv_cache_manager.py:289～299`把最大命中长度设`num_tokens−1`以重算末token取得logits；对齐还可能导致整个末块重算。相同32-token prompt、块长16的教学反例中，最大命中31只能按完整块复用16，其余重算。这解释了为什么“所有完整命中块都不再算”仍需最后一块边界。
+
+请求结束、引用计数变0的缓存块可进free queue并保留hash；被后来的相同前缀使用前再取出/增加引用。官方`block_pool.py`先复用无hash的空块，缓存块在队尾保持FIFO/LRU式淘汰，重新分配时才移除旧hash。**free queue真空时并没有另一批可随意驱逐的闲置缓存块**；所有块被引用时需排队或先抢占释放。来源fig8.3“队列空时再驱逐LRU cached block”的图注会混淆这点，不能覆盖仍被运行请求引用的块。
+
+缓存省的是已命中部分prefill，不是“旧turn免费”：后续decode仍读所需KV，缓存占内存，外存回载还占带宽/时间。摘要/截断中间对话也会改变相应位置之后的前缀；只为命中而永不删上下文不一定符合任务预算或信息时效。
+
+租户salt应由可信网关从身份/隔离政策派生，不能靠任意调用方填一个可猜salt获得授权。哈希也不证明内容/模型版本可信。权重/适配器/位置语义变化或RL更新后应明确失效合同，避免旧KV套上新权重。
+
+### 19.3 算法保证与服务实际产出分开
+
+完整投机接受/残差采样、EAGLE训练和树mask继续维护在7/10/11/12/15.3，不复制一个弱化版本。固定示例若18个提议draft中接受5个、共6次verify，则accepted/proposed=5/18≈27.8%，在每次verify都贡献一个correction/bonus且无提前截断的计数合同下，产出均值1+5/6≈1.833。若总响应12 token含prefill首token，则余11/6才对应这6次verify的产出；不能用12/6替换所有字段定义。EOS、末尾预算、可变draft与具体引擎计数范围都要明确。固定成本下更深草稿不一定更快；新runner/async支持也可能随proposer改变，性能证据统一看[评测35](06-评测与实验管理.md)。
+
+自检：24096/640为什么只保证37份完整长度？整除余416，且未考虑额外限制；日志40running为何不必矛盾？尚未增长到上限；32-token整命中为什么可能只复用16？末token logits与块对齐；free queue空时能否直接改仍被引用的块？不能。
+
+来源为[第一来源固定vLLM手册](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a/manuals/vllm-101)。同pin官方[executor配置](https://github.com/vllm-project/vllm/blob/db9527a46873454610df6dbedf79a36d6bf1a7f6/vllm/config/parallel.py)、[UniProcExecutor](https://github.com/vllm-project/vllm/blob/db9527a46873454610df6dbedf79a36d6bf1a7f6/vllm/v1/executor/uniproc_executor.py)、[KV管理](https://github.com/vllm-project/vllm/blob/db9527a46873454610df6dbedf79a36d6bf1a7f6/vllm/v1/core/kv_cache_manager.py)、[BlockPool](https://github.com/vllm-project/vllm/blob/db9527a46873454610df6dbedf79a36d6bf1a7f6/vllm/v1/core/block_pool.py)与[缓存配置](https://github.com/vllm-project/vllm/blob/db9527a46873454610df6dbedf79a36d6bf1a7f6/vllm/config/cache.py)关键段已核。134路径读取层次、24个摘录有序匹配、154测量点字段投影、已存统计核与独立算术范围见[10融合记录](../维护/来源更新/2026-10-24/10-vLLM运行缓存与测量融合.json)。来源记录内部一致不等真实GPU复现或用户已经掌握；缺失逐题/逐请求原始数据的范围没有补造。
+
+## 20. 从槽索引到混合状态：SGLang缓存与执行的补充
+
+本节对应SGLang0.5.22/`baa9befa381511cd4d56f83980951e5a45fffc6d`，来源与静态核验边界同[服务化20](03-推理与服务化.md)。§15.2的Radix树、§19的分页/末token、§7与§15.3的投机证明继续共用，不再建立另一套缓存或接受率公式。
+
+### 20.1 同一个token前缀需要哪些状态仍有效
+
+ReqToTokenPool保存请求位置到槽索引的映射，allocator管空闲槽，物理张量装K/V；不同请求可以映射到共享槽。Radix的CPU索引并不是KV本体。固定普通路径可最多匹配prompt长度−1以获得末token logits，但具体mode/页对齐会影响结果，不把“永远少1”或“所有末块都可全命中”当跨引擎定理。
+
+混合模型按状态交集恢复。Full attention可保各历史token的KV，SWA只保窗口，Mamba/递归层要从保存的状态快照继续；最长文本匹配不等所有层都可复用。若每256token存一份递归快照，1800的公共前缀可从1792恢复再算8；不能从2000的压缩状态倒切出1500。每种cold/GPU-hit/host-hit、权重/adapter版本及批形状都要核输出，greedy或hit高不构成正确性证明。
+
+HiCache以GPU为L1、pinned host为L2、共享存储为L3；write-through/selective/write-back改变何时复制，load-back仍需GPU槽及rank/stream同步。工作集小于L1时多层未必有益，大于L1但能容L1+L2时可能减少重prefill，再大则L2也抖动。统一内存机host副本也消耗同一物理容量。LRU/LFU/SLRU/priority等按回访轨迹选择；作者特定24会话轨迹的胜负不能变成政策排行，固定手册与docs的预取默认冲突也不写成通用部署默认。
+
+### 20.2 资源宽度不要重复相乘
+
+该pin一个model world的设备数是TP×PP，普通DP复制world：tp4、dp2需8GPU。tp8、attn-dp4是在同一8卡集合内形成4个两卡attention组，不是再乘4；tp8、ep8也是同组内专家分片。旧`dp-size N + enable-dp-attention`在此版本迁往`attn-dp-size N + dp-size 1`，兼容期不保证以后仍可用；解析后还会调整chunk与保守系数。保存最终值，不能只看命令输入。
+
+MLA的latent在某些TP布局中复制，attention-DP按请求分组可减少这种重复；GQA同样要读每rank KV头数，不盲除TP。MoE的dispatch/local grouped GEMM/combine已在§2说明，这里再看整个batch触及的专家：若每token均匀独立从128专家选8，b个token期望并集为`128×[1−(1−8/128)^b]`；b=64约125.94。它说明单token只激活8个不代表整步只读8份权重，但不是实测DRAM字节，真实路由偏斜/缓存/复用会改变结果。
+
+DeepEP normal/low-latency、EPLB与two-batch overlap分别改通信路径、专家分布与重叠。负载均衡也可能搬权重/存冗余；先读最忙rank与通信代价，再按TTFT/TPOT/goodput接纳，不把开关名当收益证书。
+
+### 20.3 推测状态、cap与首尾计数
+
+draft产生链或树，target的TARGET_VERIFY评分并提交接受前缀/修正，DRAFT_EXTEND_V2使草稿缓存追上。topk1、steps3的`num_draft_tokens=4`并不是“接受4草稿”，verify还有承接位置。若接受前两项、第三拒绝并提交target修正，本轮提交3；深度只决定提议，不决定产出。
+
+该pin部分推测方法在未显式设置最大running时会改为48，加载草稿还挤KV。200客户端未完成请求至少可能有152在cap后等待；小池又可能更早限制。作者L4加载draft后池24094→9951，640token完整长度粗预算仅15份；其c32 TPOT改善同时TTFT变差、总吞吐近似不变，不必互相矛盾。收益由draft/verify/update成本、队列、实际输出和尾部共同决定。
+
+计数也须分源码范围：作者两份native EAGLE响应都输出12token，GB10 correct_drafts=2、verify=9，L4为5、6；meta spec_accept_length分别12/9和12/6。两例correct+verify均11，响应另含prefill首token等边界，不能直接用12/verify替换§15.3抽象合同的`1+accepted/verify`。EOS、末预算和字段实现分别核。
+
+固定NGRAM hook允许CUDA/CPU/XPU并关闭mixed chunk，只有CPU辅助路径强制关overlap；旧“CUDA only且全关overlap”不适用此pin。算法名、采样保证、设备/graph/overlap支持分别验。放宽草稿context的检查开关也不训练长上下文；先核draft真实支持长度，再测长回答不同阶段接受率与服务尾部。
+
+自检：Mamba匹配1800、256间隔快照为何不是从2000回切？递归状态不可一般逆切；tp8/attn-dp4要32卡吗？8；correct+verify与输出12不同是否必计数坏？先核首token/终止/字段范围；accept length更高是否必更快？缺草稿成本、cap和KV证据，不能。
+
+来源：[固定手册](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a/manuals/sglang-101)3.3～3.6、4.4、6.1～6.2；缓存/服务操作边界连03章20，性能计量连06章37。原模型、图示JS和服务没有运行。
+
+本批完整读取/选段/字段投影层次、GPU显示关联及原程序未运行范围见[12融合记录](../维护/来源更新/2026-10-24/12-SGLang状态缓存与测量融合.json)。
+
+
+## 计算练习：MoE损失与在线softmax的边界
+
+第2节定义f=count/(T*k)、P为全专家概率的token均值，均匀分配时EΣfP=1，但1不是普遍下界。三个token、两专家、top-1概率为(.51,.49)、(.51,.49)、(.01,.99)：f=(2/3,1/3)，P=(103/300,197/300)，损失403/450<1。相反，所有logit相等且同分选低id时，路由可能全挤专家0而损失仍为1。应同时观察硬分配、overflow和设备负载；不能只凭这个辅助数判断均匀或任务质量。原练习随机fixture还出现.9701768001385012，与反例方向一致，但数值表不是定理证明。
+
+在线softmax合并新块时，旧指数和l与加权累加器a都要乘exp(m_old-m_new)，最终输出a/l、logsumexp=m+log(l)。先处理全屏蔽首块的-inf-(-inf)，最后不足整块也不能漏。本练习NumPy工作区为O(Tq*min(block_size,Tk))，只有固定块长时随Tq线性；block_size>=Tk仍生成全score块。这验证在线归一化机制，不证明真实GPU FlashAttention速度。单层预分配KV的append先核K/V行数和容量，再复制并增长length；失败保持旧状态，keys()/values()的view也不自动防外部写。已有完整decoder/page/树验证继续保留。
+
+
+2026-10-25增量：基于[固定3f9715c的计算练习](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a/practice)，源截止2026-10-23。已读题目/参考/提示并按知识去重复用，未运行来源练习、测试或训练；反例仅自写标准库核算，旧程序及原成功日期不变。51题落点、710路径读取层级与本批正文验证见[11记录](../维护/来源更新/2026-10-24/11-算法练习纠偏与训练路径融合.json)。

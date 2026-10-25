@@ -1,0 +1,223 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "project": "mini-decompiler",
+  "accepted": true,
+  "status": "8阶段知识融合验收完成，未替读者实现/运行项目或取得证书",
+  "source_items": 70,
+  "source_status_counts": {
+    "full_text_read": 45,
+    "binary_classified_static_data_checked": 6,
+    "demo_media_value_classified": 4,
+    "same_sha_full_text_read_reuse": 3,
+    "range_mapped_full_text_reuse_with_new_lines_read": 10,
+    "same_byte_static_binary_scope_reuse": 2
+  },
+  "source_reading": [
+    "83-小型反编译器阶段正文读取.json",
+    "84-小型反编译器参考实现静读.json",
+    "85-小型反编译器测试模板与图读取.json",
+    "86-小型反编译器对象与演示静核.json"
+  ],
+  "accepted_stage_ids": [
+    "01-elf-loader",
+    "02-decoder",
+    "03-control-flow",
+    "04-lift-and-ssa",
+    "05-optimize",
+    "06-signature",
+    "07-structure-and-emit",
+    "08-verify"
+  ],
+  "knowledge_mapping": [
+    {
+      "stage": "01-elf-loader",
+      "formal": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+      "sections": [
+        "10.1中间合同",
+        "10.2对象/节/PC32目标"
+      ],
+      "earlier_basis": [
+        "01二进制布局",
+        "07链接与重定位"
+      ]
+    },
+    {
+      "stage": "02-decoder",
+      "formal": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+      "sections": [
+        "10.1decoder准入与不支持",
+        "10.2指令/递归/对齐计数"
+      ],
+      "earlier_basis": [
+        "02指令字段/REX/ModRM/SIB",
+        "03.1错误边界自造10字节例"
+      ]
+    },
+    {
+      "stage": "03-control-flow",
+      "formal": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+      "sections": [
+        "10.2 O0jump表/O1value表与10块15边",
+        "10.5全部出口/循环头"
+      ],
+      "earlier_basis": [
+        "03.2–4图/支配/循环"
+      ]
+    },
+    {
+      "stage": "04-lift-and-ssa",
+      "formal": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+      "sections": [
+        "10.3四phi/两phi、入口虚边/width、rename次序、并行copy"
+      ],
+      "earlier_basis": [
+        "03.5–7机器效果/SSA/内存别名"
+      ]
+    },
+    {
+      "stage": "05-optimize",
+      "formal": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+      "sections": [
+        "10.4record输入0/10/5正确15与错误7",
+        "位宽/flags/常量eager计算/乘移前提"
+      ],
+      "earlier_basis": [
+        "02.6常数除法推导"
+      ]
+    },
+    {
+      "stage": "06-signature",
+      "formal": "计算机科学基础/10-程序分析与逆向工程/04-数据布局与类型恢复.md",
+      "sections": [
+        "从优化SSA恢复一个可解释的签名",
+        "INTEGER最低槽位/unused前缀/record未访问spare/类型冲突/128位"
+      ],
+      "earlier_basis": [
+        "02ABI",
+        "04访问事实与候选/布局"
+      ]
+    },
+    {
+      "stage": "07-structure-and-emit",
+      "formal": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+      "sections": [
+        "10.5循环头重算/多出口/多latch/goto labels/未解间接跳转/合法C"
+      ],
+      "earlier_basis": [
+        "03.4后支配/结构化",
+        "03.8C语义边界"
+      ]
+    },
+    {
+      "stage": "08-verify",
+      "formal": "计算机科学基础/10-程序分析与逆向工程/06-差分重建与符号执行.md",
+      "sections": [
+        "16.1 band23字节同码/常量20→21；fold38/40/45分开",
+        "16.2有限183与400前缀/边界集合并",
+        "16.3 C定义域/指针/异常/host范围",
+        "16.4四状态/必需集合/非空案例/身份绑定"
+      ],
+      "earlier_basis": [
+        "06.1–6两腿/依赖/harness准入"
+      ]
+    }
+  ],
+  "validation": {
+    "whole_formal_files": 4,
+    "renders": [
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+        "format": "json",
+        "sha256": "7d8e96530949b7af579a1923cf6b89b6b2734b3c78dbeda82c92575e1d99fd83",
+        "warnings": ""
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+        "format": "html",
+        "sha256": "b258d7ce639eca7c67d5ca91f17ab2c5a58b5ddf040d67ba84db2bee4052261a",
+        "warnings": ""
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/04-数据布局与类型恢复.md",
+        "format": "json",
+        "sha256": "36b67cf8811e997e095365e1f5849f8e92fe9b52a757b66bf54a39bae263850c",
+        "warnings": ""
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/04-数据布局与类型恢复.md",
+        "format": "html",
+        "sha256": "d7f41c4f07a2decde86be0f24d006d33ecd88813efaa608d786fcd9693347237",
+        "warnings": ""
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/06-差分重建与符号执行.md",
+        "format": "json",
+        "sha256": "2b7e2153d7aa62f013216ee85515dfb8fc2cfc710da34f11d81066ac0cffceb7",
+        "warnings": ""
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/06-差分重建与符号执行.md",
+        "format": "html",
+        "sha256": "12c3b4128e6dcc5e0fc928f98ac09bff48dd7d6e432b762afe53a96e5c356dca",
+        "warnings": ""
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "json",
+        "sha256": "817d67a45f37e2d23e625031f4fdc98bccfeb625f2827b8242ad69f01ec7a9a7",
+        "warnings": ""
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "html",
+        "sha256": "0b28d29f4871204d48bd528cb48f3b36d1b2c0707dbb0229656652978add146b",
+        "warnings": ""
+      }
+    ],
+    "preservation": [
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/03-控制流与中间表示.md",
+        "before_sha256": "71bc01804168f8fc34535e36814317b8dbc04e2318b10fa718f1179e5555ab70",
+        "after_sha256": "f6c585bf34ec01be51f61e8b54703c0d36e15346b5c24e9e5b26da16ddb7a0fd",
+        "all_old_code_fences_byte_preserved": true,
+        "old_fence_count": 5
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/04-数据布局与类型恢复.md",
+        "before_sha256": "547782a63dd44d90d44901796d17a40bb99a241c3b3845867b6e440696ba6608",
+        "after_sha256": "13d0a5fa30fe25dff497f43ba4f221902ac2fa9b75f218c5f3a8616517072b41",
+        "all_old_code_fences_byte_preserved": true,
+        "old_fence_count": 3
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/06-差分重建与符号执行.md",
+        "before_sha256": "3fbc7314aa6a17ec9d64313a908d5851c7cd00db966a5218265f2392879f9ac9",
+        "after_sha256": "6e7cf2b057f7e93cea23a6a1320fdb56910ad5e271ad56e0072fb82c31fa2636",
+        "all_old_code_fences_byte_preserved": true,
+        "old_fence_count": 1
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "before_sha256": "9e085d7a51092730e71cee91ab656371f6b47cc18a7b030852129f17752ab4ac",
+        "after_sha256": "2ab0543e60bfd27e371c8c6c0d741c96bf65d83fc5fd0d55a583a4c73daf59ac",
+        "all_old_code_fences_byte_preserved": true,
+        "old_fence_count": 0
+      }
+    ],
+    "new_own_embedded_programs": 0,
+    "old_programs_rerun": 0,
+    "new_independent_static_fields": "86记录6unique对象+2copy、4listing272条899B、值表/跳表/候选，以及有限组合数；非原代码执行"
+  },
+  "source_exec": 0,
+  "original_105_tests_run": false,
+  "source_compiler_or_driver_run": false,
+  "source_JS_run": false,
+  "raw_source_or_media_committed": false,
+  "whole_update_complete": false,
+  "remaining": [
+    "14节逆向主课的整体最终学习/来源覆盖一致性复查",
+    "26个其它项目104阶段、新增canonical/Skills等配套、全局整合验收"
+  ],
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4605 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

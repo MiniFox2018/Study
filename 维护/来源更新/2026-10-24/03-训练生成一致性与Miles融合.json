@@ -1,0 +1,2301 @@
+{
+  "date": "2026-10-25",
+  "source_commit": "3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a",
+  "accepted": true,
+  "scope": "Miles111原项的知识/证据/展示分层融合；不是原训练/SDK/硬件或恢复实跑验收",
+  "delegate_handoff": {
+    "date": "2026-10-25",
+    "reading_dates": [
+      "2026-10-24",
+      "2026-10-25"
+    ],
+    "source_commit": "3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a",
+    "source_time_UTC": "2026-10-23T13:09:18Z",
+    "subject_pin": {
+      "subject": "Miles",
+      "version": "radixark/miles:latest, Miles main of 2026-10-15",
+      "source": "https://github.com/radixark/miles",
+      "commit": "08752a1283",
+      "date": "2026-10-15",
+      "verified": "2026-10-22"
+    },
+    "scope": "manuals/miles-101全部111原项，知识主题回融既有三入口，不建手册镜像",
+    "accepted": false,
+    "inventory": "/tmp/study-update-20261024/miles-agent/inventory.json",
+    "data_proof": "/tmp/study-update-20261024/miles-agent/data-proof.json",
+    "knowledge": "/tmp/study-update-20261024/miles-agent/knowledge.md",
+    "knowledge_sha256": "2feb7e895a22f62f98083f96738b7a3a772bd39f9c4d021e253ade03601c29e1",
+    "knowledge_characters": 11178,
+    "counts": {
+      "all_source_paths": 111,
+      "source_drift": 0,
+      "markdown_docs_full": 41,
+      "manifest_json_full": 1,
+      "figure_JS_full": 19,
+      "capture_scripts_full_static": 6,
+      "small_author_logs_full": 22,
+      "large_data_projection": 3,
+      "svg_semantic_projection": 19,
+      "svg_selected_static_visual": 3,
+      "source_execution": 0,
+      "original_tests_run": false,
+      "raw_model_or_GPU_requests": 0
+    },
+    "source_data_checks": {
+      "run_count": 19,
+      "step_rows": 344,
+      "pauses": 1005,
+      "median_and_pause_drift": 0,
+      "watchdog_6checks_healthy_false_stop_offsets": 17,
+      "watchdog_10checks_healthy_false_stop_offsets": 0,
+      "watchdog_10checks_synthetic_dead_range_s": [
+        273,
+        302
+      ]
+    },
+    "proposed_fusion": [
+      {
+        "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+        "section": "现有第15节后补16，五类一致性/采样语义/修正/数值不变量/异步与Agent/扩展恢复",
+        "draft_start": "## 16. 训练器与rollout引擎：同一权重还不够",
+        "draft_end_before": "## 硬件章补充"
+      },
+      {
+        "file": "计算机科学基础/07-容器化与Docker/09-AI容器与硬件运行边界.md",
+        "section": "现有基础后补统一内存并置与进度/健康门禁；原机参数只案例",
+        "draft_start": "## 硬件章补充",
+        "draft_end_before": "## 评测章补充"
+      },
+      {
+        "file": "LLM 工程实践/06-评测与实验管理.md",
+        "section": "现有33节后补34，完整分母/热暂停/同step/非可加中位数/证据层次",
+        "draft_start": "## 评测章补充",
+        "draft_end_before": "## 来源、时点与本次验证"
+      }
+    ],
+    "important_corrections": [
+      "同一权重不保证同token/支持集/内核；logprob raw/processed先核，平均绝对gap不等KL或普遍阈值",
+      "采样与replay同时变更，11.51%差异不单独证明replay因果作用/训练质量提高",
+      "确定性推理复现自己不等trainer一致；bit-exact是特定实现合同，比算法on-policy更强",
+      "FP16与BF16总位数都16，尾数/指数取舍不同；0.015不保证普遍永不零",
+      "原始逻辑rollout等值奖励先零的不变量，比舍入0.25/看std>0更恰当；issue4019与087归一函数只静读核",
+      "零方差只有相对奖励项无信号；训练KL/熵等项可仍有梯度；torch.std样本与旧toy总体约定分开",
+      "DAPO unfiltered分母仍只finished且step均值再平均，取消/长尾选择偏差及额外工作不能漏",
+      "三seed极差不等显著性/CI，训练reward上升不证明holdout质量",
+      "offload在统一物理池不必释放整机占用，也不能断言无复制；RSS表不穷尽/不相加归因",
+      "watchdog滑窗重叠、观察失败不reset、docker stop失败exit1等须核实；503看门狗漏reward导入挂死",
+      "热守卫84/74℃/120s强制恢复/第一个tag匹配容器不升通用安全策略",
+      "median每步残差2.240679s与封面中位数相减4.169506s不同，不能拼加或归因到一个动作",
+      "所有capture检查仅存储摘要自洽，raw run日志缺失；skipped+exit0不是重训复现",
+      "Miles与slime默认值/功能可分化；Torchtitan也有模型并行，不沿用OnlyMegatron概括",
+      "checkpoint step2/转换文件证明有限恢复形状，不证明逐tensor/后续轨迹bitwise；10/15与10/20容错合同分开"
+    ],
+    "remaining": [
+      "主代理复核稿件与现有上下文并正式回融，统一编号/来源脚注，整篇Pandoc/结构检查后才能accepted",
+      "未执行任何原Miles/Python/torch/Node/JS/SDK/CLI/容器/GPU/捕获/测试，未实测浏览器/读屏/网络/模型/多GPU",
+      "只核外层3f9715c与手册内层短pin087；不将issue open或pinned缺guard当当前Miles HEAD行为",
+      "三个大数据文件是字段投影/独立数值核，原训练日志在作者机器，不能独立重建所有实验",
+      "3选图只被动静态视觉，未声称19图逐像素/主题/动画最终态验收"
+    ]
+  },
+  "inventory": {
+    "date": "2026-10-25",
+    "source_commit": "3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a",
+    "source_root": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-update-source1-20261024/ai-engineering-from-scratch-3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a",
+    "subject_pin": {
+      "subject": "Miles",
+      "version": "radixark/miles:latest, Miles main of 2026-10-15",
+      "source": "https://github.com/radixark/miles",
+      "commit": "08752a1283",
+      "date": "2026-10-15",
+      "verified": "2026-10-22"
+    },
+    "files": [
+      {
+        "path": "manuals/miles-101/README.md",
+        "bytes": 4427,
+        "sha256": "afb1b7e7c16351a6283e50095ae71f245d1c24f066b8d0a68da7f45a88f1690d",
+        "git_blob": "81ce7262e6f82815702fb5a66348192790ef346d",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/heat-guard.sh",
+        "bytes": 1144,
+        "sha256": "0acbc92b68d65a66c7f64136b50190c604445f5e8f02dedaa30f0021f483443f",
+        "git_blob": "a67a92a353bb94b89935623d3de9cb32dfb1aeda",
+        "read_scope": "6份capture/launcher/summarizer/watchdog/heat脚本实际全文静读；未import/运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/miles_grpo.py",
+        "bytes": 3017,
+        "sha256": "4fd06174e502dcf2935abf196ed485b20785409a5c1c5b8f4b5963fae48a647e",
+        "git_blob": "9f8ec47145a578ede763432f292fb70af01feea6",
+        "read_scope": "6份capture/launcher/summarizer/watchdog/heat脚本实际全文静读；未import/运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/503-bursts.txt",
+        "bytes": 3665,
+        "sha256": "42ca8f926fbc7d646ae068e4fcef845aca59ffbaabc054d021b656825e856547",
+        "git_blob": "d46d59e3dc99008e73ede75fbbef3a05cef69158",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/custom-rm-noenv-hang.txt",
+        "bytes": 928,
+        "sha256": "04f13ca5d5f2f65d3f012e7ee58cd52726d2a20631137c485715ff0fd6d176e2",
+        "git_blob": "4935208db64bbcf537d61577aa8fa001a9846136",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/deterministic-sampler.log",
+        "bytes": 172,
+        "sha256": "e1c17d2f9a7d806cfe2377c74d6ba5a74842dff9dc731b24ce828c164ee2a19b",
+        "git_blob": "26d6b53db599c4313a248ba041eea6c77795354f",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/e2-n16-503-per-second.txt",
+        "bytes": 24080,
+        "sha256": "6fc36e53e4d7629e95d1bc79cca966537063add86a81b0b473662ab84466e07c",
+        "git_blob": "aed0a7e27362bd6dfec306060d3fae2996f88988",
+        "read_scope": "完整计数/时间行投影，22357错误，独立带权事件窗重建30offset的6/8/10检查结果；非原watchdog运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/engine-died-503.log",
+        "bytes": 607,
+        "sha256": "0186a4a0af4e55acdb5013a537da402b7b73d20382fc3e213c0b2fe6310122ad",
+        "git_blob": "06ba5e93f46c56c96c99ee4224057317b5e0263f",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/engine-died-count.txt",
+        "bytes": 508,
+        "sha256": "27795497a6a24a2c53715b05c1ee6f10da3c772b9e6dde2b78dfd5deb9bdf0c1",
+        "git_blob": "0b1c98a198a1b3b1881974135876627e80f1d45c",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/engine-settings.txt",
+        "bytes": 901,
+        "sha256": "e046deef6dd13e655e11e85e6e9a1c7b9cce4a8e08c49529c2b48241feef69b1",
+        "git_blob": "a23e4abc08f3d08c6456cce36aa91dd7f5418bb5",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/frac-low-kv.txt",
+        "bytes": 631,
+        "sha256": "223064fb77b230780e36577dbbbecf1d7e73b02ab8b90678870b1976db0ae33b",
+        "git_blob": "4a4365688280e9b6a1a2f711c997887952714589",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/gpu-check.txt",
+        "bytes": 149,
+        "sha256": "7a55f27543e64f70339edf2320f68a65034b5b7f029b89dc9b56371bfcb66479",
+        "git_blob": "06f9842ebd6e517d974c4a22b58fefdb9b710f82",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/image-identity.txt",
+        "bytes": 526,
+        "sha256": "1e474adddaa7d92ac9b8e52c31c20315f8aa077ab8dfbd61199b1d19fcced9bd",
+        "git_blob": "f1048826f942282816c618addf0ebd3a3a27b491",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/live-check-summary.txt",
+        "bytes": 503,
+        "sha256": "568da27ed789ae913d9dd494c3a665d29ebdb76652af4ae022bc965f3c70425c",
+        "git_blob": "336166c09fde3f9b16cf0d91f86bc26627addbd0",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/plain-first-step.log",
+        "bytes": 3621,
+        "sha256": "3b40e7656f497333259dee30740c14cff9f0c396fa5706f2fb3459c54ed878b1",
+        "git_blob": "cf2d92367c99696e19b2dd782f631a2e27391493",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/ray-oom-4b-lowmem.log",
+        "bytes": 620,
+        "sha256": "76d8cc24bf434175237f13c60d0cc7f6ea1719e621697e6245ba57afef9b0e69",
+        "git_blob": "4c18d63512d92145d2414bc0016e629ca76c84ec",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/ray-oom-4b-timing.txt",
+        "bytes": 702,
+        "sha256": "fa02ad5789ecc925ca28127ce4ae8dc8b19574b8b526f4118ab58993950714cd",
+        "git_blob": "ffd07c9fcef637fdd43a42d30e40a7e547563104",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/ray-oom-4b.log",
+        "bytes": 845,
+        "sha256": "9924e190d8a8820fc4a95cdd07c36a35a965b87b3d8976d9648b47b163c848b6",
+        "git_blob": "897486453f018be8d50f47a7fd47c31fd2960c30",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/read-steps.txt",
+        "bytes": 1071,
+        "sha256": "5f9649f8b94e811ca1cafe54a24e7d6a402647830de019797d45007f8888710e",
+        "git_blob": "8e91f86836285bc611a8572dc3bf91eb373c7d97",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/resume-check.txt",
+        "bytes": 634,
+        "sha256": "cd67d6ee29fc2dcd7b26b29eea6d7d65de201d1f5510f612101ef71087026eea",
+        "git_blob": "fef5550bc03d50a9cc48f87d9200bbd16f3860f6",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/router-launch.txt",
+        "bytes": 129,
+        "sha256": "fbe78919f9ddfb6a78856b1b6f0171ec88cff345a2ab437e78df2b6d0e44eda8",
+        "git_blob": "30aa34a628b8efe6055120cc1e0edfa280f353ce",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/thermostat.log",
+        "bytes": 80542,
+        "sha256": "fffc6f950149258737dca0ddc8f20016844b4318417a0a6940501567eb828d8f",
+        "git_blob": "b4511763e15830019893d0cc8079c93e4fd14cd0",
+        "read_scope": "完整时间/事件行投影，1005 pause/resume配对、无未配对、与344步骤窗口逐项求交核0漂移；非逐行温度叙事全文",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/tracker-eval-checks.txt",
+        "bytes": 1272,
+        "sha256": "cb695513db44c517fbe35ecbd0a08d383a2bb7fb42c8189aa01467487fc6505d",
+        "git_blob": "7b4acb18cf50bcb32a9392656e957bb825540f0c",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/unpaused-timing.txt",
+        "bytes": 1949,
+        "sha256": "d1438c9aa78d0bc86d917080988365d582e68aff07af6afe6e17917fa1bf0ae5",
+        "git_blob": "b4a05fd708f11cfe193755b7426cd29b9f0ac8c2",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-gb10/watchdog-test.txt",
+        "bytes": 775,
+        "sha256": "7b7fe4727dd16a4965e7feb62cc0924c2cdfd22541ba028d56a21688b9e4feed",
+        "git_blob": "59d52649f34811d6ac8e0f4a9d303cc6c020af61",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-l4/logprob-gap-by-dtype.txt",
+        "bytes": 1660,
+        "sha256": "6defa8f43ea0e7e989e2f206c6e4e5bd9e63eccd325ae3e301281000fadad8aa",
+        "git_blob": "275a43589b3c5c0fc50ea87d6e5be9f8382a4eea",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/out-l4/logprobs-top-p.txt",
+        "bytes": 1341,
+        "sha256": "1cda308fa3bf7a1d5ef794ba5d339a52d7a141a2aac2ddde93a5bae338b10f03",
+        "git_blob": "46e974fd8506641b459e72d17d4d4e1caefbf8ae",
+        "read_scope": "22份原作者日志/摘要实际全文静读，2原始块；未重跑",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/summarize_miles.py",
+        "bytes": 6274,
+        "sha256": "aa1b2ea027f27da77c192d6c36c960775cf1e75662bf267222f37bb22488b987",
+        "git_blob": "0993da334b90379b6920707cd2273f0dc5df1b63",
+        "read_scope": "6份capture/launcher/summarizer/watchdog/heat脚本实际全文静读；未import/运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/summary/miles-gb10-lab.json",
+        "bytes": 273930,
+        "sha256": "0b1fc0446bbfdf3721cecb2ee5fc38ba374844f7adee0e326a412571e0cf4da2",
+        "git_blob": "82d5b6de58a2550ee315de89cf54b3af5e9a2f09",
+        "read_scope": "完整JSON解析/字段投影：19run/344step/全部存储median与clean统计独立复算0漂移，非从缺失原始run日志重建",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/watchdog.sh",
+        "bytes": 1155,
+        "sha256": "ff41ba68346edea521673c47082e51608360a6011c53e69bbb3424c3eca51711",
+        "git_blob": "7ad9e69d8fd10836d056a756bf3c5514cb01a068",
+        "read_scope": "6份capture/launcher/summarizer/watchdog/heat脚本实际全文静读；未import/运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/gpu/watchdog_replay.py",
+        "bytes": 1937,
+        "sha256": "5dc31d1a3bb85c92891aaf51a8ca5484ef87d86070c785f147ab2c5bf30f2791",
+        "git_blob": "1bc1b65fb345bb82e00182323338ec16e67604ab",
+        "read_scope": "6份capture/launcher/summarizer/watchdog/heat脚本实际全文静读；未import/运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/capture/run.py",
+        "bytes": 6845,
+        "sha256": "9062e941fc9a7545fee9188ce64965624b691ed991968a931af94233f90c83c9",
+        "git_blob": "924486f863ad853fec3797d668d1ad14cbad4fb2",
+        "read_scope": "6份capture/launcher/summarizer/watchdog/heat脚本实际全文静读；未import/运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-1-1.svg",
+        "bytes": 7074,
+        "sha256": "f4bb5cda1d51b063b29005323c2949f87ae4772867bf9c23d506fa92b2e61335",
+        "git_blob": "7395ec8df9a1bd75276d0984353d7c75212f9c3e",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": true,
+        "semantic_projection": {
+          "file": "figures/fig-1-1.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "One GRPO step on one GPU",
+            "Six stages repeat every step on one DGX Spark GB10 with Qwen3-0.6B. Prompts go to the SGLang engine, which writes 256 answers in 47.5 s. A math reward scores each answer. The FSDP trainer computes log probabilities in 23.4 s, then takes the gradient step in 77.0 s. Together they are the training phase of 100.3 s. A weight update of 0.64 s gives the engine the new weights. Medians of 48 steps of a run made before we added the heat guard, so no pause could occur.",
+            "GSM8K prompts",
+            "32 prompts a step",
+            "SGLang engine",
+            "sglang::scheduler",
+            "256 answers, 47.5 s",
+            "math reward",
+            "1 or 0 per answer",
+            "log probabilities",
+            "FSDPTrainRayActor",
+            "23.4 s",
+            "GRPO update",
+            "Adam, one step",
+            "77.0 s",
+            "weight update",
+            "GPU handles, GPU copy",
+            "0.64 s",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "ONE STEP, MEDIAN OF 48 STEPS, RUN BEFORE THE HEAT GUARD",
+            "152.6 s in all. Training takes the most time, and the weight update the least.",
+            "Engine and trainer take turns on the same GPU memory."
+          ],
+          "elements": 57,
+          "attributes": 300
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-1-1b.svg",
+        "bytes": 4056,
+        "sha256": "bf2be3eb176d5b348d598f0fc880c8766522b2807a7bc222a694445d6fb2334e",
+        "git_blob": "1574dfa9f9e043bd27196501587cbf939e755d5c",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-1-1b.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "Where the time of one step goes",
+            "Median seconds per phase over 48 steps of a run made before we added the heat guard, Qwen3-0.6B on one GB10: rollout 47.5, log probabilities 23.4, gradient step 77.0, which together with the log probabilities is the training phase of 100.3, trainer offload 0.76, trainer onload 0.87, and weight update 0.64.",
+            "0",
+            "30",
+            "60",
+            "90",
+            "seconds per step, median",
+            "47.5 s",
+            "rollout",
+            "23.4 s",
+            "log-probs",
+            "77.0 s",
+            "gradient step",
+            "0.76 s",
+            "offload",
+            "0.87 s",
+            "onload",
+            "0.64 s",
+            "update",
+            "Tune training and rollout first. The three amber phases add up to about 2 s."
+          ],
+          "elements": 33,
+          "attributes": 171
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-1-2.svg",
+        "bytes": 4424,
+        "sha256": "07dfd7d93be905ccc4fc173da9d148510c04279fe44b20ea73ac90a3620a4835",
+        "git_blob": "19aab08604f9a2b89c25930458ee4414215d0906",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-1-2.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "A dead engine does not stop the job",
+            "Two runs on one time axis. Without a watchdog, the engine stopped at start, and the rollout loop then logged 200,533 HTTP 503 errors over 63 minutes while the GPU did nothing, until we stopped the container. With watchdog.sh, a test container that logged the same error without a break stopped after 183 seconds, when six checks in a row found more than 100 errors. A healthy 16-answer run logged bursts of this error of up to 60 seconds, two of them 45 seconds apart. A replay of that run stopped it in more than half of the cases with six checks and in none with ten, so we run the watchdog with ten.",
+            "MINUTES AFTER THE ENGINE STOPPED",
+            "0",
+            "15",
+            "30",
+            "45",
+            "60",
+            "no watchdog",
+            "the job keeps going",
+            "200,533 lines of HTTP 503 from /generate",
+            "GPU idle, no failure reported",
+            "we stopped it at 63 min",
+            "watchdog.sh test",
+            "needs 6 bad checks",
+            "the watchdog stops the container",
+            "exit 1 after 183 s",
+            "more than 100 errors in six checks",
+            "Start every unattended run with a watchdog. The job alone never fails.",
+            "Healthy bursts came 45 s apart, so six checks are too few. Run it with ten."
+          ],
+          "elements": 33,
+          "attributes": 165
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-1-3.svg",
+        "bytes": 6046,
+        "sha256": "5cb2e77e3f7a794625edb7da004e6f19673ed24011402e9848a97ada72d2501d",
+        "git_blob": "1755411e110d22e61d018267032993712ccf746b",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-1-3.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "Reward over 48 steps, three seeds",
+            "Mean reward per step for three seeds of the same GRPO run on Qwen3-0.6B and GSM8K. Each step jumps around, and the trend goes up for all three seeds.",
+            "0.5",
+            "0.6",
+            "0.7",
+            "0.8",
+            "0.9",
+            "0",
+            "12",
+            "24",
+            "36",
+            "47",
+            "step",
+            "mean reward of the step",
+            "seed 1234",
+            "seed 2",
+            "seed 3",
+            "Gain, last 8 steps against the first 8: +0.122, +0.083, +0.151."
+          ],
+          "elements": 37,
+          "attributes": 196
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-1-3b.svg",
+        "bytes": 6050,
+        "sha256": "ba32f0715c0a9c98581ad20e296144893455adbd54fd7a7bd0e7125cf47ad8b2",
+        "git_blob": "7a7f5e86e10e0f0640e36fb58ae0a20c9e76d0e6",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-1-3b.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "Answers get shorter as the model learns",
+            "Mean answer length in tokens per step for three seeds. The cap is 1,024 tokens. Answers start near 720 tokens and end near 460, so fewer answers hit the cap.",
+            "400",
+            "500",
+            "600",
+            "700",
+            "800",
+            "0",
+            "12",
+            "24",
+            "36",
+            "47",
+            "step",
+            "mean answer length, tokens",
+            "seed 1234",
+            "seed 2",
+            "seed 3",
+            "Percent of answers cut at the cap: 33 to 8; 30 to 12; 34 to 9."
+          ],
+          "elements": 37,
+          "attributes": 196
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-2-1.svg",
+        "bytes": 5164,
+        "sha256": "bf1745481699ba9ad574967614f69d756f30d1f41854485880a44ce1de08f076",
+        "git_blob": "fdedeae2fed18564f64d58e384c2b43a44a21597",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-2-1.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "1.7B fits for short steps, and 4B does not",
+            "Blue bars: the trainer state of full fine-tuning with Adam, estimated at 16 bytes per parameter, before activations and the engine. Rose bars: the node memory that Ray read when it stopped the two 4B runs, 115.86 GB with the engine memory fraction at 0.4 and 119.18 GB at 0.2, out of 121.69 GB. Ray stops a worker above 95 percent of the node, about 115.6 GB.",
+            "0",
+            "30",
+            "60",
+            "90",
+            "120",
+            "GB",
+            "node, 121.7 GB",
+            "Ray stops a worker above 95 percent",
+            "about 10 GB",
+            "0.6B",
+            "about 27 GB",
+            "1.7B",
+            "about 64 GB",
+            "4B",
+            " ",
+            "4B, run 1",
+            " ",
+            "4B, run 2",
+            "115.9 GB",
+            "119.2 GB",
+            "trainer state, estimate",
+            "node memory at the Ray kill",
+            "Lowering the engine memory did not save 4B. All runs used 256-token answers."
+          ],
+          "elements": 43,
+          "attributes": 222
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-2-2.svg",
+        "bytes": 3977,
+        "sha256": "5c9aa4b9de093978dc8e8a0c2efdb758378c0c8c448681856094b8c1bd814c9d",
+        "git_blob": "456a298b2a5d9dd3b0d91d509c2d6c7a461ef7b4",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-2-2.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "Keeping the engine loaded saves one or two seconds",
+            "Rollout seconds on the steps that had no heat pause in both runs of a same-day pair, seed 1, engine memory fraction 0.25. Default offload against --no-offload-rollout: step 0, 69.4 against 68.0 s; step 1, 58.5 against 56.7 s; step 8, 55.8 against 55.2 s.",
+            "0",
+            "80",
+            "rollout seconds, clean steps only",
+            "69.4 s",
+            "step 0",
+            "68.0 s",
+            "step 0",
+            "58.5 s",
+            "step 1",
+            "56.7 s",
+            "step 1",
+            "55.8 s",
+            "step 8",
+            "55.2 s",
+            "step 8",
+            "default offload",
+            "engine kept loaded",
+            "Same step, same answer length: the difference is 0.6 to 1.8 s."
+          ],
+          "elements": 33,
+          "attributes": 165
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-2-3.svg",
+        "bytes": 3247,
+        "sha256": "9427714b7f0580bed1a3706fed7570e53e1df57403d5c7e68a8365ce323d2dbb",
+        "git_blob": "c9777d721855ea344b401e65c8f49737d4dc2018",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-2-3.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "Ray reads one memory for the whole GB10",
+            "The memory Ray read when it stopped the first 4B run, as one bar of 121.69 GB. The trainer process used 36.77 GB and the engine processes 4.06 GB. The rest of the 115.86 GB in use was not in the process list. Our reading is that most of it is GPU allocations. 5.83 GB was free.",
+            "NODE MEMORY WHEN RAY STOPPED THE TRAINER, 121.7 GB",
+            "trainer process, 36.8 GB",
+            "engine, 4.1 GB",
+            "the rest of the used memory, 75.0 GB",
+            "free, 5.8 GB",
+            "kill above 95 percent",
+            "On a GB10 the GPU and the CPU share this memory.",
+            "Our reading: GPU allocations count as used memory, so a Ray kill is real.",
+            "Process sizes are the resident memory that Ray listed for its top processes."
+          ],
+          "elements": 25,
+          "attributes": 117
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-2-4.svg",
+        "bytes": 4195,
+        "sha256": "a53528ca5690d713fd9408c7485aea82bac08b9165d6935a94b35a1dfe188490",
+        "git_blob": "f3bb04e954c4d1e5e4d6a8b39633a42d5d8eed66",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-2-4.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "A larger model costs more to offload than to update",
+            "Mean seconds of steps 2 and 3 of 4 short steps, after two warm-up steps. Weight update: 0.64 s for Qwen3-0.6B and 0.89 s for Qwen3-1.7B. Trainer offload: 1.14 and 2.92 s. Trainer onload: 0.81 and 1.44 s.",
+            "0",
+            "2",
+            "4",
+            "seconds, mean of steps 2 and 3",
+            "0.64 s",
+            "update 0.6B",
+            "0.89 s",
+            "update 1.7B",
+            "1.14 s",
+            "offload 0.6B",
+            "2.92 s",
+            "offload 1.7B",
+            "0.81 s",
+            "onload 0.6B",
+            "1.44 s",
+            "onload 1.7B",
+            "Qwen3-0.6B",
+            "Qwen3-1.7B, 2.8 times the size",
+            "The update grew 1.4 times. Trainer offload and onload grew 2.6 and 1.8 times."
+          ],
+          "elements": 35,
+          "attributes": 177
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-3-1.svg",
+        "bytes": 3280,
+        "sha256": "94eec975137f4fa4af38e8cbf293c5892ae413edfe7bee1ae9f0d2b0f91e8858",
+        "git_blob": "2a0fa04798a21fe69343c56c6b8459ca03919d84",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-3-1.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "More answers per prompt, same learning in 24 steps",
+            "Reward gain over the first 24 steps, the mean of steps 16 to 23 minus the mean of steps 0 to 7, for 4, 8, and 16 answers per prompt. 4 answers: +0.053. 8 answers, three seeds: +0.050, +0.038, +0.098. 16 answers: +0.097.",
+            "0.00",
+            "0.12",
+            "reward gain over 24 steps",
+            "+0.053",
+            "4, one seed",
+            "+0.050",
+            "8, seed 1234",
+            "+0.038",
+            "8, seed 2",
+            "+0.098",
+            "8, seed 3",
+            "+0.097",
+            "16, one seed",
+            "answers per prompt",
+            "16 answers stayed inside the range of the three seeds at 8."
+          ],
+          "elements": 27,
+          "attributes": 137
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-3-2.svg",
+        "bytes": 5927,
+        "sha256": "227e974b193153ca96c113296d82ab45a369c4bdc46978e7b02ce11d9b2ce417",
+        "git_blob": "ef87a1f97d5c20718df30e49c67cd87c88c1c065",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-3-2.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "The filter costs one or two extra batches of prompts",
+            "Rollout seconds per step with the heat-guard pause time taken out, for 12 steps with seed 1. Without the filter the median was 58.0 s. With the filter and 48 prompts per batch, steps that dropped 16 groups or fewer needed one batch and took a median of 88.7 s. Steps that dropped more needed a second batch and took 164.4 s.",
+            "0",
+            "100",
+            "200",
+            "0",
+            "3",
+            "6",
+            "9",
+            "11",
+            "step",
+            "rollout seconds, pause time taken out",
+            "one batch",
+            "one batch",
+            "no filter",
+            "DAPO filter, batches of 48 prompts",
+            "Median 58 s without the filter, 89 s with one batch, 164 s with two."
+          ],
+          "elements": 56,
+          "attributes": 258
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-3-2b.svg",
+        "bytes": 5796,
+        "sha256": "373517f543109fd6ddec29ea901812bade2cc86b5631acab9f5f81cf316b7ecc",
+        "git_blob": "5285ad698e8bfef963fd6cbc6cfd3deab455530b",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-3-2b.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "The reward before the filter read higher",
+            "Mean reward per step over every answer the engine finished, for 12 steps with seed 1. Without the filter: 0.657 on average. With the filter, counted before it dropped any group: 0.686.",
+            "0.5",
+            "0.6",
+            "0.7",
+            "0.8",
+            "0",
+            "3",
+            "6",
+            "9",
+            "11",
+            "step",
+            "mean reward of all finished answers",
+            "no filter",
+            "DAPO filter, before the filter",
+            "Mean over 12 steps: 0.657 without the filter, 0.686 with it. One seed."
+          ],
+          "elements": 56,
+          "attributes": 260
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-4-4.svg",
+        "bytes": 5982,
+        "sha256": "11158b49a3228c5d5e0a9140aff33be90c47065241d54fc2a9b8c6ca715f7da3",
+        "git_blob": "386f494c3a5b6253d07e0ef04b8e2c30295c58f8",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-4-4.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "Replaying the sampled tokens lowers the gap",
+            "Mean absolute difference between the engine and trainer log probabilities, per step, for 12 steps with seed 1. Median 0.0153 with the full vocabulary and 0.0135 with top-p and top-k replay.",
+            "0.012",
+            "0.013",
+            "0.014",
+            "0.015",
+            "0.016",
+            "0",
+            "3",
+            "6",
+            "9",
+            "11",
+            "step",
+            "logprob gap, mean absolute difference",
+            "full vocabulary",
+            "top-p 0.95, top-k 64, replayed",
+            "Median gap 0.0153 to 0.0135, about 12 percent lower. One seed."
+          ],
+          "elements": 58,
+          "attributes": 274
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-4-5.svg",
+        "bytes": 8792,
+        "sha256": "074f605cdfd8a96134349d4d2a52ea4bad6cdf19b87df71b3ddc062f849020c0",
+        "git_blob": "46a7f831dd4cf4c97f6dbbb0147a47f587a4dbce",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-4-5.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "Deterministic inference repeats, and the gap stays",
+            "Logprob gap per step for four 12-step runs with seed 1. All four stay between 0.0145 and 0.0160. The two Triton runs start at the same value, 0.015404, and then drift apart.",
+            "0.0145",
+            "0.0150",
+            "0.0155",
+            "0.0160",
+            "0",
+            "3",
+            "6",
+            "9",
+            "11",
+            "step",
+            "logprob gap",
+            "step 0: both Triton runs gave 0.015404",
+            "default",
+            "deterministic, Triton",
+            "same, second run",
+            "deterministic, FlashInfer",
+            "The engine repeats itself. It still does not compute like the trainer."
+          ],
+          "elements": 87,
+          "attributes": 397
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-5-3.svg",
+        "bytes": 6449,
+        "sha256": "a1e9d2f5de240c67a649d16098223e64a71ed3e3fe1e2772cbe583169a759dcb",
+        "git_blob": "49a49e5927f3ca033eda3d006e23b19b5e36a540",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-5-3.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "A heat pause adds time that is not the work",
+            "Rollout seconds per step for one 12-step run. 6 steps overlapped a heat-guard pause of about 45 s and took about 100 s. The 6 clean steps had a median of 59.1 s, and all 12 steps had a median of 83.9 s.",
+            "0",
+            "40",
+            "80",
+            "120",
+            "rollout seconds",
+            "69",
+            "0",
+            "57",
+            "1",
+            "109",
+            "2",
+            "66",
+            "3",
+            "56",
+            "4",
+            "104",
+            "5",
+            "105",
+            "6",
+            "62",
+            "7",
+            "104",
+            "8",
+            "100",
+            "9",
+            "56",
+            "10",
+            "99",
+            "11",
+            "step",
+            "clean step",
+            "overlapped a pause",
+            "Median of all steps 83.9 s. Median of clean steps 59.1 s."
+          ],
+          "elements": 56,
+          "attributes": 291
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-7-1.svg",
+        "bytes": 6180,
+        "sha256": "e03a01bd71e82cb89e68d8a4b9f160ed0af433ab662f3cf6b041e7e0393b97aa",
+        "git_blob": "65b3a90e590c8f0d4919daff7d78160e54216b56",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-7-1.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "Start from what you see",
+            "Five symptoms from our runs, each with the first check and the fix. An idle GPU with a growing log means a dead engine. A FlashAttention 3 error means a GPU that is not Hopper, because the FA3 build in the image is for Hopper only. A Ray out-of-memory error means the node was full. Step times that differ mean heat pauses. A rejected trainer attention name means a name that the installed transformers library does not accept.",
+            "SYMPTOM",
+            "FIRST CHECK",
+            "FIX",
+            "GPU idle, log grows",
+            "count 503 lines",
+            "read the first error",
+            "FlashAttention 3 error",
+            "compute capability",
+            "not Hopper: no FA3",
+            "Ray OutOfMemoryError",
+            "memory at the kill",
+            "use a smaller model",
+            "step times differ",
+            "heat pauses",
+            "compare clean steps",
+            "attention name rejected",
+            "the ValueError list",
+            "pick a listed name",
+            "Section 7.1 has every symptom we hit, and six more from issue reports."
+          ],
+          "elements": 50,
+          "attributes": 270
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-8-3.svg",
+        "bytes": 4066,
+        "sha256": "1ac15bba5821c640ecf4599533490fdcbad8ac7667274a5b0cfb5fec1cede54c",
+        "git_blob": "3c3705d0d73e7f0520f6194d804ec24123c9bec4",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": false,
+        "semantic_projection": {
+          "file": "figures/fig-8-3.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "Two fixes for two different halves",
+            "The trainer and the engine compute the same model with different kernels, so their log probabilities differ. Deterministic inference fixes only the engine half: the same input gives the same output for any batch. True on-policy mode fixes the gap itself by making both sides run the same kernels, which works only where its contract holds: FlashAttention 3 on Hopper GPUs, compute capability 9.0, and Qwen3 dense models.",
+            "trainer, FSDP",
+            "its own attention kernel",
+            "its own matmul and sum order",
+            "engine, SGLang",
+            "its attention backend",
+            "sum order changes with batch",
+            "gap about 0.015",
+            "deterministic inference",
+            "engine repeats itself, any batch",
+            "gap stays about 0.015 in our runs",
+            "true on-policy contract",
+            "same kernels on both sides",
+            "gap goes to zero, where the contract holds",
+            "WHAT THE CONTRACT PINS AT MILES MAIN",
+            "FlashAttention 3 on both sides, Hopper GPUs only",
+            "Qwen3 dense models only",
+            "A GB10 is compute capability 12.1, so the contract does not start there."
+          ],
+          "elements": 30,
+          "attributes": 150
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/fig-8-4.svg",
+        "bytes": 3038,
+        "sha256": "136a3a726c3fec5a360cf136660c801a5e384741d2ae5bab9211bb2ddeee0e3e",
+        "git_blob": "4e07f284bd34e726b834f11b28d2d4bf4a3045f1",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": true,
+        "semantic_projection": {
+          "file": "figures/fig-8-4.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "The engine and the trainer take turns on one memory",
+            "One colocated step drawn to scale from the phase medians of 48 steps of a run made before we added the heat guard. The engine holds its weights and its KV cache during rollout, 47.5 s, then gives them back. The trainer moves its state onto the GPU in 0.87 s, trains in 100.3 s, of which 23.4 s compute the log probabilities, and moves its state off in 0.76 s. The engine loads again and gets the new weights in 0.64 s. Over the same 48 steps, a median of 2.2 s of each 152.6 s step has no timer.",
+            "PHASE MEDIANS OF 48 STEPS, TO SCALE",
+            "engine",
+            "weights, KV cache",
+            "rollout 47.5 s",
+            "trainer",
+            "weights, optimizer",
+            "train 100.3 s, with 23.4 s of log-probs",
+            "trainer onload 0.87 s",
+            "trainer offload 0.76 s",
+            "then the update 0.64 s",
+            "Only one side holds the GPU memory at a time.",
+            "The timed hand-offs take about 2 s of a step of about 2.5 minutes.",
+            "A median of 2.2 s of each step has no timer, such as the engine release."
+          ],
+          "elements": 21,
+          "attributes": 100
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/plate-miles-loop.svg",
+        "bytes": 39776,
+        "sha256": "90e01724c5c00e2b6872a85a3791124cdd9847c5cd980baa1a7e3a2e815f8286",
+        "git_blob": "7f83cda6f81ef585e05071dbfdbbbc9a681b2673",
+        "read_scope": "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收",
+        "source_execution": 0,
+        "passive_gate": {
+          "xml_valid": true,
+          "script_or_external_content": false
+        },
+        "actual_static_visual_read": true,
+        "semantic_projection": {
+          "file": "figures/plate-miles-loop.svg",
+          "xml_valid": true,
+          "active_or_external_content": false,
+          "visible_text": [
+            "One GRPO step on one GB10",
+            "One DGX Spark GB10 package drawn in iso: a Grace CPU die with 20 Arm cores and a Blackwell GPU die, both joined to one 128 GB slab of unified LPDDR5X memory at the center. An NVLink-C2C link joins the two dies. On the Grace die run the Ray head, the TrainerController and RolloutExecutor Ray actors, and the math reward. On the Blackwell die the FSDP trainer is active and the SGLang engine waits. Inside the shared slab the trainer state is the active footprint and the engine state is parked. The trainer onloads its state from the slab in 0.87 s, and the weight update from the trainer to the parked engine state takes 0.64 s. Below, one median step of 152.6 s to scale: rollout 47.5 s, log probabilities 23.4 s, GRPO update 77.0 s, weight update 0.64 s, and 4.2 s that the phase medians do not cover. Medians of 48 steps of a run made before we added the heat guard.",
+            "ONE NVIDIA DGX SPARK · GB10 SUPERCHIP",
+            "Qwen3-0.6B",
+            "Ray head",
+            "TrainerController",
+            "RolloutExecutor",
+            "math reward",
+            "NVLink-C2C",
+            "FSDP trainer",
+            "FSDPTrainRayActor, active",
+            "Blackwell GPU",
+            "one die, shares the pool",
+            "SGLang engine",
+            "waits for new weights",
+            "Grace CPU",
+            "20 Arm cores",
+            "trainer state",
+            "active footprint",
+            "engine state",
+            "parked in the pool",
+            "LPDDR5X · 128 GB unified, one pool for both dies",
+            "onload 0.87 s",
+            "weight update 0.64 s",
+            "ONE STEP TO SCALE · 152.6 S, MEDIAN OF 48",
+            "1",
+            "47.5 s",
+            "2",
+            "23.4 s",
+            "3",
+            "77.0 s",
+            "4",
+            "0.64 s",
+            "1",
+            "rollout, SGLang engine",
+            "2",
+            "log probabilities, trainer",
+            "3",
+            "GRPO update, Adam",
+            "4",
+            "weight update to the engine",
+            "dashed end: median step minus the phase medians, 4.2 s. Trainer offload 0.76 s.",
+            "Medians from the run made before the heat guard."
+          ],
+          "elements": 317,
+          "attributes": 1252
+        },
+        "actual_read_date": "2026-10-25"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-1-1.js",
+        "bytes": 3081,
+        "sha256": "74e8d4a14b155284ab6217817d67ab42961da00438fcb20c7fe523d07e15635a",
+        "git_blob": "60c2b930f88f842198fcfa2936e9e59bb846b8f9",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-1-1b.js",
+        "bytes": 2034,
+        "sha256": "552bfa65a850f1b43003d2e9574c743aa4f665afb94ac15b9e15b8e7c5618e12",
+        "git_blob": "383d0a04cbab1b8810187f604418e74fb3923b13",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-1-2.js",
+        "bytes": 2499,
+        "sha256": "51d435ddb7bba83b2d22bd8f538ca9efe6552f53230046573a05f9baa9c3e874",
+        "git_blob": "a67deb5ea666d52c0b1f68ba4163e984fd649a8a",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-1-3.js",
+        "bytes": 1562,
+        "sha256": "f4dc375609d058499bd36d643f6c4c15debfbafa0932ccfa536ec1dc849342de",
+        "git_blob": "fbc02b6c5a960d648ea6a8d4b24880e5c8ed95e7",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-1-3b.js",
+        "bytes": 1602,
+        "sha256": "cba41b99f2d81ed90d3a359148e31d3bd69377cbb5d7870427bf0684724a48be",
+        "git_blob": "4fa0906137d8b0dd310e85f832e5001cefd73fd3",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-2-1.js",
+        "bytes": 1962,
+        "sha256": "c543a05013f7130495b98919b6648430ec2cec8d32d558174585a882cffab362",
+        "git_blob": "61f1db42edd9cf16a3a34fcaf175e3ff641e9129",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-2-2.js",
+        "bytes": 1633,
+        "sha256": "3089220b0eac70658fe50d7578298b3be0ba28f41abee2c9f300aa6ff9e34ebc",
+        "git_blob": "045e0daa386448145bc9023ccb22b5140b1ce8e3",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-2-3.js",
+        "bytes": 1994,
+        "sha256": "29aa6abd0c3492ad4483b009e57210832f69bbbf5fc46d89dee3ac8c10267ab5",
+        "git_blob": "3b00c7438970cc2571416baa2ef196ed4a04c729",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-2-4.js",
+        "bytes": 2108,
+        "sha256": "33667242688fbb809b7d1e3d25f54d0f3cf0ae2c6aae11a007bfccb829593cb0",
+        "git_blob": "b99eb9711efd9eeb676c1051a31b1ada2566b965",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-3-1.js",
+        "bytes": 1743,
+        "sha256": "0fde817e2be48fe326a818ba93ce22e2c5db74110f81a331599633896b6afc54",
+        "git_blob": "5507b1c4482aecde164142ee5d6c91cf1e3c67dd",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-3-2.js",
+        "bytes": 2211,
+        "sha256": "b4bf3cfd21033e6b81175943e5518287f009469ae6ec70d95024eebbc8ed9562",
+        "git_blob": "7c5d5e3003251cd40f2fcb4b138ba80a2f3725f4",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-3-2b.js",
+        "bytes": 1537,
+        "sha256": "4d854b8537b324d8c6a03be1feebe56870d2e95ea5302d870b77a6d1cd28f6ca",
+        "git_blob": "1e622c1ba2194538044d39b68384825612ad8691",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-4-4.js",
+        "bytes": 1629,
+        "sha256": "d6c224a31c6c14b275328f8089b641d5b88d4b4953a036c37541e5b65aab8e52",
+        "git_blob": "c3bd04c0c930461420f90411d894e98ef9fcea66",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-4-5.js",
+        "bytes": 1620,
+        "sha256": "009774fe33b5fb6c99805ace40eeaecfd00551bcb1bac7f3bc2a554177cad1c4",
+        "git_blob": "fbc8de245a1890807d92463e6132dc25a0d619dd",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-5-3.js",
+        "bytes": 1748,
+        "sha256": "bb6ea1573966911b425f83a21fa005a5f700758c9a51a4fa960515b1b01a318d",
+        "git_blob": "5cde0542ad33852214ab3b4d741bb0668b287aea",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-7-1.js",
+        "bytes": 1794,
+        "sha256": "bf903b14b324f52892de2ca067ae0eb23bcb4485539ba1f5376244eeec963a64",
+        "git_blob": "c40fbe42bbc95d98cb5b18f2740e6c1ca89ccebc",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-8-3.js",
+        "bytes": 2129,
+        "sha256": "b504f70795e49495c06bdd85bad7cb25cd6a9e3d80f9adb57ba3747d542de24e",
+        "git_blob": "58c0147fee2aba8aa31ca67cd22be2e4f16925e6",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/fig-8-4.js",
+        "bytes": 3801,
+        "sha256": "194fb2709365db32e74a02b593f7dd5692bdafd42835fbdb10e95d775ecf414a",
+        "git_blob": "a027ad9868577a668f0ae7e2f104338092c82569",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/figures/src/plate-miles-loop.js",
+        "bytes": 9332,
+        "sha256": "31ba00f2aa7cfb5c2e44580612e1c2a07e9be44d07d42e72351503f166ea3499",
+        "git_blob": "d3834ee5b6358a0571a3b5138aa9b996f60b8694",
+        "read_scope": "19 JS绘图器实际全文静读，3原始块；仅资料未运行",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/front.md",
+        "bytes": 4491,
+        "sha256": "161cf8f9dddcc2a4a434c5f5c28f166396cdc17e1306ab4f5ea1d445c218ff1d",
+        "git_blob": "b89199078a7976760ddcabd4a2a5fbdefd31aab5",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/manual.json",
+        "bytes": 10120,
+        "sha256": "e364fa6558c2f8d1c4636ef61e3aac29e1573eaea0652d7ce73b7a17fc314bbb",
+        "git_blob": "528e073231389da513b34453d535429057575acd",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/1-1-run-grpo-on-one-gpu.md",
+        "bytes": 10738,
+        "sha256": "51bba2749c8f9e5e9c1c2a0c398f3884fb42e35ecd6fba5e3107d7f2daa23375",
+        "git_blob": "0cc169dc2eb434874f8bb1d1fde1ca7331f69303",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/1-2-add-a-watchdog.md",
+        "bytes": 10623,
+        "sha256": "2a000fefe8f4729d302eedf3bb02b8489f5d46234f617d9361859bb9f39ee4f3",
+        "git_blob": "fb9061932595ea726d26fce280807da5aacf8dbd",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/1-3-read-your-first-ten-steps.md",
+        "bytes": 5383,
+        "sha256": "8e516fe207add727a4f9484ad9ef52eae5c2ae17cf731686e073042880c861c4",
+        "git_blob": "ced1b599a63b02495bdd60f24ef1f48392dd43a7",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/2-1-pick-a-model-size.md",
+        "bytes": 4190,
+        "sha256": "86d5adabb9a127b6f1ec8d9f96689eecae1f8d6de0f517c25c3fdfb631587885",
+        "git_blob": "43851568a717ee0a7bf404bab973a97defabb309",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/2-2-choose-what-to-offload.md",
+        "bytes": 4296,
+        "sha256": "0e64e14799c718ce8b864747333bc82bfaaebc0cbde04a6935ea73d2862bdfc5",
+        "git_blob": "a8f18d1e9c4b00c9ac897234c74354f0b4ad6a3e",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/2-3-stop-ray-killing-the-job.md",
+        "bytes": 4316,
+        "sha256": "98f2e803f21fb67ba47eef4511cb5983ebf012d2dc345b8241b9fc9a1e4dcb2c",
+        "git_blob": "89070c044b28bcb6bcd18a10a7d152b9c6564c56",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/2-4-size-the-weight-update.md",
+        "bytes": 3128,
+        "sha256": "d925102fcea751d87d2e2f64e36595cd8a02afea3829f604a26827220d553fde",
+        "git_blob": "eb9571dc137f002de07b15673b5bbdd5c0acab71",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/3-1-train-math-on-gsm8k.md",
+        "bytes": 3980,
+        "sha256": "14c5bfb661e21939794bc3320a909ae96deec97b4d83ae02652a31024e8dbd0c",
+        "git_blob": "75f43a9414194d6dceee4d7980bfa0dac5b127cc",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/3-2-train-with-the-dapo-filter.md",
+        "bytes": 6401,
+        "sha256": "686ed9bb22a09c752011fb73483db7a6797126bf400fd297edbf38e04fd6aa32",
+        "git_blob": "7d7316bd8c31d1d26e80ac0d385ba74688fffa2f",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/3-3-train-an-agent.md",
+        "bytes": 3400,
+        "sha256": "cc8f8bb2ad404564b5ee3e4a52b32ab10e05fa484dba5fb6905d578cf080a540",
+        "git_blob": "5d69fdbbd97b783a74895b2405614824dd19268f",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/3-4-train-a-moe-model.md",
+        "bytes": 3278,
+        "sha256": "e99e3992e53df24f8178110f27f3879400488aa3afffaf5855f17296aae0488e",
+        "git_blob": "9f8fdd62f29070bc6d5354821de956a9cc4169d8",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/3-5-write-a-custom-reward.md",
+        "bytes": 5289,
+        "sha256": "89814e22604de8e77bf06bc2ca119a63dbaed4c5a24b2badb49afef282501b09",
+        "git_blob": "f55a7a7c9f2a4956b98031f4a401d6852d75832e",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/4-1-run-rollout-and-training-at-once.md",
+        "bytes": 4132,
+        "sha256": "dc85e87744ddd0c394bae431d1427fa85d1016971476ee1669b4d39173f10041",
+        "git_blob": "41c959befea63dc661dd9643ff4b986ffd6c9e2b",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/4-2-handle-long-responses.md",
+        "bytes": 4745,
+        "sha256": "f3d20a487eaeffb5c2fe3bac006ca5532596afa24f2df5d999ce710d879bbae7",
+        "git_blob": "ea3d323a0e5b70926f70f63b25c1899f78a50abf",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/4-3-roll-out-in-fp8.md",
+        "bytes": 4509,
+        "sha256": "d38297e09a28a8410a8cfff28064bf26e77b5dc90617ab9a805077800cc796a2",
+        "git_blob": "05b0ca1ea8e2f45f1f74ebc70f3e276f40dcd86e",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/4-4-lower-the-logprob-gap.md",
+        "bytes": 6232,
+        "sha256": "01e16879eb7c0d84eed63fee419e4b0fd808e0cb7881d9dbe9ee7ebca24f7a3e",
+        "git_blob": "f1b3d5152822371eb9a3b69ae1b33442441884da",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/4-5-use-deterministic-inference.md",
+        "bytes": 4222,
+        "sha256": "90ec20be7806a8b2bca0c37142b1c5e7ec8dd654c5b4ace099239ea5c7c71aa5",
+        "git_blob": "c9d533fc1c412a9cf4ebdcba5d4edeb1c361638f",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/4-6-know-the-true-on-policy-limits.md",
+        "bytes": 2914,
+        "sha256": "f08227257902b8dc869d3e7e08b2ee2b9744541f63cd2b31b2f86b18f180c2e6",
+        "git_blob": "a27144a5be818346d6f1aa54355da3e4805e6b34",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/5-1-read-the-run.md",
+        "bytes": 5385,
+        "sha256": "daebf15bedfc24f869291dab48bc2b23b4b3785237a0a706b13d4d8a15ef0fd3",
+        "git_blob": "2250827527cba1c07a19de2704a9ba4d555857b6",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/5-2-check-the-first-step.md",
+        "bytes": 2868,
+        "sha256": "cd31b5deefa8fc0f4191fac413944e76b294b2ac63a14e537ba9660535e7a5c5",
+        "git_blob": "51855f11c83786dcec485ec2951c8a8773033b9d",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/5-3-repeat-a-run.md",
+        "bytes": 3714,
+        "sha256": "62517a66e6c6ce398b9fbdac3876fd3df0b41790c6d3bb8fb8252519a8897fc1",
+        "git_blob": "89165eb7ec9fb7733c3f7f23a0e5ec5af0974265",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/6-1-split-rollout-and-training.md",
+        "bytes": 6471,
+        "sha256": "b93c931b5ca17aff7f26eceb76a5b78d7a106d1fe17662e5ad2316c5886a9540",
+        "git_blob": "eabe57da9b3a879ca968d30fb87e30c769216959",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/6-2-run-a-separate-eval-fleet.md",
+        "bytes": 3922,
+        "sha256": "d13403b03dc99d7352231d011214a25862b0042aca4dc207880ee909b9d9e116",
+        "git_blob": "a49a4d79bdb973e711e7338801c3aeac7096f036",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/6-3-survive-failures.md",
+        "bytes": 5978,
+        "sha256": "e5be8ed94f9b0f87d7c783bf35f0ea86518a610d94f30dc8b3af1858303cf71a",
+        "git_blob": "a8b9449ae754f4d9c0f3503aefa2a02aa823e46a",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/6-4-pick-an-image.md",
+        "bytes": 2370,
+        "sha256": "e5f0a4780dd3a4ee23007fb9e1702a270d766b0a92b83df49e73dc0b0431ab44",
+        "git_blob": "888d55e2aca46032e026b5e42a0fa573dba11f31",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/7-1-troubleshoot-by-symptom.md",
+        "bytes": 8453,
+        "sha256": "5ee45ba10a3a9aaf4a31376fc19aa90e1013feb818f04fa9fbbd5c74ffae77f4",
+        "git_blob": "c33992705d6427636b6b6778a1fb338603d1fb2a",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/7-2-keep-runs-comparable.md",
+        "bytes": 2852,
+        "sha256": "25509a2bac87c3691f47d3a4450829407287907551de43107195026fe5d93438",
+        "git_blob": "3c5f98ef53b8dc9c3e4edcd2f04d642d0511d171",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/8-1-why-rl-owns-an-engine.md",
+        "bytes": 3733,
+        "sha256": "a82a9f0b8278a679f96d2d42724a222790b3388467cfc5014a7b54707b9aa391",
+        "git_blob": "83ff624aeef348fe18e9027ee564c5408c19b22e",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/8-2-the-correction-methods.md",
+        "bytes": 3861,
+        "sha256": "d7f00d706133c4deef439c453b82a716f144c29350ae6de671ad507985333f22",
+        "git_blob": "ae181b340aeeb7b84faeb5a50e1bdbc12eacdd42",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/8-3-why-true-on-policy-is-a-contract.md",
+        "bytes": 7379,
+        "sha256": "922130c982f18a09c6965de15ed8c0928d8492cc92480b726209dae54beca784",
+        "git_blob": "ee2e3854834b033a05cbf5f1cb8fa4f92b25e650",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/8-4-memory-on-unified-memory.md",
+        "bytes": 4061,
+        "sha256": "8db54f1b135fbd01fde52b0c6ed8c9f1961538126ed2a1df9e1d0d7b66794c83",
+        "git_blob": "835f4a61143b6bb818ba644ac1490e419b4ddf1b",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/8-5-how-rollout-functions-plug-in.md",
+        "bytes": 3251,
+        "sha256": "daadafa40552517f059b40ee7987f725e3bfe8bca35a53bb9ad3f61937716d21",
+        "git_blob": "3c067f7d277716640f449c9d7e66af3d890b61ee",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/8-6-which-router-to-use.md",
+        "bytes": 3052,
+        "sha256": "9c46abb1298b9cb4adc8da535a3d56d242bfb4c8e6874add86f09677df7c8810",
+        "git_blob": "e19e12c4b41cc56bf03ee1c706083281e84a42bb",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/8-7-where-miles-came-from.md",
+        "bytes": 2925,
+        "sha256": "38259589574a7d64d72b794ed45ad13db47c4e7887e1cc8751aea23c524f27c2",
+        "git_blob": "4538de6870fef9f5f22bce39544c0324873fa079",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/r-1-flags-by-job.md",
+        "bytes": 4089,
+        "sha256": "541e5496cd260585abed1133bff75d80b778ee399932ba281779e0884e781b98",
+        "git_blob": "432631d6785b871b01818dec8a5fe42846fa61cb",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/r-2-metrics.md",
+        "bytes": 2981,
+        "sha256": "ed96ec7381170dfb1efa0560a2cff89c59039822bb47cdaa6d7d208a9964938d",
+        "git_blob": "076f5aae279f636a07378e620c72160d3d4b3a8e",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/r-3-lab-notes.md",
+        "bytes": 6170,
+        "sha256": "9f9bcd534bea8f5db65afbe90eeaad1dff7b4132e64cf2d188ead52f551ae782",
+        "git_blob": "06525f6a208d68ceb93104bac009a832061c315f",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/r-4-sources.md",
+        "bytes": 2446,
+        "sha256": "fed3b57d8cdfa8bc5cc2c6bf667f5b267d9ac7fba7f0faeb882f5ecf7f531de5",
+        "git_blob": "467887701ba7651b73969a93ecc9a5ee0b065c81",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      },
+      {
+        "path": "manuals/miles-101/sections/r-5-figure-index.md",
+        "bytes": 1038,
+        "sha256": "54d4b61c1a9d300ecc896d25530ee1fda992cf766804a43daf1a910b61fceffb",
+        "git_blob": "fc71c33710b675d4b5e910c4de40d37d495cfd0b",
+        "read_scope": "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读",
+        "source_execution": 0,
+        "actual_read_date": "2026-10-24"
+      }
+    ],
+    "doc_chunks": [
+      {
+        "file": "docs-01.txt",
+        "characters": 18000,
+        "sha256": "2fb0131fd27d40d96db458c6a1d5bf56f3dd34e9cf2b236435e1e167d604c3b0",
+        "actually_read": true
+      },
+      {
+        "file": "docs-02.txt",
+        "characters": 18000,
+        "sha256": "92f1b0b269751c4c96505874255b5f65ef90e0a939f76f05282a766df1aecf94",
+        "actually_read": true
+      },
+      {
+        "file": "docs-03.txt",
+        "characters": 18000,
+        "sha256": "89be3ba69329b6dcd2e6e8e99f4cf8ec42df7ae474c737ad3b0050b29a1a7234",
+        "actually_read": true
+      },
+      {
+        "file": "docs-04.txt",
+        "characters": 18000,
+        "sha256": "ba38e4435f4ddb651f0f38cf38d715ba49eb76735e9b0485d21f94df0863ef2c",
+        "actually_read": true
+      },
+      {
+        "file": "docs-05.txt",
+        "characters": 18000,
+        "sha256": "2c74e16066bdb307165191af522c5bc88becf5d95e206f83d1d9189aa35a7243",
+        "actually_read": true
+      },
+      {
+        "file": "docs-06.txt",
+        "characters": 18000,
+        "sha256": "2ae78cb5febb23c13e47adbb83d75eca13d853ca68fbfd515acb0695ef6979db",
+        "actually_read": true
+      },
+      {
+        "file": "docs-07.txt",
+        "characters": 18000,
+        "sha256": "66bdea7c7cad85e88dd8af8fbb5a07e6811aa89f4c072c47df7fe055e4c5239a",
+        "actually_read": true
+      },
+      {
+        "file": "docs-08.txt",
+        "characters": 18000,
+        "sha256": "505eee4216865de3ce5ab41a69646fef2e47bb193ee9f1e0a9c46093d6e1b306",
+        "actually_read": true
+      },
+      {
+        "file": "docs-09.txt",
+        "characters": 18000,
+        "sha256": "71bcf180c56f7897cc957a0b95c4a4f4eb60894344d5dc757120a58dedbd9438",
+        "actually_read": true
+      },
+      {
+        "file": "docs-10.txt",
+        "characters": 18000,
+        "sha256": "3ac6d7d9cf4690771ed9bf0d3398a75ac48c263077f9fe0887396e85a8e77f60",
+        "actually_read": true
+      },
+      {
+        "file": "docs-11.txt",
+        "characters": 9574,
+        "sha256": "a485b550076fae036ae948163c6519c73452bdee02dfd5ce02900a256c17e102",
+        "actually_read": true
+      }
+    ],
+    "accepted": false,
+    "source_execution": 0,
+    "checkpoint": "全部111路径已核与逐项处置，中文主题稿/独立数据证明/交接已完成；accepted=false待主代理正式融合和全文检查",
+    "read_scope_counts": {
+      "实际完整静读，11原始块按manual目录顺序读取；manifest全文已读": 42,
+      "6份capture/launcher/summarizer/watchdog/heat脚本实际全文静读；未import/运行": 6,
+      "22份原作者日志/摘要实际全文静读，2原始块；未重跑": 22,
+      "完整计数/时间行投影，22357错误，独立带权事件窗重建30offset的6/8/10检查结果；非原watchdog运行": 1,
+      "完整时间/事件行投影，1005 pause/resume配对、无未配对、与344步骤窗口逐项求交核0漂移；非逐行温度叙事全文": 1,
+      "完整JSON解析/字段投影：19run/344step/全部存储median与clean统计独立复算0漂移，非从缺失原始run日志重建": 1,
+      "19原SVG XML/全部文字与语义字段投影；对应19绘图JS全文已读；不冒逐像素/浏览器验收": 19,
+      "19 JS绘图器实际全文静读，3原始块；仅资料未运行": 19
+    },
+    "static_svg_visual_count": 3
+  },
+  "delegate_data_proof": {
+    "date": "2026-10-25",
+    "method": "自写标准库JSON/区间/统计/二分计数/算术，未import或执行来源程序",
+    "source_execution": 0,
+    "raw_summary_scope": {
+      "runs": 19,
+      "step_rows": 344,
+      "pause_intervals": 1005,
+      "unmatched_thermostat_lines": [],
+      "unclosed_pause": null,
+      "median_or_pause_drift": [],
+      "raw_logs_not_present": "19源run原日志不在仓库；273930B摘要不是独立从原日志重新生成"
+    },
+    "run_rows": {
+      "plain": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 12,
+        "clean_whole_step": 12,
+        "missing_key_fields": []
+      },
+      "plain-48": {
+        "steps": 48,
+        "partial": false,
+        "clean_rollout": 48,
+        "clean_whole_step": 48,
+        "missing_key_fields": []
+      },
+      "plain-48-s2": {
+        "steps": 48,
+        "partial": false,
+        "clean_rollout": 4,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "plain-48-s3": {
+        "steps": 48,
+        "partial": false,
+        "clean_rollout": 7,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e6a-base": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 6,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e6b-det-triton": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 8,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e6c-det-flashinfer": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 7,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e6d-det-triton-repeat": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 7,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e11-topp-topk": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 7,
+        "clean_whole_step": 1,
+        "missing_key_fields": []
+      },
+      "e3b-offload-kv": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 5,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e3c-no-offload-rollout": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 7,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e3d-no-offload-train": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 6,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e4-0.6b": {
+        "steps": 4,
+        "partial": false,
+        "clean_rollout": 3,
+        "clean_whole_step": 3,
+        "missing_key_fields": []
+      },
+      "e4-1.7b": {
+        "steps": 4,
+        "partial": false,
+        "clean_rollout": 4,
+        "clean_whole_step": 4,
+        "missing_key_fields": []
+      },
+      "e2-n4": {
+        "steps": 24,
+        "partial": false,
+        "clean_rollout": 14,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e2-n16": {
+        "steps": 24,
+        "partial": true,
+        "clean_rollout": 0,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e3e-base-frac025": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 4,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e3f-no-offload-rollout-frac025": {
+        "steps": 12,
+        "partial": false,
+        "clean_rollout": 3,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      },
+      "e2b-dapo-filter": {
+        "steps": 12,
+        "partial": true,
+        "clean_rollout": 0,
+        "clean_whole_step": 0,
+        "missing_key_fields": []
+      }
+    },
+    "seed_48_results": {
+      "plain-48": {
+        "reward": {
+          "first8": 0.6362305,
+          "last8": 0.7578125
+        },
+        "length": {
+          "first8": 724.12792975,
+          "last8": 447.180664125
+        },
+        "cut_share": {
+          "first8": 0.326171875,
+          "last8": 0.07519525
+        }
+      },
+      "plain-48-s2": {
+        "reward": {
+          "first8": 0.6533202499999999,
+          "last8": 0.73632825
+        },
+        "length": {
+          "first8": 712.205078125,
+          "last8": 480.40039049999996
+        },
+        "cut_share": {
+          "first8": 0.29736324999999997,
+          "last8": 0.11816425
+        }
+      },
+      "plain-48-s3": {
+        "reward": {
+          "first8": 0.6142578750000001,
+          "last8": 0.765625
+        },
+        "length": {
+          "first8": 733.61230475,
+          "last8": 455.705566625
+        },
+        "cut_share": {
+          "first8": 0.3427735,
+          "last8": 0.0878905
+        }
+      }
+    },
+    "group_size_reward_gains_24_steps": {
+      "e2-n4": 0.05273450000000002,
+      "plain-48": 0.04980487499999997,
+      "plain-48-s2": 0.03759762500000008,
+      "plain-48-s3": 0.09814449999999997,
+      "e2-n16": 0.09741212499999996
+    },
+    "gap_replay": {
+      "median_before": 0.01526,
+      "median_after": 0.0135035,
+      "relative_drop": 0.1151048492791612,
+      "sampling_and_replay_changed_together": true,
+      "causal_isolation_not_proven": true
+    },
+    "offload_common_steps": [
+      {
+        "step": 0,
+        "base": 69.403877,
+        "kept": 68.043557,
+        "gain_s": 1.3603199999999873,
+        "base_length": 804.65625,
+        "kept_length": 796.667969
+      },
+      {
+        "step": 1,
+        "base": 58.501218,
+        "kept": 56.699827,
+        "gain_s": 1.8013910000000024,
+        "base_length": 700.496094,
+        "kept_length": 702.066406
+      },
+      {
+        "step": 8,
+        "base": 55.838781,
+        "kept": 55.155715,
+        "gain_s": 0.6830659999999966,
+        "base_length": 688.816406,
+        "kept_length": 680.664062
+      }
+    ],
+    "DAPO": {
+      "dropped_groups": 399.0,
+      "all_right": 306,
+      "all_wrong": 93,
+      "base_pause_subtracted_median": 58.007237999999994,
+      "dropped_le16_median": 88.74364700000001,
+      "dropped_gt16_median": 164.407786,
+      "raw_reward_mean_of_step_means": 0.6855670833333334,
+      "base_reward_mean_of_step_means": 0.6572265833333333
+    },
+    "timing": {
+      "baseline_phase_medians": {
+        "reward": 0.701172,
+        "length": 599.765625,
+        "cut_share": 0.183594,
+        "reward_all_samples": 0.701172,
+        "groups_all_wrong": 3.0,
+        "groups_all_right": 13.0,
+        "dropped_all_wrong": null,
+        "dropped_all_right": null,
+        "logprob_abs_diff": 0.015093,
+        "train_rollout_kl": 0.000698,
+        "entropy": 0.0,
+        "grad_norm": 0.494835,
+        "clip_fraction": 0.0,
+        "step_time_s": 152.643569,
+        "rollout_time_s": 47.495245,
+        "log_probs_time_s": 23.378027,
+        "train_time_s": 100.290844,
+        "update_weights_time_s": 0.638256,
+        "sleep_time_s": 0.755802,
+        "wake_up_time_s": 0.866168
+      },
+      "median_gradient": 76.962535,
+      "median_per_step_residual": 2.240679,
+      "step_median_minus_phase_medians": 2.597254000000021,
+      "plate_four_phase_remainder": 4.169506000000013,
+      "update_share_of_step_medians": 0.004181348773363652,
+      "note": "median(sum)不等sum(median)，二者残差口径分开"
+    },
+    "watchdog_reconstruction": {
+      "6": {
+        "healthy_offsets_stopped": 17,
+        "healthy_longest": 6,
+        "dead_stop_range": [
+          153,
+          182
+        ]
+      },
+      "8": {
+        "healthy_offsets_stopped": 0,
+        "healthy_longest": 6,
+        "dead_stop_range": [
+          213,
+          242
+        ]
+      },
+      "10": {
+        "healthy_offsets_stopped": 0,
+        "healthy_longest": 6,
+        "dead_stop_range": [
+          273,
+          302
+        ]
+      }
+    },
+    "watchdog_synthetic_dead_rate_per_second": 44,
+    "simple_math": {
+      "32times8": 256,
+      "16bytes_states_gb": {
+        "0.6": 9.6,
+        "1.7": 27.2,
+        "4": 64,
+        "8": 128
+      },
+      "bucket_mib": 512.0,
+      "top_p_retained_mass_point9_log_shift": 0.10536051565782628,
+      "l4_median_ratio": 7.765957446808511
+    },
+    "not_verified": [
+      "原Miles/torch/GPU/SDK/容器/训练/捕获/原测试均未运行",
+      "热暂停仅区间/摘要一致，不证明热安全或不影响样本",
+      "两侧checkpoint/tokenizer/核函数真实一致性未实测；原始日志无法重建",
+      "作者单机/样本/少seed结果不是普遍阈值或性能承诺"
+    ],
+    "official_selected_reads": [
+      {
+        "url": "https://github.com/radixark/miles/issues/4019",
+        "checked": "2026-10-25",
+        "state": "open",
+        "updated_at": "2026-10-11T23:12:33Z",
+        "scope": "问题说明/数值例/明确等值原奖励置零提案及证据局限，未运行issue程序"
+      },
+      {
+        "url": "https://github.com/radixark/miles/blob/08752a1283/miles/ray/rollout/train_data_conversion.py",
+        "checked": "2026-10-25",
+        "git_blob": "be44491d31c1584fdefd2386b172c7b1aafa35ab",
+        "scope": "_normalize_rewards_by_rollout整函数静读，按unique rollout先取共享reward再归一并广播；实际pinned函数无等值先置零分支"
+      }
+    ],
+    "svg_checks": {
+      "count": 19,
+      "xml_passive_gate_all": true,
+      "visible_text_projection_actually_read_all": true,
+      "static_rsvg_render_and_visual_read": [
+        "plate-miles-loop",
+        "fig-1-1",
+        "fig-8-4"
+      ],
+      "browser_or_source_JS_run": false
+    },
+    "own_helpers_executed": [
+      "own-data-check.py（仅JSON/日志数值/区间）",
+      "静态XML门禁与rsvg-convert（无原程序/JS执行）"
+    ],
+    "all_source_blob_recheck": 111,
+    "source_drift": 0
+  },
+  "root_review": {
+    "source_items_blob_sha256_rechecked": 111,
+    "drift": 0,
+    "frozen_knowledge_sha256": "2feb7e895a22f62f98083f96738b7a3a772bd39f9c4d021e253ade03601c29e1",
+    "root_actually_read": "11178字符整稿、固定归一函数294～342行及19run摘要字段结构",
+    "independent_stored_medians": {
+      "checked_stored_numeric_medians": 338,
+      "mismatches": [],
+      "scope": "19run已存per-step字段重算，不是原日志/真实训练重跑"
+    },
+    "independent_residual_median": 2.240679,
+    "independent_simple_math": {
+      "samples": 256,
+      "log_mass_shift": 0.10536051565782628,
+      "importance_weight": 0.9,
+      "gap_relative_drop": 0.1151048492791612
+    },
+    "subject_commit_primary_metadata": {
+      "author_date": "2026-10-16T06:07:40Z",
+      "committer_date": "2026-10-16T06:07:40Z",
+      "sha": "08752a1283f227104cb48353057d46120de1492c"
+    },
+    "date_discrepancy": "原手册pin.date声明2026-10-15；官方author/committer均2026-10-16，正式知识按完整SHA/digest追溯并明示两日期，不回写原数据",
+    "normalization_code_git_blob": "be44491d31c1584fdefd2386b172c7b1aafa35ab",
+    "retained_limits": "摘要内部一致不等从缺失原始训练日志重采；group/shared reward、std/finite/等值不变量/版本与分母未用代码自证真实效果",
+    "additional_actual_read": "手册8.2的Score Centering机制段，补回sampler top-k信息/FP32输出层代价和作者未运行边界，不编造未提供的算法推导"
+  },
+  "formal_fusion": [
+    {
+      "file": "LLM 工程实践/05-偏好优化与强化学习.md",
+      "before_sha256": "293ddecbab29325e47e79370787d83af87baaa14d4e9f21611a29930556fb147",
+      "after_sha256": "32ea3d77902c9434dcad7b75c91fdbd0b29a591cd41ab74caf352532f648d2c7",
+      "old_code_fences_preserved": true,
+      "renders": [
+        {
+          "format": "json",
+          "sha256": "761dd37794de276b484608328e5e9ea18b1cffe6169da6d16a156e22da9be704",
+          "warnings": ""
+        },
+        {
+          "format": "html",
+          "sha256": "539db17b96949cbbd4c44487ee112cf369765ee06e7dbf9560f4dcf8fbe81486",
+          "warnings": ""
+        }
+      ]
+    },
+    {
+      "file": "计算机科学基础/07-容器化与Docker/09-AI容器与硬件运行边界.md",
+      "before_sha256": "ab4403d143256b6f1734f8ad59aab8afce039639cb911266bd4f419bc4258b0c",
+      "after_sha256": "2e10ffb4791a9a0cf36911e7aa5a414fca7fd90cf9d76d87415dce35da6341d5",
+      "old_code_fences_preserved": true,
+      "renders": [
+        {
+          "format": "json",
+          "sha256": "817f742319081b9e6979cdc299aa74ee3a44fc350f38df61209e34fc1d87330a",
+          "warnings": ""
+        },
+        {
+          "format": "html",
+          "sha256": "8d68ce5d94612e17fcae43c9202eebe946b5aa0cadb0f21d5c1225a0963c20e5",
+          "warnings": ""
+        }
+      ]
+    },
+    {
+      "file": "LLM 工程实践/06-评测与实验管理.md",
+      "before_sha256": "a661bf9b475ba5fdcae3831f679a11d036f400ee03f325f13eebfa4939525fa9",
+      "after_sha256": "4f65ddd05026231281060263c585940a5c7f960040188fc79d541a681f1aa1b1",
+      "old_code_fences_preserved": true,
+      "renders": [
+        {
+          "format": "json",
+          "sha256": "23b20972c5a76f863954765a98366960a126e6ae38294cdfdd41b068720c43f3",
+          "warnings": ""
+        },
+        {
+          "format": "html",
+          "sha256": "c06242e1e0d5661fe6df6022e13312a3dd1930cf4d0ab1227c6c9398d64cade0",
+          "warnings": ""
+        }
+      ]
+    }
+  ],
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs_embedded": 0,
+  "whole_target_complete": false,
+  "structure_check": "检查文档 671 篇（学习与导航 303 篇，维护 55 篇），本地链接 4651 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n",
+  "diff_check": "exit0"
+}

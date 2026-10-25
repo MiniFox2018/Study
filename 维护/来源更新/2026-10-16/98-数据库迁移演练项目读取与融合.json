@@ -1,0 +1,1523 @@
+{
+  "date": "2026-10-23",
+  "project": "database-migration-rehearsal",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "source_root": "/var/folders/kc/zzsq9zpn4q985pxh7zttjtyh0000gn/T/study-update-source1-20261016/ai-engineering-from-scratch-1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "accepted": true,
+  "accepted_stages": 4,
+  "total_stages": 4,
+  "stage_ids": [
+    "01-snapshot",
+    "02-migration",
+    "03-rollback",
+    "04-receipt"
+  ],
+  "delegate_review": {
+    "project": "database-migration-rehearsal",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "source_repository": "https://github.com/rohitg00/ai-engineering-from-scratch",
+    "source_cutoff_utc": "2026-10-15T05:58:42Z",
+    "read_date": "2026-10-23",
+    "timezone": "Asia/Shanghai",
+    "author_run_timestamp": "2026-10-09T14:18:26Z",
+    "accepted": false,
+    "status": "四阶段读取/静审/纯数据核/可学习草稿已交接；待root正式融合验收",
+    "project_items": 28,
+    "project_text_items": 24,
+    "exact_copy_reused_items": 3,
+    "media_items": 4,
+    "additional_figure_js": 1,
+    "all_29_git_blobs_match": true,
+    "test_methods_static": 20,
+    "source_program_execution": 0,
+    "source_sql_execution": 0,
+    "sqlite_connections": 0,
+    "repository_files_modified": false,
+    "files": [
+      {
+        "path": "projects/database-migration-rehearsal/API.md",
+        "bytes": 2195,
+        "sha256": "5c0f8e3a4568500aad0d5024184d40dff2bba587f154ebdb364ebc93e877bc0a",
+        "git_blob": "d16dc4f99de6584580c7831048f4e1493b329e29",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 39,
+        "read_ranges": [
+          [
+            1,
+            39
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/README.md",
+        "bytes": 2818,
+        "sha256": "77c1879c0a5dcc2f94646c2e9dddad2719a134496051dbfdcf526789e840748f",
+        "git_blob": "b764714da8d7a39669e8c3b2739fbb069d6d8f96",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 48,
+        "read_ranges": [
+          [
+            1,
+            48
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/output.gif",
+        "bytes": 59943,
+        "sha256": "e378d8b7edd2a07b2f37dfe0d92c3540330104f81a446274a4efbf8f98558f5e",
+        "git_blob": "2b0a4f988d80512d811a63c77833918d14f76a2f",
+        "target_tree_match": true,
+        "classification": "演示媒体，非本次运行证明",
+        "dimensions": [
+          1120,
+          630
+        ],
+        "frames": 6,
+        "total_duration_ms": 3900,
+        "data_decode_range": [
+          1,
+          6
+        ],
+        "visual_review": false,
+        "visual_scope": "output PNG:显示原迁移成功/回滚不恢复/门禁false、schema diff和2→1行不变量失败；run PNG:作者历史终端记录。GIF未逐帧视觉审阅。"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/output.json",
+        "bytes": 255,
+        "sha256": "e8bda3a66403eb702afe01189f44443916ecf0c38c7aa5e0049fab352dd79ade",
+        "git_blob": "53767af382bc0cf24f917506a194d05e3a623bf0",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 11,
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/output.png",
+        "bytes": 49549,
+        "sha256": "3135c153d6823c99dfb3ebe04584120fa3a7a6211e4c868af63d9ea710a05707",
+        "git_blob": "39802c2b26dfa60aa1b09ca08aa8f60f7be4318a",
+        "target_tree_match": true,
+        "classification": "演示媒体，非本次运行证明",
+        "dimensions": [
+          1120,
+          630
+        ],
+        "frames": 1,
+        "total_duration_ms": 0,
+        "data_decode_range": [
+          1,
+          1
+        ],
+        "visual_review": true,
+        "visual_scope": "output PNG:显示原迁移成功/回滚不恢复/门禁false、schema diff和2→1行不变量失败；run PNG:作者历史终端记录。GIF未逐帧视觉审阅。"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/run.gif",
+        "bytes": 245641,
+        "sha256": "88ae60cb96bf04a742f51501c1c618f4b329cbf22a2ebc69de08c8c5bc58f136",
+        "git_blob": "e77ba88071c3b94dd13dc9531f97c11201840020",
+        "target_tree_match": true,
+        "classification": "演示媒体，非本次运行证明",
+        "dimensions": [
+          1120,
+          630
+        ],
+        "frames": 18,
+        "total_duration_ms": 8100,
+        "data_decode_range": [
+          1,
+          18
+        ],
+        "visual_review": false,
+        "visual_scope": "output PNG:显示原迁移成功/回滚不恢复/门禁false、schema diff和2→1行不变量失败；run PNG:作者历史终端记录。GIF未逐帧视觉审阅。"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/run.json",
+        "bytes": 2323,
+        "sha256": "a5f4ff14a3a63c35bb0fc9e29ebeca58b003bdfae28fd3c1fc51d1db1a5b6618",
+        "git_blob": "e66832d61beab8df7c398436cd836b9bbbd12bb0",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 52,
+        "read_ranges": [
+          [
+            1,
+            52
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/run.png",
+        "bytes": 91031,
+        "sha256": "529b730e7484c69ee16047b0f25010d520fcec47b240c205fd4488fda2d15828",
+        "git_blob": "d79c34b70cd0ae53a335530f2fb5ba3d4446e4e3",
+        "target_tree_match": true,
+        "classification": "演示媒体，非本次运行证明",
+        "dimensions": [
+          1120,
+          630
+        ],
+        "frames": 1,
+        "total_duration_ms": 0,
+        "data_decode_range": [
+          1,
+          1
+        ],
+        "visual_review": true,
+        "visual_scope": "output PNG:显示原迁移成功/回滚不恢复/门禁false、schema diff和2→1行不变量失败；run PNG:作者历史终端记录。GIF未逐帧视觉审阅。"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/project.json",
+        "bytes": 3505,
+        "sha256": "ae4ca19993d3ffab67bc6d22641de83720bb571740f95562660bf329019360ff",
+        "git_blob": "ff5490c6354fed74d0c711d7b5b4938c9ce40029",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 111,
+        "read_ranges": [
+          [
+            1,
+            111
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/solution/cli.py",
+        "bytes": 2284,
+        "sha256": "1188d462ac4de6d440355144f897f2272e9487018d2c76eb323c0fb7d2fd7d43",
+        "git_blob": "06128d2223920efdb88165ae53490092a90e99c6",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 67,
+        "read_ranges": [
+          [
+            1,
+            67
+          ]
+        ],
+        "read_mode": "同次任务精确SHA复用",
+        "source_executed": false,
+        "reuse_source": "projects/database-migration-rehearsal/stages/01-snapshot/starter/cli.py"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/solution/main.py",
+        "bytes": 8286,
+        "sha256": "5273ce63f6087b3b7a2c43a494a1a131b176a090f939ff6702c7c3a8fd9ad167",
+        "git_blob": "9acbd6f3fa620883f53e889e91a1707e768f6d61",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 217,
+        "read_ranges": [
+          [
+            1,
+            217
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/solution/presentation.py",
+        "bytes": 3995,
+        "sha256": "273a81aa9cfcaab90280deffcad0f253844a9afcbeec3e42ac35bd17480b83d6",
+        "git_blob": "8a1c6e0d4bde546e6a64ab1541c6534365fd9af1",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 66,
+        "read_ranges": [
+          [
+            1,
+            66
+          ]
+        ],
+        "read_mode": "同次任务精确SHA复用",
+        "source_executed": false,
+        "reuse_source": "projects/database-migration-rehearsal/stages/01-snapshot/starter/presentation.py"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/solution/samples/input.json",
+        "bytes": 264,
+        "sha256": "48391cbd70d09edc5e28cc72487f1062d186ec5454e95e22d003fbe1b9da4c08",
+        "git_blob": "9bf4e8b191507128d4194dd737e3c8002c4f8ee7",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 11,
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "read_mode": "同次任务精确SHA复用",
+        "source_executed": false,
+        "reuse_source": "projects/database-migration-rehearsal/stages/01-snapshot/starter/samples/input.json"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/docs/en.md",
+        "bytes": 1677,
+        "sha256": "705d528d70a625c03a39bdbce95873aee656a8c6d15f54e981447b43377e3a9b",
+        "git_blob": "ed6e94311b3f2855c89df675a807f62d7d790288",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 33,
+        "read_ranges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/starter/cli.py",
+        "bytes": 2284,
+        "sha256": "1188d462ac4de6d440355144f897f2272e9487018d2c76eb323c0fb7d2fd7d43",
+        "git_blob": "06128d2223920efdb88165ae53490092a90e99c6",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 67,
+        "read_ranges": [
+          [
+            1,
+            67
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/starter/main.py",
+        "bytes": 5029,
+        "sha256": "b3493aa82414e2b7dcdcf1864bd285599f8395c2b78130902db1a2210bd3e9ff",
+        "git_blob": "4453e7b8f6586148f2c2ca334f35d8ecee62100a",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 121,
+        "read_ranges": [
+          [
+            1,
+            121
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/starter/presentation.py",
+        "bytes": 3995,
+        "sha256": "273a81aa9cfcaab90280deffcad0f253844a9afcbeec3e42ac35bd17480b83d6",
+        "git_blob": "8a1c6e0d4bde546e6a64ab1541c6534365fd9af1",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 66,
+        "read_ranges": [
+          [
+            1,
+            66
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/starter/samples/input.json",
+        "bytes": 264,
+        "sha256": "48391cbd70d09edc5e28cc72487f1062d186ec5454e95e22d003fbe1b9da4c08",
+        "git_blob": "9bf4e8b191507128d4194dd737e3c8002c4f8ee7",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 11,
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/tests/test_stage_1.py",
+        "bytes": 1489,
+        "sha256": "7c8e9f104f69fd1732bb441a126307f34e62b9744cea45768fdc1de42f85d6f8",
+        "git_blob": "0a187ff810df1dadc306a77101f20e46d6558d88",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 43,
+        "read_ranges": [
+          [
+            1,
+            43
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false,
+        "test_methods_static": [
+          "test_count",
+          "test_schema",
+          "test_missing",
+          "test_stability",
+          "test_same_count_different_data"
+        ]
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/02-migration/docs/en.md",
+        "bytes": 1682,
+        "sha256": "31783a5e2ec74620381f1938741ec38f85677244bd69dcdb12dec19362fe45ff",
+        "git_blob": "a82230d2efa133a7ba19f6e6cbe3df4b0e9c9278",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 33,
+        "read_ranges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/02-migration/starter/STAGE-2.md",
+        "bytes": 114,
+        "sha256": "57d06d65e9d92416393afc17c136f7137b22b9e6c4e6378f84069690727462a0",
+        "git_blob": "c6774d5b8868b523490b6e1ab8a4f979a1659e0e",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 1,
+        "read_ranges": [
+          [
+            1,
+            1
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/02-migration/tests/test_stage_2.py",
+        "bytes": 1595,
+        "sha256": "9049ad1d5ef6eb41a8ed13fd8ab75b3f671d71763553f705e06939914b4a09a1",
+        "git_blob": "0e7ecaa52ebe88a08de5e92797b56e224c23d761",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 47,
+        "read_ranges": [
+          [
+            1,
+            47
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false,
+        "test_methods_static": [
+          "test_alter",
+          "test_source_unchanged",
+          "test_attach_denied",
+          "test_pragma_denied",
+          "test_bad_sql"
+        ]
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/03-rollback/docs/en.md",
+        "bytes": 1731,
+        "sha256": "d8a82b42f4018cf9c2f94c11201a0fe4f78aeab0d15ba5e800bac7bfbb7f8006",
+        "git_blob": "cd14048342f050a15d2a72f196c9315ca0f6cce3",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 33,
+        "read_ranges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/03-rollback/starter/STAGE-3.md",
+        "bytes": 108,
+        "sha256": "4578f3dd51c8456fe09af643e3766bf4ffff34f1ddf83ec61454511c5b916faf",
+        "git_blob": "8ba149efe7b1111cccd333b413ad7c2041b5b495",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 1,
+        "read_ranges": [
+          [
+            1,
+            1
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/03-rollback/tests/test_stage_3.py",
+        "bytes": 1591,
+        "sha256": "938be35b8291c045de59ec7fdb7b442625cc4b2be35426a1f569583813554e34",
+        "git_blob": "7a1c45f518cd9262fa19690f31f7eb473f2d56e7",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 49,
+        "read_ranges": [
+          [
+            1,
+            49
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false,
+        "test_methods_static": [
+          "test_reversible",
+          "test_loss",
+          "test_same_count_wrong_data",
+          "test_rollback_error",
+          "test_forward_error"
+        ]
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/04-receipt/docs/en.md",
+        "bytes": 2088,
+        "sha256": "920249993df49509e76f7a1d70a11b8b80d1c8bf0d492b92773a306b73ed3834",
+        "git_blob": "f9686d9285cf6ff963ae777af0f3bd5a32a26f8c",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 33,
+        "read_ranges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/04-receipt/starter/STAGE-4.md",
+        "bytes": 118,
+        "sha256": "bbf40dcbda3d8e00c8a46022cd54457d334ae15908fd22a7ef033d3b1379f05f",
+        "git_blob": "0f9aaeda19b6cb4b1d60908b375172af90f5ae9f",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 1,
+        "read_ranges": [
+          [
+            1,
+            1
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/04-receipt/tests/test_stage_4.py",
+        "bytes": 1917,
+        "sha256": "3b21acd31e17c275ada518600a6f36ba48aa6abb04a6ac5eee0d4e4bfc881b1a",
+        "git_blob": "d58a24be8af649a41daaaac83cdb4296c130f7bf",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 58,
+        "read_ranges": [
+          [
+            1,
+            58
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false,
+        "test_methods_static": [
+          "test_ready",
+          "test_lost_row",
+          "test_missing_table",
+          "test_bad_rule",
+          "test_roundtrip"
+        ]
+      },
+      {
+        "path": "site/figures/projects/database-migration-rehearsal.js",
+        "bytes": 6921,
+        "sha256": "20735a4bc2e1a34502b2b11d40bee4a0a7aad093dc39ae754156f1eb1073666a",
+        "git_blob": "473f67f4d7048bf96447b2664362cacc001759aa",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 7,
+        "read_ranges": [
+          [
+            1,
+            7
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      }
+    ],
+    "issues": [
+      {
+        "severity": "学习解释必需",
+        "source_lines": "solution/main.py:45-57,69-98",
+        "finding": "SQLite只读URI源连接、backup到内存、副本执行；Python标准库SQLite合同，不是任意数据库迁移，也非OS隔离。"
+      },
+      {
+        "severity": "实现覆盖缺口",
+        "source_lines": "solution/main.py:7-12",
+        "finding": "name NOT LIKE sqlite_%误把_当内部前缀字面符，真实LIKE匹配任意一字符；sqliteXdemo合法表也被排除，可漏掉其schema和数据变化。官方LIKE/表名规则核对，纯字符串模式反例未运行SQL。"
+      },
+      {
+        "severity": "实现覆盖缺口",
+        "source_lines": "solution/main.py:18",
+        "finding": "SELECT *未捕获普通rowid表的隐藏rowid；before==restored是被捕获投影相等，不是所有数据库状态相等；temp schema/连接PRAGMA等亦不在快照。"
+      },
+      {
+        "severity": "方法边界",
+        "source_lines": "solution/main.py:19-31,101-108",
+        "finding": "排序JSON行保重复、消扫描顺序；BLOB hex标签；schema按SQL文本diff非语义。preserve_data整行hash在新增NULL列时也变，需面向保护列设计其他比较政策。"
+      },
+      {
+        "severity": "实现环境缺口",
+        "source_lines": "solution/main.py:45-57,69-98",
+        "finding": "副本连接未显式开启/记录foreign_keys，授权器禁止PRAGMA；数据备份不复制连接设置。不能宣称外键完整性已实际核过。"
+      },
+      {
+        "severity": "方法边界",
+        "source_lines": "solution/main.py:69-98,111-126",
+        "finding": "executescript未自动BEGIN/COMMIT，可能多语句局部成功后出错；error与after必须并存。Python3.10官方核先commit待定事务、无其他隐式事务控制；after不区分已提交/未提交状态。"
+      },
+      {
+        "severity": "资源边界",
+        "source_lines": "solution/main.py:69-98",
+        "finding": "每次执行独立2秒deadline+每1000VM指令检查，不是全进程严格上限；clone、snapshot读取/排序/hash不在此预算，内存/输入总量无完整上限。"
+      },
+      {
+        "severity": "方法边界",
+        "source_lines": "solution/main.py:129-155",
+        "finding": "同副本forward再rollback，前向失败跳过rollback；reversible需forward成功、rollback成功、before==restored（含sequences）；未实际验证任意生产数据/并发/锁/恢复时限。"
+      },
+      {
+        "severity": "方法边界",
+        "source_lines": "solution/main.py:158-217",
+        "finding": "不变量对after判断；same_rows只计数、preserve_data比全行hash；存在性/界限/布尔类型校验。规则空列表all([])=true，reversible即可release_ready，未声明业务要求不被自动证明。"
+      },
+      {
+        "severity": "批准与来源绑定缺口",
+        "source_lines": "solution/main.py:211-217; solution/cli.py",
+        "finding": "收据不绑定迁移/回滚脚本摘要、源快照文件身份/执行版本/批准主体，无签名批准或生产执行；release_ready是演练证据，不是授权发布。"
+      },
+      {
+        "severity": "输入保全边界",
+        "source_lines": "solution/cli.py:11-30",
+        "finding": "CLI仅数据库与输出字面路径碰撞检查，输入JSON覆盖、输出叶子symlink/hardlink别名不完整保护；不能由核心ro连接推出全部CLI路径绝不覆盖输入。静读风险，未做动态破坏性验证。"
+      },
+      {
+        "severity": "输出一致性",
+        "source_lines": "solution/cli.py:31-56",
+        "finding": "依次写rehearsal/schema-diff/HTML，没有原子发布。HTML转义供展示，未实现人工批准回写；无数据库字段会创建样例DB，不是演练用户真实库。"
+      },
+      {
+        "severity": "交互图局限",
+        "source_lines": "site/figures/projects/database-migration-rehearsal.js:1-8",
+        "finding": "4 lab共用同一行数公式，stepIndex未参与；删除数min裁剪，迁移/回滚计数比较；图明确仍需schema/content检查。无SQL/hash/实际批准。"
+      },
+      {
+        "severity": "验证证据",
+        "source_lines": "stages/*/tests/test_stage_*.py; media/run.json",
+        "finding": "4×5=20测试仅静读，作者2026-10-09运行与本次2026-10-23审读分开；没有运行SQLite/SQL/CLI/JS/评分器。"
+      }
+    ],
+    "data_proof_path": "/tmp/study-update-20261016/migration-agent-20261023/data-proof.json",
+    "data_proof_sha256": "87770c5218de75916f09409f719b3e099ba899246601c44721e58ac56eb505df",
+    "official_selected_documentation": [
+      {
+        "url": "https://www.sqlite.org/lang_expr.html#like",
+        "verified": "LIKE的下划线匹配一个字符，百分号匹配任意长度；ASCII默认大小写不敏感。"
+      },
+      {
+        "url": "https://www.sqlite.org/lang_createtable.html#rowid",
+        "verified": "sqlite_保留前缀；rowid为普通rowid表隐藏64位键，INTEGER PRIMARY KEY关系与WITHOUT ROWID例外。"
+      },
+      {
+        "url": "https://www.sqlite.org/lang_select.html#resultset",
+        "verified": "SELECT *展开输入列；结合rowid规则审查隐式rowid遗漏。"
+      },
+      {
+        "url": "https://docs.python.org/3.10/library/sqlite3.html#sqlite3.Cursor.executescript",
+        "verified": "executescript先提交待定事务，其他事务控制须脚本自行提供；仅3.10文档的版本范围。"
+      },
+      {
+        "url": "https://www.sqlite.org/foreignkeys.html",
+        "verified": "外键需显式启用，连接级配置；来源未建立该配置合同。"
+      },
+      {
+        "url": "https://www.sqlite.org/backup.html",
+        "verified": "backup完成后得到源数据库快照；仅官方说明中snapshot段落，并未运行backup或核全部C示例。"
+      }
+    ],
+    "recommended_single_merge_file": "计算机科学基础/05-生产级软件工程.md",
+    "recommended_merge_location": "承接第11节数据库/二进制回滚区别，新增第19节；不新增项目镜像主题。",
+    "knowledge_path": "/tmp/study-update-20261016/migration-agent-20261023/knowledge.md",
+    "knowledge_characters": 8022,
+    "knowledge_sha256": "f9d0d26ceeb89c80a9d2090b5765061091c22effb98fb365b7c0604f7805b1e8",
+    "data_proof_summary": {
+      "sample_before_rows": 2,
+      "sample_after_rows": 1,
+      "sample_restored_rows": 1,
+      "sample_forward_expected_error": null,
+      "sample_rollback_expected_error": null,
+      "sample_reversible": false,
+      "sample_release_ready": false,
+      "projection_hashes": {
+        "source_rows": "50c216fc29487e785b0d284137ab0d8882d2535e00f7b288f2a1091798e40191",
+        "after_alter_and_delete_projection": "785b2c5e366b26afbd41f3e1895608a86290220f0cc3672a5e0587757010b983",
+        "after_drop_column_projection": "a239faee13844742fea3c6804b13266a15f55648f9b9f67bd42cfa2bf0755ad8"
+      },
+      "same_flags_observed_in_author_png": true,
+      "not_our_sql_execution": true
+    },
+    "remaining": [
+      "root需审正文上下文/重复与边界，正式融合后整文件Pandoc JSON/HTML与全库来源/链接检查，更新中文记录。",
+      "accepted=false；本子任务不更改项目总表/阶段验收/Git/PR。",
+      "纯数据核只验证人工推导的行投影/hash、单个LIKE模式和图公式，未验证SQLite DDL实际语义或事务/超时/文件保全运行。",
+      "2PNG已实际看，2GIF共24帧数据解码；不声称逐帧视觉审查。",
+      "只固定来源1的此项目，不读其他四站或1a8之后的上游提交。"
+    ]
+  },
+  "root_inventory": {
+    "files": 29,
+    "official_tree_sha_verified": true,
+    "drift": 0,
+    "inventory": [
+      {
+        "path": "projects/database-migration-rehearsal/API.md",
+        "bytes": 2195,
+        "sha256": "5c0f8e3a4568500aad0d5024184d40dff2bba587f154ebdb364ebc93e877bc0a",
+        "git_blob": "d16dc4f99de6584580c7831048f4e1493b329e29",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 39,
+        "read_ranges": [
+          [
+            1,
+            39
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/README.md",
+        "bytes": 2818,
+        "sha256": "77c1879c0a5dcc2f94646c2e9dddad2719a134496051dbfdcf526789e840748f",
+        "git_blob": "b764714da8d7a39669e8c3b2739fbb069d6d8f96",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 48,
+        "read_ranges": [
+          [
+            1,
+            48
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/output.gif",
+        "bytes": 59943,
+        "sha256": "e378d8b7edd2a07b2f37dfe0d92c3540330104f81a446274a4efbf8f98558f5e",
+        "git_blob": "2b0a4f988d80512d811a63c77833918d14f76a2f",
+        "target_tree_match": true,
+        "classification": "演示媒体，非本次运行证明",
+        "dimensions": [
+          1120,
+          630
+        ],
+        "frames": 6,
+        "total_duration_ms": 3900,
+        "data_decode_range": [
+          1,
+          6
+        ],
+        "visual_review": false,
+        "visual_scope": "output PNG:显示原迁移成功/回滚不恢复/门禁false、schema diff和2→1行不变量失败；run PNG:作者历史终端记录。GIF未逐帧视觉审阅。"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/output.json",
+        "bytes": 255,
+        "sha256": "e8bda3a66403eb702afe01189f44443916ecf0c38c7aa5e0049fab352dd79ade",
+        "git_blob": "53767af382bc0cf24f917506a194d05e3a623bf0",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 11,
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/output.png",
+        "bytes": 49549,
+        "sha256": "3135c153d6823c99dfb3ebe04584120fa3a7a6211e4c868af63d9ea710a05707",
+        "git_blob": "39802c2b26dfa60aa1b09ca08aa8f60f7be4318a",
+        "target_tree_match": true,
+        "classification": "演示媒体，非本次运行证明",
+        "dimensions": [
+          1120,
+          630
+        ],
+        "frames": 1,
+        "total_duration_ms": 0,
+        "data_decode_range": [
+          1,
+          1
+        ],
+        "visual_review": true,
+        "visual_scope": "output PNG:显示原迁移成功/回滚不恢复/门禁false、schema diff和2→1行不变量失败；run PNG:作者历史终端记录。GIF未逐帧视觉审阅。"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/run.gif",
+        "bytes": 245641,
+        "sha256": "88ae60cb96bf04a742f51501c1c618f4b329cbf22a2ebc69de08c8c5bc58f136",
+        "git_blob": "e77ba88071c3b94dd13dc9531f97c11201840020",
+        "target_tree_match": true,
+        "classification": "演示媒体，非本次运行证明",
+        "dimensions": [
+          1120,
+          630
+        ],
+        "frames": 18,
+        "total_duration_ms": 8100,
+        "data_decode_range": [
+          1,
+          18
+        ],
+        "visual_review": false,
+        "visual_scope": "output PNG:显示原迁移成功/回滚不恢复/门禁false、schema diff和2→1行不变量失败；run PNG:作者历史终端记录。GIF未逐帧视觉审阅。"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/run.json",
+        "bytes": 2323,
+        "sha256": "a5f4ff14a3a63c35bb0fc9e29ebeca58b003bdfae28fd3c1fc51d1db1a5b6618",
+        "git_blob": "e66832d61beab8df7c398436cd836b9bbbd12bb0",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 52,
+        "read_ranges": [
+          [
+            1,
+            52
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/media/run.png",
+        "bytes": 91031,
+        "sha256": "529b730e7484c69ee16047b0f25010d520fcec47b240c205fd4488fda2d15828",
+        "git_blob": "d79c34b70cd0ae53a335530f2fb5ba3d4446e4e3",
+        "target_tree_match": true,
+        "classification": "演示媒体，非本次运行证明",
+        "dimensions": [
+          1120,
+          630
+        ],
+        "frames": 1,
+        "total_duration_ms": 0,
+        "data_decode_range": [
+          1,
+          1
+        ],
+        "visual_review": true,
+        "visual_scope": "output PNG:显示原迁移成功/回滚不恢复/门禁false、schema diff和2→1行不变量失败；run PNG:作者历史终端记录。GIF未逐帧视觉审阅。"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/project.json",
+        "bytes": 3505,
+        "sha256": "ae4ca19993d3ffab67bc6d22641de83720bb571740f95562660bf329019360ff",
+        "git_blob": "ff5490c6354fed74d0c711d7b5b4938c9ce40029",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 111,
+        "read_ranges": [
+          [
+            1,
+            111
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/solution/cli.py",
+        "bytes": 2284,
+        "sha256": "1188d462ac4de6d440355144f897f2272e9487018d2c76eb323c0fb7d2fd7d43",
+        "git_blob": "06128d2223920efdb88165ae53490092a90e99c6",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 67,
+        "read_ranges": [
+          [
+            1,
+            67
+          ]
+        ],
+        "read_mode": "同次任务精确SHA复用",
+        "source_executed": false,
+        "reuse_source": "projects/database-migration-rehearsal/stages/01-snapshot/starter/cli.py"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/solution/main.py",
+        "bytes": 8286,
+        "sha256": "5273ce63f6087b3b7a2c43a494a1a131b176a090f939ff6702c7c3a8fd9ad167",
+        "git_blob": "9acbd6f3fa620883f53e889e91a1707e768f6d61",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 217,
+        "read_ranges": [
+          [
+            1,
+            217
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/solution/presentation.py",
+        "bytes": 3995,
+        "sha256": "273a81aa9cfcaab90280deffcad0f253844a9afcbeec3e42ac35bd17480b83d6",
+        "git_blob": "8a1c6e0d4bde546e6a64ab1541c6534365fd9af1",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 66,
+        "read_ranges": [
+          [
+            1,
+            66
+          ]
+        ],
+        "read_mode": "同次任务精确SHA复用",
+        "source_executed": false,
+        "reuse_source": "projects/database-migration-rehearsal/stages/01-snapshot/starter/presentation.py"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/solution/samples/input.json",
+        "bytes": 264,
+        "sha256": "48391cbd70d09edc5e28cc72487f1062d186ec5454e95e22d003fbe1b9da4c08",
+        "git_blob": "9bf4e8b191507128d4194dd737e3c8002c4f8ee7",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 11,
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "read_mode": "同次任务精确SHA复用",
+        "source_executed": false,
+        "reuse_source": "projects/database-migration-rehearsal/stages/01-snapshot/starter/samples/input.json"
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/docs/en.md",
+        "bytes": 1677,
+        "sha256": "705d528d70a625c03a39bdbce95873aee656a8c6d15f54e981447b43377e3a9b",
+        "git_blob": "ed6e94311b3f2855c89df675a807f62d7d790288",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 33,
+        "read_ranges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/starter/cli.py",
+        "bytes": 2284,
+        "sha256": "1188d462ac4de6d440355144f897f2272e9487018d2c76eb323c0fb7d2fd7d43",
+        "git_blob": "06128d2223920efdb88165ae53490092a90e99c6",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 67,
+        "read_ranges": [
+          [
+            1,
+            67
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/starter/main.py",
+        "bytes": 5029,
+        "sha256": "b3493aa82414e2b7dcdcf1864bd285599f8395c2b78130902db1a2210bd3e9ff",
+        "git_blob": "4453e7b8f6586148f2c2ca334f35d8ecee62100a",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 121,
+        "read_ranges": [
+          [
+            1,
+            121
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/starter/presentation.py",
+        "bytes": 3995,
+        "sha256": "273a81aa9cfcaab90280deffcad0f253844a9afcbeec3e42ac35bd17480b83d6",
+        "git_blob": "8a1c6e0d4bde546e6a64ab1541c6534365fd9af1",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 66,
+        "read_ranges": [
+          [
+            1,
+            66
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/starter/samples/input.json",
+        "bytes": 264,
+        "sha256": "48391cbd70d09edc5e28cc72487f1062d186ec5454e95e22d003fbe1b9da4c08",
+        "git_blob": "9bf4e8b191507128d4194dd737e3c8002c4f8ee7",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 11,
+        "read_ranges": [
+          [
+            1,
+            11
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/01-snapshot/tests/test_stage_1.py",
+        "bytes": 1489,
+        "sha256": "7c8e9f104f69fd1732bb441a126307f34e62b9744cea45768fdc1de42f85d6f8",
+        "git_blob": "0a187ff810df1dadc306a77101f20e46d6558d88",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 43,
+        "read_ranges": [
+          [
+            1,
+            43
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false,
+        "test_methods_static": [
+          "test_count",
+          "test_schema",
+          "test_missing",
+          "test_stability",
+          "test_same_count_different_data"
+        ]
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/02-migration/docs/en.md",
+        "bytes": 1682,
+        "sha256": "31783a5e2ec74620381f1938741ec38f85677244bd69dcdb12dec19362fe45ff",
+        "git_blob": "a82230d2efa133a7ba19f6e6cbe3df4b0e9c9278",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 33,
+        "read_ranges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/02-migration/starter/STAGE-2.md",
+        "bytes": 114,
+        "sha256": "57d06d65e9d92416393afc17c136f7137b22b9e6c4e6378f84069690727462a0",
+        "git_blob": "c6774d5b8868b523490b6e1ab8a4f979a1659e0e",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 1,
+        "read_ranges": [
+          [
+            1,
+            1
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/02-migration/tests/test_stage_2.py",
+        "bytes": 1595,
+        "sha256": "9049ad1d5ef6eb41a8ed13fd8ab75b3f671d71763553f705e06939914b4a09a1",
+        "git_blob": "0e7ecaa52ebe88a08de5e92797b56e224c23d761",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 47,
+        "read_ranges": [
+          [
+            1,
+            47
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false,
+        "test_methods_static": [
+          "test_alter",
+          "test_source_unchanged",
+          "test_attach_denied",
+          "test_pragma_denied",
+          "test_bad_sql"
+        ]
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/03-rollback/docs/en.md",
+        "bytes": 1731,
+        "sha256": "d8a82b42f4018cf9c2f94c11201a0fe4f78aeab0d15ba5e800bac7bfbb7f8006",
+        "git_blob": "cd14048342f050a15d2a72f196c9315ca0f6cce3",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 33,
+        "read_ranges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/03-rollback/starter/STAGE-3.md",
+        "bytes": 108,
+        "sha256": "4578f3dd51c8456fe09af643e3766bf4ffff34f1ddf83ec61454511c5b916faf",
+        "git_blob": "8ba149efe7b1111cccd333b413ad7c2041b5b495",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 1,
+        "read_ranges": [
+          [
+            1,
+            1
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/03-rollback/tests/test_stage_3.py",
+        "bytes": 1591,
+        "sha256": "938be35b8291c045de59ec7fdb7b442625cc4b2be35426a1f569583813554e34",
+        "git_blob": "7a1c45f518cd9262fa19690f31f7eb473f2d56e7",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 49,
+        "read_ranges": [
+          [
+            1,
+            49
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false,
+        "test_methods_static": [
+          "test_reversible",
+          "test_loss",
+          "test_same_count_wrong_data",
+          "test_rollback_error",
+          "test_forward_error"
+        ]
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/04-receipt/docs/en.md",
+        "bytes": 2088,
+        "sha256": "920249993df49509e76f7a1d70a11b8b80d1c8bf0d492b92773a306b73ed3834",
+        "git_blob": "f9686d9285cf6ff963ae777af0f3bd5a32a26f8c",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 33,
+        "read_ranges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/04-receipt/starter/STAGE-4.md",
+        "bytes": 118,
+        "sha256": "bbf40dcbda3d8e00c8a46022cd54457d334ae15908fd22a7ef033d3b1379f05f",
+        "git_blob": "0f9aaeda19b6cb4b1d60908b375172af90f5ae9f",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 1,
+        "read_ranges": [
+          [
+            1,
+            1
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      },
+      {
+        "path": "projects/database-migration-rehearsal/stages/04-receipt/tests/test_stage_4.py",
+        "bytes": 1917,
+        "sha256": "3b21acd31e17c275ada518600a6f36ba48aa6abb04a6ac5eee0d4e4bfc881b1a",
+        "git_blob": "d58a24be8af649a41daaaac83cdb4296c130f7bf",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 58,
+        "read_ranges": [
+          [
+            1,
+            58
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false,
+        "test_methods_static": [
+          "test_ready",
+          "test_lost_row",
+          "test_missing_table",
+          "test_bad_rule",
+          "test_roundtrip"
+        ]
+      },
+      {
+        "path": "site/figures/projects/database-migration-rehearsal.js",
+        "bytes": 6921,
+        "sha256": "20735a4bc2e1a34502b2b11d40bee4a0a7aad093dc39ae754156f1eb1073666a",
+        "git_blob": "473f67f4d7048bf96447b2664362cacc001759aa",
+        "target_tree_match": true,
+        "classification": "全文静读的课程/代码/测试/样本/图示",
+        "line_count": 7,
+        "read_ranges": [
+          [
+            1,
+            7
+          ]
+        ],
+        "read_mode": "实际完整输出阅读",
+        "source_executed": false
+      }
+    ]
+  },
+  "root_primary_review": {
+    "scope": "核关键实现和完整学习稿，不重复原文镜像；来源均未执行",
+    "actually_read": [
+      "solution/main.py:_snapshot/_clone/_execute/snapshot/rehearse/test_rollback/receipt"
+    ]
+  },
+  "tests_static_inventory": [
+    {
+      "file": "projects/database-migration-rehearsal/stages/01-snapshot/tests/test_stage_1.py",
+      "static_methods": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/database-migration-rehearsal/stages/02-migration/tests/test_stage_2.py",
+      "static_methods": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/database-migration-rehearsal/stages/03-rollback/tests/test_stage_3.py",
+      "static_methods": 5,
+      "executed": false
+    },
+    {
+      "file": "projects/database-migration-rehearsal/stages/04-receipt/tests/test_stage_4.py",
+      "static_methods": 5,
+      "executed": false
+    }
+  ],
+  "delegate_data_proof": {
+    "date": "2026-10-23",
+    "method": "自写标准库纯数据投影、列表行JSON/hash与单一LIKE模式模型；所有预期SQL状态先手工语义推导。没有sqlite3导入/SQL执行/来源函数调用。",
+    "python": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 17:06:14) [Clang 19.1.7 ]",
+    "original_source_execution_count": 0,
+    "original_sql_execution_count": 0,
+    "real_database_connections": 0,
+    "sample": {
+      "source_rows": {
+        "rows": 2,
+        "sorted_row_strings": [
+          "[1,\"Ada\"]",
+          "[2,\"Mira\"]"
+        ],
+        "serialized": "[1,\"Ada\"]\n[2,\"Mira\"]",
+        "sha256": "50c216fc29487e785b0d284137ab0d8882d2535e00f7b288f2a1091798e40191"
+      },
+      "after_alter_and_delete_projection": {
+        "rows": 1,
+        "sorted_row_strings": [
+          "[1,\"Ada\",null]"
+        ],
+        "serialized": "[1,\"Ada\",null]",
+        "sha256": "785b2c5e366b26afbd41f3e1895608a86290220f0cc3672a5e0587757010b983"
+      },
+      "after_drop_column_projection": {
+        "rows": 1,
+        "sorted_row_strings": [
+          "[1,\"Ada\"]"
+        ],
+        "serialized": "[1,\"Ada\"]",
+        "sha256": "a239faee13844742fea3c6804b13266a15f55648f9b9f67bd42cfa2bf0755ad8"
+      },
+      "same_rows_after": false,
+      "min_rows_2_after": false,
+      "rollback_cannot_restore_missing_Mira": true,
+      "expected_applied_under_supported_sqlite_syntax": true,
+      "expected_rollback_sql_error_under_supported_sqlite_syntax": null,
+      "expected_reversible": false,
+      "expected_release_ready": false,
+      "same_result_flags_visible_in_author_output_png": true
+    },
+    "counterexamples": {
+      "same_count_wrong_data": {
+        "rows": 2,
+        "sorted_row_strings": [
+          "[1,\"Ada\"]",
+          "[2,\"Other\"]"
+        ],
+        "serialized": "[1,\"Ada\"]\n[2,\"Other\"]",
+        "sha256": "0106ffce8dc46c19272106515c0751a895d4a0e130cc6ff36d13d51bbbf52bec"
+      },
+      "row_reordering": {
+        "rows": 2,
+        "sorted_row_strings": [
+          "[1,\"Ada\"]",
+          "[2,\"Mira\"]"
+        ],
+        "serialized": "[1,\"Ada\"]\n[2,\"Mira\"]",
+        "sha256": "50c216fc29487e785b0d284137ab0d8882d2535e00f7b288f2a1091798e40191"
+      },
+      "duplicate_row": {
+        "rows": 3,
+        "sorted_row_strings": [
+          "[1,\"Ada\"]",
+          "[2,\"Mira\"]",
+          "[2,\"Mira\"]"
+        ],
+        "serialized": "[1,\"Ada\"]\n[2,\"Mira\"]\n[2,\"Mira\"]",
+        "sha256": "fd7c35df90aa17744d0efa4c68dccf9056df780b439f5b3de5deb8cc4bb77d43"
+      },
+      "empty_table": {
+        "rows": 0,
+        "sorted_row_strings": [],
+        "serialized": "",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rowid_omission": {
+        "before_hypothetical_rowid": 1,
+        "after_hypothetical_rowid": 2,
+        "declared_columns": [
+          [
+            1
+          ]
+        ],
+        "both_select_star_projection_hash": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+        "classification": "静态反例；未创建SQLite库/执行UPDATE rowid"
+      },
+      "sequence_inequality": {
+        "before": [
+          [
+            "t",
+            2
+          ]
+        ],
+        "restored": [
+          [
+            "t",
+            3
+          ]
+        ],
+        "rows_and_schema_could_match": true,
+        "exact_snapshot_equality": false,
+        "classification": "纯值比较反例"
+      },
+      "name_filter": [
+        {
+          "name": "sqlite_sequence",
+          "matches_buggy_sqlite_underscore_percent": true,
+          "literal_sqlite_underscore_prefix": true
+        },
+        {
+          "name": "sqliteXdemo",
+          "matches_buggy_sqlite_underscore_percent": true,
+          "literal_sqlite_underscore_prefix": false
+        },
+        {
+          "name": "sqlite",
+          "matches_buggy_sqlite_underscore_percent": false,
+          "literal_sqlite_underscore_prefix": false
+        },
+        {
+          "name": "SQLITEycustom",
+          "matches_buggy_sqlite_underscore_percent": true,
+          "literal_sqlite_underscore_prefix": false
+        },
+        {
+          "name": "user_items",
+          "matches_buggy_sqlite_underscore_percent": false,
+          "literal_sqlite_underscore_prefix": false
+        }
+      ]
+    },
+    "figure_static_formula_cases": [
+      {
+        "before": 2,
+        "deleted": 1,
+        "restored_input": 0,
+        "after": 1,
+        "after_rollback": 1,
+        "same_rows": false,
+        "rollback_count_restored": false,
+        "counts_both_pass": false
+      },
+      {
+        "before": 2,
+        "deleted": 1,
+        "restored_input": 1,
+        "after": 1,
+        "after_rollback": 2,
+        "same_rows": false,
+        "rollback_count_restored": true,
+        "counts_both_pass": false
+      },
+      {
+        "before": 2,
+        "deleted": 0,
+        "restored_input": 0,
+        "after": 2,
+        "after_rollback": 2,
+        "same_rows": true,
+        "rollback_count_restored": true,
+        "counts_both_pass": true
+      },
+      {
+        "before": 0,
+        "deleted": 3,
+        "restored_input": 0,
+        "after": 0,
+        "after_rollback": 0,
+        "same_rows": true,
+        "rollback_count_restored": true,
+        "counts_both_pass": true
+      },
+      {
+        "before": 2,
+        "deleted": 1,
+        "restored_input": 3,
+        "after": 1,
+        "after_rollback": 4,
+        "same_rows": false,
+        "rollback_count_restored": false,
+        "counts_both_pass": false
+      }
+    ],
+    "official_selected_sections_read": [
+      {
+        "url": "https://www.sqlite.org/lang_expr.html#like",
+        "verified": "LIKE的下划线匹配一个字符，百分号匹配任意长度；ASCII默认大小写不敏感。"
+      },
+      {
+        "url": "https://www.sqlite.org/lang_createtable.html#rowid",
+        "verified": "sqlite_保留前缀；rowid为普通rowid表隐藏64位键，INTEGER PRIMARY KEY关系与WITHOUT ROWID例外。"
+      },
+      {
+        "url": "https://www.sqlite.org/lang_select.html#resultset",
+        "verified": "SELECT *展开输入列；结合rowid规则审查隐式rowid遗漏。"
+      },
+      {
+        "url": "https://docs.python.org/3.10/library/sqlite3.html#sqlite3.Cursor.executescript",
+        "verified": "executescript先提交待定事务，其他事务控制须脚本自行提供；仅3.10文档的版本范围。"
+      },
+      {
+        "url": "https://www.sqlite.org/foreignkeys.html",
+        "verified": "外键需显式启用，连接级配置；来源未建立该配置合同。"
+      },
+      {
+        "url": "https://www.sqlite.org/backup.html",
+        "verified": "backup完成后得到源数据库快照；仅官方说明中snapshot段落，并未运行backup或核全部C示例。"
+      }
+    ],
+    "limits": [
+      "这些数据计算核样本投影与报告逻辑，不证明SQLite迁移/回滚实际执行成功。",
+      "未动态验证DDL文本规范化、WAL/锁/并发、foreign_keys、超时、系统文件隔离或路径别名。",
+      "外部文档经agent-reach网页路由Jina只读，仅读取指定段落，不是整站/整份文档吸收。"
+    ]
+  },
+  "formal_fusion": {
+    "file": "计算机科学基础/05-生产级软件工程.md",
+    "before_sha256": "cd9a48c882e2a53f3f82f62ca509a1b3fe57fdece3814a9c375d0e8bffb404d2",
+    "after_sha256": "a23f0bbe2404e916bdbcab822ca38bc7a77d1d535d353ed46a4dcee301e94b2d",
+    "old_full_text_prefix_and_code_preserved": true,
+    "renders": [
+      {
+        "format": "json",
+        "sha256": "b54576be48c4daa1ac651ed938f1a2281147b3ade1e1ec55e7a206a31b88b228",
+        "warnings": ""
+      },
+      {
+        "format": "html",
+        "sha256": "a0bd1e4b22c765a1231134eedebf7260b2d61b165fef5f5274bb23e1d174fe9c",
+        "warnings": ""
+      }
+    ]
+  },
+  "source_execution": 0,
+  "old_programs_rerun": 0,
+  "new_executable_programs": 0,
+  "whole_source_update_complete": false,
+  "root_data_checks": {
+    "row_projections_before_after_restored": [
+      "50c216fc29487e785b0d284137ab0d8882d2535e00f7b288f2a1091798e40191",
+      "785b2c5e366b26afbd41f3e1895608a86290220f0cc3672a5e0587757010b983",
+      "a239faee13844742fea3c6804b13266a15f55648f9b9f67bd42cfa2bf0755ad8"
+    ],
+    "no_SQL_or_sqlite3_execution": true,
+    "LIKE_pattern_abstract_regex_witness": "sqliteXdemo matches sqlite_% but not literal sqlite_ prefix"
+  },
+  "structure_check": "检查文档 670 篇（学习与导航 303 篇，维护 54 篇），本地链接 4614 处。\nNotebook：93 个结构有效，1 个已登记空文件；SVG：395 个有效；来源校验：969 个。\n提示：第 19 课解答 Notebook 是已登记的上游空文件；不能运行。\n结果：结构检查通过。专业结论及运行结果需另行核验。\n"
+}

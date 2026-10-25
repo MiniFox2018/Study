@@ -1,0 +1,366 @@
+{
+  "date": "2026-10-16",
+  "target_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "status": "新增主课1完整静读与主题融合；局部核验，不代表全增量完成",
+  "counts": {
+    "new_standard_lessons": 1,
+    "source_files": 6,
+    "source_static_tests": 46,
+    "source_quiz": 6,
+    "source_practice": 5,
+    "figure_providers": 1,
+    "new_own_programs_actual_success": 1,
+    "source_runs": 0,
+    "old_reruns": 0
+  },
+  "source_files": [
+    {
+      "source_file": "phases/17-infrastructure-and-production/29-model-demo-interfaces/code/main.py",
+      "bytes": 32554,
+      "sha256": "151fef2c12dabf6ad62af64306f03704deeb5577937dc4d39edeae578d7c89b4",
+      "git_blob": "96b6b4d6ea02c7b84b364d408c5a891d59cde196",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          802
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/17-infrastructure-and-production/29-model-demo-interfaces/code/tests/test_main.py",
+      "bytes": 14894,
+      "sha256": "a3a1ced5383bbf94ac409863048657b8859beb5017d6823f0c6fb7e7ff214b9f",
+      "git_blob": "f2289dd212f545d1011a2f32b5a61790bf6e8cdb",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          352
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/17-infrastructure-and-production/29-model-demo-interfaces/docs/en.md",
+      "bytes": 35372,
+      "sha256": "843375856e827b8e63619a29120120bd0d596eafd5111edebd1bf2a656179816",
+      "git_blob": "4e4fd3abc2b063d29f4b66524a3bea778ecfc318",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          625
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/17-infrastructure-and-production/29-model-demo-interfaces/outputs/skill-demo-interface-checklist.md",
+      "bytes": 4106,
+      "sha256": "3635ed7801a72e70b0afef1c6589e78a9d7ce111fec2d2bf7531f8cbf8825996",
+      "git_blob": "158b16dfbe857fdd9d631a6b0c43011eb994cf90",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          81
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "phases/17-infrastructure-and-production/29-model-demo-interfaces/quiz.json",
+      "bytes": 4079,
+      "sha256": "6e949f88efe6aa0d7cfde3aa7ca53ac72fdcdb290b9047e1f615062b7a246b54",
+      "git_blob": "3893b117f0ae52265f0882e62b2bc3d2cb0f1301",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          78
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    },
+    {
+      "source_file": "site/figures-demo.js",
+      "bytes": 6167,
+      "sha256": "e2101c2c36fea5ad664aa881a9afcbd8e3cfd78b416c89647671fd22199fa821",
+      "git_blob": "7e455afb5ac994f38c9b737d61fe83cd1ad12ba2",
+      "semantic_read_complete": true,
+      "semantic_read_ranges": [
+        [
+          1,
+          124
+        ]
+      ],
+      "actual_read_date": "2026-10-16",
+      "source_execution": 0
+    }
+  ],
+  "formal_files": [
+    "LLM 工程实践/18-模型演示界面与交互合同.md",
+    "LLM 工程实践/03-推理与服务化.md",
+    "LLM 工程实践/README.md"
+  ],
+  "heading_mapping": [
+    {
+      "heading": "Model Demo Interfaces — From a Function to a Shareable App",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1–9完整融合；安装/源程序执行命令不执行不镜像"
+    },
+    {
+      "heading": "Learning Objectives",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1"
+    },
+    {
+      "heading": "The Problem",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1"
+    },
+    {
+      "heading": "The Concept",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1"
+    },
+    {
+      "heading": "A demo is a contract",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1"
+    },
+    {
+      "heading": "Validate before the model runs",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1.1/5"
+    },
+    {
+      "heading": "Show that the model is working",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §2/5/6"
+    },
+    {
+      "heading": "Send the output as a stream",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §3"
+    },
+    {
+      "heading": "Write errors that a user can act on",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §5"
+    },
+    {
+      "heading": "Share a public demo safely",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §4/6"
+    },
+    {
+      "heading": "When a demo becomes a product",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §7"
+    },
+    {
+      "heading": "Build It",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1–9完整融合；安装/源程序执行命令不执行不镜像"
+    },
+    {
+      "heading": "Step 1: The model call",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1"
+    },
+    {
+      "heading": "Step 2: Validation and error responses",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1.1/5"
+    },
+    {
+      "heading": "Step 3: The token bucket",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §4/6"
+    },
+    {
+      "heading": "Step 4: The stream",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §3"
+    },
+    {
+      "heading": "Step 5: The request handler",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1.1/3/4/5"
+    },
+    {
+      "heading": "Step 6: The page",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §2/5/6"
+    },
+    {
+      "heading": "Step 7: Run it and try to break it",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1–9完整融合；安装/源程序执行命令不执行不镜像"
+    },
+    {
+      "heading": "Use It",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §7"
+    },
+    {
+      "heading": "Components around one function",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §7"
+    },
+    {
+      "heading": "A script that reruns on every input",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §7"
+    },
+    {
+      "heading": "What each option does by default",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §7"
+    },
+    {
+      "heading": "Ship It",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §9"
+    },
+    {
+      "heading": "Exercises",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §8"
+    },
+    {
+      "heading": "Key Terms",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md §1–7按概念直接解释"
+    },
+    {
+      "heading": "Further Reading",
+      "destination": "LLM 工程实践/18-模型演示界面与交互合同.md 各节官方选读，未全文复制或声称所有外链已读"
+    }
+  ],
+  "quiz": [
+    {
+      "index": 1,
+      "correct_index_source": 1,
+      "options_read": 4,
+      "criterion_zh": "服务端重验，独立API与计量单位差异"
+    },
+    {
+      "index": 2,
+      "correct_index_source": 1,
+      "options_read": 4,
+      "criterion_zh": "输入、调用、输出含错误；不是样式三层"
+    },
+    {
+      "index": 3,
+      "correct_index_source": 3,
+      "options_read": 4,
+      "criterion_zh": "fetch可POST，EventSource GET不强制私密输入进URL，可先创建任务"
+    },
+    {
+      "index": 4,
+      "correct_index_source": 1,
+      "options_read": 4,
+      "criterion_zh": "路由/状态/耗时/长度/带密钥假名；假名非匿名"
+    },
+    {
+      "index": 5,
+      "correct_index_source": 2,
+      "options_read": 4,
+      "criterion_zh": "200发送后流内error，缺终态另标未完成"
+    },
+    {
+      "index": 6,
+      "correct_index_source": 3,
+      "options_read": 4,
+      "criterion_zh": "全局预算与单用户限速分开；计实际尝试/费用"
+    }
+  ],
+  "practice_criteria": [
+    "容量2补1，瞬时7请求2收5拒，真实循环须计到达时刻",
+    "language只接受字符串en并核缺失/错类型/错值",
+    "否定反例保模型边界，标签分数不是概率",
+    "可信连接代理范围与伪造头无效，IP不是用户强身份",
+    "共同替换普通/流式/终态适配，取消/费用/TTFT独立验收"
+  ],
+  "source_checklist": {
+    "items": 20,
+    "destination": "§1–9合同/反馈/错误/公开访问/隐私/产品化信号，逐项PASS/FAIL/UNKNOWN带证据",
+    "adaptation": "非文本/极快分类输出不强制流；源指令不授权开通/部署/启动服务"
+  },
+  "corrections": [
+    "只替generate不能替换classify/非流式/流末元数据",
+    "字符/码点/UTF16/字节/token单位区别",
+    "Content-Length及短读/鉴权前慢读/operation timeout不是total deadline",
+    "原parse_sse及页面仅双LF，未知终态/EOF/无done/索引未核",
+    "流中模型错误可能200且日志code为空",
+    "close(generator)/BrokenPipe不证明远端停止或费用为0",
+    "用户令牌桶/队列/并发/全局预算分开，LRU淘汰可重建满桶",
+    "源cap进程内Unix86400固定窗，非滚动或本地自然日；调用次数非费用",
+    "HTTP异常笼统提示未到服务器不准确；旧timer可启用新请求按钮",
+    "HMAC为假名非匿名；CSP/flagging关闭不覆盖所有日志和数据出口",
+    "官方Streamlit1.66.0已有global/session，默认global需线程安全",
+    "原互动图24固定到达只模拟令牌桶，不证明模型运行或真实吞吐"
+  ],
+  "official_selected": [
+    {
+      "url": "https://html.spec.whatwg.org/multipage/server-sent-events.html",
+      "scope": "构造参数/GET订阅、UTF8、CRLF/CR/LF、blank-line/EOF、id/retry，§9.2选读"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/http.server.html",
+      "scope": "production警示/HTTP1.0默认/handler rfile与path含query"
+    },
+    {
+      "url": "https://httpwg.org/specs/rfc9110.html#field.content-length",
+      "scope": "§8.6 Content-Length与消息分界"
+    },
+    {
+      "url": "https://docs.streamlit.io/develop/api-reference/execution-flow",
+      "scope": "155–163，默认重跑/表单"
+    },
+    {
+      "url": "https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_resource",
+      "scope": "v1.66.0 177–215，global/session与共享可变对象/线程安全"
+    },
+    {
+      "url": "https://docs.streamlit.io/develop/api-reference/write-magic/st.write_stream",
+      "scope": "160–175，迭代写chunk/返回值"
+    },
+    {
+      "url": "https://github.com/gradio-app/gradio/tree/de986c72372e233ffaaa7abe1b93608d4d115065",
+      "scope": "streaming指南全文，interface.py 84–119/144–155/384–404/460–478/600–618及flagging/concurrency检索；固定SHA文件与实际阅读副本cmp相同",
+      "fallback": "www.gradio.app网页返回internal error，改官方GitHub固定提交只读，不安装"
+    }
+  ],
+  "own_run": {
+    "date": "2026-10-16",
+    "python": "CPython 3.12.13",
+    "mode": "-I",
+    "program_sha256": "5271e1b9434694b4bd85befcb27688fa886f7c4fde35f2272c61438f76c6dae6",
+    "exit_code": 0,
+    "stdout": "完整终态/断流保留/流中错误/终态后拒绝/索引与bool/字符和事件上限通过\n",
+    "scope": "仅新自有已解码事件有限状态机；无网络/原程序/SDK/服务/模型，原程序0执行、旧例0重跑"
+  },
+  "validation": {
+    "documents": [
+      {
+        "file": "LLM 工程实践/18-模型演示界面与交互合同.md",
+        "sha256": "a13a2d0d1ae6fc159742105bbac40bd96d692dd811eb382f89a2866a0bf67f1d",
+        "pandoc_json_and_html": "全文通过，0警告"
+      },
+      {
+        "file": "LLM 工程实践/03-推理与服务化.md",
+        "sha256": "25a0181f1d32c93bd9f023dc013060bc824eed7d13ace3021ef94c366f8d6892",
+        "pandoc_json_and_html": "全文通过，0警告"
+      },
+      {
+        "file": "LLM 工程实践/README.md",
+        "sha256": "814a1594d2f8d1aaa3b9f37ddfe104163925bc2707776ff6b4ef4587cb8508c7",
+        "pandoc_json_and_html": "全文通过，0警告"
+      }
+    ],
+    "old03_preserved_as_exact_byte_prefix": true,
+    "new_python_equals_actual_run_bytes": true,
+    "structure": {
+      "说明": "结构检查不替代语义、外链在线状态和实验运行验证",
+      "Markdown总数": 657,
+      "主库Markdown": 344,
+      "学习与导航Markdown": 290,
+      "维护Markdown": 54,
+      "统计口径": "主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。",
+      "本地链接检查次数": 4476,
+      "有效Notebook": 93,
+      "已登记上游空Notebook": 1,
+      "来源文件校验数": 969,
+      "有效SVG": 395,
+      "错误": [],
+      "提示": [
+        "第 19 课解答 Notebook 是已登记的上游空文件；不能运行。"
+      ]
+    },
+    "limits": "无真实HTTP、浏览器/代理、框架或模型运行，旧示例0重跑"
+  }
+}

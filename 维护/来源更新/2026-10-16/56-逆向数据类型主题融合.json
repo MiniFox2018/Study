@@ -1,0 +1,322 @@
+{
+  "date": "2026-10-19",
+  "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+  "status": "41的44文本全部实际静读/6对象范围静核，04类型主题已写；原图与14课最终验收未完",
+  "read_records": [
+    "54-逆向第41课核心读取.json",
+    "55-逆向第41课案例读取.json"
+  ],
+  "static_data_verification": {
+    "date": "2026-10-19",
+    "source_commit": "1a8c4fd5f5b3012e50e111f694b4d84df8a4eb1e",
+    "objects": [
+      {
+        "source_file": "phases/13-tools-and-protocols/41-recovering-data-and-types/code/fixtures/account-x86_64-O0-g.o",
+        "sha256": "4bde83cfc086956b1136dd13ec2843bf1173ff825ed48d26abb128ce0da55a19",
+        "bytes": 6880,
+        "format": "ELF64LE x86-64 ET_REL",
+        "sections": 24,
+        "symbol_records": 23,
+        "relocation_records": 77,
+        "instruction_records": 136,
+        "instruction_bytes": 511,
+        "mismatches": 0,
+        "binary_executed": false
+      },
+      {
+        "source_file": "phases/13-tools-and-protocols/41-recovering-data-and-types/code/fixtures/account-x86_64-O1-g.o",
+        "sha256": "ddc3be7f5f07e0c13a0cc97f288bec318fea862c86f1df8e2bddb32a02b8a8f2",
+        "bytes": 7688,
+        "format": "ELF64LE x86-64 ET_REL",
+        "sections": 26,
+        "symbol_records": 24,
+        "relocation_records": 83,
+        "instruction_records": 103,
+        "instruction_bytes": 392,
+        "mismatches": 0,
+        "binary_executed": false
+      },
+      {
+        "source_file": "phases/13-tools-and-protocols/41-recovering-data-and-types/code/fixtures/account-x86_64-O1.o",
+        "sha256": "884857622ee047d2644d45e5f575e6714223236f0c168e81e50df0d29cc64e18",
+        "bytes": 2336,
+        "format": "ELF64LE x86-64 ET_REL",
+        "sections": 11,
+        "symbol_records": 14,
+        "relocation_records": 15,
+        "instruction_records": 103,
+        "instruction_bytes": 392,
+        "mismatches": 0,
+        "binary_executed": false
+      },
+      {
+        "source_file": "phases/13-tools-and-protocols/41-recovering-data-and-types/code/fixtures/account-x86_64-O2-g.o",
+        "sha256": "6dd817180d5a2585d36d852aed073bee4972f00f39b2e4ee035c3b35c6ad398e",
+        "bytes": 6848,
+        "format": "ELF64LE x86-64 ET_REL",
+        "sections": 25,
+        "symbol_records": 24,
+        "relocation_records": 70,
+        "instruction_records": 106,
+        "instruction_bytes": 408,
+        "mismatches": 0,
+        "binary_executed": false
+      },
+      {
+        "source_file": "phases/13-tools-and-protocols/41-recovering-data-and-types/code/fixtures/shapes-x86_64-O0-g.o",
+        "sha256": "a85c835adde079014ffab3ff141c80cc4af9563cfde42a2154e12869278914a7",
+        "bytes": 12728,
+        "format": "ELF64LE x86-64 ET_REL",
+        "sections": 67,
+        "symbol_records": 50,
+        "relocation_records": 112,
+        "instruction_records": 131,
+        "instruction_bytes": 435,
+        "mismatches": 0,
+        "binary_executed": false
+      },
+      {
+        "source_file": "phases/13-tools-and-protocols/41-recovering-data-and-types/code/fixtures/shapes-x86_64-O1-g.o",
+        "sha256": "45651beedccb7a68c66d373d763f264b8f1ef750896d489755ad9abaa80a83aa",
+        "bytes": 4968,
+        "format": "ELF64LE x86-64 ET_REL",
+        "sections": 23,
+        "symbol_records": 16,
+        "relocation_records": 45,
+        "instruction_records": 17,
+        "instruction_bytes": 47,
+        "mismatches": 0,
+        "binary_executed": false
+      }
+    ],
+    "object_count": 6,
+    "listed_instructions": 596,
+    "listed_bytes": 2185,
+    "dwarf_dump_checks": [
+      {
+        "object": "account-x86_64-O0-g.o",
+        "DIE_starts_checked": 54,
+        "unit_length": 489,
+        "version": 5,
+        "target_address_size": 8,
+        "offset_format": "DWARF32"
+      },
+      {
+        "object": "shapes-x86_64-O0-g.o",
+        "DIE_starts_checked": 78,
+        "unit_length": 740,
+        "version": 5,
+        "target_address_size": 8,
+        "offset_format": "DWARF32"
+      }
+    ],
+    "account_members": [
+      {
+        "DIE": "0x19a",
+        "name": "kind",
+        "offset": 0,
+        "type_DIE": "0x39"
+      },
+      {
+        "DIE": "0x1a3",
+        "name": "balance",
+        "offset": 4,
+        "type_DIE": "0x188"
+      },
+      {
+        "DIE": "0x1ac",
+        "name": "code",
+        "offset": 8,
+        "type_DIE": "0x1c8"
+      },
+      {
+        "DIE": "0x1b5",
+        "name": "rate",
+        "offset": 16,
+        "type_DIE": "0x18c"
+      },
+      {
+        "DIE": "0x1be",
+        "name": "label",
+        "offset": 24,
+        "type_DIE": "0x1cc"
+      }
+    ],
+    "strx_example": {
+      "index": 16,
+      "entry_offset": 72,
+      "string_offset": 165,
+      "string": "balance",
+      "raw_member": "0d1088010000000504"
+    },
+    "vtables": [
+      {
+        "class": "Shape",
+        "size": 48,
+        "address_point": 16,
+        "slots": {
+          "0": "_ZN5ShapeD2Ev",
+          "1": "_ZN5ShapeD0Ev",
+          "2": "__cxa_pure_virtual",
+          "3": "_ZNK5Shape4nameEv"
+        }
+      },
+      {
+        "class": "Rect",
+        "size": 48,
+        "address_point": 16,
+        "slots": {
+          "0": "_ZN4RectD2Ev",
+          "1": "_ZN4RectD0Ev",
+          "2": "_ZNK4Rect4areaEv",
+          "3": "_ZNK4Rect4nameEv"
+        }
+      }
+    ],
+    "controlled_debug_text_comparison": {
+      "O1_debug_vs_O1_plain_equal": true,
+      "O0_debug_vs_O1_plain_equal": false,
+      "O1_text_sha256": "38586e6fb319632ebf6140e0be42a22ef60f81e86c85cd90c59161b418330408",
+      "capture_pair": "O0-g/O1；不受控优化差异"
+    },
+    "source_exec": 0,
+    "limits": [
+      "只读原二进制结构与表，不执行目标指令/原解析器/原测试/工具。",
+      "DWARF为自写窄DWARF32v5/8B目标解析两份固定O0对象；匹配DIE起点及所列成员/虚表，不宣称所有DWARF形式通用健壮。",
+      "重定位保留section身份，多个C++section低pc0不视为同一地址；其它对象debug表仅范围核。"
+    ]
+  },
+  "static_verifier_sha256": "f1590b9f25ffcf25cd554e278d05a8066649941d6aa6ca41f2bd4e86da11a59d",
+  "important_corrections": [
+    "机器操作解释不唯一对应源类型；signedextension不恢复声明名字，gaps不自动padding，strideGCD非普遍sizeof证明",
+    "原Ghidra/rizin debug对照O0-g/O1有优化混杂；O1-g/O1另核text同，但不伪造同优化新捕获",
+    "DWARF32与目标64bit分开，按unit/form/重定位/表identity解释；ET_REL多个C++section lowpc0保留section身份",
+    "ABI alignment来自类型而非size；const pointer与pointertoconst区分；D0/D1/D2不同，addresspoint16只限此单继承例",
+    "顺序trace/自动跨函数合并/单条LEA pointerproof/邻居冲突漏报/硬编码vtable、未知void等只记为教学子集边界"
+  ],
+  "official_selected_reads": [
+    {
+      "url": "https://itanium-cxx-abi.github.io/cxx-abi/abi.html",
+      "sha256": "f342de5630d98f208f165cb3231554f4850d1b7af3397c219aa642a340b684bf",
+      "bytes": 290567,
+      "date": "2026-10-19"
+    },
+    {
+      "url": "https://gitlab.com/x86-psABIs/x86-64-ABI/-/raw/master/x86-64-ABI/low-level-sys-info.tex",
+      "sha256": "2d42f2ab76b99a3b8456e6bc07e18314e85991119f72db90ca1175328e27b705",
+      "bytes": 105138,
+      "date": "2026-10-19"
+    },
+    {
+      "url": "https://dwarfstd.org/doc/DWARF5.pdf",
+      "date": "2026-10-19",
+      "scope": "PDF规范7.5.1.1单元头、7.5.3缩写/implicitconst与attribute常量/位置类别定点读取；未复审477页全部内容",
+      "printed_pages": [
+        200,
+        207,
+        208,
+        209
+      ]
+    }
+  ],
+  "formal_writes": [
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+      "sha256": "39b305684e627d53f954e4403696c8decb04a6f8b1ea4c917cbc06fe39b1628d",
+      "role": "学习导航",
+      "last_fusion_date": "2026-10-19"
+    },
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/07-链接装载与无符号分析.md",
+      "role": "新增链接装载与无符号分析主题",
+      "sha256": "92d04dba5017e2a4dfb3c4edccb3635259ad51b7b3ff335301dc57cfd54088b1",
+      "last_fusion_date": "2026-10-19"
+    },
+    {
+      "file": "计算机科学基础/10-程序分析与逆向工程/04-数据布局与类型恢复.md",
+      "role": "新增数据布局与类型恢复主题",
+      "sha256": "fc6d511c5f4e067014c28e21bfc10cccd781e4abeca9e02a5df41a39bfb477a2",
+      "last_fusion_date": "2026-10-19"
+    }
+  ],
+  "validation": {
+    "date": "2026-10-19",
+    "new_own_layout_function": {
+      "valid_cases": 4,
+      "rejected_cases": [
+        "zero-size",
+        "negative-size",
+        "zero-alignment",
+        "non-power-two"
+      ],
+      "scope": "普通顺序聚合且给定正确size/alignment；不模拟C++/packed/union/bitfields或未知ABI"
+    },
+    "renders": [
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/04-数据布局与类型恢复.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "39d92192b8dc4fe706e41654f8e172df0e20e562bed653789e8fc7d8246d126c"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/04-数据布局与类型恢复.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "4a4fc2cdda7f7d2fb695214b45f957ddf402090a6b243f40543fb995a066e2a8"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "579b351515014ae4d53cc55b1b97b2cd7e42af7ae139bd54062335a5d373f08b"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/README.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "34aa482286616656c9c4863c088cb15562b52d6cb4079d7dc43b4aa1d2b00932"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/07-链接装载与无符号分析.md",
+        "format": "json",
+        "warnings": "",
+        "sha256": "0b1b702e246819236edf61e28c8003d3247f7fa3535a8f431dae492d02be11a9"
+      },
+      {
+        "file": "计算机科学基础/10-程序分析与逆向工程/07-链接装载与无符号分析.md",
+        "format": "html",
+        "warnings": "",
+        "sha256": "da4942cfc7d9a4848f446886b83e96b32200ea00d81838e499838c3a6307bd82"
+      }
+    ],
+    "old_fences_preserved": true,
+    "source_exec": 0,
+    "old_examples_rerun": 0,
+    "new_embedded_executable_programs": 1
+  },
+  "structure_check": {
+    "说明": "结构检查不替代语义、外链在线状态和实验运行验证",
+    "Markdown总数": 667,
+    "主库Markdown": 354,
+    "学习与导航Markdown": 300,
+    "维护Markdown": 54,
+    "统计口径": "主库Markdown为兼容旧字段，含维护记录；学习与导航Markdown排除所有路径含来源保全及维护目录，不等用户已掌握数。",
+    "本地链接检查次数": 4576,
+    "有效Notebook": 93,
+    "已登记上游空Notebook": 1,
+    "来源文件校验数": 969,
+    "有效SVG": 395,
+    "错误": [],
+    "提示": [
+      "第 19 课解答 Notebook 是已登记的上游空文件；不能运行。"
+    ]
+  },
+  "remaining": [
+    "41及此前课程原图静态说明/语义/分类验收",
+    "42–45/逆向手册198项/2RE项目14stage与其余104项目stage/新增配套",
+    "最终统一去重/导航/时效/学习深度/全覆盖与GitHub交付"
+  ],
+  "source_exec": 0,
+  "old_programs_rerun": 0,
+  "whole_update_complete": false
+}
