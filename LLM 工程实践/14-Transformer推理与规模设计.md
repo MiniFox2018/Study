@@ -860,6 +860,42 @@ GB10统一内存还与OS、页缓存和其他程序竞争，计划份额不是OS
 
 来源为[第一来源固定vLLM手册](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a/manuals/vllm-101)。同pin官方[executor配置](https://github.com/vllm-project/vllm/blob/db9527a46873454610df6dbedf79a36d6bf1a7f6/vllm/config/parallel.py)、[UniProcExecutor](https://github.com/vllm-project/vllm/blob/db9527a46873454610df6dbedf79a36d6bf1a7f6/vllm/v1/executor/uniproc_executor.py)、[KV管理](https://github.com/vllm-project/vllm/blob/db9527a46873454610df6dbedf79a36d6bf1a7f6/vllm/v1/core/kv_cache_manager.py)、[BlockPool](https://github.com/vllm-project/vllm/blob/db9527a46873454610df6dbedf79a36d6bf1a7f6/vllm/v1/core/block_pool.py)与[缓存配置](https://github.com/vllm-project/vllm/blob/db9527a46873454610df6dbedf79a36d6bf1a7f6/vllm/config/cache.py)关键段已核。134路径读取层次、24个摘录有序匹配、154测量点字段投影、已存统计核与独立算术范围见[10融合记录](../维护/来源更新/2026-10-24/10-vLLM运行缓存与测量融合.json)。来源记录内部一致不等真实GPU复现或用户已经掌握；缺失逐题/逐请求原始数据的范围没有补造。
 
+## 20. 从槽索引到混合状态：SGLang缓存与执行的补充
+
+本节对应SGLang0.5.22/`baa9befa381511cd4d56f83980951e5a45fffc6d`，来源与静态核验边界同[服务化20](03-推理与服务化.md)。§15.2的Radix树、§19的分页/末token、§7与§15.3的投机证明继续共用，不再建立另一套缓存或接受率公式。
+
+### 20.1 同一个token前缀需要哪些状态仍有效
+
+ReqToTokenPool保存请求位置到槽索引的映射，allocator管空闲槽，物理张量装K/V；不同请求可以映射到共享槽。Radix的CPU索引并不是KV本体。固定普通路径可最多匹配prompt长度−1以获得末token logits，但具体mode/页对齐会影响结果，不把“永远少1”或“所有末块都可全命中”当跨引擎定理。
+
+混合模型按状态交集恢复。Full attention可保各历史token的KV，SWA只保窗口，Mamba/递归层要从保存的状态快照继续；最长文本匹配不等所有层都可复用。若每256token存一份递归快照，1800的公共前缀可从1792恢复再算8；不能从2000的压缩状态倒切出1500。每种cold/GPU-hit/host-hit、权重/adapter版本及批形状都要核输出，greedy或hit高不构成正确性证明。
+
+HiCache以GPU为L1、pinned host为L2、共享存储为L3；write-through/selective/write-back改变何时复制，load-back仍需GPU槽及rank/stream同步。工作集小于L1时多层未必有益，大于L1但能容L1+L2时可能减少重prefill，再大则L2也抖动。统一内存机host副本也消耗同一物理容量。LRU/LFU/SLRU/priority等按回访轨迹选择；作者特定24会话轨迹的胜负不能变成政策排行，固定手册与docs的预取默认冲突也不写成通用部署默认。
+
+### 20.2 资源宽度不要重复相乘
+
+该pin一个model world的设备数是TP×PP，普通DP复制world：tp4、dp2需8GPU。tp8、attn-dp4是在同一8卡集合内形成4个两卡attention组，不是再乘4；tp8、ep8也是同组内专家分片。旧`dp-size N + enable-dp-attention`在此版本迁往`attn-dp-size N + dp-size 1`，兼容期不保证以后仍可用；解析后还会调整chunk与保守系数。保存最终值，不能只看命令输入。
+
+MLA的latent在某些TP布局中复制，attention-DP按请求分组可减少这种重复；GQA同样要读每rank KV头数，不盲除TP。MoE的dispatch/local grouped GEMM/combine已在§2说明，这里再看整个batch触及的专家：若每token均匀独立从128专家选8，b个token期望并集为`128×[1−(1−8/128)^b]`；b=64约125.94。它说明单token只激活8个不代表整步只读8份权重，但不是实测DRAM字节，真实路由偏斜/缓存/复用会改变结果。
+
+DeepEP normal/low-latency、EPLB与two-batch overlap分别改通信路径、专家分布与重叠。负载均衡也可能搬权重/存冗余；先读最忙rank与通信代价，再按TTFT/TPOT/goodput接纳，不把开关名当收益证书。
+
+### 20.3 推测状态、cap与首尾计数
+
+draft产生链或树，target的TARGET_VERIFY评分并提交接受前缀/修正，DRAFT_EXTEND_V2使草稿缓存追上。topk1、steps3的`num_draft_tokens=4`并不是“接受4草稿”，verify还有承接位置。若接受前两项、第三拒绝并提交target修正，本轮提交3；深度只决定提议，不决定产出。
+
+该pin部分推测方法在未显式设置最大running时会改为48，加载草稿还挤KV。200客户端未完成请求至少可能有152在cap后等待；小池又可能更早限制。作者L4加载draft后池24094→9951，640token完整长度粗预算仅15份；其c32 TPOT改善同时TTFT变差、总吞吐近似不变，不必互相矛盾。收益由draft/verify/update成本、队列、实际输出和尾部共同决定。
+
+计数也须分源码范围：作者两份native EAGLE响应都输出12token，GB10 correct_drafts=2、verify=9，L4为5、6；meta spec_accept_length分别12/9和12/6。两例correct+verify均11，响应另含prefill首token等边界，不能直接用12/verify替换§15.3抽象合同的`1+accepted/verify`。EOS、末预算和字段实现分别核。
+
+固定NGRAM hook允许CUDA/CPU/XPU并关闭mixed chunk，只有CPU辅助路径强制关overlap；旧“CUDA only且全关overlap”不适用此pin。算法名、采样保证、设备/graph/overlap支持分别验。放宽草稿context的检查开关也不训练长上下文；先核draft真实支持长度，再测长回答不同阶段接受率与服务尾部。
+
+自检：Mamba匹配1800、256间隔快照为何不是从2000回切？递归状态不可一般逆切；tp8/attn-dp4要32卡吗？8；correct+verify与输出12不同是否必计数坏？先核首token/终止/字段范围；accept length更高是否必更快？缺草稿成本、cap和KV证据，不能。
+
+来源：[固定手册](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3f9715c62a3bedcffb68a260f1a65ee2dd9cc10a/manuals/sglang-101)3.3～3.6、4.4、6.1～6.2；缓存/服务操作边界连03章20，性能计量连06章37。原模型、图示JS和服务没有运行。
+
+本批完整读取/选段/字段投影层次、GPU显示关联及原程序未运行范围见[12融合记录](../维护/来源更新/2026-10-24/12-SGLang状态缓存与测量融合.json)。
+
 
 ## 计算练习：MoE损失与在线softmax的边界
 
