@@ -4435,13 +4435,21 @@
       "target": "AI 算法基础/深度学习专题/22-MDP表格法与回合实践.md",
       "existing_section": "## 9. TD(0)",
       "integration": "复用回合/TD完整实现；补GAE T+1和未结束片段bootstrap，区别本题截断求和",
-      "evidence": "existing heading and relevant code/contract read where noted; previously accepted chapter preserved, no runtime claim"
+      "evidence": "existing heading and relevant code/contract read where noted; previously accepted chapter preserved, no runtime claim",
+      "additional_precise_entry": {
+        "target": "AI 算法基础/深度学习专题/23-深度价值与策略梯度实践.md",
+        "section": "1.2 GAE的两个掩码与rollout边界"
+      }
     },
     "ppo-clip-loss": {
       "target": "AI 算法基础/深度学习专题/11-深度强化学习.md",
       "existing_section": "## 21. PPO",
       "integration": "补实际截项比例与ratio越界比例不同，保已有PPO讲解",
-      "evidence": "existing heading and relevant code/contract read where noted; previously accepted chapter preserved, no runtime claim"
+      "evidence": "existing heading and relevant code/contract read where noted; previously accepted chapter preserved, no runtime claim",
+      "additional_precise_entry": {
+        "target": "AI 算法基础/深度学习专题/23-深度价值与策略梯度实践.md",
+        "section": "6.3 诊断的定义与异常解释"
+      }
     },
     "dpo-loss": {
       "target": "LLM 工程实践/05-偏好优化与强化学习.md",
@@ -4579,7 +4587,12 @@
       "target": "LLM 工程实践/07-Embedding与检索模型训练.md",
       "existing_section": "## 4. 对比学习",
       "integration": "补图文双向行列梯度与单对零损失；保批量/负例/检索评价条件",
-      "evidence": "existing heading and relevant code/contract read where noted; previously accepted chapter preserved, no runtime claim"
+      "evidence": "existing heading and relevant code/contract read where noted; previously accepted chapter preserved, no runtime claim",
+      "primary_existing_implementation": {
+        "target": "AI 算法基础/感知与多模态专题/03-多模态学习.md",
+        "section": "3/3.1图文对齐与完整双塔",
+        "sha256": "c9a730628df0e15d877dc38f8835d07789a12e6f25e3fef9650dd7c93498f39f"
+      }
     },
     "tool-call-parser": {
       "target": "LLM 工程实践/13-结构化输出与对话状态.md",
@@ -6035,5 +6048,131 @@
   "source_execution": 0,
   "old_programs_rerun": 0,
   "new_executable_programs_embedded": 0,
-  "whole_target_complete": false
+  "whole_target_complete": false,
+  "post_commit_review": {
+    "date": "2026-10-25",
+    "reviewed_commit": "a9d1e4f",
+    "independent_review": "原110个围栏逐字节/顺序保持，数学重点无实质错误；发现比值笔误和bigram学习缺口已修正",
+    "changes": [
+      {
+        "file": "LLM 工程实践/06-评测与实验管理.md",
+        "why": "池比值四舍五入修正",
+        "before_sha256": "503ef148337d1c3ef4128d97e47315454f93eeae603acf398bd410e3ca15f154",
+        "after_sha256": "d70211cc19a4ce6a4a3dde1f7b1e274f6a7afc66802629f02845e88baadc87f8",
+        "renders": [
+          {
+            "format": "json",
+            "sha256": "fef19e25ce7cfb1969e788fb78a4bc37129999a5359bfc1a545444996563bbe9",
+            "warnings": ""
+          },
+          {
+            "format": "html",
+            "sha256": "5de89d26444ab590859e602963a55caaa52926ee0479bbe6b8121bae8ab19dcd",
+            "warnings": ""
+          }
+        ]
+      },
+      {
+        "file": "LLM 基础/05-预训练-损失与文本生成.md",
+        "why": "补字符bigram计数聚合NLL与梯度",
+        "before_sha256": "3fbae7e6728c03c327b321eba38c34e313fb88f337a8ba992e5bec3c8e63c41d",
+        "after_sha256": "149a071ae061e12d35ab194445c8487919085a01954b35adbebe61c48ae4e830",
+        "renders": [
+          {
+            "format": "json",
+            "sha256": "e4138509ec56ccd65395c63b2b6a430d4e3e068eba21b13a5e5e5631c82704f5",
+            "warnings": ""
+          },
+          {
+            "format": "html",
+            "sha256": "0a7e32973d5b6b987949eea2ce5db7a21b6db69d425e814d303fe82a7485c9a0",
+            "warnings": ""
+          }
+        ]
+      }
+    ],
+    "own_math": {
+      "pool_ratio": 5.908898480949614,
+      "bigram_probability_after_one_update": 0.6224593312018546,
+      "bigram_NLL_after_one_update": 0.47407698418010663
+    },
+    "old_programs_rerun": 0,
+    "source_execution": 0,
+    "new_executable_programs_embedded": 0,
+    "additional_gap_fusion": [
+      {
+        "file": "AI 算法基础/深度学习专题/04-注意力机制与Transformer.md",
+        "before_sha256": "ec2ab1a122c83fd13118712ca4704e5cff4ce040741e0ea687b6d7d6b3fcf412",
+        "after_sha256": "5e122d9f2a8480771df4b1ec7755a9c180f292f752eefcd81103f1901accc8ac",
+        "renders": [
+          {
+            "format": "json",
+            "sha256": "ac43bdd114aaaa7c0e77ff98ba8843058aa7245bf6674cd644d1b3a89792bc7f",
+            "warnings": ""
+          },
+          {
+            "format": "html",
+            "sha256": "d25f7d1b71a88f72419df0ed7e587d45ba51fd34aecb96525ef60378add13e2c",
+            "warnings": ""
+          }
+        ]
+      },
+      {
+        "file": "AI 算法基础/深度学习专题/16-前向反向与损失实现.md",
+        "before_sha256": "5a3848b763a3163d4ba1a1697dcf540bd905ca5dc9416fee4727d41693344745",
+        "after_sha256": "7aeab968664288570bf58159d6e39c75d6cf6a427009f9356a4de5987ccbdc19",
+        "renders": [
+          {
+            "format": "json",
+            "sha256": "77b09b923b45a0401f21177a5dc74439224f173b0b82160ed0589701cecd3a25",
+            "warnings": ""
+          },
+          {
+            "format": "html",
+            "sha256": "878468b9c633cafbe34e4e423140cea89ef47a24b3d9d98d10d950f968823077",
+            "warnings": ""
+          }
+        ]
+      },
+      {
+        "file": "LLM 工程实践/07-Embedding与检索模型训练.md",
+        "before_sha256": "595db764e85a40539b3b85692a1a956b74e54b5fd62c05ef950e7e01a560fbea",
+        "after_sha256": "9a9e03447d8c9c6c4feb8d7b2ee41b934a4a3c4529c0997c95c75e4e3e8c1154",
+        "renders": [
+          {
+            "format": "json",
+            "sha256": "e6d744932494dee8562eedb58014cf6b95aa42c01cd58a844c80cb24246329ba",
+            "warnings": ""
+          },
+          {
+            "format": "html",
+            "sha256": "d5139b7c7a3b8d4cf423f093e0952cc6e3b49d901fdac1be7999e4404bacdf69",
+            "warnings": ""
+          }
+        ]
+      }
+    ],
+    "GQA_pooling_example": {
+      "input_row": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "H": 4,
+      "G": 2,
+      "d": 2,
+      "output": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "equivalence_condition": "组内KV原投影相同是直接充分条件，不称必要条件"
+    }
+  }
 }

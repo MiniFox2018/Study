@@ -558,6 +558,8 @@ print('synthetic CPU only; held scores are observations, no pretrained semantic 
 
 ## CLIP练习：双向分母和零损失的含义
 
+完整理论与CPU双塔程序统一维护在[多模态学习3～3.1](../AI%20算法基础/感知与多模态专题/03-多模态学习.md)；这里把同一目标接回文本检索训练，不再复制一个双塔实现。
+
 本章第4节的单向对比目标可扩为CLIP式双向目标：图文embedding先L2归一，S=I@T.T/temperature，正例在对角线。图→文按行交叉熵、文→图按列交叉熵各占1/2，对S的梯度为(P_row+P_col-2*Identity)/(2N)。P_col必须按列归一；做两遍行softmax不是双向目标。
 
 全相等logit时loss=logN；N=1时loss和对S梯度都是0，只因没有可区分负例，不证明学会检索。N增大还带来N²score、跨设备通信与假负例，沿第3/6节核多正例、分组切分和候选集合，而不是只比较训练loss大小。
